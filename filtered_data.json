@@ -1,0 +1,872 @@
+[
+  {
+    "Text":"hi"
+  },
+  {
+    "Text":"describe the automaton"
+  },
+  {
+    "Text":"There is a transition between q2 and q0"
+  },
+  {
+    "Text":"There is a transition between q5 and q7"
+  },
+  {
+    "Text":"Describe it please"
+  },
+  {
+    "Text":"How many transitions does the automaton contain"
+  },
+  {
+    "Text":"there is a particular pattern among them"
+  },
+  {
+    "Text":"What is the alphabet"
+  },
+  {
+    "Text":"What are the transitions"
+  },
+  {
+    "Text":"What are the states"
+  },
+  {
+    "Text":"What is q1"
+  },
+  {
+    "Text":"how many states and edges"
+  },
+  {
+    "Text":"is it directed"
+  },
+  {
+    "Text":"How is the automaton represented"
+  },
+  {
+    "Text":"has it cycles"
+  },
+  {
+    "Text":"Describe the automaton"
+  },
+  {
+    "Text":"The automaton accepts a language allowing words made of an odd number of 0s and 1s"
+  },
+  {
+    "Text":"is it possible repetitive pattern in the transactions"
+  },
+  {
+    "Text":"If q2 is the final state the language accepted by the automaton is the same"
+  },
+  {
+    "Text":"Briefly describe the automaton"
+  },
+  {
+    "Text":"Does it only accept 1s and 0s"
+  },
+  {
+    "Text":"And how about the arrows"
+  },
+  {
+    "Text":"Which is the initial state"
+  },
+  {
+    "Text":"Does it have 5 states then"
+  },
+  {
+    "Text":"How many states are there"
+  },
+  {
+    "Text":"Give me a list of the arcs"
+  },
+  {
+    "Text":"Is there an arc from q0 to q1"
+  },
+  {
+    "Text":"What is the shape of the arcs"
+  },
+  {
+    "Text":"Is there an arc from q0 to q2 q3 or q4"
+  },
+  {
+    "Text":"Which are the transitions from q1"
+  },
+  {
+    "Text":"Which are the transitions from q2"
+  },
+  {
+    "Text":"Which are the transitions from q3"
+  },
+  {
+    "Text":"Which are the transitions from q4"
+  },
+  {
+    "Text":"What is the purpose of the automaton"
+  },
+  {
+    "Text":"What happens when a 0 comes to state q1"
+  },
+  {
+    "Text":"How many states do you have"
+  },
+  {
+    "Text":"how are your states linked together"
+  },
+  {
+    "Text":"is q0 linked to q0"
+  },
+  {
+    "Text":"is q1 linked to q4"
+  },
+  {
+    "Text":"what are the transitions from q4"
+  },
+  {
+    "Text":"what are the links of q4"
+  },
+  {
+    "Text":"is q4 linked to q0"
+  },
+  {
+    "Text":"can you describe me the automaton"
+  },
+  {
+    "Text":"Could you briefly describe the automaton"
+  },
+  {
+    "Text":"Is there an arc from q1 to q2"
+  },
+  {
+    "Text":"What are the states connected to q0"
+  },
+  {
+    "Text":"Is there an arc from q2 to q3"
+  },
+  {
+    "Text":"Is there an arc from q3 to q4"
+  },
+  {
+    "Text":"Is there an arc from q4 to q0"
+  },
+  {
+    "Text":"Is there an arc from q4"
+  },
+  {
+    "Text":"Is there an arc from q0"
+  },
+  {
+    "Text":"Is there an arc from q1"
+  },
+  {
+    "Text":"Is there an arc from q2"
+  },
+  {
+    "Text":"Is there an arc from q3"
+  },
+  {
+    "Text":"How many states does the automaton have"
+  },
+  {
+    "Text":"Are there any loops"
+  },
+  {
+    "Text":"What transitions enter and exit q0"
+  },
+  {
+    "Text":"What transitions enter and exit q1"
+  },
+  {
+    "Text":"What transitions enter and exit q2"
+  },
+  {
+    "Text":"What transitions enter and exit q4"
+  },
+  {
+    "Text":"What transitions enter and exit q3"
+  },
+  {
+    "Text":"What does the automaton recognize"
+  },
+  {
+    "Text":"What is the accepted language"
+  },
+  {
+    "Text":"How many transitions are there"
+  },
+  {
+    "Text":"Is there a particular pattern"
+  },
+  {
+    "Text":"How many nodes are there"
+  },
+  {
+    "Text":"How many states"
+  },
+  {
+    "Text":"Please describe the automaton"
+  },
+  {
+    "Text":"Can you provide a representation of the automaton"
+  },
+  {
+    "Text":"Describe graphically automaton"
+  },
+  {
+    "Text":"Give me some examples of inputs and output"
+  },
+  {
+    "Text":"Can you provide me some examples of inputs"
+  },
+  {
+    "Text":"Can you describe the input and the output"
+  },
+  {
+    "Text":"Can you describe the transition function"
+  },
+  {
+    "Text":"What is the output"
+  },
+  {
+    "Text":"Talk me about transitions"
+  },
+  {
+    "Text":"What is the result"
+  },
+  {
+    "Text":"Output"
+  },
+  {
+    "Text":"what is optimization"
+  },
+  {
+    "Text":"what is automation"
+  },
+  {
+    "Text":"how many states"
+  },
+  {
+    "Text":"what are the input symbols"
+  },
+  {
+    "Text":"can you describe the automaton"
+  },
+  {
+    "Text":"How are transitions defined"
+  },
+  {
+    "Text":"can you deescribe the transitions"
+  },
+  {
+    "Text":"can you describe the transitions"
+  },
+  {
+    "Text":"if the input is 11100 which is the result"
+  },
+  {
+    "Text":"if the input is 110 which is the result"
+  },
+  {
+    "Text":"Can you describe the automaton"
+  },
+  {
+    "Text":"What are the accepted inputs"
+  },
+  {
+    "Text":"Is 11100 part of the accepted language"
+  },
+  {
+    "Text":"How many transitions are there in the automaton"
+  },
+  {
+    "Text":"Is there a particular pattern among the arcs"
+  },
+  {
+    "Text":"Is there a transition from q0 to q5"
+  },
+  {
+    "Text":"what are all the transictions"
+  },
+  {
+    "Text":"Please describe the transitions"
+  },
+  {
+    "Text":"Is q0 the final state"
+  },
+  {
+    "Text":"How many states does Automaton 1 have"
+  },
+  {
+    "Text":"How many transitions does the automata have"
+  },
+  {
+    "Text":"Show me the transitions of the automaton"
+  },
+  {
+    "Text":"What transitions does the automaton have"
+  },
+  {
+    "Text":"briefly describe the automaton"
+  },
+  {
+    "Text":"how many states are there"
+  },
+  {
+    "Text":"how many arcs there are"
+  },
+  {
+    "Text":"is there a particulare pattern"
+  },
+  {
+    "Text":"are there arcs between q2 and q0"
+  },
+  {
+    "Text":"are there arcs from q4"
+  },
+  {
+    "Text":"what are the final states"
+  },
+  {
+    "Text":"how many final states there are"
+  },
+  {
+    "Text":"is q0 a final state"
+  },
+  {
+    "Text":"is q4 a final state"
+  },
+  {
+    "Text":"which are the final states"
+  },
+  {
+    "Text":"which is the final state"
+  },
+  {
+    "Text":"How many final states are there"
+  },
+  {
+    "Text":"what is its optimal spatial representation"
+  },
+  {
+    "Text":"briefly describe you the automaton"
+  },
+  {
+    "Text":"It is possible to find a repetitive pattern in the transitions"
+  },
+  {
+    "Text":"If q2 were the final state the language accepted by the automaton is the same"
+  },
+  {
+    "Text":"What can I use finite state automata for"
+  },
+  {
+    "Text":"How many states can I use in an automaton"
+  },
+  {
+    "Text":"Can I use 5 states in an automaton"
+  },
+  {
+    "Text":"What is the final state of an automaton"
+  },
+  {
+    "Text":"How can I define an automaton"
+  },
+  {
+    "Text":"How is an automaton defined"
+  },
+  {
+    "Text":"What is an example of accepted string"
+  },
+  {
+    "Text":"What is the final state"
+  },
+  {
+    "Text":"Which transitions start from q0"
+  },
+  {
+    "Text":"How many transitions start from q0"
+  },
+  {
+    "Text":"Which transitions start from q1"
+  },
+  {
+    "Text":"Which transitions start from q2"
+  },
+  {
+    "Text":"Which transitions end in q0"
+  },
+  {
+    "Text":"Is there a pattern among the arcs"
+  },
+  {
+    "Text":"What could be a minimal spatial representation for this automaton"
+  },
+  {
+    "Text":"is there an arc between q0 and q1"
+  },
+  {
+    "Text":"which are the trasitions"
+  },
+  {
+    "Text":"what is the phd for"
+  },
+  {
+    "Text":"maximum number of states in an automaton"
+  },
+  {
+    "Text":"How many states does a pentagon shaped automaton have"
+  },
+  {
+    "Text":"Briefly describe the automaton How many states are there"
+  },
+  {
+    "Text":"Briefly describe the automaton 2 How many states are there"
+  },
+  {
+    "Text":"How many states are in Automation 2"
+  },
+  {
+    "Text":"According to your understanding of Automaton 2 what is its optimal spatial representation"
+  },
+  {
+    "Text":"Is there an arc between q0 and q1"
+  },
+  {
+    "Text":"Is there an arc between q1 and q2"
+  },
+  {
+    "Text":"describe me the automaton"
+  },
+  {
+    "Text":"how many states does the automaton have"
+  },
+  {
+    "Text":"wat is the language recognised by the automaton"
+  },
+  {
+    "Text":"briefly describe the automation"
+  },
+  {
+    "Text":"how many transitions"
+  },
+  {
+    "Text":"What is the best way to represent this automa"
+  },
+  {
+    "Text":"What is the initial state"
+  },
+  {
+    "Text":"What about transitions"
+  },
+  {
+    "Text":"what language accepts this auotmata"
+  },
+  {
+    "Text":"what is an automaton"
+  },
+  {
+    "Text":"what is the initial stage of the automaton"
+  },
+  {
+    "Text":"Breifly describe me the automaton"
+  },
+  {
+    "Text":"what is the initial state of the automaton"
+  },
+  {
+    "Text":"what is the language accepted by the automaton"
+  },
+  {
+    "Text":"is the string 110 accepted by the automaton"
+  },
+  {
+    "Text":"describe the transition table of the automaton"
+  },
+  {
+    "Text":"is there an arc from q0 to q1"
+  },
+  {
+    "Text":"is there an arc from q2 to q1"
+  },
+  {
+    "Text":"how many states there are"
+  },
+  {
+    "Text":"what symbols does the automaton accept"
+  },
+  {
+    "Text":"what are the symbols accepted by the automaton"
+  },
+  {
+    "Text":"what is the alphabet"
+  },
+  {
+    "Text":"how is the automaton represented"
+  },
+  {
+    "Text":"Vorrei una descrizione di Automa1"
+  },
+  {
+    "Text":"Descrivi l automa"
+  },
+  {
+    "Text":"Describe automa"
+  },
+  {
+    "Text":"How many regions are there in Italy"
+  },
+  {
+    "Text":"In which year we are"
+  },
+  {
+    "Text":"If q0 were the final state the language accepted by the automaton is the same"
+  },
+  {
+    "Text":"how many states has the automata"
+  },
+  {
+    "Text":"how many arcs are there in the automata"
+  },
+  {
+    "Text":"is there a particulare pattern among automata arcs"
+  },
+  {
+    "Text":"which is the transition function"
+  },
+  {
+    "Text":"how much does the representation takes"
+  },
+  {
+    "Text":"what is the regular expression describing the automata"
+  },
+  {
+    "Text":"can you briefly describe the automata"
+  },
+  {
+    "Text":"Summarise the automaton"
+  },
+  {
+    "Text":"What language does the automaton accept"
+  },
+  {
+    "Text":"something"
+  },
+  {
+    "Text":"atomaton 2"
+  },
+  {
+    "Text":"where is automaton 2"
+  },
+  {
+    "Text":"Which are the principal pros"
+  },
+  {
+    "Text":"Whatsappo"
+  },
+  {
+    "Text":"What are automaton"
+  },
+  {
+    "Text":"Describe automaton"
+  },
+  {
+    "Text":"Show me the automaton"
+  },
+  {
+    "Text":"How many states are These"
+  },
+  {
+    "Text":"Which one si the final state"
+  },
+  {
+    "Text":"What is the starting state"
+  },
+  {
+    "Text":"What direction are the connections between the states"
+  },
+  {
+    "Text":"initial state"
+  },
+  {
+    "Text":"arc from q0"
+  },
+  {
+    "Text":"arc from q2"
+  },
+  {
+    "Text":"transition from q1"
+  },
+  {
+    "Text":"transitions"
+  },
+  {
+    "Text":"how many transitions"
+  },
+  {
+    "Text":"pattern"
+  },
+  {
+    "Text":"loops"
+  },
+  {
+    "Text":"how many loops are there"
+  },
+  {
+    "Text":"how many states"
+  },
+  {
+    "Text":"what are the states and the connections between states"
+  },
+  {
+    "Text":"what are the states and the transitions"
+  },
+  {
+    "Text":"which are the states and the transitions"
+  },
+  {
+    "Text":"states and transitions"
+  },
+  {
+    "Text":"whar are the transitions"
+  },
+  {
+    "Text":"arc between q0 and q1"
+  },
+  {
+    "Text":"what are the transitions"
+  },
+  {
+    "Text":"describe the transitions"
+  },
+  {
+    "Text":"how is marked the arc between q0 and q2"
+  },
+  {
+    "Text":"how is represented"
+  },
+  {
+    "Text":"what are the final states"
+  },
+  {
+    "Text":"final states"
+  },
+  {
+    "Text":"start states"
+  },
+  {
+    "Text":"which is the start state"
+  },
+  {
+    "Text":"Tell me a little bit about the automaton"
+  },
+  {
+    "Text":"Is there a pattern among the transitions"
+  },
+  {
+    "Text":"Does the automaton accept a language allowing words made of an odd number of 0s and 1s"
+  },
+  {
+    "Text":"Is it possible to repeat transitions"
+  },
+  {
+    "Text":"describe it"
+  },
+  {
+    "Text":"arcs between q4 and q0"
+  },
+  {
+    "Text":"arcs from q4"
+  },
+  {
+    "Text":"which is initial state"
+  },
+  {
+    "Text":"which is final state"
+  },
+  {
+    "Text":"final state"
+  },
+  {
+    "Text":"arc from q2 to q1"
+  },
+  {
+    "Text":"label from q3 to q4"
+  },
+  {
+    "Text":"how many arcs"
+  },
+  {
+    "Text":"pattern among arcs"
+  },
+  {
+    "Text":"describe"
+  },
+  {
+    "Text":"transition from q3"
+  },
+  {
+    "Text":"which are the states connected with 0"
+  },
+  {
+    "Text":"what arcs are marked with 0"
+  },
+  {
+    "Text":"what are the arcs"
+  },
+  {
+    "Text":"overview of the automaton"
+  },
+  {
+    "Text":"how is the automaton"
+  },
+  {
+    "Text":"how many 0 art here"
+  },
+  {
+    "Text":"how many arcs marked by 1 are there"
+  },
+  {
+    "Text":"what are the patterns"
+  },
+  {
+    "Text":"what are the patterns"
+  },
+  {
+    "Text":"patterns among arc"
+  },
+  {
+    "Text":"patterns among arcs"
+  },
+  {
+    "Text":"describe the shape of the automaton"
+  },
+  {
+    "Text":"what is an automaton"
+  },
+  {
+    "Text":"transition diagram"
+  },
+  {
+    "Text":"describe the transition diagram"
+  },
+  {
+    "Text":"how many transitions are ther ein the automaton"
+  },
+  {
+    "Text":"what is a pattern"
+  },
+  {
+    "Text":"what is a particular pattern among arcs"
+  },
+  {
+    "Text":"briefly describe the automaton"
+  },
+  {
+    "Text":"what s the number of nodes"
+  },
+  {
+    "Text":"the nodes"
+  },
+  {
+    "Text":"nodes"
+  },
+  {
+    "Text":"states"
+  },
+  {
+    "Text":"is 1 a label for some arc"
+  },
+  {
+    "Text":"what is the accepted language"
+  },
+  {
+    "Text":"does the automaton accept other languages"
+  },
+  {
+    "Text":"q0"
+  },
+  {
+    "Text":"q2"
+  },
+  {
+    "Text":"q2 to q3"
+  },
+  {
+    "Text":"q3 to q2"
+  },
+  {
+    "Text":"q3 to q4"
+  },
+  {
+    "Text":"q4 to q0"
+  },
+  {
+    "Text":"q0 to q4"
+  },
+  {
+    "Text":"describe the position of nodes"
+  },
+  {
+    "Text":"describe the arcs"
+  },
+  {
+    "Text":"describe the position of arcs"
+  },
+  {
+    "Text":"is there any self loop"
+  },
+  {
+    "Text":"what is a connection"
+  },
+  {
+    "Text":"represent the automaton"
+  },
+  {
+    "Text":"what is the input"
+  },
+  {
+    "Text":"can you describe the automaton"
+  },
+  {
+    "Text":"which arc from q1"
+  },
+  {
+    "Text":"which arc from q2"
+  },
+  {
+    "Text":"which arc from q3"
+  },
+  {
+    "Text":"which arc from q4"
+  },
+  {
+    "Text":"can you describe the transitions"
+  },
+  {
+    "Text":"Please briefly summarise Automaton"
+  },
+  {
+    "Text":"How many states are there"
+  },
+  {
+    "Text":"What is the final state"
+  },
+  {
+    "Text":"How many transitions are there"
+  },
+  {
+    "Text":"Is there a transition from q0 to q5"
+  },
+  {
+    "Text":"what is its optimal spatial representation of Automaton"
+  },
+  {
+    "Text":"The automaton accepts a language allowing words made of an odd number of 0s and 1s"
+  },
+  {
+    "Text":"It is possible to find a repetitive pattern in the transitions"
+  },
+  {
+    "Text":"Si c e un solo arco che inizia da ogni stato I primi 2 in senso antiorario sono contrassegnati da 1 i restanti da 0"
+  },
+  {
+    "Text":"If q0 were the final state the language accepted by the automaton is the same"
+  }
+]

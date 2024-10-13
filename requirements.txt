@@ -1,0 +1,15 @@
+jupyter  ~= 1.0.0
+pandas   == 2.2.2
+openpyxl == 3.1.5
+numpy    < 2.0.0
+scipy    < 1.14.0
+scikit-learn==1.5.1
+ipython==8.27.0
+nltk==3.9.1
+gensim==4.3.3
+kneed==0.8.5
+ollama == 0.3.3
+tqdm== 4.66.5
+transformers==4.45.2
+matplotlib==3.9.2
+torch==2.4.1

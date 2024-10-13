@@ -1,0 +1,1179 @@
+{
+  "labels": {
+    "START": "Initial greetings or meta-questions, such as 'hi' or 'hello'.",
+    "GEN_INFO": "General questions about the automaton that don't focus on specific components or functionalities.",
+    "STATE_COUNT": "Questions asking about the number of states in the automaton.",
+    "FINAL_STATE": "Questions about final states of the automaton.",
+    "STATE_ID": "Questions about the identity of a particular state.",
+    "TRANS_DETAIL": "General questions about the transitions within the automaton.",
+    "SPEC_TRANS": "Specific questions about particular transitions or arcs between states.",
+    "TRANS_BETWEEN": "Specific question about a transition between two states",
+    "LOOPS": "Questions about loops or self-referencing transitions within the automaton.",
+    "GRAMMAR": "Questions about the language or grammar recognized by the automaton.",
+    "INPUT_QUERY": "Questions about the input or simulation of the automaton.",
+    "OUTPUT_QUERY": "Questions specifically asking about the output of the automaton.",
+    "IO_EXAMPLES": "Questions asking for examples of inputs and outputs.",
+    "SHAPE_AUT": "Questions about the spatial or graphical representation of the automaton.",
+    "OTHER": "Questions not related to the automaton or off-topic questions.",
+    "ERROR_STATE": "Questions related to error states or failure conditions within the automaton.",
+    "START_END_STATE": "Questions about the initial or final states of the automaton.",
+    "PATTERN_RECOG": "Questions that aim to identify patterns in the automaton's structure or behavior.",
+    "REPETITIVE_PAT": "Questions focusing on repetitive patterns, especially in transitions.",
+    "OPT_REP": "Questions about the optimal spatial or minimal representation of the automaton.",
+    "EFFICIENCY": "Questions about the efficiency or minimal representation of the automaton."
+  },
+  "data": [
+    {
+      "text": "hi",
+      "label": "START"
+    },
+    {
+      "text": "describe the automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "There is a transition between q2 and q0",
+      "label": "TRANS_BETWEEN"
+    },
+    {
+      "text": "There is a transition between q5 and q7",
+      "label": "TRANS_BETWEEN"
+    },
+    {
+      "text": "Describe it please",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "How many transitions does the automaton contain",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "There is a particular pattern among them",
+      "label": "PATTERN_RECOG"
+    },
+    {
+      "text": "What is the alphabet",
+      "label": "GRAMMAR"
+    },
+    {
+      "text": "What are the transitions",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "What are the states",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "What is q1",
+      "label": "STATE_ID"
+    },
+    {
+      "text": "how many states and edges",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "is it directed",
+      "label": "SHAPE_AUT"
+    },
+    {
+      "text": "How is the automaton represented",
+      "label": "SHAPE_AUT"
+    },
+    {
+      "text": "has it cycles",
+      "label": "LOOPS"
+    },
+    {
+      "text": "Describe the automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "The automaton accepts a language allowing words made of an odd number of 0s and 1s",
+      "label": "GRAMMAR"
+    },
+    {
+      "text": "is it possible repetitive pattern in the transactions",
+      "label": "REPETITIVE_PAT"
+    },
+    {
+      "text": "If q2 is the final state the language accepted by the automaton is the same",
+      "label": "FINAL_STATE"
+    },
+    {
+      "text": "Briefly describe the automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "Does it only accept 1s and 0s",
+      "label": "GRAMMAR"
+    },
+    {
+      "text": "And how about the arrows",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "Which is the initial state",
+      "label": "START_END_STATE"
+    },
+    {
+      "text": "Does it have 5 states then",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "How many states are there",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "Give me a list of the arcs",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "Is there an arc from q0 to q1",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "What is the shape of the arcs",
+      "label": "SHAPE_AUT"
+    },
+    {
+      "text": "Is there an arc from q0 to q2 q3 or q4",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "Which are the transitions from q1",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "Which are the transitions from q2",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "Which are the transitions from q3",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "Which are the transitions from q4",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "What is the purpose of the automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "What happens when a 0 comes to state q1",
+      "label": "INPUT_QUERY"
+    },
+    {
+      "text": "How many states do you have",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "how are your states linked together",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "is q0 linked to q0",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "is q1 linked to q4",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "what are the transitions from q4",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "what are the links of q4",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "is q4 linked to q0",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "can you describe me the automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "Could you briefly describe the automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "Is there an arc from q1 to q2",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "What are the states connected to q0",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "Is there an arc from q2 to q3",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "Is there an arc from q3 to q4",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "Is there an arc from q4 to q0",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "Is there an arc from q4",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "Is there an arc from q0",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "Is there an arc from q1",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "Is there an arc from q2",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "Is there an arc from q3",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "How many states does the automaton have",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "Are there any loops",
+      "label": "LOOPS"
+    },
+    {
+      "text": "What transitions enter and exit q0",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "What transitions enter and exit q1",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "What transitions enter and exit q2",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "What transitions enter and exit q4",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "What transitions enter and exit q3",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "What does the automaton recognize",
+      "label": "GRAMMAR"
+    },
+    {
+      "text": "What is the accepted language",
+      "label": "GRAMMAR"
+    },
+    {
+      "text": "How many transitions are there",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "Is there a particular pattern",
+      "label": "PATTERN_RECOG"
+    },
+    {
+      "text": "How many nodes are there",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "How many states",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "Please describe the automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "Can you provide a representation of the automaton",
+      "label": "SHAPE_AUT"
+    },
+    {
+      "text": "Describe graphically automaton",
+      "label": "SHAPE_AUT"
+    },
+    {
+      "text": "Give me some examples of inputs and output",
+      "label": "IO_EXAMPLES"
+    },
+    {
+      "text": "Can you provide me some examples of inputs",
+      "label": "IO_EXAMPLES"
+    },
+    {
+      "text": "Can you describe the input and the output",
+      "label": "IO_EXAMPLES"
+    },
+    {
+      "text": "Can you describe the transition function",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "What is the output",
+      "label": "OUTPUT_QUERY"
+    },
+    {
+      "text": "Talk me about transitions",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "What is the result",
+      "label": "OUTPUT_QUERY"
+    },
+    {
+      "text": "Output",
+      "label": "OUTPUT_QUERY"
+    },
+    {
+      "text": "what is optimization",
+      "label": "OTHER"
+    },
+    {
+      "text": "what is automation",
+      "label": "OTHER"
+    },
+    {
+      "text": "how many states",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "what are the input symbols",
+      "label": "GRAMMAR"
+    },
+    {
+      "text": "can you describe the automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "How are transitions defined",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "can you describe the transitions",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "if the input is 11100 which is the result",
+      "label": "INPUT_QUERY"
+    },
+    {
+      "text": "if the input is 110 which is the result",
+      "label": "INPUT_QUERY"
+    },
+    {
+      "text": "Can you describe the automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "What are the accepted inputs",
+      "label": "GRAMMAR"
+    },
+    {
+      "text": "Is 11100 part of the accepted language",
+      "label": "GRAMMAR"
+    },
+    {
+      "text": "How many transitions are there in the automaton",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "Is there a particular pattern among the arcs",
+      "label": "PATTERN_RECOG"
+    },
+    {
+      "text": "Is there a transition from q0 to q5",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "what are all the transictions",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "Please describe the transitions",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "Is q0 the final state",
+      "label": "FINAL_STATE"
+    },
+    {
+      "text": "How many states does Automaton 1 have",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "How many transitions does the automata have",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "Show me the transitions of the automaton",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "What transitions does the automaton have",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "briefly describe the automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "how many states are there",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "how many arcs there are",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "is there a particular pattern",
+      "label": "PATTERN_RECOG"
+    },
+    {
+      "text": "are there arcs between q2 and q0",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "are there arcs from q4",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "what are the final states",
+      "label": "FINAL_STATE"
+    },
+    {
+      "text": "how many final states there are",
+      "label": "FINAL_STATE"
+    },
+    {
+      "text": "is q0 a final state",
+      "label": "FINAL_STATE"
+    },
+    {
+      "text": "is q4 a final state",
+      "label": "FINAL_STATE"
+    },
+    {
+      "text": "which are the final states",
+      "label": "FINAL_STATE"
+    },
+    {
+      "text": "which is the final state",
+      "label": "FINAL_STATE"
+    },
+    {
+      "text": "How many final states are there",
+      "label": "FINAL_STATE"
+    },
+    {
+      "text": "what is its optimal spatial representation",
+      "label": "OPT_REP"
+    },
+    {
+      "text": "briefly describe you the automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "It is possible to find a repetitive pattern in the transitions",
+      "label": "REPETITIVE_PAT"
+    },
+    {
+      "text": "If q2 were the final state the language accepted by the automaton is the same",
+      "label": "FINAL_STATE"
+    },
+    {
+      "text": "What can I use finite state automata for",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "How many states can I use in an automaton",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "Can I use 5 states in an automaton",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "What is the final state of an automaton",
+      "label": "FINAL_STATE"
+    },
+    {
+      "text": "How can I define an automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "How is an automaton defined",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "What is an example of accepted string",
+      "label": "GRAMMAR"
+    },
+    {
+      "text": "What is the final state",
+      "label": "FINAL_STATE"
+    },
+    {
+      "text": "Which transitions start from q0",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "How many transitions start from q0",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "Which transitions start from q1",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "Which transitions start from q2",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "Which transitions end in q0",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "Is there a pattern among the arcs",
+      "label": "PATTERN_RECOG"
+    },
+    {
+      "text": "What could be a minimal spatial representation for this automaton",
+      "label": "OPT_REP"
+    },
+    {
+      "text": "is there an arc between q0 and q1",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "which are the transitions",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "what is the phd for",
+      "label": "OTHER"
+    },
+    {
+      "text": "maximum number of states in an automaton",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "How many states does a pentagon shaped automaton have",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "Briefly describe the automaton How many states are there",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "Briefly describe the automaton 2 How many states are there",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "How many states are in Automation 2",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "According to your understanding of Automaton 2 what is its optimal spatial representation",
+      "label": "OPT_REP"
+    },
+    {
+      "text": "Is there an arc between q0 and q1",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "Is there an arc between q1 and q2",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "describe me the automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "how many states does the automaton have",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "what is the language recognised by the automaton",
+      "label": "GRAMMAR"
+    },
+    {
+      "text": "briefly describe the automation",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "how many transitions",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "What is the best way to represent this automa",
+      "label": "OPT_REP"
+    },
+    {
+      "text": "What is the initial state",
+      "label": "START_END_STATE"
+    },
+    {
+      "text": "What about transitions",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "what language accepts this automata",
+      "label": "GRAMMAR"
+    },
+    {
+      "text": "what is an automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "what is the initial stage of the automaton",
+      "label": "START_END_STATE"
+    },
+    {
+      "text": "Breifly describe me the automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "what is the initial state of the automaton",
+      "label": "START_END_STATE"
+    },
+    {
+      "text": "what is the language accepted by the automaton",
+      "label": "GRAMMAR"
+    },
+    {
+      "text": "is the string 110 accepted by the automaton",
+      "label": "GRAMMAR"
+    },
+    {
+      "text": "describe the transition table of the automaton",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "is there an arc from q0 to q1",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "is there an arc from q2 to q1",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "how many states there are",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "what symbols does the automaton accept",
+      "label": "GRAMMAR"
+    },
+    {
+      "text": "what are the symbols accepted by the automaton",
+      "label": "GRAMMAR"
+    },
+    {
+      "text": "what is the alphabet",
+      "label": "GRAMMAR"
+    },
+    {
+      "text": "how is the automaton represented",
+      "label": "SHAPE_AUT"
+    },
+    {
+      "text": "Vorrei una descrizione di Automa1",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "Descrivi l automa",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "Describe automa",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "How many regions are there in Italy",
+      "label": "OTHER"
+    },
+    {
+      "text": "In which year we are",
+      "label": "OTHER"
+    },
+    {
+      "text": "If q0 were the final state the language accepted by the automaton is the same",
+      "label": "FINAL_STATE"
+    },
+    {
+      "text": "how many states has the automata",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "how many arcs are there in the automata",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "is there a particulare pattern among automata arcs",
+      "label": "PATTERN_RECOG"
+    },
+    {
+      "text": "which is the transition function",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "how much does the representation takes",
+      "label": "OPT_REP"
+    },
+    {
+      "text": "what is the regular expression describing the automata",
+      "label": "GRAMMAR"
+    },
+    {
+      "text": "can you briefly describe the automata",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "Summarise the automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "What language does the automaton accept",
+      "label": "GRAMMAR"
+    },
+    {
+      "text": "something",
+      "label": "OTHER"
+    },
+    {
+      "text": "atomaton 2",
+      "label": "OTHER"
+    },
+    {
+      "text": "where is automaton 2",
+      "label": "OTHER"
+    },
+    {
+      "text": "Which are the principal pros",
+      "label": "OTHER"
+    },
+    {
+      "text": "Whatsappo",
+      "label": "OTHER"
+    },
+    {
+      "text": "What are automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "Describe automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "Show me the automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "How many states are These",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "Which one si the final state",
+      "label": "FINAL_STATE"
+    },
+    {
+      "text": "What is the starting state",
+      "label": "START_END_STATE"
+    },
+    {
+      "text": "What direction are the connections between the states",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "initial state",
+      "label": "START_END_STATE"
+    },
+    {
+      "text": "arc from q0",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "arc from q2",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "transition from q1",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "transitions",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "how many transitions",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "pattern",
+      "label": "PATTERN_RECOG"
+    },
+    {
+      "text": "loops",
+      "label": "LOOPS"
+    },
+    {
+      "text": "how many loops are there",
+      "label": "LOOPS"
+    },
+    {
+      "text": "how many states",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "what are the states and the connections between states",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "what are the states and the transitions",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "which are the states and the transitions",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "states and transitions",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "whar are the transitions",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "arc between q0 and q1",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "what are the transitions",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "describe the transitions",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "how is marked the arc between q0 and q2",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "how is represented",
+      "label": "SHAPE_AUT"
+    },
+    {
+      "text": "what are the final states",
+      "label": "FINAL_STATE"
+    },
+    {
+      "text": "final states",
+      "label": "FINAL_STATE"
+    },
+    {
+      "text": "start states",
+      "label": "START_END_STATE"
+    },
+    {
+      "text": "which is the start state",
+      "label": "START_END_STATE"
+    },
+    {
+      "text": "Tell me a little bit about the automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "Is there a pattern among the transitions",
+      "label": "PATTERN_RECOG"
+    },
+    {
+      "text": "Does the automaton accept a language allowing words made of an odd number of 0s and 1s",
+      "label": "GRAMMAR"
+    },
+    {
+      "text": "Is it possible to repeat transitions",
+      "label": "REPETITIVE_PAT"
+    },
+    {
+      "text": "describe it",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "arcs between q4 and q0",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "arcs from q4",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "which is initial state",
+      "label": "START_END_STATE"
+    },
+    {
+      "text": "which is final state",
+      "label": "FINAL_STATE"
+    },
+    {
+      "text": "final state",
+      "label": "FINAL_STATE"
+    },
+    {
+      "text": "arc from q2 to q1",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "label from q3 to q4",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "how many arcs",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "pattern among arcs",
+      "label": "PATTERN_RECOG"
+    },
+    {
+      "text": "describe",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "transition from q3",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "which are the states connected with 0",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "what arcs are marked with 0",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "what are the arcs",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "overview of the automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "how is the automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "how many 0 art here",
+      "label": "OTHER"
+    },
+    {
+      "text": "how many arcs marked by 1 are there",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "what are the patterns",
+      "label": "PATTERN_RECOG"
+    },
+    {
+      "text": "patterns among arc",
+      "label": "PATTERN_RECOG"
+    },
+    {
+      "text": "patterns among arcs",
+      "label": "PATTERN_RECOG"
+    },
+    {
+      "text": "describe the shape of the automaton",
+      "label": "SHAPE_AUT"
+    },
+    {
+      "text": "what is an automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "transition diagram",
+      "label": "SHAPE_AUT"
+    },
+    {
+      "text": "describe the transition diagram",
+      "label": "SHAPE_AUT"
+    },
+    {
+      "text": "how many transitions are ther ein the automaton",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "what is a pattern",
+      "label": "PATTERN_RECOG"
+    },
+    {
+      "text": "what is a particular pattern among arcs",
+      "label": "PATTERN_RECOG"
+    },
+    {
+      "text": "briefly describe the automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "what s the number of nodes",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "the nodes",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "nodes",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "states",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "is 1 a label for some arc",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "what is the accepted language",
+      "label": "GRAMMAR"
+    },
+    {
+      "text": "does the automaton accept other languages",
+      "label": "GRAMMAR"
+    },
+    {
+      "text": "q0",
+      "label": "STATE_ID"
+    },
+    {
+      "text": "q2",
+      "label": "STATE_ID"
+    },
+    {
+      "text": "q2 to q3",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "q3 to q2",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "q3 to q4",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "q4 to q0",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "q0 to q4",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "describe the position of nodes",
+      "label": "SHAPE_AUT"
+    },
+    {
+      "text": "describe the arcs",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "describe the position of arcs",
+      "label": "SHAPE_AUT"
+    },
+    {
+      "text": "is there any self loop",
+      "label": "LOOPS"
+    },
+    {
+      "text": "what is a connection",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "represent the automaton",
+      "label": "SHAPE_AUT"
+    },
+    {
+      "text": "what is the input",
+      "label": "INPUT_QUERY"
+    },
+    {
+      "text": "can you describe the automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "which arc from q1",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "which arc from q2",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "which arc from q3",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "which arc from q4",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "can you describe the transitions",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "Please briefly summarise Automaton",
+      "label": "GEN_INFO"
+    },
+    {
+      "text": "How many states are there",
+      "label": "STATE_COUNT"
+    },
+    {
+      "text": "What is the final state",
+      "label": "FINAL_STATE"
+    },
+    {
+      "text": "How many transitions are there",
+      "label": "TRANS_DETAIL"
+    },
+    {
+      "text": "Is there a transition from q0 to q5",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "what is its optimal spatial representation of Automaton",
+      "label": "OPT_REP"
+    },
+    {
+      "text": "The automaton accepts a language allowing words made of an odd number of 0s and 1s",
+      "label": "GRAMMAR"
+    },
+    {
+      "text": "It is possible to find a repetitive pattern in the transitions",
+      "label": "REPETITIVE_PAT"
+    },
+    {
+      "text": "Si c e un solo arco che inizia da ogni stato I primi 2 in senso antiorario sono contrassegnati da 1 i restanti da 0",
+      "label": "SPEC_TRANS"
+    },
+    {
+      "text": "If q0 were the final state the language accepted by the automaton is the same",
+      "label": "FINAL_STATE"
+    }
+  ]
+}
