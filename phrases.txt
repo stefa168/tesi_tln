@@ -1,0 +1,8 @@
+Give me a list of the arcs
+Is there an arc from q0 to q1
+What is the shape of the arcs
+Is there an arc from q0 to q2 q3 or q4
+Which are the transitions from q1
+Which are the transitions from q2
+Which are the transitions from q3
+Which are the transitions from q4

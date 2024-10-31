@@ -1,0 +1,5235 @@
+[
+  {
+    "Text": "hi",
+    "tokens": [
+      "hi"
+    ],
+    "ne": [
+      "O"
+    ]
+  },
+  {
+    "Text": "describe the automaton",
+    "tokens": [
+      "describe",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "There is a transition between q2 and q0",
+    "tokens": [
+      "There",
+      "is",
+      "a",
+      "transition",
+      "between",
+      "q2",
+      "and",
+      "q0"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "There is a transition between q5 and q7",
+    "tokens": [
+      "There",
+      "is",
+      "a",
+      "transition",
+      "between",
+      "q5",
+      "and",
+      "q7"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "Describe it please",
+    "tokens": [
+      "Describe",
+      "it",
+      "please"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "How many transitions does the automaton contain",
+    "tokens": [
+      "How",
+      "many",
+      "transitions",
+      "does",
+      "the",
+      "automaton",
+      "contain"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "there is a particular pattern among them",
+    "tokens": [
+      "there",
+      "is",
+      "a",
+      "particular",
+      "pattern",
+      "among",
+      "them"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "What is the alphabet",
+    "tokens": [
+      "What",
+      "is",
+      "the",
+      "alphabet"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "What are the transitions",
+    "tokens": [
+      "What",
+      "are",
+      "the",
+      "transitions"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "What are the states",
+    "tokens": [
+      "What",
+      "are",
+      "the",
+      "states"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "What is q1",
+    "tokens": [
+      "What",
+      "is",
+      "q1"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "how many states and edges",
+    "tokens": [
+      "how",
+      "many",
+      "states",
+      "and",
+      "edges"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "is it directed",
+    "tokens": [
+      "is",
+      "it",
+      "directed"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "How is the automaton represented",
+    "tokens": [
+      "How",
+      "is",
+      "the",
+      "automaton",
+      "represented"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "has it cycles",
+    "tokens": [
+      "has",
+      "it",
+      "cycles"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Describe the automaton",
+    "tokens": [
+      "Describe",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "The automaton accepts a language allowing words made of an odd number of 0 and 1",
+    "tokens": [
+      "The",
+      "automaton",
+      "accepts",
+      "a",
+      "language",
+      "allowing",
+      "words",
+      "made",
+      "of",
+      "an",
+      "odd",
+      "number",
+      "of",
+      "0",
+      "and",
+      "1"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-input",
+      "O",
+      "B-input"
+    ]
+  },
+  {
+    "Text": "is it possible repetitive pattern in the transactions",
+    "tokens": [
+      "is",
+      "it",
+      "possible",
+      "repetitive",
+      "pattern",
+      "in",
+      "the",
+      "transactions"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "If q2 is the final state the language accepted by the automaton is the same",
+    "tokens": [
+      "If",
+      "q2",
+      "is",
+      "the",
+      "final",
+      "state",
+      "the",
+      "language",
+      "accepted",
+      "by",
+      "the",
+      "automaton",
+      "is",
+      "the",
+      "same"
+    ],
+    "ne": [
+      "O",
+      "B-node",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Briefly describe the automaton",
+    "tokens": [
+      "Briefly",
+      "describe",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Does it only accept 1 and 0",
+    "tokens": [
+      "Does",
+      "it",
+      "only",
+      "accept",
+      "1",
+      "and",
+      "0"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-input",
+      "O",
+      "B-input"
+    ]
+  },
+  {
+    "Text": "And how about the arrows",
+    "tokens": [
+      "And",
+      "how",
+      "about",
+      "the",
+      "arrows"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Which is the initial state",
+    "tokens": [
+      "Which",
+      "is",
+      "the",
+      "initial",
+      "state"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Does it have 5 states then",
+    "tokens": [
+      "Does",
+      "it",
+      "have",
+      "5",
+      "states",
+      "then"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "B-count",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "How many states are there",
+    "tokens": [
+      "How",
+      "many",
+      "states",
+      "are",
+      "there"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Give me a list of the arcs",
+    "tokens": [
+      "Give",
+      "me",
+      "a",
+      "list",
+      "of",
+      "the",
+      "arcs"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Is there an arc from q0 to q1",
+    "tokens": [
+      "Is",
+      "there",
+      "an",
+      "arc",
+      "from",
+      "q0",
+      "to",
+      "q1"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "What is the shape of the arcs",
+    "tokens": [
+      "What",
+      "is",
+      "the",
+      "shape",
+      "of",
+      "the",
+      "arcs"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Is there an arc from q0 to q2 q3 or q4",
+    "tokens": [
+      "Is",
+      "there",
+      "an",
+      "arc",
+      "from",
+      "q0",
+      "to",
+      "q2",
+      "q3",
+      "or",
+      "q4"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node",
+      "O",
+      "B-node",
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "Which are the transitions from q1",
+    "tokens": [
+      "Which",
+      "are",
+      "the",
+      "transitions",
+      "from",
+      "q1"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "Which are the transitions from q2",
+    "tokens": [
+      "Which",
+      "are",
+      "the",
+      "transitions",
+      "from",
+      "q2"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "Which are the transitions from q3",
+    "tokens": [
+      "Which",
+      "are",
+      "the",
+      "transitions",
+      "from",
+      "q3"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "Which are the transitions from q4",
+    "tokens": [
+      "Which",
+      "are",
+      "the",
+      "transitions",
+      "from",
+      "q4"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "What is the purpose of the automaton",
+    "tokens": [
+      "What",
+      "is",
+      "the",
+      "purpose",
+      "of",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "What happens when a 0 comes to state q1",
+    "tokens": [
+      "What",
+      "happens",
+      "when",
+      "a",
+      "0",
+      "comes",
+      "to",
+      "state",
+      "q1"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-input",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "How many states do you have",
+    "tokens": [
+      "How",
+      "many",
+      "states",
+      "do",
+      "you",
+      "have"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "how are your states linked together",
+    "tokens": [
+      "how",
+      "are",
+      "your",
+      "states",
+      "linked",
+      "together"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "is q0 linked to q0",
+    "tokens": [
+      "is",
+      "q0",
+      "linked",
+      "to",
+      "q0"
+    ],
+    "ne": [
+      "O",
+      "B-node",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "is q1 linked to q4",
+    "tokens": [
+      "is",
+      "q1",
+      "linked",
+      "to",
+      "q4"
+    ],
+    "ne": [
+      "O",
+      "B-node",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "what are the transitions from q4",
+    "tokens": [
+      "what",
+      "are",
+      "the",
+      "transitions",
+      "from",
+      "q4"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "what are the links of q4",
+    "tokens": [
+      "what",
+      "are",
+      "the",
+      "links",
+      "of",
+      "q4"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "is q4 linked to q0",
+    "tokens": [
+      "is",
+      "q4",
+      "linked",
+      "to",
+      "q0"
+    ],
+    "ne": [
+      "O",
+      "B-node",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "can you describe me the automaton",
+    "tokens": [
+      "can",
+      "you",
+      "describe",
+      "me",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Could you briefly describe the automaton",
+    "tokens": [
+      "Could",
+      "you",
+      "briefly",
+      "describe",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Is there an arc from q1 to q2",
+    "tokens": [
+      "Is",
+      "there",
+      "an",
+      "arc",
+      "from",
+      "q1",
+      "to",
+      "q2"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "What are the states connected to q0",
+    "tokens": [
+      "What",
+      "are",
+      "the",
+      "states",
+      "connected",
+      "to",
+      "q0"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "Is there an arc from q2 to q3",
+    "tokens": [
+      "Is",
+      "there",
+      "an",
+      "arc",
+      "from",
+      "q2",
+      "to",
+      "q3"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "Is there an arc from q3 to q4",
+    "tokens": [
+      "Is",
+      "there",
+      "an",
+      "arc",
+      "from",
+      "q3",
+      "to",
+      "q4"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "Is there an arc from q4 to q0",
+    "tokens": [
+      "Is",
+      "there",
+      "an",
+      "arc",
+      "from",
+      "q4",
+      "to",
+      "q0"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "Is there an arc from q4",
+    "tokens": [
+      "Is",
+      "there",
+      "an",
+      "arc",
+      "from",
+      "q4"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "Is there an arc from q0",
+    "tokens": [
+      "Is",
+      "there",
+      "an",
+      "arc",
+      "from",
+      "q0"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "Is there an arc from q1",
+    "tokens": [
+      "Is",
+      "there",
+      "an",
+      "arc",
+      "from",
+      "q1"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "Is there an arc from q2",
+    "tokens": [
+      "Is",
+      "there",
+      "an",
+      "arc",
+      "from",
+      "q2"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "Is there an arc from q3",
+    "tokens": [
+      "Is",
+      "there",
+      "an",
+      "arc",
+      "from",
+      "q3"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "How many states does the automaton have",
+    "tokens": [
+      "How",
+      "many",
+      "states",
+      "does",
+      "the",
+      "automaton",
+      "have"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Are there any loops",
+    "tokens": [
+      "Are",
+      "there",
+      "any",
+      "loops"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "What transitions enter and exit q0",
+    "tokens": [
+      "What",
+      "transitions",
+      "enter",
+      "and",
+      "exit",
+      "q0"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "What transitions enter and exit q1",
+    "tokens": [
+      "What",
+      "transitions",
+      "enter",
+      "and",
+      "exit",
+      "q1"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "What transitions enter and exit q2",
+    "tokens": [
+      "What",
+      "transitions",
+      "enter",
+      "and",
+      "exit",
+      "q2"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "What transitions enter and exit q4",
+    "tokens": [
+      "What",
+      "transitions",
+      "enter",
+      "and",
+      "exit",
+      "q4"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "What transitions enter and exit q3",
+    "tokens": [
+      "What",
+      "transitions",
+      "enter",
+      "and",
+      "exit",
+      "q3"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "What does the automaton recognize",
+    "tokens": [
+      "What",
+      "does",
+      "the",
+      "automaton",
+      "recognize"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "What is the accepted language",
+    "tokens": [
+      "What",
+      "is",
+      "the",
+      "accepted",
+      "language"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "How many transitions are there",
+    "tokens": [
+      "How",
+      "many",
+      "transitions",
+      "are",
+      "there"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Is there a particular pattern",
+    "tokens": [
+      "Is",
+      "there",
+      "a",
+      "particular",
+      "pattern"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "How many nodes are there",
+    "tokens": [
+      "How",
+      "many",
+      "nodes",
+      "are",
+      "there"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "How many states",
+    "tokens": [
+      "How",
+      "many",
+      "states"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Please describe the automaton",
+    "tokens": [
+      "Please",
+      "describe",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Can you provide a representation of the automaton",
+    "tokens": [
+      "Can",
+      "you",
+      "provide",
+      "a",
+      "representation",
+      "of",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Describe graphically automaton",
+    "tokens": [
+      "Describe",
+      "graphically",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Give me some examples of inputs and output",
+    "tokens": [
+      "Give",
+      "me",
+      "some",
+      "examples",
+      "of",
+      "inputs",
+      "and",
+      "output"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Can you provide me some examples of inputs",
+    "tokens": [
+      "Can",
+      "you",
+      "provide",
+      "me",
+      "some",
+      "examples",
+      "of",
+      "inputs"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Can you describe the input and the output",
+    "tokens": [
+      "Can",
+      "you",
+      "describe",
+      "the",
+      "input",
+      "and",
+      "the",
+      "output"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Can you describe the transition function",
+    "tokens": [
+      "Can",
+      "you",
+      "describe",
+      "the",
+      "transition",
+      "function"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "What is the output",
+    "tokens": [
+      "What",
+      "is",
+      "the",
+      "output"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Talk me about transitions",
+    "tokens": [
+      "Talk",
+      "me",
+      "about",
+      "transitions"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "What is the result",
+    "tokens": [
+      "What",
+      "is",
+      "the",
+      "result"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Output",
+    "tokens": [
+      "Output"
+    ],
+    "ne": [
+      "O"
+    ]
+  },
+  {
+    "Text": "what is optimization",
+    "tokens": [
+      "what",
+      "is",
+      "optimization"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what is automation",
+    "tokens": [
+      "what",
+      "is",
+      "automation"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "how many states",
+    "tokens": [
+      "how",
+      "many",
+      "states"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what are the input symbols",
+    "tokens": [
+      "what",
+      "are",
+      "the",
+      "input",
+      "symbols"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "can you describe the automaton",
+    "tokens": [
+      "can",
+      "you",
+      "describe",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "How are transitions defined",
+    "tokens": [
+      "How",
+      "are",
+      "transitions",
+      "defined"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "can you deescribe the transitions",
+    "tokens": [
+      "can",
+      "you",
+      "deescribe",
+      "the",
+      "transitions"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "can you describe the transitions",
+    "tokens": [
+      "can",
+      "you",
+      "describe",
+      "the",
+      "transitions"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "if the input is 11100 which is the result",
+    "tokens": [
+      "if",
+      "the",
+      "input",
+      "is",
+      "11100",
+      "which",
+      "is",
+      "the",
+      "result"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-input",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "if the input is 110 which is the result",
+    "tokens": [
+      "if",
+      "the",
+      "input",
+      "is",
+      "110",
+      "which",
+      "is",
+      "the",
+      "result"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-input",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Can you describe the automaton",
+    "tokens": [
+      "Can",
+      "you",
+      "describe",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "What are the accepted inputs",
+    "tokens": [
+      "What",
+      "are",
+      "the",
+      "accepted",
+      "inputs"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Is 11100 part of the accepted language",
+    "tokens": [
+      "Is",
+      "11100",
+      "part",
+      "of",
+      "the",
+      "accepted",
+      "language"
+    ],
+    "ne": [
+      "O",
+      "B-input",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "How many transitions are there in the automaton",
+    "tokens": [
+      "How",
+      "many",
+      "transitions",
+      "are",
+      "there",
+      "in",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Is there a particular pattern among the arcs",
+    "tokens": [
+      "Is",
+      "there",
+      "a",
+      "particular",
+      "pattern",
+      "among",
+      "the",
+      "arcs"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Is there a transition from q0 to q5",
+    "tokens": [
+      "Is",
+      "there",
+      "a",
+      "transition",
+      "from",
+      "q0",
+      "to",
+      "q5"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "what are all the transictions",
+    "tokens": [
+      "what",
+      "are",
+      "all",
+      "the",
+      "transictions"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Please describe the transitions",
+    "tokens": [
+      "Please",
+      "describe",
+      "the",
+      "transitions"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Is q0 the final state",
+    "tokens": [
+      "Is",
+      "q0",
+      "the",
+      "final",
+      "state"
+    ],
+    "ne": [
+      "O",
+      "B-node",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "How many states does Automaton 1 have",
+    "tokens": [
+      "How",
+      "many",
+      "states",
+      "does",
+      "Automaton",
+      "1",
+      "have"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "How many transitions does the automata have",
+    "tokens": [
+      "How",
+      "many",
+      "transitions",
+      "does",
+      "the",
+      "automata",
+      "have"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Show me the transitions of the automaton",
+    "tokens": [
+      "Show",
+      "me",
+      "the",
+      "transitions",
+      "of",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "What transitions does the automaton have",
+    "tokens": [
+      "What",
+      "transitions",
+      "does",
+      "the",
+      "automaton",
+      "have"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "briefly describe the automaton",
+    "tokens": [
+      "briefly",
+      "describe",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "how many states are there",
+    "tokens": [
+      "how",
+      "many",
+      "states",
+      "are",
+      "there"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "how many arcs there are",
+    "tokens": [
+      "how",
+      "many",
+      "arcs",
+      "there",
+      "are"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "is there a particulare pattern",
+    "tokens": [
+      "is",
+      "there",
+      "a",
+      "particulare",
+      "pattern"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "are there arcs between q2 and q0",
+    "tokens": [
+      "are",
+      "there",
+      "arcs",
+      "between",
+      "q2",
+      "and",
+      "q0"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "are there arcs from q4",
+    "tokens": [
+      "are",
+      "there",
+      "arcs",
+      "from",
+      "q4"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "what are the final states",
+    "tokens": [
+      "what",
+      "are",
+      "the",
+      "final",
+      "states"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "how many final states there are",
+    "tokens": [
+      "how",
+      "many",
+      "final",
+      "states",
+      "there",
+      "are"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "is q0 a final state",
+    "tokens": [
+      "is",
+      "q0",
+      "a",
+      "final",
+      "state"
+    ],
+    "ne": [
+      "O",
+      "B-node",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "is q4 a final state",
+    "tokens": [
+      "is",
+      "q4",
+      "a",
+      "final",
+      "state"
+    ],
+    "ne": [
+      "O",
+      "B-node",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "which are the final states",
+    "tokens": [
+      "which",
+      "are",
+      "the",
+      "final",
+      "states"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "which is the final state",
+    "tokens": [
+      "which",
+      "is",
+      "the",
+      "final",
+      "state"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "How many final states are there",
+    "tokens": [
+      "How",
+      "many",
+      "final",
+      "states",
+      "are",
+      "there"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what is its optimal spatial representation",
+    "tokens": [
+      "what",
+      "is",
+      "its",
+      "optimal",
+      "spatial",
+      "representation"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "briefly describe you the automaton",
+    "tokens": [
+      "briefly",
+      "describe",
+      "you",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "It is possible to find a repetitive pattern in the transitions",
+    "tokens": [
+      "It",
+      "is",
+      "possible",
+      "to",
+      "find",
+      "a",
+      "repetitive",
+      "pattern",
+      "in",
+      "the",
+      "transitions"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "If q2 were the final state the language accepted by the automaton is the same",
+    "tokens": [
+      "If",
+      "q2",
+      "were",
+      "the",
+      "final",
+      "state",
+      "the",
+      "language",
+      "accepted",
+      "by",
+      "the",
+      "automaton",
+      "is",
+      "the",
+      "same"
+    ],
+    "ne": [
+      "O",
+      "B-node",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "What can I use finite state automata for",
+    "tokens": [
+      "What",
+      "can",
+      "I",
+      "use",
+      "finite",
+      "state",
+      "automata",
+      "for"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "How many states can I use in an automaton",
+    "tokens": [
+      "How",
+      "many",
+      "states",
+      "can",
+      "I",
+      "use",
+      "in",
+      "an",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Can I use 5 states in an automaton",
+    "tokens": [
+      "Can",
+      "I",
+      "use",
+      "5",
+      "states",
+      "in",
+      "an",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "B-count",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "What is the final state of an automaton",
+    "tokens": [
+      "What",
+      "is",
+      "the",
+      "final",
+      "state",
+      "of",
+      "an",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "How can I define an automaton",
+    "tokens": [
+      "How",
+      "can",
+      "I",
+      "define",
+      "an",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "How is an automaton defined",
+    "tokens": [
+      "How",
+      "is",
+      "an",
+      "automaton",
+      "defined"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "What is an example of accepted string",
+    "tokens": [
+      "What",
+      "is",
+      "an",
+      "example",
+      "of",
+      "accepted",
+      "string"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "What is the final state",
+    "tokens": [
+      "What",
+      "is",
+      "the",
+      "final",
+      "state"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Which transitions start from q0",
+    "tokens": [
+      "Which",
+      "transitions",
+      "start",
+      "from",
+      "q0"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "How many transitions start from q0",
+    "tokens": [
+      "How",
+      "many",
+      "transitions",
+      "start",
+      "from",
+      "q0"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "Which transitions start from q1",
+    "tokens": [
+      "Which",
+      "transitions",
+      "start",
+      "from",
+      "q1"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "Which transitions start from q2",
+    "tokens": [
+      "Which",
+      "transitions",
+      "start",
+      "from",
+      "q2"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "Which transitions end in q0",
+    "tokens": [
+      "Which",
+      "transitions",
+      "end",
+      "in",
+      "q0"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "Is there a pattern among the arcs",
+    "tokens": [
+      "Is",
+      "there",
+      "a",
+      "pattern",
+      "among",
+      "the",
+      "arcs"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "What could be a minimal spatial representation for this automaton",
+    "tokens": [
+      "What",
+      "could",
+      "be",
+      "a",
+      "minimal",
+      "spatial",
+      "representation",
+      "for",
+      "this",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "is there an arc between q0 and q1",
+    "tokens": [
+      "is",
+      "there",
+      "an",
+      "arc",
+      "between",
+      "q0",
+      "and",
+      "q1"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "which are the trasitions",
+    "tokens": [
+      "which",
+      "are",
+      "the",
+      "trasitions"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what is the phd for",
+    "tokens": [
+      "what",
+      "is",
+      "the",
+      "phd",
+      "for"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "maximum number of states in an automaton",
+    "tokens": [
+      "maximum",
+      "number",
+      "of",
+      "states",
+      "in",
+      "an",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "How many states does a pentagon shaped automaton have",
+    "tokens": [
+      "How",
+      "many",
+      "states",
+      "does",
+      "a",
+      "pentagon",
+      "shaped",
+      "automaton",
+      "have"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Briefly describe the automaton How many states are there",
+    "tokens": [
+      "Briefly",
+      "describe",
+      "the",
+      "automaton",
+      "How",
+      "many",
+      "states",
+      "are",
+      "there"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Briefly describe the automaton 2 How many states are there",
+    "tokens": [
+      "Briefly",
+      "describe",
+      "the",
+      "automaton",
+      "2",
+      "How",
+      "many",
+      "states",
+      "are",
+      "there"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "How many states are in Automation 2",
+    "tokens": [
+      "How",
+      "many",
+      "states",
+      "are",
+      "in",
+      "Automation",
+      "2"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "According to your understanding of Automaton 2 what is its optimal spatial representation",
+    "tokens": [
+      "According",
+      "to",
+      "your",
+      "understanding",
+      "of",
+      "Automaton",
+      "2",
+      "what",
+      "is",
+      "its",
+      "optimal",
+      "spatial",
+      "representation"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Is there an arc between q0 and q1",
+    "tokens": [
+      "Is",
+      "there",
+      "an",
+      "arc",
+      "between",
+      "q0",
+      "and",
+      "q1"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "Is there an arc between q1 and q2",
+    "tokens": [
+      "Is",
+      "there",
+      "an",
+      "arc",
+      "between",
+      "q1",
+      "and",
+      "q2"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "describe me the automaton",
+    "tokens": [
+      "describe",
+      "me",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "how many states does the automaton have",
+    "tokens": [
+      "how",
+      "many",
+      "states",
+      "does",
+      "the",
+      "automaton",
+      "have"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "wat is the language recognised by the automaton",
+    "tokens": [
+      "wat",
+      "is",
+      "the",
+      "language",
+      "recognised",
+      "by",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "briefly describe the automation",
+    "tokens": [
+      "briefly",
+      "describe",
+      "the",
+      "automation"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "how many transitions",
+    "tokens": [
+      "how",
+      "many",
+      "transitions"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "What is the best way to represent this automa",
+    "tokens": [
+      "What",
+      "is",
+      "the",
+      "best",
+      "way",
+      "to",
+      "represent",
+      "this",
+      "automa"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "What is the initial state",
+    "tokens": [
+      "What",
+      "is",
+      "the",
+      "initial",
+      "state"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "What about transitions",
+    "tokens": [
+      "What",
+      "about",
+      "transitions"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what language accepts this auotmata",
+    "tokens": [
+      "what",
+      "language",
+      "accepts",
+      "this",
+      "auotmata"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what is an automaton",
+    "tokens": [
+      "what",
+      "is",
+      "an",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what is the initial stage of the automaton",
+    "tokens": [
+      "what",
+      "is",
+      "the",
+      "initial",
+      "stage",
+      "of",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Breifly describe me the automaton",
+    "tokens": [
+      "Breifly",
+      "describe",
+      "me",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what is the initial state of the automaton",
+    "tokens": [
+      "what",
+      "is",
+      "the",
+      "initial",
+      "state",
+      "of",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what is the language accepted by the automaton",
+    "tokens": [
+      "what",
+      "is",
+      "the",
+      "language",
+      "accepted",
+      "by",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "is the string 110 accepted by the automaton",
+    "tokens": [
+      "is",
+      "the",
+      "string",
+      "110",
+      "accepted",
+      "by",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "B-input",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "describe the transition table of the automaton",
+    "tokens": [
+      "describe",
+      "the",
+      "transition",
+      "table",
+      "of",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "is there an arc from q0 to q1",
+    "tokens": [
+      "is",
+      "there",
+      "an",
+      "arc",
+      "from",
+      "q0",
+      "to",
+      "q1"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "is there an arc from q2 to q1",
+    "tokens": [
+      "is",
+      "there",
+      "an",
+      "arc",
+      "from",
+      "q2",
+      "to",
+      "q1"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "how many states there are",
+    "tokens": [
+      "how",
+      "many",
+      "states",
+      "there",
+      "are"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what symbols does the automaton accept",
+    "tokens": [
+      "what",
+      "symbols",
+      "does",
+      "the",
+      "automaton",
+      "accept"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what are the symbols accepted by the automaton",
+    "tokens": [
+      "what",
+      "are",
+      "the",
+      "symbols",
+      "accepted",
+      "by",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what is the alphabet",
+    "tokens": [
+      "what",
+      "is",
+      "the",
+      "alphabet"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "how is the automaton represented",
+    "tokens": [
+      "how",
+      "is",
+      "the",
+      "automaton",
+      "represented"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Vorrei una descrizione di Automa1",
+    "tokens": [
+      "Vorrei",
+      "una",
+      "descrizione",
+      "di",
+      "Automa1"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Descrivi l automa",
+    "tokens": [
+      "Descrivi",
+      "l",
+      "automa"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Describe automa",
+    "tokens": [
+      "Describe",
+      "automa"
+    ],
+    "ne": [
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "How many regions are there in Italy",
+    "tokens": [
+      "How",
+      "many",
+      "regions",
+      "are",
+      "there",
+      "in",
+      "Italy"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "In which year we are",
+    "tokens": [
+      "In",
+      "which",
+      "year",
+      "we",
+      "are"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "If q0 were the final state the language accepted by the automaton is the same",
+    "tokens": [
+      "If",
+      "q0",
+      "were",
+      "the",
+      "final",
+      "state",
+      "the",
+      "language",
+      "accepted",
+      "by",
+      "the",
+      "automaton",
+      "is",
+      "the",
+      "same"
+    ],
+    "ne": [
+      "O",
+      "B-node",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "how many states has the automata",
+    "tokens": [
+      "how",
+      "many",
+      "states",
+      "has",
+      "the",
+      "automata"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "how many arcs are there in the automata",
+    "tokens": [
+      "how",
+      "many",
+      "arcs",
+      "are",
+      "there",
+      "in",
+      "the",
+      "automata"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "is there a particulare pattern among automata arcs",
+    "tokens": [
+      "is",
+      "there",
+      "a",
+      "particulare",
+      "pattern",
+      "among",
+      "automata",
+      "arcs"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "which is the transition function",
+    "tokens": [
+      "which",
+      "is",
+      "the",
+      "transition",
+      "function"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "how much does the representation takes",
+    "tokens": [
+      "how",
+      "much",
+      "does",
+      "the",
+      "representation",
+      "takes"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what is the regular expression describing the automata",
+    "tokens": [
+      "what",
+      "is",
+      "the",
+      "regular",
+      "expression",
+      "describing",
+      "the",
+      "automata"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "can you briefly describe the automata",
+    "tokens": [
+      "can",
+      "you",
+      "briefly",
+      "describe",
+      "the",
+      "automata"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Summarise the automaton",
+    "tokens": [
+      "Summarise",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "What language does the automaton accept",
+    "tokens": [
+      "What",
+      "language",
+      "does",
+      "the",
+      "automaton",
+      "accept"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "something",
+    "tokens": [
+      "something"
+    ],
+    "ne": [
+      "O"
+    ]
+  },
+  {
+    "Text": "atomaton 2",
+    "tokens": [
+      "atomaton",
+      "2"
+    ],
+    "ne": [
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "where is automaton 2",
+    "tokens": [
+      "where",
+      "is",
+      "automaton",
+      "2"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Which are the principal pros",
+    "tokens": [
+      "Which",
+      "are",
+      "the",
+      "principal",
+      "pros"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Whatsappo",
+    "tokens": [
+      "Whatsappo"
+    ],
+    "ne": [
+      "O"
+    ]
+  },
+  {
+    "Text": "What are automaton",
+    "tokens": [
+      "What",
+      "are",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Describe automaton",
+    "tokens": [
+      "Describe",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Show me the automaton",
+    "tokens": [
+      "Show",
+      "me",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "How many states are These",
+    "tokens": [
+      "How",
+      "many",
+      "states",
+      "are",
+      "These"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Which one si the final state",
+    "tokens": [
+      "Which",
+      "one",
+      "si",
+      "the",
+      "final",
+      "state"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "What is the starting state",
+    "tokens": [
+      "What",
+      "is",
+      "the",
+      "starting",
+      "state"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "What direction are the connections between the states",
+    "tokens": [
+      "What",
+      "direction",
+      "are",
+      "the",
+      "connections",
+      "between",
+      "the",
+      "states"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "initial state",
+    "tokens": [
+      "initial",
+      "state"
+    ],
+    "ne": [
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "arc from q0",
+    "tokens": [
+      "arc",
+      "from",
+      "q0"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "arc from q2",
+    "tokens": [
+      "arc",
+      "from",
+      "q2"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "transition from q1",
+    "tokens": [
+      "transition",
+      "from",
+      "q1"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "transitions",
+    "tokens": [
+      "transitions"
+    ],
+    "ne": [
+      "O"
+    ]
+  },
+  {
+    "Text": "how many transitions",
+    "tokens": [
+      "how",
+      "many",
+      "transitions"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "pattern",
+    "tokens": [
+      "pattern"
+    ],
+    "ne": [
+      "O"
+    ]
+  },
+  {
+    "Text": "loops",
+    "tokens": [
+      "loops"
+    ],
+    "ne": [
+      "O"
+    ]
+  },
+  {
+    "Text": "how many loops are there",
+    "tokens": [
+      "how",
+      "many",
+      "loops",
+      "are",
+      "there"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "how many states",
+    "tokens": [
+      "how",
+      "many",
+      "states"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what are the states and the connections between states",
+    "tokens": [
+      "what",
+      "are",
+      "the",
+      "states",
+      "and",
+      "the",
+      "connections",
+      "between",
+      "states"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what are the states and the transitions",
+    "tokens": [
+      "what",
+      "are",
+      "the",
+      "states",
+      "and",
+      "the",
+      "transitions"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "which are the states and the transitions",
+    "tokens": [
+      "which",
+      "are",
+      "the",
+      "states",
+      "and",
+      "the",
+      "transitions"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "states and transitions",
+    "tokens": [
+      "states",
+      "and",
+      "transitions"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "whar are the transitions",
+    "tokens": [
+      "whar",
+      "are",
+      "the",
+      "transitions"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "arc between q0 and q1",
+    "tokens": [
+      "arc",
+      "between",
+      "q0",
+      "and",
+      "q1"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "what are the transitions",
+    "tokens": [
+      "what",
+      "are",
+      "the",
+      "transitions"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "describe the transitions",
+    "tokens": [
+      "describe",
+      "the",
+      "transitions"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "how is marked the arc between q0 and q2",
+    "tokens": [
+      "how",
+      "is",
+      "marked",
+      "the",
+      "arc",
+      "between",
+      "q0",
+      "and",
+      "q2"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "how is represented",
+    "tokens": [
+      "how",
+      "is",
+      "represented"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what are the final states",
+    "tokens": [
+      "what",
+      "are",
+      "the",
+      "final",
+      "states"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "final states",
+    "tokens": [
+      "final",
+      "states"
+    ],
+    "ne": [
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "start states",
+    "tokens": [
+      "start",
+      "states"
+    ],
+    "ne": [
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "which is the start state",
+    "tokens": [
+      "which",
+      "is",
+      "the",
+      "start",
+      "state"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Tell me a little bit about the automaton",
+    "tokens": [
+      "Tell",
+      "me",
+      "a",
+      "little",
+      "bit",
+      "about",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Is there a pattern among the transitions",
+    "tokens": [
+      "Is",
+      "there",
+      "a",
+      "pattern",
+      "among",
+      "the",
+      "transitions"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Does the automaton accept a language allowing words made of an odd number of 0s and 1s",
+    "tokens": [
+      "Does",
+      "the",
+      "automaton",
+      "accept",
+      "a",
+      "language",
+      "allowing",
+      "words",
+      "made",
+      "of",
+      "an",
+      "odd",
+      "number",
+      "of",
+      "0s",
+      "and",
+      "1s"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-count",
+      "I-count",
+      "O",
+      "B-input",
+      "O",
+      "B-input"
+    ]
+  },
+  {
+    "Text": "Is it possible to repeat transitions",
+    "tokens": [
+      "Is",
+      "it",
+      "possible",
+      "to",
+      "repeat",
+      "transitions"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "describe it",
+    "tokens": [
+      "describe",
+      "it"
+    ],
+    "ne": [
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "arcs between q4 and q0",
+    "tokens": [
+      "arcs",
+      "between",
+      "q4",
+      "and",
+      "q0"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "arcs from q4",
+    "tokens": [
+      "arcs",
+      "from",
+      "q4"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "which is initial state",
+    "tokens": [
+      "which",
+      "is",
+      "initial",
+      "state"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "which is final state",
+    "tokens": [
+      "which",
+      "is",
+      "final",
+      "state"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "final state",
+    "tokens": [
+      "final",
+      "state"
+    ],
+    "ne": [
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "arc from q2 to q1",
+    "tokens": [
+      "arc",
+      "from",
+      "q2",
+      "to",
+      "q1"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "label from q3 to q4",
+    "tokens": [
+      "label",
+      "from",
+      "q3",
+      "to",
+      "q4"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "how many arcs",
+    "tokens": [
+      "how",
+      "many",
+      "arcs"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "pattern among arcs",
+    "tokens": [
+      "pattern",
+      "among",
+      "arcs"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "describe",
+    "tokens": [
+      "describe"
+    ],
+    "ne": [
+      "O"
+    ]
+  },
+  {
+    "Text": "transition from q3",
+    "tokens": [
+      "transition",
+      "from",
+      "q3"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "which are the states connected with 0",
+    "tokens": [
+      "which",
+      "are",
+      "the",
+      "states",
+      "connected",
+      "with",
+      "0"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-input"
+    ]
+  },
+  {
+    "Text": "what arcs are marked with 0",
+    "tokens": [
+      "what",
+      "arcs",
+      "are",
+      "marked",
+      "with",
+      "0"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-input"
+    ]
+  },
+  {
+    "Text": "what are the arcs",
+    "tokens": [
+      "what",
+      "are",
+      "the",
+      "arcs"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "overview of the automaton",
+    "tokens": [
+      "overview",
+      "of",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "how is the automaton",
+    "tokens": [
+      "how",
+      "is",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "how many 0 art here",
+    "tokens": [
+      "how",
+      "many",
+      "0",
+      "art",
+      "here"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "B-input",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "how many arcs marked by 1 are there",
+    "tokens": [
+      "how",
+      "many",
+      "arcs",
+      "marked",
+      "by",
+      "1",
+      "are",
+      "there"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-input",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what are the patterns",
+    "tokens": [
+      "what",
+      "are",
+      "the",
+      "patterns"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what are the patterns",
+    "tokens": [
+      "what",
+      "are",
+      "the",
+      "patterns"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "patterns among arc",
+    "tokens": [
+      "patterns",
+      "among",
+      "arc"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "patterns among arcs",
+    "tokens": [
+      "patterns",
+      "among",
+      "arcs"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "describe the shape of the automaton",
+    "tokens": [
+      "describe",
+      "the",
+      "shape",
+      "of",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what is an automaton",
+    "tokens": [
+      "what",
+      "is",
+      "an",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "transition diagram",
+    "tokens": [
+      "transition",
+      "diagram"
+    ],
+    "ne": [
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "describe the transition diagram",
+    "tokens": [
+      "describe",
+      "the",
+      "transition",
+      "diagram"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "how many transitions are there in the automaton",
+    "tokens": [
+      "how",
+      "many",
+      "transitions",
+      "are",
+      "there",
+      "in",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what is a pattern",
+    "tokens": [
+      "what",
+      "is",
+      "a",
+      "pattern"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what is a particular pattern among arcs",
+    "tokens": [
+      "what",
+      "is",
+      "a",
+      "particular",
+      "pattern",
+      "among",
+      "arcs"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "briefly describe the automaton",
+    "tokens": [
+      "briefly",
+      "describe",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what s the number of nodes",
+    "tokens": [
+      "what",
+      "s",
+      "the",
+      "number",
+      "of",
+      "nodes"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "the nodes",
+    "tokens": [
+      "the",
+      "nodes"
+    ],
+    "ne": [
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "nodes",
+    "tokens": [
+      "nodes"
+    ],
+    "ne": [
+      "O"
+    ]
+  },
+  {
+    "Text": "states",
+    "tokens": [
+      "states"
+    ],
+    "ne": [
+      "O"
+    ]
+  },
+  {
+    "Text": "is 1 a label for some arc",
+    "tokens": [
+      "is",
+      "1",
+      "a",
+      "label",
+      "for",
+      "some",
+      "arc"
+    ],
+    "ne": [
+      "O",
+      "B-input",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what is the accepted language",
+    "tokens": [
+      "what",
+      "is",
+      "the",
+      "accepted",
+      "language"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "does the automaton accept other languages",
+    "tokens": [
+      "does",
+      "the",
+      "automaton",
+      "accept",
+      "other",
+      "languages"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "q0",
+    "tokens": [
+      "q0"
+    ],
+    "ne": [
+      "B-node"
+    ]
+  },
+  {
+    "Text": "q2",
+    "tokens": [
+      "q2"
+    ],
+    "ne": [
+      "B-node"
+    ]
+  },
+  {
+    "Text": "q2 to q3",
+    "tokens": [
+      "q2",
+      "to",
+      "q3"
+    ],
+    "ne": [
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "q3 to q2",
+    "tokens": [
+      "q3",
+      "to",
+      "q2"
+    ],
+    "ne": [
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "q3 to q4",
+    "tokens": [
+      "q3",
+      "to",
+      "q4"
+    ],
+    "ne": [
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "q4 to q0",
+    "tokens": [
+      "q4",
+      "to",
+      "q0"
+    ],
+    "ne": [
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "q0 to q4",
+    "tokens": [
+      "q0",
+      "to",
+      "q4"
+    ],
+    "ne": [
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "describe the position of nodes",
+    "tokens": [
+      "describe",
+      "the",
+      "position",
+      "of",
+      "nodes"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "describe the arcs",
+    "tokens": [
+      "describe",
+      "the",
+      "arcs"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "describe the position of arcs",
+    "tokens": [
+      "describe",
+      "the",
+      "position",
+      "of",
+      "arcs"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "is there any self loop",
+    "tokens": [
+      "is",
+      "there",
+      "any",
+      "self",
+      "loop"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what is a connection",
+    "tokens": [
+      "what",
+      "is",
+      "a",
+      "connection"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "represent the automaton",
+    "tokens": [
+      "represent",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "what is the input",
+    "tokens": [
+      "what",
+      "is",
+      "the",
+      "input"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "can you describe the automaton",
+    "tokens": [
+      "can",
+      "you",
+      "describe",
+      "the",
+      "automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "which arc from q1",
+    "tokens": [
+      "which",
+      "arc",
+      "from",
+      "q1"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "which arc from q2",
+    "tokens": [
+      "which",
+      "arc",
+      "from",
+      "q2"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "which arc from q3",
+    "tokens": [
+      "which",
+      "arc",
+      "from",
+      "q3"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "which arc from q4",
+    "tokens": [
+      "which",
+      "arc",
+      "from",
+      "q4"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "can you describe the transitions",
+    "tokens": [
+      "can",
+      "you",
+      "describe",
+      "the",
+      "transitions"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Please briefly summarise Automaton",
+    "tokens": [
+      "Please",
+      "briefly",
+      "summarise",
+      "Automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "How many states are there",
+    "tokens": [
+      "How",
+      "many",
+      "states",
+      "are",
+      "there"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "What is the final state",
+    "tokens": [
+      "What",
+      "is",
+      "the",
+      "final",
+      "state"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "How many transitions are there",
+    "tokens": [
+      "How",
+      "many",
+      "transitions",
+      "are",
+      "there"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "Is there a transition from q0 to q5",
+    "tokens": [
+      "Is",
+      "there",
+      "a",
+      "transition",
+      "from",
+      "q0",
+      "to",
+      "q5"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "what is its optimal spatial representation of Automaton",
+    "tokens": [
+      "what",
+      "is",
+      "its",
+      "optimal",
+      "spatial",
+      "representation",
+      "of",
+      "Automaton"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "The automaton accepts a language allowing words made of an odd number of 0s and 1s",
+    "tokens": [
+      "The",
+      "automaton",
+      "accepts",
+      "a",
+      "language",
+      "allowing",
+      "words",
+      "made",
+      "of",
+      "an",
+      "odd",
+      "number",
+      "of",
+      "0s",
+      "and",
+      "1s"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "B-count",
+      "I-count",
+      "O",
+      "B-node",
+      "O",
+      "B-node"
+    ]
+  },
+  {
+    "Text": "It is possible to find a repetitive pattern in the transitions",
+    "tokens": [
+      "It",
+      "is",
+      "possible",
+      "to",
+      "find",
+      "a",
+      "repetitive",
+      "pattern",
+      "in",
+      "the",
+      "transitions"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  },
+  {
+    "Text": "If q0 were the final state the language accepted by the automaton is the same",
+    "tokens": [
+      "If",
+      "q0",
+      "were",
+      "the",
+      "final",
+      "state",
+      "the",
+      "language",
+      "accepted",
+      "by",
+      "the",
+      "automaton",
+      "is",
+      "the",
+      "same"
+    ],
+    "ne": [
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O",
+      "O"
+    ]
+  }
+]

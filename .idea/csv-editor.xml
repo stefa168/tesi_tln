@@ -17,6 +17,34 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/corpus/insiemi/interactionsEsempio3.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/corpus/insiemi/interactionsEsempio4.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/corpus/insiemi/interactionsEsempio5.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/corpus/insiemi/interactionsEsempio6.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/corpus/insiemi/interactionsEsempio7.csv">
           <value>
             <Attribute>
@@ -32,6 +60,20 @@
           </value>
         </entry>
         <entry key="/corpus/interactionsCircuiti.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/corpus/preprocess_1.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/filtered_data.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
