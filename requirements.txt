@@ -10,6 +10,7 @@ gensim==4.3.3
 kneed==0.8.5
 ollama == 0.3.3
 tqdm== 4.66.5
-transformers==4.45.2
+transformers>=4.45.2
 matplotlib==3.9.2
 torch==2.4.1
+sentence-transformers==3.2.1

@@ -73,7 +73,14 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="/filtered_data.csv">
+        <entry key="/filtered_data_manual_label.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/labelling/data_cleaned_manual.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

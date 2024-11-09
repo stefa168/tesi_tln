@@ -1,0 +1,230 @@
+Question,Global Subject,Question Intent,Multiple Subjects
+"Hi",start,greet,false
+"Describe the automaton",automaton,description,false
+"Is there a transition between q2 and q0?",transition,existence_between,false
+"Is there a transition between q5 and q7",transition,existence_between,false
+"Please, describe the automaton",automaton,description,false
+"How many transitions does the automaton contain",transition,count,false
+"Is there a particular pattern between the nodes and arcs?","state,transition",pattern,true
+"What grammar does the automaton recognise?",grammar,accepted,false
+"What are the transitions",transition,list,false
+"What are the states",state,list,false
+"What is q1",state,details,false
+"How many states and edges are there?","state,transition",count,true
+"Is the automaton directed?",automaton,directionality,false
+"How is the automaton represented graphically?",automaton,representation,false
+"Does the automaton contain cycles?",automaton,cycles,false
+"Does the automaton accept a language allowing words made of an odd number of 0s and 1s",grammar,accepted,false
+"Does the automaton accept a repeating pattern?",automaton,cycles,false
+"If q2 was the final state, would the language accepted by the automaton change?",automaton,change,false
+"Briefly describe the automaton",automaton,description_brief,false
+"Does it only accept 1s and 0s?",grammar,symbols,false
+"Can you describe the transitions of the automaton?",transition,description,false
+"Which is the initial state?",state,initial,false
+"Does it have 5 states?",state,count,false
+"How many states are there?",state,count,false
+"Give me a list of the arcs",transition,list,false
+"Is there an arc from q0 to q1?",transition,existence_directed,false
+"What is the shape of the arcs",automaton,representation,false
+"Is there an arc from q0 to q2, q3 or q4?",transition,existence_between,false
+"What are the transitions from q1",transition,existence_from,false
+"What are the transitions from q2",transition,existence_from,false
+"What are the transitions from q3",transition,existence_from,false
+"What are the transitions from q4",transition,existence_from,false
+"What is the purpose of the automaton?",grammar,accepted,false
+"What happens when a q1 receives a 0?",state,input,false
+"How many states does the automaton have?",state,count,false
+"How are your states linked together?",automaton,description,false
+"Is q0 linked to q0?",transition,existence_between,false
+"Is q1 linked to q4?",transition,existence_between,false
+"What are the transitions from q4?",transition,existence_from,false
+"What are the links of q4?",state,transitions,false
+"Is q4 linked to q0?",transition,existence_between,false
+"Can you describe me the automaton?",automaton,description,false
+"Could you briefly describe the automaton?",automaton,description_brief,false
+"Is there an arc from q1 to q2?",transition,existence_directed,false
+"What are the states connected to q0?",state,transitions,false
+"Is there an arc from q2 to q3?",transition,existence_directed,false
+"Is there an arc from q3 to q4?",transition,existence_directed,false
+"Is there an arc from q4 to q0?",transition,existence_directed,false
+"Is there an arc from q4?",transition,existence_from,false
+"Is there an arc from q0?",transition,existence_from,false
+"Is there an arc from q1?",transition,existence_from,false
+"Is there an arc from q2?",transition,existence_from,false
+"Is there an arc from q3?",transition,existence_from,false
+"How many states does the automaton have?",state,count,false
+"Are there any loops?",automaton,cycles,false
+"What transitions enter and exit q0?",state,transitions,false
+"What transitions enter and exit q1?",state,transitions,false
+"What transitions enter and exit q2?",state,transitions,false
+"What transitions enter and exit q4?",state,transitions,false
+"What transitions enter and exit q3?",state,transitions,false
+"What does the automaton recognize?",grammar,accepted,false
+"What is the accepted language?",grammar,accepted,false
+"How many transitions are there?",transition,count,false
+"Is there a particular pattern?",automaton,pattern,false
+"How many nodes are there?",state,count,false
+"How many states are there?",state,count,false
+"Please describe the automaton",automaton,description,false
+"Can you provide a representation of the automaton?",automaton,representation,false
+"Describe how does the automaton appear graphically",automaton,representation,false
+"Give me some examples of inputs and output",grammar,"example_(input,output)",false
+"Can you provide me some examples of inputs",grammar,example_input,false
+"Can you describe the input and the output",grammar,symbols,false
+"Can you describe the transition function",theory,transitions,false
+"What can you tell me about the transitions of the automaton?",transition,description,false
+"What is the grammar accepted by it?",grammar,accepted,false
+"How many states do compose the automaton?",state,count,false
+"What are the input symbols that the automaton accepts?",grammar,symbols,false
+"Can you describe the automaton?",automaton,description,false
+"How are transitions defined",theory,transitions,false
+"Can you describe the transitions?",transition,description,false
+"If the input is 11100 what is the result given by the automaton?",grammar,simulation,false
+"Is 110 a valid input for the automaton?",grammar,validity,false
+"Can you describe the automata?",automaton,description,false
+"What are the accepted inputs?",grammar,symbols,false
+"Is 11100 part of the accepted language?",grammar,validity,false
+"How many transitions are there in the automaton?",transition,count,false
+"Is there a particular pattern among the arcs?",automaton,pattern,false
+"Is there a transition from q0 to q5?",transition,existence_between,false
+"What are all the transitions?",transition,list,false
+"Please describe the transitions",transition,list,false
+"Is q0 the final state?",state,final,false
+"How many states does the automaton have?",state,count,false
+"How many transitions does the automata have?",transition,count,false
+"Show me the transitions of the automaton",transition,list,false
+"What transitions does the automaton have?",transition,list,false
+"Briefly describe the automaton",automaton,description_brief,false
+"How many states are there?",state,count,false
+"How many arcs there are?",transition,count,false
+"Is there a particular pattern?",automaton,pattern,false
+"Are there arcs between q2 and q0?",transition,existence_between,false
+"Are there arcs from q4?",transition,existence_from,false
+"What are the final states?",state,final,false
+"How many final states there are?",state,final_count,false
+"Is q0 a final state?",state,final,false
+"Is q4 a final state?",state,final,false
+"Which are the final states?",state,final_list,false
+"Which is the final state?",state,final_list,false
+"How many final states are there?",state,final_count,false
+"What is its optimal spatial representation?",automaton,representation,false
+"Briefly describe the automaton",automaton,description_brief,false
+"It is possible to find a repetitive pattern in the transitions?",automaton,pattern,false
+"If q2 was the final state, does language accepted by the automaton stay the same?",grammar,variation,false
+"What can I use a finite state automata for?",theory,generic,false
+"How many states can I use in an automaton?",theory,states,false
+"Can I use 5 states in an automaton?",theory,states,false
+"What is the final state of an automaton?",theory,final,false
+"How can I define an automaton?",theory,definition,false
+"How is an automaton defined?",theory,definition,false
+"What is an example of accepted string?",grammar,example_input,false
+"What is the final state",state,final,false
+"Which transitions start from q0?",transition,existence_from,false
+"How many transitions start from q0?",transition,existence_from,false
+"Which transitions start from q1?",transition,existence_from,false
+"Which transitions start from q2?",transition,existence_from,false
+"Which transitions end in q0?",transition,existence_into,false
+"Is there a pattern among the arcs?",automaton,pattern,false
+"What could be a minimal spatial representation for this automaton?",automaton,representation,false
+"Is there an arc between q0 and q1?",transition,existence_between,false
+"Which are the transitions",transition,list,false
+"what is the phd for",off_topic,,false
+"What is the maximum number of states in an automaton?",theory,states,false
+"How many states does a pentagon shaped automaton have?",off_topic,,false
+"How many states are there",state,count,false
+"Briefly describe the automaton",automaton,description_brief,false
+"How many states are there?",state,count,false
+"How many states are there in the automata?",state,count,false
+"According to your understanding of the Automaton what is its optimal spatial representation",automaton,representation,false
+"Is there an arc between q0 and q1?",transition,existence_between,false
+"Is there an arc between q1 and q2?",transition,existence_between,false
+"Describe me the automaton",automaton,description,false
+"How many states does the automaton have?",state,count,false
+"What is the language recognised by the automaton?",grammar,accepted,false
+"How many transitions are there?",transition,count,false
+"What is the best way to represent this automaton?",automaton,representation,false
+"What is the initial state?",state,start,false
+"What language does this automata accept?",grammar,accepted,false
+"What is an automaton?",theory,generic,false
+What is the initial state of the automaton,state,start,false
+"Briefly describe me the automaton",automaton,description_brief,false
+"Which is the initial state of the automaton?",state,start,false
+"What is the language accepted by the automaton?",grammar,accepted,false
+"Is the string 110 accepted by the automaton?",grammar,simulation,false
+"Describe the transition table of the automaton",transition,list,false
+"Is there an arc from q0 to q1?",transition,existence_between,false
+"Is there an arc from q2 to q1?",transition,existence_between,false
+"How many states there are?",state,count,false
+"What symbols does the automaton accept?",grammar,symbols,false
+"What are the symbols accepted by the automaton?",grammar,symbols,false
+"What is the alphabet?",grammar,symbols,false
+"What is the grammar?",grammar,accepted,false
+"What is the grammar recognised by the automaton?",grammar,accepted,false
+"How is the automaton represented?",automaton,representation,false
+"How many regions are there in Italy",off_topic,,false
+"In which year we are?",off_topic,,false
+"If q0 was the final state, the language accepted by the automaton is the same?",grammar,variation,false
+"How many states does the automata have?",state,count,false
+"How many arcs are there in the automata?",transition,count,false
+"Is there a particular pattern among automata arcs?",automaton,pattern,false
+"What is the transition function?",theory,transitions,false
+"How much does the representation take?",automaton,representation,false
+"What is the regular expression describing the automata?",grammar,regex,false
+"What is the regular expression that corresponds to the automaton?",grammar,regex,false
+"Can you briefly describe the automata?",automaton,description_brief,false
+"Summarise the automaton",automaton,description_brief,false
+"What language does the automaton accept?",grammar,accepted,false
+"Which are the principal pros",off_topic,,false
+"Whatsappo",off_topic,,false
+"Describe the automaton",automaton,description,false
+"Show me the automaton",automaton,description,false
+"How many states are there",state,count,false
+"Which one is the final state?",state,final,false
+"Which one is the starting state?",state,start,false
+"Which is the initial state?",state,start,false
+"Which is the start state?",state,start,false
+"Is there an arc from q0?",transition,existence_from,false
+"Is there an arc from q2?",transition,existence_from,false
+"Is there a transition from q1?",transition,existence_from,false
+"How many transitions are there?",transition,count,false
+"How many loops are there?",automaton,cycles,false
+"How many states is the automaton made of?",state,count,false
+"What are the states and the connections between states?",automaton,description,false
+"What are the states and the transitions?",automaton,description,false
+"Which are the states and the transitions?",automaton,description,false
+"Is there an arc between q0 and q1?",transition,existence_between,false
+"What are the transitions?",transition,list,false
+"Describe the transitions",transition,list,false
+"What input does the arc between q0 and q2 accept?",transition,existence_between,false
+"What are the final states?",state,final,false
+"Which is the start state?",state,start,false
+"Tell me a little bit about the automaton",automaton,description_brief,false
+"Is there a pattern among the transitions?",automaton,pattern,false
+"Does the automaton language accept words made of an odd number of 0s and 1s",grammar,accepted,false
+"Is it possible to repeat transitions?",theory,transitions,false
+"Which are the states that are connected with arcs that accept the value 0?",transition,label,false
+"What arcs are marked with 0?",transition,label,false
+"What are the arcs?",transition,list,false
+"Provide an overview of the automaton",automaton,description,false
+"How many arcs marked by 1 are there?",transition,label,false
+"Describe the shape of the automaton",automaton,representation,false
+"What is an automaton?",theory,automaton,false
+"Can you provide the transition diagram?",transition,list,false
+"Describe the transition diagram",transition,list,false
+"How many transitions are there in the automaton",transition,count,false
+"What is a pattern",theory,pattern,false
+"Briefly describe the automaton",automaton,description_brief,false
+"What's the number of nodes",state,coun,false
+"Is 1 a label for some arc?",transition,label,false
+"What is the accepted language",grammar,accepted,false
+"Describe the position of nodes",automaton,representation,false
+"Is there any self loop",automaton,cycles,false
+"What is a connection",theory,transitions,false
+"What are some examples of accepted inputs?",grammar,example_input,false
+"Can you describe the transitions?",transition,list,false
+"How many states are there?",state,count,false
+"What is the final state?",state,final_list,false
+"How many transitions are there?",transition,count,false
+"Is there a transition from q0 to q5?",transition,existence_directed,false
+"What is the optimal spatial representation of the automaton?",automaton,representation,false
+"It is possible to find a repetitive pattern in the transitions?",automaton,cycles,false
