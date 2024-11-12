@@ -20,7 +20,7 @@ Does the automaton accept a repeating pattern?,automaton,cycles
 Briefly describe the automaton,automaton,description_brief
 Does it only accept 1s and 0s?,grammar,symbols
 Can you describe the transitions of the automaton?,transition,description
-Which is the initial state?,state,initial
+Which is the initial state?,state,start
 Does it have 5 states?,state,count
 How many states are there?,state,count
 Give me a list of the arcs,transition,list
@@ -78,7 +78,7 @@ How many states do compose the automaton?,state,count
 What are the input symbols that the automaton accepts?,grammar,symbols
 Can you describe the automaton?,automaton,description
 How are transitions defined,theory,transitions
-Can you describe the transitions?,transition,description
+Can you describe the transitions?,transition,list
 If the input is 11100 what is the result given by the automaton?,grammar,simulation
 Is 110 a valid input for the automaton?,grammar,validity
 Can you describe the automata?,automaton,description
@@ -86,7 +86,7 @@ What are the accepted inputs?,grammar,symbols
 Is 11100 part of the accepted language?,grammar,validity
 How many transitions are there in the automaton?,transition,count
 Is there a particular pattern among the arcs?,automaton,pattern
-Is there a transition from q0 to q5?,transition,existence_between
+Is there a transition from q0 to q5?,transition,existence_directed
 What are all the transitions?,transition,list
 Please describe the transitions,transition,list
 Is q0 the final state?,state,final
@@ -109,7 +109,7 @@ Which is the final state?,state,final_list
 How many final states are there?,state,final_count
 What is its optimal spatial representation?,automaton,representation
 Briefly describe the automaton,automaton,description_brief
-It is possible to find a repetitive pattern in the transitions?,automaton,pattern
+Is it possible to find a repetitive pattern in the transitions?,automaton,pattern
 "If q2 was the final state, does language accepted by the automaton stay the same?",grammar,variation
 What can I use a finite state automata for?,theory,generic
 How many states can I use in an automaton?,theory,states
@@ -152,8 +152,8 @@ Which is the initial state of the automaton?,state,start
 What is the language accepted by the automaton?,grammar,accepted
 Is the string 110 accepted by the automaton?,grammar,simulation
 Describe the transition table of the automaton,transition,list
-Is there an arc from q0 to q1?,transition,existence_between
-Is there an arc from q2 to q1?,transition,existence_between
+Is there an arc from q0 to q1?,transition,existence_directed
+Is there an arc from q2 to q1?,transition,existence_directed
 How many states there are?,state,count
 What symbols does the automaton accept?,grammar,symbols
 What are the symbols accepted by the automaton?,grammar,symbols
@@ -208,13 +208,13 @@ What are the arcs?,transition,list
 Provide an overview of the automaton,automaton,description
 How many arcs marked by 1 are there?,transition,label
 Describe the shape of the automaton,automaton,representation
-What is an automaton?,theory,automaton
+What is an automaton?,theory,generic
 Can you provide the transition diagram?,transition,list
 Describe the transition diagram,transition,list
 How many transitions are there in the automaton,transition,count
 What is a pattern,theory,pattern
 Briefly describe the automaton,automaton,description_brief
-What's the number of nodes,state,coun
+What's the number of nodes,state,count
 Is 1 a label for some arc?,transition,label
 What is the accepted language,grammar,accepted
 Describe the position of nodes,automaton,representation
@@ -227,4 +227,4 @@ What is the final state?,state,final_list
 How many transitions are there?,transition,count
 Is there a transition from q0 to q5?,transition,existence_directed
 What is the optimal spatial representation of the automaton?,automaton,representation
-It is possible to find a repetitive pattern in the transitions?,automaton,cycles
+Is it possible to find a repetitive pattern in the transitions?,automaton,pattern
