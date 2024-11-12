@@ -95,5 +95,16 @@ Question,Global Subject,Question Intent
 "Are there any transitions that accept the entire alphabet?","transition","label"
 "Does the automaton have any ambiguous transitions?","transition","label"
 "Can you provide a complete list of the automaton's transitions?","transition","list"
-Describe all the automaton transitions.,transition,description
-Could you tell me more about all the automaton transitions?,transition,description
+"Describe all the automaton transitions.","transition","description"
+"Could you tell me more about all the automaton transitions?","transition","description"
+"What is the total number of transitions in the automaton?","transition","count"
+"Are there any loops in the automaton?","transition","cycles"
+"Is there a cyclical pattern in the automaton?","transition","cycles"
+"Is the automaton's transition graph acyclic?","transition","cycles"
+"Describe any repeating patterns in the automaton.","transition","cycles"
+"How does the automaton handle loops?","transition","cycles"
+"Are there any feedback loops in the automaton?","transition","cycles"
+"Are there unreachable states in the automaton?","transition","existence_into"
+"Can you provide a state diagram of the automaton?","transition","list"
+"What is the transition table of the automaton?","transition","list"
+"List all the possible transitions in the automaton.","transition","list"
