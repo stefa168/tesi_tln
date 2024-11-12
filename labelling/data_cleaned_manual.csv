@@ -13,9 +13,9 @@ What is q1,state,details
 How many states and edges are there?,automaton,list
 Is the automaton directed?,automaton,directionality
 How is the automaton represented graphically?,automaton,representation
-Does the automaton contain cycles?,automaton,cycles
+Does the automaton contain cycles?,transition,cycles
 Does the automaton accept a language allowing words made of an odd number of 0s and 1s,grammar,accepted
-Does the automaton accept a repeating pattern?,automaton,cycles
+Does the automaton accept a repeating pattern?,transition,cycles
 "If q2 was the final state, would the language accepted by the automaton change?",automaton,change
 Briefly describe the automaton,automaton,description_brief
 Does it only accept 1s and 0s?,grammar,symbols
@@ -53,7 +53,7 @@ Is there an arc from q1?,transition,existence_from
 Is there an arc from q2?,transition,existence_from
 Is there an arc from q3?,transition,existence_from
 How many states does the automaton have?,state,count
-Are there any loops?,automaton,cycles
+Are there any loops?,transition,cycles
 What transitions enter and exit q0?,state,transitions
 What transitions enter and exit q1?,state,transitions
 What transitions enter and exit q2?,state,transitions
@@ -187,7 +187,7 @@ Is there an arc from q0?,transition,existence_from
 Is there an arc from q2?,transition,existence_from
 Is there a transition from q1?,transition,existence_from
 How many transitions are there?,transition,count
-How many loops are there?,automaton,cycles
+How many loops are there?,transition,cycles
 How many states is the automaton made of?,state,count
 What are the states and the connections between states?,automaton,description
 What are the states and the transitions?,automaton,description
@@ -218,7 +218,7 @@ What's the number of nodes,state,count
 Is 1 a label for some arc?,transition,label
 What is the accepted language,grammar,accepted
 Describe the position of nodes,automaton,representation
-Is there any self loop,automaton,cycles
+Is there any self loop,transition,self_loop
 What is a connection,theory,transitions
 What are some examples of accepted inputs?,grammar,example_input
 Can you describe the transitions?,transition,list
