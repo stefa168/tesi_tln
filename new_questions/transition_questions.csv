@@ -108,3 +108,42 @@ Question,Global Subject,Question Intent
 "Can you provide a state diagram of the automaton?","transition","list"
 "What is the transition table of the automaton?","transition","list"
 "List all the possible transitions in the automaton.","transition","list"
+Which states form cycles in the automaton?,transition,cycles
+Is q1 connected to q2 via a transition?,transition,existence_between
+Does state q4 lead to a final state?,transition,existence_directed
+Does q1 have a transition to q0?,transition,existence_directed
+What are the outgoing transitions from q1?,transition,existence_from
+Does state q3 have any outgoing transitions?,transition,existence_from
+What are the labels on transitions from state q2?,transition,existence_from
+Does q3 have transitions to multiple states?,transition,existence_from
+Does state q0 have multiple outgoing transitions?,transition,existence_from
+What are the possible next states from q2?,transition,existence_from
+What are the incoming transitions to q0?,transition,existence_into
+Does q3 have any incoming transitions?,transition,existence_into
+Which states are predecessors of q4?,transition,existence_into
+How many transitions lead into q5?,transition,existence_into
+Does q2 transition to q3 on input '1'?,transition,input
+Which state follows q1 when input is '0'?,transition,input
+Does q0 transition to q1 on input '0'?,transition,input
+Which states are connected to q3?,transition,list
+Describe the transitions entering and leaving q5.,transition,list
+What transitions are associated with q0?,transition,list
+Which states are directly connected to q1?,transition,list
+Describe the transitions associated with q1.,transition,list
+Does q4 have any self-loops?,transition,self_loop
+Which states have self-loops?,transition,self_loop
+Are there any loops involving q4?,transition,self_loop
+List all the possible transitions in the automaton.,transition,list
+How many states are reachable from q0?,transition,existence_from
+Is there a path from q0 to q5?,transition,existence_directed
+Which states are accessible from q0?,transition,existence_from
+How many states have self-transitions?,transition,self_loop
+What inputs cause transitions from q3?,transition,input
+Which states are involved in accepting input 'c'?,transition,input
+What happens when state q2 receives input '1'?,transition,input
+What inputs does q1 accept?,transition,input
+What happens when q5 receives input '0'?,transition,input
+Which states have transitions on input 'a'?,transition,input
+Which states accept the input 'b'?,transition,input
+What happens when q4 receives input '1'?,transition,input
+What is the transition table of the automaton?,transition,list
