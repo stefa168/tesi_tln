@@ -73,14 +73,28 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="/filtered_data_manual_label.csv">
+        <entry key="/labelling/data_cleaned_manual.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="/labelling/data_cleaned_manual.csv">
+        <entry key="/new_questions/automaton_questions.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/new_questions/state_questions.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/new_questions/transition_questions.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

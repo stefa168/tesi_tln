@@ -1,0 +1,57 @@
+"Question","Global Subject","Question Intent"
+"What is the total number of states in the automaton?","state","count"
+"Does the automaton consist of six states?","state","count"
+"How many nodes does the automaton contain?","state","count"
+"List all the states in the automaton.","state","list"
+"Which are the states present in the automaton?","state","list"
+"What is the role of state q3?","state","details"
+"Is q2 an accepting state?","state","final"
+"Are there multiple final states?","state","final_count"
+"How many final states does the automaton have?","state","final_count"
+"Which states are final states?","state","final_list"
+"What are the names of the final states?","state","final_list"
+"Is q5 the start state?","state","start"
+"Which state is the initial state?","state","start"
+"Is there a state named q6?","state","details"
+"What is the significance of state q0?","state","details"
+"How many accepting states are there in the automaton?","state","final_count"
+"List the accepting states in the automaton.","state","final_list"
+"Is the automaton's initial state also a final state?","state",start_final
+"Which state is both initial and final?","state","start"
+"How many states have no incoming transitions?","state","details"
+"Are there any dead states in the automaton?","state",dead
+"Is q5 a sink state?","state","details"
+"Describe the behavior of state q4.","state","details"
+"Is q2 an initial state?","state","start"
+"How many states are terminal states?","state","final_count"
+"Is q0 an accepting state?","state","final"
+"What is the role of state q5 in the automaton?","state","details"
+"How many non-final states are there?","state","count"
+"Can you list the states in order of their connections?","state","list"
+"What is the initial state of the automaton?","state","start"
+"Is q5 an accepting state?","state","final"
+"How many states does the automaton include?","state","count"
+"What are the characteristics of state q2?","state","details"
+"What is the total number of accepting states?","state","final_count"
+"Is the automaton deterministic in its states?","state","details"
+"Is q1 a non-final state?","state",final
+"Does the automaton have any redundant states?","state","details"
+"Are there any states with identical transitions?","state","details"
+"What is the function of the start state?","state","start"
+"Is q2 both an initial and accepting state?","state",start_final
+"How many intermediate states are there?","state","count"
+"List the states that are not accepting states.","state",final
+"How many total states does the automaton have?","state","count"
+"Does the automaton have a single final state?","state","final_count"
+"Is q0 the only starting state?","state","start"
+"How many accepting states does the automaton have?","state","final"
+Describe the states in the automaton.,state,list
+What are the initial and final states of the automaton?,state,start_final
+How many states are in the automaton?,state,count
+Are there any states without outgoing transitions?,state,dead
+List all the states with no outgoing transitions.,state,dead
+Are there any isolated states in the automaton?,state,reachability
+Are all states in the automaton accessible?,state,reachability
+Is there a state that cannot be reached from the initial state?,state,reachability
+Are there any unreachable states in the automaton?,state,reachability
+Are there any unreachable states in the automaton?,state,reachability
