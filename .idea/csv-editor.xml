@@ -87,6 +87,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/new_questions/grammar_questions.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/new_questions/start_questions.csv">
           <value>
             <Attribute>

@@ -69,7 +69,7 @@ How many states are there?,state,count
 Please describe the automaton,automaton,description
 Can you provide a representation of the automaton?,automaton,representation
 Describe how does the automaton appear graphically,automaton,representation
-Give me some examples of inputs and output,grammar,"example_(input,output)"
+Give me some examples of inputs and output,grammar,example_input
 Can you provide me some examples of inputs,grammar,example_input
 Can you describe the input and the output,grammar,symbols
 Can you describe the transition function,theory,transitions
