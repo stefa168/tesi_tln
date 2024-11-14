@@ -29,17 +29,19 @@ class SentimentDataset(Dataset):
         return len(self.labels)
 
 
+# For fine tuning stability paper: https://arxiv.org/abs/2006.04884
 class BertClassifierModelTrainer:
     model_tokenizer: PreTrainedTokenizerBase
     model: PreTrainedModel
     stats: pd.DataFrame | None
 
     def __init__(self, model_name: str, num_labels: int, learning_rate: float, train_data, train_labels,
-                 validation_data, validation_labels):
+                 validation_data, validation_labels, epochs=20):
         self.model_name = model_name
         self.num_labels = num_labels
         self.stats = None
         self.learning_rate = learning_rate
+        self.epochs = epochs
         self.model_tokenizer = AutoTokenizer.from_pretrained(model_name)
         self.model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=num_labels)
 
@@ -55,30 +57,30 @@ class BertClassifierModelTrainer:
         self.train_dataset = SentimentDataset(train_encodings, train_labels)
         self.validation_dataset = SentimentDataset(validation_encodings, validation_labels)
 
-    def train(self, epochs=15):
+    def train(self):
         from transformers import get_linear_schedule_with_warmup
 
         # Create data loaders
         train_loader = DataLoader(self.train_dataset, batch_size=16, shuffle=True)
         val_loader = DataLoader(self.validation_dataset, batch_size=16, shuffle=False)
 
-        optimizer = AdamW(self.model.parameters(), lr=self.learning_rate)
+        optimizer = AdamW(self.model.parameters(), lr=self.learning_rate, betas=(0.9, 0.999), eps=1e-8)
 
         # Total number of training steps
-        total_steps = len(train_loader) * epochs
+        total_steps = len(train_loader) * self.epochs
 
-        # Scheduler to update the learning rate
+        # Scheduler to linearly increase for the first 10% of steps and then linearly decay to zero
         scheduler = get_linear_schedule_with_warmup(
             optimizer,
-            num_warmup_steps=0,
+            num_warmup_steps=int(0.1 * total_steps),
             num_training_steps=total_steps
         )
 
         training_stats = []
 
-        progress_bar = tqdm(total=epochs, desc=f"Training model...", unit="epochs")
+        progress_bar = tqdm(total=self.epochs, desc=f"Training model...", unit="epochs")
 
-        for epoch in range(epochs):
+        for epoch in range(self.epochs):
             start_time = time.time()
 
             # Training
@@ -104,7 +106,6 @@ class BertClassifierModelTrainer:
                 scheduler.step()
 
             avg_train_loss = total_train_loss / len(train_loader)
-            # print(f'Epoch {epoch + 1}, Training Loss: {avg_train_loss}')
 
             # Evaluation
             self.model.eval()
@@ -131,14 +132,6 @@ class BertClassifierModelTrainer:
 
             end_time = time.time()
             epoch_duration = end_time - start_time
-
-            # print(f'Validation Loss: {avg_val_loss}')
-            # print(f'Validation Accuracy: {val_accuracy}')
-            # print(classification_report(true_labels, predictions))
-            # Count true labels
-            # print("True Labels Distribution:", Counter(true_labels))
-            # Count predicted labels
-            # print("Predicted Labels Distribution:", Counter(predictions))
 
             training_stats.append(
                 {
