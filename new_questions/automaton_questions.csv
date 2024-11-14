@@ -91,3 +91,4 @@ Question,Global Subject,Question Intent
 "Describe any constraints imposed by the automaton.","automaton","description"
 "How does the automaton interact with external systems?","automaton","description"
 Could you show me the automaton diagram?,automaton,image
+Are the automaton's transitions directed or undirected?,automaton,directionality
