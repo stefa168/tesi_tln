@@ -1,0 +1,18 @@
+Question,Global Subject,Question Intent
+Hi,start,greet
+Hello,start,greet
+Can we begin?,start,greet
+Can we start?,start,greet
+Can we proceed?,start,greet
+Can we continue?,start,greet
+Can we move forward?,start,greet
+Can we move on?,start,greet
+Goog morning,start,greet
+Good afternoon,start,greet
+Good evening,start,greet
+Let's start,start,greet
+Let's begin,start,greet
+Let's proceed,start,greet
+Nice to meet you,start,greet
+Good to see you,start,greet
+Good to meet you,start,greet
