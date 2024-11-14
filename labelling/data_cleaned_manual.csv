@@ -1,5 +1,6 @@
 Question,Global Subject,Question Intent
 Hi,start,greet
+Hello,start,greet
 Describe the automaton,automaton,description
 Is there a transition between q2 and q0?,transition,existence_between
 Is there a transition between q5 and q7,transition,existence_between
