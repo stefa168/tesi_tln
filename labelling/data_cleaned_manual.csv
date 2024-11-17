@@ -17,7 +17,6 @@ How is the automaton represented graphically?,automaton,representation
 Does the automaton contain cycles?,transition,cycles
 Does the automaton accept a language allowing words made of an odd number of 0s and 1s,grammar,accepted
 Does the automaton accept a repeating pattern?,transition,cycles
-"If q2 was the final state, would the language accepted by the automaton change?",automaton,change
 Briefly describe the automaton,automaton,description_brief
 Does it only accept 1s and 0s?,grammar,symbols
 Can you describe the transitions of the automaton?,transition,description
@@ -33,7 +32,7 @@ What are the transitions from q2,transition,existence_from
 What are the transitions from q3,transition,existence_from
 What are the transitions from q4,transition,existence_from
 What is the purpose of the automaton?,grammar,accepted
-What happens when a q1 receives a 0?,state,input
+What happens when a q1 receives a 0?,transition,input
 How many states does the automaton have?,state,count
 How are your states linked together?,automaton,description
 Is q0 linked to q0?,transition,existence_between
@@ -129,9 +128,9 @@ Is there a pattern among the arcs?,automaton,pattern
 What could be a minimal spatial representation for this automaton?,automaton,representation
 Is there an arc between q0 and q1?,transition,existence_between
 Which are the transitions,transition,list
-what is the phd for,off_topic,
+what is the phd for,off_topic,off_topic
 What is the maximum number of states in an automaton?,theory,states
-How many states does a pentagon shaped automaton have?,off_topic,
+How many states does a pentagon shaped automaton have?,off_topic,off_topic
 How many states are there,state,count
 Briefly describe the automaton,automaton,description_brief
 How many states are there?,state,count
@@ -162,8 +161,8 @@ What is the alphabet?,grammar,symbols
 What is the grammar?,grammar,accepted
 What is the grammar recognised by the automaton?,grammar,accepted
 How is the automaton represented?,automaton,representation
-How many regions are there in Italy,off_topic,
-In which year we are?,off_topic,
+How many regions are there in Italy,off_topic,off_topic
+In which year we are?,off_topic,off_topic
 "If q0 was the final state, the language accepted by the automaton is the same?",grammar,variation
 How many states does the automata have?,state,count
 How many arcs are there in the automata?,transition,count
@@ -175,8 +174,8 @@ What is the regular expression that corresponds to the automaton?,grammar,regex
 Can you briefly describe the automata?,automaton,description_brief
 Summarise the automaton,automaton,description_brief
 What language does the automaton accept?,grammar,accepted
-Which are the principal pros,off_topic,
-Whatsappo,off_topic,
+Which are the principal pros,off_topic,off_topic
+Whatsappo,off_topic,off_topic
 Describe the automaton,automaton,description
 Show me the automaton,automaton,description
 How many states are there,state,count

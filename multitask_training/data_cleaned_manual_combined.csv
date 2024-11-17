@@ -1,0 +1,856 @@
+Question,Global Subject,Question Intent
+Hi,start,greet
+Hello,start,greet
+Describe the automaton,automaton,description
+Is there a transition between q2 and q0?,transition,existence_between
+Is there a transition between q5 and q7,transition,existence_between
+"Please, describe the automaton",automaton,description
+How many transitions does the automaton contain,transition,count
+Is there a particular pattern between the nodes and arcs?,automaton,pattern
+What grammar does the automaton recognise?,grammar,accepted
+What are the transitions,transition,list
+What are the states,state,list
+What is q1,state,details
+How many states and edges are there?,automaton,list
+Is the automaton directed?,automaton,directionality
+How is the automaton represented graphically?,automaton,representation
+Does the automaton contain cycles?,transition,cycles
+Does the automaton accept a language allowing words made of an odd number of 0s and 1s,grammar,accepted
+Does the automaton accept a repeating pattern?,transition,cycles
+Briefly describe the automaton,automaton,description_brief
+Does it only accept 1s and 0s?,grammar,symbols
+Can you describe the transitions of the automaton?,transition,description
+Which is the initial state?,state,start
+Does it have 5 states?,state,count
+How many states are there?,state,count
+Give me a list of the arcs,transition,list
+Is there an arc from q0 to q1?,transition,existence_directed
+What is the shape of the arcs,automaton,representation
+"Is there an arc from q0 to q2, q3 or q4?",transition,existence_between
+What are the transitions from q1,transition,existence_from
+What are the transitions from q2,transition,existence_from
+What are the transitions from q3,transition,existence_from
+What are the transitions from q4,transition,existence_from
+What is the purpose of the automaton?,grammar,accepted
+What happens when a q1 receives a 0?,transition,input
+How many states does the automaton have?,state,count
+How are your states linked together?,automaton,description
+Is q0 linked to q0?,transition,existence_between
+Is q1 linked to q4?,transition,existence_between
+What are the transitions from q4?,transition,existence_from
+What are the links of q4?,state,transitions
+Is q4 linked to q0?,transition,existence_between
+Can you describe me the automaton?,automaton,description
+Could you briefly describe the automaton?,automaton,description_brief
+Is there an arc from q1 to q2?,transition,existence_directed
+What are the states connected to q0?,state,transitions
+Is there an arc from q2 to q3?,transition,existence_directed
+Is there an arc from q3 to q4?,transition,existence_directed
+Is there an arc from q4 to q0?,transition,existence_directed
+Is there an arc from q4?,transition,existence_from
+Is there an arc from q0?,transition,existence_from
+Is there an arc from q1?,transition,existence_from
+Is there an arc from q2?,transition,existence_from
+Is there an arc from q3?,transition,existence_from
+How many states does the automaton have?,state,count
+Are there any loops?,transition,cycles
+What transitions enter and exit q0?,state,transitions
+What transitions enter and exit q1?,state,transitions
+What transitions enter and exit q2?,state,transitions
+What transitions enter and exit q4?,state,transitions
+What transitions enter and exit q3?,state,transitions
+What does the automaton recognize?,grammar,accepted
+What is the accepted language?,grammar,accepted
+How many transitions are there?,transition,count
+Is there a particular pattern?,automaton,pattern
+How many nodes are there?,state,count
+How many states are there?,state,count
+Please describe the automaton,automaton,description
+Can you provide a representation of the automaton?,automaton,representation
+Describe how does the automaton appear graphically,automaton,representation
+Give me some examples of inputs and output,grammar,example_input
+Can you provide me some examples of inputs,grammar,example_input
+Can you describe the input and the output,grammar,symbols
+Can you describe the transition function,theory,transitions
+What can you tell me about the transitions of the automaton?,transition,description
+What is the grammar accepted by it?,grammar,accepted
+How many states do compose the automaton?,state,count
+What are the input symbols that the automaton accepts?,grammar,symbols
+Can you describe the automaton?,automaton,description
+How are transitions defined,theory,transitions
+Can you describe the transitions?,transition,list
+If the input is 11100 what is the result given by the automaton?,grammar,simulation
+Is 110 a valid input for the automaton?,grammar,validity
+Can you describe the automata?,automaton,description
+What are the accepted inputs?,grammar,symbols
+Is 11100 part of the accepted language?,grammar,validity
+How many transitions are there in the automaton?,transition,count
+Is there a particular pattern among the arcs?,automaton,pattern
+Is there a transition from q0 to q5?,transition,existence_directed
+What are all the transitions?,transition,list
+Please describe the transitions,transition,list
+Is q0 the final state?,state,final
+How many states does the automaton have?,state,count
+How many transitions does the automata have?,transition,count
+Show me the transitions of the automaton,transition,list
+What transitions does the automaton have?,transition,list
+Briefly describe the automaton,automaton,description_brief
+How many states are there?,state,count
+How many arcs there are?,transition,count
+Is there a particular pattern?,automaton,pattern
+Are there arcs between q2 and q0?,transition,existence_between
+Are there arcs from q4?,transition,existence_from
+What are the final states?,state,final
+How many final states there are?,state,final_count
+Is q0 a final state?,state,final
+Is q4 a final state?,state,final
+Which are the final states?,state,final_list
+Which is the final state?,state,final_list
+How many final states are there?,state,final_count
+What is its optimal spatial representation?,automaton,representation
+Briefly describe the automaton,automaton,description_brief
+Is it possible to find a repetitive pattern in the transitions?,automaton,pattern
+"If q2 was the final state, does language accepted by the automaton stay the same?",grammar,variation
+What can I use a finite state automata for?,theory,generic
+How many states can I use in an automaton?,theory,states
+Can I use 5 states in an automaton?,theory,states
+What is the final state of an automaton?,theory,final
+How can I define an automaton?,theory,definition
+How is an automaton defined?,theory,definition
+What is an example of accepted string?,grammar,example_input
+What is the final state,state,final
+Which transitions start from q0?,transition,existence_from
+How many transitions start from q0?,transition,existence_from
+Which transitions start from q1?,transition,existence_from
+Which transitions start from q2?,transition,existence_from
+Which transitions end in q0?,transition,existence_into
+Is there a pattern among the arcs?,automaton,pattern
+What could be a minimal spatial representation for this automaton?,automaton,representation
+Is there an arc between q0 and q1?,transition,existence_between
+Which are the transitions,transition,list
+what is the phd for,off_topic,off_topic
+What is the maximum number of states in an automaton?,theory,states
+How many states does a pentagon shaped automaton have?,off_topic,off_topic
+How many states are there,state,count
+Briefly describe the automaton,automaton,description_brief
+How many states are there?,state,count
+How many states are there in the automata?,state,count
+According to your understanding of the Automaton what is its optimal spatial representation,automaton,representation
+Is there an arc between q0 and q1?,transition,existence_between
+Is there an arc between q1 and q2?,transition,existence_between
+Describe me the automaton,automaton,description
+How many states does the automaton have?,state,count
+What is the language recognised by the automaton?,grammar,accepted
+How many transitions are there?,transition,count
+What is the best way to represent this automaton?,automaton,representation
+What is the initial state?,state,start
+What language does this automata accept?,grammar,accepted
+What is an automaton?,theory,generic
+What is the initial state of the automaton,state,start
+Briefly describe me the automaton,automaton,description_brief
+Which is the initial state of the automaton?,state,start
+What is the language accepted by the automaton?,grammar,accepted
+Is the string 110 accepted by the automaton?,grammar,simulation
+Describe the transition table of the automaton,transition,list
+Is there an arc from q0 to q1?,transition,existence_directed
+Is there an arc from q2 to q1?,transition,existence_directed
+How many states there are?,state,count
+What symbols does the automaton accept?,grammar,symbols
+What are the symbols accepted by the automaton?,grammar,symbols
+What is the alphabet?,grammar,symbols
+What is the grammar?,grammar,accepted
+What is the grammar recognised by the automaton?,grammar,accepted
+How is the automaton represented?,automaton,representation
+How many regions are there in Italy,off_topic,off_topic
+In which year we are?,off_topic,off_topic
+"If q0 was the final state, the language accepted by the automaton is the same?",grammar,variation
+How many states does the automata have?,state,count
+How many arcs are there in the automata?,transition,count
+Is there a particular pattern among automata arcs?,automaton,pattern
+What is the transition function?,theory,transitions
+How much does the representation take?,automaton,representation
+What is the regular expression describing the automata?,grammar,regex
+What is the regular expression that corresponds to the automaton?,grammar,regex
+Can you briefly describe the automata?,automaton,description_brief
+Summarise the automaton,automaton,description_brief
+What language does the automaton accept?,grammar,accepted
+Which are the principal pros,off_topic,off_topic
+Whatsappo,off_topic,off_topic
+Describe the automaton,automaton,description
+Show me the automaton,automaton,description
+How many states are there,state,count
+Which one is the final state?,state,final
+Which one is the starting state?,state,start
+Which is the initial state?,state,start
+Which is the start state?,state,start
+Is there an arc from q0?,transition,existence_from
+Is there an arc from q2?,transition,existence_from
+Is there a transition from q1?,transition,existence_from
+How many transitions are there?,transition,count
+How many loops are there?,transition,cycles
+How many states is the automaton made of?,state,count
+What are the states and the connections between states?,automaton,description
+What are the states and the transitions?,automaton,description
+Which are the states and the transitions?,automaton,description
+Is there an arc between q0 and q1?,transition,existence_between
+What are the transitions?,transition,list
+Describe the transitions,transition,list
+What input does the arc between q0 and q2 accept?,transition,existence_between
+What are the final states?,state,final
+Which is the start state?,state,start
+Tell me a little bit about the automaton,automaton,description_brief
+Is there a pattern among the transitions?,automaton,pattern
+Does the automaton language accept words made of an odd number of 0s and 1s,grammar,accepted
+Is it possible to repeat transitions?,theory,transitions
+Which are the states that are connected with arcs that accept the value 0?,transition,label
+What arcs are marked with 0?,transition,label
+What are the arcs?,transition,list
+Provide an overview of the automaton,automaton,description
+How many arcs marked by 1 are there?,transition,label
+Describe the shape of the automaton,automaton,representation
+What is an automaton?,theory,generic
+Can you provide the transition diagram?,transition,list
+Describe the transition diagram,transition,list
+How many transitions are there in the automaton,transition,count
+What is a pattern,theory,pattern
+Briefly describe the automaton,automaton,description_brief
+What's the number of nodes,state,count
+Is 1 a label for some arc?,transition,label
+What is the accepted language,grammar,accepted
+Describe the position of nodes,automaton,representation
+Is there any self loop,transition,self_loop
+What is a connection,theory,transitions
+What are some examples of accepted inputs?,grammar,example_input
+Can you describe the transitions?,transition,list
+How many states are there?,state,count
+What is the final state?,state,final_list
+How many transitions are there?,transition,count
+Is there a transition from q0 to q5?,transition,existence_directed
+What is the optimal spatial representation of the automaton?,automaton,representation
+Is it possible to find a repetitive pattern in the transitions?,automaton,pattern
+Can you explain the structure of the automaton?,automaton,description
+What is the automaton composed of?,automaton,description
+List all the states and their transitions.,automaton,list
+What are the initial and final states of the automaton?,automaton,description
+Is the automaton deterministic or nondeterministic?,automaton,deterministic
+Does the automaton have any accepting states?,automaton,description
+Provide a brief summary of the automaton.,automaton,description_brief
+Is there a specific pattern in how states are connected?,automaton,pattern
+How are the states organized in the automaton?,automaton,representation
+Can you draw the automaton?,automaton,image
+What is the graphical representation of the automaton?,automaton,representation
+Does the automaton represent any language?,automaton,description
+Can you summarize the automaton's functionality?,automaton,description_brief
+Is there a repetitive sequence in the automaton's transitions?,automaton,pattern
+How does the automaton process input strings?,automaton,description
+What is the purpose of the automaton?,automaton,description
+Explain the behavior of the automaton.,automaton,description
+Can you optimize the automaton?,automaton,optimization
+How is the automaton implemented?,automaton,description
+Is there an efficient way to represent the automaton?,automaton,optimization
+What are the inputs and outputs of the automaton?,automaton,description
+How does the automaton handle invalid inputs?,automaton,description
+Is the automaton complete?,automaton,description
+Does the automaton accept any empty strings?,automaton,description
+What is the alphabet of the automaton?,automaton,description
+Describe the transition function of the automaton.,automaton,description
+Describe any patterns in the automaton's state transitions.,automaton,pattern
+How does the automaton relate to regular expressions?,automaton,description
+What is the role of each state in the automaton?,automaton,description
+Can you briefly explain the automaton's design?,automaton,description_brief
+What kind of language does the automaton recognize?,automaton,description
+Are there any dead states in the automaton?,automaton,description
+Describe the initial configuration of the automaton.,automaton,description
+Is the automaton minimal in terms of states?,automaton,representation
+Can you explain the automaton's state transitions?,automaton,description
+Does the automaton have a hierarchical structure?,automaton,pattern
+Are there any symmetries in the automaton?,automaton,pattern
+How can the automaton be simplified?,automaton,optimization
+Is there an equivalent automaton with fewer states?,automaton,optimization
+What graphical methods are used to represent the automaton?,automaton,representation
+What is the best way to visualize the automaton?,automaton,representation
+Is the automaton's structure linear or branching?,automaton,pattern
+Describe the connectivity of the automaton.,automaton,description
+What are the characteristics of the automaton's transitions?,automaton,description
+How are the automaton's states defined?,automaton,description
+Is the automaton deterministic?,automaton,deterministic
+Does the automaton have any non-deterministic transitions?,automaton,deterministic
+How does the automaton differ from a Turing machine?,automaton,description
+Is there a particular sequence of states in the automaton?,automaton,pattern
+Can you provide an example of how the automaton works?,automaton,description
+What is the main function of the automaton?,automaton,description
+Does the automaton have a start and end state?,automaton,description
+How are inputs processed by the automaton?,automaton,description
+Is the automaton capable of parallel transitions?,automaton,deterministic
+Are there any nested states in the automaton?,automaton,pattern
+Can you summarize the automaton in a few sentences?,automaton,description_brief
+What is the simplest form of this automaton?,automaton,representation
+How is the automaton's behavior characterized?,automaton,description
+Are the transitions in the automaton weighted?,automaton,description
+Does the automaton exhibit any symmetry?,automaton,pattern
+Is there an equivalent automaton with a different structure?,automaton,optimization
+Describe the automaton's operational logic.,automaton,description
+"What type of automaton is it (e.g., DFA, NFA)?",automaton,description
+Is the automaton complete or partial?,automaton,description
+Can you identify any patterns in the automaton's design?,automaton,pattern
+What is the significance of each state in the automaton?,automaton,description
+Is the automaton designed for a specific application?,automaton,description
+Can you explain the automaton's state transitions briefly?,automaton,description_brief
+What are the key features of the automaton?,automaton,description
+Is there a way to minimize the automaton further?,automaton,optimization
+Provide a concise description of the automaton.,automaton,description_brief
+Does the automaton accept infinite input sequences?,automaton,description
+How does the automaton handle concurrency?,automaton,description
+Can you compare this automaton to others?,automaton,description
+What limitations does the automaton have?,automaton,description
+How is state information stored in the automaton?,automaton,description
+Does the automaton use any probabilistic transitions?,automaton,deterministic
+Describe how errors are handled by the automaton.,automaton,description
+What kind of outputs does the automaton produce?,automaton,description
+How does the automaton respond to unexpected inputs?,automaton,description
+Is the automaton's transition function total or partial?,automaton,description
+What is the computational complexity of the automaton?,automaton,description
+Can the automaton's states be grouped into categories?,automaton,pattern
+Describe the communication between states in the automaton.,automaton,description
+Is the automaton based on any formal language theory?,automaton,description
+How does the automaton ensure correctness of processing?,automaton,description
+How is the automaton initialized before processing?,automaton,description
+Does the automaton have any synchronization mechanisms?,automaton,description
+How flexible is the automaton in handling different inputs?,automaton,description
+Describe any constraints imposed by the automaton.,automaton,description
+How does the automaton interact with external systems?,automaton,description
+Could you show me the automaton diagram?,automaton,image
+Are the automaton's transitions directed or undirected?,automaton,directionality
+What is the total number of states in the automaton?,state,count
+Does the automaton consist of six states?,state,count
+How many nodes does the automaton contain?,state,count
+List all the states in the automaton.,state,list
+Which are the states present in the automaton?,state,list
+What is the role of state q3?,state,details
+Is q2 an accepting state?,state,final
+Are there multiple final states?,state,final_count
+How many final states does the automaton have?,state,final_count
+Which states are final states?,state,final_list
+What are the names of the final states?,state,final_list
+Is q5 the start state?,state,start
+Which state is the initial state?,state,start
+Is there a state named q6?,state,details
+What is the significance of state q0?,state,details
+How many accepting states are there in the automaton?,state,final_count
+List the accepting states in the automaton.,state,final_list
+Is the automaton's initial state also a final state?,state,start_final
+Which state is both initial and final?,state,start
+How many states have no incoming transitions?,state,details
+Are there any dead states in the automaton?,state,dead
+Is q5 a sink state?,state,details
+Describe the behavior of state q4.,state,details
+Is q2 an initial state?,state,start
+How many states are terminal states?,state,final_count
+Is q0 an accepting state?,state,final
+What is the role of state q5 in the automaton?,state,details
+How many non-final states are there?,state,count
+Can you list the states in order of their connections?,state,list
+What is the initial state of the automaton?,state,start
+Is q5 an accepting state?,state,final
+How many states does the automaton include?,state,count
+What are the characteristics of state q2?,state,details
+What is the total number of accepting states?,state,final_count
+Is the automaton deterministic in its states?,state,details
+Is q1 a non-final state?,state,final
+Does the automaton have any redundant states?,state,details
+Are there any states with identical transitions?,state,details
+What is the function of the start state?,state,start
+Is q2 both an initial and accepting state?,state,start_final
+How many intermediate states are there?,state,count
+List the states that are not accepting states.,state,final
+How many total states does the automaton have?,state,count
+Does the automaton have a single final state?,state,final_count
+Is q0 the only starting state?,state,start
+How many accepting states does the automaton have?,state,final
+Describe the states in the automaton.,state,list
+What are the initial and final states of the automaton?,state,start_final
+How many states are in the automaton?,state,count
+Are there any states without outgoing transitions?,state,dead
+List all the states with no outgoing transitions.,state,dead
+Are there any isolated states in the automaton?,state,reachability
+Are all states in the automaton accessible?,state,reachability
+Is there a state that cannot be reached from the initial state?,state,reachability
+Are there any unreachable states in the automaton?,state,reachability
+Are there any unreachable states in the automaton?,state,reachability
+How many transitions go out from state q5?,transition,existence_from
+Are there any transitions that accept the input symbol 'a'?,transition,label
+Is there a transition from q2 to q5?,transition,existence_directed
+Can you list all the transitions that end at q3?,transition,existence_into
+What inputs do the transitions from q1 accept?,transition,existence_from
+Describe the transitions between q0 and q4.,transition,existence_between
+Is there an arc labeled '0' from q3 to q2?,transition,existence_directed
+How many arcs are labeled with '1'?,transition,label
+Does the automaton have any self-loops?,transition,self_loop
+Are there any transitions between q5 and q5?,transition,existence_between
+What transitions are available from the initial state?,transition,existence_from
+Can you list all transitions that accept the symbol 'b'?,transition,label
+How many transitions are there in total?,transition,count
+Is q4 connected to any other state?,transition,existence_from
+Are there transitions leading into q1?,transition,existence_into
+What are the transitions to the final state?,transition,existence_into
+Is there an arc from q0 to q2 labeled 'epsilon'?,transition,existence_directed
+List all the transitions that involve q3.,transition,list
+How many transitions lead into q0?,transition,existence_into
+Is there an arc labeled '1' from q2 to q0?,transition,existence_directed
+Which states are connected via transitions labeled 'a'?,transition,label
+How many transitions are there from q0 to q1?,transition,existence_between
+Are there multiple transitions between q1 and q2?,transition,existence_between
+Is there a transition labeled '0' from q4?,transition,existence_from
+Does q3 have any outgoing transitions?,transition,existence_from
+Can you describe the transitions that accept the input symbol 'c'?,transition,label
+What are the input symbols for transitions from q5?,transition,label
+Is there a transition from q0 back to q0?,transition,self_loop
+List all the arcs in the automaton.,transition,list
+How many loops are there in the automaton?,transition,cycles
+Which transitions accept the symbol 'epsilon'?,transition,label
+Are there any transitions from q1 that accept '1'?,transition,existence_from
+Is there a transition labeled 'b' leading to q4?,transition,existence_into
+Can you provide the transition table?,transition,list
+What are the labels of the transitions between q2 and q3?,transition,existence_between
+Is q5 an unreachable state?,transition,existence_into
+Does q0 have a self-loop on input 'a'?,transition,self_loop
+How many transitions accept the symbol '0'?,transition,label
+Are there any transitions that accept digits?,transition,label
+Which transitions involve the state q2?,transition,list
+How many outgoing transitions does q4 have?,transition,existence_from
+Are there any transitions that accept uppercase letters?,transition,label
+List all transitions that accept special characters.,transition,label
+Are there transitions that accept multiple input symbols?,transition,label
+Is there a transition labeled 'd' from q1 to q3?,transition,existence_directed
+Describe the transitions that loop back to their originating state.,transition,self_loop
+Are there any transitions that accept 'epsilon'?,transition,label
+How many transitions lead from q0 to any other state?,transition,existence_from
+Are there any transitions labeled with non-alphabetic symbols?,transition,label
+Can you list the transitions that do not accept 'a' or 'b'?,transition,label
+Is q2 connected to q4 via any transitions?,transition,existence_between
+How many transitions are there between q3 and q4?,transition,existence_between
+Are there any transitions that accept input strings longer than one character?,transition,label
+Is there a transition from q5 to q0?,transition,existence_directed
+What transitions accept the symbol 'z'?,transition,label
+Does q1 have an outgoing transition labeled '1'?,transition,existence_from
+Are there multiple transitions from q0 on the same input symbol?,transition,existence_from
+Is there a transition from q0 to q1 labeled 'epsilon'?,transition,existence_directed
+How many transitions accept the input symbol 'e'?,transition,label
+Which states have transitions accepting the input '0'?,transition,label
+List the transitions that end at q5.,transition,existence_into
+Are there any transitions from q2 that do not accept 'a'?,transition,existence_from
+"How many transitions accept symbols from the set {'0', '1'}?",transition,label
+Does the automaton have transitions accepting numerals?,transition,label
+Can you provide a description of the automaton's transitions?,transition,description
+What are the transitions from q0 on input 'b'?,transition,existence_from
+Is there a transition between q1 and q4 labeled 'c'?,transition,existence_between
+How many transitions accept the empty string?,transition,label
+Are there any transitions that loop from q3 back to q3?,transition,self_loop
+Which transitions accept vowels?,transition,label
+Does the automaton have transitions accepting uppercase letters?,transition,label
+Are there transitions that accept multiple input symbols simultaneously?,transition,label
+Is there a direct transition from q0 to q5?,transition,existence_directed
+List all transitions that do not involve q0.,transition,list
+How many transitions are there to q2?,transition,existence_into
+Are there any transitions labeled with special characters?,transition,label
+Is q1 connected to q3 in any way?,transition,existence_between
+Describe the transitions from q4 that accept 'd'.,transition,existence_from
+How many total transitions are there in the automaton?,transition,count
+Are there any transitions from q3 that accept 'e'?,transition,existence_from
+Is there a transition labeled 'f' between q2 and q5?,transition,existence_between
+Does the automaton have any unreachable states due to missing transitions?,transition,existence_into
+What are the possible transitions from q1 on any input?,transition,existence_from
+Can you list the transitions that have 'g' as their input label?,transition,label
+Are there any transitions leading from q0 to q3?,transition,existence_directed
+How many transitions are there from q2 to q4?,transition,existence_between
+Does q5 have any incoming transitions?,transition,existence_into
+Is there a transition from q1 to q1?,transition,self_loop
+What are the labels of transitions entering q3?,transition,existence_into
+Are there any transitions from q4 that accept the input 'h'?,transition,label
+Is there a transition between q0 and q2 that accepts 'i'?,transition,existence_between
+"How many transitions accept symbols from the set {'j', 'k', 'l'}?",transition,label
+List all transitions that accept lowercase letters.,transition,label
+Are there any transitions that accept the entire alphabet?,transition,label
+Does the automaton have any ambiguous transitions?,transition,label
+Can you provide a complete list of the automaton's transitions?,transition,list
+Describe all the automaton transitions.,transition,description
+Could you tell me more about all the automaton transitions?,transition,description
+What is the total number of transitions in the automaton?,transition,count
+Are there any loops in the automaton?,transition,cycles
+Is there a cyclical pattern in the automaton?,transition,cycles
+Is the automaton's transition graph acyclic?,transition,cycles
+Describe any repeating patterns in the automaton.,transition,cycles
+How does the automaton handle loops?,transition,cycles
+Are there any feedback loops in the automaton?,transition,cycles
+Are there unreachable states in the automaton?,transition,existence_into
+Can you provide a state diagram of the automaton?,transition,list
+What is the transition table of the automaton?,transition,list
+List all the possible transitions in the automaton.,transition,list
+Which states form cycles in the automaton?,transition,cycles
+Is q1 connected to q2 via a transition?,transition,existence_between
+Does state q4 lead to a final state?,transition,existence_directed
+Does q1 have a transition to q0?,transition,existence_directed
+What are the outgoing transitions from q1?,transition,existence_from
+Does state q3 have any outgoing transitions?,transition,existence_from
+What are the labels on transitions from state q2?,transition,existence_from
+Does q3 have transitions to multiple states?,transition,existence_from
+Does state q0 have multiple outgoing transitions?,transition,existence_from
+What are the possible next states from q2?,transition,existence_from
+What are the incoming transitions to q0?,transition,existence_into
+Does q3 have any incoming transitions?,transition,existence_into
+Which states are predecessors of q4?,transition,existence_into
+How many transitions lead into q5?,transition,existence_into
+Does q2 transition to q3 on input '1'?,transition,input
+Which state follows q1 when input is '0'?,transition,input
+Does q0 transition to q1 on input '0'?,transition,input
+Which states are connected to q3?,transition,list
+Describe the transitions entering and leaving q5.,transition,list
+What transitions are associated with q0?,transition,list
+Which states are directly connected to q1?,transition,list
+Describe the transitions associated with q1.,transition,list
+Does q4 have any self-loops?,transition,self_loop
+Which states have self-loops?,transition,self_loop
+Are there any loops involving q4?,transition,self_loop
+List all the possible transitions in the automaton.,transition,list
+How many states are reachable from q0?,transition,existence_from
+Is there a path from q0 to q5?,transition,existence_directed
+Which states are accessible from q0?,transition,existence_from
+How many states have self-transitions?,transition,self_loop
+What inputs cause transitions from q3?,transition,input
+Which states are involved in accepting input 'c'?,transition,input
+What happens when state q2 receives input '1'?,transition,input
+What inputs does q1 accept?,transition,input
+What happens when q5 receives input '0'?,transition,input
+Which states have transitions on input 'a'?,transition,input
+Which states accept the input 'b'?,transition,input
+What happens when q4 receives input '1'?,transition,input
+What is the transition table of the automaton?,transition,list
+"Does the automaton accept strings over the alphabet {0,1}?",grammar,symbols
+What language is recognized by this automaton?,grammar,accepted
+Can you provide examples of strings accepted by the automaton?,grammar,example_input
+Is the string '1010' accepted by the automaton?,grammar,simulation
+What is the set of input symbols for the automaton?,grammar,symbols
+Does the automaton accept all binary strings?,grammar,accepted
+Can the automaton accept an empty string?,grammar,validity
+What is the regular expression equivalent to this automaton?,grammar,regex
+"If the input is '0110', what will the automaton do?",grammar,simulation
+Does the automaton accept strings ending with '0'?,grammar,accepted
+Is '111' a valid input for the automaton?,grammar,validity
+What kind of grammar does the automaton accept?,grammar,accepted
+What is the purpose of this automaton in terms of language recognition?,grammar,accepted
+Provide some accepted input examples for the automaton.,grammar,example_input
+What strings are rejected by the automaton?,grammar,accepted
+Does the automaton accept strings with an even number of '1's?,grammar,accepted
+Is the automaton designed to accept palindromic strings?,grammar,accepted
+What is the minimal grammar that the automaton recognizes?,grammar,accepted
+Can you simulate the automaton on input '1001'?,grammar,simulation
+Does changing the final state alter the accepted language?,grammar,variation
+What is the language accepted if we remove state q2?,grammar,variation
+Which input strings cause the automaton to halt in a non-accepting state?,grammar,simulation
+What is the language accepted by the automaton?,grammar,accepted
+Does the automaton accept the string '000'?,grammar,simulation
+Is the automaton accepting strings that start with '1' and end with '0'?,grammar,accepted
+What is the set of symbols used in the automaton's transitions?,grammar,symbols
+Can you describe the language recognized by the automaton?,grammar,accepted
+Does the automaton accept the language of all strings containing '101'?,grammar,accepted
+Provide examples of strings not accepted by the automaton.,grammar,example_input
+What happens when the automaton processes the string '0101'?,grammar,simulation
+Is 'epsilon' (empty string) accepted by the automaton?,grammar,validity
+Does the automaton accept any strings over the alphabet?,grammar,accepted
+What is the regular language defined by the automaton?,grammar,regex
+"If the final state is changed to q3, what language does it accept?",grammar,variation
+What is the accepted language if the automaton is reversed?,grammar,variation
+Are there any strings that cause the automaton to loop indefinitely?,grammar,validity
+Does the automaton accept the complement of the language of strings with an even number of '0's?,grammar,accepted
+What is the grammar produced by the automaton?,grammar,accepted
+Can you simulate the automaton on input '1100'?,grammar,simulation
+What is the output of the automaton for input '1011'?,grammar,simulation
+Is the automaton deterministic in its acceptance of inputs?,grammar,accepted
+What is the set of accepted strings?,grammar,accepted
+Does the automaton accept any string that ends with '1'?,grammar,accepted
+What is the language accepted by changing q0 to a final state?,grammar,variation
+Can you provide the regular expression corresponding to the automaton?,grammar,regex
+Does the automaton accept strings of length less than 3?,grammar,accepted
+Is '1010' part of the language recognized by the automaton?,grammar,validity
+What are the input and output alphabets of the automaton?,grammar,symbols
+Does the automaton accept only binary strings with no consecutive '1's?,grammar,accepted
+What is the effect on the language if the automaton's initial state is changed?,grammar,variation
+Provide examples of inputs that are rejected by the automaton.,grammar,example_input
+Is '1001' an accepted input for the automaton?,grammar,simulation
+What is the accepted language when state q1 becomes a final state?,grammar,variation
+Does the automaton accept the language described by the regular expression (0+1)*1?,grammar,regex
+Can the automaton accept infinite length strings?,grammar,validity
+What is the language accepted if all states are made accepting states?,grammar,variation
+Describe the set of all strings accepted by the automaton.,grammar,accepted
+Is the string '0000' accepted or rejected by the automaton?,grammar,simulation
+What symbols are not accepted by the automaton?,grammar,symbols
+Does the automaton accept strings with exactly two '1's?,grammar,accepted
+What is the minimal regular expression for the automaton's language?,grammar,regex
+Does the automaton accept strings where '0's and '1's alternate?,grammar,accepted
+Provide a sample input that the automaton would reject.,grammar,example_input
+Does the automaton recognize the language of all strings containing at least one '1'?,grammar,accepted
+What happens if the input is '0011'?,grammar,simulation
+Is '1111' a valid input according to the automaton's language?,grammar,validity
+What changes to the automaton would alter its accepted language?,grammar,variation
+Can you give examples of accepted and rejected strings?,grammar,example_input
+Does the automaton accept any string that starts and ends with the same symbol?,grammar,accepted
+What is the set of all possible inputs for the automaton?,grammar,symbols
+Does the automaton accept palindromic binary strings?,grammar,accepted
+What is the language accepted if we swap the accepting states?,grammar,variation
+Can you write the regular expression that defines the automaton's language?,grammar,regex
+Is the automaton accepting of the language (0+1)*0?,grammar,accepted
+Does the automaton accept strings with more '1's than '0's?,grammar,accepted
+Provide the definition of the language recognized by the automaton.,grammar,accepted
+What would be the result of processing input '011'?,grammar,simulation
+Is '0' an accepted input by the automaton?,grammar,validity
+What is the impact on the language if we add a new accepting state?,grammar,variation
+Does the automaton accept the empty string?,grammar,validity
+What is the language accepted by making all states non-accepting?,grammar,variation
+Can you explain the grammar that the automaton recognizes?,grammar,accepted
+Is '101' accepted or rejected by the automaton?,grammar,simulation
+What is the set of symbols that the automaton does not accept?,grammar,symbols
+Does changing the transition function affect the accepted language?,grammar,variation
+What happens when the automaton processes input '0001'?,grammar,simulation
+Provide examples of inputs accepted by the automaton.,grammar,example_input
+Is the automaton's language regular or context-free?,grammar,accepted
+Does the automaton accept any strings with consecutive '0's?,grammar,accepted
+What is the regular expression that matches the automaton's language?,grammar,regex
+Is '1000' a valid string for the automaton?,grammar,validity
+What changes occur in the accepted language if we modify the start state?,grammar,variation
+Can you simulate the automaton on input '0110'?,grammar,simulation
+Does the automaton accept only strings of even length?,grammar,accepted
+What language does the automaton accept if we add a loop on q1?,grammar,variation
+Is there any input that is accepted by the automaton?,grammar,accepted
+What is the accepted language if we remove all accepting states?,grammar,variation
+"Does the automaton accept the language of all strings over {0,1}?",grammar,accepted
+Provide the regular grammar corresponding to the automaton.,grammar,accepted
+Is '001' part of the accepted language?,grammar,validity
+What is the result of the automaton processing '110'?,grammar,simulation
+Does the automaton accept strings with an odd number of '0's?,grammar,accepted
+Is the automaton accepting any string with prefix '10'?,grammar,accepted
+Describe the language accepted by the automaton.,grammar,accepted
+Does the automaton accept strings that are multiples of '11'?,grammar,accepted
+What is the output when the automaton processes '1010'?,grammar,simulation
+Are there any inputs that the automaton will not process?,grammar,validity
+Does the automaton accept strings where the number of '0's equals the number of '1's?,grammar,accepted
+What is the effect on the accepted language if we remove state q1?,grammar,variation
+Is '01010' accepted by the automaton?,grammar,simulation
+Provide a detailed description of the automaton's accepted language.,grammar,accepted
+Hi,start,greet
+Hello,start,greet
+Can we begin?,start,greet
+Can we start?,start,greet
+Can we proceed?,start,greet
+Can we continue?,start,greet
+Can we move forward?,start,greet
+Can we move on?,start,greet
+Goog morning,start,greet
+Good afternoon,start,greet
+Good evening,start,greet
+Let's start,start,greet
+Let's begin,start,greet
+Let's proceed,start,greet
+Nice to meet you,start,greet
+Good to see you,start,greet
+Good to meet you,start,greet
+What are the key components of an automaton?,theory,definition
+Can you explain the concept of states in automata?,theory,definition
+How is a finite automaton different from a Turing machine?,theory,generic
+What is the role of the transition function in an automaton?,theory,transitions
+Is it possible for an automaton to have infinite states?,theory,states
+How does the automaton process input strings?,theory,transitions
+What defines the initial state in an automaton?,theory,definition
+Can an automaton have multiple initial states?,theory,states
+What is meant by the term 'accepting state' in automata?,theory,final
+How are accepting states represented in automata diagrams?,theory,final
+What is the difference between deterministic and nondeterministic automata?,theory,generic
+Can you define a deterministic finite automaton?,theory,definition
+How do transitions work in nondeterministic automata?,theory,transitions
+What is the significance of the final state in an automaton?,theory,final
+What is a state transition diagram?,theory,transitions
+How are transitions defined in an automaton?,theory,transitions
+Is it possible to have a transition without consuming input symbols?,theory,transitions
+What is an epsilon transition?,theory,transitions
+What is the maximum number of transitions a state can have?,theory,transitions
+Can you explain the concept of patterns in automata?,theory,pattern
+How do finite automata recognize patterns in input?,theory,pattern
+What is the importance of patterns in automata theory?,theory,pattern
+Are patterns related to the language accepted by an automaton?,theory,pattern
+How can we represent an automaton mathematically?,theory,definition
+What is the formal definition of a finite automaton?,theory,definition
+Can an automaton be used to model regular expressions?,theory,generic
+What is the relationship between automata and regular languages?,theory,generic
+How many states are needed to recognize a given pattern?,theory,states
+What factors determine the number of states in an automaton?,theory,states
+Is there a method to minimize the number of states in an automaton?,theory,states
+What is state minimization in automata theory?,theory,states
+Can two different automata recognize the same language?,theory,generic
+What is the purpose of using automata in computer science?,theory,generic
+How are automata applied in lexical analysis?,theory,generic
+What is the difference between a Mealy machine and a Moore machine?,theory,generic
+What is a transition table in the context of automata?,theory,transitions
+How are transitions represented in a transition table?,theory,transitions
+What is the role of input symbols in transitions?,theory,transitions
+Can you have multiple transitions for the same input symbol in a deterministic automaton?,theory,transitions
+What is the significance of deterministic behavior in automata?,theory,generic
+How do nondeterministic automata differ in handling transitions?,theory,transitions
+What is the subset construction method in automata theory?,theory,definition
+How can we convert a nondeterministic automaton to a deterministic one?,theory,generic
+What is the power set of states in automata conversion?,theory,states
+Why are accepting states important in defining languages?,theory,final
+Can an automaton have no accepting states?,theory,final
+What happens if an automaton has all states as accepting states?,theory,final
+What is an infinite automaton?,theory,definition
+How does an automaton differ from a grammar?,theory,generic
+What is the Chomsky hierarchy in automata theory?,theory,generic
+How are context-free grammars related to automata?,theory,generic
+What is the role of automata in parsing?,theory,generic
+Can you explain the concept of language recognition in automata?,theory,generic
+What is a language accepted by an automaton?,theory,definition
+How do automata recognize regular languages?,theory,generic
+What are the limitations of finite automata?,theory,generic
+Can finite automata recognize all possible languages?,theory,generic
+What is a pushdown automaton?,theory,generic
+How do pushdown automata differ from finite automata?,theory,generic
+What is the stack used for in a pushdown automaton?,theory,generic
+What is the purpose of transitions in an automaton?,theory,transitions
+How are transitions depicted in automata diagrams?,theory,transitions
+Can transitions be labeled with multiple input symbols?,theory,transitions
+What is the difference between an automaton's alphabet and its language?,theory,definition
+How do you define the language accepted by an automaton?,theory,definition
+What is the role of states in determining accepted strings?,theory,states
+How do initial and accepting states affect an automaton's behavior?,theory,final
+Is it possible to have an automaton without a start state?,theory,states
+What is meant by the term 'dead state' in automata?,theory,states
+How are dead states used in automata design?,theory,states
+What is the significance of unreachable states in an automaton?,theory,states
+Can automata have unreachable states?,theory,states
+How do we eliminate unreachable states from an automaton?,theory,states
+What is a complete automaton?,theory,definition
+What is an incomplete automaton?,theory,definition
+How does the completeness of an automaton affect its operation?,theory,generic
+What are the applications of finite automata in real life?,theory,generic
+How are finite automata used in text processing?,theory,generic
+What is an example of a practical use of automata?,theory,generic
+Can finite automata model sequential logic circuits?,theory,generic
+What is the significance of patterns in automata recognition?,theory,pattern
+How can automata detect patterns in data streams?,theory,pattern
+What is a regular expression in the context of automata?,theory,definition
+How do regular expressions relate to finite automata?,theory,generic
+Can all regular expressions be converted to finite automata?,theory,generic
+What is the process of constructing an automaton from a regular expression?,theory,transitions
+How are transitions defined when building an automaton from a regular expression?,theory,transitions
+What is the role of epsilon transitions in NFA?,theory,transitions
+How do epsilon transitions affect the behavior of an automaton?,theory,transitions
+Can deterministic automata have epsilon transitions?,theory,transitions
+What is the significance of closure properties in automata?,theory,generic
+How do automata handle concatenation of languages?,theory,generic
+What is the intersection of languages in automata theory?,theory,generic
+How does the union of automata languages work?,theory,generic
+Can automata be combined to recognize more complex languages?,theory,generic
+What is the complement of a language in automata theory?,theory,generic
+How do transitions define the accepted language of an automaton?,theory,transitions
+Is there a limit to how complex an automaton can be?,theory,states
+What factors influence the design of an automaton?,theory,generic
+How can automata be optimized for efficiency?,theory,generic
+What was one advantage of this system?,off_topic,off_topic
+Who stopped influencing department stores in the 1970's?,off_topic,off_topic
+What is Punjab's biggest city?,off_topic,off_topic
+MBS and CDO derive their value from?,off_topic,off_topic
+What does one of the Sura in the Quran begin with?,off_topic,off_topic
+Four-fifths of the ZIP codes that provide the highest amount of political contributions in the United States are located in what borough?,off_topic,off_topic
+When year did Prince Albert resurrect?,off_topic,off_topic
+What school agreed with the Mimamsa's understanding of Upanishads?,off_topic,off_topic
+In what year was Elizabeth born?,off_topic,off_topic
+What defeat led to Prussia having to swear its allegiance to Napoleon?,off_topic,off_topic
+Who owned the Desperados trademarks?,off_topic,off_topic
+ A torque motor at high voltage provides what?,off_topic,off_topic
+How many US states did the Spanish explorers explore?,off_topic,off_topic
+Where was an important center of Indian Ocean trading in the 16th century?,off_topic,off_topic
+ Where does methane in the north pole escape to on Neptune?,off_topic,off_topic
+How much was the NBC broadcasting deal with the Premier League worth in 2015?,off_topic,off_topic
+How many dimensions did Melzack and Casey describe pain in terms of?,off_topic,off_topic
+What cities in the UK had major Warp scenes?,off_topic,off_topic
+What was the geologic event that followed the Mardi Gras Riots in2001?,off_topic,off_topic
+How many PureCell Model 400 fuel cells can be found in New Haven?,off_topic,off_topic
+How often are pigeons able to breed for the consumption process ?,off_topic,off_topic
+When must the trust resources be spent,off_topic,off_topic
+What was the median age for viewers for season one?,off_topic,off_topic
+In what year was The Blue School established?,off_topic,off_topic
+"In micrometers, when do common silicon detectors cease to be sensitive?",off_topic,off_topic
+What has the grant enabled ,off_topic,off_topic
+When was the French Revolutionary Army victorious?,off_topic,off_topic
+What percentage of the South Tuscon Population is Mexican-American? ,off_topic,off_topic
+How many genders were used in Lithuanian in the past?,off_topic,off_topic
+What happened after the French and Indian War?,off_topic,off_topic
+"What does the growth, development, and reproduction of organisms rely on?",off_topic,off_topic
+What enzyme's presence is characteristic of specific types of viral infections?,off_topic,off_topic
+What the average for the amount of  turkeys are consumed in the U.S on Thanksgiving Day?,off_topic,off_topic
+What kind of name is Strasbourg?,off_topic,off_topic
+What day is accounted in the Gospel of Luke as the ascension?,off_topic,off_topic
+What was the Malleus Maleficarum?,off_topic,off_topic
+In what language was the first book of the Bible conceived?,off_topic,off_topic
+Who criticized Milliband for posing with a copy of The Sun showing the Hillsborough disaster?,off_topic,off_topic
+"There is newspaper company within the city that runs monthly, it's name ?",off_topic,off_topic
+The rejection of the plan by the Saarlanders was interpreted as support for the Saar to do what?,off_topic,off_topic
+What was the median household income in 2000?,off_topic,off_topic
+During what conflict did the US occupy the Marshall Islands?,off_topic,off_topic
+What is a prominent example of a movement which crosses over denominational lines?,off_topic,off_topic
+Which presidents have tried to decrease the power of the presidential office?,off_topic,off_topic
+How many acres were burned in the historic Cedar Fire of 2003?,off_topic,off_topic
+What role did Philadelphia play in the American Revolution?,off_topic,off_topic
+What changes did Microsoft make to its certification requirements in March 2012?,off_topic,off_topic
+Who blockaded Switzerland's trade during World War II?,off_topic,off_topic
+What legislative act provided that no Indian nation shall be acknowledged as an independent nation with whom the United States may contract by treaty?,off_topic,off_topic
+Where does the BBC operate several station networks?,off_topic,off_topic
+What was exchanged from mouth to mouth in the usage of the seismometer?,off_topic,off_topic
+What is Brasilia's airport's annual passenger capacity after 2014's improvements?,off_topic,off_topic
+"How many IndyMac account holders held funds in excess of the FDIC's insured amount of US$100,000?",off_topic,off_topic
+Which group did Han forces fight in the Tarm Basin?,off_topic,off_topic
+What country outside Ireland is known for having Irish pubs?,off_topic,off_topic
+What trees are protected along the coast of San Francisco?,off_topic,off_topic
+What did Czech historians emphasize about their countrymen?,off_topic,off_topic
+What is the process in which beings go through cycles of lifetimes as many forms of sentient life?,off_topic,off_topic
+Who gave up calling at the island due to attacks on their shipping?,off_topic,off_topic
+Who would be responsible for the election of a plebeian tribune?,off_topic,off_topic
+Who became Catholicos in Etchmiadzin in 1441?,off_topic,off_topic
+What did the Reagan regulations invalidate?,off_topic,off_topic
+What did sociology in science explain?,off_topic,off_topic
+What is the most games played a team to reach the final?,off_topic,off_topic
+What is another name for walking stick insects?,off_topic,off_topic
+Who had Lavinia already been promised to?,off_topic,off_topic
+What is mostly a mix of family owned shops?,off_topic,off_topic
+Which Interstate is the major north-south route?,off_topic,off_topic
+What planet is Neptune's opposite?,off_topic,off_topic
+What years did Billy Hughes serve as Prime Minister?,off_topic,off_topic
+"What musician joined Kanye West on the song ""Only One""?",off_topic,off_topic
+"By what month and year did Laemmle change his opinion on ""unclean pictures""?",off_topic,off_topic
+Where is Sanskrit usually found?,off_topic,off_topic
+Who was a notable student of  Stanley Schachter?,off_topic,off_topic
+Which countries came in major emigrations to the US?,off_topic,off_topic
+Arthur Harris announced that Bomber Command would enable economic warfare to achieve what?,off_topic,off_topic
+Where does most of Canada's asphalt end up these days?,off_topic,off_topic
+When did this push occur?,off_topic,off_topic
+Genetic systems are conserved among what?,off_topic,off_topic
+What has Tibetan Buddhism been almost eclipsed by?,off_topic,off_topic
+"From 1876 to 1973, how much did the glaciers that covered the Alps shrink?",off_topic,off_topic
+What was the ethnicity of the people executed in the second-largest mass execution in US history?,off_topic,off_topic
+Which nickname was endorsed by Kenneth Samuel Wuest?,off_topic,off_topic
+What was used to dampen resonances in recordings?,off_topic,off_topic
+Who is the current head of the Greek Orthodox church in Cyprus?,off_topic,off_topic
+What disiaster caused a massive migration out of the Fujiian region?,off_topic,off_topic
+What two things became to be seen as distinct from one another?,off_topic,off_topic
+Where does the FBI not investigate violations of the Civil Rights Act?,off_topic,off_topic
+What is Stefan Schmid's profession?,off_topic,off_topic
+What is on top of the crest?,off_topic,off_topic
+What is a traffic pattern often called outside of the U.S.?,off_topic,off_topic
+What magazine ranked the 360 as the second best console of the 1993-2013 period?,off_topic,off_topic
+What is Miami's world rank in terms of how impressive its skyline is?,off_topic,off_topic
+How much does Vanguard plan to spend in capital investment?,off_topic,off_topic
+What forest is to the western Sahara?,off_topic,off_topic
+Yaroslav held what title in medieval Russia?,off_topic,off_topic
+In what was U.S. News and World Report first published?,off_topic,off_topic
+When does  Dirty Mas take place on the Monday before Ash Wednesday?,off_topic,off_topic
+What happened to Satan when Jesus started his rule?,off_topic,off_topic
+What year was Alaska unofficially incorporated as a territory?,off_topic,off_topic
+What happens when q5 receives input '0'?,,
