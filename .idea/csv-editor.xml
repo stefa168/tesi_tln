@@ -80,6 +80,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/multitask_training/data_cleaned_manual_combined.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/new_questions/automaton_questions.csv">
           <value>
             <Attribute>
@@ -102,6 +109,13 @@
           </value>
         </entry>
         <entry key="/new_questions/state_questions.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/new_questions/theory_questions.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

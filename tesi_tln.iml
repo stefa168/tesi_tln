@@ -3,7 +3,16 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/ner_training_results" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/multitask_training/results" />
+      <excludeFolder url="file://$MODULE_DIR$/multitask_training/results_automaton" />
+      <excludeFolder url="file://$MODULE_DIR$/multitask_training/results_grammar" />
+      <excludeFolder url="file://$MODULE_DIR$/multitask_training/results_start" />
+      <excludeFolder url="file://$MODULE_DIR$/multitask_training/results_state" />
+      <excludeFolder url="file://$MODULE_DIR$/multitask_training/results_theory" />
+      <excludeFolder url="file://$MODULE_DIR$/multitask_training/results_transition" />
+      <excludeFolder url="file://$MODULE_DIR$/multitask_training/wandb" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.12 (tesi_tln)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
