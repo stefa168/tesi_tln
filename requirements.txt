@@ -14,3 +14,6 @@ transformers>=4.45.2
 matplotlib==3.9.2
 torch==2.4.1
 sentence-transformers==3.2.1
+datasets==3.0.2
+iterative-stratification==0.1.9
+scikit-multilearn==0.2.0

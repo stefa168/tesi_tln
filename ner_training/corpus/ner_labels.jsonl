@@ -1,0 +1,854 @@
+{"id":1,"text":"Hi","label":[],"Comments":[]}
+{"id":2,"text":"Hello","label":[],"Comments":[]}
+{"id":3,"text":"Describe the automaton","label":[],"Comments":[]}
+{"id":4,"text":"Is there a transition between q2 and q0?","label":[[30,32,"node"],[37,39,"node"]],"Comments":[]}
+{"id":5,"text":"Is there a transition between q5 and q7","label":[[30,32,"node"],[37,39,"node"]],"Comments":[]}
+{"id":6,"text":"Please, describe the automaton","label":[],"Comments":[]}
+{"id":7,"text":"How many transitions does the automaton contain","label":[],"Comments":[]}
+{"id":8,"text":"Is there a particular pattern between the nodes and arcs?","label":[],"Comments":[]}
+{"id":9,"text":"What grammar does the automaton recognise?","label":[],"Comments":[]}
+{"id":10,"text":"What are the transitions","label":[],"Comments":[]}
+{"id":11,"text":"What are the states","label":[],"Comments":[]}
+{"id":12,"text":"What is q1","label":[[8,10,"node"]],"Comments":[]}
+{"id":13,"text":"How many states and edges are there?","label":[],"Comments":[]}
+{"id":14,"text":"Is the automaton directed?","label":[],"Comments":[]}
+{"id":15,"text":"How is the automaton represented graphically?","label":[],"Comments":[]}
+{"id":16,"text":"Does the automaton contain cycles?","label":[],"Comments":[]}
+{"id":17,"text":"Does the automaton accept a language allowing words made of an odd number of 0s and 1s","label":[[77,78,"input"],[84,85,"input"]],"Comments":[]}
+{"id":18,"text":"Does the automaton accept a repeating pattern?","label":[],"Comments":[]}
+{"id":19,"text":"Briefly describe the automaton","label":[],"Comments":[]}
+{"id":20,"text":"Does it only accept 1s and 0s?","label":[[20,21,"input"],[27,28,"input"]],"Comments":[]}
+{"id":21,"text":"Can you describe the transitions of the automaton?","label":[],"Comments":[]}
+{"id":22,"text":"Which is the initial state?","label":[],"Comments":[]}
+{"id":23,"text":"Does it have 5 states?","label":[],"Comments":[]}
+{"id":24,"text":"How many states are there?","label":[],"Comments":[]}
+{"id":25,"text":"Give me a list of the arcs","label":[],"Comments":[]}
+{"id":26,"text":"Is there an arc from q0 to q1?","label":[[21,23,"node"],[27,29,"node"]],"Comments":[]}
+{"id":27,"text":"What is the shape of the arcs","label":[],"Comments":[]}
+{"id":28,"text":"Is there an arc from q0 to q2, q3 or q4?","label":[[22,24,"node"],[28,30,"node"],[32,34,"node"],[38,40,"node"]],"Comments":[]}
+{"id":29,"text":"What are the transitions from q1","label":[[30,32,"node"]],"Comments":[]}
+{"id":30,"text":"What are the transitions from q2","label":[[30,32,"node"]],"Comments":[]}
+{"id":31,"text":"What are the transitions from q3","label":[[30,32,"node"]],"Comments":[]}
+{"id":32,"text":"What are the transitions from q4","label":[[30,32,"node"]],"Comments":[]}
+{"id":33,"text":"What is the purpose of the automaton?","label":[],"Comments":[]}
+{"id":34,"text":"What happens when a q1 receives a 0?","label":[[20,22,"node"],[34,35,"input"]],"Comments":[]}
+{"id":35,"text":"How many states does the automaton have?","label":[],"Comments":[]}
+{"id":36,"text":"How are your states linked together?","label":[],"Comments":[]}
+{"id":37,"text":"Is q0 linked to q0?","label":[[3,5,"node"],[16,18,"node"]],"Comments":[]}
+{"id":38,"text":"Is q1 linked to q4?","label":[[3,5,"node"],[16,18,"node"]],"Comments":[]}
+{"id":39,"text":"What are the transitions from q4?","label":[[30,32,"node"]],"Comments":[]}
+{"id":40,"text":"What are the links of q4?","label":[[22,24,"node"]],"Comments":[]}
+{"id":41,"text":"Is q4 linked to q0?","label":[[3,5,"node"],[16,18,"node"]],"Comments":[]}
+{"id":42,"text":"Can you describe me the automaton?","label":[],"Comments":[]}
+{"id":43,"text":"Could you briefly describe the automaton?","label":[],"Comments":[]}
+{"id":44,"text":"Is there an arc from q1 to q2?","label":[[21,23,"node"],[27,29,"node"]],"Comments":[]}
+{"id":45,"text":"What are the states connected to q0?","label":[[33,35,"node"]],"Comments":[]}
+{"id":46,"text":"Is there an arc from q2 to q3?","label":[[21,23,"node"],[27,29,"node"]],"Comments":[]}
+{"id":47,"text":"Is there an arc from q3 to q4?","label":[[21,23,"node"],[27,29,"node"]],"Comments":[]}
+{"id":48,"text":"Is there an arc from q4 to q0?","label":[[21,23,"node"],[27,29,"node"]],"Comments":[]}
+{"id":49,"text":"Is there an arc from q4?","label":[[21,23,"node"]],"Comments":[]}
+{"id":50,"text":"Is there an arc from q0?","label":[[21,23,"node"]],"Comments":[]}
+{"id":51,"text":"Is there an arc from q1?","label":[[21,23,"node"]],"Comments":[]}
+{"id":52,"text":"Is there an arc from q2?","label":[[21,23,"node"]],"Comments":[]}
+{"id":53,"text":"Is there an arc from q3?","label":[[21,23,"node"]],"Comments":[]}
+{"id":54,"text":"How many states does the automaton have?","label":[],"Comments":[]}
+{"id":55,"text":"Are there any loops?","label":[],"Comments":[]}
+{"id":56,"text":"What transitions enter and exit q0?","label":[[32,34,"node"]],"Comments":[]}
+{"id":57,"text":"What transitions enter and exit q1?","label":[[32,34,"node"]],"Comments":[]}
+{"id":58,"text":"What transitions enter and exit q2?","label":[[32,34,"node"]],"Comments":[]}
+{"id":59,"text":"What transitions enter and exit q4?","label":[[32,34,"node"]],"Comments":[]}
+{"id":60,"text":"What transitions enter and exit q3?","label":[[32,34,"node"]],"Comments":[]}
+{"id":61,"text":"What does the automaton recognize?","label":[],"Comments":[]}
+{"id":62,"text":"What is the accepted language?","label":[],"Comments":[]}
+{"id":63,"text":"How many transitions are there?","label":[],"Comments":[]}
+{"id":64,"text":"Is there a particular pattern?","label":[],"Comments":[]}
+{"id":65,"text":"How many nodes are there?","label":[],"Comments":[]}
+{"id":66,"text":"How many states are there?","label":[],"Comments":[]}
+{"id":67,"text":"Please describe the automaton","label":[],"Comments":[]}
+{"id":68,"text":"Can you provide a representation of the automaton?","label":[],"Comments":[]}
+{"id":69,"text":"Describe how does the automaton appear graphically","label":[],"Comments":[]}
+{"id":70,"text":"Give me some examples of inputs and output","label":[],"Comments":[]}
+{"id":71,"text":"Can you provide me some examples of inputs","label":[],"Comments":[]}
+{"id":72,"text":"Can you describe the input and the output","label":[],"Comments":[]}
+{"id":73,"text":"Can you describe the transition function","label":[],"Comments":[]}
+{"id":74,"text":"What can you tell me about the transitions of the automaton?","label":[],"Comments":[]}
+{"id":75,"text":"What is the grammar accepted by it?","label":[],"Comments":[]}
+{"id":76,"text":"How many states do compose the automaton?","label":[],"Comments":[]}
+{"id":77,"text":"What are the input symbols that the automaton accepts?","label":[],"Comments":[]}
+{"id":78,"text":"Can you describe the automaton?","label":[],"Comments":[]}
+{"id":79,"text":"How are transitions defined","label":[],"Comments":[]}
+{"id":80,"text":"Can you describe the transitions?","label":[],"Comments":[]}
+{"id":81,"text":"If the input is 11100 what is the result given by the automaton?","label":[[16,21,"input"]],"Comments":[]}
+{"id":82,"text":"Is 110 a valid input for the automaton?","label":[[3,6,"input"]],"Comments":[]}
+{"id":83,"text":"Can you describe the automata?","label":[],"Comments":[]}
+{"id":84,"text":"What are the accepted inputs?","label":[],"Comments":[]}
+{"id":85,"text":"Is 11100 part of the accepted language?","label":[[3,8,"input"]],"Comments":[]}
+{"id":86,"text":"How many transitions are there in the automaton?","label":[],"Comments":[]}
+{"id":87,"text":"Is there a particular pattern among the arcs?","label":[],"Comments":[]}
+{"id":88,"text":"Is there a transition from q0 to q5?","label":[[27,29,"node"],[33,35,"node"]],"Comments":[]}
+{"id":89,"text":"What are all the transitions?","label":[],"Comments":[]}
+{"id":90,"text":"Please describe the transitions","label":[],"Comments":[]}
+{"id":91,"text":"Is q0 the final state?","label":[[3,5,"node"]],"Comments":[]}
+{"id":92,"text":"How many states does the automaton have?","label":[],"Comments":[]}
+{"id":93,"text":"How many transitions does the automata have?","label":[],"Comments":[]}
+{"id":94,"text":"Show me the transitions of the automaton","label":[],"Comments":[]}
+{"id":95,"text":"What transitions does the automaton have?","label":[],"Comments":[]}
+{"id":96,"text":"Briefly describe the automaton","label":[],"Comments":[]}
+{"id":97,"text":"How many states are there?","label":[],"Comments":[]}
+{"id":98,"text":"How many arcs there are?","label":[],"Comments":[]}
+{"id":99,"text":"Is there a particular pattern?","label":[],"Comments":[]}
+{"id":100,"text":"Are there arcs between q2 and q0?","label":[[23,25,"node"],[30,32,"node"]],"Comments":[]}
+{"id":101,"text":"Are there arcs from q4?","label":[[20,22,"node"]],"Comments":[]}
+{"id":102,"text":"What are the final states?","label":[],"Comments":[]}
+{"id":103,"text":"How many final states there are?","label":[],"Comments":[]}
+{"id":104,"text":"Is q0 a final state?","label":[[3,5,"node"]],"Comments":[]}
+{"id":105,"text":"Is q4 a final state?","label":[[3,5,"node"]],"Comments":[]}
+{"id":106,"text":"Which are the final states?","label":[],"Comments":[]}
+{"id":107,"text":"Which is the final state?","label":[],"Comments":[]}
+{"id":108,"text":"How many final states are there?","label":[],"Comments":[]}
+{"id":109,"text":"What is its optimal spatial representation?","label":[],"Comments":[]}
+{"id":110,"text":"Briefly describe the automaton","label":[],"Comments":[]}
+{"id":111,"text":"Is it possible to find a repetitive pattern in the transitions?","label":[],"Comments":[]}
+{"id":112,"text":"If q2 was the final state, does language accepted by the automaton stay the same?","label":[[4,6,"node"]],"Comments":[]}
+{"id":113,"text":"What can I use a finite state automata for?","label":[],"Comments":[]}
+{"id":114,"text":"How many states can I use in an automaton?","label":[],"Comments":[]}
+{"id":115,"text":"Can I use 5 states in an automaton?","label":[],"Comments":[]}
+{"id":116,"text":"What is the final state of an automaton?","label":[],"Comments":[]}
+{"id":117,"text":"How can I define an automaton?","label":[],"Comments":[]}
+{"id":118,"text":"How is an automaton defined?","label":[],"Comments":[]}
+{"id":119,"text":"What is an example of accepted string?","label":[],"Comments":[]}
+{"id":120,"text":"What is the final state","label":[],"Comments":[]}
+{"id":121,"text":"Which transitions start from q0?","label":[[29,31,"node"]],"Comments":[]}
+{"id":122,"text":"How many transitions start from q0?","label":[[32,34,"node"]],"Comments":[]}
+{"id":123,"text":"Which transitions start from q1?","label":[[29,31,"node"]],"Comments":[]}
+{"id":124,"text":"Which transitions start from q2?","label":[[29,31,"node"]],"Comments":[]}
+{"id":125,"text":"Which transitions end in q0?","label":[[25,27,"node"]],"Comments":[]}
+{"id":126,"text":"Is there a pattern among the arcs?","label":[],"Comments":[]}
+{"id":127,"text":"What could be a minimal spatial representation for this automaton?","label":[],"Comments":[]}
+{"id":128,"text":"Is there an arc between q0 and q1?","label":[[24,26,"node"],[31,33,"node"]],"Comments":[]}
+{"id":129,"text":"Which are the transitions","label":[],"Comments":[]}
+{"id":130,"text":"what is the phd for","label":[],"Comments":[]}
+{"id":131,"text":"What is the maximum number of states in an automaton?","label":[],"Comments":[]}
+{"id":132,"text":"How many states does a pentagon shaped automaton have?","label":[],"Comments":[]}
+{"id":133,"text":"How many states are there","label":[],"Comments":[]}
+{"id":134,"text":"Briefly describe the automaton","label":[],"Comments":[]}
+{"id":135,"text":"How many states are there?","label":[],"Comments":[]}
+{"id":136,"text":"How many states are there in the automata?","label":[],"Comments":[]}
+{"id":137,"text":"According to your understanding of the Automaton what is its optimal spatial representation","label":[],"Comments":[]}
+{"id":138,"text":"Is there an arc between q0 and q1?","label":[[24,26,"node"],[31,33,"node"]],"Comments":[]}
+{"id":139,"text":"Is there an arc between q1 and q2?","label":[[24,26,"node"],[31,33,"node"]],"Comments":[]}
+{"id":140,"text":"Describe me the automaton","label":[],"Comments":[]}
+{"id":141,"text":"How many states does the automaton have?","label":[],"Comments":[]}
+{"id":142,"text":"What is the language recognised by the automaton?","label":[],"Comments":[]}
+{"id":143,"text":"How many transitions are there?","label":[],"Comments":[]}
+{"id":144,"text":"What is the best way to represent this automaton?","label":[],"Comments":[]}
+{"id":145,"text":"What is the initial state?","label":[],"Comments":[]}
+{"id":146,"text":"What language does this automata accept?","label":[],"Comments":[]}
+{"id":147,"text":"What is an automaton?","label":[],"Comments":[]}
+{"id":148,"text":"What is the initial state of the automaton","label":[],"Comments":[]}
+{"id":149,"text":"Briefly describe me the automaton","label":[],"Comments":[]}
+{"id":150,"text":"Which is the initial state of the automaton?","label":[],"Comments":[]}
+{"id":151,"text":"What is the language accepted by the automaton?","label":[],"Comments":[]}
+{"id":152,"text":"Is the string 110 accepted by the automaton?","label":[[14,17,"input"]],"Comments":[]}
+{"id":153,"text":"Describe the transition table of the automaton","label":[],"Comments":[]}
+{"id":154,"text":"Is there an arc from q0 to q1?","label":[[21,23,"node"],[27,29,"node"]],"Comments":[]}
+{"id":155,"text":"Is there an arc from q2 to q1?","label":[[21,23,"node"],[27,29,"node"]],"Comments":[]}
+{"id":156,"text":"How many states there are?","label":[],"Comments":[]}
+{"id":157,"text":"What symbols does the automaton accept?","label":[],"Comments":[]}
+{"id":158,"text":"What are the symbols accepted by the automaton?","label":[],"Comments":[]}
+{"id":159,"text":"What is the alphabet?","label":[],"Comments":[]}
+{"id":160,"text":"What is the grammar?","label":[],"Comments":[]}
+{"id":161,"text":"What is the grammar recognised by the automaton?","label":[],"Comments":[]}
+{"id":162,"text":"How is the automaton represented?","label":[],"Comments":[]}
+{"id":163,"text":"How many regions are there in Italy","label":[],"Comments":[]}
+{"id":164,"text":"In which year we are?","label":[],"Comments":[]}
+{"id":165,"text":"If q0 was the final state, the language accepted by the automaton is the same?","label":[[4,6,"node"]],"Comments":[]}
+{"id":166,"text":"How many states does the automata have?","label":[],"Comments":[]}
+{"id":167,"text":"How many arcs are there in the automata?","label":[],"Comments":[]}
+{"id":168,"text":"Is there a particular pattern among automata arcs?","label":[],"Comments":[]}
+{"id":169,"text":"What is the transition function?","label":[],"Comments":[]}
+{"id":170,"text":"How much does the representation take?","label":[],"Comments":[]}
+{"id":171,"text":"What is the regular expression describing the automata?","label":[],"Comments":[]}
+{"id":172,"text":"What is the regular expression that corresponds to the automaton?","label":[],"Comments":[]}
+{"id":173,"text":"Can you briefly describe the automata?","label":[],"Comments":[]}
+{"id":174,"text":"Summarise the automaton","label":[],"Comments":[]}
+{"id":175,"text":"What language does the automaton accept?","label":[],"Comments":[]}
+{"id":176,"text":"Which are the principal pros","label":[],"Comments":[]}
+{"id":177,"text":"Whatsappo","label":[],"Comments":[]}
+{"id":178,"text":"Describe the automaton","label":[],"Comments":[]}
+{"id":179,"text":"Show me the automaton","label":[],"Comments":[]}
+{"id":180,"text":"How many states are there","label":[],"Comments":[]}
+{"id":181,"text":"Which one is the final state?","label":[],"Comments":[]}
+{"id":182,"text":"Which one is the starting state?","label":[],"Comments":[]}
+{"id":183,"text":"Which is the initial state?","label":[],"Comments":[]}
+{"id":184,"text":"Which is the start state?","label":[],"Comments":[]}
+{"id":185,"text":"Is there an arc from q0?","label":[[21,23,"node"]],"Comments":[]}
+{"id":186,"text":"Is there an arc from q2?","label":[[21,23,"node"]],"Comments":[]}
+{"id":187,"text":"Is there a transition from q1?","label":[[27,29,"node"]],"Comments":[]}
+{"id":188,"text":"How many transitions are there?","label":[],"Comments":[]}
+{"id":189,"text":"How many loops are there?","label":[],"Comments":[]}
+{"id":190,"text":"How many states is the automaton made of?","label":[],"Comments":[]}
+{"id":191,"text":"What are the states and the connections between states?","label":[],"Comments":[]}
+{"id":192,"text":"What are the states and the transitions?","label":[],"Comments":[]}
+{"id":193,"text":"Which are the states and the transitions?","label":[],"Comments":[]}
+{"id":194,"text":"Is there an arc between q0 and q1?","label":[[24,26,"node"],[31,33,"node"]],"Comments":[]}
+{"id":195,"text":"What are the transitions?","label":[],"Comments":[]}
+{"id":196,"text":"Describe the transitions","label":[],"Comments":[]}
+{"id":197,"text":"What input does the arc between q0 and q2 accept?","label":[[32,34,"node"],[39,41,"node"]],"Comments":[]}
+{"id":198,"text":"What are the final states?","label":[],"Comments":[]}
+{"id":199,"text":"Which is the start state?","label":[],"Comments":[]}
+{"id":200,"text":"Tell me a little bit about the automaton","label":[],"Comments":[]}
+{"id":201,"text":"Is there a pattern among the transitions?","label":[],"Comments":[]}
+{"id":202,"text":"Does the automaton language accept words made of an odd number of 0s and 1s","label":[[66,67,"input"],[73,74,"input"]],"Comments":[]}
+{"id":203,"text":"Is it possible to repeat transitions?","label":[],"Comments":[]}
+{"id":204,"text":"Which are the states that are connected with arcs that accept the value 0?","label":[[72,73,"input"]],"Comments":[]}
+{"id":205,"text":"What arcs are marked with 0?","label":[[26,27,"input"]],"Comments":[]}
+{"id":206,"text":"What are the arcs?","label":[],"Comments":[]}
+{"id":207,"text":"Provide an overview of the automaton","label":[],"Comments":[]}
+{"id":208,"text":"How many arcs marked by 1 are there?","label":[[24,25,"input"]],"Comments":[]}
+{"id":209,"text":"Describe the shape of the automaton","label":[],"Comments":[]}
+{"id":210,"text":"What is an automaton?","label":[],"Comments":[]}
+{"id":211,"text":"Can you provide the transition diagram?","label":[],"Comments":[]}
+{"id":212,"text":"Describe the transition diagram","label":[],"Comments":[]}
+{"id":213,"text":"How many transitions are there in the automaton","label":[],"Comments":[]}
+{"id":214,"text":"What is a pattern","label":[],"Comments":[]}
+{"id":215,"text":"Briefly describe the automaton","label":[],"Comments":[]}
+{"id":216,"text":"What's the number of nodes","label":[],"Comments":[]}
+{"id":217,"text":"Is 1 a label for some arc?","label":[[3,4,"input"]],"Comments":[]}
+{"id":218,"text":"What is the accepted language","label":[],"Comments":[]}
+{"id":219,"text":"Describe the position of nodes","label":[],"Comments":[]}
+{"id":220,"text":"Is there any self loop","label":[],"Comments":[]}
+{"id":221,"text":"What is a connection","label":[],"Comments":[]}
+{"id":222,"text":"What are some examples of accepted inputs?","label":[],"Comments":[]}
+{"id":223,"text":"Can you describe the transitions?","label":[],"Comments":[]}
+{"id":224,"text":"How many states are there?","label":[],"Comments":[]}
+{"id":225,"text":"What is the final state?","label":[],"Comments":[]}
+{"id":226,"text":"How many transitions are there?","label":[],"Comments":[]}
+{"id":227,"text":"Is there a transition from q0 to q5?","label":[[27,29,"node"],[33,35,"node"]],"Comments":[]}
+{"id":228,"text":"What is the optimal spatial representation of the automaton?","label":[],"Comments":[]}
+{"id":229,"text":"Is it possible to find a repetitive pattern in the transitions?","label":[],"Comments":[]}
+{"id":230,"text":"Can you explain the structure of the automaton?","label":[],"Comments":[]}
+{"id":231,"text":"What is the automaton composed of?","label":[],"Comments":[]}
+{"id":232,"text":"List all the states and their transitions.","label":[],"Comments":[]}
+{"id":233,"text":"What are the initial and final states of the automaton?","label":[],"Comments":[]}
+{"id":234,"text":"Is the automaton deterministic or nondeterministic?","label":[],"Comments":[]}
+{"id":235,"text":"Does the automaton have any accepting states?","label":[],"Comments":[]}
+{"id":236,"text":"Provide a brief summary of the automaton.","label":[],"Comments":[]}
+{"id":237,"text":"Is there a specific pattern in how states are connected?","label":[],"Comments":[]}
+{"id":238,"text":"How are the states organized in the automaton?","label":[],"Comments":[]}
+{"id":239,"text":"Can you draw the automaton?","label":[],"Comments":[]}
+{"id":240,"text":"What is the graphical representation of the automaton?","label":[],"Comments":[]}
+{"id":241,"text":"Does the automaton represent any language?","label":[],"Comments":[]}
+{"id":242,"text":"Can you summarize the automaton's functionality?","label":[],"Comments":[]}
+{"id":243,"text":"Is there a repetitive sequence in the automaton's transitions?","label":[],"Comments":[]}
+{"id":244,"text":"How does the automaton process input strings?","label":[],"Comments":[]}
+{"id":245,"text":"What is the purpose of the automaton?","label":[],"Comments":[]}
+{"id":246,"text":"Explain the behavior of the automaton.","label":[],"Comments":[]}
+{"id":247,"text":"Can you optimize the automaton?","label":[],"Comments":[]}
+{"id":248,"text":"How is the automaton implemented?","label":[],"Comments":[]}
+{"id":249,"text":"Is there an efficient way to represent the automaton?","label":[],"Comments":[]}
+{"id":250,"text":"What are the inputs and outputs of the automaton?","label":[],"Comments":[]}
+{"id":251,"text":"How does the automaton handle invalid inputs?","label":[],"Comments":[]}
+{"id":252,"text":"Is the automaton complete?","label":[],"Comments":[]}
+{"id":253,"text":"Does the automaton accept any empty strings?","label":[],"Comments":[]}
+{"id":254,"text":"What is the alphabet of the automaton?","label":[],"Comments":[]}
+{"id":255,"text":"Describe the transition function of the automaton.","label":[],"Comments":[]}
+{"id":256,"text":"Describe any patterns in the automaton's state transitions.","label":[],"Comments":[]}
+{"id":257,"text":"How does the automaton relate to regular expressions?","label":[],"Comments":[]}
+{"id":258,"text":"What is the role of each state in the automaton?","label":[],"Comments":[]}
+{"id":259,"text":"Can you briefly explain the automaton's design?","label":[],"Comments":[]}
+{"id":260,"text":"What kind of language does the automaton recognize?","label":[],"Comments":[]}
+{"id":261,"text":"Are there any dead states in the automaton?","label":[],"Comments":[]}
+{"id":262,"text":"Describe the initial configuration of the automaton.","label":[],"Comments":[]}
+{"id":263,"text":"Is the automaton minimal in terms of states?","label":[],"Comments":[]}
+{"id":264,"text":"Can you explain the automaton's state transitions?","label":[],"Comments":[]}
+{"id":265,"text":"Does the automaton have a hierarchical structure?","label":[],"Comments":[]}
+{"id":266,"text":"Are there any symmetries in the automaton?","label":[],"Comments":[]}
+{"id":267,"text":"How can the automaton be simplified?","label":[],"Comments":[]}
+{"id":268,"text":"Is there an equivalent automaton with fewer states?","label":[],"Comments":[]}
+{"id":269,"text":"What graphical methods are used to represent the automaton?","label":[],"Comments":[]}
+{"id":270,"text":"What is the best way to visualize the automaton?","label":[],"Comments":[]}
+{"id":271,"text":"Is the automaton's structure linear or branching?","label":[],"Comments":[]}
+{"id":272,"text":"Describe the connectivity of the automaton.","label":[],"Comments":[]}
+{"id":273,"text":"What are the characteristics of the automaton's transitions?","label":[],"Comments":[]}
+{"id":274,"text":"How are the automaton's states defined?","label":[],"Comments":[]}
+{"id":275,"text":"Is the automaton deterministic?","label":[],"Comments":[]}
+{"id":276,"text":"Does the automaton have any non-deterministic transitions?","label":[],"Comments":[]}
+{"id":277,"text":"How does the automaton differ from a Turing machine?","label":[],"Comments":[]}
+{"id":278,"text":"Is there a particular sequence of states in the automaton?","label":[],"Comments":[]}
+{"id":279,"text":"Can you provide an example of how the automaton works?","label":[],"Comments":[]}
+{"id":280,"text":"What is the main function of the automaton?","label":[],"Comments":[]}
+{"id":281,"text":"Does the automaton have a start and end state?","label":[],"Comments":[]}
+{"id":282,"text":"How are inputs processed by the automaton?","label":[],"Comments":[]}
+{"id":283,"text":"Is the automaton capable of parallel transitions?","label":[],"Comments":[]}
+{"id":284,"text":"Are there any nested states in the automaton?","label":[],"Comments":[]}
+{"id":285,"text":"Can you summarize the automaton in a few sentences?","label":[],"Comments":[]}
+{"id":286,"text":"What is the simplest form of this automaton?","label":[],"Comments":[]}
+{"id":287,"text":"How is the automaton's behavior characterized?","label":[],"Comments":[]}
+{"id":288,"text":"Are the transitions in the automaton weighted?","label":[],"Comments":[]}
+{"id":289,"text":"Does the automaton exhibit any symmetry?","label":[],"Comments":[]}
+{"id":290,"text":"Is there an equivalent automaton with a different structure?","label":[],"Comments":[]}
+{"id":291,"text":"Describe the automaton's operational logic.","label":[],"Comments":[]}
+{"id":292,"text":"What type of automaton is it (e.g., DFA, NFA)?","label":[],"Comments":[]}
+{"id":293,"text":"Is the automaton complete or partial?","label":[],"Comments":[]}
+{"id":294,"text":"Can you identify any patterns in the automaton's design?","label":[],"Comments":[]}
+{"id":295,"text":"What is the significance of each state in the automaton?","label":[],"Comments":[]}
+{"id":296,"text":"Is the automaton designed for a specific application?","label":[],"Comments":[]}
+{"id":297,"text":"Can you explain the automaton's state transitions briefly?","label":[],"Comments":[]}
+{"id":298,"text":"What are the key features of the automaton?","label":[],"Comments":[]}
+{"id":299,"text":"Is there a way to minimize the automaton further?","label":[],"Comments":[]}
+{"id":300,"text":"Provide a concise description of the automaton.","label":[],"Comments":[]}
+{"id":301,"text":"Does the automaton accept infinite input sequences?","label":[],"Comments":[]}
+{"id":302,"text":"How does the automaton handle concurrency?","label":[],"Comments":[]}
+{"id":303,"text":"Can you compare this automaton to others?","label":[],"Comments":[]}
+{"id":304,"text":"What limitations does the automaton have?","label":[],"Comments":[]}
+{"id":305,"text":"How is state information stored in the automaton?","label":[],"Comments":[]}
+{"id":306,"text":"Does the automaton use any probabilistic transitions?","label":[],"Comments":[]}
+{"id":307,"text":"Describe how errors are handled by the automaton.","label":[],"Comments":[]}
+{"id":308,"text":"What kind of outputs does the automaton produce?","label":[],"Comments":[]}
+{"id":309,"text":"How does the automaton respond to unexpected inputs?","label":[],"Comments":[]}
+{"id":310,"text":"Is the automaton's transition function total or partial?","label":[],"Comments":[]}
+{"id":311,"text":"What is the computational complexity of the automaton?","label":[],"Comments":[]}
+{"id":312,"text":"Can the automaton's states be grouped into categories?","label":[],"Comments":[]}
+{"id":313,"text":"Describe the communication between states in the automaton.","label":[],"Comments":[]}
+{"id":314,"text":"Is the automaton based on any formal language theory?","label":[],"Comments":[]}
+{"id":315,"text":"How does the automaton ensure correctness of processing?","label":[],"Comments":[]}
+{"id":316,"text":"How is the automaton initialized before processing?","label":[],"Comments":[]}
+{"id":317,"text":"Does the automaton have any synchronization mechanisms?","label":[],"Comments":[]}
+{"id":318,"text":"How flexible is the automaton in handling different inputs?","label":[],"Comments":[]}
+{"id":319,"text":"Describe any constraints imposed by the automaton.","label":[],"Comments":[]}
+{"id":320,"text":"How does the automaton interact with external systems?","label":[],"Comments":[]}
+{"id":321,"text":"Could you show me the automaton diagram?","label":[],"Comments":[]}
+{"id":322,"text":"Are the automaton's transitions directed or undirected?","label":[],"Comments":[]}
+{"id":323,"text":"What is the total number of states in the automaton?","label":[],"Comments":[]}
+{"id":324,"text":"Does the automaton consist of six states?","label":[],"Comments":[]}
+{"id":325,"text":"How many nodes does the automaton contain?","label":[],"Comments":[]}
+{"id":326,"text":"List all the states in the automaton.","label":[],"Comments":[]}
+{"id":327,"text":"Which are the states present in the automaton?","label":[],"Comments":[]}
+{"id":328,"text":"What is the role of state q3?","label":[[26,28,"node"]],"Comments":[]}
+{"id":329,"text":"Is q2 an accepting state?","label":[[3,5,"node"]],"Comments":[]}
+{"id":330,"text":"Are there multiple final states?","label":[],"Comments":[]}
+{"id":331,"text":"How many final states does the automaton have?","label":[],"Comments":[]}
+{"id":332,"text":"Which states are final states?","label":[],"Comments":[]}
+{"id":333,"text":"What are the names of the final states?","label":[],"Comments":[]}
+{"id":334,"text":"Is q5 the start state?","label":[[3,5,"node"]],"Comments":[]}
+{"id":335,"text":"Which state is the initial state?","label":[],"Comments":[]}
+{"id":336,"text":"Is there a state named q6?","label":[[23,25,"node"]],"Comments":[]}
+{"id":337,"text":"What is the significance of state q0?","label":[[34,36,"node"]],"Comments":[]}
+{"id":338,"text":"How many accepting states are there in the automaton?","label":[],"Comments":[]}
+{"id":339,"text":"List the accepting states in the automaton.","label":[],"Comments":[]}
+{"id":340,"text":"Is the automaton's initial state also a final state?","label":[],"Comments":[]}
+{"id":341,"text":"Which state is both initial and final?","label":[],"Comments":[]}
+{"id":342,"text":"How many states have no incoming transitions?","label":[],"Comments":[]}
+{"id":343,"text":"Are there any dead states in the automaton?","label":[],"Comments":[]}
+{"id":344,"text":"Is q5 a sink state?","label":[[3,5,"node"]],"Comments":[]}
+{"id":345,"text":"Describe the behavior of state q4.","label":[[31,33,"node"]],"Comments":[]}
+{"id":346,"text":"Is q2 an initial state?","label":[[3,5,"node"]],"Comments":[]}
+{"id":347,"text":"How many states are terminal states?","label":[],"Comments":[]}
+{"id":348,"text":"Is q0 an accepting state?","label":[[3,5,"node"]],"Comments":[]}
+{"id":349,"text":"What is the role of state q5 in the automaton?","label":[[26,28,"node"]],"Comments":[]}
+{"id":350,"text":"How many non-final states are there?","label":[],"Comments":[]}
+{"id":351,"text":"Can you list the states in order of their connections?","label":[],"Comments":[]}
+{"id":352,"text":"What is the initial state of the automaton?","label":[],"Comments":[]}
+{"id":353,"text":"Is q5 an accepting state?","label":[[3,5,"node"]],"Comments":[]}
+{"id":354,"text":"How many states does the automaton include?","label":[],"Comments":[]}
+{"id":355,"text":"What are the characteristics of state q2?","label":[[38,40,"node"]],"Comments":[]}
+{"id":356,"text":"What is the total number of accepting states?","label":[],"Comments":[]}
+{"id":357,"text":"Is the automaton deterministic in its states?","label":[],"Comments":[]}
+{"id":358,"text":"Is q1 a non-final state?","label":[[3,5,"node"]],"Comments":[]}
+{"id":359,"text":"Does the automaton have any redundant states?","label":[],"Comments":[]}
+{"id":360,"text":"Are there any states with identical transitions?","label":[],"Comments":[]}
+{"id":361,"text":"What is the function of the start state?","label":[],"Comments":[]}
+{"id":362,"text":"Is q2 both an initial and accepting state?","label":[[3,5,"node"]],"Comments":[]}
+{"id":363,"text":"How many intermediate states are there?","label":[],"Comments":[]}
+{"id":364,"text":"List the states that are not accepting states.","label":[],"Comments":[]}
+{"id":365,"text":"How many total states does the automaton have?","label":[],"Comments":[]}
+{"id":366,"text":"Does the automaton have a single final state?","label":[],"Comments":[]}
+{"id":367,"text":"Is q0 the only starting state?","label":[[3,5,"node"]],"Comments":[]}
+{"id":368,"text":"How many accepting states does the automaton have?","label":[],"Comments":[]}
+{"id":369,"text":"Describe the states in the automaton.","label":[],"Comments":[]}
+{"id":370,"text":"What are the initial and final states of the automaton?","label":[],"Comments":[]}
+{"id":371,"text":"How many states are in the automaton?","label":[],"Comments":[]}
+{"id":372,"text":"Are there any states without outgoing transitions?","label":[],"Comments":[]}
+{"id":373,"text":"List all the states with no outgoing transitions.","label":[],"Comments":[]}
+{"id":374,"text":"Are there any isolated states in the automaton?","label":[],"Comments":[]}
+{"id":375,"text":"Are all states in the automaton accessible?","label":[],"Comments":[]}
+{"id":376,"text":"Is there a state that cannot be reached from the initial state?","label":[],"Comments":[]}
+{"id":377,"text":"Are there any unreachable states in the automaton?","label":[],"Comments":[]}
+{"id":378,"text":"Are there any unreachable states in the automaton?","label":[],"Comments":[]}
+{"id":379,"text":"How many transitions go out from state q5?","label":[[39,41,"node"]],"Comments":[]}
+{"id":380,"text":"Are there any transitions that accept the input symbol 'a'?","label":[[56,57,"input"]],"Comments":[]}
+{"id":381,"text":"Is there a transition from q2 to q5?","label":[[27,29,"node"],[33,35,"node"]],"Comments":[]}
+{"id":382,"text":"Can you list all the transitions that end at q3?","label":[[45,47,"node"]],"Comments":[]}
+{"id":383,"text":"What inputs do the transitions from q1 accept?","label":[[36,38,"node"]],"Comments":[]}
+{"id":384,"text":"Describe the transitions between q0 and q4.","label":[[33,35,"node"],[40,42,"node"]],"Comments":[]}
+{"id":385,"text":"Is there an arc labeled '0' from q3 to q2?","label":[[25,26,"input"],[33,35,"node"],[39,41,"node"]],"Comments":[]}
+{"id":386,"text":"How many arcs are labeled with '1'?","label":[[32,33,"input"]],"Comments":[]}
+{"id":387,"text":"Does the automaton have any self-loops?","label":[],"Comments":[]}
+{"id":388,"text":"Are there any transitions between q5 and q5?","label":[[34,36,"node"],[41,43,"node"]],"Comments":[]}
+{"id":389,"text":"What transitions are available from the initial state?","label":[],"Comments":[]}
+{"id":390,"text":"Can you list all transitions that accept the symbol 'b'?","label":[[53,54,"input"]],"Comments":[]}
+{"id":391,"text":"How many transitions are there in total?","label":[],"Comments":[]}
+{"id":392,"text":"Is q4 connected to any other state?","label":[[3,5,"node"]],"Comments":[]}
+{"id":393,"text":"Are there transitions leading into q1?","label":[[35,37,"node"]],"Comments":[]}
+{"id":394,"text":"What are the transitions to the final state?","label":[],"Comments":[]}
+{"id":395,"text":"Is there an arc from q0 to q2 labeled 'epsilon'?","label":[[21,23,"node"],[27,29,"node"],[39,46,"input"]],"Comments":[]}
+{"id":396,"text":"List all the transitions that involve q3.","label":[[38,40,"node"]],"Comments":[]}
+{"id":397,"text":"How many transitions lead into q0?","label":[[31,33,"node"]],"Comments":[]}
+{"id":398,"text":"Is there an arc labeled '1' from q2 to q0?","label":[[25,26,"input"],[33,35,"node"],[39,41,"node"]],"Comments":[]}
+{"id":399,"text":"Which states are connected via transitions labeled 'a'?","label":[[52,53,"input"]],"Comments":[]}
+{"id":400,"text":"How many transitions are there from q0 to q1?","label":[[36,38,"node"],[42,44,"node"]],"Comments":[]}
+{"id":401,"text":"Are there multiple transitions between q1 and q2?","label":[[39,41,"node"],[46,48,"node"]],"Comments":[]}
+{"id":402,"text":"Is there a transition labeled '0' from q4?","label":[[31,32,"input"],[39,41,"node"]],"Comments":[]}
+{"id":403,"text":"Does q3 have any outgoing transitions?","label":[[5,7,"node"]],"Comments":[]}
+{"id":404,"text":"Can you describe the transitions that accept the input symbol 'c'?","label":[[63,64,"input"]],"Comments":[]}
+{"id":405,"text":"What are the input symbols for transitions from q5?","label":[[48,50,"node"]],"Comments":[]}
+{"id":406,"text":"Is there a transition from q0 back to q0?","label":[[27,29,"node"],[38,40,"node"]],"Comments":[]}
+{"id":407,"text":"List all the arcs in the automaton.","label":[],"Comments":[]}
+{"id":408,"text":"How many loops are there in the automaton?","label":[],"Comments":[]}
+{"id":409,"text":"Which transitions accept the symbol 'epsilon'?","label":[[37,44,"input"]],"Comments":[]}
+{"id":410,"text":"Are there any transitions from q1 that accept '1'?","label":[[31,33,"node"],[47,48,"input"]],"Comments":[]}
+{"id":411,"text":"Is there a transition labeled 'b' leading to q4?","label":[[31,32,"input"],[45,47,"node"]],"Comments":[]}
+{"id":412,"text":"Can you provide the transition table?","label":[],"Comments":[]}
+{"id":413,"text":"What are the labels of the transitions between q2 and q3?","label":[[47,49,"node"],[54,56,"node"]],"Comments":[]}
+{"id":414,"text":"Is q5 an unreachable state?","label":[[3,5,"node"]],"Comments":[]}
+{"id":415,"text":"Does q0 have a self-loop on input 'a'?","label":[[5,7,"node"],[35,36,"input"]],"Comments":[]}
+{"id":416,"text":"How many transitions accept the symbol '0'?","label":[[40,41,"input"]],"Comments":[]}
+{"id":417,"text":"Are there any transitions that accept digits?","label":[],"Comments":[]}
+{"id":418,"text":"Which transitions involve the state q2?","label":[[36,38,"node"]],"Comments":[]}
+{"id":419,"text":"How many outgoing transitions does q4 have?","label":[[35,37,"node"]],"Comments":[]}
+{"id":420,"text":"Are there any transitions that accept uppercase letters?","label":[],"Comments":[]}
+{"id":421,"text":"List all transitions that accept special characters.","label":[],"Comments":[]}
+{"id":422,"text":"Are there transitions that accept multiple input symbols?","label":[],"Comments":[]}
+{"id":423,"text":"Is there a transition labeled 'd' from q1 to q3?","label":[[31,32,"input"],[39,41,"node"],[45,47,"node"]],"Comments":[]}
+{"id":424,"text":"Describe the transitions that loop back to their originating state.","label":[],"Comments":[]}
+{"id":425,"text":"Are there any transitions that accept 'epsilon'?","label":[[39,46,"input"]],"Comments":[]}
+{"id":426,"text":"How many transitions lead from q0 to any other state?","label":[],"Comments":[]}
+{"id":427,"text":"Are there any transitions labeled with non-alphabetic symbols?","label":[],"Comments":[]}
+{"id":428,"text":"Can you list the transitions that do not accept 'a' or 'b'?","label":[[49,50,"input"],[56,57,"input"]],"Comments":[]}
+{"id":429,"text":"Is q2 connected to q4 via any transitions?","label":[[3,5,"node"],[19,21,"node"]],"Comments":[]}
+{"id":430,"text":"How many transitions are there between q3 and q4?","label":[[39,41,"node"],[46,48,"node"]],"Comments":[]}
+{"id":431,"text":"Are there any transitions that accept input strings longer than one character?","label":[],"Comments":[]}
+{"id":432,"text":"Is there a transition from q5 to q0?","label":[[27,29,"node"],[33,35,"node"]],"Comments":[]}
+{"id":433,"text":"What transitions accept the symbol 'z'?","label":[[36,37,"input"]],"Comments":[]}
+{"id":434,"text":"Does q1 have an outgoing transition labeled '1'?","label":[[5,7,"node"],[45,46,"input"]],"Comments":[]}
+{"id":435,"text":"Are there multiple transitions from q0 on the same input symbol?","label":[[36,38,"node"]],"Comments":[]}
+{"id":436,"text":"Is there a transition from q0 to q1 labeled 'epsilon'?","label":[[27,29,"node"],[33,35,"node"]],"Comments":[]}
+{"id":437,"text":"How many transitions accept the input symbol 'e'?","label":[[46,47,"input"]],"Comments":[]}
+{"id":438,"text":"Which states have transitions accepting the input '0'?","label":[[51,52,"input"]],"Comments":[]}
+{"id":439,"text":"List the transitions that end at q5.","label":[[33,35,"node"]],"Comments":[]}
+{"id":440,"text":"Are there any transitions from q2 that do not accept 'a'?","label":[[31,33,"node"],[54,55,"input"]],"Comments":[]}
+{"id":441,"text":"How many transitions accept symbols from the set {'0', '1'}?","label":[[50,60,"input"]],"Comments":[]}
+{"id":442,"text":"Does the automaton have transitions accepting numerals?","label":[],"Comments":[]}
+{"id":443,"text":"Can you provide a description of the automaton's transitions?","label":[],"Comments":[]}
+{"id":444,"text":"What are the transitions from q0 on input 'b'?","label":[[30,32,"node"],[43,44,"input"]],"Comments":[]}
+{"id":445,"text":"Is there a transition between q1 and q4 labeled 'c'?","label":[[30,32,"node"],[37,39,"node"],[49,50,"input"]],"Comments":[]}
+{"id":446,"text":"How many transitions accept the empty string?","label":[[32,44,"input"]],"Comments":[]}
+{"id":447,"text":"Are there any transitions that loop from q3 back to q3?","label":[[41,43,"node"],[52,54,"node"]],"Comments":[]}
+{"id":448,"text":"Which transitions accept vowels?","label":[],"Comments":[]}
+{"id":449,"text":"Does the automaton have transitions accepting uppercase letters?","label":[],"Comments":[]}
+{"id":450,"text":"Are there transitions that accept multiple input symbols simultaneously?","label":[],"Comments":[]}
+{"id":451,"text":"Is there a direct transition from q0 to q5?","label":[[34,36,"node"],[40,42,"node"]],"Comments":[]}
+{"id":452,"text":"List all transitions that do not involve q0.","label":[[41,43,"node"]],"Comments":[]}
+{"id":453,"text":"How many transitions are there to q2?","label":[[34,36,"node"]],"Comments":[]}
+{"id":454,"text":"Are there any transitions labeled with special characters?","label":[],"Comments":[]}
+{"id":455,"text":"Is q1 connected to q3 in any way?","label":[[3,5,"node"],[19,21,"node"]],"Comments":[]}
+{"id":456,"text":"Describe the transitions from q4 that accept 'd'.","label":[[30,32,"node"],[46,47,"input"]],"Comments":[]}
+{"id":457,"text":"How many total transitions are there in the automaton?","label":[],"Comments":[]}
+{"id":458,"text":"Are there any transitions from q3 that accept 'e'?","label":[[31,33,"node"],[47,48,"input"]],"Comments":[]}
+{"id":459,"text":"Is there a transition labeled 'f' between q2 and q5?","label":[[31,32,"input"],[42,44,"node"],[49,51,"node"]],"Comments":[]}
+{"id":460,"text":"Does the automaton have any unreachable states due to missing transitions?","label":[],"Comments":[]}
+{"id":461,"text":"What are the possible transitions from q1 on any input?","label":[[39,41,"node"]],"Comments":[]}
+{"id":462,"text":"Can you list the transitions that have 'g' as their input label?","label":[[40,41,"input"]],"Comments":[]}
+{"id":463,"text":"Are there any transitions leading from q0 to q3?","label":[[39,41,"node"],[45,47,"node"]],"Comments":[]}
+{"id":464,"text":"How many transitions are there from q2 to q4?","label":[[36,38,"node"],[42,44,"node"]],"Comments":[]}
+{"id":465,"text":"Does q5 have any incoming transitions?","label":[[5,7,"node"]],"Comments":[]}
+{"id":466,"text":"Is there a transition from q1 to q1?","label":[[27,29,"node"],[33,35,"node"]],"Comments":[]}
+{"id":467,"text":"What are the labels of transitions entering q3?","label":[[44,46,"node"]],"Comments":[]}
+{"id":468,"text":"Are there any transitions from q4 that accept the input 'h'?","label":[[31,33,"node"],[57,58,"input"]],"Comments":[]}
+{"id":469,"text":"Is there a transition between q0 and q2 that accepts 'i'?","label":[[30,32,"node"],[37,39,"node"],[54,55,"input"]],"Comments":[]}
+{"id":470,"text":"How many transitions accept symbols from the set {'j', 'k', 'l'}?","label":[[50,65,"input"]],"Comments":[]}
+{"id":471,"text":"List all transitions that accept lowercase letters.","label":[],"Comments":[]}
+{"id":472,"text":"Are there any transitions that accept the entire alphabet?","label":[],"Comments":[]}
+{"id":473,"text":"Does the automaton have any ambiguous transitions?","label":[],"Comments":[]}
+{"id":474,"text":"Can you provide a complete list of the automaton's transitions?","label":[],"Comments":[]}
+{"id":475,"text":"Describe all the automaton transitions.","label":[],"Comments":[]}
+{"id":476,"text":"Could you tell me more about all the automaton transitions?","label":[],"Comments":[]}
+{"id":477,"text":"What is the total number of transitions in the automaton?","label":[],"Comments":[]}
+{"id":478,"text":"Are there any loops in the automaton?","label":[],"Comments":[]}
+{"id":479,"text":"Is there a cyclical pattern in the automaton?","label":[],"Comments":[]}
+{"id":480,"text":"Is the automaton's transition graph acyclic?","label":[],"Comments":[]}
+{"id":481,"text":"Describe any repeating patterns in the automaton.","label":[],"Comments":[]}
+{"id":482,"text":"How does the automaton handle loops?","label":[],"Comments":[]}
+{"id":483,"text":"Are there any feedback loops in the automaton?","label":[],"Comments":[]}
+{"id":484,"text":"Are there unreachable states in the automaton?","label":[],"Comments":[]}
+{"id":485,"text":"Can you provide a state diagram of the automaton?","label":[],"Comments":[]}
+{"id":486,"text":"What is the transition table of the automaton?","label":[],"Comments":[]}
+{"id":487,"text":"List all the possible transitions in the automaton.","label":[],"Comments":[]}
+{"id":488,"text":"Which states form cycles in the automaton?","label":[],"Comments":[]}
+{"id":489,"text":"Is q1 connected to q2 via a transition?","label":[[3,5,"node"],[19,21,"node"]],"Comments":[]}
+{"id":490,"text":"Does state q4 lead to a final state?","label":[[11,13,"node"]],"Comments":[]}
+{"id":491,"text":"Does q1 have a transition to q0?","label":[[5,7,"node"],[29,31,"node"]],"Comments":[]}
+{"id":492,"text":"What are the outgoing transitions from q1?","label":[[39,41,"node"]],"Comments":[]}
+{"id":493,"text":"Does state q3 have any outgoing transitions?","label":[[11,13,"node"]],"Comments":[]}
+{"id":494,"text":"What are the labels on transitions from state q2?","label":[[46,48,"node"]],"Comments":[]}
+{"id":495,"text":"Does q3 have transitions to multiple states?","label":[[5,7,"node"]],"Comments":[]}
+{"id":496,"text":"Does state q0 have multiple outgoing transitions?","label":[[11,13,"node"]],"Comments":[]}
+{"id":497,"text":"What are the possible next states from q2?","label":[[39,41,"node"]],"Comments":[]}
+{"id":498,"text":"What are the incoming transitions to q0?","label":[[37,39,"node"]],"Comments":[]}
+{"id":499,"text":"Does q3 have any incoming transitions?","label":[[5,7,"node"]],"Comments":[]}
+{"id":500,"text":"Which states are predecessors of q4?","label":[[33,35,"node"]],"Comments":[]}
+{"id":501,"text":"How many transitions lead into q5?","label":[[31,33,"node"]],"Comments":[]}
+{"id":502,"text":"Does q2 transition to q3 on input '1'?","label":[[5,7,"node"],[22,24,"node"],[35,36,"input"]],"Comments":[]}
+{"id":503,"text":"Which state follows q1 when input is '0'?","label":[[20,22,"node"],[38,39,"input"]],"Comments":[]}
+{"id":504,"text":"Does q0 transition to q1 on input '0'?","label":[[5,7,"node"],[22,24,"node"],[35,36,"input"]],"Comments":[]}
+{"id":505,"text":"Which states are connected to q3?","label":[[30,32,"node"]],"Comments":[]}
+{"id":506,"text":"Describe the transitions entering and leaving q5.","label":[[46,48,"node"]],"Comments":[]}
+{"id":507,"text":"What transitions are associated with q0?","label":[[37,39,"node"]],"Comments":[]}
+{"id":508,"text":"Which states are directly connected to q1?","label":[[39,41,"node"]],"Comments":[]}
+{"id":509,"text":"Describe the transitions associated with q1.","label":[[41,43,"node"]],"Comments":[]}
+{"id":510,"text":"Does q4 have any self-loops?","label":[[5,7,"node"]],"Comments":[]}
+{"id":511,"text":"Which states have self-loops?","label":[],"Comments":[]}
+{"id":512,"text":"Are there any loops involving q4?","label":[[30,32,"node"]],"Comments":[]}
+{"id":513,"text":"List all the possible transitions in the automaton.","label":[],"Comments":[]}
+{"id":514,"text":"How many states are reachable from q0?","label":[[35,37,"node"]],"Comments":[]}
+{"id":515,"text":"Is there a path from q0 to q5?","label":[[21,23,"node"],[27,29,"node"]],"Comments":[]}
+{"id":516,"text":"Which states are accessible from q0?","label":[[33,35,"node"]],"Comments":[]}
+{"id":517,"text":"How many states have self-transitions?","label":[],"Comments":[]}
+{"id":518,"text":"What inputs cause transitions from q3?","label":[[35,37,"node"]],"Comments":[]}
+{"id":519,"text":"Which states are involved in accepting input 'c'?","label":[[46,47,"input"]],"Comments":[]}
+{"id":520,"text":"What happens when state q2 receives input '1'?","label":[[24,26,"node"],[43,44,"input"]],"Comments":[]}
+{"id":521,"text":"What inputs does q1 accept?","label":[[17,19,"node"]],"Comments":[]}
+{"id":522,"text":"What happens when q5 receives input '0'?","label":[[18,20,"node"],[37,38,"input"]],"Comments":[]}
+{"id":523,"text":"Which states have transitions on input 'a'?","label":[[40,41,"input"]],"Comments":[]}
+{"id":524,"text":"Which states accept the input 'b'?","label":[[31,32,"input"]],"Comments":[]}
+{"id":525,"text":"What happens when q4 receives input '1'?","label":[[18,20,"node"],[37,38,"input"]],"Comments":[]}
+{"id":526,"text":"What is the transition table of the automaton?","label":[],"Comments":[]}
+{"id":527,"text":"Does the automaton accept strings over the alphabet {0,1}?","label":[[53,58,"language"]],"Comments":[]}
+{"id":528,"text":"What language is recognized by this automaton?","label":[],"Comments":[]}
+{"id":529,"text":"Can you provide examples of strings accepted by the automaton?","label":[],"Comments":[]}
+{"id":530,"text":"Is the string '1010' accepted by the automaton?","label":[[15,19,"input"]],"Comments":[]}
+{"id":531,"text":"What is the set of input symbols for the automaton?","label":[],"Comments":[]}
+{"id":532,"text":"Does the automaton accept all binary strings?","label":[],"Comments":[]}
+{"id":533,"text":"Can the automaton accept an empty string?","label":[],"Comments":[]}
+{"id":534,"text":"What is the regular expression equivalent to this automaton?","label":[],"Comments":[]}
+{"id":535,"text":"If the input is '0110', what will the automaton do?","label":[[18,22,"input"]],"Comments":[]}
+{"id":536,"text":"Does the automaton accept strings ending with '0'?","label":[[47,48,"input"]],"Comments":[]}
+{"id":537,"text":"Is '111' a valid input for the automaton?","label":[[4,7,"input"]],"Comments":[]}
+{"id":538,"text":"What kind of grammar does the automaton accept?","label":[],"Comments":[]}
+{"id":539,"text":"What is the purpose of this automaton in terms of language recognition?","label":[],"Comments":[]}
+{"id":540,"text":"Provide some accepted input examples for the automaton.","label":[],"Comments":[]}
+{"id":541,"text":"What strings are rejected by the automaton?","label":[],"Comments":[]}
+{"id":542,"text":"Does the automaton accept strings with an even number of '1's?","label":[[58,59,"input"]],"Comments":[]}
+{"id":543,"text":"Is the automaton designed to accept palindromic strings?","label":[],"Comments":[]}
+{"id":544,"text":"What is the minimal grammar that the automaton recognizes?","label":[],"Comments":[]}
+{"id":545,"text":"Can you simulate the automaton on input '1001'?","label":[[41,45,"input"]],"Comments":[]}
+{"id":546,"text":"Does changing the final state alter the accepted language?","label":[],"Comments":[]}
+{"id":547,"text":"What is the language accepted if we remove state q2?","label":[[49,51,"node"]],"Comments":[]}
+{"id":548,"text":"Which input strings cause the automaton to halt in a non-accepting state?","label":[],"Comments":[]}
+{"id":549,"text":"What is the language accepted by the automaton?","label":[],"Comments":[]}
+{"id":550,"text":"Does the automaton accept the string '000'?","label":[[38,41,"input"]],"Comments":[]}
+{"id":551,"text":"Is the automaton accepting strings that start with '1' and end with '0'?","label":[[52,53,"input"],[69,70,"input"]],"Comments":[]}
+{"id":552,"text":"What is the set of symbols used in the automaton's transitions?","label":[],"Comments":[]}
+{"id":553,"text":"Can you describe the language recognized by the automaton?","label":[],"Comments":[]}
+{"id":554,"text":"Does the automaton accept the language of all strings containing '101'?","label":[[66,69,"input"]],"Comments":[]}
+{"id":555,"text":"Provide examples of strings not accepted by the automaton.","label":[],"Comments":[]}
+{"id":556,"text":"What happens when the automaton processes the string '0101'?","label":[[54,58,"input"]],"Comments":[]}
+{"id":557,"text":"Is 'epsilon' (empty string) accepted by the automaton?","label":[[4,11,"input"]],"Comments":[]}
+{"id":558,"text":"Does the automaton accept any strings over the alphabet?","label":[],"Comments":[]}
+{"id":559,"text":"What is the regular language defined by the automaton?","label":[],"Comments":[]}
+{"id":560,"text":"If the final state is changed to q3, what language does it accept?","label":[[34,36,"node"]],"Comments":[]}
+{"id":561,"text":"What is the accepted language if the automaton is reversed?","label":[],"Comments":[]}
+{"id":562,"text":"Are there any strings that cause the automaton to loop indefinitely?","label":[],"Comments":[]}
+{"id":563,"text":"Does the automaton accept the complement of the language of strings with an even number of '0's?","label":[[92,93,"input"]],"Comments":[]}
+{"id":564,"text":"What is the grammar produced by the automaton?","label":[],"Comments":[]}
+{"id":565,"text":"Can you simulate the automaton on input '1100'?","label":[[41,45,"input"]],"Comments":[]}
+{"id":566,"text":"What is the output of the automaton for input '1011'?","label":[[47,51,"input"]],"Comments":[]}
+{"id":567,"text":"Is the automaton deterministic in its acceptance of inputs?","label":[],"Comments":[]}
+{"id":568,"text":"What is the set of accepted strings?","label":[],"Comments":[]}
+{"id":569,"text":"Does the automaton accept any string that ends with '1'?","label":[[53,54,"input"]],"Comments":[]}
+{"id":570,"text":"What is the language accepted by changing q0 to a final state?","label":[],"Comments":[]}
+{"id":571,"text":"Can you provide the regular expression corresponding to the automaton?","label":[],"Comments":[]}
+{"id":572,"text":"Does the automaton accept strings of length less than 3?","label":[],"Comments":[]}
+{"id":573,"text":"Is '1010' part of the language recognized by the automaton?","label":[[4,8,"input"]],"Comments":[]}
+{"id":574,"text":"What are the input and output alphabets of the automaton?","label":[],"Comments":[]}
+{"id":575,"text":"Does the automaton accept only binary strings with no consecutive '1's?","label":[[67,68,"input"]],"Comments":[]}
+{"id":576,"text":"What is the effect on the language if the automaton's initial state is changed?","label":[],"Comments":[]}
+{"id":577,"text":"Provide examples of inputs that are rejected by the automaton.","label":[],"Comments":[]}
+{"id":578,"text":"Is '1001' an accepted input for the automaton?","label":[[4,8,"input"]],"Comments":[]}
+{"id":579,"text":"What is the accepted language when state q1 becomes a final state?","label":[[41,43,"node"]],"Comments":[]}
+{"id":580,"text":"Does the automaton accept the language described by the regular expression (0+1)*1?","label":[[75,82,"language"]],"Comments":[]}
+{"id":581,"text":"Can the automaton accept infinite length strings?","label":[],"Comments":[]}
+{"id":582,"text":"What is the language accepted if all states are made accepting states?","label":[],"Comments":[]}
+{"id":583,"text":"Describe the set of all strings accepted by the automaton.","label":[],"Comments":[]}
+{"id":584,"text":"Is the string '0000' accepted or rejected by the automaton?","label":[[15,19,"input"]],"Comments":[]}
+{"id":585,"text":"What symbols are not accepted by the automaton?","label":[],"Comments":[]}
+{"id":586,"text":"Does the automaton accept strings with exactly two '1's?","label":[[52,53,"input"]],"Comments":[]}
+{"id":587,"text":"What is the minimal regular expression for the automaton's language?","label":[],"Comments":[]}
+{"id":588,"text":"Does the automaton accept strings where '0's and '1's alternate?","label":[[41,42,"input"],[50,51,"input"]],"Comments":[]}
+{"id":589,"text":"Provide a sample input that the automaton would reject.","label":[],"Comments":[]}
+{"id":590,"text":"Does the automaton recognize the language of all strings containing at least one '1'?","label":[[82,83,"input"]],"Comments":[]}
+{"id":591,"text":"What happens if the input is '0011'?","label":[[30,34,"input"]],"Comments":[]}
+{"id":592,"text":"Is '1111' a valid input according to the automaton's language?","label":[[4,8,"input"]],"Comments":[]}
+{"id":593,"text":"What changes to the automaton would alter its accepted language?","label":[],"Comments":[]}
+{"id":594,"text":"Can you give examples of accepted and rejected strings?","label":[],"Comments":[]}
+{"id":595,"text":"Does the automaton accept any string that starts and ends with the same symbol?","label":[],"Comments":[]}
+{"id":596,"text":"What is the set of all possible inputs for the automaton?","label":[],"Comments":[]}
+{"id":597,"text":"Does the automaton accept palindromic binary strings?","label":[],"Comments":[]}
+{"id":598,"text":"What is the language accepted if we swap the accepting states?","label":[],"Comments":[]}
+{"id":599,"text":"Can you write the regular expression that defines the automaton's language?","label":[],"Comments":[]}
+{"id":600,"text":"Is the automaton accepting of the language (0+1)*0?","label":[[43,50,"language"]],"Comments":[]}
+{"id":601,"text":"Does the automaton accept strings with more '1's than '0's?","label":[[45,46,"input"],[55,56,"input"]],"Comments":[]}
+{"id":602,"text":"Provide the definition of the language recognized by the automaton.","label":[],"Comments":[]}
+{"id":603,"text":"What would be the result of processing input '011'?","label":[[46,49,"input"]],"Comments":[]}
+{"id":604,"text":"Is '0' an accepted input by the automaton?","label":[[4,5,"input"]],"Comments":[]}
+{"id":605,"text":"What is the impact on the language if we add a new accepting state?","label":[],"Comments":[]}
+{"id":606,"text":"Does the automaton accept the empty string?","label":[[30,42,"input"]],"Comments":[]}
+{"id":607,"text":"What is the language accepted by making all states non-accepting?","label":[],"Comments":[]}
+{"id":608,"text":"Can you explain the grammar that the automaton recognizes?","label":[],"Comments":[]}
+{"id":609,"text":"Is '101' accepted or rejected by the automaton?","label":[[4,7,"input"]],"Comments":[]}
+{"id":610,"text":"What is the set of symbols that the automaton does not accept?","label":[],"Comments":[]}
+{"id":611,"text":"Does changing the transition function affect the accepted language?","label":[],"Comments":[]}
+{"id":612,"text":"What happens when the automaton processes input '0001'?","label":[[49,53,"input"]],"Comments":[]}
+{"id":613,"text":"Provide examples of inputs accepted by the automaton.","label":[],"Comments":[]}
+{"id":614,"text":"Is the automaton's language regular or context-free?","label":[],"Comments":[]}
+{"id":615,"text":"Does the automaton accept any strings with consecutive '0's?","label":[[56,57,"input"]],"Comments":[]}
+{"id":616,"text":"What is the regular expression that matches the automaton's language?","label":[],"Comments":[]}
+{"id":617,"text":"Is '1000' a valid string for the automaton?","label":[[4,8,"input"]],"Comments":[]}
+{"id":618,"text":"What changes occur in the accepted language if we modify the start state?","label":[],"Comments":[]}
+{"id":619,"text":"Can you simulate the automaton on input '0110'?","label":[[41,45,"input"]],"Comments":[]}
+{"id":620,"text":"Does the automaton accept only strings of even length?","label":[],"Comments":[]}
+{"id":621,"text":"What language does the automaton accept if we add a loop on q1?","label":[[60,62,"node"]],"Comments":[]}
+{"id":622,"text":"Is there any input that is accepted by the automaton?","label":[],"Comments":[]}
+{"id":623,"text":"What is the accepted language if we remove all accepting states?","label":[],"Comments":[]}
+{"id":624,"text":"Does the automaton accept the language of all strings over {0,1}?","label":[[61,64,"language"]],"Comments":[]}
+{"id":625,"text":"Provide the regular grammar corresponding to the automaton.","label":[],"Comments":[]}
+{"id":626,"text":"Is '001' part of the accepted language?","label":[[4,7,"language"]],"Comments":[]}
+{"id":627,"text":"What is the result of the automaton processing '110'?","label":[[48,51,"input"]],"Comments":[]}
+{"id":628,"text":"Does the automaton accept strings with an odd number of '0's?","label":[[57,58,"input"]],"Comments":[]}
+{"id":629,"text":"Is the automaton accepting any string with prefix '10'?","label":[[51,53,"input"]],"Comments":[]}
+{"id":630,"text":"Describe the language accepted by the automaton.","label":[],"Comments":[]}
+{"id":631,"text":"Does the automaton accept strings that are multiples of '11'?","label":[[57,59,"input"]],"Comments":[]}
+{"id":632,"text":"What is the output when the automaton processes '1010'?","label":[[49,53,"input"]],"Comments":[]}
+{"id":633,"text":"Are there any inputs that the automaton will not process?","label":[],"Comments":[]}
+{"id":634,"text":"Does the automaton accept strings where the number of '0's equals the number of '1's?","label":[[55,56,"input"],[81,82,"input"]],"Comments":[]}
+{"id":635,"text":"What is the effect on the accepted language if we remove state q1?","label":[[63,65,"node"]],"Comments":[]}
+{"id":636,"text":"Is '01010' accepted by the automaton?","label":[[4,9,"input"]],"Comments":[]}
+{"id":637,"text":"Provide a detailed description of the automaton's accepted language.","label":[],"Comments":[]}
+{"id":638,"text":"Hi","label":[],"Comments":[]}
+{"id":639,"text":"Hello","label":[],"Comments":[]}
+{"id":640,"text":"Can we begin?","label":[],"Comments":[]}
+{"id":641,"text":"Can we start?","label":[],"Comments":[]}
+{"id":642,"text":"Can we proceed?","label":[],"Comments":[]}
+{"id":643,"text":"Can we continue?","label":[],"Comments":[]}
+{"id":644,"text":"Can we move forward?","label":[],"Comments":[]}
+{"id":645,"text":"Can we move on?","label":[],"Comments":[]}
+{"id":646,"text":"Goog morning","label":[],"Comments":[]}
+{"id":647,"text":"Good afternoon","label":[],"Comments":[]}
+{"id":648,"text":"Good evening","label":[],"Comments":[]}
+{"id":649,"text":"Let's start","label":[],"Comments":[]}
+{"id":650,"text":"Let's begin","label":[],"Comments":[]}
+{"id":651,"text":"Let's proceed","label":[],"Comments":[]}
+{"id":652,"text":"Nice to meet you","label":[],"Comments":[]}
+{"id":653,"text":"Good to see you","label":[],"Comments":[]}
+{"id":654,"text":"Good to meet you","label":[],"Comments":[]}
+{"id":655,"text":"What are the key components of an automaton?","label":[],"Comments":[]}
+{"id":656,"text":"Can you explain the concept of states in automata?","label":[],"Comments":[]}
+{"id":657,"text":"How is a finite automaton different from a Turing machine?","label":[],"Comments":[]}
+{"id":658,"text":"What is the role of the transition function in an automaton?","label":[],"Comments":[]}
+{"id":659,"text":"Is it possible for an automaton to have infinite states?","label":[],"Comments":[]}
+{"id":660,"text":"How does the automaton process input strings?","label":[],"Comments":[]}
+{"id":661,"text":"What defines the initial state in an automaton?","label":[],"Comments":[]}
+{"id":662,"text":"Can an automaton have multiple initial states?","label":[],"Comments":[]}
+{"id":663,"text":"What is meant by the term 'accepting state' in automata?","label":[],"Comments":[]}
+{"id":664,"text":"How are accepting states represented in automata diagrams?","label":[],"Comments":[]}
+{"id":665,"text":"What is the difference between deterministic and nondeterministic automata?","label":[],"Comments":[]}
+{"id":666,"text":"Can you define a deterministic finite automaton?","label":[],"Comments":[]}
+{"id":667,"text":"How do transitions work in nondeterministic automata?","label":[],"Comments":[]}
+{"id":668,"text":"What is the significance of the final state in an automaton?","label":[],"Comments":[]}
+{"id":669,"text":"What is a state transition diagram?","label":[],"Comments":[]}
+{"id":670,"text":"How are transitions defined in an automaton?","label":[],"Comments":[]}
+{"id":671,"text":"Is it possible to have a transition without consuming input symbols?","label":[],"Comments":[]}
+{"id":672,"text":"What is an epsilon transition?","label":[],"Comments":[]}
+{"id":673,"text":"What is the maximum number of transitions a state can have?","label":[],"Comments":[]}
+{"id":674,"text":"Can you explain the concept of patterns in automata?","label":[],"Comments":[]}
+{"id":675,"text":"How do finite automata recognize patterns in input?","label":[],"Comments":[]}
+{"id":676,"text":"What is the importance of patterns in automata theory?","label":[],"Comments":[]}
+{"id":677,"text":"Are patterns related to the language accepted by an automaton?","label":[],"Comments":[]}
+{"id":678,"text":"How can we represent an automaton mathematically?","label":[],"Comments":[]}
+{"id":679,"text":"What is the formal definition of a finite automaton?","label":[],"Comments":[]}
+{"id":680,"text":"Can an automaton be used to model regular expressions?","label":[],"Comments":[]}
+{"id":681,"text":"What is the relationship between automata and regular languages?","label":[],"Comments":[]}
+{"id":682,"text":"How many states are needed to recognize a given pattern?","label":[],"Comments":[]}
+{"id":683,"text":"What factors determine the number of states in an automaton?","label":[],"Comments":[]}
+{"id":684,"text":"Is there a method to minimize the number of states in an automaton?","label":[],"Comments":[]}
+{"id":685,"text":"What is state minimization in automata theory?","label":[],"Comments":[]}
+{"id":686,"text":"Can two different automata recognize the same language?","label":[],"Comments":[]}
+{"id":687,"text":"What is the purpose of using automata in computer science?","label":[],"Comments":[]}
+{"id":688,"text":"How are automata applied in lexical analysis?","label":[],"Comments":[]}
+{"id":689,"text":"What is the difference between a Mealy machine and a Moore machine?","label":[],"Comments":[]}
+{"id":690,"text":"What is a transition table in the context of automata?","label":[],"Comments":[]}
+{"id":691,"text":"How are transitions represented in a transition table?","label":[],"Comments":[]}
+{"id":692,"text":"What is the role of input symbols in transitions?","label":[],"Comments":[]}
+{"id":693,"text":"Can you have multiple transitions for the same input symbol in a deterministic automaton?","label":[],"Comments":[]}
+{"id":694,"text":"What is the significance of deterministic behavior in automata?","label":[],"Comments":[]}
+{"id":695,"text":"How do nondeterministic automata differ in handling transitions?","label":[],"Comments":[]}
+{"id":696,"text":"What is the subset construction method in automata theory?","label":[],"Comments":[]}
+{"id":697,"text":"How can we convert a nondeterministic automaton to a deterministic one?","label":[],"Comments":[]}
+{"id":698,"text":"What is the power set of states in automata conversion?","label":[],"Comments":[]}
+{"id":699,"text":"Why are accepting states important in defining languages?","label":[],"Comments":[]}
+{"id":700,"text":"Can an automaton have no accepting states?","label":[],"Comments":[]}
+{"id":701,"text":"What happens if an automaton has all states as accepting states?","label":[],"Comments":[]}
+{"id":702,"text":"What is an infinite automaton?","label":[],"Comments":[]}
+{"id":703,"text":"How does an automaton differ from a grammar?","label":[],"Comments":[]}
+{"id":704,"text":"What is the Chomsky hierarchy in automata theory?","label":[],"Comments":[]}
+{"id":705,"text":"How are context-free grammars related to automata?","label":[],"Comments":[]}
+{"id":706,"text":"What is the role of automata in parsing?","label":[],"Comments":[]}
+{"id":707,"text":"Can you explain the concept of language recognition in automata?","label":[],"Comments":[]}
+{"id":708,"text":"What is a language accepted by an automaton?","label":[],"Comments":[]}
+{"id":709,"text":"How do automata recognize regular languages?","label":[],"Comments":[]}
+{"id":710,"text":"What are the limitations of finite automata?","label":[],"Comments":[]}
+{"id":711,"text":"Can finite automata recognize all possible languages?","label":[],"Comments":[]}
+{"id":712,"text":"What is a pushdown automaton?","label":[],"Comments":[]}
+{"id":713,"text":"How do pushdown automata differ from finite automata?","label":[],"Comments":[]}
+{"id":714,"text":"What is the stack used for in a pushdown automaton?","label":[],"Comments":[]}
+{"id":715,"text":"What is the purpose of transitions in an automaton?","label":[],"Comments":[]}
+{"id":716,"text":"How are transitions depicted in automata diagrams?","label":[],"Comments":[]}
+{"id":717,"text":"Can transitions be labeled with multiple input symbols?","label":[],"Comments":[]}
+{"id":718,"text":"What is the difference between an automaton's alphabet and its language?","label":[],"Comments":[]}
+{"id":719,"text":"How do you define the language accepted by an automaton?","label":[],"Comments":[]}
+{"id":720,"text":"What is the role of states in determining accepted strings?","label":[],"Comments":[]}
+{"id":721,"text":"How do initial and accepting states affect an automaton's behavior?","label":[],"Comments":[]}
+{"id":722,"text":"Is it possible to have an automaton without a start state?","label":[],"Comments":[]}
+{"id":723,"text":"What is meant by the term 'dead state' in automata?","label":[],"Comments":[]}
+{"id":724,"text":"How are dead states used in automata design?","label":[],"Comments":[]}
+{"id":725,"text":"What is the significance of unreachable states in an automaton?","label":[],"Comments":[]}
+{"id":726,"text":"Can automata have unreachable states?","label":[],"Comments":[]}
+{"id":727,"text":"How do we eliminate unreachable states from an automaton?","label":[],"Comments":[]}
+{"id":728,"text":"What is a complete automaton?","label":[],"Comments":[]}
+{"id":729,"text":"What is an incomplete automaton?","label":[],"Comments":[]}
+{"id":730,"text":"How does the completeness of an automaton affect its operation?","label":[],"Comments":[]}
+{"id":731,"text":"What are the applications of finite automata in real life?","label":[],"Comments":[]}
+{"id":732,"text":"How are finite automata used in text processing?","label":[],"Comments":[]}
+{"id":733,"text":"What is an example of a practical use of automata?","label":[],"Comments":[]}
+{"id":734,"text":"Can finite automata model sequential logic circuits?","label":[],"Comments":[]}
+{"id":735,"text":"What is the significance of patterns in automata recognition?","label":[],"Comments":[]}
+{"id":736,"text":"How can automata detect patterns in data streams?","label":[],"Comments":[]}
+{"id":737,"text":"What is a regular expression in the context of automata?","label":[],"Comments":[]}
+{"id":738,"text":"How do regular expressions relate to finite automata?","label":[],"Comments":[]}
+{"id":739,"text":"Can all regular expressions be converted to finite automata?","label":[],"Comments":[]}
+{"id":740,"text":"What is the process of constructing an automaton from a regular expression?","label":[],"Comments":[]}
+{"id":741,"text":"How are transitions defined when building an automaton from a regular expression?","label":[],"Comments":[]}
+{"id":742,"text":"What is the role of epsilon transitions in NFA?","label":[],"Comments":[]}
+{"id":743,"text":"How do epsilon transitions affect the behavior of an automaton?","label":[],"Comments":[]}
+{"id":744,"text":"Can deterministic automata have epsilon transitions?","label":[],"Comments":[]}
+{"id":745,"text":"What is the significance of closure properties in automata?","label":[],"Comments":[]}
+{"id":746,"text":"How do automata handle concatenation of languages?","label":[],"Comments":[]}
+{"id":747,"text":"What is the intersection of languages in automata theory?","label":[],"Comments":[]}
+{"id":748,"text":"How does the union of automata languages work?","label":[],"Comments":[]}
+{"id":749,"text":"Can automata be combined to recognize more complex languages?","label":[],"Comments":[]}
+{"id":750,"text":"What is the complement of a language in automata theory?","label":[],"Comments":[]}
+{"id":751,"text":"How do transitions define the accepted language of an automaton?","label":[],"Comments":[]}
+{"id":752,"text":"Is there a limit to how complex an automaton can be?","label":[],"Comments":[]}
+{"id":753,"text":"What factors influence the design of an automaton?","label":[],"Comments":[]}
+{"id":754,"text":"How can automata be optimized for efficiency?","label":[],"Comments":[]}
+{"id":755,"text":"What was one advantage of this system?","label":[],"Comments":[]}
+{"id":756,"text":"Who stopped influencing department stores in the 1970's?","label":[],"Comments":[]}
+{"id":757,"text":"What is Punjab's biggest city?","label":[],"Comments":[]}
+{"id":758,"text":"MBS and CDO derive their value from?","label":[],"Comments":[]}
+{"id":759,"text":"What does one of the Sura in the Quran begin with?","label":[],"Comments":[]}
+{"id":760,"text":"Four-fifths of the ZIP codes that provide the highest amount of political contributions in the United States are located in what borough?","label":[],"Comments":[]}
+{"id":761,"text":"When year did Prince Albert resurrect?","label":[],"Comments":[]}
+{"id":762,"text":"What school agreed with the Mimamsa's understanding of Upanishads?","label":[],"Comments":[]}
+{"id":763,"text":"In what year was Elizabeth born?","label":[],"Comments":[]}
+{"id":764,"text":"What defeat led to Prussia having to swear its allegiance to Napoleon?","label":[],"Comments":[]}
+{"id":765,"text":"Who owned the Desperados trademarks?","label":[],"Comments":[]}
+{"id":766,"text":" A torque motor at high voltage provides what?","label":[],"Comments":[]}
+{"id":767,"text":"How many US states did the Spanish explorers explore?","label":[],"Comments":[]}
+{"id":768,"text":"Where was an important center of Indian Ocean trading in the 16th century?","label":[],"Comments":[]}
+{"id":769,"text":" Where does methane in the north pole escape to on Neptune?","label":[],"Comments":[]}
+{"id":770,"text":"How much was the NBC broadcasting deal with the Premier League worth in 2015?","label":[],"Comments":[]}
+{"id":771,"text":"How many dimensions did Melzack and Casey describe pain in terms of?","label":[],"Comments":[]}
+{"id":772,"text":"What cities in the UK had major Warp scenes?","label":[],"Comments":[]}
+{"id":773,"text":"What was the geologic event that followed the Mardi Gras Riots in2001?","label":[],"Comments":[]}
+{"id":774,"text":"How many PureCell Model 400 fuel cells can be found in New Haven?","label":[],"Comments":[]}
+{"id":775,"text":"How often are pigeons able to breed for the consumption process ?","label":[],"Comments":[]}
+{"id":776,"text":"When must the trust resources be spent","label":[],"Comments":[]}
+{"id":777,"text":"What was the median age for viewers for season one?","label":[],"Comments":[]}
+{"id":778,"text":"In what year was The Blue School established?","label":[],"Comments":[]}
+{"id":779,"text":"In micrometers, when do common silicon detectors cease to be sensitive?","label":[],"Comments":[]}
+{"id":780,"text":"What has the grant enabled","label":[],"Comments":[]}
+{"id":781,"text":"When was the French Revolutionary Army victorious?","label":[],"Comments":[]}
+{"id":782,"text":"What percentage of the South Tuscon Population is Mexican-American?","label":[],"Comments":[]}
+{"id":783,"text":"How many genders were used in Lithuanian in the past?","label":[],"Comments":[]}
+{"id":784,"text":"What happened after the French and Indian War?","label":[],"Comments":[]}
+{"id":785,"text":"What does the growth, development, and reproduction of organisms rely on?","label":[],"Comments":[]}
+{"id":786,"text":"What enzyme's presence is characteristic of specific types of viral infections?","label":[],"Comments":[]}
+{"id":787,"text":"What the average for the amount of  turkeys are consumed in the U.S on Thanksgiving Day?","label":[],"Comments":[]}
+{"id":788,"text":"What kind of name is Strasbourg?","label":[],"Comments":[]}
+{"id":789,"text":"What day is accounted in the Gospel of Luke as the ascension?","label":[],"Comments":[]}
+{"id":790,"text":"What was the Malleus Maleficarum?","label":[],"Comments":[]}
+{"id":791,"text":"In what language was the first book of the Bible conceived?","label":[],"Comments":[]}
+{"id":792,"text":"Who criticized Milliband for posing with a copy of The Sun showing the Hillsborough disaster?","label":[],"Comments":[]}
+{"id":793,"text":"There is newspaper company within the city that runs monthly, it's name ?","label":[],"Comments":[]}
+{"id":794,"text":"The rejection of the plan by the Saarlanders was interpreted as support for the Saar to do what?","label":[],"Comments":[]}
+{"id":795,"text":"What was the median household income in 2000?","label":[],"Comments":[]}
+{"id":796,"text":"During what conflict did the US occupy the Marshall Islands?","label":[],"Comments":[]}
+{"id":797,"text":"What is a prominent example of a movement which crosses over denominational lines?","label":[],"Comments":[]}
+{"id":798,"text":"Which presidents have tried to decrease the power of the presidential office?","label":[],"Comments":[]}
+{"id":799,"text":"How many acres were burned in the historic Cedar Fire of 2003?","label":[],"Comments":[]}
+{"id":800,"text":"What role did Philadelphia play in the American Revolution?","label":[],"Comments":[]}
+{"id":801,"text":"What changes did Microsoft make to its certification requirements in March 2012?","label":[],"Comments":[]}
+{"id":802,"text":"Who blockaded Switzerland's trade during World War II?","label":[],"Comments":[]}
+{"id":803,"text":"What legislative act provided that no Indian nation shall be acknowledged as an independent nation with whom the United States may contract by treaty?","label":[],"Comments":[]}
+{"id":804,"text":"Where does the BBC operate several station networks?","label":[],"Comments":[]}
+{"id":805,"text":"What was exchanged from mouth to mouth in the usage of the seismometer?","label":[],"Comments":[]}
+{"id":806,"text":"What is Brasilia's airport's annual passenger capacity after 2014's improvements?","label":[],"Comments":[]}
+{"id":807,"text":"How many IndyMac account holders held funds in excess of the FDIC's insured amount of US$100,000?","label":[],"Comments":[]}
+{"id":808,"text":"Which group did Han forces fight in the Tarm Basin?","label":[],"Comments":[]}
+{"id":809,"text":"What country outside Ireland is known for having Irish pubs?","label":[],"Comments":[]}
+{"id":810,"text":"What trees are protected along the coast of San Francisco?","label":[],"Comments":[]}
+{"id":811,"text":"What did Czech historians emphasize about their countrymen?","label":[],"Comments":[]}
+{"id":812,"text":"What is the process in which beings go through cycles of lifetimes as many forms of sentient life?","label":[],"Comments":[]}
+{"id":813,"text":"Who gave up calling at the island due to attacks on their shipping?","label":[],"Comments":[]}
+{"id":814,"text":"Who would be responsible for the election of a plebeian tribune?","label":[],"Comments":[]}
+{"id":815,"text":"Who became Catholicos in Etchmiadzin in 1441?","label":[],"Comments":[]}
+{"id":816,"text":"What did the Reagan regulations invalidate?","label":[],"Comments":[]}
+{"id":817,"text":"What did sociology in science explain?","label":[],"Comments":[]}
+{"id":818,"text":"What is the most games played a team to reach the final?","label":[],"Comments":[]}
+{"id":819,"text":"What is another name for walking stick insects?","label":[],"Comments":[]}
+{"id":820,"text":"Who had Lavinia already been promised to?","label":[],"Comments":[]}
+{"id":821,"text":"What is mostly a mix of family owned shops?","label":[],"Comments":[]}
+{"id":822,"text":"Which Interstate is the major north-south route?","label":[],"Comments":[]}
+{"id":823,"text":"What planet is Neptune's opposite?","label":[],"Comments":[]}
+{"id":824,"text":"What years did Billy Hughes serve as Prime Minister?","label":[],"Comments":[]}
+{"id":825,"text":"What musician joined Kanye West on the song \"Only One\"?","label":[],"Comments":[]}
+{"id":826,"text":"By what month and year did Laemmle change his opinion on \"unclean pictures\"?","label":[],"Comments":[]}
+{"id":827,"text":"Where is Sanskrit usually found?","label":[],"Comments":[]}
+{"id":828,"text":"Who was a notable student of  Stanley Schachter?","label":[],"Comments":[]}
+{"id":829,"text":"Which countries came in major emigrations to the US?","label":[],"Comments":[]}
+{"id":830,"text":"Arthur Harris announced that Bomber Command would enable economic warfare to achieve what?","label":[],"Comments":[]}
+{"id":831,"text":"Where does most of Canada's asphalt end up these days?","label":[],"Comments":[]}
+{"id":832,"text":"When did this push occur?","label":[],"Comments":[]}
+{"id":833,"text":"Genetic systems are conserved among what?","label":[],"Comments":[]}
+{"id":834,"text":"What has Tibetan Buddhism been almost eclipsed by?","label":[],"Comments":[]}
+{"id":835,"text":"From 1876 to 1973, how much did the glaciers that covered the Alps shrink?","label":[],"Comments":[]}
+{"id":836,"text":"What was the ethnicity of the people executed in the second-largest mass execution in US history?","label":[],"Comments":[]}
+{"id":837,"text":"Which nickname was endorsed by Kenneth Samuel Wuest?","label":[],"Comments":[]}
+{"id":838,"text":"What was used to dampen resonances in recordings?","label":[],"Comments":[]}
+{"id":839,"text":"Who is the current head of the Greek Orthodox church in Cyprus?","label":[],"Comments":[]}
+{"id":840,"text":"What disiaster caused a massive migration out of the Fujiian region?","label":[],"Comments":[]}
+{"id":841,"text":"What two things became to be seen as distinct from one another?","label":[],"Comments":[]}
+{"id":842,"text":"Where does the FBI not investigate violations of the Civil Rights Act?","label":[],"Comments":[]}
+{"id":843,"text":"What is Stefan Schmid's profession?","label":[],"Comments":[]}
+{"id":844,"text":"What is on top of the crest?","label":[],"Comments":[]}
+{"id":845,"text":"What is a traffic pattern often called outside of the U.S.?","label":[],"Comments":[]}
+{"id":846,"text":"What magazine ranked the 360 as the second best console of the 1993-2013 period?","label":[],"Comments":[]}
+{"id":847,"text":"What is Miami's world rank in terms of how impressive its skyline is?","label":[],"Comments":[]}
+{"id":848,"text":"How much does Vanguard plan to spend in capital investment?","label":[],"Comments":[]}
+{"id":849,"text":"What forest is to the western Sahara?","label":[],"Comments":[]}
+{"id":850,"text":"Yaroslav held what title in medieval Russia?","label":[],"Comments":[]}
+{"id":851,"text":"In what was U.S. News and World Report first published?","label":[],"Comments":[]}
+{"id":852,"text":"When does  Dirty Mas take place on the Monday before Ash Wednesday?","label":[],"Comments":[]}
+{"id":853,"text":"What happened to Satan when Jesus started his rule?","label":[],"Comments":[]}
+{"id":854,"text":"What year was Alaska unofficially incorporated as a territory?","label":[],"Comments":[]}

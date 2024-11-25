@@ -1,0 +1,6944 @@
+[
+  [
+    "Hi",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Hello",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Describe the automaton",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there a transition between q2 and q0?",
+    {
+      "entities": [
+        [
+          30,
+          32,
+          "node"
+        ],
+        [
+          37,
+          39,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there a transition between q5 and q7",
+    {
+      "entities": [
+        [
+          30,
+          32,
+          "node"
+        ],
+        [
+          37,
+          39,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Please, describe the automaton",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many transitions does the automaton contain",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there a particular pattern between the nodes and arcs?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What grammar does the automaton recognise?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What are the transitions",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What are the states",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is q1",
+    {
+      "entities": [
+        [
+          8,
+          10,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many states and edges are there?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is the automaton directed?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How is the automaton represented graphically?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton contain cycles?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton accept a language allowing words made of an odd number of 0s and 1s",
+    {
+      "entities": [
+        [
+          77,
+          78,
+          "input"
+        ],
+        [
+          84,
+          85,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does the automaton accept a repeating pattern?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Briefly describe the automaton",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does it only accept 1s and 0s?",
+    {
+      "entities": [
+        [
+          20,
+          21,
+          "input"
+        ],
+        [
+          27,
+          28,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Can you describe the transitions of the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Which is the initial state?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does it have 5 states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many states are there?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Give me a list of the arcs",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there an arc from q0 to q1?",
+    {
+      "entities": [
+        [
+          21,
+          23,
+          "node"
+        ],
+        [
+          27,
+          29,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the shape of the arcs",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there an arc from q0 to q2, q3 or q4?",
+    {
+      "entities": [
+        [
+          22,
+          24,
+          "node"
+        ],
+        [
+          28,
+          30,
+          "node"
+        ],
+        [
+          32,
+          34,
+          "node"
+        ],
+        [
+          38,
+          40,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What are the transitions from q1",
+    {
+      "entities": [
+        [
+          30,
+          32,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What are the transitions from q2",
+    {
+      "entities": [
+        [
+          30,
+          32,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What are the transitions from q3",
+    {
+      "entities": [
+        [
+          30,
+          32,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What are the transitions from q4",
+    {
+      "entities": [
+        [
+          30,
+          32,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the purpose of the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What happens when a q1 receives a 0?",
+    {
+      "entities": [
+        [
+          20,
+          22,
+          "node"
+        ],
+        [
+          34,
+          35,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many states does the automaton have?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How are your states linked together?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is q0 linked to q0?",
+    {
+      "entities": [
+        [
+          3,
+          5,
+          "node"
+        ],
+        [
+          16,
+          18,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is q1 linked to q4?",
+    {
+      "entities": [
+        [
+          3,
+          5,
+          "node"
+        ],
+        [
+          16,
+          18,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What are the transitions from q4?",
+    {
+      "entities": [
+        [
+          30,
+          32,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What are the links of q4?",
+    {
+      "entities": [
+        [
+          22,
+          24,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is q4 linked to q0?",
+    {
+      "entities": [
+        [
+          3,
+          5,
+          "node"
+        ],
+        [
+          16,
+          18,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Can you describe me the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Could you briefly describe the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there an arc from q1 to q2?",
+    {
+      "entities": [
+        [
+          21,
+          23,
+          "node"
+        ],
+        [
+          27,
+          29,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What are the states connected to q0?",
+    {
+      "entities": [
+        [
+          33,
+          35,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there an arc from q2 to q3?",
+    {
+      "entities": [
+        [
+          21,
+          23,
+          "node"
+        ],
+        [
+          27,
+          29,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there an arc from q3 to q4?",
+    {
+      "entities": [
+        [
+          21,
+          23,
+          "node"
+        ],
+        [
+          27,
+          29,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there an arc from q4 to q0?",
+    {
+      "entities": [
+        [
+          21,
+          23,
+          "node"
+        ],
+        [
+          27,
+          29,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there an arc from q4?",
+    {
+      "entities": [
+        [
+          21,
+          23,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there an arc from q0?",
+    {
+      "entities": [
+        [
+          21,
+          23,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there an arc from q1?",
+    {
+      "entities": [
+        [
+          21,
+          23,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there an arc from q2?",
+    {
+      "entities": [
+        [
+          21,
+          23,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there an arc from q3?",
+    {
+      "entities": [
+        [
+          21,
+          23,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many states does the automaton have?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are there any loops?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What transitions enter and exit q0?",
+    {
+      "entities": [
+        [
+          32,
+          34,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What transitions enter and exit q1?",
+    {
+      "entities": [
+        [
+          32,
+          34,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What transitions enter and exit q2?",
+    {
+      "entities": [
+        [
+          32,
+          34,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What transitions enter and exit q4?",
+    {
+      "entities": [
+        [
+          32,
+          34,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What transitions enter and exit q3?",
+    {
+      "entities": [
+        [
+          32,
+          34,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What does the automaton recognize?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the accepted language?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many transitions are there?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there a particular pattern?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many nodes are there?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many states are there?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Please describe the automaton",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you provide a representation of the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Describe how does the automaton appear graphically",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Give me some examples of inputs and output",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you provide me some examples of inputs",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you describe the input and the output",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you describe the transition function",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What can you tell me about the transitions of the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the grammar accepted by it?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many states do compose the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What are the input symbols that the automaton accepts?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you describe the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How are transitions defined",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you describe the transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "If the input is 11100 what is the result given by the automaton?",
+    {
+      "entities": [
+        [
+          16,
+          21,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is 110 a valid input for the automaton?",
+    {
+      "entities": [
+        [
+          3,
+          6,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Can you describe the automata?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What are the accepted inputs?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is 11100 part of the accepted language?",
+    {
+      "entities": [
+        [
+          3,
+          8,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many transitions are there in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there a particular pattern among the arcs?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there a transition from q0 to q5?",
+    {
+      "entities": [
+        [
+          27,
+          29,
+          "node"
+        ],
+        [
+          33,
+          35,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What are all the transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Please describe the transitions",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is q0 the final state?",
+    {
+      "entities": [
+        [
+          3,
+          5,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many states does the automaton have?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many transitions does the automata have?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Show me the transitions of the automaton",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What transitions does the automaton have?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Briefly describe the automaton",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many states are there?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many arcs there are?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there a particular pattern?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are there arcs between q2 and q0?",
+    {
+      "entities": [
+        [
+          23,
+          25,
+          "node"
+        ],
+        [
+          30,
+          32,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Are there arcs from q4?",
+    {
+      "entities": [
+        [
+          20,
+          22,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What are the final states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many final states there are?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is q0 a final state?",
+    {
+      "entities": [
+        [
+          3,
+          5,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is q4 a final state?",
+    {
+      "entities": [
+        [
+          3,
+          5,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Which are the final states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Which is the final state?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many final states are there?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is its optimal spatial representation?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Briefly describe the automaton",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is it possible to find a repetitive pattern in the transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "If q2 was the final state, does language accepted by the automaton stay the same?",
+    {
+      "entities": [
+        [
+          4,
+          6,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What can I use a finite state automata for?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many states can I use in an automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can I use 5 states in an automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the final state of an automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How can I define an automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How is an automaton defined?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is an example of accepted string?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the final state",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Which transitions start from q0?",
+    {
+      "entities": [
+        [
+          29,
+          31,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many transitions start from q0?",
+    {
+      "entities": [
+        [
+          32,
+          34,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Which transitions start from q1?",
+    {
+      "entities": [
+        [
+          29,
+          31,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Which transitions start from q2?",
+    {
+      "entities": [
+        [
+          29,
+          31,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Which transitions end in q0?",
+    {
+      "entities": [
+        [
+          25,
+          27,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there a pattern among the arcs?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What could be a minimal spatial representation for this automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there an arc between q0 and q1?",
+    {
+      "entities": [
+        [
+          24,
+          26,
+          "node"
+        ],
+        [
+          31,
+          33,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Which are the transitions",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "what is the phd for",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the maximum number of states in an automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many states does a pentagon shaped automaton have?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many states are there",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Briefly describe the automaton",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many states are there?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many states are there in the automata?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "According to your understanding of the Automaton what is its optimal spatial representation",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there an arc between q0 and q1?",
+    {
+      "entities": [
+        [
+          24,
+          26,
+          "node"
+        ],
+        [
+          31,
+          33,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there an arc between q1 and q2?",
+    {
+      "entities": [
+        [
+          24,
+          26,
+          "node"
+        ],
+        [
+          31,
+          33,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Describe me the automaton",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many states does the automaton have?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the language recognised by the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many transitions are there?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the best way to represent this automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the initial state?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What language does this automata accept?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is an automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the initial state of the automaton",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Briefly describe me the automaton",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Which is the initial state of the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the language accepted by the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is the string 110 accepted by the automaton?",
+    {
+      "entities": [
+        [
+          14,
+          17,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Describe the transition table of the automaton",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there an arc from q0 to q1?",
+    {
+      "entities": [
+        [
+          21,
+          23,
+          "node"
+        ],
+        [
+          27,
+          29,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there an arc from q2 to q1?",
+    {
+      "entities": [
+        [
+          21,
+          23,
+          "node"
+        ],
+        [
+          27,
+          29,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many states there are?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What symbols does the automaton accept?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What are the symbols accepted by the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the alphabet?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the grammar?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the grammar recognised by the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How is the automaton represented?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many regions are there in Italy",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "In which year we are?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "If q0 was the final state, the language accepted by the automaton is the same?",
+    {
+      "entities": [
+        [
+          4,
+          6,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many states does the automata have?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many arcs are there in the automata?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there a particular pattern among automata arcs?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the transition function?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How much does the representation take?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the regular expression describing the automata?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the regular expression that corresponds to the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you briefly describe the automata?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Summarise the automaton",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What language does the automaton accept?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Which are the principal pros",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Whatsappo",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Describe the automaton",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Show me the automaton",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many states are there",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Which one is the final state?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Which one is the starting state?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Which is the initial state?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Which is the start state?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there an arc from q0?",
+    {
+      "entities": [
+        [
+          21,
+          23,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there an arc from q2?",
+    {
+      "entities": [
+        [
+          21,
+          23,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there a transition from q1?",
+    {
+      "entities": [
+        [
+          27,
+          29,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many transitions are there?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many loops are there?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many states is the automaton made of?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What are the states and the connections between states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What are the states and the transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Which are the states and the transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there an arc between q0 and q1?",
+    {
+      "entities": [
+        [
+          24,
+          26,
+          "node"
+        ],
+        [
+          31,
+          33,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What are the transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Describe the transitions",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What input does the arc between q0 and q2 accept?",
+    {
+      "entities": [
+        [
+          32,
+          34,
+          "node"
+        ],
+        [
+          39,
+          41,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What are the final states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Which is the start state?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Tell me a little bit about the automaton",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there a pattern among the transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton language accept words made of an odd number of 0s and 1s",
+    {
+      "entities": [
+        [
+          66,
+          67,
+          "input"
+        ],
+        [
+          73,
+          74,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is it possible to repeat transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Which are the states that are connected with arcs that accept the value 0?",
+    {
+      "entities": [
+        [
+          72,
+          73,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What arcs are marked with 0?",
+    {
+      "entities": [
+        [
+          26,
+          27,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What are the arcs?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Provide an overview of the automaton",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many arcs marked by 1 are there?",
+    {
+      "entities": [
+        [
+          24,
+          25,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Describe the shape of the automaton",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is an automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you provide the transition diagram?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Describe the transition diagram",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many transitions are there in the automaton",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is a pattern",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Briefly describe the automaton",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What's the number of nodes",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is 1 a label for some arc?",
+    {
+      "entities": [
+        [
+          3,
+          4,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the accepted language",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Describe the position of nodes",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there any self loop",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is a connection",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What are some examples of accepted inputs?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you describe the transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many states are there?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the final state?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many transitions are there?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there a transition from q0 to q5?",
+    {
+      "entities": [
+        [
+          27,
+          29,
+          "node"
+        ],
+        [
+          33,
+          35,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the optimal spatial representation of the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is it possible to find a repetitive pattern in the transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you explain the structure of the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the automaton composed of?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "List all the states and their transitions.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What are the initial and final states of the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is the automaton deterministic or nondeterministic?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton have any accepting states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Provide a brief summary of the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there a specific pattern in how states are connected?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How are the states organized in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you draw the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the graphical representation of the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton represent any language?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you summarize the automaton's functionality?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there a repetitive sequence in the automaton's transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How does the automaton process input strings?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the purpose of the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Explain the behavior of the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you optimize the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How is the automaton implemented?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there an efficient way to represent the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What are the inputs and outputs of the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How does the automaton handle invalid inputs?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is the automaton complete?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton accept any empty strings?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the alphabet of the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Describe the transition function of the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Describe any patterns in the automaton's state transitions.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How does the automaton relate to regular expressions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the role of each state in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you briefly explain the automaton's design?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What kind of language does the automaton recognize?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are there any dead states in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Describe the initial configuration of the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is the automaton minimal in terms of states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you explain the automaton's state transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton have a hierarchical structure?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are there any symmetries in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How can the automaton be simplified?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there an equivalent automaton with fewer states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What graphical methods are used to represent the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the best way to visualize the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is the automaton's structure linear or branching?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Describe the connectivity of the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What are the characteristics of the automaton's transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How are the automaton's states defined?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is the automaton deterministic?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton have any non-deterministic transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How does the automaton differ from a Turing machine?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there a particular sequence of states in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you provide an example of how the automaton works?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the main function of the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton have a start and end state?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How are inputs processed by the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is the automaton capable of parallel transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are there any nested states in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you summarize the automaton in a few sentences?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the simplest form of this automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How is the automaton's behavior characterized?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are the transitions in the automaton weighted?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton exhibit any symmetry?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there an equivalent automaton with a different structure?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Describe the automaton's operational logic.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What type of automaton is it (e.g., DFA, NFA)?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is the automaton complete or partial?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you identify any patterns in the automaton's design?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the significance of each state in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is the automaton designed for a specific application?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you explain the automaton's state transitions briefly?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What are the key features of the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there a way to minimize the automaton further?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Provide a concise description of the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton accept infinite input sequences?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How does the automaton handle concurrency?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you compare this automaton to others?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What limitations does the automaton have?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How is state information stored in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton use any probabilistic transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Describe how errors are handled by the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What kind of outputs does the automaton produce?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How does the automaton respond to unexpected inputs?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is the automaton's transition function total or partial?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the computational complexity of the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can the automaton's states be grouped into categories?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Describe the communication between states in the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is the automaton based on any formal language theory?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How does the automaton ensure correctness of processing?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How is the automaton initialized before processing?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton have any synchronization mechanisms?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How flexible is the automaton in handling different inputs?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Describe any constraints imposed by the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How does the automaton interact with external systems?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Could you show me the automaton diagram?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are the automaton's transitions directed or undirected?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the total number of states in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton consist of six states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many nodes does the automaton contain?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "List all the states in the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Which are the states present in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the role of state q3?",
+    {
+      "entities": [
+        [
+          26,
+          28,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is q2 an accepting state?",
+    {
+      "entities": [
+        [
+          3,
+          5,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Are there multiple final states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many final states does the automaton have?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Which states are final states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What are the names of the final states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is q5 the start state?",
+    {
+      "entities": [
+        [
+          3,
+          5,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Which state is the initial state?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there a state named q6?",
+    {
+      "entities": [
+        [
+          23,
+          25,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the significance of state q0?",
+    {
+      "entities": [
+        [
+          34,
+          36,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many accepting states are there in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "List the accepting states in the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is the automaton's initial state also a final state?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Which state is both initial and final?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many states have no incoming transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are there any dead states in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is q5 a sink state?",
+    {
+      "entities": [
+        [
+          3,
+          5,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Describe the behavior of state q4.",
+    {
+      "entities": [
+        [
+          31,
+          33,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is q2 an initial state?",
+    {
+      "entities": [
+        [
+          3,
+          5,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many states are terminal states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is q0 an accepting state?",
+    {
+      "entities": [
+        [
+          3,
+          5,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the role of state q5 in the automaton?",
+    {
+      "entities": [
+        [
+          26,
+          28,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many non-final states are there?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you list the states in order of their connections?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the initial state of the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is q5 an accepting state?",
+    {
+      "entities": [
+        [
+          3,
+          5,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many states does the automaton include?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What are the characteristics of state q2?",
+    {
+      "entities": [
+        [
+          38,
+          40,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the total number of accepting states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is the automaton deterministic in its states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is q1 a non-final state?",
+    {
+      "entities": [
+        [
+          3,
+          5,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does the automaton have any redundant states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are there any states with identical transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the function of the start state?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is q2 both an initial and accepting state?",
+    {
+      "entities": [
+        [
+          3,
+          5,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many intermediate states are there?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "List the states that are not accepting states.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many total states does the automaton have?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton have a single final state?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is q0 the only starting state?",
+    {
+      "entities": [
+        [
+          3,
+          5,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many accepting states does the automaton have?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Describe the states in the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What are the initial and final states of the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many states are in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are there any states without outgoing transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "List all the states with no outgoing transitions.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are there any isolated states in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are all states in the automaton accessible?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there a state that cannot be reached from the initial state?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are there any unreachable states in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are there any unreachable states in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many transitions go out from state q5?",
+    {
+      "entities": [
+        [
+          39,
+          41,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Are there any transitions that accept the input symbol 'a'?",
+    {
+      "entities": [
+        [
+          56,
+          57,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there a transition from q2 to q5?",
+    {
+      "entities": [
+        [
+          27,
+          29,
+          "node"
+        ],
+        [
+          33,
+          35,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Can you list all the transitions that end at q3?",
+    {
+      "entities": [
+        [
+          45,
+          47,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What inputs do the transitions from q1 accept?",
+    {
+      "entities": [
+        [
+          36,
+          38,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Describe the transitions between q0 and q4.",
+    {
+      "entities": [
+        [
+          33,
+          35,
+          "node"
+        ],
+        [
+          40,
+          42,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there an arc labeled '0' from q3 to q2?",
+    {
+      "entities": [
+        [
+          25,
+          26,
+          "input"
+        ],
+        [
+          33,
+          35,
+          "node"
+        ],
+        [
+          39,
+          41,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many arcs are labeled with '1'?",
+    {
+      "entities": [
+        [
+          32,
+          33,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does the automaton have any self-loops?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are there any transitions between q5 and q5?",
+    {
+      "entities": [
+        [
+          34,
+          36,
+          "node"
+        ],
+        [
+          41,
+          43,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What transitions are available from the initial state?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you list all transitions that accept the symbol 'b'?",
+    {
+      "entities": [
+        [
+          53,
+          54,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many transitions are there in total?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is q4 connected to any other state?",
+    {
+      "entities": [
+        [
+          3,
+          5,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Are there transitions leading into q1?",
+    {
+      "entities": [
+        [
+          35,
+          37,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What are the transitions to the final state?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there an arc from q0 to q2 labeled 'epsilon'?",
+    {
+      "entities": [
+        [
+          21,
+          23,
+          "node"
+        ],
+        [
+          27,
+          29,
+          "node"
+        ],
+        [
+          39,
+          46,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "List all the transitions that involve q3.",
+    {
+      "entities": [
+        [
+          38,
+          40,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many transitions lead into q0?",
+    {
+      "entities": [
+        [
+          31,
+          33,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there an arc labeled '1' from q2 to q0?",
+    {
+      "entities": [
+        [
+          25,
+          26,
+          "input"
+        ],
+        [
+          33,
+          35,
+          "node"
+        ],
+        [
+          39,
+          41,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Which states are connected via transitions labeled 'a'?",
+    {
+      "entities": [
+        [
+          52,
+          53,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many transitions are there from q0 to q1?",
+    {
+      "entities": [
+        [
+          36,
+          38,
+          "node"
+        ],
+        [
+          42,
+          44,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Are there multiple transitions between q1 and q2?",
+    {
+      "entities": [
+        [
+          39,
+          41,
+          "node"
+        ],
+        [
+          46,
+          48,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there a transition labeled '0' from q4?",
+    {
+      "entities": [
+        [
+          31,
+          32,
+          "input"
+        ],
+        [
+          39,
+          41,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does q3 have any outgoing transitions?",
+    {
+      "entities": [
+        [
+          5,
+          7,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Can you describe the transitions that accept the input symbol 'c'?",
+    {
+      "entities": [
+        [
+          63,
+          64,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What are the input symbols for transitions from q5?",
+    {
+      "entities": [
+        [
+          48,
+          50,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there a transition from q0 back to q0?",
+    {
+      "entities": [
+        [
+          27,
+          29,
+          "node"
+        ],
+        [
+          38,
+          40,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "List all the arcs in the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many loops are there in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Which transitions accept the symbol 'epsilon'?",
+    {
+      "entities": [
+        [
+          37,
+          44,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Are there any transitions from q1 that accept '1'?",
+    {
+      "entities": [
+        [
+          31,
+          33,
+          "node"
+        ],
+        [
+          47,
+          48,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there a transition labeled 'b' leading to q4?",
+    {
+      "entities": [
+        [
+          31,
+          32,
+          "input"
+        ],
+        [
+          45,
+          47,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Can you provide the transition table?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What are the labels of the transitions between q2 and q3?",
+    {
+      "entities": [
+        [
+          47,
+          49,
+          "node"
+        ],
+        [
+          54,
+          56,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is q5 an unreachable state?",
+    {
+      "entities": [
+        [
+          3,
+          5,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does q0 have a self-loop on input 'a'?",
+    {
+      "entities": [
+        [
+          5,
+          7,
+          "node"
+        ],
+        [
+          35,
+          36,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many transitions accept the symbol '0'?",
+    {
+      "entities": [
+        [
+          40,
+          41,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Are there any transitions that accept digits?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Which transitions involve the state q2?",
+    {
+      "entities": [
+        [
+          36,
+          38,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many outgoing transitions does q4 have?",
+    {
+      "entities": [
+        [
+          35,
+          37,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Are there any transitions that accept uppercase letters?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "List all transitions that accept special characters.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are there transitions that accept multiple input symbols?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there a transition labeled 'd' from q1 to q3?",
+    {
+      "entities": [
+        [
+          31,
+          32,
+          "input"
+        ],
+        [
+          39,
+          41,
+          "node"
+        ],
+        [
+          45,
+          47,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Describe the transitions that loop back to their originating state.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are there any transitions that accept 'epsilon'?",
+    {
+      "entities": [
+        [
+          39,
+          46,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many transitions lead from q0 to any other state?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are there any transitions labeled with non-alphabetic symbols?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you list the transitions that do not accept 'a' or 'b'?",
+    {
+      "entities": [
+        [
+          49,
+          50,
+          "input"
+        ],
+        [
+          56,
+          57,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is q2 connected to q4 via any transitions?",
+    {
+      "entities": [
+        [
+          3,
+          5,
+          "node"
+        ],
+        [
+          19,
+          21,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many transitions are there between q3 and q4?",
+    {
+      "entities": [
+        [
+          39,
+          41,
+          "node"
+        ],
+        [
+          46,
+          48,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Are there any transitions that accept input strings longer than one character?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there a transition from q5 to q0?",
+    {
+      "entities": [
+        [
+          27,
+          29,
+          "node"
+        ],
+        [
+          33,
+          35,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What transitions accept the symbol 'z'?",
+    {
+      "entities": [
+        [
+          36,
+          37,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does q1 have an outgoing transition labeled '1'?",
+    {
+      "entities": [
+        [
+          5,
+          7,
+          "node"
+        ],
+        [
+          45,
+          46,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Are there multiple transitions from q0 on the same input symbol?",
+    {
+      "entities": [
+        [
+          36,
+          38,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there a transition from q0 to q1 labeled 'epsilon'?",
+    {
+      "entities": [
+        [
+          27,
+          29,
+          "node"
+        ],
+        [
+          33,
+          35,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many transitions accept the input symbol 'e'?",
+    {
+      "entities": [
+        [
+          46,
+          47,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Which states have transitions accepting the input '0'?",
+    {
+      "entities": [
+        [
+          51,
+          52,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "List the transitions that end at q5.",
+    {
+      "entities": [
+        [
+          33,
+          35,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Are there any transitions from q2 that do not accept 'a'?",
+    {
+      "entities": [
+        [
+          31,
+          33,
+          "node"
+        ],
+        [
+          54,
+          55,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many transitions accept symbols from the set {'0', '1'}?",
+    {
+      "entities": [
+        [
+          50,
+          60,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does the automaton have transitions accepting numerals?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you provide a description of the automaton's transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What are the transitions from q0 on input 'b'?",
+    {
+      "entities": [
+        [
+          30,
+          32,
+          "node"
+        ],
+        [
+          43,
+          44,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there a transition between q1 and q4 labeled 'c'?",
+    {
+      "entities": [
+        [
+          30,
+          32,
+          "node"
+        ],
+        [
+          37,
+          39,
+          "node"
+        ],
+        [
+          49,
+          50,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many transitions accept the empty string?",
+    {
+      "entities": [
+        [
+          32,
+          44,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Are there any transitions that loop from q3 back to q3?",
+    {
+      "entities": [
+        [
+          41,
+          43,
+          "node"
+        ],
+        [
+          52,
+          54,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Which transitions accept vowels?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton have transitions accepting uppercase letters?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are there transitions that accept multiple input symbols simultaneously?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there a direct transition from q0 to q5?",
+    {
+      "entities": [
+        [
+          34,
+          36,
+          "node"
+        ],
+        [
+          40,
+          42,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "List all transitions that do not involve q0.",
+    {
+      "entities": [
+        [
+          41,
+          43,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many transitions are there to q2?",
+    {
+      "entities": [
+        [
+          34,
+          36,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Are there any transitions labeled with special characters?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is q1 connected to q3 in any way?",
+    {
+      "entities": [
+        [
+          3,
+          5,
+          "node"
+        ],
+        [
+          19,
+          21,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Describe the transitions from q4 that accept 'd'.",
+    {
+      "entities": [
+        [
+          30,
+          32,
+          "node"
+        ],
+        [
+          46,
+          47,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many total transitions are there in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are there any transitions from q3 that accept 'e'?",
+    {
+      "entities": [
+        [
+          31,
+          33,
+          "node"
+        ],
+        [
+          47,
+          48,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there a transition labeled 'f' between q2 and q5?",
+    {
+      "entities": [
+        [
+          31,
+          32,
+          "input"
+        ],
+        [
+          42,
+          44,
+          "node"
+        ],
+        [
+          49,
+          51,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does the automaton have any unreachable states due to missing transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What are the possible transitions from q1 on any input?",
+    {
+      "entities": [
+        [
+          39,
+          41,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Can you list the transitions that have 'g' as their input label?",
+    {
+      "entities": [
+        [
+          40,
+          41,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Are there any transitions leading from q0 to q3?",
+    {
+      "entities": [
+        [
+          39,
+          41,
+          "node"
+        ],
+        [
+          45,
+          47,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many transitions are there from q2 to q4?",
+    {
+      "entities": [
+        [
+          36,
+          38,
+          "node"
+        ],
+        [
+          42,
+          44,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does q5 have any incoming transitions?",
+    {
+      "entities": [
+        [
+          5,
+          7,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there a transition from q1 to q1?",
+    {
+      "entities": [
+        [
+          27,
+          29,
+          "node"
+        ],
+        [
+          33,
+          35,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What are the labels of transitions entering q3?",
+    {
+      "entities": [
+        [
+          44,
+          46,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Are there any transitions from q4 that accept the input 'h'?",
+    {
+      "entities": [
+        [
+          31,
+          33,
+          "node"
+        ],
+        [
+          57,
+          58,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there a transition between q0 and q2 that accepts 'i'?",
+    {
+      "entities": [
+        [
+          30,
+          32,
+          "node"
+        ],
+        [
+          37,
+          39,
+          "node"
+        ],
+        [
+          54,
+          55,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many transitions accept symbols from the set {'j', 'k', 'l'}?",
+    {
+      "entities": [
+        [
+          50,
+          65,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "List all transitions that accept lowercase letters.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are there any transitions that accept the entire alphabet?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton have any ambiguous transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you provide a complete list of the automaton's transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Describe all the automaton transitions.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Could you tell me more about all the automaton transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the total number of transitions in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are there any loops in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there a cyclical pattern in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is the automaton's transition graph acyclic?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Describe any repeating patterns in the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How does the automaton handle loops?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are there any feedback loops in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are there unreachable states in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you provide a state diagram of the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the transition table of the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "List all the possible transitions in the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Which states form cycles in the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is q1 connected to q2 via a transition?",
+    {
+      "entities": [
+        [
+          3,
+          5,
+          "node"
+        ],
+        [
+          19,
+          21,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does state q4 lead to a final state?",
+    {
+      "entities": [
+        [
+          11,
+          13,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does q1 have a transition to q0?",
+    {
+      "entities": [
+        [
+          5,
+          7,
+          "node"
+        ],
+        [
+          29,
+          31,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What are the outgoing transitions from q1?",
+    {
+      "entities": [
+        [
+          39,
+          41,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does state q3 have any outgoing transitions?",
+    {
+      "entities": [
+        [
+          11,
+          13,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What are the labels on transitions from state q2?",
+    {
+      "entities": [
+        [
+          46,
+          48,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does q3 have transitions to multiple states?",
+    {
+      "entities": [
+        [
+          5,
+          7,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does state q0 have multiple outgoing transitions?",
+    {
+      "entities": [
+        [
+          11,
+          13,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What are the possible next states from q2?",
+    {
+      "entities": [
+        [
+          39,
+          41,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What are the incoming transitions to q0?",
+    {
+      "entities": [
+        [
+          37,
+          39,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does q3 have any incoming transitions?",
+    {
+      "entities": [
+        [
+          5,
+          7,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Which states are predecessors of q4?",
+    {
+      "entities": [
+        [
+          33,
+          35,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many transitions lead into q5?",
+    {
+      "entities": [
+        [
+          31,
+          33,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does q2 transition to q3 on input '1'?",
+    {
+      "entities": [
+        [
+          5,
+          7,
+          "node"
+        ],
+        [
+          22,
+          24,
+          "node"
+        ],
+        [
+          35,
+          36,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Which state follows q1 when input is '0'?",
+    {
+      "entities": [
+        [
+          20,
+          22,
+          "node"
+        ],
+        [
+          38,
+          39,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does q0 transition to q1 on input '0'?",
+    {
+      "entities": [
+        [
+          5,
+          7,
+          "node"
+        ],
+        [
+          22,
+          24,
+          "node"
+        ],
+        [
+          35,
+          36,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Which states are connected to q3?",
+    {
+      "entities": [
+        [
+          30,
+          32,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Describe the transitions entering and leaving q5.",
+    {
+      "entities": [
+        [
+          46,
+          48,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What transitions are associated with q0?",
+    {
+      "entities": [
+        [
+          37,
+          39,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Which states are directly connected to q1?",
+    {
+      "entities": [
+        [
+          39,
+          41,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Describe the transitions associated with q1.",
+    {
+      "entities": [
+        [
+          41,
+          43,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does q4 have any self-loops?",
+    {
+      "entities": [
+        [
+          5,
+          7,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Which states have self-loops?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are there any loops involving q4?",
+    {
+      "entities": [
+        [
+          30,
+          32,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "List all the possible transitions in the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many states are reachable from q0?",
+    {
+      "entities": [
+        [
+          35,
+          37,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there a path from q0 to q5?",
+    {
+      "entities": [
+        [
+          21,
+          23,
+          "node"
+        ],
+        [
+          27,
+          29,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Which states are accessible from q0?",
+    {
+      "entities": [
+        [
+          33,
+          35,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "How many states have self-transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What inputs cause transitions from q3?",
+    {
+      "entities": [
+        [
+          35,
+          37,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Which states are involved in accepting input 'c'?",
+    {
+      "entities": [
+        [
+          46,
+          47,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What happens when state q2 receives input '1'?",
+    {
+      "entities": [
+        [
+          24,
+          26,
+          "node"
+        ],
+        [
+          43,
+          44,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What inputs does q1 accept?",
+    {
+      "entities": [
+        [
+          17,
+          19,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What happens when q5 receives input '0'?",
+    {
+      "entities": [
+        [
+          18,
+          20,
+          "node"
+        ],
+        [
+          37,
+          38,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Which states have transitions on input 'a'?",
+    {
+      "entities": [
+        [
+          40,
+          41,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Which states accept the input 'b'?",
+    {
+      "entities": [
+        [
+          31,
+          32,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What happens when q4 receives input '1'?",
+    {
+      "entities": [
+        [
+          18,
+          20,
+          "node"
+        ],
+        [
+          37,
+          38,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the transition table of the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton accept strings over the alphabet {0,1}?",
+    {
+      "entities": [
+        [
+          53,
+          58,
+          "language"
+        ]
+      ]
+    }
+  ],
+  [
+    "What language is recognized by this automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you provide examples of strings accepted by the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is the string '1010' accepted by the automaton?",
+    {
+      "entities": [
+        [
+          15,
+          19,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the set of input symbols for the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton accept all binary strings?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can the automaton accept an empty string?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the regular expression equivalent to this automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "If the input is '0110', what will the automaton do?",
+    {
+      "entities": [
+        [
+          18,
+          22,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does the automaton accept strings ending with '0'?",
+    {
+      "entities": [
+        [
+          47,
+          48,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is '111' a valid input for the automaton?",
+    {
+      "entities": [
+        [
+          4,
+          7,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What kind of grammar does the automaton accept?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the purpose of this automaton in terms of language recognition?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Provide some accepted input examples for the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What strings are rejected by the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton accept strings with an even number of '1's?",
+    {
+      "entities": [
+        [
+          58,
+          59,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is the automaton designed to accept palindromic strings?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the minimal grammar that the automaton recognizes?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you simulate the automaton on input '1001'?",
+    {
+      "entities": [
+        [
+          41,
+          45,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does changing the final state alter the accepted language?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the language accepted if we remove state q2?",
+    {
+      "entities": [
+        [
+          49,
+          51,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Which input strings cause the automaton to halt in a non-accepting state?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the language accepted by the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton accept the string '000'?",
+    {
+      "entities": [
+        [
+          38,
+          41,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is the automaton accepting strings that start with '1' and end with '0'?",
+    {
+      "entities": [
+        [
+          52,
+          53,
+          "input"
+        ],
+        [
+          69,
+          70,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the set of symbols used in the automaton's transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you describe the language recognized by the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton accept the language of all strings containing '101'?",
+    {
+      "entities": [
+        [
+          66,
+          69,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Provide examples of strings not accepted by the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What happens when the automaton processes the string '0101'?",
+    {
+      "entities": [
+        [
+          54,
+          58,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is 'epsilon' (empty string) accepted by the automaton?",
+    {
+      "entities": [
+        [
+          4,
+          11,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does the automaton accept any strings over the alphabet?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the regular language defined by the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "If the final state is changed to q3, what language does it accept?",
+    {
+      "entities": [
+        [
+          34,
+          36,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the accepted language if the automaton is reversed?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are there any strings that cause the automaton to loop indefinitely?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton accept the complement of the language of strings with an even number of '0's?",
+    {
+      "entities": [
+        [
+          92,
+          93,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the grammar produced by the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you simulate the automaton on input '1100'?",
+    {
+      "entities": [
+        [
+          41,
+          45,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the output of the automaton for input '1011'?",
+    {
+      "entities": [
+        [
+          47,
+          51,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is the automaton deterministic in its acceptance of inputs?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the set of accepted strings?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton accept any string that ends with '1'?",
+    {
+      "entities": [
+        [
+          53,
+          54,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the language accepted by changing q0 to a final state?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you provide the regular expression corresponding to the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton accept strings of length less than 3?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is '1010' part of the language recognized by the automaton?",
+    {
+      "entities": [
+        [
+          4,
+          8,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What are the input and output alphabets of the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton accept only binary strings with no consecutive '1's?",
+    {
+      "entities": [
+        [
+          67,
+          68,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the effect on the language if the automaton's initial state is changed?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Provide examples of inputs that are rejected by the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is '1001' an accepted input for the automaton?",
+    {
+      "entities": [
+        [
+          4,
+          8,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the accepted language when state q1 becomes a final state?",
+    {
+      "entities": [
+        [
+          41,
+          43,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does the automaton accept the language described by the regular expression (0+1)*1?",
+    {
+      "entities": [
+        [
+          75,
+          82,
+          "language"
+        ]
+      ]
+    }
+  ],
+  [
+    "Can the automaton accept infinite length strings?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the language accepted if all states are made accepting states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Describe the set of all strings accepted by the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is the string '0000' accepted or rejected by the automaton?",
+    {
+      "entities": [
+        [
+          15,
+          19,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What symbols are not accepted by the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton accept strings with exactly two '1's?",
+    {
+      "entities": [
+        [
+          52,
+          53,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the minimal regular expression for the automaton's language?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton accept strings where '0's and '1's alternate?",
+    {
+      "entities": [
+        [
+          41,
+          42,
+          "input"
+        ],
+        [
+          50,
+          51,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Provide a sample input that the automaton would reject.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton recognize the language of all strings containing at least one '1'?",
+    {
+      "entities": [
+        [
+          82,
+          83,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What happens if the input is '0011'?",
+    {
+      "entities": [
+        [
+          30,
+          34,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is '1111' a valid input according to the automaton's language?",
+    {
+      "entities": [
+        [
+          4,
+          8,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What changes to the automaton would alter its accepted language?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you give examples of accepted and rejected strings?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton accept any string that starts and ends with the same symbol?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the set of all possible inputs for the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton accept palindromic binary strings?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the language accepted if we swap the accepting states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you write the regular expression that defines the automaton's language?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is the automaton accepting of the language (0+1)*0?",
+    {
+      "entities": [
+        [
+          43,
+          50,
+          "language"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does the automaton accept strings with more '1's than '0's?",
+    {
+      "entities": [
+        [
+          45,
+          46,
+          "input"
+        ],
+        [
+          55,
+          56,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Provide the definition of the language recognized by the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What would be the result of processing input '011'?",
+    {
+      "entities": [
+        [
+          46,
+          49,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is '0' an accepted input by the automaton?",
+    {
+      "entities": [
+        [
+          4,
+          5,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the impact on the language if we add a new accepting state?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton accept the empty string?",
+    {
+      "entities": [
+        [
+          30,
+          42,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the language accepted by making all states non-accepting?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you explain the grammar that the automaton recognizes?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is '101' accepted or rejected by the automaton?",
+    {
+      "entities": [
+        [
+          4,
+          7,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the set of symbols that the automaton does not accept?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does changing the transition function affect the accepted language?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What happens when the automaton processes input '0001'?",
+    {
+      "entities": [
+        [
+          49,
+          53,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Provide examples of inputs accepted by the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is the automaton's language regular or context-free?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton accept any strings with consecutive '0's?",
+    {
+      "entities": [
+        [
+          56,
+          57,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the regular expression that matches the automaton's language?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is '1000' a valid string for the automaton?",
+    {
+      "entities": [
+        [
+          4,
+          8,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What changes occur in the accepted language if we modify the start state?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you simulate the automaton on input '0110'?",
+    {
+      "entities": [
+        [
+          41,
+          45,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does the automaton accept only strings of even length?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What language does the automaton accept if we add a loop on q1?",
+    {
+      "entities": [
+        [
+          60,
+          62,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is there any input that is accepted by the automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the accepted language if we remove all accepting states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton accept the language of all strings over {0,1}?",
+    {
+      "entities": [
+        [
+          61,
+          64,
+          "language"
+        ]
+      ]
+    }
+  ],
+  [
+    "Provide the regular grammar corresponding to the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is '001' part of the accepted language?",
+    {
+      "entities": [
+        [
+          4,
+          7,
+          "language"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the result of the automaton processing '110'?",
+    {
+      "entities": [
+        [
+          48,
+          51,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Does the automaton accept strings with an odd number of '0's?",
+    {
+      "entities": [
+        [
+          57,
+          58,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is the automaton accepting any string with prefix '10'?",
+    {
+      "entities": [
+        [
+          51,
+          53,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Describe the language accepted by the automaton.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton accept strings that are multiples of '11'?",
+    {
+      "entities": [
+        [
+          57,
+          59,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the output when the automaton processes '1010'?",
+    {
+      "entities": [
+        [
+          49,
+          53,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Are there any inputs that the automaton will not process?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Does the automaton accept strings where the number of '0's equals the number of '1's?",
+    {
+      "entities": [
+        [
+          55,
+          56,
+          "input"
+        ],
+        [
+          81,
+          82,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "What is the effect on the accepted language if we remove state q1?",
+    {
+      "entities": [
+        [
+          63,
+          65,
+          "node"
+        ]
+      ]
+    }
+  ],
+  [
+    "Is '01010' accepted by the automaton?",
+    {
+      "entities": [
+        [
+          4,
+          9,
+          "input"
+        ]
+      ]
+    }
+  ],
+  [
+    "Provide a detailed description of the automaton's accepted language.",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Hi",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Hello",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can we begin?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can we start?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can we proceed?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can we continue?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can we move forward?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can we move on?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Goog morning",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Good afternoon",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Good evening",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Let's start",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Let's begin",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Let's proceed",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Nice to meet you",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Good to see you",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Good to meet you",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What are the key components of an automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you explain the concept of states in automata?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How is a finite automaton different from a Turing machine?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the role of the transition function in an automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is it possible for an automaton to have infinite states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How does the automaton process input strings?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What defines the initial state in an automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can an automaton have multiple initial states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is meant by the term 'accepting state' in automata?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How are accepting states represented in automata diagrams?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the difference between deterministic and nondeterministic automata?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you define a deterministic finite automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How do transitions work in nondeterministic automata?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the significance of the final state in an automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is a state transition diagram?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How are transitions defined in an automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is it possible to have a transition without consuming input symbols?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is an epsilon transition?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the maximum number of transitions a state can have?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you explain the concept of patterns in automata?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How do finite automata recognize patterns in input?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the importance of patterns in automata theory?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Are patterns related to the language accepted by an automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How can we represent an automaton mathematically?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the formal definition of a finite automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can an automaton be used to model regular expressions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the relationship between automata and regular languages?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many states are needed to recognize a given pattern?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What factors determine the number of states in an automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there a method to minimize the number of states in an automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is state minimization in automata theory?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can two different automata recognize the same language?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the purpose of using automata in computer science?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How are automata applied in lexical analysis?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the difference between a Mealy machine and a Moore machine?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is a transition table in the context of automata?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How are transitions represented in a transition table?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the role of input symbols in transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you have multiple transitions for the same input symbol in a deterministic automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the significance of deterministic behavior in automata?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How do nondeterministic automata differ in handling transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the subset construction method in automata theory?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How can we convert a nondeterministic automaton to a deterministic one?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the power set of states in automata conversion?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Why are accepting states important in defining languages?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can an automaton have no accepting states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What happens if an automaton has all states as accepting states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is an infinite automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How does an automaton differ from a grammar?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the Chomsky hierarchy in automata theory?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How are context-free grammars related to automata?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the role of automata in parsing?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can you explain the concept of language recognition in automata?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is a language accepted by an automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How do automata recognize regular languages?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What are the limitations of finite automata?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can finite automata recognize all possible languages?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is a pushdown automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How do pushdown automata differ from finite automata?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the stack used for in a pushdown automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the purpose of transitions in an automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How are transitions depicted in automata diagrams?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can transitions be labeled with multiple input symbols?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the difference between an automaton's alphabet and its language?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How do you define the language accepted by an automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the role of states in determining accepted strings?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How do initial and accepting states affect an automaton's behavior?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is it possible to have an automaton without a start state?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is meant by the term 'dead state' in automata?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How are dead states used in automata design?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the significance of unreachable states in an automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can automata have unreachable states?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How do we eliminate unreachable states from an automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is a complete automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is an incomplete automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How does the completeness of an automaton affect its operation?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What are the applications of finite automata in real life?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How are finite automata used in text processing?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is an example of a practical use of automata?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can finite automata model sequential logic circuits?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the significance of patterns in automata recognition?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How can automata detect patterns in data streams?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is a regular expression in the context of automata?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How do regular expressions relate to finite automata?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can all regular expressions be converted to finite automata?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the process of constructing an automaton from a regular expression?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How are transitions defined when building an automaton from a regular expression?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the role of epsilon transitions in NFA?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How do epsilon transitions affect the behavior of an automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can deterministic automata have epsilon transitions?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the significance of closure properties in automata?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How do automata handle concatenation of languages?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the intersection of languages in automata theory?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How does the union of automata languages work?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Can automata be combined to recognize more complex languages?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the complement of a language in automata theory?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How do transitions define the accepted language of an automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Is there a limit to how complex an automaton can be?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What factors influence the design of an automaton?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How can automata be optimized for efficiency?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What was one advantage of this system?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Who stopped influencing department stores in the 1970's?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is Punjab's biggest city?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "MBS and CDO derive their value from?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What does one of the Sura in the Quran begin with?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Four-fifths of the ZIP codes that provide the highest amount of political contributions in the United States are located in what borough?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "When year did Prince Albert resurrect?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What school agreed with the Mimamsa's understanding of Upanishads?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "In what year was Elizabeth born?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What defeat led to Prussia having to swear its allegiance to Napoleon?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Who owned the Desperados trademarks?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    " A torque motor at high voltage provides what?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many US states did the Spanish explorers explore?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Where was an important center of Indian Ocean trading in the 16th century?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    " Where does methane in the north pole escape to on Neptune?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How much was the NBC broadcasting deal with the Premier League worth in 2015?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many dimensions did Melzack and Casey describe pain in terms of?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What cities in the UK had major Warp scenes?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What was the geologic event that followed the Mardi Gras Riots in2001?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many PureCell Model 400 fuel cells can be found in New Haven?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How often are pigeons able to breed for the consumption process ?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "When must the trust resources be spent",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What was the median age for viewers for season one?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "In what year was The Blue School established?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "In micrometers, when do common silicon detectors cease to be sensitive?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What has the grant enabled",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "When was the French Revolutionary Army victorious?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What percentage of the South Tuscon Population is Mexican-American?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many genders were used in Lithuanian in the past?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What happened after the French and Indian War?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What does the growth, development, and reproduction of organisms rely on?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What enzyme's presence is characteristic of specific types of viral infections?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What the average for the amount of  turkeys are consumed in the U.S on Thanksgiving Day?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What kind of name is Strasbourg?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What day is accounted in the Gospel of Luke as the ascension?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What was the Malleus Maleficarum?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "In what language was the first book of the Bible conceived?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Who criticized Milliband for posing with a copy of The Sun showing the Hillsborough disaster?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "There is newspaper company within the city that runs monthly, it's name ?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "The rejection of the plan by the Saarlanders was interpreted as support for the Saar to do what?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What was the median household income in 2000?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "During what conflict did the US occupy the Marshall Islands?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is a prominent example of a movement which crosses over denominational lines?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Which presidents have tried to decrease the power of the presidential office?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many acres were burned in the historic Cedar Fire of 2003?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What role did Philadelphia play in the American Revolution?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What changes did Microsoft make to its certification requirements in March 2012?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Who blockaded Switzerland's trade during World War II?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What legislative act provided that no Indian nation shall be acknowledged as an independent nation with whom the United States may contract by treaty?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Where does the BBC operate several station networks?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What was exchanged from mouth to mouth in the usage of the seismometer?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is Brasilia's airport's annual passenger capacity after 2014's improvements?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How many IndyMac account holders held funds in excess of the FDIC's insured amount of US$100,000?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Which group did Han forces fight in the Tarm Basin?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What country outside Ireland is known for having Irish pubs?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What trees are protected along the coast of San Francisco?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What did Czech historians emphasize about their countrymen?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the process in which beings go through cycles of lifetimes as many forms of sentient life?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Who gave up calling at the island due to attacks on their shipping?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Who would be responsible for the election of a plebeian tribune?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Who became Catholicos in Etchmiadzin in 1441?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What did the Reagan regulations invalidate?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What did sociology in science explain?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is the most games played a team to reach the final?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is another name for walking stick insects?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Who had Lavinia already been promised to?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is mostly a mix of family owned shops?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Which Interstate is the major north-south route?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What planet is Neptune's opposite?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What years did Billy Hughes serve as Prime Minister?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What musician joined Kanye West on the song \"Only One\"?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "By what month and year did Laemmle change his opinion on \"unclean pictures\"?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Where is Sanskrit usually found?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Who was a notable student of  Stanley Schachter?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Which countries came in major emigrations to the US?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Arthur Harris announced that Bomber Command would enable economic warfare to achieve what?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Where does most of Canada's asphalt end up these days?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "When did this push occur?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Genetic systems are conserved among what?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What has Tibetan Buddhism been almost eclipsed by?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "From 1876 to 1973, how much did the glaciers that covered the Alps shrink?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What was the ethnicity of the people executed in the second-largest mass execution in US history?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Which nickname was endorsed by Kenneth Samuel Wuest?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What was used to dampen resonances in recordings?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Who is the current head of the Greek Orthodox church in Cyprus?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What disiaster caused a massive migration out of the Fujiian region?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What two things became to be seen as distinct from one another?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Where does the FBI not investigate violations of the Civil Rights Act?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is Stefan Schmid's profession?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is on top of the crest?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is a traffic pattern often called outside of the U.S.?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What magazine ranked the 360 as the second best console of the 1993-2013 period?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What is Miami's world rank in terms of how impressive its skyline is?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "How much does Vanguard plan to spend in capital investment?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What forest is to the western Sahara?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "Yaroslav held what title in medieval Russia?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "In what was U.S. News and World Report first published?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "When does  Dirty Mas take place on the Monday before Ash Wednesday?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What happened to Satan when Jesus started his rule?",
+    {
+      "entities": []
+    }
+  ],
+  [
+    "What year was Alaska unofficially incorporated as a territory?",
+    {
+      "entities": []
+    }
+  ]
+]
