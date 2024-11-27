@@ -17,3 +17,4 @@ sentence-transformers==3.2.1
 datasets==3.0.2
 iterative-stratification==0.1.9
 scikit-multilearn==0.2.0
+python-dotenv==1.0.1
