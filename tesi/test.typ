@@ -567,7 +567,8 @@ Ho quindi effettuato ricerche per il training di modelli per la NER. Esistono mo
 
 Ho etichettato manualmente le domande con Doccano @doccano, un tool open source per l'annotazione di testo. In seguito ho utilizzato Spacy per effettuare il training del modello NER.
 
-Le performance sono soddisfacenti; l'F1-Score
+Le performance sono soddisfacenti ed effettivamente il modello riesce a riconoscere con una buona precisione le entità di interesse.
+
 = Proposte
 <proposte>
 Il compilatore inizialmente doveva produrre soltanto un file AIML, con le interazioni e i dati già previsti e fissati nella pietra. Tuttavia, a parer mio, questo genere di approccio risulta poco flessibile e prono a produrre grosse quantità di dati ridondanti. Naturalmente è possibile anche utilizzare regole annidate e simili per mitigare queste problematiche, ma in un mondo dove oggi siamo in grado di interagire con una LLM, credo che bisogni cercare di puntare a proporre un "AIML" più adatto a quello che oggi ci si aspetta da un motore di chat e interrogazioni.
@@ -588,25 +589,56 @@ Il compilatore invece di dover costruire un file AIML in output, lavora su più 
 
 Nello specifico, richiede i seguenti dati:
 
-+ Per ogni genere (classe) di domanda possibile nel dominio da analizzare, devono essere forniti dei piccoli dataset di domande che possano essere usati per comporre i dati con cui viene effettuato il fine-tuning di BERT.
++ Per ogni genere (classe) di domanda possibile nel dominio da analizzare, devono essere forniti i dataset di domande che possano essere usati per comporre i dati con cui viene effettuato il fine-tuning di BERT.
 + Come per le classi di domande, ogni genere di Named Entity potenzialmente richiesta deve essere compresa in un dataset taggato per addestrare un modello che si occupi di NER.
-+ Infine, non possono mancare anche i dati effettivi sui quali deve essere costruita una piccola knowledge base. Dato che ogni classe può richiedere informazioni diverse dalla knowledge base, possono essere utili delle regole per recuperare i dati relativi alla domanda appena posta. La regola può essere espressa in JSONPath o JMESPath o un altro linguaggio di query da decidere (un'opzione decisamente più complessa può essere ad esempio SPARQL, proveniente dal dominio del web semantico). Questo potrebbe anche lasciare spazio alla possibilità di interrogare risorse esterne per ottenere informazioni aggiornate.
++ Infine, non possono mancare anche i dati effettivi sui quali deve essere costruita una piccola knowledge base. Dato che ogni classe può richiedere informazioni diverse dalla knowledge base, possono essere utili delle regole per recuperare i dati relativi alla domanda appena posta. La regola può essere espressa in JSONPath @jsonpath o JMESPath @jmespath o un altro linguaggio di query da decidere (un'opzione decisamente più complessa può essere ad esempio SPARQL @sparql, proveniente dal dominio del web semantico). Questo potrebbe anche lasciare spazio alla possibilità di interrogare risorse esterne per ottenere informazioni aggiornate.
 
 Non tutto deve essere per forza implementato nel corso di questa parte della tesi (specialmente quello che riguarda la flessibilità per interrogazioni della KB che esulano dal dominio degli automi), tuttavia vorrei comunque lasciare sufficiente flessibilità e estensibilità nel sistema da permettere aggiunte indolori.
 
-Una volta configurato il file JSON, che può apparire come il seguente:
+Il risultato è un insieme di file che contengono tutto il necessario per permettere al motore di interrogazione di reagire alle domande degli utenti, e di estrarre le informazioni necessarie per rispondere.
 
-```json
-{
+=== Componenti della configurazione
+
+Il file di configurazione JSON deve contenere le seguenti informazioni:
+
++ Una sezione riguardante il training, che include:
+  - I dati relativi all'automa, che verranno estratti per costruire la knowledge base. Ipoteticamente i dati possono essere forniti in vari formati; dovrebbe essere piuttosto facile supportare formati come Graphviz  Dot @graphviz, JSON o XML.
+  - Il/I dataset di interazioni, che contengono le domande che l'utente può fare, già etichettati per classe di domanda. Possono essere presenti gerarchie di classi di domande, in modo da poter avere una maggiore flessibilità.
+  - Il/I dataset di NER, che contengono le domande etichettate con le entità che si vogliono poter estrarre.
+  ```json
   "training": {
     "domain_data": {
       "type": "automaton",
       "data": "path_to_automaton.dot"
     },
-    "off_topic_questions": "auto"
-  },
+    "interactions": {
+      "type": "dataset",
+      "data": "path_to_interactions_dataset.csv"
+    },
+    "ner": {
+      "type": "dataset",
+      "data": "path_to_ner_dataset.csv"
+    },
+  }
+  ```
++ Le classi di interazione, che contengono le regole per rispondere alle domande.\ 
+  Ogni possibile interazione deve indicare:
+    - Una descrizione (utile a fini di documentazione): `description`
+    - Un'etichetta per la classe dei dati usati nel training che riguardano l'interazione: `label`
+    - Una lista di possibili slot da riempire: `slots`. Ogni slot ha alcuni dettagli:
+      - Un nome: `name`. Questo corrisponde al nome dell'entità che si vuole estrarre dalla domanda basandoci sul modello di NER addestrato
+      - Una descrizione: `description`
+      - Un'indicazione se è opzionale: `optional`
+    - Una lista di possibili risposte, che possono contenere dei placeholder per i dati estratti: `answers`.\
+      Queste risposte possono essere scritte in un linguaggio di templating, come ad esempio Handlebars @handlebars, oppure possono essere indicate anche delle configurazioni più complesse che permettono di fornire il necessario ad una LLM per generare una risposta più complessa usando i dati estratti (o anche da una memoria interna).
+    - Una query per estrarre i dati dalla knowledge base che verranno usati per la risposta: `query`.\
+      Questa query può essere espressa in JSONPath o JMESPath (o altri linguaggi che potrebbero essere identificati come più adatti).
+    - Una lista di sottoclassi, `subclasses`, che contengono le stesse informazioni di una classe di interazione. Questo permette di creare una gerarchia di classi di interazione, in modo da poter avere una maggiore flessibilità.\
+      Se una classe contiene delle sottoclassi, questa non può avere una query associata, e le risposte devono essere generate dalle sottoclassi. Ipoteticamente si potrebbe pensare anche di avere più risposte da più sottoclassi se queste matchano, oppure informare l'utente che il sistema ha compreso la domanda ma che non è in grado di rispondere (e magari suggerire delle domande più specifiche).
+  Ecco come potrebbe essere strutturata la sezione delle classi di interazione, per lasciare un esempio concreto: 
+  ```json
   "interaction_classes": {
-    "Inizio Conversazione": {
+    "InizioConversazione": {
       "label": "start",
       "description": "Gestisce i saluti iniziali dell'utente.",
       "answer": [
@@ -615,10 +647,11 @@ Una volta configurato il file JSON, che può apparire come il seguente:
       ]
     },
     "DomandaStatoAutoma": {
-      "description": "Richieste di informazioni riguardo gli stati dell'automa",
       "label": "state",
+      "description": "Richieste di informazioni riguardo gli stati dell'automa",
       "subclasses": {
         "StatoStart": {
+          "label": "start",
           "description": "Dettagli sugli stati di start",
           "slots": [
             {
@@ -626,10 +659,10 @@ Una volta configurato il file JSON, che può apparire come il seguente:
               "name": "state"
             }
           ],
-          "query": "$.states[?(@.nome=='${nome_prodotto}')]",
-          "risposte": [
-            "Ecco le informazioni su ${nome_prodotto}: ${risultato.descrizione}",
-            "${nome_prodotto} ha le seguenti caratteristiche: ${risultato.caratteristiche}"
+          "query": "$.automaton.states[?(@.type=='start')]",
+          "answers": [
+            "L'automa ha ${res.length} stati di start: ${res.map(s => s.name).join(', ')}",
+            "Gli stati di start dell'automa sono: ${res.map(s => s.name).join(', ')}"
           ]
         },
         "InformazioniOrdine": {
@@ -645,10 +678,24 @@ Una volta configurato il file JSON, che può apparire come il seguente:
       }
     }
   }
-}
+  ```
 
-```
+Naturalmente questa è solo una proposta, e il formato del file di configurazione può essere modificato in base alle esigenze. Per iniziare a costruire il sistema, si potrebbe partire con un formato più semplice e poi aggiungere funzionalità più complesse in funzione di quello che vediamo che è necessario per lavorare nel dominio degli automi.
 
 == Cosa fa il motore di interrogazione
+
+Il motore di interrogazione è il componente che si occupa di ricevere le domande degli utenti e di rispondere in base alle regole definite nel file di configurazione.
+
+Dovrebbe tenere traccia dello stato della conversazione, come AIML già fa utilizzando la memoria e comandi come `<think>`.
+
+Verrebbe costruito in python, avendo bisogno di interagire con il modello di BERT per il riconoscimento delle domande e con Spacy per il riconoscimento delle entità.
+
+L'idea sarebbe di implementarlo come una serie di moduli o una libreria, in modo da poterlo poi integrare separatamente in tanti potenziali sistemi diversi (come ad esempio un bot Telegram, un'interfaccia web, un'applicazione mobile, ecc.).
+
+Per il nostro caso, ad esempio potrebbe essere integrato in una API scritta con FastAPI @fastapi, che permette di costruire API RESTful in modo molto semplice e veloce.
+
+Ritengo che spostarci da AIML a qualcosa di costruito apposta permetterebbe di ottenere un sistema più flessibile e più adatto ai tempi attuali, e darebbe anche una risposta ad alcuni dubbi che erano sorti durante le varie volte che ci siamo confrontati in riunione, come l'integrazione delle LLM, la flessibilità delle regole, la gestione delle variabili quali la conoscenza e le competenze dell'utente o la memoria del sistema.
+
+#pagebreak(weak: true)
 
 #bibliography("bib.yml", full: true)

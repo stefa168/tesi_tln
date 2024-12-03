@@ -1026,3 +1026,42 @@ doccano:
   - Liang, Xu
   date: 2018
   url: https://github.com/doccano/doccano
+
+jmespath:
+  type: web
+  title: 'JMESPath is a query language for JSON'
+  author:
+    - James Saryerwinnie
+  url: https://jmespath.org/
+
+jsonpath:
+  type: blog
+  title: 'JSONPath - XPath for JSON'
+  author:
+    - Stefan Goessner
+  date: 2007
+  url: https://goessner.net/articles/JsonPath/
+
+sparql:
+  type: report
+  title: 'SPARQL Query Language for RDF'
+  organization: W3C
+  url: https://www.w3.org/TR/sparql11-query/
+
+graphviz:
+  type: reference
+  title: 'Graphviz - Graph Visualization Software'
+  organization: Graphviz
+  url: https://graphviz.org/
+
+handlebars:
+  type: reference
+  title: 'Handlebars - Minimal Templating on Steroids'
+  organization: Handlebars
+  url: https://handlebarsjs.com/
+
+fastapi:
+  type: reference
+  title: 'FastAPI - Fast (high-performance) API framework for Python'
+  organization: FastAPI
+  url: https://fastapi.tiangolo.com/
