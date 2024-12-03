@@ -1,0 +1,1028 @@
+bert:
+  type: misc
+  title: "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
+  author:
+    - Devlin, Jacob
+    - Chang, Ming-Wei
+    - Lee, Kenton
+    - Toutanova, Kristina
+  date: 2019
+  url: https://arxiv.org/abs/1810.04805
+  serial-number:
+    arxiv: "1810.04805"
+
+distilbert:
+  type: misc
+  title: "DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter"
+  author:
+    - Sanh, Victor
+    - Debut, Lysandre
+    - Chaumond, Julien
+    - Wolf, Thomas
+  date: 2020
+  url: https://arxiv.org/abs/1910.01108
+  serial-number:
+    arxiv: "1910.01108"
+
+dont_stop_pretraining:
+  type: misc
+  title: "Don't Stop Pretraining: Adapt Language Models to Domains and Tasks"
+  author:
+    - Gururangan, Suchin
+    - Marasović, Ana
+    - Swayamdipta, Swabha
+    - Lo, Kyle
+    - Beltagy, Iz
+    - Downey, Doug
+    - Smith, Noah A.
+  date: 2020
+  url: https://arxiv.org/abs/2004.10964
+  serial-number:
+    arxiv: "2004.10964"
+
+huggingface_transformers:
+  type: misc
+  title: "HuggingFace's Transformers: State-of-the-art Natural Language Processing"
+  author:
+    - Wolf, Thomas
+    - Debut, Lysandre
+    - Sanh, Victor
+    - Chaumond, Julien
+    - Delangue, Clement
+    - Moi, Anthony
+    - Cistac, Pierric
+    - Rault, Tim
+    - Louf, Rémi
+    - Funtowicz, Morgan
+    - Davison, Joe
+    - Shleifer, Sam
+    - name: Platen
+      given-name: Patrick
+      prefix: von
+    - Ma, Clara
+    - Jernite, Yacine
+    - Plu, Julien
+    - Xu, Canwen
+    - Scao, Teven Le
+    - Gugger, Sylvain
+    - Drame, Mariama
+    - Lhoest, Quentin
+    - Rush, Alexander M.
+  date: 2020
+  url: https://arxiv.org/abs/1910.03771
+  serial-number:
+    arxiv: "1910.03771"
+
+bert_fine_tuning:
+  type: misc
+  title: "On the Stability of Fine-tuning BERT: Misconceptions, Explanations, and Strong Baselines"
+  author:
+    - Mosbach, Marius
+    - Andriushchenko, Maksym
+    - Klakow, Dietrich
+  date: 2021
+  url: https://arxiv.org/abs/2006.04884
+  serial-number:
+    arxiv: "2006.04884"
+
+ollama:
+  title: Ollama - LLM local runner
+  type: repository
+  organization: Ollama
+  url: https://github.com/ollama/ollama
+
+gemma:
+  type: article
+  title: 'Gemma 2: Improving Open Language Models at a Practical Size'
+  organization: Google Deep Mind
+  author:
+  - Team, Gemma
+  - Riviere, Morgane
+  - Pathak, Shreya
+  - Sessa, Pier Giuseppe
+  - Hardin, Cassidy
+  - Bhupatiraju, Surya
+  - Hussenot, Léonard
+  - Mesnard, Thomas
+  - Shahriari, Bobak
+  - Ramé, Alexandre
+  - Ferret, Johan
+  - Liu, Peter
+  - Tafti, Pouya
+  - Friesen, Abe
+  - Casbon, Michelle
+  - Ramos, Sabela
+  - Kumar, Ravin
+  - Lan, Charline Le
+  - Jerome, Sammy
+  - Tsitsulin, Anton
+  - Vieillard, Nino
+  - Stanczyk, Piotr
+  - Girgin, Sertan
+  - Momchev, Nikola
+  - Hoffman, Matt
+  - Thakoor, Shantanu
+  - Grill, Jean-Bastien
+  - Neyshabur, Behnam
+  - Bachem, Olivier
+  - Walton, Alanna
+  - Severyn, Aliaksei
+  - Parrish, Alicia
+  - Ahmad, Aliya
+  - Hutchison, Allen
+  - Abdagic, Alvin
+  - Carl, Amanda
+  - Shen, Amy
+  - Brock, Andy
+  - Coenen, Andy
+  - Laforge, Anthony
+  - Paterson, Antonia
+  - Bastian, Ben
+  - Piot, Bilal
+  - Wu, Bo
+  - Royal, Brandon
+  - Chen, Charlie
+  - Kumar, Chintu
+  - Perry, Chris
+  - Welty, Chris
+  - Choquette-Choo, Christopher A.
+  - Sinopalnikov, Danila
+  - Weinberger, David
+  - Vijaykumar, Dimple
+  - Rogozińska, Dominika
+  - Herbison, Dustin
+  - Bandy, Elisa
+  - Wang, Emma
+  - Noland, Eric
+  - Moreira, Erica
+  - Senter, Evan
+  - Eltyshev, Evgenii
+  - Visin, Francesco
+  - Rasskin, Gabriel
+  - Wei, Gary
+  - Cameron, Glenn
+  - Martins, Gus
+  - Hashemi, Hadi
+  - Klimczak-Plucińska, Hanna
+  - Batra, Harleen
+  - Dhand, Harsh
+  - Nardini, Ivan
+  - Mein, Jacinda
+  - Zhou, Jack
+  - Svensson, James
+  - Stanway, Jeff
+  - Chan, Jetha
+  - Zhou, Jin Peng
+  - Carrasqueira, Joana
+  - Iljazi, Joana
+  - Becker, Jocelyn
+  - Fernandez, Joe
+  - name: Amersfoort
+    given-name: Joost
+    prefix: van
+  - Gordon, Josh
+  - Lipschultz, Josh
+  - Newlan, Josh
+  - Ji, Ju-yeong
+  - Mohamed, Kareem
+  - Badola, Kartikeya
+  - Black, Kat
+  - Millican, Katie
+  - McDonell, Keelin
+  - Nguyen, Kelvin
+  - Sodhia, Kiranbir
+  - Greene, Kish
+  - Sjoesund, Lars Lowe
+  - Usui, Lauren
+  - Sifre, Laurent
+  - Heuermann, Lena
+  - Lago, Leticia
+  - McNealus, Lilly
+  - Soares, Livio Baldini
+  - Kilpatrick, Logan
+  - Dixon, Lucas
+  - Martins, Luciano
+  - Reid, Machel
+  - Singh, Manvinder
+  - Iverson, Mark
+  - Görner, Martin
+  - Velloso, Mat
+  - Wirth, Mateo
+  - Davidow, Matt
+  - Miller, Matt
+  - Rahtz, Matthew
+  - Watson, Matthew
+  - Risdal, Meg
+  - Kazemi, Mehran
+  - Moynihan, Michael
+  - Zhang, Ming
+  - Kahng, Minsuk
+  - Park, Minwoo
+  - Rahman, Mofi
+  - Khatwani, Mohit
+  - Dao, Natalie
+  - Bardoliwalla, Nenshad
+  - Devanathan, Nesh
+  - Dumai, Neta
+  - Chauhan, Nilay
+  - Wahltinez, Oscar
+  - Botarda, Pankil
+  - Barnes, Parker
+  - Barham, Paul
+  - Michel, Paul
+  - Jin, Pengchong
+  - Georgiev, Petko
+  - Culliton, Phil
+  - Kuppala, Pradeep
+  - Comanescu, Ramona
+  - Merhej, Ramona
+  - Jana, Reena
+  - Rokni, Reza Ardeshir
+  - Agarwal, Rishabh
+  - Mullins, Ryan
+  - Saadat, Samaneh
+  - Carthy, Sara Mc
+  - Cogan, Sarah
+  - Perrin, Sarah
+  - Arnold, Sébastien M. R.
+  - Krause, Sebastian
+  - Dai, Shengyang
+  - Garg, Shruti
+  - Sheth, Shruti
+  - Ronstrom, Sue
+  - Chan, Susan
+  - Jordan, Timothy
+  - Yu, Ting
+  - Eccles, Tom
+  - Hennigan, Tom
+  - Kocisky, Tomas
+  - Doshi, Tulsee
+  - Jain, Vihan
+  - Yadav, Vikas
+  - Meshram, Vilobh
+  - Dharmadhikari, Vishal
+  - Barkley, Warren
+  - Wei, Wei
+  - Ye, Wenming
+  - Han, Woohyun
+  - Kwon, Woosuk
+  - Xu, Xiang
+  - Shen, Zhe
+  - Gong, Zhitao
+  - Wei, Zichuan
+  - Cotruta, Victor
+  - Kirk, Phoebe
+  - Rao, Anand
+  - Giang, Minh
+  - Peran, Ludovic
+  - Warkentin, Tris
+  - Collins, Eli
+  - Barral, Joelle
+  - Ghahramani, Zoubin
+  - Hadsell, Raia
+  - Sculley, D.
+  - Banks, Jeanine
+  - Dragan, Anca
+  - Petrov, Slav
+  - Vinyals, Oriol
+  - Dean, Jeff
+  - Hassabis, Demis
+  - Kavukcuoglu, Koray
+  - Farabet, Clement
+  - Buchatskaya, Elena
+  - Borgeaud, Sebastian
+  - Fiedel, Noah
+  - Joulin, Armand
+  - Kenealy, Kathleen
+  - Dadashi, Robert
+  - Andreev, Alek
+  date: 2024
+  url: https://arxiv.org/abs/2408.00118
+  serial-number:
+    arxiv: '2408.00118'
+
+llama3:
+  type: misc
+  title: The Llama 3 Herd of Models
+  author:
+  - Grattafiori, Aaron
+  - Dubey, Abhimanyu
+  - Jauhri, Abhinav
+  - Pandey, Abhinav
+  - Kadian, Abhishek
+  - Al-Dahle, Ahmad
+  - Letman, Aiesha
+  - Mathur, Akhil
+  - Schelten, Alan
+  - Vaughan, Alex
+  - Yang, Amy
+  - Fan, Angela
+  - Goyal, Anirudh
+  - Hartshorn, Anthony
+  - Yang, Aobo
+  - Mitra, Archi
+  - Sravankumar, Archie
+  - Korenev, Artem
+  - Hinsvark, Arthur
+  - Rao, Arun
+  - Zhang, Aston
+  - Rodriguez, Aurelien
+  - Gregerson, Austen
+  - Spataru, Ava
+  - Roziere, Baptiste
+  - Biron, Bethany
+  - Tang, Binh
+  - Chern, Bobbie
+  - Caucheteux, Charlotte
+  - Nayak, Chaya
+  - Bi, Chloe
+  - Marra, Chris
+  - McConnell, Chris
+  - Keller, Christian
+  - Touret, Christophe
+  - Wu, Chunyang
+  - Wong, Corinne
+  - Ferrer, Cristian Canton
+  - Nikolaidis, Cyrus
+  - Allonsius, Damien
+  - Song, Daniel
+  - Pintz, Danielle
+  - Livshits, Danny
+  - Wyatt, Danny
+  - Esiobu, David
+  - Choudhary, Dhruv
+  - Mahajan, Dhruv
+  - Garcia-Olano, Diego
+  - Perino, Diego
+  - Hupkes, Dieuwke
+  - Lakomkin, Egor
+  - AlBadawy, Ehab
+  - Lobanova, Elina
+  - Dinan, Emily
+  - Smith, Eric Michael
+  - Radenovic, Filip
+  - Guzmán, Francisco
+  - Zhang, Frank
+  - Synnaeve, Gabriel
+  - Lee, Gabrielle
+  - Anderson, Georgia Lewis
+  - Thattai, Govind
+  - Nail, Graeme
+  - Mialon, Gregoire
+  - Pang, Guan
+  - Cucurell, Guillem
+  - Nguyen, Hailey
+  - Korevaar, Hannah
+  - Xu, Hu
+  - Touvron, Hugo
+  - Zarov, Iliyan
+  - Ibarra, Imanol Arrieta
+  - Kloumann, Isabel
+  - Misra, Ishan
+  - Evtimov, Ivan
+  - Zhang, Jack
+  - Copet, Jade
+  - Lee, Jaewon
+  - Geffert, Jan
+  - Vranes, Jana
+  - Park, Jason
+  - Mahadeokar, Jay
+  - Shah, Jeet
+  - name: Linde
+    given-name: Jelmer
+    prefix: van der
+  - Billock, Jennifer
+  - Hong, Jenny
+  - Lee, Jenya
+  - Fu, Jeremy
+  - Chi, Jianfeng
+  - Huang, Jianyu
+  - Liu, Jiawen
+  - Wang, Jie
+  - Yu, Jiecao
+  - Bitton, Joanna
+  - Spisak, Joe
+  - Park, Jongsoo
+  - Rocca, Joseph
+  - Johnstun, Joshua
+  - Saxe, Joshua
+  - Jia, Junteng
+  - Alwala, Kalyan Vasuden
+  - Prasad, Karthik
+  - Upasani, Kartikeya
+  - Plawiak, Kate
+  - Li, Ke
+  - Heafield, Kenneth
+  - Stone, Kevin
+  - El-Arini, Khalid
+  - Iyer, Krithika
+  - Malik, Kshitiz
+  - Chiu, Kuenley
+  - Bhalla, Kunal
+  - Lakhotia, Kushal
+  - Rantala-Yeary, Lauren
+  - name: Maaten
+    given-name: Laurens
+    prefix: van der
+  - Chen, Lawrence
+  - Tan, Liang
+  - Jenkins, Liz
+  - Martin, Louis
+  - Madaan, Lovish
+  - Malo, Lubo
+  - Blecher, Lukas
+  - Landzaat, Lukas
+  - name: Oliveira
+    given-name: Luke
+    prefix: de
+  - Muzzi, Madeline
+  - Pasupuleti, Mahesh
+  - Singh, Mannat
+  - Paluri, Manohar
+  - Kardas, Marcin
+  - Tsimpoukelli, Maria
+  - Oldham, Mathew
+  - Rita, Mathieu
+  - Pavlova, Maya
+  - Kambadur, Melanie
+  - Lewis, Mike
+  - Si, Min
+  - Singh, Mitesh Kumar
+  - Hassan, Mona
+  - Goyal, Naman
+  - Torabi, Narjes
+  - Bashlykov, Nikolay
+  - Bogoychev, Nikolay
+  - Chatterji, Niladri
+  - Zhang, Ning
+  - Duchenne, Olivier
+  - Çelebi, Onur
+  - Alrassy, Patrick
+  - Zhang, Pengchuan
+  - Li, Pengwei
+  - Vasic, Petar
+  - Weng, Peter
+  - Bhargava, Prajjwal
+  - Dubal, Pratik
+  - Krishnan, Praveen
+  - Koura, Punit Singh
+  - Xu, Puxin
+  - He, Qing
+  - Dong, Qingxiao
+  - Srinivasan, Ragavan
+  - Ganapathy, Raj
+  - Calderer, Ramon
+  - Cabral, Ricardo Silveira
+  - Stojnic, Robert
+  - Raileanu, Roberta
+  - Maheswari, Rohan
+  - Girdhar, Rohit
+  - Patel, Rohit
+  - Sauvestre, Romain
+  - Polidoro, Ronnie
+  - Sumbaly, Roshan
+  - Taylor, Ross
+  - Silva, Ruan
+  - Hou, Rui
+  - Wang, Rui
+  - Hosseini, Saghar
+  - Chennabasappa, Sahana
+  - Singh, Sanjay
+  - Bell, Sean
+  - Kim, Seohyun Sonia
+  - Edunov, Sergey
+  - Nie, Shaoliang
+  - Narang, Sharan
+  - Raparthy, Sharath
+  - Shen, Sheng
+  - Wan, Shengye
+  - Bhosale, Shruti
+  - Zhang, Shun
+  - Vandenhende, Simon
+  - Batra, Soumya
+  - Whitman, Spencer
+  - Sootla, Sten
+  - Collot, Stephane
+  - Gururangan, Suchin
+  - Borodinsky, Sydney
+  - Herman, Tamar
+  - Fowler, Tara
+  - Sheasha, Tarek
+  - Georgiou, Thomas
+  - Scialom, Thomas
+  - Speckbacher, Tobias
+  - Mihaylov, Todor
+  - Xiao, Tong
+  - Karn, Ujjwal
+  - Goswami, Vedanuj
+  - Gupta, Vibhor
+  - Ramanathan, Vignesh
+  - Kerkez, Viktor
+  - Gonguet, Vincent
+  - Do, Virginie
+  - Vogeti, Vish
+  - Albiero, Vítor
+  - Petrovic, Vladan
+  - Chu, Weiwei
+  - Xiong, Wenhan
+  - Fu, Wenyin
+  - Meers, Whitney
+  - Martinet, Xavier
+  - Wang, Xiaodong
+  - Wang, Xiaofang
+  - Tan, Xiaoqing Ellen
+  - Xia, Xide
+  - Xie, Xinfeng
+  - Jia, Xuchao
+  - Wang, Xuewei
+  - Goldschlag, Yaelle
+  - Gaur, Yashesh
+  - Babaei, Yasmine
+  - Wen, Yi
+  - Song, Yiwen
+  - Zhang, Yuchen
+  - Li, Yue
+  - Mao, Yuning
+  - Coudert, Zacharie Delpierre
+  - Yan, Zheng
+  - Chen, Zhengxing
+  - Papakipos, Zoe
+  - Singh, Aaditya
+  - Srivastava, Aayushi
+  - Jain, Abha
+  - Kelsey, Adam
+  - Shajnfeld, Adam
+  - Gangidi, Adithya
+  - Victoria, Adolfo
+  - Goldstand, Ahuva
+  - Menon, Ajay
+  - Sharma, Ajay
+  - Boesenberg, Alex
+  - Baevski, Alexei
+  - Feinstein, Allie
+  - Kallet, Amanda
+  - Sangani, Amit
+  - Teo, Amos
+  - Yunus, Anam
+  - Lupu, Andrei
+  - Alvarado, Andres
+  - Caples, Andrew
+  - Gu, Andrew
+  - Ho, Andrew
+  - Poulton, Andrew
+  - Ryan, Andrew
+  - Ramchandani, Ankit
+  - Dong, Annie
+  - Franco, Annie
+  - Goyal, Anuj
+  - Saraf, Aparajita
+  - Chowdhury, Arkabandhu
+  - Gabriel, Ashley
+  - Bharambe, Ashwin
+  - Eisenman, Assaf
+  - Yazdan, Azadeh
+  - James, Beau
+  - Maurer, Ben
+  - Leonhardi, Benjamin
+  - Huang, Bernie
+  - Loyd, Beth
+  - Paola, Beto De
+  - Paranjape, Bhargavi
+  - Liu, Bing
+  - Wu, Bo
+  - Ni, Boyu
+  - Hancock, Braden
+  - Wasti, Bram
+  - Spence, Brandon
+  - Stojkovic, Brani
+  - Gamido, Brian
+  - Montalvo, Britt
+  - Parker, Carl
+  - Burton, Carly
+  - Mejia, Catalina
+  - Liu, Ce
+  - Wang, Changhan
+  - Kim, Changkyu
+  - Zhou, Chao
+  - Hu, Chester
+  - Chu, Ching-Hsiang
+  - Cai, Chris
+  - Tindal, Chris
+  - Feichtenhofer, Christoph
+  - Gao, Cynthia
+  - Civin, Damon
+  - Beaty, Dana
+  - Kreymer, Daniel
+  - Li, Daniel
+  - Adkins, David
+  - Xu, David
+  - Testuggine, Davide
+  - David, Delia
+  - Parikh, Devi
+  - Liskovich, Diana
+  - Foss, Didem
+  - Wang, Dingkang
+  - Le, Duc
+  - Holland, Dustin
+  - Dowling, Edward
+  - Jamil, Eissa
+  - Montgomery, Elaine
+  - Presani, Eleonora
+  - Hahn, Emily
+  - Wood, Emily
+  - Le, Eric-Tuan
+  - Brinkman, Erik
+  - Arcaute, Esteban
+  - Dunbar, Evan
+  - Smothers, Evan
+  - Sun, Fei
+  - Kreuk, Felix
+  - Tian, Feng
+  - Kokkinos, Filippos
+  - Ozgenel, Firat
+  - Caggioni, Francesco
+  - Kanayet, Frank
+  - Seide, Frank
+  - Florez, Gabriela Medina
+  - Schwarz, Gabriella
+  - Badeer, Gada
+  - Swee, Georgia
+  - Halpern, Gil
+  - Herman, Grant
+  - Sizov, Grigory
+  - Guangyi
+  - Zhang
+  - Lakshminarayanan, Guna
+  - Inan, Hakan
+  - Shojanazeri, Hamid
+  - Zou, Han
+  - Wang, Hannah
+  - Zha, Hanwen
+  - Habeeb, Haroun
+  - Rudolph, Harrison
+  - Suk, Helen
+  - Aspegren, Henry
+  - Goldman, Hunter
+  - Zhan, Hongyuan
+  - Damlaj, Ibrahim
+  - Molybog, Igor
+  - Tufanov, Igor
+  - Leontiadis, Ilias
+  - Veliche, Irina-Elena
+  - Gat, Itai
+  - Weissman, Jake
+  - Geboski, James
+  - Kohli, James
+  - Lam, Janice
+  - Asher, Japhet
+  - Gaya, Jean-Baptiste
+  - Marcus, Jeff
+  - Tang, Jeff
+  - Chan, Jennifer
+  - Zhen, Jenny
+  - Reizenstein, Jeremy
+  - Teboul, Jeremy
+  - Zhong, Jessica
+  - Jin, Jian
+  - Yang, Jingyi
+  - Cummings, Joe
+  - Carvill, Jon
+  - Shepard, Jon
+  - McPhie, Jonathan
+  - Torres, Jonathan
+  - Ginsburg, Josh
+  - Wang, Junjie
+  - Wu, Kai
+  - U, Kam Hou
+  - Saxena, Karan
+  - Khandelwal, Kartikay
+  - Zand, Katayoun
+  - Matosich, Kathy
+  - Veeraraghavan, Kaushik
+  - Michelena, Kelly
+  - Li, Keqian
+  - Jagadeesh, Kiran
+  - Huang, Kun
+  - Chawla, Kunal
+  - Huang, Kyle
+  - Chen, Lailin
+  - Garg, Lakshya
+  - A, Lavender
+  - Silva, Leandro
+  - Bell, Lee
+  - Zhang, Lei
+  - Guo, Liangpeng
+  - Yu, Licheng
+  - Moshkovich, Liron
+  - Wehrstedt, Luca
+  - Khabsa, Madian
+  - Avalani, Manav
+  - Bhatt, Manish
+  - Mankus, Martynas
+  - Hasson, Matan
+  - Lennie, Matthew
+  - Reso, Matthias
+  - Groshev, Maxim
+  - Naumov, Maxim
+  - Lathi, Maya
+  - Keneally, Meghan
+  - Liu, Miao
+  - Seltzer, Michael L.
+  - Valko, Michal
+  - Restrepo, Michelle
+  - Patel, Mihir
+  - Vyatskov, Mik
+  - Samvelyan, Mikayel
+  - Clark, Mike
+  - Macey, Mike
+  - Wang, Mike
+  - Hermoso, Miquel Jubert
+  - Metanat, Mo
+  - Rastegari, Mohammad
+  - Bansal, Munish
+  - Santhanam, Nandhini
+  - Parks, Natascha
+  - White, Natasha
+  - Bawa, Navyata
+  - Singhal, Nayan
+  - Egebo, Nick
+  - Usunier, Nicolas
+  - Mehta, Nikhil
+  - Laptev, Nikolay Pavlovich
+  - Dong, Ning
+  - Cheng, Norman
+  - Chernoguz, Oleg
+  - Hart, Olivia
+  - Salpekar, Omkar
+  - Kalinli, Ozlem
+  - Kent, Parkin
+  - Parekh, Parth
+  - Saab, Paul
+  - Balaji, Pavan
+  - Rittner, Pedro
+  - Bontrager, Philip
+  - Roux, Pierre
+  - Dollar, Piotr
+  - Zvyagina, Polina
+  - Ratanchandani, Prashant
+  - Yuvraj, Pritish
+  - Liang, Qian
+  - Alao, Rachad
+  - Rodriguez, Rachel
+  - Ayub, Rafi
+  - Murthy, Raghotham
+  - Nayani, Raghu
+  - Mitra, Rahul
+  - Parthasarathy, Rangaprabhu
+  - Li, Raymond
+  - Hogan, Rebekkah
+  - Battey, Robin
+  - Wang, Rocky
+  - Howes, Russ
+  - Rinott, Ruty
+  - Mehta, Sachin
+  - Siby, Sachin
+  - Bondu, Sai Jayesh
+  - Datta, Samyak
+  - Chugh, Sara
+  - Hunt, Sara
+  - Dhillon, Sargun
+  - Sidorov, Sasha
+  - Pan, Satadru
+  - Mahajan, Saurabh
+  - Verma, Saurabh
+  - Yamamoto, Seiji
+  - Ramaswamy, Sharadh
+  - Lindsay, Shaun
+  - Lindsay, Shaun
+  - Feng, Sheng
+  - Lin, Shenghao
+  - Zha, Shengxin Cindy
+  - Patil, Shishir
+  - Shankar, Shiva
+  - Zhang, Shuqiang
+  - Zhang, Shuqiang
+  - Wang, Sinong
+  - Agarwal, Sneha
+  - Sajuyigbe, Soji
+  - Chintala, Soumith
+  - Max, Stephanie
+  - Chen, Stephen
+  - Kehoe, Steve
+  - Satterfield, Steve
+  - Govindaprasad, Sudarshan
+  - Gupta, Sumit
+  - Deng, Summer
+  - Cho, Sungmin
+  - Virk, Sunny
+  - Subramanian, Suraj
+  - Choudhury, Sy
+  - Goldman, Sydney
+  - Remez, Tal
+  - Glaser, Tamar
+  - Best, Tamara
+  - Koehler, Thilo
+  - Robinson, Thomas
+  - Li, Tianhe
+  - Zhang, Tianjun
+  - Matthews, Tim
+  - Chou, Timothy
+  - Shaked, Tzook
+  - Vontimitta, Varun
+  - Ajayi, Victoria
+  - Montanez, Victoria
+  - Mohan, Vijai
+  - Kumar, Vinay Satish
+  - Mangla, Vishal
+  - Ionescu, Vlad
+  - Poenaru, Vlad
+  - Mihailescu, Vlad Tiberiu
+  - Ivanov, Vladimir
+  - Li, Wei
+  - Wang, Wenchen
+  - Jiang, Wenwen
+  - Bouaziz, Wes
+  - Constable, Will
+  - Tang, Xiaocheng
+  - Wu, Xiaojian
+  - Wang, Xiaolan
+  - Wu, Xilun
+  - Gao, Xinbo
+  - Kleinman, Yaniv
+  - Chen, Yanjun
+  - Hu, Ye
+  - Jia, Ye
+  - Qi, Ye
+  - Li, Yenda
+  - Zhang, Yilin
+  - Zhang, Ying
+  - Adi, Yossi
+  - Nam, Youngjin
+  - Yu
+  - Wang
+  - Zhao, Yu
+  - Hao, Yuchen
+  - Qian, Yundi
+  - Li, Yunlu
+  - He, Yuzi
+  - Rait, Zach
+  - DeVito, Zachary
+  - Rosnbrick, Zef
+  - Wen, Zhaoduo
+  - Yang, Zhenyu
+  - Zhao, Zhiwei
+  - Ma, Zhiyu
+  date: 2024
+  url: https://arxiv.org/abs/2407.21783
+  serial-number:
+    arxiv: '2407.21783'
+
+qwen:
+  type: misc
+  title: Qwen Technical Report
+  author:
+  - Bai, Jinze
+  - Bai, Shuai
+  - Chu, Yunfei
+  - Cui, Zeyu
+  - Dang, Kai
+  - Deng, Xiaodong
+  - Fan, Yang
+  - Ge, Wenbin
+  - Han, Yu
+  - Huang, Fei
+  - Hui, Binyuan
+  - Ji, Luo
+  - Li, Mei
+  - Lin, Junyang
+  - Lin, Runji
+  - Liu, Dayiheng
+  - Liu, Gao
+  - Lu, Chengqiang
+  - Lu, Keming
+  - Ma, Jianxin
+  - Men, Rui
+  - Ren, Xingzhang
+  - Ren, Xuancheng
+  - Tan, Chuanqi
+  - Tan, Sinan
+  - Tu, Jianhong
+  - Wang, Peng
+  - Wang, Shijie
+  - Wang, Wei
+  - Wu, Shengguang
+  - Xu, Benfeng
+  - Xu, Jin
+  - Yang, An
+  - Yang, Hao
+  - Yang, Jian
+  - Yang, Shusheng
+  - Yao, Yang
+  - Yu, Bowen
+  - Yuan, Hongyi
+  - Yuan, Zheng
+  - Zhang, Jianwei
+  - Zhang, Xingxuan
+  - Zhang, Yichang
+  - Zhang, Zhenru
+  - Zhou, Chang
+  - Zhou, Jingren
+  - Zhou, Xiaohuan
+  - Zhu, Tianhang
+  date: 2023
+  url: https://arxiv.org/abs/2309.16609
+  serial-number:
+    arxiv: '2309.16609'
+
+squad1:
+  type: article
+  title: '{SQ}u{AD}: 100,000+ Questions for Machine Comprehension of Text'
+  author:
+  - Rajpurkar, Pranav
+  - Zhang, Jian
+  - Lopyrev, Konstantin
+  - Liang, Percy
+  date: 2016-11
+  editor:
+  - Su, Jian
+  - Duh, Kevin
+  - Carreras, Xavier
+  page-range: 2383–2392
+  url: https://aclanthology.org/D16-1264
+  serial-number:
+    doi: 10.18653/v1/D16-1264
+  parent:
+    type: proceedings
+    title: Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing
+    publisher: Association for Computational Linguistics
+    location: Austin, Texas
+
+squad2:
+  type: article
+  title: 'Know What You Don{''}t Know: Unanswerable Questions for {SQ}u{AD}'
+  author:
+  - Rajpurkar, Pranav
+  - Jia, Robin
+  - Liang, Percy
+  date: 2018-07
+  editor:
+  - Gurevych, Iryna
+  - Miyao, Yusuke
+  page-range: 784–789
+  url: https://aclanthology.org/P18-2124
+  serial-number:
+    doi: 10.18653/v1/P18-2124
+  abstract: 'Extractive reading comprehension systems can often locate the correct answer to a question in a context document, but they also tend to make unreliable guesses on questions for which the correct answer is not stated in the context. Existing datasets either focus exclusively on answerable questions, or use automatically generated unanswerable questions that are easy to identify. To address these weaknesses, we present SQuADRUn, a new dataset that combines the existing Stanford Question Answering Dataset (SQuAD) with over 50,000 unanswerable questions written adversarially by crowdworkers to look similar to answerable ones. To do well on SQuADRUn, systems must not only answer questions when possible, but also determine when no answer is supported by the paragraph and abstain from answering. SQuADRUn is a challenging natural language understanding task for existing models: a strong neural system that gets 86{%} F1 on SQuAD achieves only 66{%} F1 on SQuADRUn. We release SQuADRUn to the community as the successor to SQuAD.'
+  parent:
+    type: proceedings
+    title: 'Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)'
+    publisher: Association for Computational Linguistics
+    location: Melbourne, Australia
+
+multitask:
+  type: article
+  title: Multitask Learning
+  author: Caruana, Rich
+  date: 1997
+  page-range: 41–75
+  url: https://doi.org/10.1023/A:1007379606734
+  serial-number:
+    doi: 10.1023/A:1007379606734
+    issn: 1573-0565
+  abstract: Multitask Learning is an approach to inductive transfer that improves generalization by using the domain information contained in the training signals of related tasks as an inductive bias. It does this by learning tasks in parallel while using a shared representation; what is learned for each task can help other tasks be learned better. This paper reviews prior work on MTL, presents new evidence that MTL in backprop nets discovers task relatedness without the need of supervisory signals, and presents new results for MTL with k-nearest neighbor and kernel regression. In this paper we demonstrate multitask learning in three domains. We explain how multitask learning works, and show that there are many opportunities for multitask learning in real domains. We present an algorithm and results for multitask learning with case-based methods like k-nearest neighbor and kernel regression, and sketch an algorithm for multitask learning in decision trees. Because multitask learning works, can be applied to many different kinds of domains, and can be used with different learning algorithms, we conjecture there will be many opportunities for its use on real-world problems.
+  parent:
+    type: periodical
+    title: Machine Learning
+    issue: 1
+    volume: 28
+
+hierarchical:
+  type: article
+  title: A survey of hierarchical classification across different application domains
+  author:
+  - Silla, Carlos N.
+  - Freitas, Alex A.
+  date: 2011
+  page-range: 31–72
+  url: https://doi.org/10.1007/s10618-010-0175-9
+  serial-number:
+    doi: 10.1007/s10618-010-0175-9
+    issn: 1573-756X
+  abstract: In this survey we discuss the task of hierarchical classification. The literature about this field is scattered across very different application domains and for that reason research in one domain is often done unaware of methods developed in other domains. We define what is the task of hierarchical classification and discuss why some related tasks should not be considered hierarchical classification. We also present a new perspective about some existing hierarchical classification approaches, and based on that perspective we propose a new unifying framework to classify the existing approaches. We also present a review of empirical comparisons of the existing methods reported in the literature as well as a conceptual comparison of those methods at a high level of abstraction, discussing their advantages and disadvantages.
+  parent:
+    type: periodical
+    title: Data Mining and Knowledge Discovery
+    issue: 1
+    volume: 22
+
+doccano:
+  type: misc
+  title: '{doccano}: Text Annotation Tool for Human'
+  author:
+  - Nakayama, Hiroki
+  - Kubo, Takahiro
+  - Kamura, Junya
+  - Taniguchi, Yasufumi
+  - Liang, Xu
+  date: 2018
+  url: https://github.com/doccano/doccano
