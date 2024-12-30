@@ -3,6 +3,7 @@
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 ner_training_results/
+gcloud_creds.json
 
 # User-specific stuff
 .idea/**/workspace.xml
