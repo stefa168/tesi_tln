@@ -169,7 +169,7 @@ Il piano è di dividere la gestione di una domanda (lato riconoscimento) in due 
 
 == Modelli di reti neurali per il riconoscimento di domande
 <ricerca-di-modelli-di-reti-neurali>
-Prima dell'utilizzo di modelli di reti neurali ho investigato ancora sulla possibilità di utilizzare dei modelli statistici costruiti automaticamente. Questo principalmente per la velocità di esecuzione e la footprint ridotta rispetto a modelli di reti neurali. Spacy era un'opzione che ho effettivamente esplorato per un po' di tempo, tuttavia dopo aver scoperto BERT @bert ho deciso di orientarmi verso l'utilizzo di modelli di reti neurali basati sui Transformer.
+Prima dell'utilizzo di modelli di reti neurali ho investigato ancora sulla possibilità di utilizzare dei modelli statistici costruiti automaticamente. Questo principalmente per la velocità di esecuzione e la footprint ridotta rispetto a modelli di reti neurali. Spacy era un'opzione che ho effettivamente esplorato per un po' di tempo, tuttavia dopo aver scoperto BERT @bert ho deciso di orientarmi verso l'utilizzo di modelli di reti neurali basati sui Transformer, basandomi sulla loro promessa di prestazioni migliori rispetto ai modelli classici.
 
 BERT è preaddestrato su un corpus di testo molto grande; esistono diverse versioni che idealmente dovrebbero essere utilizzate in base alla quantità di risorse disponibili, considerando anche il task che si vuole svolgere.
 
@@ -480,6 +480,8 @@ Anche le classi secondarie hanno ricevuto alcune migliorie alla distribuzione, c
 
 Con la nuova distribuzione, più uniforme, è possibile ottenere dei buoni risultati nel training.
 
+L'utilizzo del dataset SQUAD ha anche introdotto un'ulteriore incremento delle performance, portando a una drastica diminuzione della classificazione di esempi OT come domande lecite.
+
 ==== Training
 
 Senza addentrarmi troppo nei dettagli per il momento, ho provato due metodi per effettuare il fine-tuning, dal momento che non si tratta di una semplice classificazione multiclasse:
@@ -557,7 +559,7 @@ In seguito al training, è risultato che il modello gerarchico permette di otten
 
 === Ulteriori ricerche da effettuare
 
-Attualmente ho parlato con un mio amico del Politecnico, che mi ha suggerito di esplorare anche la via della classificazione mediante l'uso diretto degli embeddings prodotti da BERT, senza dover effettuare il fine-tuning. Questo potrebbe essere un'opzione interessante da esplorare, dal momento che permetterebbe di ottenere delle risposte più veloci e con il vantaggio di poter utilizzare anche un modello più grosso per ottenere una maggiore accuratezza.
+Attualmente ho parlato con un mio amico del Politecnico, che mi ha suggerito di esplorare anche la via della classificazione mediante l'uso diretto degli embeddings prodotti da BERT, senza dover effettuare il fine-tuning. Questo potrebbe essere un'opzione interessante da esplorare, dal momento che permetterebbe di ottenere delle risposte più veloci e con il vantaggio di poter utilizzare anche un modello più grosso (con un numero maggiore di parametri) per ottenere una maggiore accuratezza, senza doverne effettuare il fine-tuning.
 
 == Riconoscimento dei complementi della domanda
 

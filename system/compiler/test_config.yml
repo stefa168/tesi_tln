@@ -1,0 +1,35 @@
+models:
+  # Section that contains the different models that have to be trained/fine-tuned
+  # Supports BERT, NER with Spacy, and others.
+  - name: global_subject
+    type: bert
+    pretrained_model: bert-base-uncased
+    dataset: data_cleaned_manual_combined.csv
+    columns:
+      example_column: "Question"
+      label_column: "Global Subject"
+
+  # We have to train a group of models that will be used to assign a second label to the data
+  # This has to use the label_column "Question Intent", and the multiple models have to receive
+  # data that has been split on the "Global Subject" column. like some sort of "map" function
+  - name: question_intent
+    type: bert
+    pretrained_model: bert-base-uncased
+    dataset: data_cleaned_manual_combined.csv
+    columns:
+      example_column: "Question"
+      label_column: "Question Intent"
+      # This is the column that will be used to split the data and that will produce the different models
+      map_split_on: "Global Subject"
+
+  # Spacy NER model:
+  - name: ner
+    type: spacy_ner
+    dataset: ner_labels.jsonl
+    columns:
+      example_column: "Question"
+      label_column: "NER"
+
+features:
+  - name: global_subject
+    type: classifier

@@ -277,3 +277,37 @@ Le domande off-topic aggiuntive sono state estratte dal dataset Squad (Stanford 
 (https://aclanthology.org/D16-1264/, https://aclanthology.org/P18-2124/), per avere una sufficiente varietà di domande
 non pertinenti.
 
+# Proposte
+
+Il compilatore inizialmente doveva produrre soltanto un file AIML, con le interazioni e i dati già previsti e fissati
+nella pietra. Tuttavia, a parer mio, questo genere di approccio risulta poco flessibile e prono a produrre grosse
+quantità di dati. Sì che è possibile anche utilizzare regole annidate e simili, ma in un mondo dove oggi siamo in grado
+di interagire con una LLM, credo che bisogni cercare di puntare a proporre un "AIML" più adatto a quello che oggi ci si
+aspetta da un motore di chat e interrogazioni.
+
+Per questo motivo inizialmente ho dedicato tutto il tempo alla ricerca delle tecniche più efficaci per il riconoscimento
+dei quesiti dell'utente, finito con l'utilizzo di BERT dopo fine-tuning. Allo stesso modo, per identificare i soggetti
+di una domanda, il NER dovrebbe essere sufficiente.
+
+Detto questo, proporrei un nuovo genere di sistema, di cui il compilatore è solo una parte.
+Nello specifico, si tratta di una pipeline che integra diversi step, partendo da un compilatore e finendo in un motore
+di esecuzione per il question answering su topic ristretti e specifici.
+
+## Cosa fa il compilatore
+
+Il compilatore invece di dover costruire un file AIML in output, lavora su più stadi, e necessita di una configurazione
+più approfondita.
+
+Nello specifico, richiede i seguenti dati:
+
+1. Per ogni genere (classe) di domanda possibile nel dominio da analizzare, devono essere forniti dei piccoli dataset di
+   domande che possano essere usati per comporre i dati con cui viene effettuato il fine-tuning di BERT.
+2. Come per le classi di domande, ogni genere di Named Entity potenzialmente richiesta deve essere compresa in un
+   dataset
+   taggato per addestrare un modello che si occupi di NER.
+3. Infine, non possono mancare anche i dati effettivi sui quali deve essere costruita una piccola knowledge base. Dato
+   che ogni classe può richiedere informazioni diverse dalla knowledge base, possono essere utili delle regole per
+   recuperare i dati relativi alla domanda appena posta. La regola può essere espressa in JSONPath o JMESPath o un altro
+   linguaggio di query da decidere (un'opzione decisamente più complessa può essere ad esempio SPARQL, proventiente dal
+   dominio del web semantico)
+
