@@ -11,6 +11,35 @@ from transformers import AutoModelForSequenceClassification, AutoTokenizer, Trai
 from system.compiler.config import ModelConfig
 
 
+def compute_metrics(eval_pred):
+    """
+    Compute evaluation metrics for the model predictions.
+
+    Args:
+        eval_pred (tuple): A tuple containing the model predictions and the true labels.
+            - predictions (numpy.ndarray): The predicted logits from the model.
+            - labels (numpy.ndarray): The true labels.
+
+    Returns:
+        dict: A dictionary containing the computed metrics:
+            - accuracy (float): The accuracy of the predictions.
+            - precision (float): The weighted precision of the predictions.
+            - recall (float): The weighted recall of the predictions.
+            - f1 (float): The weighted F1 score of the predictions.
+    """
+    predictions, labels = eval_pred
+    preds = np.argmax(predictions, axis=1)
+    acc = accuracy_score(labels, preds)
+    precision, recall, f1, _ = precision_recall_fscore_support(labels, preds, average='weighted', zero_division=0)
+    metrics = {
+        'accuracy': acc,
+        'precision': precision,
+        'recall': recall,
+        'f1': f1,
+    }
+    return metrics
+
+
 def run_fine_tuning(model: AutoModelForSequenceClassification,
                     tokenizer: AutoTokenizer,
                     train_dataset: Dataset,
@@ -27,34 +56,6 @@ def run_fine_tuning(model: AutoModelForSequenceClassification,
     Returns:
         Trainer: The Trainer object after training.
     """
-
-    def compute_metrics(eval_pred):
-        """
-        Compute evaluation metrics for the model predictions.
-
-        Args:
-            eval_pred (tuple): A tuple containing the model predictions and the true labels.
-                - predictions (numpy.ndarray): The predicted logits from the model.
-                - labels (numpy.ndarray): The true labels.
-
-        Returns:
-            dict: A dictionary containing the computed metrics:
-                - accuracy (float): The accuracy of the predictions.
-                - precision (float): The weighted precision of the predictions.
-                - recall (float): The weighted recall of the predictions.
-                - f1 (float): The weighted F1 score of the predictions.
-        """
-        predictions, labels = eval_pred
-        preds = np.argmax(predictions, axis=1)
-        acc = accuracy_score(labels, preds)
-        precision, recall, f1, _ = precision_recall_fscore_support(labels, preds, average='weighted', zero_division=0)
-        metrics = {
-            'accuracy': acc,
-            'precision': precision,
-            'recall': recall,
-            'f1': f1,
-        }
-        return metrics
 
     training_args = TrainingArguments(
         # todo save to a "temp" directory of some sort, maybe specified in the compiler configuration, which is

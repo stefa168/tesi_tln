@@ -5,7 +5,6 @@ from system.compiler.fine_tuning import train_model
 
 
 def main():
-    # Usage
     config = CompilerConfig.load_from_file('./test_config.yml')
 
     print(f"CUDA available: {torch.cuda.is_available()}")
