@@ -197,8 +197,8 @@ def prepare_dataset(df: DataFrame,
     # Create the stratified split for train and validation sets
     split = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
     train_index, val_index = next(split.split(df, df[labels_column]))
-    strat_train_set = df.loc[train_index]
-    strat_val_set = df.loc[val_index].reset_index(drop=True)
+    strat_train_set = df.iloc[train_index].reset_index(drop=True)
+    strat_val_set = df.iloc[val_index].reset_index(drop=True)
 
     # Convert to Hugging Face Dataset
     train_dataset = Dataset.from_pandas(strat_train_set)
