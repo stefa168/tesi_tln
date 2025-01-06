@@ -104,13 +104,31 @@
         "on_column": {
           "title": "On Column",
           "type": "string"
+        },
+        "for_each": {
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/LoadCsvStep"
+              },
+              {
+                "$ref": "#/$defs/SplitDataStep"
+              },
+              {
+                "$ref": "#/$defs/TrainModelStep"
+              }
+            ]
+          },
+          "title": "For Each",
+          "type": "array"
         }
       },
       "required": [
         "name",
         "type",
         "dataframe",
-        "on_column"
+        "on_column",
+        "for_each"
       ],
       "title": "SplitDataStep",
       "type": "object"
@@ -156,6 +174,18 @@
         "examples_column": {
           "title": "Examples Column",
           "type": "string"
+        },
+        "resulting_model_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Resulting Model Name"
         }
       },
       "required": [

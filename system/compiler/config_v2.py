@@ -1,4 +1,5 @@
 import json
+import re
 from abc import ABC, abstractmethod
 from enum import Enum
 from pathlib import Path
@@ -6,7 +7,6 @@ from typing import Literal, Any, Union
 
 import pandas as pd
 import yaml
-from pandas import DataFrame
 from pydantic import BaseModel
 from transformers import AutoTokenizer, Trainer, PreTrainedTokenizerBase, PreTrainedModel
 
@@ -116,6 +116,7 @@ class SplitDataStep(Step):
     type: Literal["split_data"]
     dataframe: str
     on_column: str
+    for_each: list["StepUnion"]
 
     def resolve_requirements(self, context: dict[str, dict[str, Any]]) -> dict[str, pd.DataFrame]:
         super().resolve_requirements(context)
@@ -138,19 +139,55 @@ class SplitDataStep(Step):
 
         return {"dataframe": df}
 
-    def execute(self, inputs: dict[str, Any], context: dict[str, Any]) -> dict[str, dict[str, DataFrame]]:
+    def execute(self, inputs: dict[str, Any], context: dict[str, Any]) -> dict[str, dict[str, Any]]:
         df = inputs["dataframe"]
 
-        subsets: dict[str, pd.DataFrame] = {group: data for group, data in df.groupby(self.on_column)}
-        return {"subsets": subsets}
+        splits: list[str] = df[self.on_column].unique()
+
+        split_base_context = {
+            "parent_context": context,
+            "model_metadata": context["model_metadata"],
+            "config": context["config"]
+        }
+
+        split_results = {}
+        for split in splits:
+            print(f"Processing split '{split}'")
+            split_df = df[df[self.on_column] == split]
+            split_context = split_base_context.copy()
+
+            split_context["on_column"] = split
+            split_context[self.name] = {"dataframe": split_df}
+
+            for step in self.for_each:
+                retrieved_inputs = step.resolve_requirements(split_context)
+                execution_results = step.execute(retrieved_inputs, split_context)
+
+                if "break" in execution_results:
+                    print(f"Breaking execution at step '{step.name}'")
+                    break
+
+                checked_outputs = step.verify_execution(execution_results)
+
+                split_base_context[step.name] = checked_outputs
+
+            split_results[split] = split_base_context
+
+        return {"split_contexts": split_results, }
 
     def verify_execution(self, outputs: dict[str, Any]) -> dict[str, dict[str, pd.DataFrame]]:
-        subsets = outputs["subsets"]
+        split_contexts = outputs["split_contexts"]
 
-        if not all(isinstance(v, pd.DataFrame) for v in subsets.values()):
-            raise StepExecutionError("Values in the dictionary are not pandas DataFrames.")
+        for split, context in split_contexts.items():
+            for step in self.for_each:
+                step_outputs = context[step.name]
 
-        return outputs
+                if "break" in step_outputs:
+                    continue
+
+                step.verify_execution(step_outputs)
+
+        return {"split_contexts": split_contexts}
 
 
 @register_step
@@ -160,6 +197,7 @@ class TrainModelStep(Step):
     pretrained_model: str
     labels_column: str
     examples_column: str
+    resulting_model_name: str | None = None
 
     def resolve_requirements(self, context: dict[str, dict[str, Any]]) -> dict[str, Any]:
         super().resolve_requirements(context)
@@ -187,21 +225,44 @@ class TrainModelStep(Step):
 
     def execute(self, inputs: dict[str, Any], context: dict[str, dict[str, Any]]) -> dict[str, Any]:
         df = inputs["dataframe"]
-        model_pipeline_name: str = context["model_metadata"]["name"]
+
         config_name: str = context["config"]["name"]
+
+        if self.resulting_model_name is None:
+            model_pipeline_name: str = context["model_metadata"]["name"]
+        else:
+            def find_template_variables(template: str) -> list[str]:
+                # Regular expression to find all {variables} in the template
+                pattern = r'(?<!\\)\{(\w+)\}'
+                matches = re.findall(pattern, template)
+                return matches
+
+            # Find all variables in the model name
+            variables = find_template_variables(self.resulting_model_name)
+            if len(variables) > 0:
+                # Replace all variables with their values
+                # todo resolve nested variables
+                model_pipeline_name = self.resulting_model_name.format(**context)
+            else:
+                model_pipeline_name = self.resulting_model_name
 
         model_pipeline_path = ARTIFACTS_BASE_DIR / config_name / model_pipeline_name / "trained_model"
 
         # Check if the model is cached
         # todo check the checksum of the input data to determine if the model is still valid; same thing for the
         #  configuration of the model if it has changed
-        if model_pipeline_path.exists():
+        if model_pipeline_path.exists() and any(model_pipeline_path.iterdir()):
             print(f"Model '{model_pipeline_name}' already exists. Skipping step!")
         else:
             model_pipeline_path.mkdir(parents=True, exist_ok=True)
 
             # Create a LabelInfo object using the dataset and the labels column
             label_info = LabelInfo(df, self.labels_column)
+
+            if len(label_info) == 1:
+                print("Only one label found in the dataset. Please check the dataset and labels column.")
+                return {"break": True}
+                # raise StepExecutionError("Only one label found in the dataset. Please check the dataset and labels column.")
 
             # Prepare the model using the base model name and label information
             base_model = prepare_model(self.pretrained_model, label_info)

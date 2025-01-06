@@ -11,3 +11,21 @@ models:
         pretrained_model: "bert-base-uncased"
         examples_column: "Question"
         labels_column: "Global Subject"
+
+  - name: "question_intent_classifiers"
+    steps:
+      - type: load_csv
+        name: data
+        path: "../../multitask_training/data_cleaned_manual_combined.csv"
+      - type: split_data
+        name: split
+        dataframe: data.dataframe
+        on_column: "Global Subject"
+        for_each:
+          - type: train_model
+            name: training
+            dataframe: split.dataframe
+            pretrained_model: "bert-base-uncased"
+            examples_column: "Question"
+            labels_column: "Question Intent"
+            resulting_model_name: "question_intent_{on_column}"
