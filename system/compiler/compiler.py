@@ -1,26 +1,52 @@
 import torch
 
-from system.compiler.config import ModelType, CompilerConfig
-from system.compiler.fine_tuning import train_model
+from system.compiler.config_v2 import CompilerConfigV2, Model, Step, StepExecutionError
 
 
-def main():
-    config = CompilerConfig.load_from_file('./test_config.yml')
+class ModelPipelineRunner:
+    def __init__(self, model: Model):
+        """
+        Initialize the runner with a validated pipeline configuration.
+        """
+        self.model = model
+
+    def run(self):
+        """
+        Run the pipeline, executing its steps in sequence.
+        """
+
+        print(f"Running pipeline '{self.model.name}'")
+
+        # Shared context for intermediate outputs
+        context: dict[str, dict[str, object]] = {
+            'model_metadata': self.model.model_dump(exclude={'steps'})
+        }
+
+        step: Step
+        for step in self.model.steps:
+            try:
+                retrieved_inputs = step.resolve_requirements(context)
+                execution_results = step.execute(retrieved_inputs, context)
+                checked_outputs = step.verify_execution(execution_results)
+
+                context[step.name] = checked_outputs
+            except StepExecutionError as e:
+                print(f"Error executing step '{step.name}': {e}")
+                raise
+
+
+def mainv2():
+    config = CompilerConfigV2.load_from_file('./test_config v2.yml')
 
     print(f"CUDA available: {torch.cuda.is_available()}")
     print(f"Number of GPUs: {torch.cuda.device_count()}")
     print(f"Current CUDA device: {torch.cuda.current_device()}")
     print(f"Device name: {torch.cuda.get_device_name(torch.cuda.current_device())}")
 
-    for model_config in config.models:
-        if model_config.type == ModelType.BERT:
-            train_model(model_config)
-        elif model_config.type == ModelType.SPACY_NER:
-            # train_spacy_ner_model(model_config)
-            pass
-        else:
-            raise ValueError(f"Unknown model type: {model_config.type}")
+    for model in config.models:
+        runner = ModelPipelineRunner(model)
+        runner.run()
 
 
 if __name__ == '__main__':
-    main()
+    mainv2()

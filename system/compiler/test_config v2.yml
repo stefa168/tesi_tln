@@ -1,0 +1,13 @@
+name: "test_config"
+models:
+  - name: "global_subject_classifier"
+    steps:
+      - type: load_csv
+        name: data
+        path: "../../multitask_training/data_cleaned_manual_combined.csv"
+      - type: train_model
+        name: training
+        dataframe: data.dataframe
+        pretrained_model: "bert-base-uncased"
+        examples_column: "Question"
+        labels_column: "Global Subject"

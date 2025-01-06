@@ -1,0 +1,192 @@
+{
+  "$defs": {
+    "LoadCsvStep": {
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "type": {
+          "const": "load_csv",
+          "enum": [
+            "load_csv"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "path": {
+          "format": "path",
+          "title": "Path",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "path"
+      ],
+      "title": "LoadCsvStep",
+      "type": "object"
+    },
+    "Model": {
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "steps": {
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/LoadCsvStep"
+              },
+              {
+                "$ref": "#/$defs/SplitDataStep"
+              },
+              {
+                "$ref": "#/$defs/TrainModelStep"
+              }
+            ]
+          },
+          "title": "Steps",
+          "type": "array"
+        }
+      },
+      "required": [
+        "name",
+        "steps"
+      ],
+      "title": "Model",
+      "type": "object"
+    },
+    "SplitDataStep": {
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "type": {
+          "const": "split_data",
+          "enum": [
+            "split_data"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "dataframe": {
+          "title": "Dataframe",
+          "type": "string"
+        },
+        "on_column": {
+          "title": "On Column",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "dataframe",
+        "on_column"
+      ],
+      "title": "SplitDataStep",
+      "type": "object"
+    },
+    "TrainModelStep": {
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "type": {
+          "const": "train_model",
+          "enum": [
+            "train_model"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "dataframe": {
+          "title": "Dataframe",
+          "type": "string"
+        },
+        "pretrained_model": {
+          "title": "Pretrained Model",
+          "type": "string"
+        },
+        "labels_column": {
+          "title": "Labels Column",
+          "type": "string"
+        },
+        "examples_column": {
+          "title": "Examples Column",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "dataframe",
+        "pretrained_model",
+        "labels_column",
+        "examples_column"
+      ],
+      "title": "TrainModelStep",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "models": {
+      "items": {
+        "$ref": "#/$defs/Model"
+      },
+      "title": "Models",
+      "type": "array"
+    }
+  },
+  "required": [
+    "name",
+    "models"
+  ],
+  "title": "CompilerConfigV2",
+  "type": "object"
+}
