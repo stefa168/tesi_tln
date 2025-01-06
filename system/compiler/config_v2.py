@@ -73,6 +73,9 @@ class Step(BaseModel, ABC):
         if "model_metadata" not in context:
             raise StepExecutionError("Model metadata not found in context.")
 
+        if "config" not in context:
+            raise StepExecutionError("Global Configuration metadata not found in context.")
+
         return context
 
     @abstractmethod
@@ -185,13 +188,16 @@ class TrainModelStep(Step):
     def execute(self, inputs: dict[str, Any], context: dict[str, dict[str, Any]]) -> dict[str, Any]:
         df = inputs["dataframe"]
         model_pipeline_name: str = context["model_metadata"]["name"]
+        config_name: str = context["config"]["name"]
 
-        model_pipeline_path = ARTIFACTS_BASE_DIR / model_pipeline_name / "trained_model"
+        model_pipeline_path = ARTIFACTS_BASE_DIR / config_name / model_pipeline_name / "trained_model"
 
         # Check if the model is cached
         # todo check the checksum of the input data to determine if the model is still valid; same thing for the
         #  configuration of the model if it has changed
-        if not model_pipeline_path.exists():
+        if model_pipeline_path.exists():
+            print(f"Model '{model_pipeline_name}' already exists. Skipping step!")
+        else:
             model_pipeline_path.mkdir(parents=True, exist_ok=True)
 
             # Create a LabelInfo object using the dataset and the labels column

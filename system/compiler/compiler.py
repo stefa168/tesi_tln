@@ -4,11 +4,12 @@ from system.compiler.config_v2 import CompilerConfigV2, Model, Step, StepExecuti
 
 
 class ModelPipelineRunner:
-    def __init__(self, model: Model):
+    def __init__(self, model: Model, config: CompilerConfigV2):
         """
         Initialize the runner with a validated pipeline configuration.
         """
         self.model = model
+        self.config = config
 
     def run(self):
         """
@@ -19,7 +20,8 @@ class ModelPipelineRunner:
 
         # Shared context for intermediate outputs
         context: dict[str, dict[str, object]] = {
-            'model_metadata': self.model.model_dump(exclude={'steps'})
+            'model_metadata': self.model.model_dump(exclude={'steps'}),
+            "config": self.config.model_dump(exclude={'models'})
         }
 
         step: Step
@@ -44,7 +46,7 @@ def mainv2():
     print(f"Device name: {torch.cuda.get_device_name(torch.cuda.current_device())}")
 
     for model in config.models:
-        runner = ModelPipelineRunner(model)
+        runner = ModelPipelineRunner(model, config)
         runner.run()
 
 
