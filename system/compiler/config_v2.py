@@ -119,7 +119,7 @@ class SplitDataStep(Step):
     for_each: list["StepUnion"]
 
     def resolve_requirements(self, context: dict[str, dict[str, Any]]) -> dict[str, pd.DataFrame]:
-        super().resolve_requirements(context)
+        context = super().resolve_requirements(context)
 
         step_name, df_name = self.dataframe.split(".", 1)
 
@@ -200,7 +200,7 @@ class TrainModelStep(Step):
     resulting_model_name: str | None = None
 
     def resolve_requirements(self, context: dict[str, dict[str, Any]]) -> dict[str, Any]:
-        super().resolve_requirements(context)
+        context = super().resolve_requirements(context)
 
         step_name, df_name = self.dataframe.split(".", 1)
 
