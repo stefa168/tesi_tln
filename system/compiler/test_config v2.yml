@@ -29,3 +29,11 @@ models:
             examples_column: "Question"
             labels_column: "Question Intent"
             resulting_model_name: "question_intent_{on_column}"
+  - name: "question_entities_recognition"
+    steps:
+      - type: ner_spacy
+        name: ner_training
+        language: "en"
+        training_data_path: "../../ner_training/corpus/ner_labels.jsonl"
+        training_device: "gpu"
+        resulting_model_name: "ner_trained_model"

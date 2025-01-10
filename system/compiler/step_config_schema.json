@@ -43,10 +43,19 @@
     "Model": {
       "properties": {
         "name": {
+          "description": "The name of the model.",
+          "minLength": 1,
           "title": "Name",
           "type": "string"
         },
+        "disabled": {
+          "default": false,
+          "description": "Whether model training should be disabled.",
+          "title": "Disabled",
+          "type": "boolean"
+        },
         "steps": {
+          "description": "The steps to execute for training the model.",
           "items": {
             "anyOf": [
               {
@@ -57,9 +66,13 @@
               },
               {
                 "$ref": "#/$defs/TrainModelStep"
+              },
+              {
+                "$ref": "#/$defs/NerSpacy"
               }
             ]
           },
+          "minItems": 1,
           "title": "Steps",
           "type": "array"
         }
@@ -69,6 +82,81 @@
         "steps"
       ],
       "title": "Model",
+      "type": "object"
+    },
+    "NerSpacy": {
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "type": {
+          "const": "ner_spacy",
+          "enum": [
+            "ner_spacy"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "language": {
+          "default": "en",
+          "minLength": 1,
+          "title": "Language",
+          "type": "string"
+        },
+        "training_data_path": {
+          "format": "path",
+          "minLength": 1,
+          "title": "Training Data Path",
+          "type": "string"
+        },
+        "iterations": {
+          "default": 20,
+          "minimum": 1,
+          "title": "Iterations",
+          "type": "integer"
+        },
+        "training_device": {
+          "default": "prefer_gpu",
+          "enum": [
+            "cpu",
+            "prefer_gpu",
+            "gpu"
+          ],
+          "title": "Training Device",
+          "type": "string"
+        },
+        "resulting_model_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Resulting Model Name"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "training_data_path"
+      ],
+      "title": "NerSpacy",
       "type": "object"
     },
     "SplitDataStep": {
@@ -116,6 +204,9 @@
               },
               {
                 "$ref": "#/$defs/TrainModelStep"
+              },
+              {
+                "$ref": "#/$defs/NerSpacy"
               }
             ]
           },
@@ -202,10 +293,13 @@
   },
   "properties": {
     "name": {
+      "description": "The name of the compiler configuration.",
+      "minLength": 1,
       "title": "Name",
       "type": "string"
     },
     "models": {
+      "description": "The models to compile.",
       "items": {
         "$ref": "#/$defs/Model"
       },

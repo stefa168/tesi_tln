@@ -350,7 +350,9 @@ class NerSpacy(Step):
         data = NERData.load_jsonl_data(self.training_data_path)
         label_matrix, label_list = prepare_multilabel_data(data)
         train_data, val_data = stratified_split(data, label_matrix)
-        train_spacy(train_data, val_data, self.iterations, self.language, self.name, model_pipeline_path)
+        train_spacy(train_data, val_data, self.iterations, self.language, model_pipeline_path)
+
+        return {}
 
 
 StepUnion = Union[tuple(STEP_REGISTRY.values())]

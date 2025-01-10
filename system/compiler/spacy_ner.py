@@ -133,6 +133,7 @@ def stratified_split(entities: list[NERData], label_matrix, val_size=0.2, random
 
 def train_spacy(train_data: list[NERData],
                 val_data: list[NERData],
+                label_list: set[str],
                 iterations: int,
                 language: str,
                 output_path: Path):
@@ -141,18 +142,17 @@ def train_spacy(train_data: list[NERData],
 
     :param train_data: Training data in spaCy format.
     :param val_data: Validation data in spaCy format.
+    :param label_list: Set of unique entity labels.
     :param iterations: Number of training iterations.
     :param language: Language of the model.
-    :param result_model_name: Name of the trained model.
     :param output_path: Directory to save the trained model to.
     """
     nlp = spacy.blank(language)
     ner = nlp.add_pipe('ner', last=True)
 
     # Add unique labels to the NER pipeline
-    for el in train_data:
-        for label in el.entity_labels:
-            ner.add_label(label)
+    for label in label_list:
+        ner.add_label(label)
 
     # Disable other pipelines during training
     other_pipes = [pipe for pipe in nlp.pipe_names if pipe != 'ner']
