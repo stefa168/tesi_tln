@@ -30,13 +30,6 @@ def register_step(step_cls: type["Step"]):
     return step_cls
 
 
-class StepType(str, Enum):
-    LOAD_CSV = "load_csv"
-    SPLIT_DATA = "split_data"
-    TRAIN_MODEL = "train_model"
-    NER_SPACY = "ner_spacy"
-
-
 # define step execution error:
 class StepExecutionError(Exception):
     pass
