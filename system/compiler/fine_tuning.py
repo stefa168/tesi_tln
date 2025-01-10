@@ -57,6 +57,10 @@ def run_fine_tuning(model: AutoModelForSequenceClassification,
         Trainer: The Trainer object after training.
     """
 
+    train_dataset = train_dataset.map(lambda x: {k: v.float() if isinstance(v, torch.Tensor) and v.dtype == torch.long else v for k, v in x.items()})
+    eval_dataset = eval_dataset.map(lambda x: {k: v.float() if isinstance(v, torch.Tensor) and v.dtype == torch.long else v for k, v in x.items()})
+
+
     training_args = TrainingArguments(
         # todo save to a "temp" directory of some sort, maybe specified in the compiler configuration, which is
         #  different from the compilation configuration
