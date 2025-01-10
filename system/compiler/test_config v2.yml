@@ -1,6 +1,7 @@
 name: "test_config"
 models:
   - name: "global_subject_classifier"
+    disabled: true
     steps:
       - type: load_csv
         name: data
@@ -13,6 +14,7 @@ models:
         labels_column: "Global Subject"
 
   - name: "question_intent_classifiers"
+    disabled: true
     steps:
       - type: load_csv
         name: data

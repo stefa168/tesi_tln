@@ -16,6 +16,10 @@ class ModelPipelineRunner:
         Run the pipeline, executing its steps in sequence.
         """
 
+        if self.model.disabled:
+            print(f"Skipping disabled model '{self.model.name}'")
+            return
+
         print(f"Running pipeline '{self.model.name}'")
 
         # Shared context for intermediate outputs

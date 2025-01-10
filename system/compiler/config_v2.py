@@ -359,13 +359,14 @@ StepUnion = Union[tuple(STEP_REGISTRY.values())]
 
 
 class Model(BaseModel):
-    name: str
-    steps: list[StepUnion]
+    name: str = Field(..., min_length=1, description="The name of the model.")
+    disabled: bool = Field(False, description="Whether model training should be disabled.")
+    steps: list[StepUnion] = Field(..., min_length=1, description="The steps to execute for training the model.")
 
 
 class CompilerConfigV2(BaseModel):
-    name: str
-    models: list[Model]
+    name: str = Field(..., min_length=1, description="The name of the compiler configuration.")
+    models: list[Model] = Field(..., description="The models to compile.")
 
     @staticmethod
     def load_from_file(file_path: str) -> 'CompilerConfigV2':
