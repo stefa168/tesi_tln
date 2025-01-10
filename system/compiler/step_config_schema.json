@@ -75,11 +75,21 @@
           "minItems": 1,
           "title": "Steps",
           "type": "array"
+        },
+        "type": {
+          "description": "The type of the model.",
+          "enum": [
+            "classification",
+            "ner"
+          ],
+          "title": "Type",
+          "type": "string"
         }
       },
       "required": [
         "name",
-        "steps"
+        "steps",
+        "type"
       ],
       "title": "Model",
       "type": "object"

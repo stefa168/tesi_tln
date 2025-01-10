@@ -2,6 +2,7 @@ name: "test_config"
 models:
   - name: "global_subject_classifier"
     disabled: true
+    type: classification
     steps:
       - type: load_csv
         name: data
@@ -15,6 +16,7 @@ models:
 
   - name: "question_intent_classifiers"
     disabled: true
+    type: classification
     steps:
       - type: load_csv
         name: data
@@ -32,6 +34,7 @@ models:
             labels_column: "Question Intent"
             resulting_model_name: "question_intent_{on_column}"
   - name: "question_entities_recognition"
+    type: ner
     steps:
       - type: ner_spacy
         name: ner_training

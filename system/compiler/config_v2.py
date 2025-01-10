@@ -355,6 +355,7 @@ class Model(BaseModel):
     name: str = Field(..., min_length=1, description="The name of the model.")
     disabled: bool = Field(False, description="Whether model training should be disabled.")
     steps: list[StepUnion] = Field(..., min_length=1, description="The steps to execute for training the model.")
+    type: Literal["classification", "ner"] = Field(..., description="The type of the model.")
 
 
 class CompilerConfigV2(BaseModel):
