@@ -3,7 +3,7 @@ import re
 from abc import ABC, abstractmethod
 from enum import Enum
 from pathlib import Path
-from typing import Literal, Any, Union
+from typing import Literal, Any, Union, TypeAlias
 
 import pandas as pd
 import yaml
@@ -362,10 +362,26 @@ class Reply(BaseModel):
     reply: str | list[str] = Field(..., description="The reply to send to the user.")
 
 
+type InteractionCases = Union["Interaction", Reply]
+
+
 class Interaction(BaseModel):
     use: str = Field(..., min_length=1, description="The model to use to produce a branching interaction.")
     name: str = Field(..., min_length=1, description="The name of the interaction node.")
-    cases: dict[str, Union["Interaction", Reply]] = Field(..., description="The cases for the interaction node.")
+    cases: dict[str, InteractionCases] = Field(..., description="The cases for the interaction node.")
+
+    def discover_model_names(self) -> set[str]:
+        """
+        Perform a DFS to discover all model names required in the interaction tree.
+
+        Returns:
+            set[str]: A set of all model names required in children interactions.
+        """
+        models: set[str] = {self.use}
+        for case in self.cases.values():
+            if isinstance(case, Interaction):
+                models.update(case.discover_model_names())
+        return models
 
 
 class CompilerConfigV2(BaseModel):
