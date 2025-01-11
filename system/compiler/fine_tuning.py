@@ -8,8 +8,6 @@ from sklearn.model_selection import StratifiedShuffleSplit
 from transformers import AutoModelForSequenceClassification, AutoTokenizer, Trainer, TrainingArguments, \
     PreTrainedTokenizer, BatchEncoding
 
-from system.compiler.config import ModelConfig
-
 
 def compute_metrics(eval_pred):
     """
@@ -238,37 +236,37 @@ def prepare_model(model_name: str, label_info: LabelInfo) -> AutoModelForSequenc
     return model
 
 
-def train_model(model_config: ModelConfig):
-    """
-    Trains a model using the provided dataset and configuration.
-
-    Args:
-        model_config (ModelConfig): The configuration for the model.
-
-    Returns:
-        None
-    """
-
-    # Load the dataset
-    df = pd.read_csv(model_config.dataset_path)
-
-    # Create a LabelInfo object using the dataset and the labels column
-    labels_column = model_config.columns.labels_column
-    label_info = LabelInfo(df, labels_column)
-
-    # Prepare the model using the base model name and label information
-    pretrained_model_name = model_config.pretrained_model
-    model = prepare_model(pretrained_model_name, label_info)
-
-    # Load the tokenizer for the base model
-    tokenizer = AutoTokenizer.from_pretrained(pretrained_model_name)
-
-    # Prepare the training and evaluation datasets
-    examples_column = model_config.columns.examples_column
-    train_dataset, eval_dataset = prepare_dataset(df, tokenizer, label_info, examples_column, labels_column)
-
-    # Run the fine-tuning process on the model
-    trainer = run_fine_tuning(model, tokenizer, train_dataset, eval_dataset)
-
-    # Save the trained model to the specified path
-    trainer.save_model(f'./results/{model_config.name}')
+# def train_model(model_config: ModelConfig):
+#     """
+#     Trains a model using the provided dataset and configuration.
+#
+#     Args:
+#         model_config (ModelConfig): The configuration for the model.
+#
+#     Returns:
+#         None
+#     """
+#
+#     # Load the dataset
+#     df = pd.read_csv(model_config.dataset_path)
+#
+#     # Create a LabelInfo object using the dataset and the labels column
+#     labels_column = model_config.columns.labels_column
+#     label_info = LabelInfo(df, labels_column)
+#
+#     # Prepare the model using the base model name and label information
+#     pretrained_model_name = model_config.pretrained_model
+#     model = prepare_model(pretrained_model_name, label_info)
+#
+#     # Load the tokenizer for the base model
+#     tokenizer = AutoTokenizer.from_pretrained(pretrained_model_name)
+#
+#     # Prepare the training and evaluation datasets
+#     examples_column = model_config.columns.examples_column
+#     train_dataset, eval_dataset = prepare_dataset(df, tokenizer, label_info, examples_column, labels_column)
+#
+#     # Run the fine-tuning process on the model
+#     trainer = run_fine_tuning(model, tokenizer, train_dataset, eval_dataset)
+#
+#     # Save the trained model to the specified path
+#     trainer.save_model(f'./results/{model_config.name}')
