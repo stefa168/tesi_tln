@@ -41,7 +41,7 @@ class ModelPipelineRunner:
                 raise
 
 
-def mainv2():
+def main():
     config = CompilerConfigV2.load_from_file('./test_config v2.yml')
 
     print(f"CUDA available: {torch.cuda.is_available()}")
@@ -55,4 +55,4 @@ def mainv2():
 
 
 if __name__ == '__main__':
-    mainv2()
+    main()
