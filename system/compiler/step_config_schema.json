@@ -1,5 +1,52 @@
 {
   "$defs": {
+    "Interaction": {
+      "properties": {
+        "type": {
+          "const": "interaction",
+          "enum": [
+            "interaction"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "use": {
+          "description": "The model to use to produce a branching interaction.",
+          "minLength": 1,
+          "title": "Use",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the interaction node.",
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "cases": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Interaction"
+              },
+              {
+                "$ref": "#/$defs/Reply"
+              }
+            ]
+          },
+          "description": "The cases for the interaction node.",
+          "title": "Cases",
+          "type": "object"
+        }
+      },
+      "required": [
+        "type",
+        "use",
+        "name",
+        "cases"
+      ],
+      "title": "Interaction",
+      "type": "object"
+    },
     "LoadCsvStep": {
       "properties": {
         "name": {
@@ -169,6 +216,29 @@
       "title": "NerSpacy",
       "type": "object"
     },
+    "Reply": {
+      "properties": {
+        "type": {
+          "const": "reply",
+          "enum": [
+            "reply"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "reply": {
+          "description": "The reply to send to the user.",
+          "title": "Reply",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "reply"
+      ],
+      "title": "Reply",
+      "type": "object"
+    },
     "SplitDataStep": {
       "properties": {
         "name": {
@@ -315,6 +385,29 @@
       },
       "title": "Models",
       "type": "array"
+    },
+    "interactions": {
+      "anyOf": [
+        {
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Interaction"
+              },
+              {
+                "$ref": "#/$defs/Reply"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "The interactions to be handled by the runner.",
+      "title": "Interactions"
     }
   },
   "required": [

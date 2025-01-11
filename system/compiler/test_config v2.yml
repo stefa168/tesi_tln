@@ -33,6 +33,7 @@ models:
             examples_column: "Question"
             labels_column: "Question Intent"
             resulting_model_name: "question_intent_{on_column}"
+
   - name: "question_entities_recognition"
     type: ner
     steps:
@@ -42,3 +43,42 @@ models:
         training_data_path: "../../ner_training/corpus/ner_labels.jsonl"
         training_device: "gpu"
         resulting_model_name: "ner_trained_model"
+
+interactions:
+  - type: interaction
+    use: "global_subject_classifier"
+    name: "global_subject_identification"
+    cases:
+      "start":
+        reply:
+          - "Hi! Feel free to ask me anything related to the finite state automaton, and I'll do my best to help."
+          - "Hello! How can I assist you with questions about the finite state automaton I've been given?"
+          - "Welcome! Got any queries about the finite state automaton I've been given? I'd be happy to help."
+          - "Hi there! Feel free to ask any questions regarding the finite state automaton I've been given, and I'll provide support."
+
+      "transition":
+        use: "question_intent_transition"
+        name: "transition_questions"
+        cases:
+          - "count"
+          - "cycles"
+          - "description"
+          - "existence_between"
+          - "existence_directed"
+          - "existence_from"
+          - "existence_into"
+          - "input"
+          - "label"
+          - "list"
+          - "self_loop"
+      "automaton": ""
+      "state": ""
+      "grammar": " "
+      "theory": ""
+      "off_topic":
+        reply:
+          - "Sorry, I don't know how to answer this."
+          - "Please, consider rephrasing the question."
+  # fallback case
+  - type: reply
+    reply: "An error has occurred. Please see the attached log: {{log}}"

@@ -3,7 +3,7 @@ import re
 from abc import ABC, abstractmethod
 from enum import Enum
 from pathlib import Path
-from typing import Literal, Any, Union
+from typing import Literal, Any, Union, Dict
 
 import pandas as pd
 import yaml
@@ -358,9 +358,32 @@ class Model(BaseModel):
     type: Literal["classification", "ner"] = Field(..., description="The type of the model.")
 
 
+class InteractionType(str, Enum):
+    REPLY = "reply"
+    INTERACTION = "interaction"
+
+
+class RootInteraction(BaseModel, ABC):
+    type: InteractionType
+
+
+class Reply(RootInteraction):
+    type: Literal[InteractionType.REPLY]
+    reply: str = Field(..., description="The reply to send to the user.")
+
+
+class Interaction(RootInteraction):
+    type: Literal[InteractionType.INTERACTION]
+    use: str = Field(..., min_length=1, description="The model to use to produce a branching interaction.")
+    name: str = Field(..., min_length=1, description="The name of the interaction node.")
+    cases: dict[str, Union["Interaction", Reply]] = Field(..., description="The cases for the interaction node.")
+
+
 class CompilerConfigV2(BaseModel):
     name: str = Field(..., min_length=1, description="The name of the compiler configuration.")
     models: list[Model] = Field(..., description="The models to compile.")
+    interactions: list[Union["Interaction", Reply]] | None = Field(None,
+                                                       description="The interactions to be handled by the runner.")
 
     @staticmethod
     def load_from_file(file_path: str) -> 'CompilerConfigV2':
