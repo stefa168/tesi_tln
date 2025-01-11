@@ -3,7 +3,7 @@ import re
 from abc import ABC, abstractmethod
 from enum import Enum
 from pathlib import Path
-from typing import Literal, Any, Union, Dict
+from typing import Literal, Any, Union
 
 import pandas as pd
 import yaml
@@ -13,7 +13,7 @@ from transformers import AutoTokenizer, Trainer, PreTrainedTokenizerBase, PreTra
 from system.compiler.fine_tuning import LabelInfo, prepare_model, prepare_dataset, run_fine_tuning
 from system.compiler.spacy_ner import NERData, init_spacy_device, prepare_multilabel_data, stratified_split, train_spacy
 
-ARTIFACTS_BASE_DIR = Path("artifacts")
+ARTIFACTS_BASE_DIR = Path("../compiler/artifacts")
 
 # Registry for step execution functions
 STEP_REGISTRY = {}
@@ -410,4 +410,4 @@ def save_schema_to_file(filepath: str):
 
 
 if __name__ == '__main__':
-    save_schema_to_file("step_config_schema.json")
+    save_schema_to_file("../compiler/step_config_schema.json")

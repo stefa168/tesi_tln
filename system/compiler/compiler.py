@@ -1,6 +1,6 @@
 import torch
 
-from system.compiler.config import CompilerConfigV2, Model, Step, StepExecutionError
+from system.common.config import CompilerConfigV2, Model, Step, StepExecutionError
 
 
 class ModelPipelineRunner:
