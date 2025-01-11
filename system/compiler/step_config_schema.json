@@ -2,14 +2,6 @@
   "$defs": {
     "Interaction": {
       "properties": {
-        "type": {
-          "const": "interaction",
-          "enum": [
-            "interaction"
-          ],
-          "title": "Type",
-          "type": "string"
-        },
         "use": {
           "description": "The model to use to produce a branching interaction.",
           "minLength": 1,
@@ -39,7 +31,6 @@
         }
       },
       "required": [
-        "type",
         "use",
         "name",
         "cases"
@@ -218,22 +209,23 @@
     },
     "Reply": {
       "properties": {
-        "type": {
-          "const": "reply",
-          "enum": [
-            "reply"
-          ],
-          "title": "Type",
-          "type": "string"
-        },
         "reply": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
           "description": "The reply to send to the user.",
-          "title": "Reply",
-          "type": "string"
+          "title": "Reply"
         }
       },
       "required": [
-        "type",
         "reply"
       ],
       "title": "Reply",
@@ -386,28 +378,17 @@
       "title": "Models",
       "type": "array"
     },
-    "interactions": {
+    "interaction": {
       "anyOf": [
         {
-          "items": {
-            "anyOf": [
-              {
-                "$ref": "#/$defs/Interaction"
-              },
-              {
-                "$ref": "#/$defs/Reply"
-              }
-            ]
-          },
-          "type": "array"
+          "$ref": "#/$defs/Interaction"
         },
         {
           "type": "null"
         }
       ],
       "default": null,
-      "description": "The interactions to be handled by the runner.",
-      "title": "Interactions"
+      "description": "The interactions tree to be handled by the runner."
     }
   },
   "required": [
