@@ -49,6 +49,7 @@ interaction:
   name: "global_subject_identification"
   cases:
     "start":
+      name: "greeting_replies"
       reply:
         - "Hi! Feel free to ask me anything related to the finite state automaton, and I'll do my best to help."
         - "Hello! How can I assist you with questions about the finite state automaton I've been given?"
@@ -60,36 +61,53 @@ interaction:
       name: "transition_questions"
       cases:
         "count":
+          name: "Count Reply"
           reply: "Count Reply"
         "cycles":
+          #?????
+          name: "Cycles Reply"
           reply: "Cycles Reply"
         "description":
+          name: "Desc Reply"
           reply: "Desc Reply"
         "existence_between":
+          name: "Ex Reply"
           reply: "Ex Reply"
         "existence_directed":
+          name: "ExD Reply"
           reply: "ExD Reply"
         "existence_from":
+          name: "ExF Reply"
           reply: "ExF Reply"
         "existence_into":
+          name: "ExI Reply"
           reply: "ExI Reply"
         "input":
+          name: "I Reply"
           reply: "I Reply"
         "label":
+          name: "L Reply"
           reply: "L Reply"
         "list":
+          name: "Li Reply"
           reply: "Li Reply"
         "self_loop":
+          name: "Lo Reply"
           reply: "Lo Reply"
     "automaton":
+      name: "Automaton Reply"
       reply: "Automaton Reply"
     "state":
+      name: "State Reply"
       reply: "State Reply"
     "grammar":
+      name: "Grammar Reply"
       reply: "Grammar Reply"
     "theory":
+      name: "Theory Reply"
       reply: "Theory Reply"
     "off_topic":
+      name: "off_topic_replies"
       reply:
         - "Sorry, I don't know how to answer this."
         - "Please, consider rephrasing the question."

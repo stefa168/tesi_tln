@@ -16,14 +16,7 @@
         },
         "cases": {
           "additionalProperties": {
-            "anyOf": [
-              {
-                "$ref": "#/$defs/Interaction"
-              },
-              {
-                "$ref": "#/$defs/Reply"
-              }
-            ]
+            "$ref": "#/$defs/InteractionCases"
           },
           "description": "The cases for the interaction node.",
           "title": "Cases",
@@ -37,6 +30,16 @@
       ],
       "title": "Interaction",
       "type": "object"
+    },
+    "InteractionCases": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Interaction"
+        },
+        {
+          "$ref": "#/$defs/Reply"
+        }
+      ]
     },
     "LoadCsvStep": {
       "properties": {
@@ -209,6 +212,12 @@
     },
     "Reply": {
       "properties": {
+        "name": {
+          "description": "The name of the reply object.",
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
         "reply": {
           "anyOf": [
             {
@@ -226,6 +235,7 @@
         }
       },
       "required": [
+        "name",
         "reply"
       ],
       "title": "Reply",

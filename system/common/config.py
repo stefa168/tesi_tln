@@ -359,6 +359,7 @@ class Model(BaseModel):
 
 
 class Reply(BaseModel):
+    name: str = Field(..., min_length=1, description="The name of the reply object.")
     reply: str | list[str] = Field(..., description="The reply to send to the user.")
 
     # todo improve with random reply picking and remember to keep track of the already used replies!

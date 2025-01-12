@@ -1,3 +1,4 @@
+import logging
 import time
 from pathlib import Path
 
@@ -7,8 +8,11 @@ from transformers import AutoTokenizer, PreTrainedModel, PreTrainedTokenizer, Be
 
 from system.common.config import CompilerConfigV2, Interaction, Reply
 
+# Initialize logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
-class ModelTokenizerPair:
+
 class ModelComponents:
     def __init__(self, model: PreTrainedModel, tokenizer: PreTrainedTokenizer, classifier: Pipeline):
         self.model = model
@@ -16,13 +20,13 @@ class ModelComponents:
         self.classifier = classifier
 
     def classify(self, text: str) -> str:
-        print(f"Using model: {self.model.config.name_or_path} to classify: \"{text}\"...")
+        logger.debug(f"Using model: {self.model.config.name_or_path} to classify: \"{text}\"...")
 
         start_time = time.time()
         predict = self.classifier.predict(text)[0]
         end_time = time.time()
 
-        print(f"Classification took {end_time - start_time} seconds.\nIt returned: {predict}")
+        logger.debug(f"Classification took {end_time - start_time} seconds. It returned: {predict}")
 
         return predict[0]["label"]
 
@@ -59,18 +63,21 @@ def main():
         if user_input == "exit":
             break
 
-        interaction_traversal_stack: list[Interaction | Reply] = []
         next_interaction: Interaction | Reply = config.interaction
+        interaction_traversal_stack: list[(str, Interaction | Reply)] = [("root", next_interaction)]
 
         while True:
-            interaction_traversal_stack.append(next_interaction)
             interaction_model = models[next_interaction.use]
             predicted_interaction_branch = interaction_model.classify(user_input)
             next_interaction = next_interaction.cases[predicted_interaction_branch]
+            interaction_traversal_stack.append((predicted_interaction_branch, next_interaction))
 
             if isinstance(next_interaction, Reply):
                 r: Reply = next_interaction
-                print(f"Stack: {[i.name for i in interaction_traversal_stack]}")
+
+                stack = [(i[0], f"{type(i[1]).__name__}: {i[1].name}") for i in interaction_traversal_stack]
+                logger.info(f"Stack: {stack}")
+
                 print(f"Reply: {r.get_reply()}")
                 break
 
