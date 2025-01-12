@@ -1,6 +1,7 @@
 import logging
 import time
 from pathlib import Path
+from typing import NamedTuple, TypedDict
 
 import torch
 from transformers import AutoTokenizer, PreTrainedModel, PreTrainedTokenizer, BertForSequenceClassification, pipeline, \
@@ -13,22 +14,29 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 
+class Prediction(TypedDict):
+    label: str
+    prediction: float
+
+
 class ModelComponents:
     def __init__(self, model: PreTrainedModel, tokenizer: PreTrainedTokenizer, classifier: Pipeline):
         self.model = model
         self.tokenizer = tokenizer
         self.classifier = classifier
 
-    def classify(self, text: str) -> str:
+    def classify(self, text: str) -> list[Prediction]:
         logger.debug(f"Using model: {self.model.config.name_or_path} to classify: \"{text}\"...")
 
         start_time = time.time()
-        predict = self.classifier.predict(text)[0]
+        # The Pipeline object implements __call__, so this is valid.
+        # The object returned is
+        predictions: list[Prediction] = self.classifier(text)[0]
         end_time = time.time()
 
-        logger.debug(f"Classification took {end_time - start_time} seconds. It returned: {predict}")
+        logger.debug(f"Classification took {end_time - start_time} seconds. It returned: {predictions}")
 
-        return predict[0]["label"]
+        return predictions
 
     def __repr__(self):
         return f"ModelTokenizerPair(model={self.model}, tokenizer={self.tokenizer})"
@@ -39,7 +47,9 @@ def load_models(conf_artifact_path: Path, root_interaction: Interaction) -> dict
         path = conf_artifact_path / model_name / subdir
         model = BertForSequenceClassification.from_pretrained(path)
         tokenizer = AutoTokenizer.from_pretrained(path)
-        classifier = pipeline(model=model, tokenizer=tokenizer, task="text-classification", top_k=None,
+
+        classifier = pipeline(model=model, tokenizer=tokenizer, task="text-classification",
+                              top_k=None,  # by setting top_k to None we get all the predictions.
                               device=torch.cuda.current_device())
         return ModelComponents(model, tokenizer, classifier)
 
@@ -59,7 +69,7 @@ def main():
     models = load_models(conf_artifact_path, config.interaction)
 
     while True:
-        user_input = input("Enter a prompt: ")
+        user_input = "hi"  # input("Enter a prompt: ")
         if user_input == "exit":
             break
 
@@ -68,9 +78,10 @@ def main():
 
         while True:
             interaction_model = models[next_interaction.use]
-            predicted_interaction_branch = interaction_model.classify(user_input)
-            next_interaction = next_interaction.cases[predicted_interaction_branch]
-            interaction_traversal_stack.append((predicted_interaction_branch, next_interaction))
+            predictions = interaction_model.classify(user_input)
+            next_interaction = next_interaction.cases[predictions[0]["label"]]
+
+            interaction_traversal_stack.append((predictions, next_interaction))
 
             if isinstance(next_interaction, Reply):
                 r: Reply = next_interaction
