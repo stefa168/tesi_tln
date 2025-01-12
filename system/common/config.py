@@ -361,6 +361,15 @@ class Model(BaseModel):
 class Reply(BaseModel):
     reply: str | list[str] = Field(..., description="The reply to send to the user.")
 
+    # todo improve with random reply picking and remember to keep track of the already used replies!
+    def get_reply(self) -> str:
+        if isinstance(self.reply, str):
+            return self.reply
+        elif isinstance(self.reply, list):
+            return self.reply[0]
+        else:
+            raise ValueError("Invalid reply type.")
+
 
 type InteractionCases = Union["Interaction", Reply]
 
