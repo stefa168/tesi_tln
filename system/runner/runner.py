@@ -1,12 +1,11 @@
 import time
 from pathlib import Path
-from pprint import pprint
 
 import torch
-
-from system.common.config import CompilerConfigV2, Interaction, Reply
 from transformers import AutoTokenizer, PreTrainedModel, PreTrainedTokenizer, BertForSequenceClassification, pipeline, \
     Pipeline
+
+from system.common.config import CompilerConfigV2, Interaction, Reply
 
 
 class ModelTokenizerPair:
@@ -70,7 +69,7 @@ def main():
 
             if isinstance(next_interaction, Reply):
                 r: Reply = next_interaction
-                print(f"Stack: {repr(map(lambda i: i.name, interaction_traversal_stack))}")
+                print(f"Stack: {[i.name for i in interaction_traversal_stack]}")
                 print(f"Reply: {r.get_reply()}")
                 break
 
