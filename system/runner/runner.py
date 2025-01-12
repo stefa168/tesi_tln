@@ -9,6 +9,7 @@ from system.common.config import CompilerConfigV2, Interaction, Reply
 
 
 class ModelTokenizerPair:
+class ModelComponents:
     def __init__(self, model: PreTrainedModel, tokenizer: PreTrainedTokenizer, classifier: Pipeline):
         self.model = model
         self.tokenizer = tokenizer
@@ -29,17 +30,17 @@ class ModelTokenizerPair:
         return f"ModelTokenizerPair(model={self.model}, tokenizer={self.tokenizer})"
 
 
-def load_models(conf_artifact_path: Path, root_interaction: Interaction) -> dict[str, ModelTokenizerPair]:
-    def load_model(model_name: str, conf_artifact_path: Path, subdir: str = "trained_model") -> ModelTokenizerPair:
+def load_models(conf_artifact_path: Path, root_interaction: Interaction) -> dict[str, ModelComponents]:
+    def load_model(model_name: str, conf_artifact_path: Path, subdir: str = "trained_model") -> ModelComponents:
         path = conf_artifact_path / model_name / subdir
         model = BertForSequenceClassification.from_pretrained(path)
         tokenizer = AutoTokenizer.from_pretrained(path)
         classifier = pipeline(model=model, tokenizer=tokenizer, task="text-classification", top_k=None,
                               device=torch.cuda.current_device())
-        return ModelTokenizerPair(model, tokenizer, classifier)
+        return ModelComponents(model, tokenizer, classifier)
 
     required_models = root_interaction.discover_model_names()
-    models: dict[str, ModelTokenizerPair] = {}
+    models: dict[str, ModelComponents] = {}
     for r in required_models:
         models[r] = load_model(r, conf_artifact_path)
 
