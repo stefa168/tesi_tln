@@ -1,7 +1,7 @@
 import logging
 import time
 from pathlib import Path
-from typing import NamedTuple, TypedDict
+from typing import TypedDict
 
 import torch
 from transformers import AutoTokenizer, PreTrainedModel, PreTrainedTokenizer, BertForSequenceClassification, pipeline, \
@@ -41,22 +41,34 @@ class ModelComponents:
     def __repr__(self):
         return f"ModelTokenizerPair(model={self.model}, tokenizer={self.tokenizer})"
 
-
 def load_models(conf_artifact_path: Path, root_interaction: Interaction) -> dict[str, ModelComponents]:
     def load_model(model_name: str, conf_artifact_path: Path, subdir: str = "trained_model") -> ModelComponents:
-        path = conf_artifact_path / model_name / subdir
-        model = BertForSequenceClassification.from_pretrained(path)
-        tokenizer = AutoTokenizer.from_pretrained(path)
-
-        classifier = pipeline(model=model, tokenizer=tokenizer, task="text-classification",
-                              top_k=None,  # by setting top_k to None we get all the predictions.
-                              device=torch.cuda.current_device())
-        return ModelComponents(model, tokenizer, classifier)
+        try:
+            path = conf_artifact_path / model_name / subdir
+            model = BertForSequenceClassification.from_pretrained(path)
+            tokenizer = AutoTokenizer.from_pretrained(path)
+            classifier = pipeline(model=model, tokenizer=tokenizer, task="text-classification",
+                                  top_k=None,  # by setting top_k to None we get all the predictions.
+                                  device=torch.cuda.current_device())
+            return ModelComponents(model, tokenizer, classifier)
+        except Exception as er:
+            logger.error(f"Error loading model '{model_name}': {er}")
+            raise
 
     required_models = root_interaction.discover_resources_to_load()
     models: dict[str, ModelComponents] = {}
+    errors = []
+
     for r in required_models:
-        models[r] = load_model(r, conf_artifact_path)
+        try:
+            models[r] = load_model(r, conf_artifact_path)
+        except Exception as e:
+            errors.append(f"Model '{r}' failed to load: {e}")
+
+    if errors:
+        error_message = "\n".join(errors)
+        logger.error(f"Failed to load all required models:\n{error_message}")
+        raise RuntimeError(f"Startup process halted due to model loading errors:\n{error_message}")
 
     return models
 
