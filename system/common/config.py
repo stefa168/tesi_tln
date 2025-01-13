@@ -1,9 +1,8 @@
 import json
 import re
 from abc import ABC, abstractmethod
-from enum import Enum
 from pathlib import Path
-from typing import Literal, Any, Union, TypeAlias, override
+from typing import Literal, Any, Union, override, Mapping
 
 import pandas as pd
 import yaml
@@ -14,20 +13,6 @@ from system.compiler.fine_tuning import LabelInfo, prepare_model, prepare_datase
 from system.compiler.spacy_ner import NERData, init_spacy_device, prepare_multilabel_data, stratified_split, train_spacy
 
 ARTIFACTS_BASE_DIR = Path("../compiler/artifacts")
-
-# Registry for step execution functions
-STEP_REGISTRY = {}
-
-
-def register_step(step_cls: type["Step"]):
-    if not issubclass(step_cls, Step):
-        raise ValueError("Only subclasses of Step can be registered.")
-
-    if step_cls.__name__ in STEP_REGISTRY:
-        raise ValueError(f"Step '{step_cls.__name__}' is already registered.")
-
-    STEP_REGISTRY[step_cls.__name__] = step_cls
-    return step_cls
 
 
 # define step execution error:
@@ -52,7 +37,42 @@ def get_item_by_path(obj: dict[str, Any], path: str) -> Any:
     return obj
 
 
-class Step(BaseModel, ABC):
+class StepRegistryMixin:
+    # Class-level registry to store all subclasses
+    _registry: dict[str, type["Step"]] = {}
+
+    def __init_subclass__(cls, **kwargs):
+        """
+        Called automatically whenever a subclass of Step is defined.
+        Registers the subclass in the `registry` dictionary.
+        """
+        super().__init_subclass__(**kwargs)  # Call the parent implementation, if any
+        if cls.__name__ != 'Step':  # Avoid registering the base class
+            if cls.__name__ in StepRegistryMixin._registry:
+                raise RuntimeError(f"Class '{cls.__name__}' is already registered!")
+
+            # noinspection PyTypeChecker
+            StepRegistryMixin._registry[cls.__name__] = cls  # Add the subclass to the registry
+
+    @classmethod
+    def get_registry(cls) -> Mapping[str, type["Step"]]:
+        """
+        Returns an immutable mapping of the registry.
+        """
+        return cls._registry
+
+    @classmethod
+    def get_step_union(cls) -> type:
+        """
+        Dynamically generate a Union of all registered Step subclasses.
+
+        This allows the `steps` field in the `Model` class to accept all valid step types.
+        """
+        step_types = list(cls._registry.values())  # Get all registered Step subclasses
+        return Union[tuple(step_types)]
+
+
+class Step(StepRegistryMixin, BaseModel, ABC):
     name: str
     type: str
     description: str | None = None
@@ -85,7 +105,7 @@ class Step(BaseModel, ABC):
         return outputs
 
 
-@register_step
+# @register_step
 class LoadCsvStep(Step):
     type: Literal["load_csv"]
     path: Path
@@ -104,7 +124,7 @@ class LoadCsvStep(Step):
         return {"dataframe": df}
 
 
-@register_step
+# @register_step
 class SplitDataStep(Step):
     type: Literal["split_data"]
     dataframe: str
@@ -183,7 +203,6 @@ class SplitDataStep(Step):
         return {"split_contexts": split_contexts}
 
 
-@register_step
 class TrainModelStep(Step):
     type: Literal["train_model"]
     dataframe: str
@@ -298,7 +317,6 @@ class TrainModelStep(Step):
         return outputs
 
 
-@register_step
 class NerSpacy(Step):
     type: Literal["ner_spacy"]
     language: str = Field("en", min_length=1)
@@ -343,12 +361,12 @@ class NerSpacy(Step):
         data = NERData.load_jsonl_data(self.training_data_path)
         label_matrix, label_list = prepare_multilabel_data(data)
         train_data, val_data = stratified_split(data, label_matrix)
-        train_spacy(train_data, val_data, self.iterations, self.language, model_pipeline_path)
+        train_spacy(train_data, val_data, set(label_list), self.iterations, self.language, model_pipeline_path)
 
         return {}
 
 
-StepUnion = Union[tuple(STEP_REGISTRY.values())]
+StepUnion = StepRegistryMixin.get_step_union()
 
 
 class Model(BaseModel):
