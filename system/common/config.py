@@ -3,7 +3,7 @@ import re
 from abc import ABC, abstractmethod
 from enum import Enum
 from pathlib import Path
-from typing import Literal, Any, Union, TypeAlias
+from typing import Literal, Any, Union, TypeAlias, override
 
 import pandas as pd
 import yaml
@@ -358,7 +358,19 @@ class Model(BaseModel):
     type: Literal["classification", "ner"] = Field(..., description="The type of the model.")
 
 
-class Reply(BaseModel):
+class ResourceDiscoveryMixin(ABC):
+    @abstractmethod
+    # todo improve by returning a set of tuples/objects that specify the type of resource (bert model, spacy NER model,
+    #  online or offline LLM, etc)
+    def discover_resources_to_load(self) -> set[str]:
+        """
+        An abstract method to discover resources to load.
+        Different classes can implement this method based on their specific logic.
+        """
+        pass
+
+
+class Reply(BaseModel, ResourceDiscoveryMixin):
     name: str = Field(..., min_length=1, description="The name of the reply object.")
     reply: str | list[str] = Field(..., description="The reply to send to the user.")
 
@@ -371,26 +383,31 @@ class Reply(BaseModel):
         else:
             raise ValueError("Invalid reply type.")
 
+    @override
+    def discover_resources_to_load(self) -> set[str]:
+        return set()
+
 
 type InteractionCases = Union["Interaction", Reply]
 
 
-class Interaction(BaseModel):
+class Interaction(BaseModel, ResourceDiscoveryMixin):
     use: str = Field(..., min_length=1, description="The model to use to produce a branching interaction.")
     name: str = Field(..., min_length=1, description="The name of the interaction node.")
     cases: dict[str, InteractionCases] = Field(..., description="The cases for the interaction node.")
 
-    def discover_model_names(self) -> set[str]:
+    @override
+    def discover_resources_to_load(self) -> set[str]:
         """
         Perform a DFS to discover all model names required in the interaction tree.
 
         Returns:
-            set[str]: A set of all model names required in children interactions.
+            set[str]: A set of all resource names required in children interactions.
         """
         models: set[str] = {self.use}
         for case in self.cases.values():
-            if isinstance(case, Interaction):
-                models.update(case.discover_model_names())
+            models.update(case.discover_resources_to_load())
+
         return models
 
 

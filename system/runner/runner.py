@@ -53,7 +53,7 @@ def load_models(conf_artifact_path: Path, root_interaction: Interaction) -> dict
                               device=torch.cuda.current_device())
         return ModelComponents(model, tokenizer, classifier)
 
-    required_models = root_interaction.discover_model_names()
+    required_models = root_interaction.discover_resources_to_load()
     models: dict[str, ModelComponents] = {}
     for r in required_models:
         models[r] = load_model(r, conf_artifact_path)
@@ -69,7 +69,7 @@ def main():
     models = load_models(conf_artifact_path, config.interaction)
 
     while True:
-        user_input = "hi"  # input("Enter a prompt: ")
+        user_input = input("Enter a prompt: ")
         if user_input == "exit":
             break
 
