@@ -9,7 +9,33 @@ from system.common.steps.base import Step, StepExecutionError
 from system.compiler.spacy_ner import init_spacy_device, NERData, prepare_multilabel_data, stratified_split, train_spacy
 
 
-class NerSpacy(Step):
+class TrainSpacyNerModelStep(Step):
+    """
+    The TrainSpacyNerModelStep class orchestrates the training of a SpaCy NER model.
+
+    This class provides functionalities to train a named entity recognition (NER)
+    model using SpaCy. It facilitates handling training data, configuration,
+    context handling, and model training processes. By specifying parameters
+    like language, training iterations, and device preferences, the model
+    training process can be controlled and customized. The resulting model can
+    be stored and named based on provided or derived naming strategies.
+
+    :ivar type: Fixed literal type identifier for the step.
+    :type type: Literal["ner_spacy"]
+    :ivar language: Language for the SpaCy NER model, default is "en".
+    :type language: str
+    :ivar training_data_path: Path to the dataset used for training, required and must not be empty.
+    :type training_data_path: Path
+    :ivar iterations: Number of iterations for model training, must be at least 1.
+    :type iterations: int
+    :ivar training_device: Device preference for training, allows values 'cpu',
+        'prefer_gpu', or 'gpu'.
+    :type training_device: Literal['cpu', 'prefer_gpu', 'gpu']
+    :ivar resulting_model_name: Name of the resulting trained model, can use
+        template variables and be dynamically set. If None, a default naming
+        strategy will be applied.
+    :type resulting_model_name: str | None
+    """
     type: Literal["ner_spacy"]
     language: str = Field("en", min_length=1)
     training_data_path: Path = Field(..., min_length=1)

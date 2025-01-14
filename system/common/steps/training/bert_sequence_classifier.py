@@ -9,7 +9,27 @@ from system.common.steps.base import Step, StepExecutionError
 from system.compiler.fine_tuning import LabelInfo, prepare_model, prepare_dataset, run_fine_tuning
 
 
-class TrainModelStep(Step):
+class TrainBertSequenceClassifierStep(Step):
+    """
+    TrainBertSequenceClassifierStep is a step within a pipeline designed to train a BERT-based sequence classifier.
+    This step facilitates the use of a BERT pretrained model, processes the associated datasets,
+    and fine-tunes the model on the provided data. It also ensures the proper management of dependencies
+    and verifies correct execution outputs.
+
+    :ivar type: Defines the type of the step as "train_model", which follows a specific pipeline convention.
+    :type type: Literal["train_model"]
+    :ivar dataframe: Specifies the name of the dataframe to be used for training, formatted as "step_name.dataframe".
+    :type dataframe: str
+    :ivar pretrained_model: Indicates the BERT pretrained model to use for fine-tuning.
+    :type pretrained_model: str
+    :ivar labels_column: Name of the column in the dataframe that contains the labels for training.
+    :type labels_column: str
+    :ivar examples_column: Name of the column in the dataframe that contains the input examples for the model.
+    :type examples_column: str
+    :ivar resulting_model_name: Specifies the name or path used for saving the trained model.
+                                If None, a default naming scheme will be used based on the configuration.
+    :type resulting_model_name: str | None
+    """
     type: Literal["train_model"]
     dataframe: str
     pretrained_model: str

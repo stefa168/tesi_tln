@@ -9,6 +9,25 @@ if TYPE_CHECKING:
 
 
 class SplitDataStep(Step):
+    """
+    This class represents a step in a pipeline that splits a DataFrame based on a column's unique values
+    and executes a series of steps for each split.
+
+    The `SplitDataStep` class is responsible for dividing a given DataFrame into multiple subsets based
+    on the unique values of a specified column. For each subset, the specified sequence of steps is
+    executed. The primary use case for this class is in pipelines where data needs to be processed
+    differently for each group within the DataFrame. The class also handles verifying the execution output
+    to ensure correctness.
+
+    :ivar type: Specifies the type of the step as a literal "split_data".
+    :type type: Literal["split_data"]
+    :ivar dataframe: The name of the dataframe in the context to be processed.
+    :type dataframe: str
+    :ivar on_column: The column name in the dataframe used for splitting.
+    :type on_column: str
+    :ivar for_each: A list of steps or step unions to execute for each split.
+    :type for_each: list["StepUnion"]
+    """
     type: Literal["split_data"]
     dataframe: str
     on_column: str
