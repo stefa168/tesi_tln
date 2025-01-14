@@ -77,7 +77,7 @@ class BertModelComponents:
     def __repr__(self):
         return f"ModelTokenizerPair(model={self.model}, tokenizer={self.tokenizer})"
 
-def load_models(conf_artifact_path: Path, root_interaction: Interaction) -> dict[str, BertModelComponents]:
+def load_bert_models(conf_artifact_path: Path, root_interaction: Interaction) -> dict[str, BertModelComponents]:
     """
     Loads all the necessary pre-trained models and their respective components
     like the tokenizer and classifier pipeline for text classification. This
@@ -155,7 +155,7 @@ def main():
     config = CompilerConfigV2.load_from_file('../compiler/test_config v2.yml')
     conf_artifact_path = artifacts_dir / config.name
 
-    models = load_models(conf_artifact_path, config.interaction)
+    models = load_bert_models(conf_artifact_path, config.interaction)
 
     while True:
         user_input = input("Enter a prompt: ")
