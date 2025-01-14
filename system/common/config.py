@@ -37,42 +37,38 @@ def get_item_by_path(obj: dict[str, Any], path: str) -> Any:
     return obj
 
 
-class StepRegistryMixin:
-    # Class-level registry to store all subclasses
+class StepRegistry:
     _registry: dict[str, type["Step"]] = {}
 
-    def __init_subclass__(cls, **kwargs):
-        """
-        Called automatically whenever a subclass of Step is defined.
-        Registers the subclass in the `registry` dictionary.
-        """
-        super().__init_subclass__(**kwargs)  # Call the parent implementation, if any
-        if cls.__name__ != 'Step':  # Avoid registering the base class
-            if cls.__name__ in StepRegistryMixin._registry:
-                raise RuntimeError(f"Class '{cls.__name__}' is already registered!")
+    @classmethod
+    def register(cls, step_class: type["Step"]):
+        if step_class.__name__ in cls._registry:
+            raise RuntimeError(f"Class '{step_class.__name__}' is already registered!")
+        cls._registry[step_class.__name__] = step_class
 
-            # noinspection PyTypeChecker
-            StepRegistryMixin._registry[cls.__name__] = cls  # Add the subclass to the registry
+    @staticmethod
+    def decorator():
+        def wrapper(step_class):
+            StepRegistry.register(step_class)
+            return step_class
+
+        return wrapper
 
     @classmethod
-    def get_registry(cls) -> Mapping[str, type["Step"]]:
-        """
-        Returns an immutable mapping of the registry.
-        """
+    def get_registry(cls):
         return cls._registry
 
     @classmethod
-    def get_step_union(cls) -> type:
+    def get_step_union(cls):
         """
         Dynamically generate a Union of all registered Step subclasses.
-
-        This allows the `steps` field in the `Model` class to accept all valid step types.
         """
-        step_types = list(cls._registry.values())  # Get all registered Step subclasses
+        from typing import Union
+        step_types = list(cls._registry.values())
         return Union[tuple(step_types)]
 
 
-class Step(StepRegistryMixin, BaseModel, ABC):
+class Step(BaseModel, ABC):
     name: str
     type: str
     description: str | None = None
@@ -105,7 +101,7 @@ class Step(StepRegistryMixin, BaseModel, ABC):
         return outputs
 
 
-# @register_step
+@StepRegistry.decorator()
 class LoadCsvStep(Step):
     type: Literal["load_csv"]
     path: Path
@@ -124,7 +120,7 @@ class LoadCsvStep(Step):
         return {"dataframe": df}
 
 
-# @register_step
+@StepRegistry.decorator()
 class SplitDataStep(Step):
     type: Literal["split_data"]
     dataframe: str
@@ -203,6 +199,7 @@ class SplitDataStep(Step):
         return {"split_contexts": split_contexts}
 
 
+@StepRegistry.decorator()
 class TrainModelStep(Step):
     type: Literal["train_model"]
     dataframe: str
@@ -317,6 +314,7 @@ class TrainModelStep(Step):
         return outputs
 
 
+@StepRegistry.decorator()
 class NerSpacy(Step):
     type: Literal["ner_spacy"]
     language: str = Field("en", min_length=1)
@@ -366,7 +364,7 @@ class NerSpacy(Step):
         return {}
 
 
-StepUnion = StepRegistryMixin.get_step_union()
+StepUnion = StepRegistry.get_step_union()
 
 
 class Model(BaseModel):
