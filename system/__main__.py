@@ -100,7 +100,7 @@ def generate_runner_config(filepath: Path):
         logger.info(f"Default configuration written to {filepath.resolve()}")
 
     except Exception as exc:
-        logger.error(f"Failed to generate configuration file: {exc}")
+        logger.error(f"Failed to generate configuration file: {exc}", exc_info=True)
 
 
 @cli.command(name="export-schema")
