@@ -41,7 +41,8 @@ def compute_metrics(eval_pred):
 def run_fine_tuning(model: AutoModelForSequenceClassification,
                     tokenizer: AutoTokenizer,
                     train_dataset: Dataset,
-                    eval_dataset: Dataset) -> Trainer:
+                    eval_dataset: Dataset,
+                    num_train_epochs=20) -> Trainer:
     """
     Fine-tunes a pre-trained model on the provided training dataset and evaluates it on the evaluation dataset.
 
@@ -50,6 +51,7 @@ def run_fine_tuning(model: AutoModelForSequenceClassification,
         tokenizer (AutoTokenizer): The tokenizer associated with the pre-trained model.
         train_dataset (Dataset): The dataset used for training.
         eval_dataset (Dataset): The dataset used for evaluation.
+        num_train_epochs (int, optional): The number of training epochs. Defaults to 20.
 
     Returns:
         Trainer: The Trainer object after training.
@@ -63,7 +65,7 @@ def run_fine_tuning(model: AutoModelForSequenceClassification,
         # todo save to a "temp" directory of some sort, maybe specified in the compiler configuration, which is
         #  different from the compilation configuration
         output_dir='./temp',  # Directory to save the model and other outputs
-        num_train_epochs=20,  # Number of training epochs
+        num_train_epochs=num_train_epochs,  # Number of training epochs
         learning_rate=2e-5,  # Learning rate for the optimizer
         warmup_ratio=0.1,  # Warmup for the first 10% of steps
         lr_scheduler_type='linear',  # Linear scheduler

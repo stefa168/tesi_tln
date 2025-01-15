@@ -4,7 +4,6 @@ from typing import Literal, Any
 
 from pydantic import Field
 
-from system.common.steps import ARTIFACTS_BASE_DIR
 from system.common.steps.base import Step, StepExecutionError
 from system.compiler.spacy_ner import init_spacy_device, NERData, prepare_multilabel_data, stratified_split, train_spacy
 
@@ -74,7 +73,9 @@ class TrainSpacyNerModelStep(Step):
             else:
                 model_pipeline_name = self.resulting_model_name
 
-        model_pipeline_path = ARTIFACTS_BASE_DIR / config_name / model_pipeline_name / "trained_model"
+        # noinspection PyTypeChecker
+        artifacts_base_dir: Path = context["artifacts_dir"]
+        model_pipeline_path = artifacts_base_dir / config_name / model_pipeline_name / "trained_model"
 
         data = NERData.load_jsonl_data(self.training_data_path)
         label_matrix, label_list = prepare_multilabel_data(data)

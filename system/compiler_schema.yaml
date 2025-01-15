@@ -42,6 +42,7 @@
       ]
     },
     "LoadCsvStep": {
+      "description": "LoadCsvStep is a class for loading a CSV file into a pandas DataFrame and validating\nthe output. It is intended to be used in a workflow where CSV data needs to be input\nas a DataFrame for further processing.\n\n:ivar type: Specifies the type of the step. It is always set to \"load_csv\".\n:type type: Literal[\"load_csv\"]\n:ivar path: The file path for the CSV file to be loaded.\n:type path: Path",
       "properties": {
         "name": {
           "title": "Name",
@@ -106,10 +107,10 @@
                 "$ref": "#/$defs/SplitDataStep"
               },
               {
-                "$ref": "#/$defs/TrainModelStep"
+                "$ref": "#/$defs/TrainBertSequenceClassifierStep"
               },
               {
-                "$ref": "#/$defs/NerSpacy"
+                "$ref": "#/$defs/TrainSpacyNerModelStep"
               }
             ]
           },
@@ -135,7 +136,172 @@
       "title": "Model",
       "type": "object"
     },
-    "NerSpacy": {
+    "Reply": {
+      "properties": {
+        "name": {
+          "description": "The name of the reply object.",
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "reply": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "description": "The reply to send to the user.",
+          "title": "Reply"
+        }
+      },
+      "required": [
+        "name",
+        "reply"
+      ],
+      "title": "Reply",
+      "type": "object"
+    },
+    "SplitDataStep": {
+      "description": "This class represents a step in a pipeline that splits a DataFrame based on a column's unique values\nand executes a series of steps for each split.\n\nThe `SplitDataStep` class is responsible for dividing a given DataFrame into multiple subsets based\non the unique values of a specified column. For each subset, the specified sequence of steps is\nexecuted. The primary use case for this class is in pipelines where data needs to be processed\ndifferently for each group within the DataFrame. The class also handles verifying the execution output\nto ensure correctness.\n\n:ivar type: Specifies the type of the step as a literal \"split_data\".\n:type type: Literal[\"split_data\"]\n:ivar dataframe: The name of the dataframe in the context to be processed.\n:type dataframe: str\n:ivar on_column: The column name in the dataframe used for splitting.\n:type on_column: str\n:ivar for_each: A list of steps or step unions to execute for each split.\n:type for_each: list[\"StepUnion\"]",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "type": {
+          "const": "split_data",
+          "enum": [
+            "split_data"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "dataframe": {
+          "title": "Dataframe",
+          "type": "string"
+        },
+        "on_column": {
+          "title": "On Column",
+          "type": "string"
+        },
+        "for_each": {
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/LoadCsvStep"
+              },
+              {
+                "$ref": "#/$defs/SplitDataStep"
+              },
+              {
+                "$ref": "#/$defs/TrainBertSequenceClassifierStep"
+              },
+              {
+                "$ref": "#/$defs/TrainSpacyNerModelStep"
+              }
+            ]
+          },
+          "title": "For Each",
+          "type": "array"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "dataframe",
+        "on_column",
+        "for_each"
+      ],
+      "title": "SplitDataStep",
+      "type": "object"
+    },
+    "TrainBertSequenceClassifierStep": {
+      "description": "TrainBertSequenceClassifierStep is a step within a pipeline designed to train a BERT-based sequence classifier.\nThis step facilitates the use of a BERT pretrained model, processes the associated datasets,\nand fine-tunes the model on the provided data. It also ensures the proper management of dependencies\nand verifies correct execution outputs.\n\n:ivar type: Defines the type of the step as \"train_model\", which follows a specific pipeline convention.\n:type type: Literal[\"train_model\"]\n:ivar dataframe: Specifies the name of the dataframe to be used for training, formatted as \"step_name.dataframe\".\n:type dataframe: str\n:ivar pretrained_model: Indicates the BERT pretrained model to use for fine-tuning.\n:type pretrained_model: str\n:ivar labels_column: Name of the column in the dataframe that contains the labels for training.\n:type labels_column: str\n:ivar examples_column: Name of the column in the dataframe that contains the input examples for the model.\n:type examples_column: str\n:ivar resulting_model_name: Specifies the name or path used for saving the trained model.\n                            If None, a default naming scheme will be used based on the configuration.\n:type resulting_model_name: str | None",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "type": {
+          "const": "train_model",
+          "enum": [
+            "train_model"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "dataframe": {
+          "title": "Dataframe",
+          "type": "string"
+        },
+        "pretrained_model": {
+          "title": "Pretrained Model",
+          "type": "string"
+        },
+        "labels_column": {
+          "title": "Labels Column",
+          "type": "string"
+        },
+        "examples_column": {
+          "title": "Examples Column",
+          "type": "string"
+        },
+        "resulting_model_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Resulting Model Name"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "dataframe",
+        "pretrained_model",
+        "labels_column",
+        "examples_column"
+      ],
+      "title": "TrainBertSequenceClassifierStep",
+      "type": "object"
+    },
+    "TrainSpacyNerModelStep": {
+      "description": "The TrainSpacyNerModelStep class orchestrates the training of a SpaCy NER model.\n\nThis class provides functionalities to train a named entity recognition (NER)\nmodel using SpaCy. It facilitates handling training data, configuration,\ncontext handling, and model training processes. By specifying parameters\nlike language, training iterations, and device preferences, the model\ntraining process can be controlled and customized. The resulting model can\nbe stored and named based on provided or derived naming strategies.\n\n:ivar type: Fixed literal type identifier for the step.\n:type type: Literal[\"ner_spacy\"]\n:ivar language: Language for the SpaCy NER model, default is \"en\".\n:type language: str\n:ivar training_data_path: Path to the dataset used for training, required and must not be empty.\n:type training_data_path: Path\n:ivar iterations: Number of iterations for model training, must be at least 1.\n:type iterations: int\n:ivar training_device: Device preference for training, allows values 'cpu',\n    'prefer_gpu', or 'gpu'.\n:type training_device: Literal['cpu', 'prefer_gpu', 'gpu']\n:ivar resulting_model_name: Name of the resulting trained model, can use\n    template variables and be dynamically set. If None, a default naming\n    strategy will be applied.\n:type resulting_model_name: str | None",
       "properties": {
         "name": {
           "title": "Name",
@@ -207,169 +373,7 @@
         "type",
         "training_data_path"
       ],
-      "title": "NerSpacy",
-      "type": "object"
-    },
-    "Reply": {
-      "properties": {
-        "name": {
-          "description": "The name of the reply object.",
-          "minLength": 1,
-          "title": "Name",
-          "type": "string"
-        },
-        "reply": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            }
-          ],
-          "description": "The reply to send to the user.",
-          "title": "Reply"
-        }
-      },
-      "required": [
-        "name",
-        "reply"
-      ],
-      "title": "Reply",
-      "type": "object"
-    },
-    "SplitDataStep": {
-      "properties": {
-        "name": {
-          "title": "Name",
-          "type": "string"
-        },
-        "type": {
-          "const": "split_data",
-          "enum": [
-            "split_data"
-          ],
-          "title": "Type",
-          "type": "string"
-        },
-        "description": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Description"
-        },
-        "dataframe": {
-          "title": "Dataframe",
-          "type": "string"
-        },
-        "on_column": {
-          "title": "On Column",
-          "type": "string"
-        },
-        "for_each": {
-          "items": {
-            "anyOf": [
-              {
-                "$ref": "#/$defs/LoadCsvStep"
-              },
-              {
-                "$ref": "#/$defs/SplitDataStep"
-              },
-              {
-                "$ref": "#/$defs/TrainModelStep"
-              },
-              {
-                "$ref": "#/$defs/NerSpacy"
-              }
-            ]
-          },
-          "title": "For Each",
-          "type": "array"
-        }
-      },
-      "required": [
-        "name",
-        "type",
-        "dataframe",
-        "on_column",
-        "for_each"
-      ],
-      "title": "SplitDataStep",
-      "type": "object"
-    },
-    "TrainModelStep": {
-      "properties": {
-        "name": {
-          "title": "Name",
-          "type": "string"
-        },
-        "type": {
-          "const": "train_model",
-          "enum": [
-            "train_model"
-          ],
-          "title": "Type",
-          "type": "string"
-        },
-        "description": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Description"
-        },
-        "dataframe": {
-          "title": "Dataframe",
-          "type": "string"
-        },
-        "pretrained_model": {
-          "title": "Pretrained Model",
-          "type": "string"
-        },
-        "labels_column": {
-          "title": "Labels Column",
-          "type": "string"
-        },
-        "examples_column": {
-          "title": "Examples Column",
-          "type": "string"
-        },
-        "resulting_model_name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Resulting Model Name"
-        }
-      },
-      "required": [
-        "name",
-        "type",
-        "dataframe",
-        "pretrained_model",
-        "labels_column",
-        "examples_column"
-      ],
-      "title": "TrainModelStep",
+      "title": "TrainSpacyNerModelStep",
       "type": "object"
     }
   },

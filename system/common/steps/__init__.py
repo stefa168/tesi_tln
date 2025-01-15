@@ -1,7 +1,3 @@
-from pathlib import Path
-
-ARTIFACTS_BASE_DIR = Path("../compiler/artifacts")
-
 from .base import Step
 from .loading import LoadCsvStep
 from .splitting import SplitDataStep

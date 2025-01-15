@@ -8,10 +8,10 @@ class ArtifactConfig(BaseModel):
     Configuration for artifact paths such as model directories and configuration files.
 
     :ivar base_path: Base directory for all artifacts.
-    :ivar model_subdir: Subdirectory inside the artifact where trained models are located.
+    :ivar subdir: Subdirectory inside the artifact where trained models are located.
     """
     base_path: Path = Field(..., description="Base directory for all artifacts.")
-    model_subdir: str = Field("trained_model", description="Subdirectory containing trained model data.")
+    subdir: str = Field("trained_model", description="Subdirectory containing trained model data.")
 
 
 class AcceleratorConfig(BaseModel):

@@ -1,5 +1,6 @@
 import json
 from abc import ABC, abstractmethod
+from pathlib import Path
 from typing import Literal, Any, Union, override
 
 import yaml
@@ -92,7 +93,7 @@ class CompilerConfigV2(BaseModel):
                                             description="The interactions tree to be handled by the runner.")
 
     @staticmethod
-    def load_from_file(file_path: str) -> 'CompilerConfigV2':
+    def load_from_file(file_path: Path) -> 'CompilerConfigV2':
         """
         Load the compiler configuration from a YAML file.
 
@@ -102,7 +103,7 @@ class CompilerConfigV2(BaseModel):
         Returns:
             CompilerConfig: The loaded compiler configuration.
         """
-        with open(file_path, 'r') as file:
+        with file_path.open("r") as file:
             config_data = yaml.safe_load(file)
             return CompilerConfigV2(**config_data)
 

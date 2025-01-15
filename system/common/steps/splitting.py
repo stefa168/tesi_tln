@@ -62,7 +62,9 @@ class SplitDataStep(Step):
         split_base_context = {
             "parent_context": context,
             "model_metadata": context["model_metadata"],
-            "config": context["config"]
+            "config": context["config"],
+            "config_path": context["config_path"],
+            "artifacts_dir": context["artifacts_dir"],
         }
 
         split_results = {}

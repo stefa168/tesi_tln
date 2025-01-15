@@ -1,10 +1,10 @@
-import torch
+from pathlib import Path
 
 from system.common.config import CompilerConfigV2, Model
 from system.common.steps.base import Step, StepExecutionError
 
 
-class ModelPipelineRunner:
+class ModelPipelineCompiler:
     def __init__(self, model: Model, config: CompilerConfigV2):
         """
         Initialize the runner with a validated pipeline configuration.
@@ -12,7 +12,7 @@ class ModelPipelineRunner:
         self.model = model
         self.config = config
 
-    def run(self):
+    def run(self, config_path: Path, artifacts_dir: Path):
         """
         Run the pipeline, executing its steps in sequence.
         """
@@ -26,7 +26,9 @@ class ModelPipelineRunner:
         # Shared context for intermediate outputs
         context: dict[str, dict[str, object]] = {
             'model_metadata': self.model.model_dump(exclude={'steps'}),
-            "config": self.config.model_dump(exclude={'models'})
+            "config": self.config.model_dump(exclude={'models'}),
+            "config_path": config_path,
+            "artifacts_dir": artifacts_dir,
         }
 
         step: Step
@@ -40,20 +42,3 @@ class ModelPipelineRunner:
             except StepExecutionError as e:
                 print(f"Error executing step '{step.name}': {e}")
                 raise
-
-
-def main():
-    config = CompilerConfigV2.load_from_file('./test_config v2.yml')
-
-    print(f"CUDA available: {torch.cuda.is_available()}")
-    print(f"Number of GPUs: {torch.cuda.device_count()}")
-    print(f"Current CUDA device: {torch.cuda.current_device()}")
-    print(f"Device name: {torch.cuda.get_device_name(torch.cuda.current_device())}")
-
-    for model in config.models:
-        runner = ModelPipelineRunner(model, config)
-        runner.run()
-
-
-if __name__ == '__main__':
-    main()

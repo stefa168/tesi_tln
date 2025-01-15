@@ -1,12 +1,16 @@
+import logging
 import re
+from pathlib import Path
 from typing import Literal, Any
 
 import pandas as pd
 from transformers import AutoTokenizer, PreTrainedModel, PreTrainedTokenizerBase, Trainer
 
-from system.common.steps import ARTIFACTS_BASE_DIR
 from system.common.steps.base import Step, StepExecutionError
 from system.compiler.fine_tuning import LabelInfo, prepare_model, prepare_dataset, run_fine_tuning
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
 
 class TrainBertSequenceClassifierStep(Step):
@@ -84,7 +88,9 @@ class TrainBertSequenceClassifierStep(Step):
             else:
                 model_pipeline_name = self.resulting_model_name
 
-        model_pipeline_path = ARTIFACTS_BASE_DIR / config_name / model_pipeline_name / "trained_model"
+        # noinspection PyTypeChecker
+        artifacts_base_dir: Path = context["artifacts_dir"]
+        model_pipeline_path = artifacts_base_dir / config_name / model_pipeline_name / "trained_model"
 
         # Check if the model is cached
         # todo check the checksum of the input data to determine if the model is still valid; same thing for the
@@ -114,7 +120,9 @@ class TrainBertSequenceClassifierStep(Step):
                                                           self.labels_column)
 
             # Run the fine-tuning process on the model
-            trainer = run_fine_tuning(base_model, tokenizer, train_dataset, eval_dataset)
+            trainer = run_fine_tuning(base_model, tokenizer, train_dataset, eval_dataset, num_train_epochs=5)
+
+            logger.info(f"Saving the model to {model_pipeline_path}")
 
             # Save the model
             trainer.save_model(model_pipeline_path.as_posix())

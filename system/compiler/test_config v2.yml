@@ -1,26 +1,27 @@
 name: "test_config"
 models:
   - name: "global_subject_classifier"
-    disabled: true
+    disabled: false
     type: classification
     steps:
       - type: load_csv
         name: data
-        path: "../../multitask_training/data_cleaned_manual_combined.csv"
+        path: "./multitask_training/data_cleaned_manual_combined.csv"
       - type: train_model
         name: training
         dataframe: data.dataframe
         pretrained_model: "bert-base-uncased"
         examples_column: "Question"
         labels_column: "Global Subject"
+        iterations: 20
 
   - name: "question_intent_classifiers"
-    disabled: true
+    disabled: false
     type: classification
     steps:
       - type: load_csv
         name: data
-        path: "../../multitask_training/data_cleaned_manual_combined.csv"
+        path: "./multitask_training/data_cleaned_manual_combined.csv"
       - type: split_data
         name: split
         dataframe: data.dataframe
@@ -40,7 +41,7 @@ models:
       - type: ner_spacy
         name: ner_training
         language: "en"
-        training_data_path: "../../ner_training/corpus/ner_labels.jsonl"
+        training_data_path: "./ner_training/corpus/ner_labels.jsonl"
         training_device: "gpu"
         resulting_model_name: "ner_trained_model"
 

@@ -7,7 +7,7 @@ import torch
 from transformers import AutoTokenizer, PreTrainedModel, PreTrainedTokenizer, BertForSequenceClassification, pipeline, \
     Pipeline
 
-from system.common.config import CompilerConfigV2, Interaction, Reply
+from .common.config import Interaction
 
 # Initialize logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -45,6 +45,7 @@ class BertModelComponents:
         to perform text classification.
     :type classifier: Pipeline
     """
+
     def __init__(self, model: PreTrainedModel, tokenizer: PreTrainedTokenizer, classifier: Pipeline):
         self.model = model
         self.tokenizer = tokenizer
@@ -77,6 +78,7 @@ class BertModelComponents:
     def __repr__(self):
         return f"ModelTokenizerPair(model={self.model}, tokenizer={self.tokenizer})"
 
+
 def load_bert_models(conf_artifact_path: Path, root_interaction: Interaction) -> dict[str, BertModelComponents]:
     """
     Loads all the necessary pre-trained models and their respective components
@@ -98,6 +100,7 @@ def load_bert_models(conf_artifact_path: Path, root_interaction: Interaction) ->
     :raises RuntimeError: If some or all models fail to load successfully,
         halting the process with an error message.
     """
+
     def load_model(model_name: str, conf_artifact_path: Path, subdir: str = "trained_model") -> BertModelComponents:
         """
         Loads a pre-trained model, tokenizer, and classifier for text classification from the specified
@@ -150,37 +153,3 @@ def load_bert_models(conf_artifact_path: Path, root_interaction: Interaction) ->
     return models
 
 
-def main():
-    artifacts_dir = Path("../compiler/artifacts")
-    config = CompilerConfigV2.load_from_file('../compiler/test_config v2.yml')
-    conf_artifact_path = artifacts_dir / config.name
-
-    models = load_bert_models(conf_artifact_path, config.interaction)
-
-    while True:
-        user_input = input("Enter a prompt: ")
-        if user_input == "exit":
-            break
-
-        next_interaction: Interaction | Reply = config.interaction
-        interaction_traversal_stack: list[(str, Interaction | Reply)] = [("root", next_interaction)]
-
-        while True:
-            interaction_model = models[next_interaction.use]
-            predictions = interaction_model.classify(user_input)
-            next_interaction = next_interaction.cases[predictions[0]["label"]]
-
-            interaction_traversal_stack.append((predictions, next_interaction))
-
-            if isinstance(next_interaction, Reply):
-                r: Reply = next_interaction
-
-                stack = [(i[0], f"{type(i[1]).__name__}: {i[1].name}") for i in interaction_traversal_stack]
-                logger.info(f"Stack: {stack}")
-
-                print(f"Reply: {r.get_reply()}")
-                break
-
-
-if __name__ == '__main__':
-    main()
