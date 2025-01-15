@@ -36,7 +36,7 @@ def serve(config_path: Path, artifacts_dir: Path):
     try:
         run_runner(config_path, artifacts_dir)
     except Exception as exc:
-        logger.error(f"An error occurred while running the Runner: {exc}")
+        logger.error(f"An error occurred while running the Runner: {exc}", exc_info=True)
 
 
 @cli.command(name="compile")
