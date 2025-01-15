@@ -7,7 +7,7 @@ import torch
 from transformers import AutoTokenizer, PreTrainedModel, PreTrainedTokenizer, BertForSequenceClassification, pipeline, \
     Pipeline
 
-from .common.config import Interaction
+from common.config import Interaction, CompilerConfigV2, Reply
 
 # Initialize logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -153,3 +153,32 @@ def load_bert_models(conf_artifact_path: Path, root_interaction: Interaction) ->
     return models
 
 
+def run_runner(config_path: Path, artifacts_dir: Path = Path(".")):
+    config = CompilerConfigV2.load_from_file(config_path)
+    conf_artifact_path = artifacts_dir / config.name
+
+    models = load_bert_models(conf_artifact_path, config.interaction)
+
+    while True:
+        user_input = input("Enter a prompt: ")
+        if user_input == "exit":
+            break
+
+        next_interaction: Interaction | Reply = config.interaction
+        interaction_traversal_stack: list[(str, Interaction | Reply)] = [("root", next_interaction)]
+
+        while True:
+            interaction_model = models[next_interaction.use]
+            predictions = interaction_model.classify(user_input)
+            next_interaction = next_interaction.cases[predictions[0]["label"]]
+
+            interaction_traversal_stack.append((predictions, next_interaction))
+
+            if isinstance(next_interaction, Reply):
+                r: Reply = next_interaction
+
+                stack = [(i[0], f"{type(i[1]).__name__}: {i[1].name}") for i in interaction_traversal_stack]
+                logger.info(f"Stack: {stack}")
+
+                print(f"Reply: {r.get_reply()}")
+                break

@@ -4,47 +4,16 @@ import click
 import torch
 import yaml
 
-from system.common.config import CompilerConfigV2, Interaction, Reply, save_schema_to_file
+from system.common.config import CompilerConfigV2, save_schema_to_file
 from system.compiler.compiler import ModelPipelineCompiler
 from system.config import RunnerConfig, ArtifactConfig, AcceleratorConfig, LoggingConfig, APIServiceConfig, \
     BackendConfig
-from system.runner import load_bert_models, logger
+from system.runner import logger, run_runner
 
 
 @click.group()
 def cli():
     pass
-
-
-def run_runner(config_path: Path, artifacts_dir: Path = Path(".")):
-    config = CompilerConfigV2.load_from_file(config_path)
-    conf_artifact_path = artifacts_dir / config.name
-
-    models = load_bert_models(conf_artifact_path, config.interaction)
-
-    while True:
-        user_input = input("Enter a prompt: ")
-        if user_input == "exit":
-            break
-
-        next_interaction: Interaction | Reply = config.interaction
-        interaction_traversal_stack: list[(str, Interaction | Reply)] = [("root", next_interaction)]
-
-        while True:
-            interaction_model = models[next_interaction.use]
-            predictions = interaction_model.classify(user_input)
-            next_interaction = next_interaction.cases[predictions[0]["label"]]
-
-            interaction_traversal_stack.append((predictions, next_interaction))
-
-            if isinstance(next_interaction, Reply):
-                r: Reply = next_interaction
-
-                stack = [(i[0], f"{type(i[1]).__name__}: {i[1].name}") for i in interaction_traversal_stack]
-                logger.info(f"Stack: {stack}")
-
-                print(f"Reply: {r.get_reply()}")
-                break
 
 
 @cli.command(name="serve")
