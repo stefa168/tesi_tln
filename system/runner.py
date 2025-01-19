@@ -7,7 +7,7 @@ import torch
 from transformers import AutoTokenizer, PreTrainedModel, PreTrainedTokenizer, BertForSequenceClassification, pipeline, \
     Pipeline
 
-from common.config import Interaction, CompilerConfigV2, Reply
+from .common.config import Interaction, CompilerConfigV2, Reply
 
 # Initialize logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
