@@ -1,3 +1,62 @@
+unitotmplt:
+  type: Repository
+  title: "UniTO typst template"
+  url: "https://github.com/eduardz1/UniTO-typst-template"
+
+typst:
+  type: Web
+  title: "Typst"
+  url: "http://typst.app"
+
+eliza:
+  type: article
+  title: ELIZA—a computer program for the study of natural language communication between man and machine
+  author: Weizenbaum, Joseph
+  date: 1966-01
+  page-range: 36–45
+  url: https://doi.org/10.1145/365153.365168
+  serial-number:
+    doi: 10.1145/365153.365168
+    issn: 0001-0782
+  parent:
+    type: periodical
+    title: Commun. ACM
+    publisher: Association for Computing Machinery
+    location: New York, NY, USA
+    issue: 1
+    volume: 9
+
+rogers:
+  type: article
+  title: The Necessary and Sufficient Conditions of Psychotherapeutic Personality Change
+  author: ROGERS, CARL
+  date: 2007
+  page-range: 240–8
+  serial-number:
+    doi: 10.1037/0033-3204.44.3.240
+  parent:
+    type: periodical
+    title: Psychotherapy (Chicago, Ill.)
+    volume: 44
+  
+eliza_history:
+  type: article
+  title: 'The computational therapeutic: exploring Weizenbaum''s ELIZA as a history of the present'
+  author: Bassett, Caroline
+  date: 2019-12-01
+  page-range: 803–812
+  url: https://doi.org/10.1007/s00146-018-0825-9
+  serial-number:
+    doi: 10.1007/s00146-018-0825-9
+    issn: 1435-5655
+  abstract: This paper explores the history of ELIZA, a computer programme approximating a Rogerian therapist, developed by Jospeh Weizenbaum at MIT in the 1970s, as an early AI experiment. ELIZA's reception provoked Weizenbaum to re-appraise the relationship between `computer power and human reason' and to attack the `powerful delusional thinking' about computers and their intelligence that he understood to be widespread in the general public and also amongst experts. The root issue for Weizenbaum was whether human thought could be `entirely computable' (reducible to logical formalism). This also provoked him to re-consider the nature of machine intelligence and to question the instantiation of its logics in the social world, which would come to operate, he said, as a `slow acting poison'. Exploring Weizenbaum's 20th Century apostasy, in the light of ELIZA, illustrates ways in which contemporary anxieties and debates over machine smartness connect to earlier formations. In particular, this article argues that it is in its designation as a computational therapist that ELIZA is most significant today. ELIZA points towards a form of human–machine relationship now pervasive, a precursor of the `machinic therapeutic' condition we find ourselves in, and thus speaks very directly to questions concerning modulation, autonomy, and the new behaviorism that are currently arising.
+  parent:
+    type: periodical
+    title: AI {&} SOCIETY
+    issue: 4
+    volume: 34
+
+  
 bert:
   type: misc
   title: "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
@@ -1065,3 +1124,4 @@ fastapi:
   title: 'FastAPI - Fast (high-performance) API framework for Python'
   organization: FastAPI
   url: https://fastapi.tiangolo.com/
+

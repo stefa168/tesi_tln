@@ -700,4 +700,63 @@ Ritengo che spostarci da AIML a qualcosa di costruito apposta permetterebbe di o
 
 #pagebreak(weak: true)
 
+/*
+
+Appunti per ragionare su come costruire l'indice della tesi.
+Il progetto con cui ho lavorato (NovaGraphS) del Dipartimento di Informatica puntava a produrre un sistema assistivo per permettere l'interrogazione di automi finiti. Il progetto puntava ad utilizzare l'AIML, un linguaggio di markup per la costruzione di chatbot.
+
+Il mio lavoro inizialmente è consistito nel ricercare la possibilità di costruire un "compilatore" che, a partire dai dati dell'automa, fosse in grado di produrre un file AIML che permettesse di rispondere alle domande degli utenti.
+
+In seguito ad una prima implementazione, sono venute alla luce alcune criticità, che hanno evidenziato come AIML potesse limitare la flessibilità del sistema:
+- Ogni interazione prevista deve essere codificata tramite regole, che possono diventare molto complesse, specialmente se si vuole costruire un sistema sufficientemente flessibile nel riconoscimento delle domande (che possono essere poste in modi diversi)
+- La manutenzione delle regole può rapidamente diventare molto complessa, specialmente se non si adottano sufficienti buone pratiche per la loro scrittura e organizzazione
+- Integrare i dati con le regole può essere problematico, specialmente se si vuole costruire un sistema che possa essere interrogato su diversi automi. Dover costruire regole per ogni possibile automa può diventare molto complesso e ridondante. Inoltre, AIML non permette di interrogare direttamente una knowledge base, ma richiede di costruire regole per ogni possibile interrogazione.
+
+Dopo aver riconosciuto le criticità, abbiamo ragionato su come avremmo potuto mitigarle, migliorando il sistema rendendolo più flessibile e adatto ai tempi attuali.
+
+Il mio lavoro si è quindi spostato verso la ricerca sul Natural Language Understanding.
+
+Inizialmente abbiamo supposto di estendere AIML con un sistema di NLU: si sarebbe basato potenzialmente su uno tra:
+- Spacy
+  - Pattern Sintattici su alberi (documentazione spacy)
+  - DRS per semantica (articolo Bos)
+- ExpReg Estese
+  - Distanza tra la stringa in input e l'espressione regolare (cercare documentazione).
+- BertScore
+
+Durante lo studio ho anche individuato Bert come opzione; vedendo che era possibile effettuare il fine-tuning di un modello di Bert per la classificazione di domande, ho deciso di provare questa strada.
+Nel mentre, valutando come estendere il sistema per integrare una knowledge base, ho visto che AIML forniva effettivamente alcuni tag per interagire con sistemi esterni, ma il lavoro sarebbe stato doppio:
+non solo avremmo dovuto prima scrivere le regole per individuare la domanda, ma poi avremmo dovuto preparare un sistema aggiuntivo in grado di recuperare i dati dalla knowledge base basandoci su quello che ci viene chiesto (non banale) e poi integrare i dati nella risposta.
+
+Quindi ho iniziato ad investigare possibili vie alternative, e ho deciso di progettare un sistema alternativo all'AIML, con un linguaggio di configurazione più "moderno" che permetta di compiere le stesse operazioni in modo più flessibile e meno ridondante.
+
+Ho effettuato ricerche sulle tecniche di NLU, vedendo cosa attualmente è più utilizzato (maggiore supporto e in genere un maggiore sviluppo nel tempo), tenendo in considerazione anche i limiti hardware a disposizione (potenzialmente in futuro la parte di sistema utilizzata dall'utente potrebbe essere fatta girare in locale).
+
+Dopo aver sperimentato con diverse librerie che assistono nell'addestramento di modelli neurali (più flessibili rispetto alle espressioni regolari o simili) mi sono soffermato su
+- Modelli di LLM basati su transformers, in particolare BERT
+- Modelli di NER, addestrati utilizzando la libreria Spacy, perfetta per questo genere di task
+
+Idealmente tuttavia il sistema dovrebbe essere sufficientemente flessibile da permettere di integrare diversi modelli di NLU, in modo da poter sfruttare le potenzialità di ognuno.
+
+Naturalmente è sempre presente un file di configurazione, che però descrive come è strutturata la parte di costruzione dei modelli poi utilizzati per la NLU.
+
+Quindi il sistema è composto da due parti:
+- un compilatore, che addestra il necessario per la NLU, prepara risorse, ecc.
+- un "runner" che effettivamente si occupa di ricevere le domande e rispondere in base alle regole definite nel file di configurazione
+
+Una volta preparate tutte le risorse, il "pacchetto" di risorse viene passato al runner.
+Il runner si basa anche lui su una sequenza annidata di nodi che utilizzano i modelli addestrati come classificatori per identificare le categorie delle domande, e man mano che si procede in profondità si estraggono le entità necessarie per rispondere alla domanda.
+La struttura è come quella di un albero di decisione, dove però ogni nodo è un classificatore (neurale, tradizionale, espressione regolare, ecc), mentre le foglie sono oggetti che descrivono come costruire le risposte.
+In particolare, queste possono essere predefinite, possono avere slot (riempiti in seguito ad uno step di estrazione delle entità), possono richiedere l'estrazione di dati da una knowledge base, ecc.
+Le risposte sono anche generabili utilizzando servizi di LLM (Question Answering) o simili, in modo da poter ottenere risposte più complesse e flessibili, sempre solo basandoci sui dati estratti.
+
+Le regole servono proprio perchè così riduciamo al minimo il rischio che il sistema possa rispondere in modo errato (se invece avessimo utilizzato direttamente una LLM a cui sono stati dati in pasto tutti i dati dell'automa, per esempio, portando ad allucinazioni del modello).
+In questo modo possiamo avere pieno controllo su cosa il chatbot può rispondere (rimane così on-topic), e possiamo anche permettere all'utente di fare domande più complesse, che richiedono l'estrazione di più entità e la generazione di risposte più complesse.
+
+*/
+
+= Introduzione tesi post 
+
+#pagebreak(weak: true)
+
 #bibliography("bib.yml", full: true)
