@@ -14,11 +14,10 @@ Nonostante le moderne tecniche di apprendimento automatico abbiano guadagnato te
 
 // Bisogna spiegare anche cosa sono le regole e come funzionano, magari con un esempio
 
-=== Origini
-==== ELIZA
+=== Le Origini con ELIZA
 
 Uno dei primi e più noti esempi di chatbot rule-based è ELIZA, sviluppato da Joseph Weizenbaum al MIT nel 1966 @eliza @eliza_history.\
-ELIZA simulava le risposte di uno psicoterapeuta rogersiano #footnote[Carl Rogers è stato uno psicologo statunitense, noto per gli studi sul counseling e fondatore della "psicoterapia incentrata sulla persona". Questo approccio portava alla costruzione di una relazione collaborativa e di fiducia, basata sull'empatia, ritenuta essenziale per poter raggiungere il benessere psicologico @rogers.], basandosi su un semplice algoritmo di riscrittura (rewrite) delle frasi in input.\
+ELIZA simulava le risposte di uno psicoterapeuta rogersiano #footnote[Carl Rogers è stato uno psicologo statunitense, noto per gli studi sul counseling e fondatore della "psicoterapia incentrata sulla persona". Questo approccio portava alla costruzione di una relazione collaborativa e di fiducia tra terapista e paziente (per Rogers "cliente" dal momento che secondo lui non aveva un ruolo passivo ma attivo nella guarigione), basata sull'empatia, ritenuta essenziale per poter raggiungere il benessere psicologico @rogers.], basandosi su un semplice algoritmo di riscrittura (rewrite) delle frasi in input.\
 L'effetto era sorprendentemente convincente in alcuni casi, poichè ELIZA trasformava abilmente le frasi dell'utente in domande di ritorno, mantenendo un'apparenza di comprensione.
 
 #let mono(body, font: "JetBrains Mono NL") = {
@@ -234,10 +233,18 @@ Nonostante questi limiti, AIML ha rappresentato un passo importante nell'evoluzi
 In alcuni ambiti ristretti (FAQ ripetitive, conversazioni “scriptate”), costituisce ancora una soluzione valida e immediata. 
 In domini più complessi, in cui la varietà del linguaggio e l'integrazione con dati dinamici sono essenziali, diventa indispensabile affiancare o sostituire AIML con tecniche di Natural Language Understanding basate su machine learning e deep learning.
 
-== Approcci Neurali e Stato dell'Arte
-=== Modelli neurali
-=== Altri approcci
-(regex, expreg, metriche come BertScore)
+#pagebreak(weak: true)
+
+== Natural Language Understanding e Stato dell'Arte
+
+Con *Natural Language Understanding* (NLU) si fa riferimento a un insieme di tecniche e modelli che mirano a comprendere il testo in ingresso a un livello più semantico, superando la semplice analisi di pattern o keyword.
+Negli ultimi anni, la ricerca si è orientata verso modelli di machine learning, e in particolare di deep learning, capaci di catturare caratteristiche sintattiche, semantiche e contestuali.
+
+=== LSTM e RNN
+==== LSTM
+==== RNN
+
+=== Transformers
 
 == Framework e strumenti moderni
 === LangChain e Haystack
