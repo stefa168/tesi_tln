@@ -66,6 +66,29 @@ jm3:
   edition: 3rd
   url: https://web.stanford.edu/~jurafsky/slp3/
 
+
+ABRAHAMS196951:
+  type: anthos
+  title: Symbol Manipulation Languages
+  author: Abrahams, Paul W.
+  date: 1969
+  editor:
+  - Alt, Franz L.
+  - Rubinoff, Morris
+  page-range: 51–111
+  url: https://www.sciencedirect.com/science/article/pii/S0065245808603113
+  serial-number:
+    doi: https://doi.org/10.1016/S0065-2458(08)60311-3
+    issn: 0065-2458
+  abstract: 'Publisher Summary Symbol manipulation is a branch of computing concerned with the manipulation of unpredictably structured data. Symbol manipulation languages vary in the generality of the lists upon which they operate. The development of such languages from IPL–V through LISP, L6, PL/l, SLIP, SNOBOL, COMIT, and EOL with comments on their relative capabilities, advantages, and disadvantages are presented. These languages may arise either through the embedding of symbol manipulation facilities in a general–purpose language or through the expansion of a symbol manipulation language to include general computation. L6 and EOL are low–level languages. Their simplicity contrasts with the complexity of the higher–level languages. The symbol manipulation must meet two requirements: (1) representation of lists and (2) language features, are also discussed. Pattern–matching is a recurrent theme in symbol manipulation languages. Symbol manipulation is a rapidly expanding branch of computing. It appears likely that symbol manipulation languages will stabilize as their use becomes more widespread, in much the same way as scientific and commercial languages have stabilized.'
+  parent:
+    type: anthology
+    publisher: Elsevier
+    volume: 9
+    parent:
+      type: anthology
+      title: Advances in Computers
+
   
 bert:
   type: misc

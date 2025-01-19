@@ -1,5 +1,10 @@
 = Origini e Stato dell'Arte
 
+In questo capitolo verrà fornita una panoramica sui principali approcci per la realizzazione di chatbot e sistemi di interrogazione automatica basati sul linguaggio naturale. 
+Si partirà dall'analisi dei sistemi *rule-based*, che hanno segnato le prime tappe nella ricerca nel campo degli agenti conversazionali, per poi passare ai moderni approcci basati sull'apprendimento automatico con le reti neurali, prestando particolare attenzione ai modelli basati sull'architettura dei transformer.
+
+Il Natural Language Understanding è un campo di ricerca in continua evoluzione, con tecniche e algoritmi costantemente aggiornati e nuovi modelli che vengono proposti e testati.
+
 == Chatbot rule-based
 
 Fin dalle origini dello studio dell'elaborazione del linguaggio naturale, i cosiddetti chatbot _rule-based_ (basati su regole) hanno costituito il primo approccio per simulare un interlocutore con cui gli utenti possano interagire col linguaggio naturale.\
@@ -39,6 +44,10 @@ L'effetto era sorprendentemente convincente in alcuni casi, poichè ELIZA trasfo
   supplement: [Listato]
 ) <eliza_example>
 
+==== Composizione
+ELIZA si basava su *script di regole* scritte originariamente in SLIP (un dialetto di Lisp, un linguaggio basato sulla manipolazione dei simboli @ABRAHAMS196951), organizzate in una serie di *pattern* (decomposition rules) e *risposte template* (reassembly rules).\
+L'idea fondamentale era che ogni regola si attivasse se l'input dell'utente conteneva una certa parola chiave (keyword); ad ogni keyword era associato un insieme di “trasformazioni” più o meno generali, che permettevano di riformulare la frase dell'utente.
+
 #{
 // show figure: set block(breakable: true)
 figure(caption: [Un frammento delle regole che compongono ELIZA da #cite(<eliza>, form: "prose")])[
@@ -67,7 +76,59 @@ THAT APOLOGIES ARE NOT REQUIRED)))
 ]
 }
 
-Ciononostante, ELIZA non era in grado di comprendere il significato delle frasi, ma si limitava a riconoscere e riscrivere parole chiave: un utente che ne è consapevole può potenzialmente "ingannare" il sistema con frasi prive di senso, ottenendo comunque risposte coerenti.
+===== Parole chiave e priorità
+
+Le regole di ELIZA erano raggruppate attorno a delle keyword, che definivano l’argomento o l’elemento su cui il sistema doveva focalizzare l’attenzione. 
+Ad esempio, se la keyword era “REMEMBER”, tutte le regole associate si occupavano di reinterpretare le frasi in cui l’utente accennava a un ricordo.
+
+- Ogni keyword poteva avere una priorità numerica, indicando quanto fosse importante rispetto alle altre. In caso di input multiple che attivassero più keyword, veniva scelta quella con la priorità più alta.
+- Se l’utente menzionava “IO NON RICORDO” (“I DON’T REMEMBER”), ELIZA cercava innanzitutto la keyword “REMEMBER” per attivare le regole di corrispondenza più specifiche.
+
+===== Decomposition Rules
+
+Ogni keyword era legata a una serie di decomposition rules che descrivevano come scomporre la frase dell’utente in componenti rilevanti.
+Questo avveniva tramite pattern contenenti placeholder e occasionalmente wildcard.
+Ad esempio, una decomposition rule per la keyword “REMEMBER” poteva apparire così (in forma semplificata)
+#align(center)[`( 0 YOU REMEMBER 0 )`]
+
+Qui, il simbolo 0 rappresenta dei placeholder che possono catturare qualunque parte del testo.
+Se la frase dell’utente fosse "I think *you remember* when I was a child", il sistema isolava le porzioni di testo prima e dopo la stringa “YOU REMEMBER”.
+
+Queste regole permettevano a ELIZA di individuare la struttura della frase e di memorizzare le parti variabili (ad esempio, tutto ciò che seguiva “YOU REMEMBER”).
+
+===== Reassembly Rules
+
+Una volta trovato un pattern che corrisponde, ELIZA applica una corrispondente reassembly rule, ovvero un template che generava la risposta.
+Proseguendo con l’esempio della keyword “REMEMBER”, se la decomposition rule cattura una parte di frase dopo “YOU REMEMBER”, la reassembly rule può essere una delle seguenti: 
+
+#align(center)[
+```
+(DO YOU OFTEN THINK OF 4?)
+(WHY DO YOU REMEMBER 4 JUST NOW?)
+```
+]
+
+e il sistema risponde sostituendo dinamicamente il placeholder con la parte di testo catturata.
+
+Così, se l’utente diceva "Io penso che tu ricordi il mio compleanno", ELIZA poteva rispondere "Perché pensi che io ricordi il tuo compleanno proprio ora?"
+
+===== Regole di Fallback
+
+Se nessuna keyword né pattern specifico viene attivato, ELIZA passa a una serie di regole di fallback, spesso domande generiche come:
+
+#align(center)[
+```
+(TELL ME MORE)
+(WHY DO YOU SAY THAT?)
+```
+]
+
+Queste tornano utili a mantenere viva la conversazione anche quando non vi è corrispondenza con le regole definite, evitando il silenzio o un evidente messaggio di errore.
+
+==== Conclusioni
+
+È evidente comunque come ELIZA non sia realmente in grado di comprendere il significato delle frasi: si limita a riconoscere e riformulare le frasi usando parole chiave ottenute dalla conversazione.
+Un utente che ne è consapevole può potenzialmente "ingannare" il sistema con frasi prive di senso, ottenendo comunque risposte coerenti.
 
 #figure({
     set align(left)
