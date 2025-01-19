@@ -78,28 +78,28 @@ THAT APOLOGIES ARE NOT REQUIRED)))
 
 ===== Parole chiave e priorità
 
-Le regole di ELIZA erano raggruppate attorno a delle keyword, che definivano l’argomento o l’elemento su cui il sistema doveva focalizzare l’attenzione. 
-Ad esempio, se la keyword era “REMEMBER”, tutte le regole associate si occupavano di reinterpretare le frasi in cui l’utente accennava a un ricordo.
+Le regole di ELIZA erano raggruppate attorno a delle keyword, che definivano l'argomento o l'elemento su cui il sistema doveva focalizzare l'attenzione. 
+Ad esempio, se la keyword era “REMEMBER”, tutte le regole associate si occupavano di reinterpretare le frasi in cui l'utente accennava a un ricordo.
 
 - Ogni keyword poteva avere una priorità numerica, indicando quanto fosse importante rispetto alle altre. In caso di input multiple che attivassero più keyword, veniva scelta quella con la priorità più alta.
-- Se l’utente menzionava “IO NON RICORDO” (“I DON’T REMEMBER”), ELIZA cercava innanzitutto la keyword “REMEMBER” per attivare le regole di corrispondenza più specifiche.
+- Se l'utente menzionava “IO NON RICORDO” (“I DON'T REMEMBER”), ELIZA cercava innanzitutto la keyword “REMEMBER” per attivare le regole di corrispondenza più specifiche.
 
 ===== Decomposition Rules
 
-Ogni keyword era legata a una serie di decomposition rules che descrivevano come scomporre la frase dell’utente in componenti rilevanti.
+Ogni keyword era legata a una serie di decomposition rules che descrivevano come scomporre la frase dell'utente in componenti rilevanti.
 Questo avveniva tramite pattern contenenti placeholder e occasionalmente wildcard.
 Ad esempio, una decomposition rule per la keyword “REMEMBER” poteva apparire così (in forma semplificata)
 #align(center)[`( 0 YOU REMEMBER 0 )`]
 
-Qui, il simbolo 0 rappresenta dei placeholder che possono catturare qualunque parte del testo.
-Se la frase dell’utente fosse "I think *you remember* when I was a child", il sistema isolava le porzioni di testo prima e dopo la stringa “YOU REMEMBER”.
+Qui, il simbolo 0 rappresenta dei placeholder che potevano catturare qualunque parte del testo.
+Se la frase dell'utente era "I think *you remember* when I was a child", il sistema isolava le porzioni di testo prima e dopo la stringa “YOU REMEMBER”.
 
 Queste regole permettevano a ELIZA di individuare la struttura della frase e di memorizzare le parti variabili (ad esempio, tutto ciò che seguiva “YOU REMEMBER”).
 
 ===== Reassembly Rules
 
-Una volta trovato un pattern che corrisponde, ELIZA applica una corrispondente reassembly rule, ovvero un template che generava la risposta.
-Proseguendo con l’esempio della keyword “REMEMBER”, se la decomposition rule cattura una parte di frase dopo “YOU REMEMBER”, la reassembly rule può essere una delle seguenti: 
+Una volta trovato un pattern corrispondente, ELIZA applicava una corrispondente reassembly rule, ovvero un template che generava la risposta.
+Proseguendo con l'esempio della keyword “REMEMBER”, se la decomposition rule catturava una parte di frase dopo “YOU REMEMBER”, la reassembly rule selezionata poteva essere una delle seguenti: 
 
 #align(center)[
 ```
@@ -108,13 +108,13 @@ Proseguendo con l’esempio della keyword “REMEMBER”, se la decomposition ru
 ```
 ]
 
-e il sistema risponde sostituendo dinamicamente il placeholder con la parte di testo catturata.
+e il sistema rispondeva sostituendo dinamicamente il placeholder con la parte di testo catturata.
 
-Così, se l’utente diceva "Io penso che tu ricordi il mio compleanno", ELIZA poteva rispondere "Perché pensi che io ricordi il tuo compleanno proprio ora?"
+Così, se l'utente diceva "Io penso che tu ricordi il mio compleanno", ELIZA poteva rispondere "Perché pensi che io ricordi il tuo compleanno proprio ora?"
 
 ===== Regole di Fallback
 
-Se nessuna keyword né pattern specifico viene attivato, ELIZA passa a una serie di regole di fallback, spesso domande generiche come:
+Se nessuna keyword né pattern specifico viene attivato, ELIZA passava a una serie di regole di fallback, spesso domande generiche come:
 
 #align(center)[
 ```
@@ -127,7 +127,7 @@ Queste tornano utili a mantenere viva la conversazione anche quando non vi è co
 
 ==== Conclusioni
 
-È evidente comunque come ELIZA non sia realmente in grado di comprendere il significato delle frasi: si limita a riconoscere e riformulare le frasi usando parole chiave ottenute dalla conversazione.
+È evidente comunque come ELIZA non fosse realmente in grado di comprendere il significato delle frasi: si limitava a riconoscere e riformulare le frasi usando parole chiave ottenute dalla conversazione.
 Un utente che ne è consapevole può potenzialmente "ingannare" il sistema con frasi prive di senso, ottenendo comunque risposte coerenti.
 
 #figure({
@@ -152,7 +152,89 @@ Esiste un episodio celeberrimo che dimostra l'efficacia del sistema: anche la se
 
 === AIML
 
-== Approcci basati su NLU e Stato dell'Arte
+Negli anni #sym.quote.r.single\90 iniziò a guadagnare popolarità il Loebner Prize, una competizione ispirata al Test di Turing @imitation_game.\
+Nella competizione, chatbot e sistemi conversazionali cercavano di "ingannare" giudici umani, facendo credere loro di essere persone reali.
+Molti sistemi presentati alla competizione erano basati su pattern matching e rule-based, a volte integrando euristiche per la gestione di sinonimi o correzione ortografica.
+
+Tra questi, uno dei più celebri è ALICE (Artificial Linguistic Internet Computer Entity), sviluppato da Richard Wallace utilizzando il linguaggio di markup AIML (Artificial Intelligence Markup Language) da lui introdotto @aiml @alice. ALICE vinse per la prima volta il Loebner Prize nel 2000, e in seguito vinse altre due edizioni, nel 2001 e 2004.
+
+==== Struttura di un chatbot AIML
+
+Basato sull'XML, di base l'AIML fornisce una struttura formale per definire regole di conversazione attraverso “categorie” di pattern e template:
+- `<pattern>`: la frase (o le frasi) a cui il chatbot deve reagire.
+- `<template>`: la risposta (testuale o con elementi dinamici) che il chatbot fornisce quando si verifica il match del pattern.
+
+Considerando ad esempio la seguente configurazione:
+#align(center)[
+```xml
+<category>
+  <pattern>CIAO</pattern>
+  <template>Ciao! Come posso aiutarti oggi?</template>
+</category>
+```
+]
+
+se l'utente scrivesse "Ciao" #footnote[Caratteri maiuscoli e minuscoli sono considerati uguali dal motore di riconoscimento.], il sistema risponderebbe con "Ciao! Come posso aiutarti oggi?".
+
+Grazie all'uso di wildcard (#sym.ast, #sym.dash.en) e a elementi di personalizzazione (`<star/>`), AIML può gestire un certo grado di variabilità linguistica:
+
+#align(center)[
+```xml
+<category>
+  <pattern>MI CHIAMO *</pattern>
+  <template>
+    Ciao <star/>, piacere di conoscerti!
+  </template>
+</category>
+```
+]
+
+In questo caso, se l'utente scrivesse "Mi chiamo Andrea", il sistema risponderebbe con "Ciao Andrea, piacere di conoscerti!".
+
+Esistono anche tag per permettere di memorizzare informazioni e utilizzarle in seguito, come `<set>` e `<get>`, e per gestire la conversazione in modo più dinamico, come `<think>` e `<condition>`:
+
+#align(center)[
+```xml
+<category>
+  <pattern>CHE TEMPO FA</pattern>
+  <template>
+    <condition name="stagione">
+      <li value="inverno">Fa piuttosto freddo, in questa stagione.</li>
+      <li value="estate">Fa molto caldo, bevi tanta acqua!</li>
+    </condition>
+  </template>
+</category>
+```
+]
+
+È inoltre possibile raggruppare categorie simili con il tag `<topic>`, e riindirizzare la conversazione verso un argomento specifico con il tag `<srai>`:
+
+#align(center)[
+```xml
+<topic name="saluti">
+  <category>
+    <pattern>SALUTA *</pattern>
+    <template>
+      <srai>CIAO</srai>
+    </template>
+  </category>
+</topic>
+```
+]
+
+==== Conclusioni su AIML
+
+Grazie ai tag previsti dallo schema, AIML riesce a gestire conversazioni piuttosto complesse. Ciononostante, presenta comunque alcune limitazioni:
+
+- Le strategie di wildcard e pattern matching restano prevalentemente letterali, con limitata capacità di interpretare varianti linguistiche non codificate nelle regole. Se una frase si discosta dal pattern previsto, il sistema fallisce il matching. Sono disponibili comunque alcune funzionalità per la gestione di sinonimi, semplificazione delle locuzioni e correzione ortografica, che devono essere costruite manualmente.
+- La gestione del contesto (via `<that>, <topic>`, ecc.) è rudimentale, soprattutto se paragonata a sistemi moderni di NLU con modelli neurali che apprendono contesti ampi.
+- L'integrazione con basi di conoscenza esterne (KB, database, API) richiede estensioni proprietarie o script custom, poiché AIML di per sé non offre costrutti semantici o query integrate, e non permette di integrare script internamente alle regole.
+
+Nonostante questi limiti, AIML ha rappresentato un passo importante nell'evoluzione dei chatbot, offrendo un framework standardizzato e relativamente user-friendly per la creazione di agenti rule-based. 
+In alcuni ambiti ristretti (FAQ ripetitive, conversazioni “scriptate”), costituisce ancora una soluzione valida e immediata. 
+In domini più complessi, in cui la varietà del linguaggio e l'integrazione con dati dinamici sono essenziali, diventa indispensabile affiancare o sostituire AIML con tecniche di Natural Language Understanding basate su machine learning e deep learning.
+
+== Approcci Neurali e Stato dell'Arte
 === Modelli neurali
 === Altri approcci
 (regex, expreg, metriche come BertScore)

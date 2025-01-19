@@ -13,7 +13,7 @@ eliza:
   title: ELIZA—a computer program for the study of natural language communication between man and machine
   author: Weizenbaum, Joseph
   date: 1966-01
-  page-range: 36–45
+  page-range: 36-45
   url: https://doi.org/10.1145/365153.365168
   serial-number:
     doi: 10.1145/365153.365168
@@ -31,7 +31,7 @@ rogers:
   title: The Necessary and Sufficient Conditions of Psychotherapeutic Personality Change
   author: ROGERS, CARL
   date: 2007
-  page-range: 240–8
+  page-range: 240-8
   serial-number:
     doi: 10.1037/0033-3204.44.3.240
   parent:
@@ -44,12 +44,12 @@ eliza_history:
   title: 'The computational therapeutic: exploring Weizenbaum''s ELIZA as a history of the present'
   author: Bassett, Caroline
   date: 2019-12-01
-  page-range: 803–812
+  page-range: 803-812
   url: https://doi.org/10.1007/s00146-018-0825-9
   serial-number:
     doi: 10.1007/s00146-018-0825-9
     issn: 1435-5655
-  abstract: This paper explores the history of ELIZA, a computer programme approximating a Rogerian therapist, developed by Jospeh Weizenbaum at MIT in the 1970s, as an early AI experiment. ELIZA's reception provoked Weizenbaum to re-appraise the relationship between `computer power and human reason' and to attack the `powerful delusional thinking' about computers and their intelligence that he understood to be widespread in the general public and also amongst experts. The root issue for Weizenbaum was whether human thought could be `entirely computable' (reducible to logical formalism). This also provoked him to re-consider the nature of machine intelligence and to question the instantiation of its logics in the social world, which would come to operate, he said, as a `slow acting poison'. Exploring Weizenbaum's 20th Century apostasy, in the light of ELIZA, illustrates ways in which contemporary anxieties and debates over machine smartness connect to earlier formations. In particular, this article argues that it is in its designation as a computational therapist that ELIZA is most significant today. ELIZA points towards a form of human–machine relationship now pervasive, a precursor of the `machinic therapeutic' condition we find ourselves in, and thus speaks very directly to questions concerning modulation, autonomy, and the new behaviorism that are currently arising.
+  abstract: This paper explores the history of ELIZA, a computer programme approximating a Rogerian therapist, developed by Jospeh Weizenbaum at MIT in the 1970s, as an early AI experiment. ELIZA's reception provoked Weizenbaum to re-appraise the relationship between `computer power and human reason' and to attack the `powerful delusional thinking' about computers and their intelligence that he understood to be widespread in the general public and also amongst experts. The root issue for Weizenbaum was whether human thought could be `entirely computable' (reducible to logical formalism). This also provoked him to re-consider the nature of machine intelligence and to question the instantiation of its logics in the social world, which would come to operate, he said, as a `slow acting poison'. Exploring Weizenbaum's 20th Century apostasy, in the light of ELIZA, illustrates ways in which contemporary anxieties and debates over machine smartness connect to earlier formations. In particular, this article argues that it is in its designation as a computational therapist that ELIZA is most significant today. ELIZA points towards a form of human-machine relationship now pervasive, a precursor of the `machinic therapeutic' condition we find ourselves in, and thus speaks very directly to questions concerning modulation, autonomy, and the new behaviorism that are currently arising.
   parent:
     type: periodical
     title: AI {&} SOCIETY
@@ -66,7 +66,6 @@ jm3:
   edition: 3rd
   url: https://web.stanford.edu/~jurafsky/slp3/
 
-
 ABRAHAMS196951:
   type: anthos
   title: Symbol Manipulation Languages
@@ -75,12 +74,12 @@ ABRAHAMS196951:
   editor:
   - Alt, Franz L.
   - Rubinoff, Morris
-  page-range: 51–111
+  page-range: 51-111
   url: https://www.sciencedirect.com/science/article/pii/S0065245808603113
   serial-number:
     doi: https://doi.org/10.1016/S0065-2458(08)60311-3
     issn: 0065-2458
-  abstract: 'Publisher Summary Symbol manipulation is a branch of computing concerned with the manipulation of unpredictably structured data. Symbol manipulation languages vary in the generality of the lists upon which they operate. The development of such languages from IPL–V through LISP, L6, PL/l, SLIP, SNOBOL, COMIT, and EOL with comments on their relative capabilities, advantages, and disadvantages are presented. These languages may arise either through the embedding of symbol manipulation facilities in a general–purpose language or through the expansion of a symbol manipulation language to include general computation. L6 and EOL are low–level languages. Their simplicity contrasts with the complexity of the higher–level languages. The symbol manipulation must meet two requirements: (1) representation of lists and (2) language features, are also discussed. Pattern–matching is a recurrent theme in symbol manipulation languages. Symbol manipulation is a rapidly expanding branch of computing. It appears likely that symbol manipulation languages will stabilize as their use becomes more widespread, in much the same way as scientific and commercial languages have stabilized.'
+  abstract: 'Publisher Summary Symbol manipulation is a branch of computing concerned with the manipulation of unpredictably structured data. Symbol manipulation languages vary in the generality of the lists upon which they operate. The development of such languages from IPL-V through LISP, L6, PL/l, SLIP, SNOBOL, COMIT, and EOL with comments on their relative capabilities, advantages, and disadvantages are presented. These languages may arise either through the embedding of symbol manipulation facilities in a general-purpose language or through the expansion of a symbol manipulation language to include general computation. L6 and EOL are low-level languages. Their simplicity contrasts with the complexity of the higher-level languages. The symbol manipulation must meet two requirements: (1) representation of lists and (2) language features, are also discussed. Pattern-matching is a recurrent theme in symbol manipulation languages. Symbol manipulation is a rapidly expanding branch of computing. It appears likely that symbol manipulation languages will stabilize as their use becomes more widespread, in much the same way as scientific and commercial languages have stabilized.'
   parent:
     type: anthology
     publisher: Elsevier
@@ -89,6 +88,40 @@ ABRAHAMS196951:
       type: anthology
       title: Advances in Computers
 
+imitation_game:
+  type: article
+  title: I.—COMPUTING MACHINERY AND INTELLIGENCE
+  author: TURING, A. M.
+  date: 1950
+  page-range: 433–460
+  url: https://doi.org/10.1093/mind/LIX.236.433
+  serial-number:
+    doi: 10.1093/mind/LIX.236.433
+    issn: 0026-4423
+  parent:
+    type: periodical
+    title: Mind
+    issue: 236
+    volume: 59
+
+
+alice:
+  type: chapter
+  title: The anatomy of A.L.I.C.E
+  author: Wallace, Richard
+  date: 2009
+  page-range: 181-210
+  serial-number:
+    doi: 10.1007/978-1-4020-6710-5_13
+    isbn: 978-1-4020-9624-2
+  parent:
+    type: book
+
+aiml:
+  type: Web
+  title: Artificial Intelligence Markup Language
+  organization: AIML Foundation
+  url: http://www.aiml.foundation/doc.html
   
 bert:
   type: misc
@@ -1039,7 +1072,7 @@ squad1:
   - Su, Jian
   - Duh, Kevin
   - Carreras, Xavier
-  page-range: 2383–2392
+  page-range: 2383-2392
   url: https://aclanthology.org/D16-1264
   serial-number:
     doi: 10.18653/v1/D16-1264
@@ -1060,7 +1093,7 @@ squad2:
   editor:
   - Gurevych, Iryna
   - Miyao, Yusuke
-  page-range: 784–789
+  page-range: 784-789
   url: https://aclanthology.org/P18-2124
   serial-number:
     doi: 10.18653/v1/P18-2124
@@ -1076,7 +1109,7 @@ multitask:
   title: Multitask Learning
   author: Caruana, Rich
   date: 1997
-  page-range: 41–75
+  page-range: 41-75
   url: https://doi.org/10.1023/A:1007379606734
   serial-number:
     doi: 10.1023/A:1007379606734
@@ -1095,7 +1128,7 @@ hierarchical:
   - Silla, Carlos N.
   - Freitas, Alex A.
   date: 2011
-  page-range: 31–72
+  page-range: 31-72
   url: https://doi.org/10.1007/s10618-010-0175-9
   serial-number:
     doi: 10.1007/s10618-010-0175-9
