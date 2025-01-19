@@ -56,6 +56,16 @@ eliza_history:
     issue: 4
     volume: 34
 
+jm3:
+  type: book
+  title: 'Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition with Language Models'
+  author:
+  - Jurafsky, Daniel
+  - Martin, James H.
+  date: 2025
+  edition: 3rd
+  url: https://web.stanford.edu/~jurafsky/slp3/
+
   
 bert:
   type: misc
