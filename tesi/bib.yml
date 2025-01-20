@@ -38,10 +38,10 @@ rogers:
     type: periodical
     title: Psychotherapy (Chicago, Ill.)
     volume: 44
-  
+
 eliza_history:
   type: article
-  title: 'The computational therapeutic: exploring Weizenbaum''s ELIZA as a history of the present'
+  title: "The computational therapeutic: exploring Weizenbaum's ELIZA as a history of the present"
   author: Bassett, Caroline
   date: 2019-12-01
   page-range: 803-812
@@ -58,10 +58,10 @@ eliza_history:
 
 jm3:
   type: book
-  title: 'Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition with Language Models'
+  title: "Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition with Language Models"
   author:
-  - Jurafsky, Daniel
-  - Martin, James H.
+    - Jurafsky, Daniel
+    - Martin, James H.
   date: 2025
   edition: 3rd
   url: https://web.stanford.edu/~jurafsky/slp3/
@@ -72,14 +72,14 @@ ABRAHAMS196951:
   author: Abrahams, Paul W.
   date: 1969
   editor:
-  - Alt, Franz L.
-  - Rubinoff, Morris
+    - Alt, Franz L.
+    - Rubinoff, Morris
   page-range: 51-111
   url: https://www.sciencedirect.com/science/article/pii/S0065245808603113
   serial-number:
     doi: https://doi.org/10.1016/S0065-2458(08)60311-3
     issn: 0065-2458
-  abstract: 'Publisher Summary Symbol manipulation is a branch of computing concerned with the manipulation of unpredictably structured data. Symbol manipulation languages vary in the generality of the lists upon which they operate. The development of such languages from IPL-V through LISP, L6, PL/l, SLIP, SNOBOL, COMIT, and EOL with comments on their relative capabilities, advantages, and disadvantages are presented. These languages may arise either through the embedding of symbol manipulation facilities in a general-purpose language or through the expansion of a symbol manipulation language to include general computation. L6 and EOL are low-level languages. Their simplicity contrasts with the complexity of the higher-level languages. The symbol manipulation must meet two requirements: (1) representation of lists and (2) language features, are also discussed. Pattern-matching is a recurrent theme in symbol manipulation languages. Symbol manipulation is a rapidly expanding branch of computing. It appears likely that symbol manipulation languages will stabilize as their use becomes more widespread, in much the same way as scientific and commercial languages have stabilized.'
+  abstract: "Publisher Summary Symbol manipulation is a branch of computing concerned with the manipulation of unpredictably structured data. Symbol manipulation languages vary in the generality of the lists upon which they operate. The development of such languages from IPL-V through LISP, L6, PL/l, SLIP, SNOBOL, COMIT, and EOL with comments on their relative capabilities, advantages, and disadvantages are presented. These languages may arise either through the embedding of symbol manipulation facilities in a general-purpose language or through the expansion of a symbol manipulation language to include general computation. L6 and EOL are low-level languages. Their simplicity contrasts with the complexity of the higher-level languages. The symbol manipulation must meet two requirements: (1) representation of lists and (2) language features, are also discussed. Pattern-matching is a recurrent theme in symbol manipulation languages. Symbol manipulation is a rapidly expanding branch of computing. It appears likely that symbol manipulation languages will stabilize as their use becomes more widespread, in much the same way as scientific and commercial languages have stabilized."
   parent:
     type: anthology
     publisher: Elsevier
@@ -104,7 +104,6 @@ imitation_game:
     issue: 236
     volume: 59
 
-
 alice:
   type: chapter
   title: The anatomy of A.L.I.C.E
@@ -122,7 +121,108 @@ aiml:
   title: Artificial Intelligence Markup Language
   organization: AIML Foundation
   url: http://www.aiml.foundation/doc.html
-  
+
+rnn:
+  type: chapter
+  title: Learning internal representations by error propagation
+  author:
+    - Rumelhart, D. E.
+    - Hinton, G. E.
+    - Williams, R. J.
+  date: 1986
+  page-range: 318-362
+  serial-number:
+    isbn: 026268053X
+  parent:
+    type: book
+    title: "Parallel Distributed Processing: Explorations in the Microstructure of Cognition, Vol. 1: Foundations"
+    publisher: MIT Press
+    location: Cambridge, MA, USA
+
+rnn_intro:
+  type: misc
+  title: "Recurrent Neural Networks (RNNs): A gentle Introduction and Overview"
+  author: Schmidt, Robin M.
+  date: 2019
+  url: https://arxiv.org/abs/1912.05911
+  serial-number:
+    arxiv: "1912.05911"
+
+colah:
+  type: web
+  author: Christopher Olah
+  title: "Understanding LSTM Networks"
+  url: https://colah.github.io/posts/2015-08-Understanding-LSTMs/
+
+rnn_deutch:
+  type: article
+  title: Untersuchungen zu dynamischen neuronalen Netzen
+  author: Hochreiter, Sepp
+  date: 1991
+  page-range: ""
+  parent:
+    type: periodical
+
+rnn_difficult:
+  type: article
+  title: Learning long-term dependencies with gradient descent is difficult
+  author:
+    - Bengio, Y.
+    - Simard, P.
+    - Frasconi, P.
+  date: 1994-03
+  page-range: 157-166
+  serial-number:
+    doi: 10.1109/72.279181
+    issn: 1941-0093
+  abstract: Recurrent neural networks can be used to map input sequences to output sequences, such as for recognition, production or prediction problems. However, practical difficulties have been reported in training recurrent neural networks to perform tasks in which the temporal contingencies present in the input/output sequences span long intervals. We show why gradient based learning algorithms face an increasingly difficult problem as the duration of the dependencies to be captured increases. These results expose a trade-off between efficient learning by gradient descent and latching on information for long periods. Based on an understanding of this problem, alternatives to standard gradient descent are considered.<>
+  parent:
+    type: periodical
+    title: IEEE Transactions on Neural Networks
+    issue: 2
+    volume: 5
+
+lstm:
+  type: article
+  title: Long Short-Term Memory
+  author:
+  - Hochreiter, Sepp
+  - Schmidhuber, Jürgen
+  date: 1997
+  page-range: 1735–1780
+  url: https://doi.org/10.1162/neco.1997.9.8.1735
+  serial-number:
+    doi: 10.1162/neco.1997.9.8.1735
+    issn: 0899-7667
+  abstract: Learning to store information over extended time intervals by recurrent backpropagation takes a very long time, mostly because of insufficient, decaying error backflow. We briefly review Hochreiter's (1991) analysis of this problem, then address it by introducing a novel, efficient, gradient based method called long short-term memory (LSTM). Truncating the gradient where this does not do harm, LSTM can learn to bridge minimal time lags in excess of 1000 discrete-time steps by enforcing constant error flow through constant error carousels within special units. Multiplicative gate units learn to open and close access to the constant error flow. LSTM is local in space and time; its computational complexity per time step and weight is O. 1. Our experiments with artificial data involve local, distributed, real-valued, and noisy pattern representations. In comparisons with real-time recurrent learning, back propagation through time, recurrent cascade correlation, Elman nets, and neural sequence chunking, LSTM leads to many more successful runs, and learns much faster. LSTM also solves complex, artificial long-time-lag tasks that have never been solved by previous recurrent network algorithms.
+  parent:
+    type: periodical
+    title: Neural Computation
+    issue: 8
+    volume: 9
+
+LINDEMANN2021650:
+  type: article
+  title: A survey on long short-term memory networks for time series prediction
+  author:
+  - Lindemann, Benjamin
+  - Müller, Timo
+  - Vietz, Hannes
+  - Jazdi, Nasser
+  - Weyrich, Michael
+  date: 2021
+  page-range: 650–655
+  url: https://www.sciencedirect.com/science/article/pii/S2212827121003796
+  serial-number:
+    doi: https://doi.org/10.1016/j.procir.2021.03.088
+    issn: 2212-8271
+  abstract: Recurrent neural networks and exceedingly Long short-term memory (LSTM) have been investigated intensively in recent years due to their ability to model and predict nonlinear time-variant system dynamics. The present paper delivers a comprehensive overview of existing LSTM cell derivatives and network architectures for time series prediction. A categorization in LSTM with optimized cell state representations and LSTM with interacting cell states is proposed. The investigated approaches are evaluated against defined requirements being relevant for an accurate time series prediction. These include short-term and long-term memory behavior, the ability for multimodal and multi-step ahead predictions and the according error propagation. Sequence-to-sequence networks with partially conditioning outperform the other approaches, such as bidirectional or associative networks, and are best suited to fulfill the requirements.
+  parent:
+    type: periodical
+    title: Procedia CIRP
+    volume: 99
+
+
 bert:
   type: misc
   title: "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
@@ -218,860 +318,860 @@ ollama:
 
 gemma:
   type: article
-  title: 'Gemma 2: Improving Open Language Models at a Practical Size'
+  title: "Gemma 2: Improving Open Language Models at a Practical Size"
   organization: Google Deep Mind
   author:
-  - Team, Gemma
-  - Riviere, Morgane
-  - Pathak, Shreya
-  - Sessa, Pier Giuseppe
-  - Hardin, Cassidy
-  - Bhupatiraju, Surya
-  - Hussenot, Léonard
-  - Mesnard, Thomas
-  - Shahriari, Bobak
-  - Ramé, Alexandre
-  - Ferret, Johan
-  - Liu, Peter
-  - Tafti, Pouya
-  - Friesen, Abe
-  - Casbon, Michelle
-  - Ramos, Sabela
-  - Kumar, Ravin
-  - Lan, Charline Le
-  - Jerome, Sammy
-  - Tsitsulin, Anton
-  - Vieillard, Nino
-  - Stanczyk, Piotr
-  - Girgin, Sertan
-  - Momchev, Nikola
-  - Hoffman, Matt
-  - Thakoor, Shantanu
-  - Grill, Jean-Bastien
-  - Neyshabur, Behnam
-  - Bachem, Olivier
-  - Walton, Alanna
-  - Severyn, Aliaksei
-  - Parrish, Alicia
-  - Ahmad, Aliya
-  - Hutchison, Allen
-  - Abdagic, Alvin
-  - Carl, Amanda
-  - Shen, Amy
-  - Brock, Andy
-  - Coenen, Andy
-  - Laforge, Anthony
-  - Paterson, Antonia
-  - Bastian, Ben
-  - Piot, Bilal
-  - Wu, Bo
-  - Royal, Brandon
-  - Chen, Charlie
-  - Kumar, Chintu
-  - Perry, Chris
-  - Welty, Chris
-  - Choquette-Choo, Christopher A.
-  - Sinopalnikov, Danila
-  - Weinberger, David
-  - Vijaykumar, Dimple
-  - Rogozińska, Dominika
-  - Herbison, Dustin
-  - Bandy, Elisa
-  - Wang, Emma
-  - Noland, Eric
-  - Moreira, Erica
-  - Senter, Evan
-  - Eltyshev, Evgenii
-  - Visin, Francesco
-  - Rasskin, Gabriel
-  - Wei, Gary
-  - Cameron, Glenn
-  - Martins, Gus
-  - Hashemi, Hadi
-  - Klimczak-Plucińska, Hanna
-  - Batra, Harleen
-  - Dhand, Harsh
-  - Nardini, Ivan
-  - Mein, Jacinda
-  - Zhou, Jack
-  - Svensson, James
-  - Stanway, Jeff
-  - Chan, Jetha
-  - Zhou, Jin Peng
-  - Carrasqueira, Joana
-  - Iljazi, Joana
-  - Becker, Jocelyn
-  - Fernandez, Joe
-  - name: Amersfoort
-    given-name: Joost
-    prefix: van
-  - Gordon, Josh
-  - Lipschultz, Josh
-  - Newlan, Josh
-  - Ji, Ju-yeong
-  - Mohamed, Kareem
-  - Badola, Kartikeya
-  - Black, Kat
-  - Millican, Katie
-  - McDonell, Keelin
-  - Nguyen, Kelvin
-  - Sodhia, Kiranbir
-  - Greene, Kish
-  - Sjoesund, Lars Lowe
-  - Usui, Lauren
-  - Sifre, Laurent
-  - Heuermann, Lena
-  - Lago, Leticia
-  - McNealus, Lilly
-  - Soares, Livio Baldini
-  - Kilpatrick, Logan
-  - Dixon, Lucas
-  - Martins, Luciano
-  - Reid, Machel
-  - Singh, Manvinder
-  - Iverson, Mark
-  - Görner, Martin
-  - Velloso, Mat
-  - Wirth, Mateo
-  - Davidow, Matt
-  - Miller, Matt
-  - Rahtz, Matthew
-  - Watson, Matthew
-  - Risdal, Meg
-  - Kazemi, Mehran
-  - Moynihan, Michael
-  - Zhang, Ming
-  - Kahng, Minsuk
-  - Park, Minwoo
-  - Rahman, Mofi
-  - Khatwani, Mohit
-  - Dao, Natalie
-  - Bardoliwalla, Nenshad
-  - Devanathan, Nesh
-  - Dumai, Neta
-  - Chauhan, Nilay
-  - Wahltinez, Oscar
-  - Botarda, Pankil
-  - Barnes, Parker
-  - Barham, Paul
-  - Michel, Paul
-  - Jin, Pengchong
-  - Georgiev, Petko
-  - Culliton, Phil
-  - Kuppala, Pradeep
-  - Comanescu, Ramona
-  - Merhej, Ramona
-  - Jana, Reena
-  - Rokni, Reza Ardeshir
-  - Agarwal, Rishabh
-  - Mullins, Ryan
-  - Saadat, Samaneh
-  - Carthy, Sara Mc
-  - Cogan, Sarah
-  - Perrin, Sarah
-  - Arnold, Sébastien M. R.
-  - Krause, Sebastian
-  - Dai, Shengyang
-  - Garg, Shruti
-  - Sheth, Shruti
-  - Ronstrom, Sue
-  - Chan, Susan
-  - Jordan, Timothy
-  - Yu, Ting
-  - Eccles, Tom
-  - Hennigan, Tom
-  - Kocisky, Tomas
-  - Doshi, Tulsee
-  - Jain, Vihan
-  - Yadav, Vikas
-  - Meshram, Vilobh
-  - Dharmadhikari, Vishal
-  - Barkley, Warren
-  - Wei, Wei
-  - Ye, Wenming
-  - Han, Woohyun
-  - Kwon, Woosuk
-  - Xu, Xiang
-  - Shen, Zhe
-  - Gong, Zhitao
-  - Wei, Zichuan
-  - Cotruta, Victor
-  - Kirk, Phoebe
-  - Rao, Anand
-  - Giang, Minh
-  - Peran, Ludovic
-  - Warkentin, Tris
-  - Collins, Eli
-  - Barral, Joelle
-  - Ghahramani, Zoubin
-  - Hadsell, Raia
-  - Sculley, D.
-  - Banks, Jeanine
-  - Dragan, Anca
-  - Petrov, Slav
-  - Vinyals, Oriol
-  - Dean, Jeff
-  - Hassabis, Demis
-  - Kavukcuoglu, Koray
-  - Farabet, Clement
-  - Buchatskaya, Elena
-  - Borgeaud, Sebastian
-  - Fiedel, Noah
-  - Joulin, Armand
-  - Kenealy, Kathleen
-  - Dadashi, Robert
-  - Andreev, Alek
+    - Team, Gemma
+    - Riviere, Morgane
+    - Pathak, Shreya
+    - Sessa, Pier Giuseppe
+    - Hardin, Cassidy
+    - Bhupatiraju, Surya
+    - Hussenot, Léonard
+    - Mesnard, Thomas
+    - Shahriari, Bobak
+    - Ramé, Alexandre
+    - Ferret, Johan
+    - Liu, Peter
+    - Tafti, Pouya
+    - Friesen, Abe
+    - Casbon, Michelle
+    - Ramos, Sabela
+    - Kumar, Ravin
+    - Lan, Charline Le
+    - Jerome, Sammy
+    - Tsitsulin, Anton
+    - Vieillard, Nino
+    - Stanczyk, Piotr
+    - Girgin, Sertan
+    - Momchev, Nikola
+    - Hoffman, Matt
+    - Thakoor, Shantanu
+    - Grill, Jean-Bastien
+    - Neyshabur, Behnam
+    - Bachem, Olivier
+    - Walton, Alanna
+    - Severyn, Aliaksei
+    - Parrish, Alicia
+    - Ahmad, Aliya
+    - Hutchison, Allen
+    - Abdagic, Alvin
+    - Carl, Amanda
+    - Shen, Amy
+    - Brock, Andy
+    - Coenen, Andy
+    - Laforge, Anthony
+    - Paterson, Antonia
+    - Bastian, Ben
+    - Piot, Bilal
+    - Wu, Bo
+    - Royal, Brandon
+    - Chen, Charlie
+    - Kumar, Chintu
+    - Perry, Chris
+    - Welty, Chris
+    - Choquette-Choo, Christopher A.
+    - Sinopalnikov, Danila
+    - Weinberger, David
+    - Vijaykumar, Dimple
+    - Rogozińska, Dominika
+    - Herbison, Dustin
+    - Bandy, Elisa
+    - Wang, Emma
+    - Noland, Eric
+    - Moreira, Erica
+    - Senter, Evan
+    - Eltyshev, Evgenii
+    - Visin, Francesco
+    - Rasskin, Gabriel
+    - Wei, Gary
+    - Cameron, Glenn
+    - Martins, Gus
+    - Hashemi, Hadi
+    - Klimczak-Plucińska, Hanna
+    - Batra, Harleen
+    - Dhand, Harsh
+    - Nardini, Ivan
+    - Mein, Jacinda
+    - Zhou, Jack
+    - Svensson, James
+    - Stanway, Jeff
+    - Chan, Jetha
+    - Zhou, Jin Peng
+    - Carrasqueira, Joana
+    - Iljazi, Joana
+    - Becker, Jocelyn
+    - Fernandez, Joe
+    - name: Amersfoort
+      given-name: Joost
+      prefix: van
+    - Gordon, Josh
+    - Lipschultz, Josh
+    - Newlan, Josh
+    - Ji, Ju-yeong
+    - Mohamed, Kareem
+    - Badola, Kartikeya
+    - Black, Kat
+    - Millican, Katie
+    - McDonell, Keelin
+    - Nguyen, Kelvin
+    - Sodhia, Kiranbir
+    - Greene, Kish
+    - Sjoesund, Lars Lowe
+    - Usui, Lauren
+    - Sifre, Laurent
+    - Heuermann, Lena
+    - Lago, Leticia
+    - McNealus, Lilly
+    - Soares, Livio Baldini
+    - Kilpatrick, Logan
+    - Dixon, Lucas
+    - Martins, Luciano
+    - Reid, Machel
+    - Singh, Manvinder
+    - Iverson, Mark
+    - Görner, Martin
+    - Velloso, Mat
+    - Wirth, Mateo
+    - Davidow, Matt
+    - Miller, Matt
+    - Rahtz, Matthew
+    - Watson, Matthew
+    - Risdal, Meg
+    - Kazemi, Mehran
+    - Moynihan, Michael
+    - Zhang, Ming
+    - Kahng, Minsuk
+    - Park, Minwoo
+    - Rahman, Mofi
+    - Khatwani, Mohit
+    - Dao, Natalie
+    - Bardoliwalla, Nenshad
+    - Devanathan, Nesh
+    - Dumai, Neta
+    - Chauhan, Nilay
+    - Wahltinez, Oscar
+    - Botarda, Pankil
+    - Barnes, Parker
+    - Barham, Paul
+    - Michel, Paul
+    - Jin, Pengchong
+    - Georgiev, Petko
+    - Culliton, Phil
+    - Kuppala, Pradeep
+    - Comanescu, Ramona
+    - Merhej, Ramona
+    - Jana, Reena
+    - Rokni, Reza Ardeshir
+    - Agarwal, Rishabh
+    - Mullins, Ryan
+    - Saadat, Samaneh
+    - Carthy, Sara Mc
+    - Cogan, Sarah
+    - Perrin, Sarah
+    - Arnold, Sébastien M. R.
+    - Krause, Sebastian
+    - Dai, Shengyang
+    - Garg, Shruti
+    - Sheth, Shruti
+    - Ronstrom, Sue
+    - Chan, Susan
+    - Jordan, Timothy
+    - Yu, Ting
+    - Eccles, Tom
+    - Hennigan, Tom
+    - Kocisky, Tomas
+    - Doshi, Tulsee
+    - Jain, Vihan
+    - Yadav, Vikas
+    - Meshram, Vilobh
+    - Dharmadhikari, Vishal
+    - Barkley, Warren
+    - Wei, Wei
+    - Ye, Wenming
+    - Han, Woohyun
+    - Kwon, Woosuk
+    - Xu, Xiang
+    - Shen, Zhe
+    - Gong, Zhitao
+    - Wei, Zichuan
+    - Cotruta, Victor
+    - Kirk, Phoebe
+    - Rao, Anand
+    - Giang, Minh
+    - Peran, Ludovic
+    - Warkentin, Tris
+    - Collins, Eli
+    - Barral, Joelle
+    - Ghahramani, Zoubin
+    - Hadsell, Raia
+    - Sculley, D.
+    - Banks, Jeanine
+    - Dragan, Anca
+    - Petrov, Slav
+    - Vinyals, Oriol
+    - Dean, Jeff
+    - Hassabis, Demis
+    - Kavukcuoglu, Koray
+    - Farabet, Clement
+    - Buchatskaya, Elena
+    - Borgeaud, Sebastian
+    - Fiedel, Noah
+    - Joulin, Armand
+    - Kenealy, Kathleen
+    - Dadashi, Robert
+    - Andreev, Alek
   date: 2024
   url: https://arxiv.org/abs/2408.00118
   serial-number:
-    arxiv: '2408.00118'
+    arxiv: "2408.00118"
 
 llama3:
   type: misc
   title: The Llama 3 Herd of Models
   author:
-  - Grattafiori, Aaron
-  - Dubey, Abhimanyu
-  - Jauhri, Abhinav
-  - Pandey, Abhinav
-  - Kadian, Abhishek
-  - Al-Dahle, Ahmad
-  - Letman, Aiesha
-  - Mathur, Akhil
-  - Schelten, Alan
-  - Vaughan, Alex
-  - Yang, Amy
-  - Fan, Angela
-  - Goyal, Anirudh
-  - Hartshorn, Anthony
-  - Yang, Aobo
-  - Mitra, Archi
-  - Sravankumar, Archie
-  - Korenev, Artem
-  - Hinsvark, Arthur
-  - Rao, Arun
-  - Zhang, Aston
-  - Rodriguez, Aurelien
-  - Gregerson, Austen
-  - Spataru, Ava
-  - Roziere, Baptiste
-  - Biron, Bethany
-  - Tang, Binh
-  - Chern, Bobbie
-  - Caucheteux, Charlotte
-  - Nayak, Chaya
-  - Bi, Chloe
-  - Marra, Chris
-  - McConnell, Chris
-  - Keller, Christian
-  - Touret, Christophe
-  - Wu, Chunyang
-  - Wong, Corinne
-  - Ferrer, Cristian Canton
-  - Nikolaidis, Cyrus
-  - Allonsius, Damien
-  - Song, Daniel
-  - Pintz, Danielle
-  - Livshits, Danny
-  - Wyatt, Danny
-  - Esiobu, David
-  - Choudhary, Dhruv
-  - Mahajan, Dhruv
-  - Garcia-Olano, Diego
-  - Perino, Diego
-  - Hupkes, Dieuwke
-  - Lakomkin, Egor
-  - AlBadawy, Ehab
-  - Lobanova, Elina
-  - Dinan, Emily
-  - Smith, Eric Michael
-  - Radenovic, Filip
-  - Guzmán, Francisco
-  - Zhang, Frank
-  - Synnaeve, Gabriel
-  - Lee, Gabrielle
-  - Anderson, Georgia Lewis
-  - Thattai, Govind
-  - Nail, Graeme
-  - Mialon, Gregoire
-  - Pang, Guan
-  - Cucurell, Guillem
-  - Nguyen, Hailey
-  - Korevaar, Hannah
-  - Xu, Hu
-  - Touvron, Hugo
-  - Zarov, Iliyan
-  - Ibarra, Imanol Arrieta
-  - Kloumann, Isabel
-  - Misra, Ishan
-  - Evtimov, Ivan
-  - Zhang, Jack
-  - Copet, Jade
-  - Lee, Jaewon
-  - Geffert, Jan
-  - Vranes, Jana
-  - Park, Jason
-  - Mahadeokar, Jay
-  - Shah, Jeet
-  - name: Linde
-    given-name: Jelmer
-    prefix: van der
-  - Billock, Jennifer
-  - Hong, Jenny
-  - Lee, Jenya
-  - Fu, Jeremy
-  - Chi, Jianfeng
-  - Huang, Jianyu
-  - Liu, Jiawen
-  - Wang, Jie
-  - Yu, Jiecao
-  - Bitton, Joanna
-  - Spisak, Joe
-  - Park, Jongsoo
-  - Rocca, Joseph
-  - Johnstun, Joshua
-  - Saxe, Joshua
-  - Jia, Junteng
-  - Alwala, Kalyan Vasuden
-  - Prasad, Karthik
-  - Upasani, Kartikeya
-  - Plawiak, Kate
-  - Li, Ke
-  - Heafield, Kenneth
-  - Stone, Kevin
-  - El-Arini, Khalid
-  - Iyer, Krithika
-  - Malik, Kshitiz
-  - Chiu, Kuenley
-  - Bhalla, Kunal
-  - Lakhotia, Kushal
-  - Rantala-Yeary, Lauren
-  - name: Maaten
-    given-name: Laurens
-    prefix: van der
-  - Chen, Lawrence
-  - Tan, Liang
-  - Jenkins, Liz
-  - Martin, Louis
-  - Madaan, Lovish
-  - Malo, Lubo
-  - Blecher, Lukas
-  - Landzaat, Lukas
-  - name: Oliveira
-    given-name: Luke
-    prefix: de
-  - Muzzi, Madeline
-  - Pasupuleti, Mahesh
-  - Singh, Mannat
-  - Paluri, Manohar
-  - Kardas, Marcin
-  - Tsimpoukelli, Maria
-  - Oldham, Mathew
-  - Rita, Mathieu
-  - Pavlova, Maya
-  - Kambadur, Melanie
-  - Lewis, Mike
-  - Si, Min
-  - Singh, Mitesh Kumar
-  - Hassan, Mona
-  - Goyal, Naman
-  - Torabi, Narjes
-  - Bashlykov, Nikolay
-  - Bogoychev, Nikolay
-  - Chatterji, Niladri
-  - Zhang, Ning
-  - Duchenne, Olivier
-  - Çelebi, Onur
-  - Alrassy, Patrick
-  - Zhang, Pengchuan
-  - Li, Pengwei
-  - Vasic, Petar
-  - Weng, Peter
-  - Bhargava, Prajjwal
-  - Dubal, Pratik
-  - Krishnan, Praveen
-  - Koura, Punit Singh
-  - Xu, Puxin
-  - He, Qing
-  - Dong, Qingxiao
-  - Srinivasan, Ragavan
-  - Ganapathy, Raj
-  - Calderer, Ramon
-  - Cabral, Ricardo Silveira
-  - Stojnic, Robert
-  - Raileanu, Roberta
-  - Maheswari, Rohan
-  - Girdhar, Rohit
-  - Patel, Rohit
-  - Sauvestre, Romain
-  - Polidoro, Ronnie
-  - Sumbaly, Roshan
-  - Taylor, Ross
-  - Silva, Ruan
-  - Hou, Rui
-  - Wang, Rui
-  - Hosseini, Saghar
-  - Chennabasappa, Sahana
-  - Singh, Sanjay
-  - Bell, Sean
-  - Kim, Seohyun Sonia
-  - Edunov, Sergey
-  - Nie, Shaoliang
-  - Narang, Sharan
-  - Raparthy, Sharath
-  - Shen, Sheng
-  - Wan, Shengye
-  - Bhosale, Shruti
-  - Zhang, Shun
-  - Vandenhende, Simon
-  - Batra, Soumya
-  - Whitman, Spencer
-  - Sootla, Sten
-  - Collot, Stephane
-  - Gururangan, Suchin
-  - Borodinsky, Sydney
-  - Herman, Tamar
-  - Fowler, Tara
-  - Sheasha, Tarek
-  - Georgiou, Thomas
-  - Scialom, Thomas
-  - Speckbacher, Tobias
-  - Mihaylov, Todor
-  - Xiao, Tong
-  - Karn, Ujjwal
-  - Goswami, Vedanuj
-  - Gupta, Vibhor
-  - Ramanathan, Vignesh
-  - Kerkez, Viktor
-  - Gonguet, Vincent
-  - Do, Virginie
-  - Vogeti, Vish
-  - Albiero, Vítor
-  - Petrovic, Vladan
-  - Chu, Weiwei
-  - Xiong, Wenhan
-  - Fu, Wenyin
-  - Meers, Whitney
-  - Martinet, Xavier
-  - Wang, Xiaodong
-  - Wang, Xiaofang
-  - Tan, Xiaoqing Ellen
-  - Xia, Xide
-  - Xie, Xinfeng
-  - Jia, Xuchao
-  - Wang, Xuewei
-  - Goldschlag, Yaelle
-  - Gaur, Yashesh
-  - Babaei, Yasmine
-  - Wen, Yi
-  - Song, Yiwen
-  - Zhang, Yuchen
-  - Li, Yue
-  - Mao, Yuning
-  - Coudert, Zacharie Delpierre
-  - Yan, Zheng
-  - Chen, Zhengxing
-  - Papakipos, Zoe
-  - Singh, Aaditya
-  - Srivastava, Aayushi
-  - Jain, Abha
-  - Kelsey, Adam
-  - Shajnfeld, Adam
-  - Gangidi, Adithya
-  - Victoria, Adolfo
-  - Goldstand, Ahuva
-  - Menon, Ajay
-  - Sharma, Ajay
-  - Boesenberg, Alex
-  - Baevski, Alexei
-  - Feinstein, Allie
-  - Kallet, Amanda
-  - Sangani, Amit
-  - Teo, Amos
-  - Yunus, Anam
-  - Lupu, Andrei
-  - Alvarado, Andres
-  - Caples, Andrew
-  - Gu, Andrew
-  - Ho, Andrew
-  - Poulton, Andrew
-  - Ryan, Andrew
-  - Ramchandani, Ankit
-  - Dong, Annie
-  - Franco, Annie
-  - Goyal, Anuj
-  - Saraf, Aparajita
-  - Chowdhury, Arkabandhu
-  - Gabriel, Ashley
-  - Bharambe, Ashwin
-  - Eisenman, Assaf
-  - Yazdan, Azadeh
-  - James, Beau
-  - Maurer, Ben
-  - Leonhardi, Benjamin
-  - Huang, Bernie
-  - Loyd, Beth
-  - Paola, Beto De
-  - Paranjape, Bhargavi
-  - Liu, Bing
-  - Wu, Bo
-  - Ni, Boyu
-  - Hancock, Braden
-  - Wasti, Bram
-  - Spence, Brandon
-  - Stojkovic, Brani
-  - Gamido, Brian
-  - Montalvo, Britt
-  - Parker, Carl
-  - Burton, Carly
-  - Mejia, Catalina
-  - Liu, Ce
-  - Wang, Changhan
-  - Kim, Changkyu
-  - Zhou, Chao
-  - Hu, Chester
-  - Chu, Ching-Hsiang
-  - Cai, Chris
-  - Tindal, Chris
-  - Feichtenhofer, Christoph
-  - Gao, Cynthia
-  - Civin, Damon
-  - Beaty, Dana
-  - Kreymer, Daniel
-  - Li, Daniel
-  - Adkins, David
-  - Xu, David
-  - Testuggine, Davide
-  - David, Delia
-  - Parikh, Devi
-  - Liskovich, Diana
-  - Foss, Didem
-  - Wang, Dingkang
-  - Le, Duc
-  - Holland, Dustin
-  - Dowling, Edward
-  - Jamil, Eissa
-  - Montgomery, Elaine
-  - Presani, Eleonora
-  - Hahn, Emily
-  - Wood, Emily
-  - Le, Eric-Tuan
-  - Brinkman, Erik
-  - Arcaute, Esteban
-  - Dunbar, Evan
-  - Smothers, Evan
-  - Sun, Fei
-  - Kreuk, Felix
-  - Tian, Feng
-  - Kokkinos, Filippos
-  - Ozgenel, Firat
-  - Caggioni, Francesco
-  - Kanayet, Frank
-  - Seide, Frank
-  - Florez, Gabriela Medina
-  - Schwarz, Gabriella
-  - Badeer, Gada
-  - Swee, Georgia
-  - Halpern, Gil
-  - Herman, Grant
-  - Sizov, Grigory
-  - Guangyi
-  - Zhang
-  - Lakshminarayanan, Guna
-  - Inan, Hakan
-  - Shojanazeri, Hamid
-  - Zou, Han
-  - Wang, Hannah
-  - Zha, Hanwen
-  - Habeeb, Haroun
-  - Rudolph, Harrison
-  - Suk, Helen
-  - Aspegren, Henry
-  - Goldman, Hunter
-  - Zhan, Hongyuan
-  - Damlaj, Ibrahim
-  - Molybog, Igor
-  - Tufanov, Igor
-  - Leontiadis, Ilias
-  - Veliche, Irina-Elena
-  - Gat, Itai
-  - Weissman, Jake
-  - Geboski, James
-  - Kohli, James
-  - Lam, Janice
-  - Asher, Japhet
-  - Gaya, Jean-Baptiste
-  - Marcus, Jeff
-  - Tang, Jeff
-  - Chan, Jennifer
-  - Zhen, Jenny
-  - Reizenstein, Jeremy
-  - Teboul, Jeremy
-  - Zhong, Jessica
-  - Jin, Jian
-  - Yang, Jingyi
-  - Cummings, Joe
-  - Carvill, Jon
-  - Shepard, Jon
-  - McPhie, Jonathan
-  - Torres, Jonathan
-  - Ginsburg, Josh
-  - Wang, Junjie
-  - Wu, Kai
-  - U, Kam Hou
-  - Saxena, Karan
-  - Khandelwal, Kartikay
-  - Zand, Katayoun
-  - Matosich, Kathy
-  - Veeraraghavan, Kaushik
-  - Michelena, Kelly
-  - Li, Keqian
-  - Jagadeesh, Kiran
-  - Huang, Kun
-  - Chawla, Kunal
-  - Huang, Kyle
-  - Chen, Lailin
-  - Garg, Lakshya
-  - A, Lavender
-  - Silva, Leandro
-  - Bell, Lee
-  - Zhang, Lei
-  - Guo, Liangpeng
-  - Yu, Licheng
-  - Moshkovich, Liron
-  - Wehrstedt, Luca
-  - Khabsa, Madian
-  - Avalani, Manav
-  - Bhatt, Manish
-  - Mankus, Martynas
-  - Hasson, Matan
-  - Lennie, Matthew
-  - Reso, Matthias
-  - Groshev, Maxim
-  - Naumov, Maxim
-  - Lathi, Maya
-  - Keneally, Meghan
-  - Liu, Miao
-  - Seltzer, Michael L.
-  - Valko, Michal
-  - Restrepo, Michelle
-  - Patel, Mihir
-  - Vyatskov, Mik
-  - Samvelyan, Mikayel
-  - Clark, Mike
-  - Macey, Mike
-  - Wang, Mike
-  - Hermoso, Miquel Jubert
-  - Metanat, Mo
-  - Rastegari, Mohammad
-  - Bansal, Munish
-  - Santhanam, Nandhini
-  - Parks, Natascha
-  - White, Natasha
-  - Bawa, Navyata
-  - Singhal, Nayan
-  - Egebo, Nick
-  - Usunier, Nicolas
-  - Mehta, Nikhil
-  - Laptev, Nikolay Pavlovich
-  - Dong, Ning
-  - Cheng, Norman
-  - Chernoguz, Oleg
-  - Hart, Olivia
-  - Salpekar, Omkar
-  - Kalinli, Ozlem
-  - Kent, Parkin
-  - Parekh, Parth
-  - Saab, Paul
-  - Balaji, Pavan
-  - Rittner, Pedro
-  - Bontrager, Philip
-  - Roux, Pierre
-  - Dollar, Piotr
-  - Zvyagina, Polina
-  - Ratanchandani, Prashant
-  - Yuvraj, Pritish
-  - Liang, Qian
-  - Alao, Rachad
-  - Rodriguez, Rachel
-  - Ayub, Rafi
-  - Murthy, Raghotham
-  - Nayani, Raghu
-  - Mitra, Rahul
-  - Parthasarathy, Rangaprabhu
-  - Li, Raymond
-  - Hogan, Rebekkah
-  - Battey, Robin
-  - Wang, Rocky
-  - Howes, Russ
-  - Rinott, Ruty
-  - Mehta, Sachin
-  - Siby, Sachin
-  - Bondu, Sai Jayesh
-  - Datta, Samyak
-  - Chugh, Sara
-  - Hunt, Sara
-  - Dhillon, Sargun
-  - Sidorov, Sasha
-  - Pan, Satadru
-  - Mahajan, Saurabh
-  - Verma, Saurabh
-  - Yamamoto, Seiji
-  - Ramaswamy, Sharadh
-  - Lindsay, Shaun
-  - Lindsay, Shaun
-  - Feng, Sheng
-  - Lin, Shenghao
-  - Zha, Shengxin Cindy
-  - Patil, Shishir
-  - Shankar, Shiva
-  - Zhang, Shuqiang
-  - Zhang, Shuqiang
-  - Wang, Sinong
-  - Agarwal, Sneha
-  - Sajuyigbe, Soji
-  - Chintala, Soumith
-  - Max, Stephanie
-  - Chen, Stephen
-  - Kehoe, Steve
-  - Satterfield, Steve
-  - Govindaprasad, Sudarshan
-  - Gupta, Sumit
-  - Deng, Summer
-  - Cho, Sungmin
-  - Virk, Sunny
-  - Subramanian, Suraj
-  - Choudhury, Sy
-  - Goldman, Sydney
-  - Remez, Tal
-  - Glaser, Tamar
-  - Best, Tamara
-  - Koehler, Thilo
-  - Robinson, Thomas
-  - Li, Tianhe
-  - Zhang, Tianjun
-  - Matthews, Tim
-  - Chou, Timothy
-  - Shaked, Tzook
-  - Vontimitta, Varun
-  - Ajayi, Victoria
-  - Montanez, Victoria
-  - Mohan, Vijai
-  - Kumar, Vinay Satish
-  - Mangla, Vishal
-  - Ionescu, Vlad
-  - Poenaru, Vlad
-  - Mihailescu, Vlad Tiberiu
-  - Ivanov, Vladimir
-  - Li, Wei
-  - Wang, Wenchen
-  - Jiang, Wenwen
-  - Bouaziz, Wes
-  - Constable, Will
-  - Tang, Xiaocheng
-  - Wu, Xiaojian
-  - Wang, Xiaolan
-  - Wu, Xilun
-  - Gao, Xinbo
-  - Kleinman, Yaniv
-  - Chen, Yanjun
-  - Hu, Ye
-  - Jia, Ye
-  - Qi, Ye
-  - Li, Yenda
-  - Zhang, Yilin
-  - Zhang, Ying
-  - Adi, Yossi
-  - Nam, Youngjin
-  - Yu
-  - Wang
-  - Zhao, Yu
-  - Hao, Yuchen
-  - Qian, Yundi
-  - Li, Yunlu
-  - He, Yuzi
-  - Rait, Zach
-  - DeVito, Zachary
-  - Rosnbrick, Zef
-  - Wen, Zhaoduo
-  - Yang, Zhenyu
-  - Zhao, Zhiwei
-  - Ma, Zhiyu
+    - Grattafiori, Aaron
+    - Dubey, Abhimanyu
+    - Jauhri, Abhinav
+    - Pandey, Abhinav
+    - Kadian, Abhishek
+    - Al-Dahle, Ahmad
+    - Letman, Aiesha
+    - Mathur, Akhil
+    - Schelten, Alan
+    - Vaughan, Alex
+    - Yang, Amy
+    - Fan, Angela
+    - Goyal, Anirudh
+    - Hartshorn, Anthony
+    - Yang, Aobo
+    - Mitra, Archi
+    - Sravankumar, Archie
+    - Korenev, Artem
+    - Hinsvark, Arthur
+    - Rao, Arun
+    - Zhang, Aston
+    - Rodriguez, Aurelien
+    - Gregerson, Austen
+    - Spataru, Ava
+    - Roziere, Baptiste
+    - Biron, Bethany
+    - Tang, Binh
+    - Chern, Bobbie
+    - Caucheteux, Charlotte
+    - Nayak, Chaya
+    - Bi, Chloe
+    - Marra, Chris
+    - McConnell, Chris
+    - Keller, Christian
+    - Touret, Christophe
+    - Wu, Chunyang
+    - Wong, Corinne
+    - Ferrer, Cristian Canton
+    - Nikolaidis, Cyrus
+    - Allonsius, Damien
+    - Song, Daniel
+    - Pintz, Danielle
+    - Livshits, Danny
+    - Wyatt, Danny
+    - Esiobu, David
+    - Choudhary, Dhruv
+    - Mahajan, Dhruv
+    - Garcia-Olano, Diego
+    - Perino, Diego
+    - Hupkes, Dieuwke
+    - Lakomkin, Egor
+    - AlBadawy, Ehab
+    - Lobanova, Elina
+    - Dinan, Emily
+    - Smith, Eric Michael
+    - Radenovic, Filip
+    - Guzmán, Francisco
+    - Zhang, Frank
+    - Synnaeve, Gabriel
+    - Lee, Gabrielle
+    - Anderson, Georgia Lewis
+    - Thattai, Govind
+    - Nail, Graeme
+    - Mialon, Gregoire
+    - Pang, Guan
+    - Cucurell, Guillem
+    - Nguyen, Hailey
+    - Korevaar, Hannah
+    - Xu, Hu
+    - Touvron, Hugo
+    - Zarov, Iliyan
+    - Ibarra, Imanol Arrieta
+    - Kloumann, Isabel
+    - Misra, Ishan
+    - Evtimov, Ivan
+    - Zhang, Jack
+    - Copet, Jade
+    - Lee, Jaewon
+    - Geffert, Jan
+    - Vranes, Jana
+    - Park, Jason
+    - Mahadeokar, Jay
+    - Shah, Jeet
+    - name: Linde
+      given-name: Jelmer
+      prefix: van der
+    - Billock, Jennifer
+    - Hong, Jenny
+    - Lee, Jenya
+    - Fu, Jeremy
+    - Chi, Jianfeng
+    - Huang, Jianyu
+    - Liu, Jiawen
+    - Wang, Jie
+    - Yu, Jiecao
+    - Bitton, Joanna
+    - Spisak, Joe
+    - Park, Jongsoo
+    - Rocca, Joseph
+    - Johnstun, Joshua
+    - Saxe, Joshua
+    - Jia, Junteng
+    - Alwala, Kalyan Vasuden
+    - Prasad, Karthik
+    - Upasani, Kartikeya
+    - Plawiak, Kate
+    - Li, Ke
+    - Heafield, Kenneth
+    - Stone, Kevin
+    - El-Arini, Khalid
+    - Iyer, Krithika
+    - Malik, Kshitiz
+    - Chiu, Kuenley
+    - Bhalla, Kunal
+    - Lakhotia, Kushal
+    - Rantala-Yeary, Lauren
+    - name: Maaten
+      given-name: Laurens
+      prefix: van der
+    - Chen, Lawrence
+    - Tan, Liang
+    - Jenkins, Liz
+    - Martin, Louis
+    - Madaan, Lovish
+    - Malo, Lubo
+    - Blecher, Lukas
+    - Landzaat, Lukas
+    - name: Oliveira
+      given-name: Luke
+      prefix: de
+    - Muzzi, Madeline
+    - Pasupuleti, Mahesh
+    - Singh, Mannat
+    - Paluri, Manohar
+    - Kardas, Marcin
+    - Tsimpoukelli, Maria
+    - Oldham, Mathew
+    - Rita, Mathieu
+    - Pavlova, Maya
+    - Kambadur, Melanie
+    - Lewis, Mike
+    - Si, Min
+    - Singh, Mitesh Kumar
+    - Hassan, Mona
+    - Goyal, Naman
+    - Torabi, Narjes
+    - Bashlykov, Nikolay
+    - Bogoychev, Nikolay
+    - Chatterji, Niladri
+    - Zhang, Ning
+    - Duchenne, Olivier
+    - Çelebi, Onur
+    - Alrassy, Patrick
+    - Zhang, Pengchuan
+    - Li, Pengwei
+    - Vasic, Petar
+    - Weng, Peter
+    - Bhargava, Prajjwal
+    - Dubal, Pratik
+    - Krishnan, Praveen
+    - Koura, Punit Singh
+    - Xu, Puxin
+    - He, Qing
+    - Dong, Qingxiao
+    - Srinivasan, Ragavan
+    - Ganapathy, Raj
+    - Calderer, Ramon
+    - Cabral, Ricardo Silveira
+    - Stojnic, Robert
+    - Raileanu, Roberta
+    - Maheswari, Rohan
+    - Girdhar, Rohit
+    - Patel, Rohit
+    - Sauvestre, Romain
+    - Polidoro, Ronnie
+    - Sumbaly, Roshan
+    - Taylor, Ross
+    - Silva, Ruan
+    - Hou, Rui
+    - Wang, Rui
+    - Hosseini, Saghar
+    - Chennabasappa, Sahana
+    - Singh, Sanjay
+    - Bell, Sean
+    - Kim, Seohyun Sonia
+    - Edunov, Sergey
+    - Nie, Shaoliang
+    - Narang, Sharan
+    - Raparthy, Sharath
+    - Shen, Sheng
+    - Wan, Shengye
+    - Bhosale, Shruti
+    - Zhang, Shun
+    - Vandenhende, Simon
+    - Batra, Soumya
+    - Whitman, Spencer
+    - Sootla, Sten
+    - Collot, Stephane
+    - Gururangan, Suchin
+    - Borodinsky, Sydney
+    - Herman, Tamar
+    - Fowler, Tara
+    - Sheasha, Tarek
+    - Georgiou, Thomas
+    - Scialom, Thomas
+    - Speckbacher, Tobias
+    - Mihaylov, Todor
+    - Xiao, Tong
+    - Karn, Ujjwal
+    - Goswami, Vedanuj
+    - Gupta, Vibhor
+    - Ramanathan, Vignesh
+    - Kerkez, Viktor
+    - Gonguet, Vincent
+    - Do, Virginie
+    - Vogeti, Vish
+    - Albiero, Vítor
+    - Petrovic, Vladan
+    - Chu, Weiwei
+    - Xiong, Wenhan
+    - Fu, Wenyin
+    - Meers, Whitney
+    - Martinet, Xavier
+    - Wang, Xiaodong
+    - Wang, Xiaofang
+    - Tan, Xiaoqing Ellen
+    - Xia, Xide
+    - Xie, Xinfeng
+    - Jia, Xuchao
+    - Wang, Xuewei
+    - Goldschlag, Yaelle
+    - Gaur, Yashesh
+    - Babaei, Yasmine
+    - Wen, Yi
+    - Song, Yiwen
+    - Zhang, Yuchen
+    - Li, Yue
+    - Mao, Yuning
+    - Coudert, Zacharie Delpierre
+    - Yan, Zheng
+    - Chen, Zhengxing
+    - Papakipos, Zoe
+    - Singh, Aaditya
+    - Srivastava, Aayushi
+    - Jain, Abha
+    - Kelsey, Adam
+    - Shajnfeld, Adam
+    - Gangidi, Adithya
+    - Victoria, Adolfo
+    - Goldstand, Ahuva
+    - Menon, Ajay
+    - Sharma, Ajay
+    - Boesenberg, Alex
+    - Baevski, Alexei
+    - Feinstein, Allie
+    - Kallet, Amanda
+    - Sangani, Amit
+    - Teo, Amos
+    - Yunus, Anam
+    - Lupu, Andrei
+    - Alvarado, Andres
+    - Caples, Andrew
+    - Gu, Andrew
+    - Ho, Andrew
+    - Poulton, Andrew
+    - Ryan, Andrew
+    - Ramchandani, Ankit
+    - Dong, Annie
+    - Franco, Annie
+    - Goyal, Anuj
+    - Saraf, Aparajita
+    - Chowdhury, Arkabandhu
+    - Gabriel, Ashley
+    - Bharambe, Ashwin
+    - Eisenman, Assaf
+    - Yazdan, Azadeh
+    - James, Beau
+    - Maurer, Ben
+    - Leonhardi, Benjamin
+    - Huang, Bernie
+    - Loyd, Beth
+    - Paola, Beto De
+    - Paranjape, Bhargavi
+    - Liu, Bing
+    - Wu, Bo
+    - Ni, Boyu
+    - Hancock, Braden
+    - Wasti, Bram
+    - Spence, Brandon
+    - Stojkovic, Brani
+    - Gamido, Brian
+    - Montalvo, Britt
+    - Parker, Carl
+    - Burton, Carly
+    - Mejia, Catalina
+    - Liu, Ce
+    - Wang, Changhan
+    - Kim, Changkyu
+    - Zhou, Chao
+    - Hu, Chester
+    - Chu, Ching-Hsiang
+    - Cai, Chris
+    - Tindal, Chris
+    - Feichtenhofer, Christoph
+    - Gao, Cynthia
+    - Civin, Damon
+    - Beaty, Dana
+    - Kreymer, Daniel
+    - Li, Daniel
+    - Adkins, David
+    - Xu, David
+    - Testuggine, Davide
+    - David, Delia
+    - Parikh, Devi
+    - Liskovich, Diana
+    - Foss, Didem
+    - Wang, Dingkang
+    - Le, Duc
+    - Holland, Dustin
+    - Dowling, Edward
+    - Jamil, Eissa
+    - Montgomery, Elaine
+    - Presani, Eleonora
+    - Hahn, Emily
+    - Wood, Emily
+    - Le, Eric-Tuan
+    - Brinkman, Erik
+    - Arcaute, Esteban
+    - Dunbar, Evan
+    - Smothers, Evan
+    - Sun, Fei
+    - Kreuk, Felix
+    - Tian, Feng
+    - Kokkinos, Filippos
+    - Ozgenel, Firat
+    - Caggioni, Francesco
+    - Kanayet, Frank
+    - Seide, Frank
+    - Florez, Gabriela Medina
+    - Schwarz, Gabriella
+    - Badeer, Gada
+    - Swee, Georgia
+    - Halpern, Gil
+    - Herman, Grant
+    - Sizov, Grigory
+    - Guangyi
+    - Zhang
+    - Lakshminarayanan, Guna
+    - Inan, Hakan
+    - Shojanazeri, Hamid
+    - Zou, Han
+    - Wang, Hannah
+    - Zha, Hanwen
+    - Habeeb, Haroun
+    - Rudolph, Harrison
+    - Suk, Helen
+    - Aspegren, Henry
+    - Goldman, Hunter
+    - Zhan, Hongyuan
+    - Damlaj, Ibrahim
+    - Molybog, Igor
+    - Tufanov, Igor
+    - Leontiadis, Ilias
+    - Veliche, Irina-Elena
+    - Gat, Itai
+    - Weissman, Jake
+    - Geboski, James
+    - Kohli, James
+    - Lam, Janice
+    - Asher, Japhet
+    - Gaya, Jean-Baptiste
+    - Marcus, Jeff
+    - Tang, Jeff
+    - Chan, Jennifer
+    - Zhen, Jenny
+    - Reizenstein, Jeremy
+    - Teboul, Jeremy
+    - Zhong, Jessica
+    - Jin, Jian
+    - Yang, Jingyi
+    - Cummings, Joe
+    - Carvill, Jon
+    - Shepard, Jon
+    - McPhie, Jonathan
+    - Torres, Jonathan
+    - Ginsburg, Josh
+    - Wang, Junjie
+    - Wu, Kai
+    - U, Kam Hou
+    - Saxena, Karan
+    - Khandelwal, Kartikay
+    - Zand, Katayoun
+    - Matosich, Kathy
+    - Veeraraghavan, Kaushik
+    - Michelena, Kelly
+    - Li, Keqian
+    - Jagadeesh, Kiran
+    - Huang, Kun
+    - Chawla, Kunal
+    - Huang, Kyle
+    - Chen, Lailin
+    - Garg, Lakshya
+    - A, Lavender
+    - Silva, Leandro
+    - Bell, Lee
+    - Zhang, Lei
+    - Guo, Liangpeng
+    - Yu, Licheng
+    - Moshkovich, Liron
+    - Wehrstedt, Luca
+    - Khabsa, Madian
+    - Avalani, Manav
+    - Bhatt, Manish
+    - Mankus, Martynas
+    - Hasson, Matan
+    - Lennie, Matthew
+    - Reso, Matthias
+    - Groshev, Maxim
+    - Naumov, Maxim
+    - Lathi, Maya
+    - Keneally, Meghan
+    - Liu, Miao
+    - Seltzer, Michael L.
+    - Valko, Michal
+    - Restrepo, Michelle
+    - Patel, Mihir
+    - Vyatskov, Mik
+    - Samvelyan, Mikayel
+    - Clark, Mike
+    - Macey, Mike
+    - Wang, Mike
+    - Hermoso, Miquel Jubert
+    - Metanat, Mo
+    - Rastegari, Mohammad
+    - Bansal, Munish
+    - Santhanam, Nandhini
+    - Parks, Natascha
+    - White, Natasha
+    - Bawa, Navyata
+    - Singhal, Nayan
+    - Egebo, Nick
+    - Usunier, Nicolas
+    - Mehta, Nikhil
+    - Laptev, Nikolay Pavlovich
+    - Dong, Ning
+    - Cheng, Norman
+    - Chernoguz, Oleg
+    - Hart, Olivia
+    - Salpekar, Omkar
+    - Kalinli, Ozlem
+    - Kent, Parkin
+    - Parekh, Parth
+    - Saab, Paul
+    - Balaji, Pavan
+    - Rittner, Pedro
+    - Bontrager, Philip
+    - Roux, Pierre
+    - Dollar, Piotr
+    - Zvyagina, Polina
+    - Ratanchandani, Prashant
+    - Yuvraj, Pritish
+    - Liang, Qian
+    - Alao, Rachad
+    - Rodriguez, Rachel
+    - Ayub, Rafi
+    - Murthy, Raghotham
+    - Nayani, Raghu
+    - Mitra, Rahul
+    - Parthasarathy, Rangaprabhu
+    - Li, Raymond
+    - Hogan, Rebekkah
+    - Battey, Robin
+    - Wang, Rocky
+    - Howes, Russ
+    - Rinott, Ruty
+    - Mehta, Sachin
+    - Siby, Sachin
+    - Bondu, Sai Jayesh
+    - Datta, Samyak
+    - Chugh, Sara
+    - Hunt, Sara
+    - Dhillon, Sargun
+    - Sidorov, Sasha
+    - Pan, Satadru
+    - Mahajan, Saurabh
+    - Verma, Saurabh
+    - Yamamoto, Seiji
+    - Ramaswamy, Sharadh
+    - Lindsay, Shaun
+    - Lindsay, Shaun
+    - Feng, Sheng
+    - Lin, Shenghao
+    - Zha, Shengxin Cindy
+    - Patil, Shishir
+    - Shankar, Shiva
+    - Zhang, Shuqiang
+    - Zhang, Shuqiang
+    - Wang, Sinong
+    - Agarwal, Sneha
+    - Sajuyigbe, Soji
+    - Chintala, Soumith
+    - Max, Stephanie
+    - Chen, Stephen
+    - Kehoe, Steve
+    - Satterfield, Steve
+    - Govindaprasad, Sudarshan
+    - Gupta, Sumit
+    - Deng, Summer
+    - Cho, Sungmin
+    - Virk, Sunny
+    - Subramanian, Suraj
+    - Choudhury, Sy
+    - Goldman, Sydney
+    - Remez, Tal
+    - Glaser, Tamar
+    - Best, Tamara
+    - Koehler, Thilo
+    - Robinson, Thomas
+    - Li, Tianhe
+    - Zhang, Tianjun
+    - Matthews, Tim
+    - Chou, Timothy
+    - Shaked, Tzook
+    - Vontimitta, Varun
+    - Ajayi, Victoria
+    - Montanez, Victoria
+    - Mohan, Vijai
+    - Kumar, Vinay Satish
+    - Mangla, Vishal
+    - Ionescu, Vlad
+    - Poenaru, Vlad
+    - Mihailescu, Vlad Tiberiu
+    - Ivanov, Vladimir
+    - Li, Wei
+    - Wang, Wenchen
+    - Jiang, Wenwen
+    - Bouaziz, Wes
+    - Constable, Will
+    - Tang, Xiaocheng
+    - Wu, Xiaojian
+    - Wang, Xiaolan
+    - Wu, Xilun
+    - Gao, Xinbo
+    - Kleinman, Yaniv
+    - Chen, Yanjun
+    - Hu, Ye
+    - Jia, Ye
+    - Qi, Ye
+    - Li, Yenda
+    - Zhang, Yilin
+    - Zhang, Ying
+    - Adi, Yossi
+    - Nam, Youngjin
+    - Yu
+    - Wang
+    - Zhao, Yu
+    - Hao, Yuchen
+    - Qian, Yundi
+    - Li, Yunlu
+    - He, Yuzi
+    - Rait, Zach
+    - DeVito, Zachary
+    - Rosnbrick, Zef
+    - Wen, Zhaoduo
+    - Yang, Zhenyu
+    - Zhao, Zhiwei
+    - Ma, Zhiyu
   date: 2024
   url: https://arxiv.org/abs/2407.21783
   serial-number:
-    arxiv: '2407.21783'
+    arxiv: "2407.21783"
 
 qwen:
   type: misc
   title: Qwen Technical Report
   author:
-  - Bai, Jinze
-  - Bai, Shuai
-  - Chu, Yunfei
-  - Cui, Zeyu
-  - Dang, Kai
-  - Deng, Xiaodong
-  - Fan, Yang
-  - Ge, Wenbin
-  - Han, Yu
-  - Huang, Fei
-  - Hui, Binyuan
-  - Ji, Luo
-  - Li, Mei
-  - Lin, Junyang
-  - Lin, Runji
-  - Liu, Dayiheng
-  - Liu, Gao
-  - Lu, Chengqiang
-  - Lu, Keming
-  - Ma, Jianxin
-  - Men, Rui
-  - Ren, Xingzhang
-  - Ren, Xuancheng
-  - Tan, Chuanqi
-  - Tan, Sinan
-  - Tu, Jianhong
-  - Wang, Peng
-  - Wang, Shijie
-  - Wang, Wei
-  - Wu, Shengguang
-  - Xu, Benfeng
-  - Xu, Jin
-  - Yang, An
-  - Yang, Hao
-  - Yang, Jian
-  - Yang, Shusheng
-  - Yao, Yang
-  - Yu, Bowen
-  - Yuan, Hongyi
-  - Yuan, Zheng
-  - Zhang, Jianwei
-  - Zhang, Xingxuan
-  - Zhang, Yichang
-  - Zhang, Zhenru
-  - Zhou, Chang
-  - Zhou, Jingren
-  - Zhou, Xiaohuan
-  - Zhu, Tianhang
+    - Bai, Jinze
+    - Bai, Shuai
+    - Chu, Yunfei
+    - Cui, Zeyu
+    - Dang, Kai
+    - Deng, Xiaodong
+    - Fan, Yang
+    - Ge, Wenbin
+    - Han, Yu
+    - Huang, Fei
+    - Hui, Binyuan
+    - Ji, Luo
+    - Li, Mei
+    - Lin, Junyang
+    - Lin, Runji
+    - Liu, Dayiheng
+    - Liu, Gao
+    - Lu, Chengqiang
+    - Lu, Keming
+    - Ma, Jianxin
+    - Men, Rui
+    - Ren, Xingzhang
+    - Ren, Xuancheng
+    - Tan, Chuanqi
+    - Tan, Sinan
+    - Tu, Jianhong
+    - Wang, Peng
+    - Wang, Shijie
+    - Wang, Wei
+    - Wu, Shengguang
+    - Xu, Benfeng
+    - Xu, Jin
+    - Yang, An
+    - Yang, Hao
+    - Yang, Jian
+    - Yang, Shusheng
+    - Yao, Yang
+    - Yu, Bowen
+    - Yuan, Hongyi
+    - Yuan, Zheng
+    - Zhang, Jianwei
+    - Zhang, Xingxuan
+    - Zhang, Yichang
+    - Zhang, Zhenru
+    - Zhou, Chang
+    - Zhou, Jingren
+    - Zhou, Xiaohuan
+    - Zhu, Tianhang
   date: 2023
   url: https://arxiv.org/abs/2309.16609
   serial-number:
-    arxiv: '2309.16609'
+    arxiv: "2309.16609"
 
 squad1:
   type: article
-  title: '{SQ}u{AD}: 100,000+ Questions for Machine Comprehension of Text'
+  title: "{SQ}u{AD}: 100,000+ Questions for Machine Comprehension of Text"
   author:
-  - Rajpurkar, Pranav
-  - Zhang, Jian
-  - Lopyrev, Konstantin
-  - Liang, Percy
+    - Rajpurkar, Pranav
+    - Zhang, Jian
+    - Lopyrev, Konstantin
+    - Liang, Percy
   date: 2016-11
   editor:
-  - Su, Jian
-  - Duh, Kevin
-  - Carreras, Xavier
+    - Su, Jian
+    - Duh, Kevin
+    - Carreras, Xavier
   page-range: 2383-2392
   url: https://aclanthology.org/D16-1264
   serial-number:
@@ -1084,23 +1184,23 @@ squad1:
 
 squad2:
   type: article
-  title: 'Know What You Don{''}t Know: Unanswerable Questions for {SQ}u{AD}'
+  title: "Know What You Don{'}t Know: Unanswerable Questions for {SQ}u{AD}"
   author:
-  - Rajpurkar, Pranav
-  - Jia, Robin
-  - Liang, Percy
+    - Rajpurkar, Pranav
+    - Jia, Robin
+    - Liang, Percy
   date: 2018-07
   editor:
-  - Gurevych, Iryna
-  - Miyao, Yusuke
+    - Gurevych, Iryna
+    - Miyao, Yusuke
   page-range: 784-789
   url: https://aclanthology.org/P18-2124
   serial-number:
     doi: 10.18653/v1/P18-2124
-  abstract: 'Extractive reading comprehension systems can often locate the correct answer to a question in a context document, but they also tend to make unreliable guesses on questions for which the correct answer is not stated in the context. Existing datasets either focus exclusively on answerable questions, or use automatically generated unanswerable questions that are easy to identify. To address these weaknesses, we present SQuADRUn, a new dataset that combines the existing Stanford Question Answering Dataset (SQuAD) with over 50,000 unanswerable questions written adversarially by crowdworkers to look similar to answerable ones. To do well on SQuADRUn, systems must not only answer questions when possible, but also determine when no answer is supported by the paragraph and abstain from answering. SQuADRUn is a challenging natural language understanding task for existing models: a strong neural system that gets 86{%} F1 on SQuAD achieves only 66{%} F1 on SQuADRUn. We release SQuADRUn to the community as the successor to SQuAD.'
+  abstract: "Extractive reading comprehension systems can often locate the correct answer to a question in a context document, but they also tend to make unreliable guesses on questions for which the correct answer is not stated in the context. Existing datasets either focus exclusively on answerable questions, or use automatically generated unanswerable questions that are easy to identify. To address these weaknesses, we present SQuADRUn, a new dataset that combines the existing Stanford Question Answering Dataset (SQuAD) with over 50,000 unanswerable questions written adversarially by crowdworkers to look similar to answerable ones. To do well on SQuADRUn, systems must not only answer questions when possible, but also determine when no answer is supported by the paragraph and abstain from answering. SQuADRUn is a challenging natural language understanding task for existing models: a strong neural system that gets 86{%} F1 on SQuAD achieves only 66{%} F1 on SQuADRUn. We release SQuADRUn to the community as the successor to SQuAD."
   parent:
     type: proceedings
-    title: 'Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)'
+    title: "Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)"
     publisher: Association for Computational Linguistics
     location: Melbourne, Australia
 
@@ -1125,8 +1225,8 @@ hierarchical:
   type: article
   title: A survey of hierarchical classification across different application domains
   author:
-  - Silla, Carlos N.
-  - Freitas, Alex A.
+    - Silla, Carlos N.
+    - Freitas, Alex A.
   date: 2011
   page-range: 31-72
   url: https://doi.org/10.1007/s10618-010-0175-9
@@ -1142,26 +1242,26 @@ hierarchical:
 
 doccano:
   type: misc
-  title: '{doccano}: Text Annotation Tool for Human'
+  title: "{doccano}: Text Annotation Tool for Human"
   author:
-  - Nakayama, Hiroki
-  - Kubo, Takahiro
-  - Kamura, Junya
-  - Taniguchi, Yasufumi
-  - Liang, Xu
+    - Nakayama, Hiroki
+    - Kubo, Takahiro
+    - Kamura, Junya
+    - Taniguchi, Yasufumi
+    - Liang, Xu
   date: 2018
   url: https://github.com/doccano/doccano
 
 jmespath:
   type: web
-  title: 'JMESPath is a query language for JSON'
+  title: "JMESPath is a query language for JSON"
   author:
     - James Saryerwinnie
   url: https://jmespath.org/
 
 jsonpath:
   type: blog
-  title: 'JSONPath - XPath for JSON'
+  title: "JSONPath - XPath for JSON"
   author:
     - Stefan Goessner
   date: 2007
@@ -1169,25 +1269,24 @@ jsonpath:
 
 sparql:
   type: report
-  title: 'SPARQL Query Language for RDF'
+  title: "SPARQL Query Language for RDF"
   organization: W3C
   url: https://www.w3.org/TR/sparql11-query/
 
 graphviz:
   type: reference
-  title: 'Graphviz - Graph Visualization Software'
+  title: "Graphviz - Graph Visualization Software"
   organization: Graphviz
   url: https://graphviz.org/
 
 handlebars:
   type: reference
-  title: 'Handlebars - Minimal Templating on Steroids'
+  title: "Handlebars - Minimal Templating on Steroids"
   organization: Handlebars
   url: https://handlebarsjs.com/
 
 fastapi:
   type: reference
-  title: 'FastAPI - Fast (high-performance) API framework for Python'
+  title: "FastAPI - Fast (high-performance) API framework for Python"
   organization: FastAPI
   url: https://fastapi.tiangolo.com/
-

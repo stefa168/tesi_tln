@@ -34,7 +34,7 @@
 
   logo: image("media/unito.svg", width: 40%),
 
-  bibliography: bibliography("bib.yml"),
+  // bibliography: bibliography("bib.yml", full:true),
 
   acknowledgments: acknowledgments,
   abstract: abstract,
@@ -52,3 +52,6 @@
 
 #include "chapters/2_origin_state_art.typ"
 #pagebreak(weak: true)
+
+#show bibliography: set text(size: 0.9em)
+#bibliography("bib.yml", full: true)

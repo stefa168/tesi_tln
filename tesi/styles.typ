@@ -12,7 +12,7 @@
 )
 
 // FIXME: workaround for the lack of `std` scope
-#let std-bibliography = bibliography
+// #let std-bibliography = bibliography
 
 #let template(
   // Your thesis title
@@ -71,7 +71,7 @@
   set document(title: title, author: candidate.name)
 
   // Set the body font, "New Computer Modern" gives a LaTeX-like look
-  set text(font: "TeX Gyre Termes", lang: lang, size: 12pt)
+  set text(font: "TeX Gyre Termes", lang: lang, size: 12pt, region: lang)
 
   // Configure the page
   set page(
@@ -314,9 +314,9 @@
 
   body
 
-  pagebreak(to: "odd")
+  // pagebreak(to: "odd")
 
-  // Bibliography
+/*   // Bibliography
   if bibliography != none {
     heading(
       level: 1,
@@ -331,6 +331,7 @@
       set text(size: 0.9em)
     }
     set std-bibliography(title: none)
+    
     bibliography
-  }
+  } */
 }
