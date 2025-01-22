@@ -186,8 +186,8 @@ lstm:
   type: article
   title: Long Short-Term Memory
   author:
-  - Hochreiter, Sepp
-  - Schmidhuber, Jürgen
+    - Hochreiter, Sepp
+    - Schmidhuber, Jürgen
   date: 1997
   page-range: 1735–1780
   url: https://doi.org/10.1162/neco.1997.9.8.1735
@@ -205,11 +205,11 @@ LINDEMANN2021650:
   type: article
   title: A survey on long short-term memory networks for time series prediction
   author:
-  - Lindemann, Benjamin
-  - Müller, Timo
-  - Vietz, Hannes
-  - Jazdi, Nasser
-  - Weyrich, Michael
+    - Lindemann, Benjamin
+    - Müller, Timo
+    - Vietz, Hannes
+    - Jazdi, Nasser
+    - Weyrich, Michael
   date: 2021
   page-range: 650–655
   url: https://www.sciencedirect.com/science/article/pii/S2212827121003796
@@ -222,6 +222,172 @@ LINDEMANN2021650:
     title: Procedia CIRP
     volume: 99
 
+google_voice:
+  type: article
+  title: "Neon prescription... or rather, New transcription for Google Voice"
+  organization: Google Research
+  url:
+    value: https://blog.google/products/google-voice/neon-prescription-or-rather-new/
+    date: 2015-07-23
+
+google_voice_transcription:
+  type: article
+  title: "The neural networks behind Google Voice transcription"
+  organization: Google Research
+  url:
+    value: https://research.google/blog/the-neural-networks-behind-google-voice-transcription/
+    date: 2015-08-11
+
+google_voice_accuracy:
+  type: article
+  title: "Google voice search: faster and more accurate"
+  author:
+    - Sak, Haşim
+    - Senior, Andrew
+    - Rao, Kanishka
+    - Beaufays, Françoise
+    - Schalkwyk, Johan
+  publisher: Google Speech Team
+  organization: Google Research
+  url:
+    value: https://research.google/blog/google-voice-search-faster-and-more-accurate/
+    date: 2015-09-24
+
+wu2016googlesneuralmachinetranslation:
+  type: misc
+  title: "Google's Neural Machine Translation System: Bridging the Gap between Human and Machine Translation"
+  author:
+    - Wu, Yonghui
+    - Schuster, Mike
+    - Chen, Zhifeng
+    - Le, Quoc V.
+    - Norouzi, Mohammad
+    - Macherey, Wolfgang
+    - Krikun, Maxim
+    - Cao, Yuan
+    - Gao, Qin
+    - Macherey, Klaus
+    - Klingner, Jeff
+    - Shah, Apurva
+    - Johnson, Melvin
+    - Liu, Xiaobing
+    - Kaiser, Łukasz
+    - Gouws, Stephan
+    - Kato, Yoshikiyo
+    - Kudo, Taku
+    - Kazawa, Hideto
+    - Stevens, Keith
+    - Kurian, George
+    - Patil, Nishant
+    - Wang, Wei
+    - Young, Cliff
+    - Smith, Jason
+    - Riesa, Jason
+    - Rudnick, Alex
+    - Vinyals, Oriol
+    - Corrado, Greg
+    - Hughes, Macduff
+    - Dean, Jeffrey
+  date: 2016
+  url: https://arxiv.org/abs/1609.08144
+  serial-number:
+    arxiv: "1609.08144"
+
+google_translate:
+  type: article
+  title: "A Neural Network for Machine Translation, at Production Scale"
+  author:
+    - Quoc V. Le
+    - Mike Schuster
+  publisher: Google Brain Team
+  organization: Google Research
+  url:
+    value: https://research.google/blog/a-neural-network-for-machine-translation-at-production-scale/
+    date: 2016-09-27
+
+apple_lstm:
+  type: article
+  title: "Can Global Semantic Context Improve Neural Language Models?"
+  publisher: Frameworks Natural Language Processing Team
+  organization: Apple
+  url: https://machinelearning.apple.com/research/can-global-semantic-context-improve-neural-language-models
+
+alexa_lstm:
+  type: article
+  title: Bringing the Magic of Amazon AI and Alexa to Apps on AWS
+  url: https://www.allthingsdistributed.com/2016/11/amazon-ai-and-alexa-for-all-aws-apps.html
+
+facebook_lstm:
+  type: article
+  title: "Transitioning entirely to neural machine translation"
+  author: Alexander Sidorov
+  organization: Facebook
+  url: https://engineering.fb.com/2017/08/03/ml-applications/transitioning-entirely-to-neural-machine-translation/
+
+microsoft_lstm:
+  type: article
+  title: The Microsoft 2017 Conversational Speech Recognition System
+  author:
+    - Xiong, W.
+    - Wu, L.
+    - Alleva, F.
+    - Droppo, J.
+    - Huang, X.
+    - Stolcke, A.
+  date: 2018-04
+  page-range: 5934–5938
+  serial-number:
+    doi: 10.1109/ICASSP.2018.8461870
+    issn: 2379-190X
+  abstract: We describe the latest version of Microsoft's conversational speech recognition system for the Switchboard and CallHome domains. The system adds a CNN-BLSTM acoustic model to the set of model architectures we combined previously, and includes character-based and dialog session aware LSTM language models in rescoring. For system combination we adopt a two-stage approach, whereby acoustic model posteriors are first combined at the senone/frame level, followed by a word-level voting via confusion networks. We also added another language model rescoring step following the confusion network combination. The resulting system yields a 5.1% word error rate on the NIST 2000 Switchboard test set, and 9.8% on the CallHome subset.
+  parent:
+    type: proceedings
+    title: 2018 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)
+    issue: ""
+    volume: 0
+
+openai_dota:
+  type: article
+  title: "The Science Behind OpenAI Five that just Produced One of the Greatest Breakthrough in the History of AI"
+  url: https://web.archive.org/web/20191226222000/https://towardsdatascience.com/the-science-behind-openai-five-that-just-produced-one-of-the-greatest-breakthrough-in-the-history-b045bcdc2b69?gi=24b20ef8ca3f
+
+learning_dexterity:
+  type: article
+  title: "Learning Dexterity"
+  abstract: "We’ve trained a human-like robot hand to manipulate physical objects with unprecedented dexterity."
+  organization: OpenAI
+  url: https://openai.com/index/learning-dexterity/
+
+deepmind_starcraft:
+  type: article
+  organization: "The AlphaStar Team"
+  url: https://deepmind.google/discover/blog/alphastar-grandmaster-level-in-starcraft-ii-using-multi-agent-reinforcement-learning/
+
+schmidhuber2022deeplearningmiraculousyear:
+  type: misc
+  title: 'Deep Learning: Our Miraculous Year 1990-1991'
+  author: Schmidhuber, Juergen
+  date: 2022
+  url: https://arxiv.org/abs/2005.05744
+  serial-number:
+    arxiv: '2005.05744'
+
+vaswani2023attentionneed:
+  type: misc
+  title: Attention Is All You Need
+  author:
+  - Vaswani, Ashish
+  - Shazeer, Noam
+  - Parmar, Niki
+  - Uszkoreit, Jakob
+  - Jones, Llion
+  - Gomez, Aidan N.
+  - Kaiser, Lukasz
+  - Polosukhin, Illia
+  date: 2023
+  url: https://arxiv.org/abs/1706.03762
+  serial-number:
+    arxiv: '1706.03762'
 
 bert:
   type: misc
@@ -235,6 +401,14 @@ bert:
   url: https://arxiv.org/abs/1810.04805
   serial-number:
     arxiv: "1810.04805"
+
+bbc_google_fails:
+  type: article
+  title: "Glue pizza and eat rocks: Google AI search errors go viral"
+  author:
+    - McMahon, Liv
+    - Kleinman, Zoe
+  url: https://www.bbc.com/news/articles/cd11gzejgz4o
 
 distilbert:
   type: misc

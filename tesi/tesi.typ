@@ -53,5 +53,6 @@
 #include "chapters/2_origin_state_art.typ"
 #pagebreak(weak: true)
 
-#show bibliography: set text(size: 0.9em)
-#bibliography("bib.yml", full: true)
+// #show bibliography: set text(size: 0.9em)
+
+#bibliography("bib.yml", full: false)
