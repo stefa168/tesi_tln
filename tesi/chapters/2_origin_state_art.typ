@@ -485,32 +485,32 @@ Possiamo quindi affermare che le LSTM abbiano effettivamente avuto un impatto co
 
 === Transformers
 
-Il meccanismo introdotto con le LSTM possiamo considerarlo come un processo in cui il modello impara su quali informazioni durante il passaggio del tempo sia più importante prestare attenzione.
+Il meccanismo introdotto con le LSTM possiamo considerarlo come un processo in cui il modello impara su quali informazioni durante il passaggio del tempo sia più importante prestare *attenzione*.
 
 L'architettura dei Transformer, introdotta da #cite(<vaswani2023attentionneed>, form: "prose"), parte da questa idea e la porta all'estremo, basandosi solamente su di essa per creare un modello in grado di catturare le dipendenze a lungo termine.
 Non utilizzando più reti ricorrenti, l'architettura è composta da diversi encoders e decoders che lavorano in parallelo, e che si scambiano informazioni tramite meccanismi di attenzione.
-Questo permette di lavorare su sequenze di dati in parallelo, riducendo i tempi di addestramento e migliorando le prestazioni.
+Questo permette di lavorare su sequenze di dati in parallelo, potenziando l'addestramento e migliorando le prestazioni.
 
 ==== Intuizione di base
 
-Il meccanismo di "self-attention" è il cuore dell'architettura dei Transformer.
-Questo meccanismo consente al modello di decidere l'importanza di ogni parola #footnote[In questa tesi ci concentreremo prevalentemente sull'utilizzo dei transformer con il fine di creare modelli linguistici.] in una sequenza rispetto alle altre, senza essere limitato dalla loro distanza posizionale.
+Il meccanismo di *self-attention* è il cuore dell'architettura dei Transformer.
+Questo meccanismo consente al modello di decidere l'importanza di ogni parola #footnote[In questa tesi ci concentreremo prevalentemente sull'utilizzo dei transformer progettati con il fine di creare modelli linguistici.] in una sequenza rispetto alle altre, senza essere limitato dalla loro distanza posizionale.
 Ciò permette ai Transformer di identificare e concentrarsi sulle parti più rilevanti dell'input, anche in sequenze molto lunghe.
 
 Tuttavia, questo approccio comporta una complessità computazionale quadratica rispetto alla lunghezza della sequenza, rendendolo costoso in termini di risorse di calcolo e memoria.
 
 Per gestire questa complessità e migliorare le prestazioni, si utilizza una context window per limitare il numero di token considerati in ogni calcolo di attenzione. 
-Questo bilancia la capacità del modello di cogliere relazioni rilevanti senza esaurire le risorse disponibili, specialmente nei casi in cui si affrontano set di dati di grandi dimensioni.
+Questo bilancia la capacità del modello di cogliere relazioni rilevanti senza esaurire le risorse disponibili, specialmente nei casi in cui si fa affidamento a dataset di grandi dimensioni.
 
 ==== Struttura del Transformer
 
 #figure(
   image("../media/transformers_structure1.png", height: 50%),
-  caption: [Architettura di un Transformer @vaswani2023attentionneed.]
+  caption: [Architettura di un Transformer come inizialmente ideata @vaswani2023attentionneed.]
 )
 
 L'architettura dei Transformer è composta da due parti principali: l'encoder e il decoder.
-L'encoder elabora l'input, mentre il decoder genera l'output #footnote[Spesso è utilizzato nei modelli di traduzione automatica].
+L'encoder elabora l'input, mentre il decoder #footnote[Spesso è utilizzato nei modelli di traduzione automatica] genera l'output.
 
 Normalmente si utilizza una sequenza di encoder e decoder, con in cima un layer di output composto da una rete neurale fully connected, che sceglie la parola successiva da generare.
 
@@ -529,7 +529,7 @@ Vediamo le componenti più in dettaglio:
 - *Multi-Head Attention*: Questo componente consente al modello di applicare meccanismi di attenzione paralleli su diverse sotto-rappresentazioni dei dati.\
   Gli output di queste _attention head_ vengono combinate e trasformate, migliorando la comprensione del contesto a più livelli.
 
-- Ogni livello del Transformer contiene una _Rete Neurale Feedforward_ composta da due strati completamente connessi e una funzione di attivazione intermedia, solitamente la ReLU #footnote[Rectified Liear Unit].
+- Ogni livello del Transformer contiene una _Rete Neurale Feedforward_ composta da due strati completamente connessi e una funzione di attivazione intermedia, solitamente la ReLU #footnote[Rectified Linear Unit]:
   $ "ReLU"(x) = x^+ = max(0,x) = (x + abs(x)) / 2 = cases(
     x "if" x > 0,
     0 "otherwise"
@@ -543,14 +543,14 @@ Modelli come GPT e BERT hanno dimostrato le loro potenzialità in numerosi compi
 Inoltre, i Transformer hanno trovato applicazione in campi come la bioinformatica, la visione artificiale e l'apprendimento multimodale.
 
 Negli ultimi anni, i Transformer sono diventati una tecnologia fondamentale per molti prodotti utilizzati quotidianamente.\
-Grandi aziende come Google, OpenAI e Microsoft li hanno integrati nei loro servizi #footnote[Anche se a volte con grossi problemi, si veda l'articolo della BBC scritto da #cite(<bbc_google_fails>, form: "prose").], dai motori di ricerca come Google Search ai sistemi di assistenza virtuale come ChatGPT, Claude e Gemini.
+Grandi aziende come Google, OpenAI e Microsoft li hanno integrati nei loro servizi #footnote[Anche se a volte con grossi problemi, si veda l'articolo della BBC scritto da #cite(<bbc_google_fails>, form: "prose"). Naturalmente non mancano anche le sezioni apposite su siti come reddit:\ #link("https://www.reddit.com/r/aifails/").], dai motori di ricerca come Google Search ai sistemi di assistenza virtuale come ChatGPT, Claude e Gemini.
 
 Parallelamente, i Transformer hanno trasformato l'interazione tra utenti e macchine, rendendo più intuitivi e umanizzati i servizi basati sull'intelligenza artificiale.
 La capacità di questi modelli di comprendere e generare linguaggio naturale ha migliorato significativamente l'accessibilità tecnologica, consentendo un'interazione più fluida anche per utenti con conoscenze tecniche limitate.
 
-=== LLM: Large Language Model
+[Aggiungere cenni su Mamba]
 
-==== Introduzione
+=== LLM: Large Language Model
 
 Come abbiamo visto nel capitolo precedente, i Transformer hanno rivoluzionato l'approccio all'elaborazione del linguaggio naturale (NLP), consentendo di cogliere relazioni a lungo raggio all'interno di sequenze di token e aprendo la strada a nuove applicazioni su vasta scala.
 La loro capacità di gestire contesti lunghi, unita all'efficienza (relativa) del calcolo in parallelo e ai meccanismi di attenzione, ha reso possibili modelli sempre più performanti.
