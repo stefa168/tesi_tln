@@ -3,6 +3,7 @@ import time
 from pathlib import Path
 from typing import TypedDict
 
+import scipy
 import torch
 from transformers import AutoTokenizer, PreTrainedModel, PreTrainedTokenizer, BertForSequenceClassification, pipeline, \
     Pipeline
@@ -22,11 +23,33 @@ class Prediction(TypedDict):
 
     :ivar label: The label or category of the prediction.
     :type label: str
-    :ivar prediction: The confidence score or probability of the prediction.
-    :type prediction: float
+    :ivar score: The confidence score or probability of the prediction.
+    :type score: float
     """
     label: str
-    prediction: float
+    score: float
+
+
+class ClassificationResult:
+    def __init__(self, predictions: list[Prediction]):
+        sorted_predictions = sorted(predictions, key=lambda x: x["score"], reverse=True)
+
+        top_prediction = sorted_predictions[0]
+        second_prediction = sorted_predictions[1] if len(sorted_predictions) > 1 else None
+
+        # Calculate the confidence margin
+        if second_prediction:
+            confidence_margin = top_prediction["score"] - second_prediction["score"]
+        else:
+            confidence_margin = top_prediction["score"]
+
+        probs = list(map(lambda x: x["score"], sorted_predictions))
+        entropy = scipy.stats.entropy(probs, base=2)
+
+        self.sorted_predictions = sorted_predictions
+        self.top_prediction = top_prediction
+        self.second_prediction = second_prediction
+        self.confidence_margin = confidence_margin
 
 
 class BertModelComponents:
@@ -51,7 +74,7 @@ class BertModelComponents:
         self.tokenizer = tokenizer
         self.classifier = classifier
 
-    def classify(self, text: str) -> list[Prediction]:
+    def classify(self, text: str) -> ClassificationResult:
         """
         Classifies the given text using the initialized model and returns a list of
         predictions. The function uses a pre-trained classifier model to analyze
@@ -73,7 +96,7 @@ class BertModelComponents:
 
         logger.debug(f"Classification took {end_time - start_time} seconds. It returned: {predictions}")
 
-        return predictions
+        return ClassificationResult(predictions)
 
     def __repr__(self):
         return f"ModelTokenizerPair(model={self.model}, tokenizer={self.tokenizer})"
@@ -157,6 +180,7 @@ def run_runner(config_path: Path, artifacts_dir: Path = Path(".")):
     config = CompilerConfigV2.load_from_file(config_path)
     conf_artifact_path = artifacts_dir / config.name
 
+    # retrieve all the models
     models = load_bert_models(conf_artifact_path, config.interaction)
 
     while True:
@@ -165,14 +189,14 @@ def run_runner(config_path: Path, artifacts_dir: Path = Path(".")):
             break
 
         next_interaction: Interaction | Reply = config.interaction
-        interaction_traversal_stack: list[(str, Interaction | Reply)] = [("root", next_interaction)]
+        interaction_traversal_stack: list[(ClassificationResult, Interaction | Reply)] = [(None, next_interaction)]
 
         while True:
             interaction_model = models[next_interaction.use]
-            predictions = interaction_model.classify(user_input)
-            next_interaction = next_interaction.cases[predictions[0]["label"]]
+            result = interaction_model.classify(user_input)
+            next_interaction = next_interaction.cases[result.top_prediction["label"]]
 
-            interaction_traversal_stack.append((predictions, next_interaction))
+            interaction_traversal_stack.append((result, next_interaction))
 
             if isinstance(next_interaction, Reply):
                 r: Reply = next_interaction
