@@ -13,7 +13,7 @@ models:
         pretrained_model: "bert-base-uncased"
         examples_column: "Question"
         labels_column: "Global Subject"
-        iterations: 20
+        train_epochs: 20
 
   - name: "question_intent_classifiers"
     disabled: false
@@ -44,6 +44,9 @@ models:
         training_data_path: "./ner_training/corpus/ner_labels.jsonl"
         training_device: "gpu"
         resulting_model_name: "ner_trained_model"
+
+resources:
+
 
 interaction:
   use: "global_subject_classifier"

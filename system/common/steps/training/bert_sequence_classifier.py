@@ -32,6 +32,7 @@ class TrainBertSequenceClassifierStep(Step):
     :type examples_column: str
     :ivar resulting_model_name: Specifies the name or path used for saving the trained model.
                                 If None, a default naming scheme will be used based on the configuration.
+    :type train_epochs: The number of training epochs to be run. Defaults to 20.
     :type resulting_model_name: str | None
     """
     type: Literal["train_model"]
@@ -39,6 +40,7 @@ class TrainBertSequenceClassifierStep(Step):
     pretrained_model: str
     labels_column: str
     examples_column: str
+    train_epochs: int = 20
     resulting_model_name: str | None = None
 
     def resolve_requirements(self, context: dict[str, dict[str, Any]]) -> dict[str, Any]:
@@ -120,7 +122,7 @@ class TrainBertSequenceClassifierStep(Step):
                                                           self.labels_column)
 
             # Run the fine-tuning process on the model
-            trainer = run_fine_tuning(base_model, tokenizer, train_dataset, eval_dataset, num_train_epochs=5)
+            trainer = run_fine_tuning(base_model, tokenizer, train_dataset, eval_dataset, self.train_epochs)
 
             logger.info(f"Saving the model to {model_pipeline_path}")
 
