@@ -4,17 +4,10 @@
       "properties": {
         "type": {
           "const": "bot_message",
-          "default": "bot_message",
           "enum": [
             "bot_message"
           ],
           "title": "Type",
-          "type": "string"
-        },
-        "name": {
-          "description": "The name of the flow step.",
-          "minLength": 1,
-          "title": "Name",
           "type": "string"
         },
         "next_step": {
@@ -49,7 +42,7 @@
         }
       },
       "required": [
-        "name",
+        "type",
         "message"
       ],
       "title": "BotMessageStep",
@@ -60,17 +53,10 @@
       "properties": {
         "type": {
           "const": "jump_to_step_by_condition",
-          "default": "jump_to_step_by_condition",
           "enum": [
             "jump_to_step_by_condition"
           ],
           "title": "Type",
-          "type": "string"
-        },
-        "name": {
-          "description": "The name of the flow step.",
-          "minLength": 1,
-          "title": "Name",
           "type": "string"
         },
         "next_step": {
@@ -99,7 +85,7 @@
         }
       },
       "required": [
-        "name",
+        "type",
         "expression",
         "cases"
       ],
@@ -115,7 +101,7 @@
           "type": "string"
         },
         "steps": {
-          "items": {
+          "additionalProperties": {
             "anyOf": [
               {
                 "$ref": "#/$defs/UserInputStep"
@@ -132,7 +118,7 @@
             ]
           },
           "title": "Steps",
-          "type": "array"
+          "type": "object"
         }
       },
       "required": [
@@ -242,17 +228,10 @@
       "properties": {
         "type": {
           "const": "model_application",
-          "default": "model_application",
           "enum": [
             "model_application"
           ],
           "title": "Type",
-          "type": "string"
-        },
-        "name": {
-          "description": "The name of the flow step.",
-          "minLength": 1,
-          "title": "Name",
           "type": "string"
         },
         "next_step": {
@@ -287,7 +266,7 @@
         }
       },
       "required": [
-        "name",
+        "type",
         "models"
       ],
       "title": "ModelApplicationStep",
@@ -531,17 +510,10 @@
       "properties": {
         "type": {
           "const": "user_input",
-          "default": "user_input",
           "enum": [
             "user_input"
           ],
           "title": "Type",
-          "type": "string"
-        },
-        "name": {
-          "description": "The name of the flow step.",
-          "minLength": 1,
-          "title": "Name",
           "type": "string"
         },
         "next_step": {
@@ -604,7 +576,7 @@
         }
       },
       "required": [
-        "name"
+        "type"
       ],
       "title": "UserInputStep",
       "type": "object"

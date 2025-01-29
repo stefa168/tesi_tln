@@ -46,6 +46,19 @@ models:
         resulting_model_name: "ner_trained_model"
 
 resources:
+  # LLM APIs that are not specified in the runner configuration
+
+flows:
+  main:
+    start_step: "startup message"
+    steps:
+      startup message:
+        type: bot_message
+        message: |-
+          Hi!
+        next_step: input test
+      input test:
+        type: user_input
 
 
 interaction:
@@ -60,7 +73,6 @@ interaction:
         - "Welcome! Got any queries about the finite state automaton I've been given? I'd be happy to help."
         - "Hi there! Feel free to ask any questions regarding the finite state automaton I've been given, and I'll provide support."
     "transition":
-      type: interaction
       use: "question_intent_transition"
       name: "transition_questions"
       cases:

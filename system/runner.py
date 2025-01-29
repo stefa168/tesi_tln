@@ -180,29 +180,25 @@ def run_runner(config_path: Path, artifacts_dir: Path = Path(".")):
     config = CompilerConfigV2.load_from_file(config_path)
     conf_artifact_path = artifacts_dir / config.name
 
-    # retrieve all the models
-    models = load_bert_models(conf_artifact_path, config.interaction)
+    starting_flow = config.flows.get("main")
 
-    while True:
-        user_input = input("Enter a prompt: ")
-        if user_input == "exit":
-            break
+    current_flow = starting_flow
+    current_step = starting_flow.steps.get(current_flow.start_step)
 
-        next_interaction: Interaction | Reply = config.interaction
-        interaction_traversal_stack: list[(ClassificationResult, Interaction | Reply)] = [(None, next_interaction)]
+    context = {}
 
-        while True:
-            interaction_model = models[next_interaction.use]
-            result = interaction_model.classify(user_input)
-            next_interaction = next_interaction.cases[result.top_prediction["label"]]
+    while current_step is not None:
+        next_step, next_flow = current_step.execute(context)
 
-            interaction_traversal_stack.append((result, next_interaction))
+        if next_flow is not None:
+            current_flow = config.flows[next_flow]
 
-            if isinstance(next_interaction, Reply):
-                r: Reply = next_interaction
-
-                stack = [(i[0], f"{type(i[1]).__name__}: {i[1].name}") for i in interaction_traversal_stack]
-                logger.info(f"Stack: {stack}")
-
-                print(f"Reply: {r.get_reply()}")
+            if next_step is not None:
+                current_step = current_flow.steps[next_step]
+            else:
+                current_step = current_flow.steps.get(current_flow.start_step)
+        else:
+            if next_step is not None:
+                current_step = current_flow.steps[next_step]
+            else:
                 break

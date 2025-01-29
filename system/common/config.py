@@ -1,3 +1,4 @@
+import enum
 import json
 from abc import ABC, abstractmethod
 from pathlib import Path
@@ -63,7 +64,7 @@ class Reply(BaseModel, ResourceDiscoveryMixin):
         return set()
 
 
-type InteractionCases = Union["Interaction", Reply]
+type InteractionCases = Union["Interaction", list[Reply]]
 
 
 class Interaction(BaseModel, ResourceDiscoveryMixin):
@@ -86,11 +87,125 @@ class Interaction(BaseModel, ResourceDiscoveryMixin):
         return models
 
 
+class FlowStepTypes(enum.StrEnum):
+    USER_INPUT = "user_input"
+    BOT_MESSAGE = "bot_message"
+    MODEL_APPLICATION = "model_application"
+    BRANCHING = "jump_to_step_by_condition"
+
+
+class BaseFlowStep(BaseModel, ABC):
+    type: str
+    # name: str = Field(..., min_length=1, description="The name of the flow step.")
+    next_step: str | None = Field(None, description="The name of the next step in this flow.")
+
+    @abstractmethod
+    def execute(self, context: dict[str, Any]) -> tuple[str | None, str | None]:
+        """
+        Runs the step.
+        :param context: The context on which to run the step.
+
+        :returns: A tuple containing the next step to be run and the corresponding flow.
+        The flow can be omitted if it has to stay the same.
+        If the next step is not specified, it means that the flow ends here.
+        """
+        pass
+
+    def next_step_list(self) -> list[str] | None:
+        if self.next_step is None:
+            return None
+        return [self.next_step]
+
+
+class UserInputStep(BaseFlowStep):
+    """
+    Waits for user input. Will run any model specified on it after the user input.
+
+    If the validation fails, the `if_invalid_goto` step is used instead.
+    This means that the two fields (`valid_if` and `if_invalid_goto`) require each other.
+    """
+    type: Literal[FlowStepTypes.USER_INPUT]
+    apply_models: list[str] | dict[str, str] | None = Field(None)
+    valid_if: str | None = Field(None)
+    if_invalid_goto: str | None = Field(None)
+
+    @override
+    def execute(self, context: dict[str, Any]) -> tuple[str | None, str | None]:
+        user_reply = input("> ")
+        return self.next_step, None
+
+
+class ModelPrompt(BaseModel):
+    """
+    Represents the configuration that will be sent to an external model to generate a prompt.
+    """
+    model: str
+    prompt: str
+
+
+class BotMessageStep(BaseFlowStep):
+    type: Literal[FlowStepTypes.BOT_MESSAGE]
+    message: str | list[str] | ModelPrompt = Field(...)
+
+    @override
+    def execute(self, context: dict[str, Any]) -> tuple[str | None, str | None]:
+        if isinstance(self.message, str):
+            print(self.message)
+        elif isinstance(self.message, list):
+            print(self.message[0])
+        else:
+            print(self.message.prompt)
+
+        return self.next_step, None
+
+
+class ModelApplicationStep(BaseFlowStep):
+    """
+    Manual call for one or more model on the latest user input.
+    """
+    type: Literal[FlowStepTypes.MODEL_APPLICATION]
+    # can apply a model and save the results with its original name or map it to another name.
+    models: list[str] | dict[str, str] = Field(...)
+
+    @override
+    def execute(self, context: dict[str, Any]) -> tuple[str | None, str | None]:
+        return self.next_step, None
+
+
+class BranchingStep(BaseFlowStep):
+    """
+    This step can perform jumps to different steps or flows, depending on the condition.
+
+    The cases dictionary can contain only literals as keys, and the values can be either:
+     - Other steps in the same flow
+     - Other flows
+    """
+    type: Literal[FlowStepTypes.BRANCHING]
+    expression: str = Field(...)
+    cases: dict[str, str] = Field(...)
+
+    @override
+    def next_step_list(self) -> list[str] | None:
+        return list(self.cases.values())
+
+    @override
+    def execute(self, context: dict[str, Any]) -> tuple[str | None, str | None]:
+        return self.next_step, None
+
+
+FlowStepUnion = UserInputStep | BotMessageStep | ModelApplicationStep | BranchingStep
+
+
+class Flow(BaseModel):
+    # name: str = Field(..., min_length=1, description="The name of the flow.")
+    start_step: str = Field(..., min_length=1, description="The name of the starting step.")
+    steps: dict[str, FlowStepUnion]
+
+
 class CompilerConfigV2(BaseModel):
     name: str = Field(..., min_length=1, description="The name of the compiler configuration.")
     models: list[Model] = Field(..., description="The models to compile.")
-    interaction: Interaction | None = Field(None,
-                                            description="The interactions tree to be handled by the runner.")
+    flows: dict[str, Flow] | None = Field(None)
 
     @staticmethod
     def load_from_file(file_path: Path) -> 'CompilerConfigV2':
