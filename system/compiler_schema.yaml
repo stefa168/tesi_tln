@@ -1,45 +1,146 @@
 {
   "$defs": {
-    "Interaction": {
+    "BotMessageStep": {
       "properties": {
-        "use": {
-          "description": "The model to use to produce a branching interaction.",
-          "minLength": 1,
-          "title": "Use",
+        "type": {
+          "const": "bot_message",
+          "default": "bot_message",
+          "enum": [
+            "bot_message"
+          ],
+          "title": "Type",
           "type": "string"
         },
         "name": {
-          "description": "The name of the interaction node.",
+          "description": "The name of the flow step.",
           "minLength": 1,
           "title": "Name",
           "type": "string"
         },
+        "next_step": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The name of the next step in this flow.",
+          "title": "Next Step"
+        },
+        "message": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "$ref": "#/$defs/ModelPrompt"
+            }
+          ],
+          "title": "Message"
+        }
+      },
+      "required": [
+        "name",
+        "message"
+      ],
+      "title": "BotMessageStep",
+      "type": "object"
+    },
+    "BranchingStep": {
+      "description": "This step can perform jumps to different steps or flows, depending on the condition.\n\nThe cases dictionary can contain only literals as keys, and the values can be either:\n - Other steps in the same flow\n - Other flows",
+      "properties": {
+        "type": {
+          "const": "jump_to_step_by_condition",
+          "default": "jump_to_step_by_condition",
+          "enum": [
+            "jump_to_step_by_condition"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the flow step.",
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "next_step": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The name of the next step in this flow.",
+          "title": "Next Step"
+        },
+        "expression": {
+          "title": "Expression",
+          "type": "string"
+        },
         "cases": {
           "additionalProperties": {
-            "$ref": "#/$defs/InteractionCases"
+            "type": "string"
           },
-          "description": "The cases for the interaction node.",
           "title": "Cases",
           "type": "object"
         }
       },
       "required": [
-        "use",
         "name",
+        "expression",
         "cases"
       ],
-      "title": "Interaction",
+      "title": "BranchingStep",
       "type": "object"
     },
-    "InteractionCases": {
-      "anyOf": [
-        {
-          "$ref": "#/$defs/Interaction"
+    "Flow": {
+      "properties": {
+        "start_step": {
+          "description": "The name of the starting step.",
+          "minLength": 1,
+          "title": "Start Step",
+          "type": "string"
         },
-        {
-          "$ref": "#/$defs/Reply"
+        "steps": {
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/UserInputStep"
+              },
+              {
+                "$ref": "#/$defs/BotMessageStep"
+              },
+              {
+                "$ref": "#/$defs/ModelApplicationStep"
+              },
+              {
+                "$ref": "#/$defs/BranchingStep"
+              }
+            ]
+          },
+          "title": "Steps",
+          "type": "array"
         }
-      ]
+      },
+      "required": [
+        "start_step",
+        "steps"
+      ],
+      "title": "Flow",
+      "type": "object"
     },
     "LoadCsvStep": {
       "description": "LoadCsvStep is a class for loading a CSV file into a pandas DataFrame and validating\nthe output. It is intended to be used in a workflow where CSV data needs to be input\nas a DataFrame for further processing.\n\n:ivar type: Specifies the type of the step. It is always set to \"load_csv\".\n:type type: Literal[\"load_csv\"]\n:ivar path: The file path for the CSV file to be loaded.\n:type path: Path",
@@ -136,35 +237,79 @@
       "title": "Model",
       "type": "object"
     },
-    "Reply": {
+    "ModelApplicationStep": {
+      "description": "Manual call for one or more model on the latest user input.",
       "properties": {
+        "type": {
+          "const": "model_application",
+          "default": "model_application",
+          "enum": [
+            "model_application"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
         "name": {
-          "description": "The name of the reply object.",
+          "description": "The name of the flow step.",
           "minLength": 1,
           "title": "Name",
           "type": "string"
         },
-        "reply": {
+        "next_step": {
           "anyOf": [
             {
               "type": "string"
             },
             {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The name of the next step in this flow.",
+          "title": "Next Step"
+        },
+        "models": {
+          "anyOf": [
+            {
               "items": {
                 "type": "string"
               },
               "type": "array"
+            },
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
             }
           ],
-          "description": "The reply to send to the user.",
-          "title": "Reply"
+          "title": "Models"
         }
       },
       "required": [
         "name",
-        "reply"
+        "models"
       ],
-      "title": "Reply",
+      "title": "ModelApplicationStep",
+      "type": "object"
+    },
+    "ModelPrompt": {
+      "description": "Represents the configuration that will be sent to an external model to generate a prompt.",
+      "properties": {
+        "model": {
+          "title": "Model",
+          "type": "string"
+        },
+        "prompt": {
+          "title": "Prompt",
+          "type": "string"
+        }
+      },
+      "required": [
+        "model",
+        "prompt"
+      ],
+      "title": "ModelPrompt",
       "type": "object"
     },
     "SplitDataStep": {
@@ -234,7 +379,7 @@
       "type": "object"
     },
     "TrainBertSequenceClassifierStep": {
-      "description": "TrainBertSequenceClassifierStep is a step within a pipeline designed to train a BERT-based sequence classifier.\nThis step facilitates the use of a BERT pretrained model, processes the associated datasets,\nand fine-tunes the model on the provided data. It also ensures the proper management of dependencies\nand verifies correct execution outputs.\n\n:ivar type: Defines the type of the step as \"train_model\", which follows a specific pipeline convention.\n:type type: Literal[\"train_model\"]\n:ivar dataframe: Specifies the name of the dataframe to be used for training, formatted as \"step_name.dataframe\".\n:type dataframe: str\n:ivar pretrained_model: Indicates the BERT pretrained model to use for fine-tuning.\n:type pretrained_model: str\n:ivar labels_column: Name of the column in the dataframe that contains the labels for training.\n:type labels_column: str\n:ivar examples_column: Name of the column in the dataframe that contains the input examples for the model.\n:type examples_column: str\n:ivar resulting_model_name: Specifies the name or path used for saving the trained model.\n                            If None, a default naming scheme will be used based on the configuration.\n:type resulting_model_name: str | None",
+      "description": "TrainBertSequenceClassifierStep is a step within a pipeline designed to train a BERT-based sequence classifier.\nThis step facilitates the use of a BERT pretrained model, processes the associated datasets,\nand fine-tunes the model on the provided data. It also ensures the proper management of dependencies\nand verifies correct execution outputs.\n\n:ivar type: Defines the type of the step as \"train_model\", which follows a specific pipeline convention.\n:type type: Literal[\"train_model\"]\n:ivar dataframe: Specifies the name of the dataframe to be used for training, formatted as \"step_name.dataframe\".\n:type dataframe: str\n:ivar pretrained_model: Indicates the BERT pretrained model to use for fine-tuning.\n:type pretrained_model: str\n:ivar labels_column: Name of the column in the dataframe that contains the labels for training.\n:type labels_column: str\n:ivar examples_column: Name of the column in the dataframe that contains the input examples for the model.\n:type examples_column: str\n:ivar resulting_model_name: Specifies the name or path used for saving the trained model.\n                            If None, a default naming scheme will be used based on the configuration.\n:type train_epochs: The number of training epochs to be run. Defaults to 20.\n:type resulting_model_name: str | None",
       "properties": {
         "name": {
           "title": "Name",
@@ -275,6 +420,11 @@
         "examples_column": {
           "title": "Examples Column",
           "type": "string"
+        },
+        "train_epochs": {
+          "default": 20,
+          "title": "Train Epochs",
+          "type": "integer"
         },
         "resulting_model_name": {
           "anyOf": [
@@ -375,6 +525,89 @@
       ],
       "title": "TrainSpacyNerModelStep",
       "type": "object"
+    },
+    "UserInputStep": {
+      "description": "Waits for user input. Will run any model specified on it after the user input.\n\nIf the validation fails, the `if_invalid_goto` step is used instead.\nThis means that the two fields (`valid_if` and `if_invalid_goto`) require each other.",
+      "properties": {
+        "type": {
+          "const": "user_input",
+          "default": "user_input",
+          "enum": [
+            "user_input"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the flow step.",
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "next_step": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The name of the next step in this flow.",
+          "title": "Next Step"
+        },
+        "apply_models": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Apply Models"
+        },
+        "valid_if": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Valid If"
+        },
+        "if_invalid_goto": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "If Invalid Goto"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "UserInputStep",
+      "type": "object"
     }
   },
   "properties": {
@@ -392,17 +625,20 @@
       "title": "Models",
       "type": "array"
     },
-    "interaction": {
+    "flows": {
       "anyOf": [
         {
-          "$ref": "#/$defs/Interaction"
+          "additionalProperties": {
+            "$ref": "#/$defs/Flow"
+          },
+          "type": "object"
         },
         {
           "type": "null"
         }
       ],
       "default": null,
-      "description": "The interactions tree to be handled by the runner."
+      "title": "Flows"
     }
   },
   "required": [
