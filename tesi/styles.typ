@@ -297,11 +297,20 @@
       text(size: 1em, it)
     }
   }
+  show outline.entry.where(level: 2): it => {
+    text(size: 0.95em, it)
+  }
   show outline.entry.where(level: 3): it => {
     text(size: 0.85em, it)
   }
   
-  outline(depth: 3, indent: true)
+  show outline.entry.where(level: 4): it => {
+    text(size: 0.85em, it)
+  }
+
+  set align(top + center)
+
+  outline(depth: 4, indent: true)
 
   pagebreak(to: "odd")
 

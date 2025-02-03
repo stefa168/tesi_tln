@@ -9,7 +9,7 @@
 ]
 
 #show: template.with(
-  title: "Design, realizzazione e ingegnerizzazione di un sistema di dialogo basato su LLM nel dominio delle tecnologie assistive",
+  title: "Design, ingegnerizzazione e realizzazione di un sistema di dialogo basato su LLM nel dominio delle tecnologie assistive",
 
   academic-year: [2023/2024],
 
@@ -47,12 +47,147 @@
   ]
 )
 
+#let appendix(body) = {
+  set heading(numbering: "A", supplement: [Appendix])
+  counter(heading).update(0)
+  body
+}
+
 #include "chapters/1_introduction.typ"
 #pagebreak(weak: true)
 
-#include "chapters/2_origin_state_art.typ"
+// #include "chapters/2_origin_state_art.typ"
+// #pagebreak(weak: true)
+
+= Natural Language Understanding // Spiegazione di cosa si tratta
+
+== Come AIML gestisce la comprensione // Collegamento a come AIML gestisce la comprensione
+
+=== Criticità e limiti di AIML // Spiegazione a passaggi di cosa ho fatto per migliorare la comprensione
+
 #pagebreak(weak: true)
 
+== Dataset // Data augmentation con LLM, prompt e valutazione manuale
+
+=== Etichettatura automatica // Classificazione automatica con LLM + snippet estesi nell'appendice
+
+=== Data augmentation 
+
+=== Etichettatura manuale
+
+#pagebreak(weak: true)
+
+== NLU: Capire cosa si sta dicendo
+
+=== Metodi classici con Spacy // CNN, Text2Vec, ecc.
+
+=== Classificazione con LLM // Cosa ho usato delle LLM per fare classificazione
+
+// - Addestramento di un modello di classificazione tramite Bert
+//   - Spiegazione di BERT con puntatore all'appendice sui transformer
+//   - Paper di riferimento per gli iperparametri
+//   - Utilizzo delle librerie di Hugging Face, con snippet di codice
+
+=== Valutazione e performance // Spiegazione di come ho valutato i risultati dei classificatori
+
+#pagebreak(weak: true)
+
+== NLU: Capire di cosa si sta parlando
+
+=== NER e Slot-filling // Spiegazione di cosa sono 
+
+==== Il ritorno di Spacy // Come ho implementato la parte di NER con spacy
+
+=== Valutazione e performance
+
+// Metriche di valutazione (F1 con CoNLL, ACE, MUC https://www.davidsbatista.net/blog/2018/05/09/Named_Entity_Evaluation/)
+
+#pagebreak(weak: true)
+
+= Data Retrieval // Spiegazione di cosa è il data retrieval
+
+== Retrieval tramite query // Knowledgebase, basi di dati, ecc.
+== Retrieval basato su script
+== Retrieval automatico guidato dalle LLM
+
+#pagebreak(weak: true)
+
+= Natural Language Generation
+/*
+- *NLG*: tramite prompting o parafrasi (sulle risposte)
+  - *LLM per generare delle alternative ad una risposta standard, o per generarla direttamente dai dati tramite prompt*
+  - Fornire anche la domanda, quindi considerare il contesto?
+  - Contesto più ampio?
+  - *Valutazione*
+    - ROUGE, ecc.
+    - Misure automatiche di valutazione con embeddings
+    - Jurafsky: capitolo su valutazione umana delle risposte dei sistemi di dialogo(sequenza di risposte/dialogo) da due possibili fonti
+    - Classificazione con confronto con AIML
+    - Performance Zero shot con modello baseline non trainato
+    - Qualità delle risposte valutate da persone (questionario):
+      - Tassonomia Dusek (https://d2t-llm.github.io/) per la valutazione
+*/
+
+
+== Come vengono fornite le risposte in AIML
+
+== Generazione di risposte tramite LLM
+
+=== Parafrasi
+
+=== Prompting
+
+== Qualità delle risposte
+
+=== Valutazione automatica
+
+=== Valutazione umana
+
+// - Qualità delle risposte valutate da persone (questionario):
+//   - Tassonomia Dusek (https://d2t-llm.github.io/) per la valutazione
+
+#pagebreak(weak: true)
+
+= Ingegnerizzazione
+
+// sviluppo di un sistema con funzionalità simili ad AIML ma che integri le migliorie sopra spiegate e approfondite.
+
+== Composizione del sistema
+
+== Compilatore
+
+=== Pipeline
+
+== Runner
+
+/*
+- *NLU*: Inizialmente modificare aiml-high per rendere più flessibile la parte di comprensione mediante classificazione
+  - *Bert/T1/Word embedding tensor*
+    - L'idea è di utilizzare un classificatore fine-tuned su un Encoder per determinare una gerarchia di interazioni possibili. Una volta individuata la classe specifica, è possibile fare slot-filling.
+    - Dataset:
+      - Annotazione automatica tramite LLM. Posso usarle per avere dei bronze-corpora su cui fare fine tuning?
+      - Data augmentation con LLM. Valutazione manuale (globale e a campione)
+    - *Valutazione*: metriche usate in letteratura (precision, recall, F1)
+  - Spacy: estrazione delle entità per gli slot
+- *NLG*: tramite prompting o parafrasi (sulle risposte)
+  - *LLM per generare delle alternative ad una risposta standard, o per generarla direttamente dai dati tramite prompt*
+  - Fornire anche la domanda, quindi considerare il contesto?
+  - Contesto più ampio?
+  - *Valutazione*
+    - ROUGE, ecc.
+    - Misure automatiche di valutazione con embeddings
+    - Jurafsky: capitolo su valutazione umana delle risposte dei sistemi di dialogo(sequenza di risposte/dialogo) da due possibili fonti
+    - Classificazione con confronto con AIML
+    - Performance Zero shot con modello baseline non trainato
+    - Qualità delle risposte valutate da persone (questionario):
+      - Tassonomia Dusek (https://d2t-llm.github.io/) per la valutazione
+- *Data Retrieval*: query esterne, da KB, con script
+- *Ingegnerizzazione*: sviluppo di un sistema con funzionalità simili ad AIML ma che integri le migliorie sopra spiegate e approfondite.
+*/
 // #show bibliography: set text(size: 0.9em)
 
 #bibliography("bib.yml", full: false)
+
+// #show: appendix // https://github.com/typst/typst/discussions/4031
+
+// = 
