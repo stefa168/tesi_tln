@@ -245,23 +245,375 @@ Nonostante questi limiti, AIML ha rappresentato un passo importante nell'evoluzi
 In alcuni ambiti ristretti (FAQ, conversazioni scriptate, assistenti vocali), costituisce ancora una soluzione valida e immediata. 
 In domini più complessi, in cui la varietà del linguaggio e l'integrazione con dati dinamici sono essenziali, diventa indispensabile affiancare o sostituire AIML con tecniche di Natural Language Understanding basate su machine learning e deep learning.
 
-#pagebreak(weak: true)
+Nelle sezioni successive mostrerò il percorso che ho seguito per cercare di migliorare la comprensione degli input dell'utente, integrando tecniche di NLU basate su modelli di linguaggio neurali, e valutando le performance ottenute rispetto ad AIML.
 
-== Dataset // Data augmentation con LLM, prompt e valutazione manuale
+== Comprendere l'intenzione di una frase // Introduzione alla classificazione di intenti
 
-=== Etichettatura automatica // Classificazione automatica con LLM + snippet estesi nell'appendice
+Come detto poco sopra, uno dei limiti di AIML è la gestione limitata di varianti linguistiche e contesti conversazionali.
 
-=== Data augmentation 
+Per permettere all'AIML di generalizzare sulle richieste degli utenti, il botmaster deve dichiarare delle generalizzazioni esplicite, ad esempio utilizzando wildcard o pattern che catturano più varianti di una stessa richiesta.
+Questo processo richiede tempo e competenze linguistiche, oltre ad una grande attenzione per evitare ambiguità o sovrapposizioni tra regole.
 
-=== Etichettatura manuale
+Durante il mio percorso di ricerca ho deciso di seguire una strada simile a quella di AIML, ma facendo un passo indietro: invece che cercare dei pattern nelle possibili richieste degli utenti, perchè non trovare un modello che possa generalizzare su queste richieste in modo automatico?\
+Il percorso per arrivare al modello di classificazione di intenti ha richiesto i suoi tempi, ma alla fine ho ottenuto dei risultati che ritengo soddisfacenti.
 
-#pagebreak(weak: true)
+I problemi principali da risolvere per poter classificare gli intenti sono due: la raccolta di dati etichettati e la scelta del modello di classificazione.
 
-== NLU: Capire cosa si sta dicendo
+=== Dataset di training // Come ho raccolto i dati etichettati per addestrare il modello
 
-=== Metodi classici con Spacy // CNN, Text2Vec, ecc.
+Di base, nel mondo dell'apprendimento automatico supervisionato, per addestrare un modello di classificazione è necessario un dataset di esempi etichettati, cioè coppie di input e output che il modello deve apprendere a generalizzare.
+
+Per la classificazione di intenti, i dataset più comuni sono quelli di chatbot e assistenti vocali, che contengono domande e richieste etichettate con l'intento che l'utente vuole esprimere.
+
+Il dataset originario fornitomi è stato composto in seguito a una campagna di raccolta dati manuale, in cui diversi collaboratori hanno interagito manualmente con un prototipo di chatbot, ponendo domande e richieste di vario tipo.\
+Il dataset è una collezione di circa 700 singole interazioni, metà sotto forma di domande degli utenti durante la prima fase di sperimentazione, e l'altra che coincide con ciò che il chatbot ha risposto.
+
+==== Estrazione dei dati
+
+Dovendo addestrare un modello di classificazione, ho proceduto innanzitutto con l'estrazione dei dati effettivamente a noi necessari. Un piccolo script python che adopera la libreria `pandas`@pandas è stato sufficiente:
+
+#align(center)[
+```python
+import pandas as pd
+from dotenv import load_dotenv
+
+load_dotenv()
+
+df_o = pd.read_excel('corpus/interaction-corpus.xlsx')
+
+# filter only the rows that have "Participant" as 'U'
+df = df_o[df_o['Participant'] == 'U']
+df = df[['Text']]
+df = df.drop_duplicates()
+df = df[df['Text'].apply(lambda x: isinstance(x, str))]
+df['Text'] = df['Text'].str.strip()  # Remove trailing whitespace
+texts = df['Text'].dropna()
+
+df.to_csv("./filtered_data.csv")
+```
+]
+
+Estratte le domande, si è potuto procedere con l'etichettatura.
+
+In un primo step, ho considerato la possibilità di lasciare il compito di etichettatura delle domande ad un sistema che svolgesse il compito in automatico.\
+Questo permetterebbe di avere un dataset decorato, senza dover ricorrere a un'etichettatura manuale che sarebbe stata molto dispendiosa in termini di tempo e risorse, specialmente in ottica di un incremento dei dati del dataset in seguito a nuove interazioni con il chatbot.
+
+Per fare ciò, ho rivolto la mia attenzione ai modelli di linguaggio neurali, in particolare alle Large Language Models (LLM), dal momento che sono in grado di generalizzare su una vasta gamma di task linguistici, inclusa la classificazione di intenti.
+
+Con l'attuale disponibilità di modelli pre-addestrati e API che permettono di interagire con essi, ho potuto sperimentare diverse soluzioni per l'etichettatura automatica delle domande.\
+In particolare, ho deciso di sperimentare con modelli di LLM open-source, dal momento che sono eseguibili localmente e permettono di mantenere i dati sensibili all'interno dell'ambiente di lavoro, senza doverli condividere con servizi esterni. Per utilizzarli, si sono rivelate fondamentali le API fornite da Ollama @ollama, un sistema per hostare localmente modelli di LLM open source (e in certi casi anche _open-weights_).
+
+==== Etichettatura automatica delle domande
+<etichettatura-automatica-delle-domande>
+Per poter automatizzare l'etichettatura usando una LLM, prima di tutto ho identificato l'insieme delle possibili etichette:
+#align(center)[
+```python
+LABELS: dict[str, str] = {
+  "START": "Initial greetings or meta-questions, such as 'hi' or 'hello'.",
+  "GEN_INFO": "General questions about the automaton that don't focus on specific components or functionalities.",
+  "STATE_COUNT": "Questions asking about the number of states in the automaton.",
+  "FINAL_STATE": "Questions about final states of the automaton.",
+  "STATE_ID": "Questions about the identity of a particular state.",
+  "TRANS_DETAIL": "General questions about the transitions within the automaton.",
+  "SPEC_TRANS": "Specific questions about particular transitions or arcs between states.",
+  "TRANS_BETWEEN": "Specific question about a transition between two states",
+  "LOOPS": "Questions about loops or self-referencing transitions within the automaton.",
+  "GRAMMAR": "Questions about the language or grammar recognized by the automaton.",
+  "INPUT_QUERY": "Questions about the input or simulation of the automaton.",
+  "OUTPUT_QUERY": "Questions specifically asking about the output of the automaton.",
+  "IO_EXAMPLES": "Questions asking for examples of inputs and outputs.",
+  "SHAPE_AUT": "Questions about the spatial or graphical representation of the automaton.",
+  "OTHER": "Questions not related to the automaton or off-topic questions.",
+  "ERROR_STATE": "Questions related to error states or failure conditions within the automaton.",
+  "START_END_STATE": "Questions about the initial or final states of the automaton.",
+  "PATTERN_RECOG": "Questions that aim to identify patterns in the automaton's structure or behavior.",
+  "REPETITIVE_PAT": "Questions focusing on repetitive patterns, especially in transitions.",
+  "OPT_REP": "Questions about the optimal spatial or minimal representation of the automaton.",
+  "EFFICIENCY": "Questions about the efficiency or minimal representation of the automaton."
+}
+```
+]
+
+In questa mappa, ad ogni etichetta è associata una descrizione che indica alla LLM un contesto in cui collocarla, con lo scopo di assistere la LLM ad etichettare correttamente le domande togliendo il più possibile le ambiguità.\
+Questo genere di task è del tipo zero shot, in cui il modello non ha mai visto i dati di training e deve etichettare le domande esclusivamente in base a un contesto fornito.
+
+Con lo scopo di assicurare un'etichettatura corretta e affidabile, ho deciso di utilizzare due modelli di LLM differenti, in modo da poter fare un majority voting tra le etichette prodotte dai due modelli.\
+
+- _Gemma 2_ @gemma, sviluppato da Google Deep Mind
+- _llama 3.1_ @llama3, sviluppato da Meta AI
+
+I modelli sono stati utilizzati nelle loro varianti da 9 miliardi di parametri per gemma (dimensione intermedia) e 8 miliardi per llama3.1 (il più piccolo dei modelli forniti), in seguito ad alcune sperimentazioni che hanno mostrato un buon compromesso tra performance (intese come qualità dei risultati prodotti in seguito al prompting) e tempo di esecuzione.
+
+Un ulteriore modello, Qwen @qwen, prodotto da Alibaba, è stato utilizzato durante le sperimentazioni, ma i risultati non sono stati sufficientemente soddisfacenti da permettere un utilizzo all'interno del progetto.
+
+Utilizzando le risorse dell'hardware a mia disposizione, ho effettuato il prompting delle domande con i modelli di LLM.
+Ad ogni modello è richiesto di etichettare ogni domanda.
+Il prompt utilizzato è stato progettato in modo da fornire un contesto chiaro e preciso, in modo da guidare la LLM verso l'etichetta corretta.\
+In particolare, ne sono stati utilizzati due per ogni modello, in modo da fornire un contesto più vario e permettere ai modelli di generalizzare meglio sulle domande.
+Ogni prompt risulta diverso dal punto di vista della composizione della richiesta, ma l'intento finale a livello semantico è lo stesso.
+
+Segue un estratto di codice python che mostra come è stato effettuato il prompting.
+È inclusa una classe `Chat`, da me sviluppata, che permette di interagire con i modelli di LLM in modo più semplice, astraendo le API di ollama.
+
+```python
+from tqdm import tqdm
+from chat_helper import Chat
+import pandas as pd
+
+# ollama_models = ["llama3.1:8b", "gemma:7b", "qwen:7b"]
+ollama_models = ["gemma2:9b", "llama3.1:8b"]
+
+# We are initializing a new dataframe with the same index as the original one
+res_df = pd.DataFrame(index=df.index)
+
+for model in ollama_models:
+    chat = Chat(model=model)
+
+    dataset_size = len(df)
+
+    for p_i, prompt_version in enumerate(prompts):
+        progress_bar = tqdm(
+          total=dataset_size, 
+          desc=f"Asking {model} with prompt {p_i}", unit="rows"
+        )
+
+        for r_i, row in df.iterrows():
+            text = row["Text"]
+
+            prompt = prompts[0].replace("{text}", text)
+
+            inferred_label = chat.interact(
+              prompt, 
+              stream=True, 
+              print_output=False, 
+              use_in_context=False
+            )
+            inferred_label = inferred_label.strip().replace("'", "")
+
+            res_df.at[r_i, f"{model} {p_i}"] = inferred_label
+            progress_bar.update()
+
+        print(progress_bar.format_dict["elapsed"])
+        progress_bar.close()
+```
+
+I prompt sono stati scelti in modo da fornire informazioni utili ai modelli per etichettare le domande, insieme ad un contesto che effettivamente faccia comprendere alla LLM quale sia l'argomento della domanda:
+
+#align(center)[
+```python
+prompts = [
+  """You are going to be provided a series of interactions from a user regarding questions about finite state automatons.
+  Each message has to be labelled, according to the following labels: 
+  
+  {labels}
+  
+  You only need to answer with the corresponding label you've identified.
+  Do not explain the reasoning, do not use different terms from the labels you've received now.
+  Interaction: 
+  {text}
+  Label: 
+  """,
+  """You are an AI assistant trained to classify questions into the following categories:
+  
+  {labels}
+  
+  Please classify the following question:
+  {text}
+  Category: 
+  """
+]
+```
+]
+
+Si notino le differenze tra i due prompt: il primo è più dettagliato e fornisce una spiegazione più approfondita delle etichette, mentre il secondo è più conciso e diretto.
+
+I tag tra parentesi graffe vengono sostituiti con i valori attualmente in uso, in modo da rendere il prompt più generico e riutilizzabile.
+
+Ecco un esempio dei risultati dell'etichettatura del bronze dataset, in seguito al prompting con i modelli di LLM:
+
+#figure(
+  align(center)[#table(
+    columns: (0.2fr, 1fr, 1fr, 1fr, 1fr),
+    align: (auto,auto,auto,auto,auto,),
+    table.header([ID], [gemma2:9b], [gemma2:9b], [llama3.1:8b], [llama3.1:8b],),
+    table.hline(),
+    [0], [START], [START], [START], [START],
+    [1], [GEN\_INFO], [GEN\_INFO], [GEN\_INFO], [GEN\_INFO],
+    [2], [SPEC\_TRANS], [SPEC\_TRANS], [TRANS\_BETWEEN], [TRANS\_BETWEEN],
+    [3], [SPEC\_TRANS], [SPEC\_TRANS], [TRANS\_BETWEEN], [TRANS\_BETWEEN],
+    [4], [Please provide the interaction. : START], [START], [START], [START],
+    […], […], […], […], […],
+    [285], [OPT\_REP], [OPT\_REP], [OPT\_REP], [OPT\_REP],
+    [286], [GRAMMAR], [GRAMMAR], [GRAMMAR], [GRAMMAR],
+    [287], [REPETITIVE\_PAT], [REPETITIVE\_PAT], [REPETITIVE\_PAT], [REPETITIVE\_PAT],
+    [288], [TRANS\_DETAIL], [TRANS\_DETAIL], [TRANS\_DETAIL], [GEN\_INFO],
+    [289], [GRAMMAR], [GRAMMAR], [FINAL\_STATE], [FINAL\_STATE],
+  )]
+  , kind: table
+)
+
+Come è possibile notare, i modelli hanno etichettato le domande in modo coerente tra di loro, ma non sempre con le etichette corrette.\
+In certi casi, le etichette sono state completamente sbagliate, e in altre occorrenze sono state prodotte etichette che non sono presenti nel set di etichette fornito, o hanno ignorato il prompt fornito, fornendo risposte completamente estranee.
+
+Come accennato, è stato adoperato un sistema di majority voting per combinare i risultati delle due LLM, in modo da ottenere un'etichettatura più affidabile:\
+
+```python
+from collections import Counter
+
+def majority_vote(row: pd.Series):
+    label_counts = Counter(row)
+    majority_label = label_counts.most_common(1)[0][0]
+    return majority_label
+```
+
+In seguito ad una prima fase di fine tuning tuttavia, ho verificato che nonostante un'etichettatura valida, le classi identificate erano troppo sbilanciate, con alcune classi che contenevano un numero troppo esiguo di esempi.
+In più, ho realizzato che le classi scelte erano troppo generiche; questo non avrebbe permesso di identificare con precisione l'argomento della domanda.
+
+Per questo motivo ho proceduto con una revisione delle etichette, e una successiva etichettatura manuale delle domande.
+
+==== Nuove classi e etichettatura manuale
+Prima di proseguire con l'etichettatura, ho provveduto a ripulire il dataset da domande non pertinenti o duplicate.
+Una volta fatto, ho deciso di ridurre il numero di classi, in modo da poter avere un dataset più bilanciato e con classi più specifiche.\
+Avendone ridotto il numero, per ottenere un livello di granularità maggiore, ho deciso di utilizzare un sistema di etichettatura gerarchico, in modo da poter identificare con maggiore precisione l'argomento della domanda.
+
+Le classi principali, che rappresentano l'argomento generale della domanda, sono state ridotte a 7:
+
+#figure(
+  align(center)[#table(
+    columns: (0.3fr, 1fr, 0.4fr),
+    align: (auto,auto,auto,),
+    table.header([Classe], [Descrizione], [Numero di\ Esempi],),
+    table.hline(),
+    [#strong[transition];], [Domande che riguardano le transizioni tra gli stati], [77],
+    [#strong[automaton];], [Domande che riguardano l'automa in generale], [48],
+    [#strong[state];], [Domande che riguardano gli stati dell'automa], [48],
+    [#strong[grammar];], [Domande che riguardano la grammatica riconosciuta dall'automa], [33],
+    [#strong[theory];], [Domande di teoria generale sugli automi], [15],
+    [#strong[start];], [Domande che avviano l'interazione con il sistema], [6],
+    [#strong[off\_topic];], [Domande non pertinenti al dominio che il sistema deve saper gestire], [2],
+  )]
+  , kind: table
+  )
+
+Il numero ristretto di classi di domande ha permesso di creare una suddivisione più bilanciata tra le classi, e di ottenere un dataset più equilibrato.
+
+Le classi secondarie, che rappresentano l'argomento specifico della domanda dipendono dalla classe principale. Per questo motivo il loro numero è variabile, ma in totale si tratta di 33 classi:
+#{
+  let classes = (
+    ("count", 29),
+    ("existence_from", 18),
+    ("list", 17),
+    ("description", 16),
+    ("accepted", 14),
+    ("representation", 13),
+    ("existence_between", 12),
+    ("transitions", 12),
+    ("description_brief", 10),
+    ("pattern", 10),
+    ("existence_directed", 9),
+    ("start", 8),
+    ("final", 8),
+    ("symbols", 7),
+    ("off_topic", 6),
+    ("cycles", 4),
+    ("label", 4),
+    ("example_input", 4),
+    ("final_list", 3),
+    ("states", 3),
+    ("generic", 3),
+    ("variation", 2),
+    ("greet", 2),
+    ("final_count", 2),
+    ("validity", 2),
+    ("simulation", 2),
+    ("regex", 2),
+    ("definition", 2),
+    ("input", 1),
+    ("existence_into", 1),
+    ("directionality", 1),
+    ("details", 1),
+    ("self_loop", 1),
+  )
+
+  [#classes.map(c => [#text(hyphenate: false)[#strong[#c.at(0)];: #c.at(1)]]).join([, ])]
+}.
+
+==== Data Augmentation
+
+Dal momento che il numero di esempi è piuttosto ridotto (229), e inoltre le classi sono sbilanciate, ho deciso di arricchire i dati con ulteriori domande generate automaticamente e manualmente.
+Ho aggiunto un totale di 525 domande, con la seguente distribuzione:
+
+#figure(
+  align(center)[#table(
+    columns: 2,
+    align: (auto,auto),
+    table.header([Classe], [Numero di esempi aggiuntivi],),
+    table.hline(),
+    [#strong[transition]], [148],
+    [#strong[automaton]], [93],
+    [#strong[state]], [56],
+    [#strong[grammar]], [111],
+    [#strong[theory]], [100],
+    [#strong[start]], [17],
+  )], kind: table
+)
+
+Le domande off-topic aggiuntive (un centinaio) sono state estratte dal dataset SQUAD #footnote[Stanford Question Answering Dataset] v2 @squad1 @squad2, per avere una sufficiente varietà di domande non pertinenti.
+
+Anche le classi secondarie hanno ricevuto alcune migliorie alla distribuzione, che rimane comunque ancora sbilanciata: 
+(#{
+  let classes = (
+    ("description",74),
+    ("accepted",57),
+    ("existence_from",42),
+    ("count",40),
+    ("generic",39),
+    ("list",38),
+    ("label",36),
+    ("transitions",34),
+    ("pattern",27),
+    ("existence_between",25),
+    ("existence_directed",21),
+    ("final",21),
+    ("simulation",20),
+    ("variation",19),
+    ("greet",19),
+    ("representation",19),
+    ("states",18),
+    ("existence_into",17),
+    ("definition",16),
+    ("description_brief",16),
+    ("start",15),
+    ("symbols",14),
+    ("validity",14),
+    ("cycles",12),
+    ("details",12),
+    ("input",12),
+    ("self_loop",11),
+    ("example_input",11),
+    ("regex",9),
+    ("final_count",8),
+    ("off_topic",6),
+    ("final_list",6),
+    ("optimization",6),
+    ("deterministic",5),
+    ("reachability",5),
+    ("start_final",3),
+    ("dead",3),
+    ("directionality",2),
+    ("image",2)
+  )
+
+  [#classes.map(c => [#text(hyphenate: false)[#strong[#c.at(0)];: #c.at(1)]]).join([, ])]
+}).
+
+Nonostante lo sbilanciamento, è stato possibile ottenere dei buoni risultati in seguito al fine-tuning.
+
+L'utilizzo del dataset SQUAD ha anche introdotto un'ulteriore incremento delle performance, portando a una drastica diminuzione dell'erronea classificazione di esempi off-topic come domande lecite.
 
 === Classificazione con LLM // Cosa ho usato delle LLM per fare classificazione
+
+
 
 // - Addestramento di un modello di classificazione tramite Bert
 //   - Spiegazione di BERT con puntatore all'appendice sui transformer
@@ -270,14 +622,20 @@ In domini più complessi, in cui la varietà del linguaggio e l'integrazione con
 
 === Valutazione e performance // Spiegazione di come ho valutato i risultati dei classificatori
 
-#pagebreak(weak: true)
-
-== NLU: Capire di cosa si sta parlando
+== Capire di cosa si sta parlando
 
 === NER e Slot-filling // Spiegazione di cosa sono 
 
-==== Il ritorno di Spacy // Come ho implementato la parte di NER con spacy
+=== Spacy // Come ho implementato la parte di NER con spacy
 
 === Valutazione e performance
 
 // Metriche di valutazione (F1 con CoNLL, ACE, MUC https://www.davidsbatista.net/blog/2018/05/09/Named_Entity_Evaluation/)
+
+== Dataset <dataset> // Data augmentation con LLM, prompt e valutazione manuale
+
+=== Etichettatura automatica // Classificazione automatica con LLM + snippet estesi nell'appendice
+
+=== Data augmentation 
+
+=== Etichettatura manuale

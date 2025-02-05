@@ -122,6 +122,11 @@ aiml:
   organization: AIML Foundation
   url: http://www.aiml.foundation/doc.html
 
+pandas:
+  type: repository
+  title: pandas - Python Data Analysis Library
+  url: https://pandas.pydata.org/
+
 rnn:
   type: chapter
   title: Learning internal representations by error propagation
