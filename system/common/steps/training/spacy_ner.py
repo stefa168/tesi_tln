@@ -1,7 +1,9 @@
 import re
+from datetime import datetime
 from pathlib import Path
 from typing import Literal, Any
 
+import wandb
 from pydantic import Field
 
 from system.common.steps.base import Step, StepExecutionError
@@ -41,6 +43,8 @@ class TrainSpacyNerModelStep(Step):
     iterations: int = Field(20, ge=1)
     training_device: Literal['cpu', 'prefer_gpu', 'gpu'] = Field('prefer_gpu')
     resulting_model_name: str | None = None
+    use_wandb: bool | None = Field(default=None,
+                                   description="Whether to use Weights and Biases for logging the training process. Defaults to the global value.")
 
     def resolve_requirements(self, context: dict[str, dict[str, Any]]) -> dict[str, Any]:
         context = super().resolve_requirements(context)
@@ -80,6 +84,35 @@ class TrainSpacyNerModelStep(Step):
         data = NERData.load_jsonl_data(self.training_data_path)
         label_matrix, label_list = prepare_multilabel_data(data)
         train_data, val_data = stratified_split(data, label_matrix)
-        train_spacy(train_data, val_data, set(label_list), self.iterations, self.language, model_pipeline_path)
+
+        wandb_enabled_globally: bool = context["config"]["use_wandb"]
+        wandb_mode: str
+        if self.use_wandb is not None:
+            wandb_mode = "online" if self.use_wandb else "disabled"
+        else:
+            wandb_mode = "online" if wandb_enabled_globally else "disabled"
+
+        trainer = None
+        wandb_run_name = f"{model_pipeline_name} {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+
+        wandb_config = {
+            "language": self.language,
+            "training_data_path": self.training_data_path,
+            "iterations": self.iterations,
+            "training_device": self.training_device,
+            "labels": label_list
+        }
+
+        with wandb.init(
+                project=config_name,
+                name=wandb_run_name,
+                mode=wandb_mode,
+                config=wandb_config,
+                tags=["spacy_ner"],
+                group=context["compilation_start_time"]
+        ) as run:
+            run.save(self.training_data_path)
+
+            train_spacy(train_data, val_data, set(label_list), self.iterations, self.language, model_pipeline_path, run)
 
         return {}

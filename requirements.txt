@@ -21,3 +21,5 @@ python-dotenv==1.0.1
 PyYAML==6.0.2
 pydantic==2.9.2
 click==8.1.8
+wandb~=0.18.7
+spacy~=3.8.2

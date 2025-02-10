@@ -1,8 +1,10 @@
 import json
 import random
+import time
 from typing import Generator, Literal
 
 import spacy
+import wandb
 from numpy import ndarray
 from spacy.training.example import Example
 from spacy.util import minibatch, compounding
@@ -10,6 +12,8 @@ import numpy as np
 from sklearn.preprocessing import MultiLabelBinarizer
 from iterstrat.ml_stratifiers import MultilabelStratifiedShuffleSplit
 from pathlib import Path
+
+from wandb.apis.public import Run
 
 SpacyEntity = tuple[int, int, str]
 
@@ -136,7 +140,8 @@ def train_spacy(train_data: list[NERData],
                 label_list: set[str],
                 iterations: int,
                 language: str,
-                output_path: Path):
+                output_path: Path,
+                wandb_run: Run):
     """
     Train a spaCy NER model.
 
@@ -160,6 +165,9 @@ def train_spacy(train_data: list[NERData],
         optimizer = nlp.begin_training()
 
         for itn in range(iterations):
+            # Start timing the epoch
+            start_time = time.time()
+
             random.shuffle(train_data)
             losses = {}
             batches = minibatch(items=train_data, size=compounding(4.0, 32.0, 1.001))
@@ -170,19 +178,37 @@ def train_spacy(train_data: list[NERData],
 
                 nlp.update(examples, drop=0.5, sgd=optimizer, losses=losses, )
 
-            print(f"Iteration {itn + 1}/{iterations} - Losses: {losses} ", end='')
+            print(f"Iteration {itn + 1}/{iterations} - Losses: {losses}", end=' ')
 
             # Evaluate on validation data
             with nlp.use_params(optimizer.averages):
                 examples = [el.make_example(nlp) for el in val_data]
                 scores = nlp.evaluate(examples)
-                print(f"F1-score: {scores['ents_f']:.2f}")
+                print(f"F1-score: {scores['ents_f']:.2f}", end=' ')
+
+            # End timing the epoch
+            end_time = time.time()
+            epoch_time = end_time - start_time
+
+            print(f"Epoch time: {epoch_time:.2f} seconds")
+
+            wandb.log({
+                "iteration": itn + 1,
+                "losses": losses,
+                "f1_score": scores["ents_f"],
+                "precision": scores["ents_p"],
+                "recall": scores["ents_r"],
+                "ents_per_type": scores["ents_per_type"],
+                "epoch_time": epoch_time
+            })
 
     # Save the model
     save_location = Path(output_path)
     save_location.mkdir(parents=True, exist_ok=True)
     nlp.to_disk(output_path)
     print(f"Saved model to {output_path}")
+
+    wandb.save(output_path / "*")
 
 
 def init_spacy_device(device: Literal['cpu', 'prefer_gpu', 'gpu'] = 'prefer_gpu') -> bool:

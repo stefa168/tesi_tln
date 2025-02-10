@@ -30,6 +30,8 @@ def get_item_by_path(obj: dict[str, Any], path: str) -> Any:
 class Model(BaseModel):
     name: str = Field(..., min_length=1, description="The name of the model.")
     disabled: bool = Field(False, description="Whether model training should be disabled.")
+    force_compilation: bool = Field(False,
+                                    description="Whether to force compilation even if the model is already compiled.")
     steps: list[StepUnion] = Field(..., min_length=1, description="The steps to execute for training the model.")
     type: Literal["classification", "ner"] = Field(..., description="The type of the model.")
 
@@ -204,6 +206,7 @@ class Flow(BaseModel):
 
 class CompilerConfigV2(BaseModel):
     name: str = Field(..., min_length=1, description="The name of the compiler configuration.")
+    use_wandb: bool = Field(False, description="Whether to use Weights & Biases for logging.", )
     models: list[Model] = Field(..., description="The models to compile.")
     flows: dict[str, Flow] | None = Field(None)
 

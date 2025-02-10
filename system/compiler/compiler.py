@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 from system.common.config import CompilerConfigV2, Model
@@ -29,6 +30,7 @@ class ModelPipelineCompiler:
             "config": self.config.model_dump(exclude={'models'}),
             "config_path": config_path,
             "artifacts_dir": artifacts_dir,
+            "compilation_start_time": datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         }
 
         step: Step

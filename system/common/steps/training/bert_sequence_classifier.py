@@ -1,9 +1,12 @@
 import logging
 import re
+from datetime import datetime
 from pathlib import Path
 from typing import Literal, Any
 
 import pandas as pd
+import wandb
+from pydantic import Field
 from transformers import AutoTokenizer, PreTrainedModel, PreTrainedTokenizerBase, Trainer
 
 from system.common.steps.base import Step, StepExecutionError
@@ -42,6 +45,9 @@ class TrainBertSequenceClassifierStep(Step):
     examples_column: str
     train_epochs: int = 20
     resulting_model_name: str | None = None
+    # recompile_if_exists: bool | None = False
+    use_wandb: bool | None = Field(default=None,
+                                   description="Whether to use Weights and Biases for logging the training process. Defaults to the global value.")
 
     def resolve_requirements(self, context: dict[str, dict[str, Any]]) -> dict[str, Any]:
         context = super().resolve_requirements(context)
@@ -67,7 +73,7 @@ class TrainBertSequenceClassifierStep(Step):
 
         return {"dataframe": df}
 
-    def execute(self, inputs: dict[str, Any], context: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    def execute(self, inputs: dict[str, Any], context: dict[str, Any]) -> dict[str, Any]:
         df = inputs["dataframe"]
 
         config_name: str = context["config"]["name"]
@@ -97,19 +103,44 @@ class TrainBertSequenceClassifierStep(Step):
         # Check if the model is cached
         # todo check the checksum of the input data to determine if the model is still valid; same thing for the
         #  configuration of the model if it has changed
+
         if model_pipeline_path.exists() and any(model_pipeline_path.iterdir()):
-            print(f"Model '{model_pipeline_name}' already exists. Skipping step!")
+            force_compilation: bool | None = context.get("model_metadata").get("force_compilation")
+            print(f"Model '{model_pipeline_name}' already exists.", end=" ")
+
+            if not force_compilation:
+                print("Skipping compilation.")
+                return {"base_model": None, "tokenizer": None, "trainer": None, "cached": True}
+            else:
+                print("Forcing compilation as specified in model configuration.")
+
+        model_pipeline_path.mkdir(parents=True, exist_ok=True)
+
+        # Create a LabelInfo object using the dataset and the labels column
+        label_info = LabelInfo(df, self.labels_column)
+
+        if len(label_info) == 1:
+            print("Only one label found in the dataset. Please check the dataset and labels column.")
+            return {"break": True}
+            # raise StepExecutionError("Only one label found in the dataset. Please check the dataset and labels column.")
+
+        wandb_enabled_globally: bool = context["config"]["use_wandb"]
+        wandb_mode: str
+        if self.use_wandb is not None:
+            wandb_mode = "online" if self.use_wandb else "disabled"
         else:
-            model_pipeline_path.mkdir(parents=True, exist_ok=True)
+            wandb_mode = "online" if wandb_enabled_globally else "disabled"
 
-            # Create a LabelInfo object using the dataset and the labels column
-            label_info = LabelInfo(df, self.labels_column)
+        trainer = None
+        wandb_run_name = f"{model_pipeline_name} {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
 
-            if len(label_info) == 1:
-                print("Only one label found in the dataset. Please check the dataset and labels column.")
-                return {"break": True}
-                # raise StepExecutionError("Only one label found in the dataset. Please check the dataset and labels column.")
-
+        with wandb.init(
+                project=config_name,
+                name=wandb_run_name,
+                mode=wandb_mode,
+                tags=["sequence_classifier"],
+                group=context["compilation_start_time"]
+        ) as run:
             # Prepare the model using the base model name and label information
             base_model = prepare_model(self.pretrained_model, label_info)
 
@@ -122,16 +153,21 @@ class TrainBertSequenceClassifierStep(Step):
                                                           self.labels_column)
 
             # Run the fine-tuning process on the model
-            trainer = run_fine_tuning(base_model, tokenizer, train_dataset, eval_dataset, self.train_epochs)
+            trainer = run_fine_tuning(base_model, tokenizer, train_dataset, eval_dataset, wandb_mode, self.train_epochs)
 
             logger.info(f"Saving the model to {model_pipeline_path}")
 
             # Save the model
             trainer.save_model(model_pipeline_path.as_posix())
 
-            return {"base_model": base_model, "tokenizer": tokenizer, "trainer": trainer, "cached": False}
+            # # Log the model directory as a WandB artifact
+            # # Currently disabled, takes too much time to upload.
+            # artifact = wandb.Artifact(name=f"{model_pipeline_name}_model", type="model")
+            # artifact.add_dir(model_pipeline_path.as_posix())
+            # run.log_artifact(artifact)
+            # logger.info(f"Model logged to WandB as artifact: {model_pipeline_name}_model")
 
-        return {"base_model": None, "tokenizer": None, "trainer": None, "cached": True}
+        return {"base_model": base_model, "tokenizer": tokenizer, "trainer": trainer, "cached": False}
 
     def verify_execution(self, outputs: dict[str, Any]) -> dict[str, Any]:
         cached: bool = outputs["cached"]

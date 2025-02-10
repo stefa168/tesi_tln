@@ -183,6 +183,12 @@
           "title": "Disabled",
           "type": "boolean"
         },
+        "force_compilation": {
+          "default": false,
+          "description": "Whether to force compilation even if the model is already compiled.",
+          "title": "Force Compilation",
+          "type": "boolean"
+        },
         "steps": {
           "description": "The steps to execute for training the model.",
           "items": {
@@ -416,6 +422,19 @@
           ],
           "default": null,
           "title": "Resulting Model Name"
+        },
+        "use_wandb": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Whether to use Weights and Biases for logging the training process. Defaults to the global value.",
+          "title": "Use Wandb"
         }
       },
       "required": [
@@ -495,6 +514,19 @@
           ],
           "default": null,
           "title": "Resulting Model Name"
+        },
+        "use_wandb": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Whether to use Weights and Biases for logging the training process. Defaults to the global value.",
+          "title": "Use Wandb"
         }
       },
       "required": [
@@ -588,6 +620,12 @@
       "minLength": 1,
       "title": "Name",
       "type": "string"
+    },
+    "use_wandb": {
+      "default": false,
+      "description": "Whether to use Weights & Biases for logging.",
+      "title": "Use Wandb",
+      "type": "boolean"
     },
     "models": {
       "description": "The models to compile.",

@@ -1,8 +1,10 @@
 name: "test_config"
+use_wandb: true
 models:
   - name: "global_subject_classifier"
     disabled: false
     type: classification
+    force_compilation: true
     steps:
       - type: load_csv
         name: data
@@ -18,6 +20,7 @@ models:
   - name: "question_intent_classifiers"
     disabled: false
     type: classification
+    force_compilation: true
     steps:
       - type: load_csv
         name: data
@@ -37,6 +40,7 @@ models:
 
   - name: "question_entities_recognition"
     type: ner
+    disabled: false
     steps:
       - type: ner_spacy
         name: ner_training

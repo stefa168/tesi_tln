@@ -42,6 +42,7 @@ def run_fine_tuning(model: AutoModelForSequenceClassification,
                     tokenizer: AutoTokenizer,
                     train_dataset: Dataset,
                     eval_dataset: Dataset,
+                    wandb_mode: str,
                     num_train_epochs=20) -> Trainer:
     """
     Fine-tunes a pre-trained model on the provided training dataset and evaluates it on the evaluation dataset.
@@ -51,6 +52,7 @@ def run_fine_tuning(model: AutoModelForSequenceClassification,
         tokenizer (AutoTokenizer): The tokenizer associated with the pre-trained model.
         train_dataset (Dataset): The dataset used for training.
         eval_dataset (Dataset): The dataset used for evaluation.
+        wandb_mode (str): The mode for Wandb logging. Can be "offline" or "online".
         num_train_epochs (int, optional): The number of training epochs. Defaults to 20.
 
     Returns:
@@ -60,6 +62,7 @@ def run_fine_tuning(model: AutoModelForSequenceClassification,
     train_dataset = train_dataset.map(lambda x: {k: v.float() if isinstance(v, torch.Tensor) and v.dtype == torch.long else v for k, v in x.items()})
     eval_dataset = eval_dataset.map(lambda x: {k: v.float() if isinstance(v, torch.Tensor) and v.dtype == torch.long else v for k, v in x.items()})
 
+    report_to = ["wandb"] if wandb_mode == "online" else None
 
     training_args = TrainingArguments(
         # todo save to a "temp" directory of some sort, maybe specified in the compiler configuration, which is
@@ -79,7 +82,8 @@ def run_fine_tuning(model: AutoModelForSequenceClassification,
         metric_for_best_model='f1',  # Use subtopic F1-score to determine the best model
         greater_is_better=True,  # Higher metric indicates a better model
         save_total_limit=1,  # Limit the total number of saved models
-        save_only_model=True  # Save only the model weights
+        save_only_model=True,  # Save only the model weights
+        report_to=report_to,  # Report logs to Wandb if mode is "online"
     )
 
     trainer = Trainer(
