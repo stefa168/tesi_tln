@@ -3,6 +3,7 @@ import pandas as pd
 import torch
 from datasets import Dataset
 from pandas import DataFrame
+from scipy.stats import entropy
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 from sklearn.model_selection import StratifiedShuffleSplit
 from transformers import AutoModelForSequenceClassification, AutoTokenizer, Trainer, TrainingArguments, \
@@ -26,14 +27,28 @@ def compute_metrics(eval_pred):
             - f1 (float): The weighted F1 score of the predictions.
     """
     predictions, labels = eval_pred
-    preds = np.argmax(predictions, axis=1)
+    # Convert logits to probabilities using softmax
+    probabilities = np.exp(predictions) / np.sum(np.exp(predictions), axis=1, keepdims=True)
+
+    # Standard metrics
+    preds = np.argmax(probabilities, axis=1)
     acc = accuracy_score(labels, preds)
     precision, recall, f1, _ = precision_recall_fscore_support(labels, preds, average='weighted', zero_division=0)
+
+    # Uncertainty metrics
+    entropies = entropy(probabilities.T)  # Compute entropy for each prediction
+    avg_entropy = np.mean(entropies)  # Average entropy
+
+    confidences = np.max(probabilities, axis=1)  # Highest probability for each prediction
+    avg_confidence = np.mean(confidences)  # Average confidence
+
     metrics = {
         'accuracy': acc,
         'precision': precision,
         'recall': recall,
         'f1': f1,
+        'avg_entropy': avg_entropy,
+        'avg_confidence': avg_confidence,
     }
     return metrics
 
