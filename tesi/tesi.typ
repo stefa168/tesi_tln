@@ -55,18 +55,17 @@
   body
 }
 
+#show table: set text(hyphenate: false)
+#set table(
+  align: (x, y) => (left + if y == 0 { bottom } else { top }),
+  fill: (_, y) => if calc.odd(y) { gray.lighten(50%) },
+  stroke: none,
+)
+
 #include "chapters/1_introduction.typ"
 #pagebreak(weak: true)
 
 #include "chapters/2_nlu.typ"
-
-#pagebreak(weak: true)
-
-= Data Retrieval // Spiegazione di cosa è il data retrieval
-
-== Retrieval tramite query // Knowledgebase, basi di dati, ecc.
-== Retrieval basato su script
-== Retrieval automatico guidato dalle LLM
 
 #pagebreak(weak: true)
 
@@ -86,14 +85,17 @@
       - Tassonomia Dusek (https://d2t-llm.github.io/) per la valutazione
 */
 
-
-== Come vengono fornite le risposte in AIML
-
 == Generazione di risposte tramite LLM
 
 === Parafrasi
 
 === Prompting
+
+== Data Retrieval // Spiegazione di cosa è il data retrieval
+
+=== Retrieval tramite query // Knowledgebase, basi di dati, ecc.
+=== Retrieval basato su script
+=== Retrieval automatico guidato dagli LLM
 
 == Qualità delle risposte
 

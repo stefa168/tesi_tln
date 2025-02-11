@@ -142,6 +142,10 @@
     #text(it)
   ]
 
+  show heading.where(level: 4): it =>[
+    #block(it.body)
+  ]
+
   // Title page
   set align(center)
   
@@ -310,7 +314,7 @@
 
   set align(top + center)
 
-  outline(depth: 4, indent: true)
+  outline(depth: 3, indent: true)
 
   pagebreak(to: "odd")
 
@@ -322,25 +326,4 @@
   counter(page).update(1)
 
   body
-
-  // pagebreak(to: "odd")
-
-/*   // Bibliography
-  if bibliography != none {
-    heading(
-      level: 1,
-      numbering: none,
-      if lang == "en" {
-        "References"
-      } else {
-        "Riferimenti"
-      }
-    )
-    show std-bibliography: {
-      set text(size: 0.9em)
-    }
-    set std-bibliography(title: none)
-    
-    bibliography
-  } */
 }
