@@ -65,6 +65,7 @@ class SplitDataStep(Step):
             "config": context["config"],
             "config_path": context["config_path"],
             "artifacts_dir": context["artifacts_dir"],
+            "compilation_start_time": context["compilation_start_time"]
         }
 
         split_results = {}
