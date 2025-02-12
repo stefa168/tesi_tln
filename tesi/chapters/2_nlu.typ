@@ -691,16 +691,277 @@ L'utilizzo del dataset SQUAD ha anche introdotto un'ulteriore incremento delle p
 
 === Fine-tuning // Cosa ho usato delle LLM per fare classificazione
 
-Senza addentrarmi troppo nei dettagli per il momento, ho provato due metodi per effettuare il fine-tuning, dal momento che non si tratta di una semplice classificazione multiclasse:
-- *multitask training* @multitask, dove invece di avere un solo layer finale di classificazione posto in cima al transformer pre-trainato di BERT ne sono presenti due posizionati in parallelo
-- *hierarchical training* @hierarchical, dove si utilizza una tecnica (di tante varianti possibili) in cui si procede nella classificazione delle etichette "a step".
+Per poter utilizzare le Large Language Models (LLM) per la classificazione di intenti, ho dovuto seguire un processo di fine-tuning.
 
-// - Addestramento di un modello di classificazione tramite Bert
-//   - Spiegazione di BERT con puntatore all'appendice sui transformer
-//   - Paper di riferimento per gli iperparametri
-//   - Utilizzo delle librerie di Hugging Face, con snippet di codice
+Il fine-tuning avviene verso la fine della preparazione di un modello di machine learning.
+In particolare, è la fase in cui si prende un modello pre-addestrato su un compito generale (o su una grande quantità di dati non etichettati) e lo si “specializza” su un compito specifico, come la classificazione di intenti, l'analisi del sentiment o il riconoscimento di entità nominate.\
+Si parte quindi da un modello che possiede già una buona conoscenza linguistica di base (perché allenato, ad esempio, su quantità imponenti di testo come Wikipedia, libri o pubblicazioni) e lo si ri-addestra su un dataset mirato, così da fargli apprendere le particolarità e le sfumature del nuovo scenario applicativo.
 
-=== Valutazione e performance // Spiegazione di come ho valutato i risultati dei classificatori
+Sul piano tecnico, il processo di fine-tuning si fonda sugli stessi principi del _learning by example_: si forniscono al modello coppie di input e output (nel caso di una classificazione, l'output è la classe corretta), e si calcola la loss (ad esempio la cross-entropy tra le probabilità previste dal modello e quelle desiderate).\
+Tramite la retropropagazione dell'errore, i pesi del modello vengono aggiornati iterativamente, così da allineare le predizioni alle etichette reali.
+Il risultato è che, dopo un numero sufficiente di iterazioni (o epoche), il modello impara a predire con buona approssimazione la classe corretta anche per esempi non ancora visti.
+
+#figure(
+  image("../media/pretraining-finetuning-transformer-models-2-1.png"),
+  caption: [Processo di fine-tuning di un modello di LLM. *IMMAGINE DA SOSTITUIRE*]
+)
+
+L’elemento distintivo del fine-tuning rispetto a un addestramento “da zero” (o from scratch) sta nel fatto che la maggior parte dei pesi del modello non parte da valori iniziali casuali, bensì da un punto in cui il modello ha già “appreso” molte regole e pattern del linguaggio.
+Se nel pre-addestramento ha appreso, ad esempio, la nozione di contesto, la correlazione fra parole vicine e la loro valenza semantica, durante il fine-tuning deve semplicemente specializzarsi nel riconoscere come queste informazioni si combinano per risolvere il compito target.
+Questo riduce drasticamente la quantità di dati e di risorse computazionali necessarie a raggiungere buone prestazioni.
+
+Nel caso di una classificazione testuale multi-classe, si aggiunge in genere un piccolo strato di output (o head) in cima al modello pre-addestrato.
+La testa è una semplice rete feed-forward, spesso costituita da uno o due livelli di neuroni, che produce un vettore di dimensione pari al numero di possibili etichette.
+Il resto del modello rimane pressoché invariato: l'architettura interna, come i vari encoder o layer del Transformer, resta la stessa, ma i loro pesi continuano ad aggiornarsi durante il training, almeno in un contesto standard (è anche possibile, in alcuni scenari, “congelare” i primi strati e addestrare solo quelli finali, in base a considerazioni di efficienza e dimensione del dataset).
+
+#figure(
+  image("../media/llm_classifier2.png"),
+  caption: [Struttura di un modello di classificazione basato su LLM. *IMMAGINE DA SOSTITUIRE*]
+)
+
+=== BERT
+
+Prima di illustrare più nel dettaglio il fine-tuning, è utile introdurre BERT #footnote[Bidirectional Encoder Representations from Transformers] @bert, progenitore della famiglia di modelli da me utilizzati per la sperimentazione, nonchè uno dei modelli più noti e influenti degli ultimi anni in ambito Natural Language Processing.
+
+BERT è stato proposto nel 2018 da #cite(<bert>, form: "prose") come un sistema capace di apprendere rappresentazioni contestuali del testo in modo bidirezionale, basandosi sull'architettura Transformer introdotta in precedenza da #cite(<vaswani2023attentionneed>, form: "prose").
+
+L'idea portante di BERT è quella di addestrare un modello neurale a predire, data una sequenza testuale, le parole mascherate (ovvero rimosse o sostituite) e la relazione tra frasi adiacenti.
+Queste due tecniche di pre-addestramento vengono rispettivamente chiamate Masked Language Modeling e Next Sentence Prediction.
+
+Nel Masked Language Modeling, BERT maschera casualmente alcune parole del testo in input e chiede al modello di indovinare quali fossero, costringendolo così a sviluppare una comprensione profonda del contesto circostante.\
+
+Nel Next Sentence Prediction, invece, il modello riceve in ingresso due frasi (A e B) e impara a classificare se B segue effettivamente A o se le due frasi appartengono a contesti disgiunti.
+Addestrando in parallelo su questi due compiti, BERT acquisisce rappresentazioni interne che colgono sfumature sintattiche, semantiche e relazionali del linguaggio @bert.
+
+Una volta pre-addestrato su grandi corpora di testo (come Wikipedia ed estrazioni di libri), BERT può essere facilmente “specializzato” per vari task supervisionati, tra cui la classificazione di testi, l'analisi del sentiment, il question answering e, in generale, tutto ciò che riguarda la comprensione del linguaggio naturale, essendo un modello encoder. 
+La peculiarità di BERT è che, essendo già addestrato a livello linguistico di base, necessita di meno esempi per ottenere risultati spesso notevoli su compiti altamente specializzati.
+
+Esistono diverse varianti del modello, in termini di dimensioni e capacità. Le versioni più comuni sono `BERT-base` e `BERT-large`, differenziate per numero di livelli (encoder) e di parametri totali.\
+In generale, la versione `base` è più rapida e ha requisiti meno elevati in termini di memoria, mentre la versione large offre performance maggiori a fronte di tempi di calcolo e requisiti hardware superiori.
+
+Nella libreria di Huggingface `transformers` @huggingface_transformers, BERT è messo a disposizione come un modello pretrained, pronto per essere caricato e ulteriormente addestrato.
+In un contesto di classificazione di intenti, ad esempio, si può utilizzare `AutoModelForSequenceClassification` specificando il checkpoint “bert-base-uncased” (o simili). 
+
+Un esempio di codice di inizializzazione è il seguente:
+
+#align(center)[
+```python
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
+
+model_name = "bert-base-uncased"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=num_classes)
+```
+]
+
+`model` è in grado di elaborare sequenze di token generate dal tokenizer e, una volta fine-tuned, produce come output le probabilità di appartenere alle varie classi (o intenti) da classificare. Questa è la base su cui mi sono appoggiato per la classificazione delle domande del dataset.
+
+=== Implementazione
+
+In questa sezione sarà presentata la procedura di fine-tuning che ho implementato per addestrare un modello di classificazione di intenti basato su architetture Transformer.\
+L'intero processo sfrutta principalmente la libreria `transformers` di Huggingface @huggingface_transformers, in combinazione con altri strumenti sempre dell'ecosistema FOSS #footnote[Free and Open Source Software, cioè Software *Libero* e Open Source] di Huggingface, come `datasets`.
+
+L'utilizzo di queste librerie permette di semplificare notevolmente il processo di fine-tuning, fornendo API intuitive e funzionalità di alto livello per la gestione dei dati, la creazione dei modelli e la valutazione delle performance.
+In questo modo è possibile addestrare un modello di classificazione di intenti in poche righe di codice, senza dover scrivere manualmente i loop di training e validation, o implementare da zero la logica di salvataggio e caricamento dei modelli, nonostante questa via sia sempre possibile.
+
+L'obiettivo è riutilizzare un modello pre-addestrato (ad esempio BERT, DistilBERT o qualsiasi altro compatibile con AutoModelForSequenceClassification) per specializzarlo nel riconoscimento di specifiche categorie di intenti, e successivamente salvarlo per l'uso nel chatbot.
+
+==== Preparazione dei dati
+
+Un primo punto cruciale è la preparazione del dataset, gestita dalla funzione `prepare_dataset`.
+Qui effettuo la suddivisione stratificata tra train e validation, tokenizzo i testi tramite un `AutoTokenizer` e converto le etichette da stringhe a interi, in accordo con la mappatura definita nella classe `LabelInfo` #footnote[Si veda l'appendice per la completa definizione.].
+
+#figure(
+  ```python
+  def prepare_dataset(df: DataFrame,
+                    tokenizer: PreTrainedTokenizer,
+                    label_info: LabelInfo,
+                    examples_column: str,
+                    labels_column: str) -> tuple[Dataset, Dataset]:
+    """
+    Prepares the dataset for training and evaluation by tokenizing the text
+    and encoding the labels.
+    """
+    def tokenize_and_label(example: dict) -> BatchEncoding:
+        question = example[examples_column]
+        encodings = tokenizer(question, padding="max_length", truncation=True, max_length=128)
+        label = label_info.get_id(example[labels_column])
+        encodings.update({'labels': label})
+        return encodings
+
+    split = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
+    train_index, val_index = next(split.split(df, df[labels_column]))
+    strat_train_set = df.iloc[train_index].reset_index(drop=True)
+    strat_val_set = df.iloc[val_index].reset_index(drop=True)
+
+    train_dataset = Dataset.from_pandas(strat_train_set)
+    eval_dataset = Dataset.from_pandas(strat_val_set)
+
+    train_dataset = train_dataset.map(tokenize_and_label, remove_columns=train_dataset.column_names)
+    eval_dataset = eval_dataset.map(tokenize_and_label, remove_columns=eval_dataset.column_names)
+
+    return train_dataset, eval_dataset
+  ```,
+  caption: [Funzione per la preparazione del dataset.]
+)
+
+In questo modo, ottengo due oggetti di tipo `Dataset` che rappresentano il training set e il validation set.
+Ciascun esempio è stato trasformato in una struttura pronta per essere gestita dal `Trainer` di Huggingface, con un campo `labels` che indica la classe corretta da apprendere.
+
+Una volta create e preparate queste componenti (funzione di metriche, funzioni di training, dataset tokenizzato), eseguo il fine-tuning chiamando `run_fine_tuning` (presentata poco più avanti).
+
+==== Metriche di valutazione
+
+Per prima cosa, ho definito una funzione in grado di calcolare le metriche di valutazione, che permetteranno di valutare le performance del modello in fase di fine-tuning in modo automatico.
+
+Ho scelto di considerare *accuratezza*, *precision*, *recall* e *F1* come indicatori classici di performance; in aggiunta, calcolo anche l'*entropia media* e la *confidenza media*, allo scopo di misurare rispettivamente il grado di incertezza delle previsioni e la probabilità media associata alla classe predetta. 
+Lo snippet seguente mostra la funzione `compute_metrics`:
+
+#figure(
+  ```python
+  def compute_metrics(eval_pred):
+    """
+    Compute evaluation metrics for the model predictions.
+    """
+    predictions, labels = eval_pred
+    probabilities = np.exp(predictions) / np.sum(np.exp(predictions), axis=1, keepdims=True)
+    preds = np.argmax(probabilities, axis=1)
+
+    acc = accuracy_score(labels, preds)
+    precision, recall, f1, _ = precision_recall_fscore_support(labels, preds, average='weighted', zero_division=0)
+
+    entropies = entropy(probabilities.T)
+    avg_entropy = np.mean(entropies)
+    avg_confidence = np.mean(np.max(probabilities, axis=1))
+
+    metrics = {
+        'accuracy': acc,
+        'precision': precision,
+        'recall': recall,
+        'f1': f1,
+        'avg_entropy': avg_entropy,
+        'avg_confidence': avg_confidence,
+    }
+    return metrics
+  ```,
+  caption: [Funzione per il calcolo delle metriche di valutazione.]
+)
+
+Può essere utile soffermarci un momento a spiegare le metriche scelte:
+
+L'*accuratezza* (o tasso di classificazione corretta) misura la proporzione di esempi classificati correttamente, senza distinzione tra le varie classi. Formalmente: $ "Accuracy" = 1/N sum ^N _(i=1){hat(y)_i = y_i} $ dove ${hat(y)_i = y_i}$ vale 1 se la previsione è corretta, 0 altrimenti. Più il valore è vicino a 1, migliore è la performance complessiva del modello.
+
+#hrule()
+
+Quando si lavora con problemi di classificazione con etichette binarie, o si valuta ciascuna classe indipendentemente, esistono alcuni conteggi che possono essere utili per valutare la qualità delle previsioni:
+- i *true positives* (TP) indicano i casi in cui il modello ha predetto correttamente la classe positiva;
+- i *false positives* (FP) indicano i casi previsti come positivi dal modello, ma che in realtà sono negativi;
+- i *false negatives* (FN) i casi previsti negativi ma in realtà positivi.
+Sulla base di queste definizioni, si introducono due metriche fondamentali:
+$ "Precision" = "TP" / ("TP" + "FP") $ che indica la percentuale di esempi classificati come positivi che erano effettivamente positivi.
+$ "Recall" = "TP" / ("TP" + "FN") $
+stima la quota di esempi positivi che sono stati effettivamente riconosciuti come tali dal modello.
+
+#hrule()
+
+L'*F1-score* fornisce una media armonica fra Precision e Recall, combinando entrambe le metriche in un singolo indice: $ "F1" = 2 dot ("Precision" dot "Recall") / ("Precision" + "Recall") $
+Un F1 score alto richiede che entrambe le metriche siano elevate; se una delle due è bassa, il valore di F1 tende drasticamente a ridursi.
+Questo lo rende particolarmente utile in casi di class imbalance o quando è importante non trascurare né la precisione né la capacità di recuperare tutti i positivi.
+
+#hrule()
+
+L'*entropia* è una misura della disordine o incertezza di un sistema, in questo caso delle previsioni del modello.
+
+Per un singolo esempio, se il modello produce una distribuzione di probabilità $bold(p)_i = (p_(i,1), dots, p_(i,k))$ sulle $k$ classi, è possibile calcolare l'entropia dell'esempio come $ "H" (bold(p)_i) = - sum ^k _(j=1) p_(i,j) log (p_(i,j)) $.
+
+Tale quantità esprime quanto “incerte” sono le previsioni del modello: se il modello assegna un'alta probabilità a una sola classe e bassa probabilità alle altre, l'entropia tende a essere prossima a zero (predizione più "sicura"); se distribuisce le probabilità in modo pressoché uniforme, l'entropia aumenta (maggiore incertezza).
+
+L'entropia media su tutto il set di validazione di dimensione NN è: $ "Average Entropy" = 1/N sum ^N_(i=1)H(p_i) $
+Un valore basso di entropia media indica che, in media, le previsioni del modello sono piuttosto concentrate su una specifica classe; un valore più alto suggerisce che il modello sia spesso incerto.
+
+#hrule()
+
+Sempre definita a partire dalla distribuzione $bold(p)_i$, la confidenza per il singolo esempio $i$ può essere definita come la probabilità associata alla classe di output che ha la confidenza massima:$ C(bold(p)_i) = max_j p_(i,j) $
+
+Maggiore è il valore di $C(bold(p)_i)$, più il modello risulta "sicuro" di quella predizione. Analogamente, la confidenza media sul dataset si calcola come: $ "Average Confidence" = 1/N sum ^N _(i=1) max_j p_(i,j) $
+
+Un valore prossimo a 1 indica che, spesso, il modello prende decisioni molto nette; un valore più basso può rivelare maggiore cautela o incertezza.
+
+Usata congiuntamente all'entropia media, la confidenza media può fornire indicazioni interessanti su come il modello pesa le varie classi e quanto tende a "sbilanciarsi" sulle previsioni.
+
+==== Addestramento <addestramento>
+
+Per effettuare l'addestramento vero e proprio, ho definito anche la funzione `run_fine_tuning`, che si fa carico di gestire i parametri di training (come numero di epoche, learning rate, batch size), di configurare gli strumenti di logging e salvataggio, e di lanciare effettivamente il training tramite la classe `Trainer` della libreria `transformers`.
+
+La classe `Trainer` semplifica notevolmente la gestione di molteplici aspetti, come la schedulazione del learning rate o la stratificazione della validazione.
+
+#figure(
+  ```python
+  def run_fine_tuning(model: AutoModelForSequenceClassification,
+                    tokenizer: AutoTokenizer,
+                    train_dataset: Dataset,
+                    eval_dataset: Dataset,
+                    wandb_mode: str,
+                    num_train_epochs=20) -> Trainer:
+    """
+    Fine-tunes a pre-trained model on the provided training dataset and evaluates it on the evaluation dataset.
+    """
+
+    train_dataset = train_dataset.map(lambda x: {k: v.float() if isinstance(v, torch.Tensor) and v.dtype == torch.long else v for k, v in x.items()})
+    eval_dataset = eval_dataset.map(lambda x: {k: v.float() if isinstance(v, torch.Tensor) and v.dtype == torch.long else v for k, v in x.items()})
+
+    report_to = ["wandb"] if wandb_mode == "online" else None
+
+    training_args = TrainingArguments(
+        output_dir='./temp',  # Directory to save the model and other outputs
+        num_train_epochs=num_train_epochs,  # Number of training epochs
+        learning_rate=2e-5,  # Learning rate for the optimizer
+        warmup_ratio=0.1,  # Warmup for the first 10% of steps
+        lr_scheduler_type='linear',  # Linear scheduler
+        per_device_train_batch_size=16,  # Batch size for training
+        per_device_eval_batch_size=16,  # Batch size for evaluation
+        save_strategy='epoch',  # Save the model at the end of each epoch
+        logging_strategy='epoch',  # Log metrics at the end of each epoch
+        eval_strategy='epoch',  # Evaluate the model at the end of each epoch
+        logging_dir='./temp/logs',  # Directory to save the logs
+        load_best_model_at_end=True,  # Load the best model at the end based on evaluation metric
+        metric_for_best_model='f1',  # Use subtopic F1-score to determine the best model
+        greater_is_better=True,  # Higher metric indicates a better model
+        save_total_limit=1,  # Limit the total number of saved models
+        save_only_model=True,  # Save only the model weights
+        report_to=report_to,  # Report logs to Wandb if mode is "online"
+    )
+
+    trainer = Trainer(
+        model=model,  # The model to be trained
+        args=training_args,  # Training arguments
+        train_dataset=train_dataset,  # Training dataset
+        eval_dataset=eval_dataset,  # Evaluation dataset
+        processing_class=tokenizer,  # Tokenizer for processing the data
+        compute_metrics=compute_metrics  # Function to compute evaluation metrics
+    )
+
+    print(f"Trainer is using device: {trainer.args.device}")
+
+    trainer.train()  # Start the training process
+
+    return trainer
+  ```,
+)
+
+Il metodo mostra diverse impostazioni interessanti:
+- `load_best_model_at_end=True` consente di caricare automaticamente al termine dell'addestramento i pesi del modello con il miglior valore di F1 (impostato in metric_for_best_model='f1');
+- `warmup_ratio=0.1` configura un periodo iniziale di warm-up, durante il quale il learning rate cresce gradualmente prima di stabilizzarsi nella fase successiva.
+  Questo contribuisce a rendere l'ottimizzazione più stabile ed evitare picchi di aggiornamento eccessivi nelle primissime iterazioni.\
+  La configurazione del warmup, assieme alla learning rate sono state scelte basandomi sull'utilissimo paper di #cite(<bert_fine_tuning>, form: "prose") che fornisce una guida pratica per il fine-tuning di BERT.
+- `metric_for_best_model='f1'` indica che il modello migliore sarà scelto in base al valore di F1, calcolato dalla funzione `compute_metrics`. F1 torna utile in quanto è in grado di bilanciare le due metriche di precision e recall, fornendo un'indicazione complessiva delle performance del modello.
+
+Un'ultima considerazione molto importante riguarda il parametro `report_to`, che consente di specificare a quali servizi di logging inviare i risultati del training.\
+Nel mio caso, ho scelto di utilizzare `wandb` #footnote[Wandb, o Weights and Biases, è un servizio di monitoraggio e logging per l'addestramento di modelli di machine learning] in modalità online, in modo da poter monitorare in tempo reale le performance del modello durante il fine-tuning.
+
+La quasi totalità dei dati mostrati in questo documento sono stati raccolti tramite Wandb, riducendo enormemente il tempo necessario per l'analisi e la visualizzazione dei risultati: il salvataggio automatico ad ogni run e la possibilità di confrontare run diversi in un'unica dashboard sono state funzionalità fondamentali per la mia sperimentazione.
+
+=== Valutazione e performance <valutazione_ft> // Spiegazione di come ho valutato i risultati dei classificatori
 
 == Riconoscimento delle entità
 
@@ -711,11 +972,3 @@ Senza addentrarmi troppo nei dettagli per il momento, ho provato due metodi per 
 === Valutazione e performance
 
 // Metriche di valutazione (F1 con CoNLL, ACE, MUC https://www.davidsbatista.net/blog/2018/05/09/Named_Entity_Evaluation/)
-
-== Dataset <dataset> // Data augmentation con LLM, prompt e valutazione manuale
-
-=== Etichettatura automatica // Classificazione automatica con LLM + snippet estesi nell'appendice
-
-=== Data augmentation 
-
-=== Etichettatura manuale
