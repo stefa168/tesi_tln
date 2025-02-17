@@ -40,10 +40,10 @@
   abstract: abstract,
 
   keywords: [
-    "classificazionexNLU", 
-    "data annotation/augmentation", 
-    "NLGBasataSuParafrasi", 
-    "ingegnerizzazione"
+    "NLU mediante classificazione", 
+    "data annotation, augmentation, retrieval", 
+    "NLG basata su LLM", 
+    "software engineering"
   ]
 )
 
