@@ -19,8 +19,6 @@ class Prediction(TypedDict):
     """
     Represents a prediction with a label and its associated score.
 
-    Detailed description of the class, its purpose, and usage.
-
     :ivar label: The label or category of the prediction.
     :type label: str
     :ivar score: The confidence score or probability of the prediction.
@@ -31,6 +29,9 @@ class Prediction(TypedDict):
 
 
 class ClassificationResult:
+    confidence_margin: float
+    sorted_predictions: list[Prediction]
+
     def __init__(self, predictions: list[Prediction]):
         sorted_predictions = sorted(predictions, key=lambda x: x["score"], reverse=True)
 
@@ -47,9 +48,24 @@ class ClassificationResult:
         entropy = scipy.stats.entropy(probs, base=2)
 
         self.sorted_predictions = sorted_predictions
-        self.top_prediction = top_prediction
-        self.second_prediction = second_prediction
         self.confidence_margin = confidence_margin
+
+    def get_label(self, rank=0):
+        return self.sorted_predictions[rank]["label"]
+
+    def get_prediction(self, rank=0):
+        return self.sorted_predictions[rank] if rank < len(self.sorted_predictions) else None
+
+    def __repr__(self):
+        return (f"ClassificationResult(sorted_predictions={self.sorted_predictions}, "
+                f"top_prediction={self.get_prediction()}, "
+                f"second_prediction={self.get_prediction(1)}, "
+                f"confidence_margin={self.confidence_margin})")
+
+    def __str__(self):
+        p = self.get_prediction()
+        return (f"Top Prediction: {p['label']} with score {p['score']:.2f}, "
+                f"Confidence Margin: {self.confidence_margin:.2f}")
 
 
 class BertModelComponents:
@@ -102,6 +118,41 @@ class BertModelComponents:
         return f"ModelTokenizerPair(model={self.model}, tokenizer={self.tokenizer})"
 
 
+def load_model(model_name: str, conf_artifact_path: Path, subdir: str = "trained_model") -> BertModelComponents:
+    """
+    Loads a pre-trained model, tokenizer, and classifier for text classification from the specified
+    configuration artifact path and subdirectory. Returns the components wrapped in a ModelComponents
+    object. The function handles the initialization of the model and tokenizer using their respective
+    libraries, and sets up a text classification pipeline.
+
+    :param model_name: The name of the model which is used to locate its files inside the configuration
+        artifact directory.
+    :type model_name: str
+
+    :param conf_artifact_path: The base path to the directory containing the configuration artifacts
+        for multiple models.
+    :type conf_artifact_path: Path
+
+    :param subdir: The subdirectory inside the model directory that contains the trained model data.
+        Defaults to "trained_model".
+    :type subdir: str
+
+    :return: A ModelComponents object containing the loaded model, tokenizer, and classifier pipeline.
+    :rtype: BertModelComponents
+    """
+    try:
+        path = conf_artifact_path / model_name / subdir
+        model = BertForSequenceClassification.from_pretrained(path)
+        tokenizer = AutoTokenizer.from_pretrained(path)
+        classifier = pipeline(model=model, tokenizer=tokenizer, task="text-classification",
+                              top_k=None,  # by setting top_k to None we get all the predictions.
+                              device=torch.cuda.current_device())
+        return BertModelComponents(model, tokenizer, classifier)
+    except Exception as er:
+        logger.error(f"Error loading model '{model_name}': {er}")
+        raise
+
+
 def load_bert_models(conf_artifact_path: Path, root_interaction: Interaction) -> dict[str, BertModelComponents]:
     """
     Loads all the necessary pre-trained models and their respective components
@@ -123,40 +174,6 @@ def load_bert_models(conf_artifact_path: Path, root_interaction: Interaction) ->
     :raises RuntimeError: If some or all models fail to load successfully,
         halting the process with an error message.
     """
-
-    def load_model(model_name: str, conf_artifact_path: Path, subdir: str = "trained_model") -> BertModelComponents:
-        """
-        Loads a pre-trained model, tokenizer, and classifier for text classification from the specified
-        configuration artifact path and subdirectory. Returns the components wrapped in a ModelComponents
-        object. The function handles the initialization of the model and tokenizer using their respective
-        libraries, and sets up a text classification pipeline.
-
-        :param model_name: The name of the model which is used to locate its files inside the configuration
-            artifact directory.
-        :type model_name: str
-
-        :param conf_artifact_path: The base path to the directory containing the configuration artifacts
-            for multiple models.
-        :type conf_artifact_path: Path
-
-        :param subdir: The subdirectory inside the model directory that contains the trained model data.
-            Defaults to "trained_model".
-        :type subdir: str
-
-        :return: A ModelComponents object containing the loaded model, tokenizer, and classifier pipeline.
-        :rtype: BertModelComponents
-        """
-        try:
-            path = conf_artifact_path / model_name / subdir
-            model = BertForSequenceClassification.from_pretrained(path)
-            tokenizer = AutoTokenizer.from_pretrained(path)
-            classifier = pipeline(model=model, tokenizer=tokenizer, task="text-classification",
-                                  top_k=None,  # by setting top_k to None we get all the predictions.
-                                  device=torch.cuda.current_device())
-            return BertModelComponents(model, tokenizer, classifier)
-        except Exception as er:
-            logger.error(f"Error loading model '{model_name}': {er}")
-            raise
 
     required_models = root_interaction.discover_resources_to_load()
     models: dict[str, BertModelComponents] = {}
