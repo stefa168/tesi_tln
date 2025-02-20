@@ -1,0 +1,1023 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+    <!-- Introduzione -->
+
+    <category>
+        <pattern>HI</pattern>
+        <template>START:GREET</template>
+    </category>
+
+    <category>
+        <pattern>HI *</pattern>
+        <template>
+            <srai>HI</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HELLO</pattern>
+        <template>
+            <srai>HI</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HELLO *</pattern>
+        <template>
+            <srai>HI</srai>
+        </template>
+    </category>
+
+    <!-- Linguaggio -->
+
+    <category>
+        <pattern>* LANGUAGE *</pattern>
+        <template>GRAMMAR:ACCEPTED</template>
+    </category>
+
+    <category>
+        <pattern>* LANGUAGE</pattern>
+        <template>
+            <srai>
+                <star/>
+                LANGUAGE
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* ALPHABET</pattern>
+        <template>GRAMMAR:ACCEPTED</template>
+    </category>
+
+    <category>
+        <pattern>* DETERMINISTIC *</pattern>
+        <template>
+            AUTOMATON:DETERMINISTIC
+        </template>
+    </category>
+
+
+    <!-- Grafico -->
+
+    <category>
+        <pattern>* REPRESENTED</pattern>
+        <template>
+            <srai>
+                <star/>
+                REPRESENTED
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* REPRESENTED *</pattern>
+        <template>AUTOMATON:REPRESENTATION</template>
+    </category>
+
+    <category>
+        <pattern>* DRAWN</pattern>
+        <template>
+            <srai>
+                <star/>
+                REPRESENTED
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* DRAWN *</pattern>
+        <template>
+            <srai>
+                <star/>
+                REPRESENTED
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* LAYOUT *</pattern>
+        <template>
+            <srai>
+                <star/>
+                REPRESENTED
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* LAYOUT</pattern>
+        <template>
+            <srai>
+                <star/>
+                REPRESENTED
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <!-- descrizione automa -->
+
+    <category>
+        <pattern>WHAT * ASK</pattern>
+        <template>START:ACTIONS</template>
+    </category>
+
+    <category>
+        <pattern>WHAT * ASK *</pattern>
+        <template>
+            <srai>WHAT
+                <star/>
+                ASK
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT * DO</pattern>
+        <template>START:ACTIONS</template>
+    </category>
+
+    <category>
+        <pattern>* KNOW *</pattern>
+        <template>START:ACTIONS</template>
+    </category>
+
+    <category>
+        <pattern>* KNOW</pattern>
+        <template>
+            <srai>
+                <star/>
+                KNOW
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT CAN YOU TELL *</pattern>
+        <template>
+            <srai>
+                <star/>
+                KNOW
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* BRIEFLY *</pattern>
+        <template>AUTOMATON:DESCRIPTION_BRIEF</template>
+    </category>
+
+    <category>
+        <pattern>* BRIEFLY</pattern>
+        <template>
+            <srai>
+                <star/>
+                BRIEFLY
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* IN BRIEF</pattern>
+        <template>
+            <srai>
+                <star/>
+                BRIEFLY
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* IN BRIEF *</pattern>
+        <template>
+            <srai>
+                <star/>
+                BRIEFLY
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>TELL ME MORE</pattern>
+        <that>GRAMMAR:ACCEPTED</that>
+        <template>AUTOMATON:DESCRIPTION</template>
+    </category>
+
+    <category>
+        <pattern>DESCRIBE ME THE AUTOMATON</pattern>
+        <template>AUTOMATON:DESCRIPTION</template>
+    </category>
+
+    <category>
+        <pattern>DESCRIBE AUTOMATON 1</pattern>
+        <template>
+            <srai>DESCRIBE ME THE AUTOMATON</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>DESCRIBE THE AUTOMATON</pattern>
+        <template>
+            <srai>DESCRIBE ME THE AUTOMATON</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* DESCRIBE THE AUTOMATON</pattern>
+        <template>
+            <srai>DESCRIBE ME THE AUTOMATON</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* DESCRIBE *</pattern>
+        <template>
+            <srai>DESCRIBE ME THE AUTOMATON</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* TRANSITION TABLE *</pattern>
+        <template>
+            <srai>DESCRIBE ME THE AUTOMATON</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>TRANSITION TABLE</pattern>
+        <template>
+            <srai>DESCRIBE ME THE AUTOMATON</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* TRANSITION TABLE</pattern>
+        <template>
+            <srai>DESCRIBE ME THE AUTOMATON</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* STATE TABLE *</pattern>
+        <template>
+            <srai>DESCRIBE ME THE AUTOMATON</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>STATE TABLE</pattern>
+        <template>
+            <srai>DESCRIBE ME THE AUTOMATON</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* STATE TABLE</pattern>
+        <template>
+            <srai>DESCRIBE ME THE AUTOMATON</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* MORE ABOUT *</pattern>
+        <template>
+            <think>
+                <set name="moreabout">
+                    <star index="1"/>
+                </set>
+            </think>
+            <condition name="moreabout">
+                <li value="states">STATE:LIST</li>
+                <li value="transitions">TRANSITION:LIST</li>
+                <li value="arcs">TRANSITION:LIST</li>
+                <li value="automaton">AUTOMATON:DESCRIPTION</li>
+                <li value="the automaton">AUTOMATON:DESCRIPTION</li>
+                <li value="the automaton">AUTOMATON:DESCRIPTION</li>
+                <li value="the accepting state">STATE:FINAL</li>
+                <li value="the final state">STATE:FINAL</li>
+                <li>OFF_TOPIC</li>
+            </condition>
+        </template>
+    </category>
+
+    <category>
+        <pattern>TELL ME ABOUT *</pattern>
+        <template>
+            <srai>
+                <star/>
+                MORE ABOUT
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT ABOUT *</pattern>
+        <template>
+            <srai>
+                <star/>
+                MORE ABOUT
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <!-- stati e transizioni -->
+
+    <category>
+        <pattern>HOW MANY STATES AND *</pattern>
+        <template>AUTOMATON:COUNT</template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY ARCS AND *</pattern>
+        <template>
+            <srai>HOW MANY STATES AND
+                <star/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY TRANSITIONS AND *</pattern>
+        <template>
+            <srai>HOW MANY STATES AND
+                <star/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* INITIAL * FINAL STATE</pattern>
+        <template>STATE:DETAILS</template>
+    </category>
+
+    <category>
+        <pattern>* INITIAL * FINAL STATES</pattern>
+        <template>
+            <srai>
+                <star/>
+                INITIAL
+                <star index="2"/>
+                FINAL STATE
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* INITIAL * ACCEPTED STATES</pattern>
+        <template>
+            <srai>
+                <star/>
+                INITIAL
+                <star index="2"/>
+                FINAL STATE
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* INITIAL STATE</pattern>
+        <template>
+            <srai>
+                <star/>
+                INITIAL
+                <star index="2"/>
+                FINAL STATE
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* FINAL STATE</pattern>
+        <template>
+            <srai>
+                <star/>
+                INITIAL
+                <star index="2"/>
+                FINAL STATE
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* ACCEPTED STATE</pattern>
+        <template>
+            <srai>
+                <star/>
+                INITIAL
+                <star index="2"/>
+                FINAL STATE
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>END STATE</pattern>
+        <template>
+            <srai>
+                <star/>
+                INITIAL
+                <star index="2"/>
+                FINAL STATE
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>FINAL STATE</pattern>
+        <template>
+            <srai>
+                <star/>
+                INITIAL
+                <star index="2"/>
+                FINAL STATE
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ACCEPTED STATE</pattern>
+        <template>
+            <srai>
+                <star/>
+                INITIAL
+                <star index="2"/>
+                FINAL STATE
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>INITIAL STATE</pattern>
+        <template>
+            <srai>
+                <star/>
+                INITIAL
+                <star index="2"/>
+                FINAL STATE
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>START STATE</pattern>
+        <template>
+            <srai>
+                <star/>
+                INITIAL
+                <star index="2"/>
+                FINAL STATE
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>DOES * EXIST</pattern>
+        <template>
+            <think>
+                <set name="state">
+                    <star/>
+                </set>
+            </think>
+            <condition name="state">
+                <li value="an initial state">STATE:START</li>
+                <li value="a final state">STATE:FINAL</li>
+                <li>STATE:EXISTENCE</li>
+            </condition>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT ARE *</pattern>
+        <template>
+            <think>
+                <set name="whatare">
+                    <star/>
+                </set>
+            </think>
+            <condition name="whatare">
+                <li value="transitions">THEORY:TRANSITIONS</li>
+                <li value="arcs">THEORY:TRANSITIONS</li>
+                <li value="the transitions">TRANSITION:LIST</li>
+                <li value="the arcs">TRANSITION:LIST</li>
+                <li value="states">THEORY:STATES</li>
+                <li value="the states">STATE:LIST</li>
+                <li>OFF_TOPIC</li>
+            </condition>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS *</pattern>
+        <template>
+            <think>
+                <set name="whatis">
+                    <star/>
+                </set>
+            </think>
+            <condition name="whatis">
+                <li value="an automaton">THEORY:GENERIC</li>
+                <li value="a finite state automaton">THEORY:GENERIC</li>
+                <li value="a transition">THEORY:TRANSITIONS</li>
+                <li value="an arc">THEORY:TRANSITIONS</li>
+                <li>STATE:DETAILS</li>
+            </condition>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT S *</pattern>
+        <template>
+            <srai>WHAT IS
+                <star/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY STATES *</pattern>
+        <template>STATE:COUNT</template>
+    </category>
+
+    <category>
+        <pattern>STATES</pattern>
+        <template>
+            <srai>HOW MANY STATES
+                <star/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>STATE</pattern>
+        <template>
+            <srai>HOW MANY STATES
+                <star/>
+            </srai>
+        </template>
+    </category>
+
+
+    <category>
+        <pattern>WHAT S THE NUMBER OF STATES *</pattern>
+        <template>
+            <srai>HOW MANY STATES
+                <star/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS THE NUMBER OF STATES *</pattern>
+        <template>
+            <srai>HOW MANY STATES
+                <star/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* Q0 TO *</pattern>
+        <template>
+            <think>
+                <set name="transition">
+                    <star/>
+                </set>
+            </think>
+            <condition name="transition">
+                <li>TRANSITION:EXISTENCE_BETWEEN</li>
+            </condition>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* Q0 AND *</pattern>
+        <template>
+            <srai>
+                <star/>
+                Q0 TO
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* Q0 *</pattern>
+        <template>
+            <srai>
+                <star/>
+                Q0 TO
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>Q0 *</pattern>
+        <template>
+            <srai>
+                <star/>
+                Q0 TO
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* Q1 TO *</pattern>
+        <template>
+            <think>
+                <set name="transition">
+                    <star index="1"/>
+                </set>
+            </think>
+            <condition name="transition">
+                <li>TRANSITION:EXISTENCE_BETWEEN</li>
+            </condition>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* Q1 AND *</pattern>
+        <template>
+            <srai>
+                <star/>
+                Q1 TO
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* Q1 *</pattern>
+        <template>
+            <srai>
+                <star/>
+                Q1 TO
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>Q1 *</pattern>
+        <template>
+            <srai>
+                <star/>
+                Q1 TO
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* Q2 TO *</pattern>
+        <template>
+            <think>
+                <set name="transition">
+                    <star index="1"/>
+                </set>
+            </think>
+            <condition name="transition">
+                <li>TRANSITION:EXISTENCE_BETWEEN</li>
+            </condition>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* Q2 AND *</pattern>
+        <template>
+            <srai>
+                <star/>
+                Q2 TO
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* Q2 *</pattern>
+        <template>
+            <srai>
+                <star/>
+                Q2 TO
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>Q2 *</pattern>
+        <template>
+            <srai>
+                <star/>
+                Q2 TO
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* Q3 TO *</pattern>
+        <template>
+            <think>
+                <set name="transition">
+                    <star index="1"/>
+                </set>
+            </think>
+            <condition name="transition">
+                <li>TRANSITION:EXISTENCE_BETWEEN</li>
+            </condition>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* Q3 AND *</pattern>
+        <template>
+            <srai>
+                <star/>
+                Q3 TO
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* Q3 *</pattern>
+        <template>
+            <srai>
+                <star/>
+                Q3 TO
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>Q3 *</pattern>
+        <template>
+            <srai>
+                <star/>
+                Q3 TO
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* Q4 TO *</pattern>
+        <template>
+            <think>
+                <set name="transition">
+                    <star index="1"/>
+                </set>
+            </think>
+            <condition name="transition">
+                <li>TRANSITION:EXISTENCE_BETWEEN</li>
+            </condition>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* Q4 AND *</pattern>
+        <template>
+            <srai>
+                <star/>
+                Q4 TO
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* Q4 *</pattern>
+        <template>
+            <srai>
+                <star/>
+                Q4 TO
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>Q4 *</pattern>
+        <template>
+            <srai>
+                <star/>
+                Q4 TO
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>TRANSITION FROM * TO *</pattern>
+        <template>
+            <think>
+                <set name="transition">
+                    <star index="1"/>
+                </set>
+            </think>
+            <condition name="transition">
+                <li>TRANSITION:EXISTENCE_BETWEEN</li>
+            </condition>
+        </template>
+    </category>
+
+    <category>
+        <pattern>TRANSITION BETWEEN * AND *</pattern>
+        <template>
+            <srai>TRANSITION FROM
+                <star/>
+                TO
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* PATTERN *</pattern>
+        <template>AUTOMATON:PATTERN</template>
+    </category>
+
+    <category>
+        <pattern>* PATTERN</pattern>
+        <template>
+            <srai>
+                <star/>
+                PATTERN
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>PATTERN</pattern>
+        <template>
+            <srai>
+                <star/>
+                PATTERN
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* ORDER</pattern>
+        <template>
+            <srai>
+                <star/>
+                PATTERN
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* ORDER *</pattern>
+        <template>
+            <srai>
+                <star/>
+                PATTERN
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ORDER</pattern>
+        <template>
+            <srai>
+                <star/>
+                PATTERN
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY ARCS * FROM *</pattern>
+        <template>
+            <srai>
+                <star/>
+                PATTERN
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY ARCS *</pattern>
+        <template>TRANSITION:COUNT</template>
+    </category>
+
+    <category>
+        <pattern>ARCS</pattern>
+        <template>
+            <srai>HOW MANY ARCS
+                <star/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>TRANSITIONS</pattern>
+        <template>
+            <srai>HOW MANY ARCS
+                <star/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARC</pattern>
+        <template>
+            <srai>HOW MANY ARCS
+                <star/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT S THE NUMBER OF ARCS *</pattern>
+        <template>
+            <srai>HOW MANY ARCS
+                <star/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS THE NUMBER OF ARCS *</pattern>
+        <template>
+            <srai>HOW MANY ARCS
+                <star/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY TRANSITIONS *</pattern>
+        <template>
+            <srai>HOW MANY ARCS
+                <star/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT S THE NUMBER OF TRANSITIONS *</pattern>
+        <template>
+            <srai>HOW MANY ARCS
+                <star/>
+            </srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS THE NUMBER OF TRANSITIONS *</pattern>
+        <template>
+            <srai>HOW MANY ARCS
+                <star/>
+            </srai>
+        </template>
+    </category>
+
+    <!-- Aiuto -->
+
+    <category>
+        <pattern>* HELP *</pattern>
+        <template>START:HELP</template>
+    </category>
+
+    <category>
+        <pattern>* HELP</pattern>
+        <template>
+            <srai>
+                <star/>
+                HELP
+                <star index="2"/>
+            </srai>
+        </template>
+    </category>
+
+    <!-- Non risposta -->
+
+    <category>
+        <pattern>*</pattern>
+        <template>OFF_TOPIC</template>
+    </category>
+</aiml>
