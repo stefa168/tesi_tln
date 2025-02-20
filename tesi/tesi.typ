@@ -24,6 +24,8 @@
     "Prof. Alessandro Mazzei"
   ),
 
+  co-supervisor: ("Pier Felice Balestrucci", "Michael Oliverio"),
+
   affiliation: (
     university: "Università degli Studi di Torino",
     school: "Scuola di Scienze della Natura",

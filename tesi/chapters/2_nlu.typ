@@ -311,7 +311,7 @@ Con l'estrema disponibilità attuale di modelli pre-addestrati e API che permett
 In particolare, ho deciso di sperimentare con modelli di LLM open-source, dal momento che sono eseguibili localmente e permettono di mantenere i dati sensibili all'interno dell'ambiente di lavoro, senza doverli condividere con servizi esterni.\
 Per utilizzarli, si sono rivelate fondamentali le API fornite da Ollama @ollama, un sistema per hostare localmente modelli di LLM open source (e in certi casi anche _open-weights_).
 
-==== Etichettatura automatica delle domande
+=== Etichettatura automatica del dataset
 <etichettatura-automatica-delle-domande>
 Per poter automatizzare l'etichettatura usando una LLM, prima di tutto ho identificato l'insieme delle possibili etichette:
 #figure(
@@ -498,7 +498,7 @@ In più, ho realizzato che le classi scelte erano troppo generiche; questo non a
 
 Per questo motivo ho proceduto con una revisione delle etichette, e una successiva etichettatura manuale delle domande.
 
-==== Nuove classi e etichettatura manuale
+=== Nuove classi e etichettatura manuale
 Prima di proseguire con l'etichettatura, ho provveduto a ripulire il dataset da domande non pertinenti o duplicate.
 Una volta fatto, ho deciso di ridurre il numero di classi, in modo da poter avere un dataset più bilanciato e con classi più specifiche.\
 Avendone ridotto il numero, per ottenere un livello di granularità maggiore, ho deciso di utilizzare un sistema di etichettatura gerarchico, in modo da poter identificare con maggiore precisione l'argomento della domanda.
@@ -613,7 +613,7 @@ Come è possibile notare dalle tabelle che seguono, alcune classi secondarie con
   )
 ]
 
-==== Data Augmentation
+=== Data Augmentation
 
 Come evidenziato nella sezione precedente, diverse classi secondarie contengono un numero esiguo di esempi, non sufficiente per una buona classificazione in seguito al fine-tuning.
 

@@ -186,9 +186,17 @@
 
       #if co-supervisor != none {
         if lang == "en" {
-          smallcaps("co-supervisor")
+          if co-supervisor.len() > 1 {
+            smallcaps("co-supervisors")
+          } else {
+            smallcaps("co-supervisor")
+          }
         } else {
-          smallcaps("co-relatore")
+          if co-supervisor.len() > 1 {
+            smallcaps("co-relatori")
+          } else {
+            smallcaps("co-relatore")
+          }
         }
         linebreak()
         co-supervisor.map(it => [
