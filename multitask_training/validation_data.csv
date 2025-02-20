@@ -1,0 +1,439 @@
+Question,Global Subject,Question Intent
+"Hello!",start,greet
+"Hi!",start,greet
+"Hey!",start,greet
+"Greetings!",start,greet
+"Hello again!",start,greet
+"Hi there!",start,greet
+"How’s it going?",start,greet
+"Hey, chatbot!",start,greet
+"Hi, how are you?",start,greet
+"Hey buddy!",start,greet
+Could you provide a detailed explanation of the automaton?,automaton,description
+What is the layout of the states in this automaton?,automaton,description
+Can you offer a breakdown of the automaton’s components?,automaton,description
+Please outline the states and how they interconnect.,automaton,description
+Could you show me how each state relates to the others?,automaton,description
+Would you mind describing the automaton’s configuration and links?,automaton,description
+What is the topology of the automaton’s states?,automaton,description
+Can you share an overview of the automaton’s design?,automaton,description
+Provide a summary of the automaton’s states and transitions.,automaton,description
+Could you clarify how the automaton is organized?,automaton,description
+Explain how the states in this automaton transition from one to another.,automaton,description
+Can you illustrate how this automaton is structured?,automaton,description
+Would you describe the main elements of the automaton?,automaton,description
+What does the automaton look like in terms of its state connections?,automaton,description
+Could you detail the flow between the automaton’s states?,automaton,description
+Please describe how the states and transitions work in the automaton.,automaton,description
+What are the defining features of the automaton and its links?,automaton,description
+Could you walk me through the automaton step by step?,automaton,description
+How do the automaton’s states interact with one another?,automaton,description
+Could you explain the automaton’s transitions in more detail?,automaton,description
+Would you give an outline of each state and how it connects to others?,automaton,description
+Can you clarify the structure and progression of states within this automaton?,automaton,description
+I’d like to hear an explanation of how this automaton’s states are formed and related.,automaton,description
+Provide a concise depiction of the automaton’s functional layout.,automaton,description_brief
+How would you summarize the structure of this automaton?,automaton,description_brief
+Could you give a quick rundown of the automaton?,automaton,description_brief
+Please provide a short overview of the automaton.,automaton,description_brief
+Could you summarize the automaton for me?,automaton,description_brief
+Could you give me a brief summary of the automaton?,automaton,description_brief
+Can you quickly describe the structure of the automaton?,automaton,description_brief
+Please outline the main points of the automaton.,automaton,description_brief
+What’s the concise version of the automaton’s design?,automaton,description_brief
+Could you highlight the key aspects of the automaton?,automaton,description_brief
+Give me a short explanation of the automaton.,automaton,description_brief
+Offer a quick snapshot of the automaton’s setup.,automaton,description_brief
+Is the automaton directed or undirected?,automaton,directionality
+Can you confirm if the automaton operates as a directed system?,automaton,directionality
+Does the automaton follow a directed structure?,automaton,directionality
+Is this automaton designed as a directed model?,automaton,directionality
+Could you tell me whether the automaton is directed?,automaton,directionality
+Is the automaton structured as a directed graph?,automaton,directionality
+Can you clarify if the automaton has directed transitions?,automaton,directionality
+Would you say that the automaton is directed?,automaton,directionality
+Is the underlying model of the automaton directed?,automaton,directionality
+Can you verify if the automaton is set up with directed links?,automaton,directionality
+"Could you list all the elements of the finite state automaton, including its nodes and edges?", automaton,list
+"Please provide a complete list of the finite state automaton’s components, such as states and transitions.", automaton,list
+"Can you display the full inventory of nodes and arcs in the finite state automaton?", automaton,list
+"Would you list every element of the finite state automaton, including both nodes and connections?", automaton,list
+"Please show me a comprehensive list of all nodes and edges present in the finite state automaton.", automaton,list
+"Can you enumerate all the components of the finite state automaton, including its states and transitions?", automaton,list
+"Could you detail a list of every node and arc that comprises the finite state automaton?", automaton,list
+"Provide a complete list of all the elements—nodes and edges—that make up the finite state automaton.", automaton,list
+"Can you generate an inventory of the finite state automaton’s states and its connecting arcs?", automaton,list
+"Would you display a full list of all components, including nodes and transitions, in the finite state automaton?", automaton,list
+Do the nodes and arcs follow a specific pattern?,automaton,pattern
+Is there a recurring pattern among the automata transitions?,automaton,pattern
+Can we observe any regular pattern between the nodes and arcs?,automaton,pattern
+Are there consistent patterns within the transitions?,automaton,pattern
+Could you identify a repeating pattern in the arc connections?,automaton,pattern
+Is there a discernible pattern among the transitions?,automaton,pattern
+Are the nodes and arcs arranged in a particular pattern?,automaton,pattern
+Is a systematic pattern evident in the automata arcs?,automaton,pattern
+Can you detect a repetitive pattern among the arcs?,automaton,pattern
+Is there a specific pattern that governs the transitions?,automaton,pattern
+How can the automaton be visually depicted?, automaton, representation
+What graphical form do the arcs take?, automaton, representation
+Could you show me a diagram of the automaton?, automaton, representation
+How does the automaton appear in a visual format?, automaton, representation
+What is the ideal spatial layout for representing this automaton?, automaton, representation
+What would be a minimal graphical representation of the automaton?, automaton, representation
+"According to your understanding, what is the best spatial configuration for this automaton?", automaton, representation
+What is the most effective way to illustrate the automaton?, automaton, representation
+In what manner is the automaton graphically represented?, automaton, representation
+How much space is occupied by the automaton's visual representation?, automaton, representation
+"What grammar is recognized by the automaton?",grammar,accepted
+"Which language does the automaton accept?",grammar,accepted
+"Does the automaton's language include words made of an odd number of 0s and 1s?",grammar,accepted
+"What language is accepted by this automaton?",grammar,accepted
+"Can you specify the grammar that the automaton recognizes?",grammar,accepted
+"Is there a grammar defined by the automaton?",grammar,accepted
+"What are the language specifications of the automaton?",grammar,accepted
+"Could you detail the accepted grammar for the automaton?",grammar,accepted
+"What is the purpose behind this automaton's design?",grammar,accepted
+"How does the automaton's accepted language handle words with an odd number of 0s and 1s?",grammar,accepted
+"Could you provide some examples of valid input and output for the FSA?",grammar,example_input
+"Can you share a few examples of inputs recognized by the automaton?",grammar,example_input
+"What is a valid example of an accepted string by the FSA?",grammar,example_input
+"Give me some examples of inputs that the automaton accepts.",grammar,example_input
+"What is one example of an input that the automaton recognizes?",grammar,example_input
+"Can you give a couple of examples of valid inputs for the FSA?",grammar,example_input
+"Could you provide examples of strings accepted by the automaton’s grammar?",grammar,example_input
+"What are some sample accepted strings in this FSA?",grammar,example_input
+"Show me a few examples of accepted input sequences.",grammar,example_input
+"Would you provide examples of the grammar that the FSA accepts?",grammar,example_input
+"What is the regular expression describing the automata?",grammar,regex
+"What is the regular expression that corresponds to the automaton?",grammar,regex
+"Which regular expression captures the automaton's accepted language?",grammar,regex
+"Can you provide the regular expression that defines the automaton?",grammar,regex
+"What regular expression represents the automata's structure?",grammar,regex
+"Which regular expression models the automaton's behavior?",grammar,regex
+"Which regular expression is equivalent to the automaton's language?",grammar,regex
+"Could you detail the regular expression that corresponds to the automata?",grammar,regex
+"What is the formal regular expression that defines the automata?",grammar,regex
+"Provide the regular expression that outlines the accepted language of the automaton.",grammar,regex
+"If the input is 11100, what is the result given by the automaton?",grammar,simulation
+"Is the string 110 accepted by the automaton?",grammar,simulation
+"Given the input 10101, does the automaton reach an accepting state?",grammar,simulation
+"What output is produced when the automaton processes 10010?",grammar,simulation
+"Does the automaton accept the sequence 01011?",grammar,simulation
+"If we simulate the automaton with 00100, what is the resulting state?",grammar,simulation
+"Simulate the automaton for input 01001 and provide the final state.",grammar,simulation
+"Is the binary sequence 11111 accepted by the automaton?",grammar,simulation
+"What is the result of processing 00000 through the automaton?",grammar,simulation
+"Can you check if the automaton accepts the string 10110?",grammar,simulation
+"Does the automaton accept only 1s and 0s?",grammar,symbols
+"Can you describe the automaton's input and output symbols?",grammar,symbols
+"What are the input symbols that the automaton accepts?",grammar,symbols
+"Which inputs does the automaton consider valid?",grammar,symbols
+"What symbols does the automaton recognize?",grammar,symbols
+"What is the defined alphabet of this automaton?",grammar,symbols
+"What characters does this automaton process as valid input?",grammar,symbols
+"How would you describe the automaton's alphabet?",grammar,symbols
+"Is the automaton limited to binary digits, or does it accept other symbols?",grammar,symbols
+"Could you identify the grammar or set of symbols that the automaton recognizes?",grammar,symbols
+"If q2 were the final state, would the language recognized by the automaton remain unchanged?",grammar,variation
+"Suppose q2 is designated as the final state; does the automaton still accept the same language?",grammar,variation
+"Would the automaton’s accepted language be unaffected if q2 were the final state?",grammar,variation
+"Assuming q2 becomes the final state, is the language accepted by the automaton preserved?",grammar,variation
+"If we set q2 as the final state, does the automaton continue to recognize the same language?",grammar,variation
+"Provided q2 is chosen as the final state, is the automaton's language unchanged?",grammar,variation
+"In a scenario where q2 is the final state, does the automaton still accept the same language?",grammar,variation
+"Would setting q0 as the final state leave the automaton's accepted language unaffected?",grammar,variation
+"If we consider q0 as the final state, is the language accepted by the automaton unaltered?",grammar,variation
+"Assuming that q0 is the final state, does the automaton continue to recognize the same language?",grammar,variation
+"Does the automaton consist of 5 states?",state,count
+"What is the total number of states in the automaton?",state,count
+"How many individual states does the automaton have?",state,count
+"Can you specify the number of nodes in the automaton?",state,count
+"Could you tell me how many states are present in the automaton?",state,count
+"Is the automaton made up of exactly 5 states?",state,count
+"What is the count of states within this automaton?",state,count
+"How many states does this automaton consist of?",state,count
+"Could you detail the count of states in the automaton?",state,count
+"What is the complete tally of nodes in the automaton?",state,count
+Can you provide more details about state q0?,state,details
+What additional information can you share about the node labeled q0?,state,details
+Could you elaborate on the characteristics of state q0?,state,details
+What insights are available regarding the specific node q0?,state,details
+Please describe the notable features of state q0.,state,details
+What can you tell me about the attributes of the node q0?,state,details
+Could you highlight the primary aspects of state q0?,state,details
+What information is available about the structure of node q0?,state,details
+Can you describe the overall nature of state q0?,state,details
+What general details can be shared about node q0?,state,details
+"Is q0 considered the final state?",state,final
+"Could you confirm if q0 is a final state?",state,final
+"Does q0 serve as the final state?",state,final
+"Is q0 recognized as a final state?",state,final
+"Can you verify whether q0 is the final state?",state,final
+"Which states are designated as final?",state,final
+"What are the final states in the automaton?",state,final_list
+"Could you list all final states?",state,final_list
+"Among the states, which one is final?",state,final_list
+"Which state has been marked as the final state?",state,final_list
+"Can you specify the final state of the automaton?",state,final_list
+"Which state or states are considered final?",state,final_list
+"Which state is labeled as the final state?",state,final_list
+Can you identify the initial state of the automaton?,state,start
+What state is designated as the starting state?,state,start
+Which state serves as the initial state in the automaton?,state,start
+Could you specify which state is the beginning state?,state,start
+Please indicate the initial state of the automaton.,state,start
+What is the starting point of the automaton?,state,start
+Which state is defined as the initial state?,state,start
+Would you clarify which state initiates the automaton?,state,start
+Can you point out the start state in this automaton?,state,start
+Which state does the automaton begin with?,state,start
+What is the total number of transitions in the automaton?,transition,count
+Can you tell me how many transitions the automaton has?,transition,count
+How many transitions are present in the automaton?,transition,count
+Please specify the number of transitions in the automaton.,transition,count
+Could you indicate the total count of transitions in the automaton?,transition,count
+What is the total number of arcs in the automaton?,transition,count
+What is the complete tally of transitions in this automaton?,transition,count
+Can you calculate the number of transitions the automaton contains?,transition,count
+How many transitions does the given automaton consist of?,transition,count
+What is the total count of arcs or transitions present in the automaton?,transition,count
+Does the automaton exhibit any cycles?,transition,cycles
+Are cycles present within the automaton?,transition,cycles
+Can you identify any cyclic patterns in the automaton?,transition,cycles
+Does the automaton allow for any repeating patterns?,transition,cycles
+Is there a loop present in the automaton's structure?,transition,cycles
+How many loops are found in the automaton?,transition,cycles
+Could you confirm whether the automaton contains cycles?,transition,cycles
+Are there any cycles or recurring patterns in the automaton?,transition,cycles
+Does the automaton incorporate any looped sequences?,transition,cycles
+Are there any instances of cyclic behavior in the automaton?,transition,cycles
+Could you provide details on the automaton's transitions?,transition,overview
+How would you describe the state transitions in the automaton?,transition,overview
+What characteristics define the transitions between states?,transition,overview
+"Is there a transition connecting q2 to q0?",transition,existence_between
+"Does an arc exist from q2 to q0?",transition,existence_between
+"Can you verify if a connection exists between q5 and q7?",transition,existence_between
+"Are q5 and q7 directly linked by a transition?",transition,existence_between
+"Is there an arc from q0 to any of q2, q3, or q4?",transition,existence_between
+"Does the automaton include a transition from q0 to q2, q3, or q4?",transition,existence_between
+"Does q0 feature a self-loop transition?",transition,existence_between
+"Is there a direct transition looping from q0 back to itself?",transition,existence_between
+"Can you confirm whether q1 and q4 are connected by an arc?",transition,existence_between
+"What input symbol does the arc from q0 to q2 accept?",transition,existence_between
+Does a directed arc exist from q0 to q1?,transition,existence_directed
+Is there a defined transition from q0 to q1?,transition,existence_directed
+Can you confirm that an arc goes from q0 to q1?,transition,existence_directed
+Is there an explicit arc leading from q0 to q1?,transition,existence_directed
+Does the automaton include a one-way transition from q0 to q1?,transition,existence_directed
+Is q0 directly connected to q1 by a transition?,transition,existence_directed
+Can you identify a directed edge linking q0 to q1?,transition,existence_directed
+Is q0 connected to q1 via a specified transition?,transition,existence_directed
+Does the state q0 have an outgoing arc directed to q1?,transition,existence_directed
+Is there a transition pathway from q0 to q1 in the automaton?,transition,existence_directed
+What are the outgoing transitions from q0?,transition,existence_from
+Which transitions originate from q1?,transition,existence_from
+Can you list the transitions that begin at q2?,transition,existence_from
+What transitions depart from q3?,transition,existence_from
+Which arcs start from q4?,transition,existence_from
+Could you enumerate the transitions emerging from q0?,transition,existence_from
+What are the transitions initiated from q1?,transition,existence_from
+How many transitions originate from q2?,transition,existence_from
+Which transitions have q3 as their starting point?,transition,existence_from
+How many transitions are launched from q4?,transition,existence_from
+What are the transitions ending in q0?,transition,existence_into
+Which transitions go into q0?,transition,existence_into
+Can you list the transitions that terminate at q0?,transition,existence_into
+Could you show the transitions that conclude at q0?,transition,existence_into
+What transitions finish at q0?,transition,existence_into
+What are the incoming transitions to q0?,transition,existence_into
+Which transitions target q0?,transition,existence_into
+What transitions are directed into q0?,transition,existence_into
+Can you identify the transitions that land in q0?,transition,existence_into
+Which arcs in the automaton are labeled with 0?,transition,label
+Can you list the transitions that use the label 0?,transition,label
+Are there any arcs that carry the label 1?,transition,label
+Does any transition have the label 1?,transition,label
+How many arcs in the automaton are marked with the label 0?,transition,label
+Which transitions are designated with the label 1?,transition,label
+Can you identify the arcs that use 0 as their label?,transition,label
+Are there any state connections via arcs labeled with 1?,transition,label
+What is the total count of transitions labeled with 0?,transition,label
+Are self loops a characteristic feature of this automaton?,transition,self_loop
+Can you identify a state that has a self loop?,transition,self_loop
+Is there any state with an outgoing arc that also serves as an incoming arc to itself?,transition,self_loop
+Does the automaton include any self-looping transitions?,transition,self_loop
+Are any of the automaton's states connected to themselves by a transition?,transition,self_loop
+Can you spot any transition where the start and end state are identical?,transition,self_loop
+Do any states exhibit a self-transition in this automaton?,transition,self_loop
+Is there a looping transition from a state back to the same state?,transition,self_loop
+Are there any self loops in the automaton's configuration?,transition,self_loop
+What are the connections associated with state q0?,transition,state_connections
+Which states does q0 link to through transitions?,transition,state_connections
+Can you list the incoming and outgoing transitions for q0?,transition,state_connections
+How are the transitions arranged around state q0?,transition,state_connections
+What are the transition links entering and leaving q0?,transition,state_connections
+Which states are directly connected to q1 via transitions?,transition,state_connections
+What connections exist for state q1?,transition,state_connections
+Can you detail the transitions that enter and exit state q1?,transition,state_connections
+How is state q1 connected to other states?,transition,state_connections
+What are the incoming and outgoing transition paths for q1?,transition,state_connections
+What links are present for state q2 in the automaton?,transition,state_connections
+Can you list the transitions that flow into and out of q2?,transition,state_connections
+Which states does q2 connect with via its transitions?,transition,state_connections
+How are the state connections organized around q2?,transition,state_connections
+What are the entry and exit transitions for state q2?,transition,state_connections
+What connections are defined for state q3?,transition,state_connections
+Which transitions enter and leave state q3?,transition,state_connections
+Can you provide the state links for q3?,transition,state_connections
+How is state q3 integrated with others through transitions?,transition,state_connections
+What are the incoming and outgoing links for state q3?,transition,state_connections
+What are the connections established for state q4?,transition,state_connections
+Which transitions directly enter and exit q4?,transition,state_connections
+Can you list the transitions linking q4 with other states?,transition,state_connections
+How does state q4 connect to the rest of the automaton?,transition,state_connections
+What transition paths form the links for state q4?,transition,state_connections
+Could you enumerate the transitions that interact with state q0?,transition,state_connections
+How do the transition links of state q1 connect it to other states?,transition,state_connections
+What are the pathways of transitions that link state q2?,transition,state_connections
+Can you identify the connection transitions that involve state q3?,transition,state_connections
+Which incoming and outgoing transitions form the connections for state q4?,transition,state_connections
+"How would you formally define a finite state automaton?",grammar,"definition"
+"What constitutes a finite state machine in theoretical terms?",grammar,"definition"
+"How can I mathematically describe an automaton?",grammar,"definition"
+"What are the core components that make up an automaton?",grammar,"definition"
+"Can you explain the concept of an initial state in automata theory?",grammar,"states"
+"How is the language accepted by an automaton determined?",grammar,"generic"
+"What does the term 'state transition' signify in automata?",grammar,"transitions"
+"How can I represent an automaton using a state diagram?",grammar,"generic"
+"What is the role of the transition function in defining an automaton?",grammar,"transitions"
+"How does one formally specify the transition function of an automaton?",grammar,"transitions"
+How would you formally define a finite state automaton?,theory,
+What constitutes a finite state machine in theoretical terms?,theory,
+How can I mathematically describe an automaton?,theory,
+What are the core components that make up an automaton?,theory,
+Can you explain the concept of an initial state in automata theory?,theory,
+How is the language accepted by an automaton determined?,theory,
+What does the term 'state transition' signify in automata?,theory,
+How can I represent an automaton using a state diagram?,theory,
+What is the role of the transition function in defining an automaton?,theory,
+How does one formally specify the transition function of an automaton?,theory,
+What distinguishes a deterministic automaton from a nondeterministic one?,theory,
+How is a pattern recognized and processed by an automaton?,theory,
+What theoretical applications does a finite state automaton have?,theory,
+Can an automaton be constructed with a limited number of states?,theory,
+What is the significance of having multiple final states in an automaton?,theory,
+How do you formally define a final state in an automaton?,theory,
+What are the mathematical constraints when designing an automaton?,theory,
+How are the states of an automaton interconnected in theory?,theory,
+Can you elaborate on the concept of state connectivity in automata?,theory,
+How does the structure of an automaton affect its computational power?,theory,
+What are the formal properties required for an automaton to be valid?,theory,
+How can one verify the correctness of an automaton's design?,theory,
+What is the theoretical basis for the transitions between states?,theory,
+How can an automaton be used to recognize regular languages?,theory,
+What are the limitations of finite state automata in language processing?,theory,
+How is a self loop defined in the context of automata theory?,theory,
+What determines whether an automaton accepts a specific input?,theory,
+How can you describe the overall behavior of an automaton?,theory,
+What mathematical tools are used to analyze automata?,theory,
+How do transitions contribute to the operation of an automaton?,theory,
+Who did Athanasius succeed?,OFF_TOPIC,""
+Where are the main concentrations of indigenous people in Honduras? ,OFF_TOPIC,""
+Which generation of cameras are capable of storing higher refined images?,OFF_TOPIC,""
+What is the name of the first tour with Live Nation?,OFF_TOPIC,""
+"Along with animals, what is depicted on the rock paintings of Laas Geel?",OFF_TOPIC,""
+What does the city council have restrictions on in downtown?,OFF_TOPIC,""
+What country usually has a dominant party at the national and state level?,OFF_TOPIC,""
+What was UNFPA accused of taking away from the Chinese program?,OFF_TOPIC,""
+What did the first federal wildlife commerce law prohibit?,OFF_TOPIC,""
+Despite all the propaganda that ws presented to the East Prussians what did German populations want within the country?,OFF_TOPIC,""
+When did the era of planning start in Himachal Pradesh?,OFF_TOPIC,""
+What began replacing hunting-gathering at the end of the Mesolithic period?,OFF_TOPIC,""
+Which of Popper's works responds to critiques of naive falsificationism?,OFF_TOPIC,""
+Who was the president of the LSD Church?,OFF_TOPIC,""
+The Mediterranean Empire had how many universities?,OFF_TOPIC,""
+What did Nasser not want to have in Egypt?,OFF_TOPIC,""
+What is the term used for birds that employ many strategies to obtain food?,OFF_TOPIC,""
+What are the three Insular Celtic languages?,OFF_TOPIC,""
+When did Kubitschek leave office?,OFF_TOPIC,""
+What is the name of the Rabbi mentioned in relation to the Genesis Rabbah?,OFF_TOPIC,""
+In what year were hops first known to be used in beer?,OFF_TOPIC,""
+"Out of every 100,000 people in Swaziland in 2007, how many were infected with tuberculosis?",OFF_TOPIC,""
+Which entity oversees the Judicial Police?,OFF_TOPIC,""
+In 2011 what program was launched by Grand Challenges Exploration?,OFF_TOPIC,""
+What was the name of the theory that Lange and James developed independently?,OFF_TOPIC,""
+How long ago were rock paintings found in Somalia created?,OFF_TOPIC,""
+In what year did Eisenhower graduate from the Army War College?,OFF_TOPIC,""
+What notable event occurred in 1952?,OFF_TOPIC,""
+The Luftwaffe used how many short tons of bombs during the Blitz?,OFF_TOPIC,""
+How often do kids get diarrhea in developing countries?,OFF_TOPIC,""
+What are produced in cell division?,OFF_TOPIC,""
+What is the name of the shrub associated with the chinquapin oak?,OFF_TOPIC,""
+From what people have were the first records known to be existent derived from? ,OFF_TOPIC,""
+During what years did the Mongol leader Kublai Khan rule?,OFF_TOPIC,""
+How many people were in the Dominions' armies?,OFF_TOPIC,""
+In what year was the city in conflict with two nearby tribes?,OFF_TOPIC,""
+What company said it is planning to move marine operations to the University of Southampton?,OFF_TOPIC,""
+What is a major component of lignin?,OFF_TOPIC,""
+What is the only half life of the isotopes?,OFF_TOPIC,""
+What acronym was the Music Corporation of America known by?,OFF_TOPIC,""
+What was the subject under consideration in discussions in 1980?,OFF_TOPIC,""
+How was the elephant population in Uganda?,OFF_TOPIC,""
+In what year were Machine-room-less elevators first allowed?,OFF_TOPIC,""
+"What hardware component did CNET have the biggest problem with, even comparing it to an old credit card reader?",OFF_TOPIC,""
+What is accessed through a wide slot in the road?,OFF_TOPIC,""
+When were the rights to print the calendar withdrawn?,OFF_TOPIC,""
+ What can be credited for the changes in the definition of humanism? ,OFF_TOPIC,""
+What maps an encoding?,OFF_TOPIC,""
+Which Melbourne based university has campuses in Malaysia?,OFF_TOPIC,""
+What is caused by using or selling a patented invention without permission?,OFF_TOPIC,""
+What was the group called that did not owe labour duty to the princes?,OFF_TOPIC,""
+Are children or adolescents more likely to question assertions and less likely to accept facts?,OFF_TOPIC,""
+In what geographic part of Somalia were important paleolithic stone tools found?,OFF_TOPIC,""
+What does child labour deprive children of?,OFF_TOPIC,""
+The violent 1867 incident that took place on King's street happened on what day?,OFF_TOPIC,""
+What priestly division did Luke belong to?,OFF_TOPIC,""
+What methods have no effect on smokers quality of life?,OFF_TOPIC,""
+What conce what research advocated for focusing on cultural aspects of ethnic groups rather than on boundaries of ethnic groups? Pt is useless for demonstrating how identity works?,OFF_TOPIC,""
+Who was the person that tried Jesus?,OFF_TOPIC,""
+Who drove through the Queens-Midtown Tunnel before anyone else?,OFF_TOPIC,""
+What is Zinc pyrithione illegal in?,OFF_TOPIC,""
+"When did Edison patent his ""Process of Manufacturing Carbons""?",OFF_TOPIC,""
+What was the name of the Marshall Islands ship seized by Iran?,OFF_TOPIC,""
+When was Pius XI asked to come to the Vatican by the Cardinal Secretary of State?,OFF_TOPIC,""
+What happened to the income gap between the rich and the poor?,OFF_TOPIC,""
+What religious leader of the 1930s and 1940s would never have been suspected of using his members arrests to garner more disaffected members?,OFF_TOPIC,""
+When do adult contemporary stations begin to play Top 40 songs?,OFF_TOPIC,""
+By what year was the Germanic Empire split into two sections?,OFF_TOPIC,""
+What is the most common test subjects for studying of the brain?,OFF_TOPIC,""
+Who embraced of a pact between Germany and the Soviet governments?,OFF_TOPIC,""
+Are there times when an editor's judgement should be deferred?,OFF_TOPIC,""
+How are the original ancestors of the Tibetan people represented?,OFF_TOPIC,""
+Why did Morris Jr make the computer worm?,OFF_TOPIC,""
+What is Eastern by profession?,OFF_TOPIC,""
+in wat year did  ireland join with great britian offically?,OFF_TOPIC,""
+What was the amount of the Emirates airline company deal?,OFF_TOPIC,""
+What does MTBC stand for?,OFF_TOPIC,""
+Who stated that God was difficult both to prove or disprove?,OFF_TOPIC,""
+In what two major conflicts did Portugal engage in during the 20th century?,OFF_TOPIC,""
+What is a term used for programs that automatically visit websites and record the data they find?,OFF_TOPIC,""
+How many seats are in the Cubs' Sloan Park training facility?,OFF_TOPIC,""
+What group of people were known to keep Malian salves into the 20th century?,OFF_TOPIC,""
+What is the range for the length of fields for non international matches in meters?,OFF_TOPIC,""
+What has been promoted as a justification for spelling reforms?,OFF_TOPIC,""
+Which cardinal acted a the leader of France due to his amount of power?,OFF_TOPIC,""
+Which graduate of The Feinburg School of Medicine performed the first successful African open heart surgery?,OFF_TOPIC,""
+Why did Vladimir chose Western Christianity?,OFF_TOPIC,""
+What agreement commits countries to conserve biodiversity?,OFF_TOPIC,""
+What group conducted a study of coral on Funafuti?,OFF_TOPIC,""
+ What LEDs are considered riskier than any other?,OFF_TOPIC,""
+Hard disk drives are what type of peripheral device?,OFF_TOPIC,""
+What was Comcast's share value in 1999?,OFF_TOPIC,""
+What is considered landmark Architecture ,OFF_TOPIC,""
+"What is provided by transmitting four bits that represent the packet type twice, in a single PID byte using complemented form?",OFF_TOPIC,""
+What is the earliest decade of music typically featured on the rhythmic oldies format?,OFF_TOPIC,""
+What does the 14th Amendment also introduce the concept of?,OFF_TOPIC,""
+"Statistically, what is a Jehovah's Witnesses likely not to care about at all?",OFF_TOPIC,""
+What concept does not reach back to the Hebrew Bible?,OFF_TOPIC,""
+Were there any laws against marriage between whites and Asians in the US?,OFF_TOPIC,""
+What percent of the Bronx is multiracial?,OFF_TOPIC,""
