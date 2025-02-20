@@ -64,11 +64,7 @@
     <category>
         <pattern>* REPRESENTED</pattern>
         <template>
-            <srai>
-                <star/>
-                REPRESENTED
-                <star index="2"/>
-            </srai>
+            AUTOMATON:REPRESENTATION
         </template>
     </category>
 
@@ -80,44 +76,28 @@
     <category>
         <pattern>* DRAWN</pattern>
         <template>
-            <srai>
-                <star/>
-                REPRESENTED
-                <star index="2"/>
-            </srai>
+            AUTOMATON:REPRESENTATION
         </template>
     </category>
 
     <category>
         <pattern>* DRAWN *</pattern>
         <template>
-            <srai>
-                <star/>
-                REPRESENTED
-                <star index="2"/>
-            </srai>
+            AUTOMATON:REPRESENTATION
         </template>
     </category>
 
     <category>
         <pattern>* LAYOUT *</pattern>
         <template>
-            <srai>
-                <star/>
-                REPRESENTED
-                <star index="2"/>
-            </srai>
+            AUTOMATON:REPRESENTATION
         </template>
     </category>
 
     <category>
         <pattern>* LAYOUT</pattern>
         <template>
-            <srai>
-                <star/>
-                REPRESENTED
-                <star index="2"/>
-            </srai>
+            AUTOMATON:REPRESENTATION
         </template>
     </category>
 
@@ -856,66 +836,42 @@
     <category>
         <pattern>* PATTERN</pattern>
         <template>
-            <srai>
-                <star/>
-                PATTERN
-                <star index="2"/>
-            </srai>
+            AUTOMATON:PATTERN
         </template>
     </category>
 
     <category>
         <pattern>PATTERN</pattern>
         <template>
-            <srai>
-                <star/>
-                PATTERN
-                <star index="2"/>
-            </srai>
+            AUTOMATON:PATTERN
         </template>
     </category>
 
     <category>
         <pattern>* ORDER</pattern>
         <template>
-            <srai>
-                <star/>
-                PATTERN
-                <star index="2"/>
-            </srai>
+            AUTOMATON:PATTERN
         </template>
     </category>
 
     <category>
         <pattern>* ORDER *</pattern>
         <template>
-            <srai>
-                <star/>
-                PATTERN
-                <star index="2"/>
-            </srai>
+            AUTOMATON:PATTERN
         </template>
     </category>
 
     <category>
         <pattern>ORDER</pattern>
         <template>
-            <srai>
-                <star/>
-                PATTERN
-                <star index="2"/>
-            </srai>
+            AUTOMATON:PATTERN
         </template>
     </category>
 
     <category>
         <pattern>HOW MANY ARCS * FROM *</pattern>
         <template>
-            <srai>
-                <star/>
-                PATTERN
-                <star index="2"/>
-            </srai>
+            AUTOMATON:PATTERN
         </template>
     </category>
 

@@ -1,14 +1,44 @@
 Question,Global Subject,Question Intent
-"Hello!",start,greet
-"Hi!",start,greet
-"Hey!",start,greet
-"Greetings!",start,greet
-"Hello again!",start,greet
-"Hi there!",start,greet
-"How’s it going?",start,greet
-"Hey, chatbot!",start,greet
-"Hi, how are you?",start,greet
-"Hey buddy!",start,greet
+"Hello!",start,start
+"Hi!",start,start
+"Hey!",start,start
+"Greetings!",start,start
+"Hello again!",start,start
+"Hi there!",start,start
+"How’s it going?",start,start
+"Hey, chatbot!",start,start
+"Hi, how are you?",start,start
+"Hey buddy!",start,start
+"Hi, automaton!",start,start
+"Hello there, can we get started?",start,start
+"Hey, I'm here to begin our conversation.",start,start
+"Greetings, what can you do for me today?",start,start
+"Hi, I’d like to chat with you.",start,start
+"Hello, how do you work?",start,start
+"Hey, I’m curious about your functions.",start,start
+"Hi there, can you tell me your capabilities?",start,start
+"Greetings, let’s start our discussion.",start,start
+"Hello, I’m interested in learning more about you.",start,start
+"Hey, can you introduce yourself?",start,start
+"Hi, what’s your purpose here?",start,start
+"Hello, I’d like to explore automata theory with you.",start,start
+"Hey, can we dive into how you operate?",start,start
+"Greetings, I’m ready to ask some questions.",start,start
+"Hi, how do you process input?",start,start
+"Hello, I’m testing your conversational skills.",start,start
+"Hey, what can you tell me about your design?",start,start
+"Hi there, can you explain your features?",start,start
+"Greetings, I’m here to understand how you work.",start,start
+"Hello, let’s start with a simple chat.",start,start
+"Hey, can you show me what you can do?",start,start
+"Hi, I’d like to know about your functions.",start,start
+"Greetings, I’m eager to learn from you.",start,start
+"Hello, can you guide me through your capabilities?",start,start
+"Hey, what are you programmed for?",start,start
+"Hi, let’s begin our conversation.",start,start
+"Greetings, I’m here to explore your operations.",start,start
+"Hello, can you tell me more about yourself?",start,start
+"Hey, I’m excited to see how you respond.",start,start
 Could you provide a detailed explanation of the automaton?,automaton,description
 What is the layout of the states in this automaton?,automaton,description
 Can you offer a breakdown of the automaton’s components?,automaton,description
@@ -307,133 +337,133 @@ Which incoming and outgoing transitions form the connections for state q4?,trans
 "How can I represent an automaton using a state diagram?",grammar,"generic"
 "What is the role of the transition function in defining an automaton?",grammar,"transitions"
 "How does one formally specify the transition function of an automaton?",grammar,"transitions"
-How would you formally define a finite state automaton?,theory,
-What constitutes a finite state machine in theoretical terms?,theory,
-How can I mathematically describe an automaton?,theory,
-What are the core components that make up an automaton?,theory,
-Can you explain the concept of an initial state in automata theory?,theory,
-How is the language accepted by an automaton determined?,theory,
-What does the term 'state transition' signify in automata?,theory,
-How can I represent an automaton using a state diagram?,theory,
-What is the role of the transition function in defining an automaton?,theory,
-How does one formally specify the transition function of an automaton?,theory,
-What distinguishes a deterministic automaton from a nondeterministic one?,theory,
-How is a pattern recognized and processed by an automaton?,theory,
-What theoretical applications does a finite state automaton have?,theory,
-Can an automaton be constructed with a limited number of states?,theory,
-What is the significance of having multiple final states in an automaton?,theory,
-How do you formally define a final state in an automaton?,theory,
-What are the mathematical constraints when designing an automaton?,theory,
-How are the states of an automaton interconnected in theory?,theory,
-Can you elaborate on the concept of state connectivity in automata?,theory,
-How does the structure of an automaton affect its computational power?,theory,
-What are the formal properties required for an automaton to be valid?,theory,
-How can one verify the correctness of an automaton's design?,theory,
-What is the theoretical basis for the transitions between states?,theory,
-How can an automaton be used to recognize regular languages?,theory,
-What are the limitations of finite state automata in language processing?,theory,
-How is a self loop defined in the context of automata theory?,theory,
-What determines whether an automaton accepts a specific input?,theory,
-How can you describe the overall behavior of an automaton?,theory,
-What mathematical tools are used to analyze automata?,theory,
-How do transitions contribute to the operation of an automaton?,theory,
-Who did Athanasius succeed?,OFF_TOPIC,"ND"
-Where are the main concentrations of indigenous people in Honduras? ,OFF_TOPIC,"ND"
-Which generation of cameras are capable of storing higher refined images?,OFF_TOPIC,"ND"
-What is the name of the first tour with Live Nation?,OFF_TOPIC,"ND"
-"Along with animals, what is depicted on the rock paintings of Laas Geel?",OFF_TOPIC,"ND"
-What does the city council have restrictions on in downtown?,OFF_TOPIC,"ND"
-What country usually has a dominant party at the national and state level?,OFF_TOPIC,"ND"
-What was UNFPA accused of taking away from the Chinese program?,OFF_TOPIC,"ND"
-What did the first federal wildlife commerce law prohibit?,OFF_TOPIC,"ND"
-Despite all the propaganda that ws presented to the East Prussians what did German populations want within the country?,OFF_TOPIC,"ND"
-When did the era of planning start in Himachal Pradesh?,OFF_TOPIC,"ND"
-What began replacing hunting-gathering at the end of the Mesolithic period?,OFF_TOPIC,"ND"
-Which of Popper's works responds to critiques of naive falsificationism?,OFF_TOPIC,"ND"
-Who was the president of the LSD Church?,OFF_TOPIC,"ND"
-The Mediterranean Empire had how many universities?,OFF_TOPIC,"ND"
-What did Nasser not want to have in Egypt?,OFF_TOPIC,"ND"
-What is the term used for birds that employ many strategies to obtain food?,OFF_TOPIC,"ND"
-What are the three Insular Celtic languages?,OFF_TOPIC,"ND"
-When did Kubitschek leave office?,OFF_TOPIC,"ND"
-What is the name of the Rabbi mentioned in relation to the Genesis Rabbah?,OFF_TOPIC,"ND"
-In what year were hops first known to be used in beer?,OFF_TOPIC,"ND"
-"Out of every 100,000 people in Swaziland in 2007, how many were infected with tuberculosis?",OFF_TOPIC,"ND"
-Which entity oversees the Judicial Police?,OFF_TOPIC,"ND"
-In 2011 what program was launched by Grand Challenges Exploration?,OFF_TOPIC,"ND"
-What was the name of the theory that Lange and James developed independently?,OFF_TOPIC,"ND"
-How long ago were rock paintings found in Somalia created?,OFF_TOPIC,"ND"
-In what year did Eisenhower graduate from the Army War College?,OFF_TOPIC,"ND"
-What notable event occurred in 1952?,OFF_TOPIC,"ND"
-The Luftwaffe used how many short tons of bombs during the Blitz?,OFF_TOPIC,"ND"
-How often do kids get diarrhea in developing countries?,OFF_TOPIC,"ND"
-What are produced in cell division?,OFF_TOPIC,"ND"
-What is the name of the shrub associated with the chinquapin oak?,OFF_TOPIC,"ND"
-From what people have were the first records known to be existent derived from? ,OFF_TOPIC,"ND"
-During what years did the Mongol leader Kublai Khan rule?,OFF_TOPIC,"ND"
-How many people were in the Dominions' armies?,OFF_TOPIC,"ND"
-In what year was the city in conflict with two nearby tribes?,OFF_TOPIC,"ND"
-What company said it is planning to move marine operations to the University of Southampton?,OFF_TOPIC,"ND"
-What is a major component of lignin?,OFF_TOPIC,"ND"
-What is the only half life of the isotopes?,OFF_TOPIC,"ND"
-What acronym was the Music Corporation of America known by?,OFF_TOPIC,"ND"
-What was the subject under consideration in discussions in 1980?,OFF_TOPIC,"ND"
-How was the elephant population in Uganda?,OFF_TOPIC,"ND"
-In what year were Machine-room-less elevators first allowed?,OFF_TOPIC,"ND"
-"What hardware component did CNET have the biggest problem with, even comparing it to an old credit card reader?",OFF_TOPIC,"ND"
-What is accessed through a wide slot in the road?,OFF_TOPIC,"ND"
-When were the rights to print the calendar withdrawn?,OFF_TOPIC,"ND"
- What can be credited for the changes in the definition of humanism? ,OFF_TOPIC,"ND"
-What maps an encoding?,OFF_TOPIC,"ND"
-Which Melbourne based university has campuses in Malaysia?,OFF_TOPIC,"ND"
-What is caused by using or selling a patented invention without permission?,OFF_TOPIC,"ND"
-What was the group called that did not owe labour duty to the princes?,OFF_TOPIC,"ND"
-Are children or adolescents more likely to question assertions and less likely to accept facts?,OFF_TOPIC,"ND"
-In what geographic part of Somalia were important paleolithic stone tools found?,OFF_TOPIC,"ND"
-What does child labour deprive children of?,OFF_TOPIC,"ND"
-The violent 1867 incident that took place on King's street happened on what day?,OFF_TOPIC,"ND"
-What priestly division did Luke belong to?,OFF_TOPIC,"ND"
-What methods have no effect on smokers quality of life?,OFF_TOPIC,"ND"
-What conce what research advocated for focusing on cultural aspects of ethnic groups rather than on boundaries of ethnic groups? Pt is useless for demonstrating how identity works?,OFF_TOPIC,"ND"
-Who was the person that tried Jesus?,OFF_TOPIC,"ND"
-Who drove through the Queens-Midtown Tunnel before anyone else?,OFF_TOPIC,"ND"
-What is Zinc pyrithione illegal in?,OFF_TOPIC,"ND"
-"When did Edison patent his "ND"Process of Manufacturing Carbons"ND"?",OFF_TOPIC,"ND"
-What was the name of the Marshall Islands ship seized by Iran?,OFF_TOPIC,"ND"
-When was Pius XI asked to come to the Vatican by the Cardinal Secretary of State?,OFF_TOPIC,"ND"
-What happened to the income gap between the rich and the poor?,OFF_TOPIC,"ND"
-What religious leader of the 1930s and 1940s would never have been suspected of using his members arrests to garner more disaffected members?,OFF_TOPIC,"ND"
-When do adult contemporary stations begin to play Top 40 songs?,OFF_TOPIC,"ND"
-By what year was the Germanic Empire split into two sections?,OFF_TOPIC,"ND"
-What is the most common test subjects for studying of the brain?,OFF_TOPIC,"ND"
-Who embraced of a pact between Germany and the Soviet governments?,OFF_TOPIC,"ND"
-Are there times when an editor's judgement should be deferred?,OFF_TOPIC,"ND"
-How are the original ancestors of the Tibetan people represented?,OFF_TOPIC,"ND"
-Why did Morris Jr make the computer worm?,OFF_TOPIC,"ND"
-What is Eastern by profession?,OFF_TOPIC,"ND"
-in wat year did  ireland join with great britian offically?,OFF_TOPIC,"ND"
-What was the amount of the Emirates airline company deal?,OFF_TOPIC,"ND"
-What does MTBC stand for?,OFF_TOPIC,"ND"
-Who stated that God was difficult both to prove or disprove?,OFF_TOPIC,"ND"
-In what two major conflicts did Portugal engage in during the 20th century?,OFF_TOPIC,"ND"
-What is a term used for programs that automatically visit websites and record the data they find?,OFF_TOPIC,"ND"
-How many seats are in the Cubs' Sloan Park training facility?,OFF_TOPIC,"ND"
-What group of people were known to keep Malian salves into the 20th century?,OFF_TOPIC,"ND"
-What is the range for the length of fields for non international matches in meters?,OFF_TOPIC,"ND"
-What has been promoted as a justification for spelling reforms?,OFF_TOPIC,"ND"
-Which cardinal acted a the leader of France due to his amount of power?,OFF_TOPIC,"ND"
-Which graduate of The Feinburg School of Medicine performed the first successful African open heart surgery?,OFF_TOPIC,"ND"
-Why did Vladimir chose Western Christianity?,OFF_TOPIC,"ND"
-What agreement commits countries to conserve biodiversity?,OFF_TOPIC,"ND"
-What group conducted a study of coral on Funafuti?,OFF_TOPIC,"ND"
- What LEDs are considered riskier than any other?,OFF_TOPIC,"ND"
-Hard disk drives are what type of peripheral device?,OFF_TOPIC,"ND"
-What was Comcast's share value in 1999?,OFF_TOPIC,"ND"
-What is considered landmark Architecture ,OFF_TOPIC,"ND"
-"What is provided by transmitting four bits that represent the packet type twice, in a single PID byte using complemented form?",OFF_TOPIC,"ND"
-What is the earliest decade of music typically featured on the rhythmic oldies format?,OFF_TOPIC,"ND"
-What does the 14th Amendment also introduce the concept of?,OFF_TOPIC,"ND"
-"Statistically, what is a Jehovah's Witnesses likely not to care about at all?",OFF_TOPIC,"ND"
-What concept does not reach back to the Hebrew Bible?,OFF_TOPIC,"ND"
-Were there any laws against marriage between whites and Asians in the US?,OFF_TOPIC,"ND"
-What percent of the Bronx is multiracial?,OFF_TOPIC,"ND"
+How would you formally define a finite state automaton?,theory,theory
+What constitutes a finite state machine in theoretical terms?,theory,theory
+How can I mathematically describe an automaton?,theory,theory
+What are the core components that make up an automaton?,theory,theory
+Can you explain the concept of an initial state in automata theory?,theory,theory
+How is the language accepted by an automaton determined?,theory,theory
+What does the term 'state transition' signify in automata?,theory,theory
+How can I represent an automaton using a state diagram?,theory,theory
+What is the role of the transition function in defining an automaton?,theory,theory
+How does one formally specify the transition function of an automaton?,theory,theory
+What distinguishes a deterministic automaton from a nondeterministic one?,theory,theory
+How is a pattern recognized and processed by an automaton?,theory,theory
+What theoretical applications does a finite state automaton have?,theory,theory
+Can an automaton be constructed with a limited number of states?,theory,theory
+What is the significance of having multiple final states in an automaton?,theory,theory
+How do you formally define a final state in an automaton?,theory,theory
+What are the mathematical constraints when designing an automaton?,theory,theory
+How are the states of an automaton interconnected in theory?,theory,theory
+Can you elaborate on the concept of state connectivity in automata?,theory,theory
+How does the structure of an automaton affect its computational power?,theory,theory
+What are the formal properties required for an automaton to be valid?,theory,theory
+How can one verify the correctness of an automaton's design?,theory,theory
+What is the theoretical basis for the transitions between states?,theory,theory
+How can an automaton be used to recognize regular languages?,theory,theory
+What are the limitations of finite state automata in language processing?,theory,theory
+How is a self loop defined in the context of automata theory?,theory,theory
+What determines whether an automaton accepts a specific input?,theory,theory
+How can you describe the overall behavior of an automaton?,theory,theory
+What mathematical tools are used to analyze automata?,theory,theory
+How do transitions contribute to the operation of an automaton?,theory,theory
+Who did Athanasius succeed?,OFF_TOPIC,OFF_TOPIC
+Where are the main concentrations of indigenous people in Honduras? ,OFF_TOPIC,OFF_TOPIC
+Which generation of cameras are capable of storing higher refined images?,OFF_TOPIC,OFF_TOPIC
+What is the name of the first tour with Live Nation?,OFF_TOPIC,OFF_TOPIC
+"Along with animals, what is depicted on the rock paintings of Laas Geel?",OFF_TOPIC,OFF_TOPIC
+What does the city council have restrictions on in downtown?,OFF_TOPIC,OFF_TOPIC
+What country usually has a dominant party at the national and state level?,OFF_TOPIC,OFF_TOPIC
+What was UNFPA accused of taking away from the Chinese program?,OFF_TOPIC,OFF_TOPIC
+What did the first federal wildlife commerce law prohibit?,OFF_TOPIC,OFF_TOPIC
+Despite all the propaganda that ws presented to the East Prussians what did German populations want within the country?,OFF_TOPIC,OFF_TOPIC
+When did the era of planning start in Himachal Pradesh?,OFF_TOPIC,OFF_TOPIC
+What began replacing hunting-gathering at the end of the Mesolithic period?,OFF_TOPIC,OFF_TOPIC
+Which of Popper's works responds to critiques of naive falsificationism?,OFF_TOPIC,OFF_TOPIC
+Who was the president of the LSD Church?,OFF_TOPIC,OFF_TOPIC
+The Mediterranean Empire had how many universities?,OFF_TOPIC,OFF_TOPIC
+What did Nasser not want to have in Egypt?,OFF_TOPIC,OFF_TOPIC
+What is the term used for birds that employ many strategies to obtain food?,OFF_TOPIC,OFF_TOPIC
+What are the three Insular Celtic languages?,OFF_TOPIC,OFF_TOPIC
+When did Kubitschek leave office?,OFF_TOPIC,OFF_TOPIC
+What is the name of the Rabbi mentioned in relation to the Genesis Rabbah?,OFF_TOPIC,OFF_TOPIC
+In what year were hops first known to be used in beer?,OFF_TOPIC,OFF_TOPIC
+"Out of every 100,000 people in Swaziland in 2007, how many were infected with tuberculosis?",OFF_TOPIC,OFF_TOPIC
+Which entity oversees the Judicial Police?,OFF_TOPIC,OFF_TOPIC
+In 2011 what program was launched by Grand Challenges Exploration?,OFF_TOPIC,OFF_TOPIC
+What was the name of the theory that Lange and James developed independently?,OFF_TOPIC,OFF_TOPIC
+How long ago were rock paintings found in Somalia created?,OFF_TOPIC,OFF_TOPIC
+In what year did Eisenhower graduate from the Army War College?,OFF_TOPIC,OFF_TOPIC
+What notable event occurred in 1952?,OFF_TOPIC,OFF_TOPIC
+The Luftwaffe used how many short tons of bombs during the Blitz?,OFF_TOPIC,OFF_TOPIC
+How often do kids get diarrhea in developing countries?,OFF_TOPIC,OFF_TOPIC
+What are produced in cell division?,OFF_TOPIC,OFF_TOPIC
+What is the name of the shrub associated with the chinquapin oak?,OFF_TOPIC,OFF_TOPIC
+From what people have were the first records known to be existent derived from? ,OFF_TOPIC,OFF_TOPIC
+During what years did the Mongol leader Kublai Khan rule?,OFF_TOPIC,OFF_TOPIC
+How many people were in the Dominions' armies?,OFF_TOPIC,OFF_TOPIC
+In what year was the city in conflict with two nearby tribes?,OFF_TOPIC,OFF_TOPIC
+What company said it is planning to move marine operations to the University of Southampton?,OFF_TOPIC,OFF_TOPIC
+What is a major component of lignin?,OFF_TOPIC,OFF_TOPIC
+What is the only half life of the isotopes?,OFF_TOPIC,OFF_TOPIC
+What acronym was the Music Corporation of America known by?,OFF_TOPIC,OFF_TOPIC
+What was the subject under consideration in discussions in 1980?,OFF_TOPIC,OFF_TOPIC
+How was the elephant population in Uganda?,OFF_TOPIC,OFF_TOPIC
+In what year were Machine-room-less elevators first allowed?,OFF_TOPIC,OFF_TOPIC
+"What hardware component did CNET have the biggest problem with, even comparing it to an old credit card reader?",OFF_TOPIC,OFF_TOPIC
+What is accessed through a wide slot in the road?,OFF_TOPIC,OFF_TOPIC
+When were the rights to print the calendar withdrawn?,OFF_TOPIC,OFF_TOPIC
+ What can be credited for the changes in the definition of humanism? ,OFF_TOPIC,OFF_TOPIC
+What maps an encoding?,OFF_TOPIC,OFF_TOPIC
+Which Melbourne based university has campuses in Malaysia?,OFF_TOPIC,OFF_TOPIC
+What is caused by using or selling a patented invention without permission?,OFF_TOPIC,OFF_TOPIC
+What was the group called that did not owe labour duty to the princes?,OFF_TOPIC,OFF_TOPIC
+Are children or adolescents more likely to question assertions and less likely to accept facts?,OFF_TOPIC,OFF_TOPIC
+In what geographic part of Somalia were important paleolithic stone tools found?,OFF_TOPIC,OFF_TOPIC
+What does child labour deprive children of?,OFF_TOPIC,OFF_TOPIC
+The violent 1867 incident that took place on King's street happened on what day?,OFF_TOPIC,OFF_TOPIC
+What priestly division did Luke belong to?,OFF_TOPIC,OFF_TOPIC
+What methods have no effect on smokers quality of life?,OFF_TOPIC,OFF_TOPIC
+What conce what research advocated for focusing on cultural aspects of ethnic groups rather than on boundaries of ethnic groups? Pt is useless for demonstrating how identity works?,OFF_TOPIC,OFF_TOPIC
+Who was the person that tried Jesus?,OFF_TOPIC,OFF_TOPIC
+Who drove through the Queens-Midtown Tunnel before anyone else?,OFF_TOPIC,OFF_TOPIC
+What is Zinc pyrithione illegal in?,OFF_TOPIC,OFF_TOPIC
+"When did Edison patent his Process of Manufacturing Carbons?",OFF_TOPIC,OFF_TOPIC
+What was the name of the Marshall Islands ship seized by Iran?,OFF_TOPIC,OFF_TOPIC
+When was Pius XI asked to come to the Vatican by the Cardinal Secretary of State?,OFF_TOPIC,OFF_TOPIC
+What happened to the income gap between the rich and the poor?,OFF_TOPIC,OFF_TOPIC
+What religious leader of the 1930s and 1940s would never have been suspected of using his members arrests to garner more disaffected members?,OFF_TOPIC,OFF_TOPIC
+When do adult contemporary stations begin to play Top 40 songs?,OFF_TOPIC,OFF_TOPIC
+By what year was the Germanic Empire split into two sections?,OFF_TOPIC,OFF_TOPIC
+What is the most common test subjects for studying of the brain?,OFF_TOPIC,OFF_TOPIC
+Who embraced of a pact between Germany and the Soviet governments?,OFF_TOPIC,OFF_TOPIC
+Are there times when an editor's judgement should be deferred?,OFF_TOPIC,OFF_TOPIC
+How are the original ancestors of the Tibetan people represented?,OFF_TOPIC,OFF_TOPIC
+Why did Morris Jr make the computer worm?,OFF_TOPIC,OFF_TOPIC
+What is Eastern by profession?,OFF_TOPIC,OFF_TOPIC
+in wat year did  ireland join with great britian offically?,OFF_TOPIC,OFF_TOPIC
+What was the amount of the Emirates airline company deal?,OFF_TOPIC,OFF_TOPIC
+What does MTBC stand for?,OFF_TOPIC,OFF_TOPIC
+Who stated that God was difficult both to prove or disprove?,OFF_TOPIC,OFF_TOPIC
+In what two major conflicts did Portugal engage in during the 20th century?,OFF_TOPIC,OFF_TOPIC
+What is a term used for programs that automatically visit websites and record the data they find?,OFF_TOPIC,OFF_TOPIC
+How many seats are in the Cubs' Sloan Park training facility?,OFF_TOPIC,OFF_TOPIC
+What group of people were known to keep Malian salves into the 20th century?,OFF_TOPIC,OFF_TOPIC
+What is the range for the length of fields for non international matches in meters?,OFF_TOPIC,OFF_TOPIC
+What has been promoted as a justification for spelling reforms?,OFF_TOPIC,OFF_TOPIC
+Which cardinal acted a the leader of France due to his amount of power?,OFF_TOPIC,OFF_TOPIC
+Which graduate of The Feinburg School of Medicine performed the first successful African open heart surgery?,OFF_TOPIC,OFF_TOPIC
+Why did Vladimir chose Western Christianity?,OFF_TOPIC,OFF_TOPIC
+What agreement commits countries to conserve biodiversity?,OFF_TOPIC,OFF_TOPIC
+What group conducted a study of coral on Funafuti?,OFF_TOPIC,OFF_TOPIC
+ What LEDs are considered riskier than any other?,OFF_TOPIC,OFF_TOPIC
+Hard disk drives are what type of peripheral device?,OFF_TOPIC,OFF_TOPIC
+What was Comcast's share value in 1999?,OFF_TOPIC,OFF_TOPIC
+What is considered landmark Architecture ,OFF_TOPIC,OFF_TOPIC
+"What is provided by transmitting four bits that represent the packet type twice, in a single PID byte using complemented form?",OFF_TOPIC,OFF_TOPIC
+What is the earliest decade of music typically featured on the rhythmic oldies format?,OFF_TOPIC,OFF_TOPIC
+What does the 14th Amendment also introduce the concept of?,OFF_TOPIC,OFF_TOPIC
+"Statistically, what is a Jehovah's Witnesses likely not to care about at all?",OFF_TOPIC,OFF_TOPIC
+What concept does not reach back to the Hebrew Bible?,OFF_TOPIC,OFF_TOPIC
+Were there any laws against marriage between whites and Asians in the US?,OFF_TOPIC,OFF_TOPIC
+What percent of the Bronx is multiracial?,OFF_TOPIC,OFF_TOPIC
