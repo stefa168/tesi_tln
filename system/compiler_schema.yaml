@@ -159,6 +159,24 @@
           "format": "path",
           "title": "Path",
           "type": "string"
+        },
+        "label_columns": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Label Columns"
         }
       },
       "required": [

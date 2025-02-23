@@ -2,17 +2,21 @@ name: "test_config"
 use_wandb: true
 models:
   - name: "global_subject_classifier"
-    disabled: false
+    disabled: true
     type: classification
     force_compilation: true
     steps:
       - type: load_csv
         name: data
         path: "./multitask_training/data_cleaned_manual_combined.csv"
+        label_columns: "Global Subject"
       - type: train_model
         name: training
         dataframe: data.dataframe
         pretrained_model: "bert-base-uncased"
+#        pretrained_model: distilbert-base-uncased
+#        pretrained_model: "google/mobilebert-uncased"
+#        pretrained_model: "google/electra-small-discriminator"
         examples_column: "Question"
         labels_column: "Global Subject"
         train_epochs: 20
@@ -25,6 +29,7 @@ models:
       - type: load_csv
         name: data
         path: "./multitask_training/data_cleaned_manual_combined.csv"
+        label_columns: ["Global Subject", "Question Intent"]
       - type: split_data
         name: split
         dataframe: data.dataframe
@@ -40,7 +45,7 @@ models:
 
   - name: "question_entities_recognition"
     type: ner
-    disabled: false
+    disabled: true
     steps:
       - type: ner_spacy
         name: ner_training

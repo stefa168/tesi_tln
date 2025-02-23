@@ -19,9 +19,20 @@ class LoadCsvStep(Step):
     """
     type: Literal["load_csv"]
     path: Path
+    label_columns: list[str] | str | None = None
 
     def execute(self, inputs: dict[str, Any], context: dict[str, Any]) -> dict[str, Any]:
         df = pd.read_csv(self.path)
+
+        if self.label_columns is not None:
+            if isinstance(self.label_columns, str):
+                df[[self.label_columns]] = df[[self.label_columns]].apply(
+                    lambda col: col.str.strip().str.lower()
+                )
+            else:
+                df[self.label_columns] = df[self.label_columns].apply(
+                    lambda col: col.str.strip().str.lower()
+                )
 
         return {"dataframe": df}
 
