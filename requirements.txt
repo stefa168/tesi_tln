@@ -23,3 +23,8 @@ pydantic==2.9.2
 click==8.1.8
 wandb~=0.18.7
 spacy~=3.8.2
+seqeval~=1.2.2
+asteval~=1.0.6
+networkx~=3.4.1
+seaborn~=0.13.2
+sympy~=1.13.3
