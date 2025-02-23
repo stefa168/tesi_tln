@@ -114,6 +114,47 @@ class BertModelComponents:
 
         return ClassificationResult(predictions)
 
+    @staticmethod
+    def from_loaded(model: PreTrainedModel, tokenizer: PreTrainedTokenizer):
+        classifier = pipeline(model=model, tokenizer=tokenizer, task="text-classification",
+                              topk=None,  # by setting top_k to None we get all the predictions.
+                              device=torch.cuda.current_device())
+
+        return BertModelComponents(model, tokenizer, classifier)
+
+    @staticmethod
+    def from_path(model_name: str, conf_artifact_path: Path, subdir: str = "trained_model") -> 'BertModelComponents':
+        """
+        Loads a pre-trained model, tokenizer, and classifier for text classification from the specified
+        configuration artifact path and subdirectory. Returns the components wrapped in a ModelComponents
+        object. The function handles the initialization of the model and tokenizer using their respective
+        libraries, and sets up a text classification pipeline.
+
+        :param model_name: The name of the model which is used to locate its files inside the configuration
+            artifact directory.
+        :type model_name: str
+
+        :param conf_artifact_path: The base path to the directory containing the configuration artifacts
+            for multiple models.
+        :type conf_artifact_path: Path
+
+        :param subdir: The subdirectory inside the model directory that contains the trained model data.
+            Defaults to "trained_model".
+        :type subdir: str
+
+        :return: A ModelComponents object containing the loaded model, tokenizer, and classifier pipeline.
+        :rtype: BertModelComponents
+        """
+        try:
+            path = conf_artifact_path / model_name / subdir
+            model = BertForSequenceClassification.from_pretrained(path)
+            tokenizer = AutoTokenizer.from_pretrained(path)
+
+            return BertModelComponents.from_loaded(model, tokenizer)
+        except Exception as er:
+            logger.error(f"Error loading model '{model_name}': {er}")
+        raise
+
     def __repr__(self):
         return f"ModelTokenizerPair(model={self.model}, tokenizer={self.tokenizer})"
 
