@@ -148,10 +148,10 @@
 - *Data Retrieval*: query esterne, da KB, con script
 - *Ingegnerizzazione*: sviluppo di un sistema con funzionalità simili ad AIML ma che integri le migliorie sopra spiegate e approfondite.
 */
-// #show bibliography: set text(size: 0.9em)
+#show bibliography: set text(size: 0.9em)
+
+#pagebreak(weak: true)
 
 #bibliography("bib.yml", full: false)
 
 // #show: appendix // https://github.com/typst/typst/discussions/4031
-
-// =

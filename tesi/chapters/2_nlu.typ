@@ -14,7 +14,7 @@
 
 == Come AIML gestisce la comprensione // Collegamento a come AIML gestisce la comprensione
 
-Negli anni #tdd(90) iniziò a guadagnare popolarità il Loebner Prize, una competizione ispirata al Test di Turing @imitation_game.\
+Negli anni #tdd(90) iniziò a guadagnare popolarità il Loebner Prize @loebner, una competizione ispirata al Test di Turing @imitation_game.\
 Nella competizione, chatbot e sistemi conversazionali cercavano di "ingannare" giudici umani, facendo credere loro di essere persone reali.
 Molti sistemi presentati alla competizione erano basati su pattern matching e rule-based, a volte integrando euristiche per la gestione di sinonimi o correzione ortografica.
 
