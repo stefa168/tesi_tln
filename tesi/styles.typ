@@ -286,21 +286,16 @@
 
   // Table of contents
   // Outline customization
+  show outline.entry.where(level: 1): set outline.entry(fill: none)
   show outline.entry.where(level: 1): it => {
-    if it.body != [References] {
+    if it.element.body != [Bibliografia] {
       v(12pt, weak: true)
-      link(
-        it.element.location(),
-        strong({
-          it.body
-          h(1fr)
-          it.page
-        }),
-      )
+      strong(it)
     } else {
-      text(size: 1em, it)
+      it
     }
   }
+
   show outline.entry.where(level: 2): it => {
     text(size: 0.95em, it)
   }
@@ -314,7 +309,7 @@
 
   set align(top + center)
 
-  outline(depth: 3, indent: true)
+  outline(depth: 3)
 
   pagebreak(to: "odd")
 
