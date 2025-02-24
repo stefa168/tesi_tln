@@ -1,10 +1,10 @@
 #import "styles.typ": template
 
-#let acknowledgments = [ 
+#let acknowledgments = [
   Todo
 ]
 
-#let abstract = [ 
+#let abstract = [
   Todo.
 ]
 
@@ -17,7 +17,7 @@
 
   candidate: (
     name: "Stefano Vittorio Porta",
-    matricola: 859133
+    matricola: 859133,
   ),
 
   supervisor: (
@@ -41,12 +41,14 @@
   acknowledgments: acknowledgments,
   abstract: abstract,
 
-  keywords: [
-    "NLU mediante classificazione", 
-    "data annotation, augmentation, retrieval", 
-    "NLG basata su LLM", 
-    "software engineering"
-  ]
+  keywords: text(hyphenate: false)[
+    NLU mediante classificazione,
+    data annotation,
+    data augmentation,
+    data retrieval,
+    NLG basata su LLM,
+    software engineering
+  ],
 )
 
 #set smartquote(alternative: true)
@@ -152,4 +154,4 @@
 
 // #show: appendix // https://github.com/typst/typst/discussions/4031
 
-// = 
+// =

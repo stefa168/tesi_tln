@@ -14,14 +14,14 @@ Ciò permette ai Transformer di identificare e concentrarsi sulle parti più ril
 
 Tuttavia, questo approccio comporta una complessità computazionale quadratica rispetto alla lunghezza della sequenza, rendendolo costoso in termini di risorse di calcolo e memoria.
 
-Per gestire questa complessità e migliorare le prestazioni, si utilizza una context window per limitare il numero di token considerati in ogni calcolo di attenzione. 
+Per gestire questa complessità e migliorare le prestazioni, si utilizza una context window per limitare il numero di token considerati in ogni calcolo di attenzione.
 Questo bilancia la capacità del modello di cogliere relazioni rilevanti senza esaurire le risorse disponibili, specialmente nei casi in cui si fa affidamento a dataset di grandi dimensioni.
 
 ==== Struttura del Transformer
 
 #figure(
   image("../media/transformers_structure1.png", height: 50%),
-  caption: [Architettura di un Transformer come inizialmente ideata @vaswani2023attentionneed.]
+  caption: [Architettura di un Transformer come inizialmente ideata @vaswani2023attentionneed.],
 )
 
 L'architettura dei Transformer è composta da due parti principali: l'encoder e il decoder.
@@ -45,10 +45,12 @@ Vediamo le componenti più in dettaglio:
   Gli output di queste _attention head_ vengono combinate e trasformate, migliorando la comprensione del contesto a più livelli.
 
 - Ogni livello del Transformer contiene una _Rete Neurale Feedforward_ composta da due strati completamente connessi e una funzione di attivazione intermedia, solitamente la ReLU #footnote[Rectified Linear Unit]:
-  $ "ReLU"(x) = x^+ = max(0,x) = (x + abs(x)) / 2 = cases(
+  $
+    "ReLU"(x) = x^+ = max(0,x) = (x + abs(x)) / 2 = cases(
     x "if" x > 0,
     0 "otherwise"
-  ) $
+  )
+  $
   Questa rete aggiunge complessità non lineare al modello.
 
 ==== Impatto

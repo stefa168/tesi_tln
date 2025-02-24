@@ -5,33 +5,30 @@
 
 // Some definitions presupposed by pandoc's typst output.
 #let horizontalrule = [
-  #line(start: (25%,0%), end: (75%,0%))
+  #line(start: (25%, 0%), end: (75%, 0%))
 ]
 
 #let endnote(num, contents) = [
   #stack(dir: ltr, spacing: 3pt, super[#num], contents)
 ]
 #show terms: it => {
-  it.children
+  it
+    .children
     .map(child => [
       #strong[#child.term]
       #block(inset: (left: 1.5em, top: -0.4em))[#child.description]
-      ])
+    ])
     .join()
 }
 
 #set table(
   inset: 6pt,
-  stroke: none
+  stroke: none,
 )
 
-#show figure.where(
-  kind: table
-): set figure.caption(position: top)
+#show figure.where(kind: table): set figure.caption(position: top)
 
-#show figure.where(
-  kind: image
-): set figure.caption(position: bottom)
+#show figure.where(kind: image): set figure.caption(position: bottom)
 
 #let content-to-string(content) = {
   if content.has("text") {
@@ -72,20 +69,24 @@
     numbering: "1",
   )
   set par(justify: true)
-  set text(lang: lang,
-           region: region,
-           font: font,
-           size: fontsize)
+  set text(
+    lang: lang,
+    region: region,
+    font: font,
+    size: fontsize,
+  )
   set heading(numbering: sectionnumbering)
 
   if title != none {
     align(center)[#block(inset: 2em)[
-      #text(weight: "bold", size: 1.5em)[#title]
-      #(if subtitle != none {
-        parbreak()
-        text(weight: "bold", size: 1.25em)[#subtitle]
-      })
-    ]]
+        #text(weight: "bold", size: 1.5em)[#title]
+        #(
+          if subtitle != none {
+            parbreak()
+            text(weight: "bold", size: 1.25em)[#subtitle]
+          }
+        )
+      ]]
   }
 
   if authors != none and authors != [] {
@@ -94,25 +95,23 @@
     grid(
       columns: (1fr,) * ncols,
       row-gutter: 1.5em,
-      ..authors.map(author =>
-          align(center)[
-            #author.name \
-            #author.affiliation \
-            #author.email
-          ]
-      )
+      ..authors.map(author => align(center)[
+        #author.name \
+        #author.affiliation \
+        #author.email
+      ])
     )
   }
 
   if date != none {
     align(center)[#block(inset: 1em)[
-      #date
-    ]]
+        #date
+      ]]
   }
 
   if abstract != none {
     block(inset: 2em)[
-    #text(weight: "semibold")[Abstract] #h(1em) #abstract
+      #text(weight: "semibold")[Abstract] #h(1em) #abstract
     ]
   }
 
@@ -282,7 +281,7 @@ for model in ollama_models:
 
     for p_i, prompt_version in enumerate(prompts):
         progress_bar = tqdm(
-          total=dataset_size, 
+          total=dataset_size,
           desc=f"Asking {model} with prompt {p_i}", unit="rows"
         )
 
@@ -292,9 +291,9 @@ for model in ollama_models:
             prompt = prompts[0].replace("{text}", text)
 
             inferred_label = chat.interact(
-              prompt, 
-              stream=True, 
-              print_output=False, 
+              prompt,
+              stream=True,
+              print_output=False,
               use_in_context=False
             )
             inferred_label = inferred_label.strip().replace("'", "")
@@ -310,24 +309,24 @@ Ecco un esempio dei risultati dell'etichettatura del bronze dataset:
 
 #figure(
   align(center)[#table(
-    columns: (0.2fr, 1fr, 1fr, 1fr, 1fr),
-    align: (auto,auto,auto,auto,auto,),
-    table.header([ID], [gemma2:9b], [gemma2:9b], [llama3.1:8b], [llama3.1:8b],),
-    table.hline(),
-    [0], [START], [START], [START], [START],
-    [1], [GEN\_INFO], [GEN\_INFO], [GEN\_INFO], [GEN\_INFO],
-    [2], [SPEC\_TRANS], [SPEC\_TRANS], [TRANS\_BETWEEN], [TRANS\_BETWEEN],
-    [3], [SPEC\_TRANS], [SPEC\_TRANS], [TRANS\_BETWEEN], [TRANS\_BETWEEN],
-    [4], [Please provide the interaction. : START], [START], [START], [START],
-    […], […], […], […], […],
-    [285], [OPT\_REP], [OPT\_REP], [OPT\_REP], [OPT\_REP],
-    [286], [GRAMMAR], [GRAMMAR], [GRAMMAR], [GRAMMAR],
-    [287], [REPETITIVE\_PAT], [REPETITIVE\_PAT], [REPETITIVE\_PAT], [REPETITIVE\_PAT],
-    [288], [TRANS\_DETAIL], [TRANS\_DETAIL], [TRANS\_DETAIL], [GEN\_INFO],
-    [289], [GRAMMAR], [GRAMMAR], [FINAL\_STATE], [FINAL\_STATE],
-  )]
-  , kind: table
-  )
+      columns: (0.2fr, 1fr, 1fr, 1fr, 1fr),
+      align: (auto, auto, auto, auto, auto),
+      table.header([ID], [gemma2:9b], [gemma2:9b], [llama3.1:8b], [llama3.1:8b]),
+      table.hline(),
+      [0], [START], [START], [START], [START],
+      [1], [GEN\_INFO], [GEN\_INFO], [GEN\_INFO], [GEN\_INFO],
+      [2], [SPEC\_TRANS], [SPEC\_TRANS], [TRANS\_BETWEEN], [TRANS\_BETWEEN],
+      [3], [SPEC\_TRANS], [SPEC\_TRANS], [TRANS\_BETWEEN], [TRANS\_BETWEEN],
+      [4], [Please provide the interaction. : START], [START], [START], [START],
+      […], […], […], […], […],
+      [285], [OPT\_REP], [OPT\_REP], [OPT\_REP], [OPT\_REP],
+      [286], [GRAMMAR], [GRAMMAR], [GRAMMAR], [GRAMMAR],
+      [287], [REPETITIVE\_PAT], [REPETITIVE\_PAT], [REPETITIVE\_PAT], [REPETITIVE\_PAT],
+      [288], [TRANS\_DETAIL], [TRANS\_DETAIL], [TRANS\_DETAIL], [GEN\_INFO],
+      [289], [GRAMMAR], [GRAMMAR], [FINAL\_STATE], [FINAL\_STATE],
+    )],
+  kind: table,
+)
 
 Combinare i risultati tramite majority voting è stato essenziale, in quanto i modelli di LLM non sono perfetti e alcune volte sono state prodotte risposte completamente estranee rispetto alle etichette fornite:
 
@@ -352,20 +351,20 @@ Le classi principali, che rappresentano l'argomento generale della domanda, sono
 
 #figure(
   align(center)[#table(
-    columns: (0.3fr, 1fr, 0.4fr),
-    align: (auto,auto,auto,),
-    table.header([Classe], [Descrizione], [Numero di Esempi],),
-    table.hline(),
-    [#strong[transition];], [Domande che riguardano le transizioni tra gli stati], [77],
-    [#strong[automaton];], [Domande che riguardano l'automa in generale], [48],
-    [#strong[state];], [Domande che riguardano gli stati dell'automa], [48],
-    [#strong[grammar];], [Domande che riguardano la grammatica riconosciuta dall'automa], [33],
-    [#strong[theory];], [Domande di teoria generale sugli automi], [15],
-    [#strong[start];], [Domande che avviano l'interazione con il sistema], [6],
-    [#strong[off\_topic];], [Domande non pertinenti al dominio che il sistema deve saper gestire], [2],
-  )]
-  , kind: table
-  )
+      columns: (0.3fr, 1fr, 0.4fr),
+      align: (auto, auto, auto),
+      table.header([Classe], [Descrizione], [Numero di Esempi]),
+      table.hline(),
+      [#strong[transition];], [Domande che riguardano le transizioni tra gli stati], [77],
+      [#strong[automaton];], [Domande che riguardano l'automa in generale], [48],
+      [#strong[state];], [Domande che riguardano gli stati dell'automa], [48],
+      [#strong[grammar];], [Domande che riguardano la grammatica riconosciuta dall'automa], [33],
+      [#strong[theory];], [Domande di teoria generale sugli automi], [15],
+      [#strong[start];], [Domande che avviano l'interazione con il sistema], [6],
+      [#strong[off\_topic];], [Domande non pertinenti al dominio che il sistema deve saper gestire], [2],
+    )],
+  kind: table,
+)
 
 Avendo solo 7 classi principali di domande, considerato il numero ristretto di esempi, è stato possibile suddividerli senza ottenere un numero enorme di classi che si dividono tra di loro pochi esempi.
 
@@ -416,22 +415,23 @@ Dal momento che il numero di esempi è piuttosto ridotto (229), e inoltre le cla
 
 #figure(
   align(center)[#table(
-    columns: 2,
-    align: (auto,auto),
-    table.header([Classe], [Numero di esempi aggiuntivi],),
-    table.hline(),
-    [#strong[transition]], [148],
-    [#strong[automaton]], [93],
-    [#strong[state]], [56],
-    [#strong[grammar]], [111],
-    [#strong[theory]], [100],
-    [#strong[start]], [17],
-  )], kind: table
+      columns: 2,
+      align: (auto, auto),
+      table.header([Classe], [Numero di esempi aggiuntivi]),
+      table.hline(),
+      [#strong[transition]], [148],
+      [#strong[automaton]], [93],
+      [#strong[state]], [56],
+      [#strong[grammar]], [111],
+      [#strong[theory]], [100],
+      [#strong[start]], [17],
+    )],
+  kind: table,
 )
 
 Le domande off-topic aggiuntive (un centinaio) sono state estratte dal dataset SQUAD #footnote[Stanford Question Answering Dataset] v2 @squad1 @squad2, per avere una sufficiente varietà di domande non pertinenti.
 
-Anche le classi secondarie hanno ricevuto alcune migliorie alla distribuzione, che tuttavia è ancora da migliorare: 
+Anche le classi secondarie hanno ricevuto alcune migliorie alla distribuzione, che tuttavia è ancora da migliorare:
 (#{
   let classes = (
     ("description",74),
@@ -497,20 +497,23 @@ In seguito al training, è risultato che il modello gerarchico permette di otten
     import draw: *
 
     let f1_main = csv("media/csv/f1_main.csv")
-    let data = f1_main.slice(1).map(el => (int(el.at(1))/2, float(el.at(4))))
+    let data = f1_main.slice(1).map(el => (int(el.at(1)) / 2, float(el.at(4))))
 
     plot.plot(
-      size: (12,8), 
-      x-tick-step: 1, y-tick-step: 0.1, 
-      y-max:1, 
-      x-label: "Training Epoch", 
-      y-label: "F1 Score",{
-      plot.add(data)
-    })
+      size: (12, 8),
+      x-tick-step: 1,
+      y-tick-step: 0.1,
+      y-max: 1,
+      x-label: "Training Epoch",
+      y-label: "F1 Score",
+      {
+        plot.add(data)
+      },
+    )
   }),
   caption: [F1 Score sul topic primario],
   kind: "plot",
-  supplement: [Grafico]
+  supplement: [Grafico],
 )
 
 #figure(
@@ -518,20 +521,23 @@ In seguito al training, è risultato che il modello gerarchico permette di otten
     import draw: *
 
     let f1_main = csv("media/csv/f1_sub.csv")
-    let data = f1_main.slice(1).map(el => (int(el.at(1))/2, float(el.at(4))))
+    let data = f1_main.slice(1).map(el => (int(el.at(1)) / 2, float(el.at(4))))
 
     plot.plot(
-      size: (12,8), 
-      x-tick-step: 1, y-tick-step: 0.1, 
-      y-max:1, 
-      x-label: "Training Epoch", 
-      y-label: "F1 Score",{
-      plot.add(data)
-    })
+      size: (12, 8),
+      x-tick-step: 1,
+      y-tick-step: 0.1,
+      y-max: 1,
+      x-label: "Training Epoch",
+      y-label: "F1 Score",
+      {
+        plot.add(data)
+      },
+    )
   }),
   caption: [F1 Score sul topic secondario],
   kind: "plot",
-  supplement: [Grafico]
+  supplement: [Grafico],
 )
 
 #figure(
@@ -539,20 +545,23 @@ In seguito al training, è risultato che il modello gerarchico permette di otten
     import draw: *
 
     let f1_main = csv("media/csv/f1_hierarchical.csv")
-    let data = f1_main.slice(1).map(el => (int(el.at(1))/2, float(el.at(4))))
+    let data = f1_main.slice(1).map(el => (int(el.at(1)) / 2, float(el.at(4))))
 
     plot.plot(
-      size: (12,8), 
-      x-tick-step: 1, y-tick-step: 0.1, 
-      y-max:1, 
-      x-label: "Training Epoch", 
-      y-label: "F1 Score",{
-      plot.add(data)
-    })
+      size: (12, 8),
+      x-tick-step: 1,
+      y-tick-step: 0.1,
+      y-max: 1,
+      x-label: "Training Epoch",
+      y-label: "F1 Score",
+      {
+        plot.add(data)
+      },
+    )
   }),
   caption: [F1 Score sul modello gerarchico],
   kind: "plot",
-  supplement: [Grafico]
+  supplement: [Grafico],
 )
 
 È possibile che il modello gerarchico sia più performante perchè isola i soli esempi che riguardano il topic secondario, permettendo di ottenere una maggiore precisione e recall.
@@ -604,7 +613,7 @@ Il risultato è un insieme di file che contengono tutto il necessario per permet
 Il file di configurazione JSON deve contenere le seguenti informazioni:
 
 + Una sezione riguardante il training, che include:
-  - I dati relativi all'automa, che verranno estratti per costruire la knowledge base. Ipoteticamente i dati possono essere forniti in vari formati; dovrebbe essere piuttosto facile supportare formati come Graphviz  Dot @graphviz, JSON o XML.
+  - I dati relativi all'automa, che verranno estratti per costruire la knowledge base. Ipoteticamente i dati possono essere forniti in vari formati; dovrebbe essere piuttosto facile supportare formati come Graphviz Dot @graphviz, JSON o XML.
   - Il/I dataset di interazioni, che contengono le domande che l'utente può fare, già etichettati per classe di domanda. Possono essere presenti gerarchie di classi di domande, in modo da poter avere una maggiore flessibilità.
   - Il/I dataset di NER, che contengono le domande etichettate con le entità che si vogliono poter estrarre.
   ```json
@@ -623,21 +632,21 @@ Il file di configurazione JSON deve contenere le seguenti informazioni:
     },
   }
   ```
-+ Le classi di interazione, che contengono le regole per rispondere alle domande.\ 
++ Le classi di interazione, che contengono le regole per rispondere alle domande.\
   Ogni possibile interazione deve indicare:
-    - Una descrizione (utile a fini di documentazione): `description`
-    - Un'etichetta per la classe dei dati usati nel training che riguardano l'interazione: `label`
-    - Una lista di possibili slot da riempire: `slots`. Ogni slot ha alcuni dettagli:
-      - Un nome: `name`. Questo corrisponde al nome dell'entità che si vuole estrarre dalla domanda basandoci sul modello di NER addestrato
-      - Una descrizione: `description`
-      - Un'indicazione se è opzionale: `optional`
-    - Una lista di possibili risposte, che possono contenere dei placeholder per i dati estratti: `answers`.\
-      Queste risposte possono essere scritte in un linguaggio di templating, come ad esempio Handlebars @handlebars, oppure possono essere indicate anche delle configurazioni più complesse che permettono di fornire il necessario ad una LLM per generare una risposta più complessa usando i dati estratti (o anche da una memoria interna).
-    - Una query per estrarre i dati dalla knowledge base che verranno usati per la risposta: `query`.\
-      Questa query può essere espressa in JSONPath o JMESPath (o altri linguaggi che potrebbero essere identificati come più adatti).
-    - Una lista di sottoclassi, `subclasses`, che contengono le stesse informazioni di una classe di interazione. Questo permette di creare una gerarchia di classi di interazione, in modo da poter avere una maggiore flessibilità.\
-      Se una classe contiene delle sottoclassi, questa non può avere una query associata, e le risposte devono essere generate dalle sottoclassi. Ipoteticamente si potrebbe pensare anche di avere più risposte da più sottoclassi se queste matchano, oppure informare l'utente che il sistema ha compreso la domanda ma che non è in grado di rispondere (e magari suggerire delle domande più specifiche).
-  Ecco come potrebbe essere strutturata la sezione delle classi di interazione, per lasciare un esempio concreto: 
+  - Una descrizione (utile a fini di documentazione): `description`
+  - Un'etichetta per la classe dei dati usati nel training che riguardano l'interazione: `label`
+  - Una lista di possibili slot da riempire: `slots`. Ogni slot ha alcuni dettagli:
+    - Un nome: `name`. Questo corrisponde al nome dell'entità che si vuole estrarre dalla domanda basandoci sul modello di NER addestrato
+    - Una descrizione: `description`
+    - Un'indicazione se è opzionale: `optional`
+  - Una lista di possibili risposte, che possono contenere dei placeholder per i dati estratti: `answers`.\
+    Queste risposte possono essere scritte in un linguaggio di templating, come ad esempio Handlebars @handlebars, oppure possono essere indicate anche delle configurazioni più complesse che permettono di fornire il necessario ad una LLM per generare una risposta più complessa usando i dati estratti (o anche da una memoria interna).
+  - Una query per estrarre i dati dalla knowledge base che verranno usati per la risposta: `query`.\
+    Questa query può essere espressa in JSONPath o JMESPath (o altri linguaggi che potrebbero essere identificati come più adatti).
+  - Una lista di sottoclassi, `subclasses`, che contengono le stesse informazioni di una classe di interazione. Questo permette di creare una gerarchia di classi di interazione, in modo da poter avere una maggiore flessibilità.\
+    Se una classe contiene delle sottoclassi, questa non può avere una query associata, e le risposte devono essere generate dalle sottoclassi. Ipoteticamente si potrebbe pensare anche di avere più risposte da più sottoclassi se queste matchano, oppure informare l'utente che il sistema ha compreso la domanda ma che non è in grado di rispondere (e magari suggerire delle domande più specifiche).
+  Ecco come potrebbe essere strutturata la sezione delle classi di interazione, per lasciare un esempio concreto:
   ```json
   "interaction_classes": {
     "InizioConversazione": {
@@ -755,7 +764,7 @@ In questo modo possiamo avere pieno controllo su cosa il chatbot può rispondere
 
 */
 
-= Introduzione tesi post 
+= Introduzione tesi post
 
 #pagebreak(weak: true)
 

@@ -8,7 +8,7 @@
   ],
   "it": [
     Dichiaro di essere responsabile del contenuto dell'elaborato che presento al fine del conseguimento del titolo, di non avere plagiato in tutto o in parte il lavoro prodotto da altri e di aver citato le fonti originali in modo congruente alle normative vigenti in materia di plagio e di diritto d'autore. Sono inoltre consapevole che nel caso la mia dichiarazione risultasse mendace, potrei incorrere nelle sanzioni previste dalla legge e la mia ammissione alla prova finale potrebbe essere negata.
-  ]
+  ],
 )
 
 // FIXME: workaround for the lack of `std` scope
@@ -17,55 +17,41 @@
 #let template(
   // Your thesis title
   title: [Thesis Title],
-
   // The academic year you're graduating in
   academic-year: [2023/2024],
-
   // Your thesis subtitle, should be something along the lines of
   // "Bachelor's Thesis", "Tesi di Laurea Triennale" etc.
   subtitle: [Bachelor's Thesis],
-
   // The paper size, refer to https://typst.app/docs/reference/layout/page/#parameters-paper for all the available options
   paper-size: "a4",
-
   // Candidate's informations. You should specify a `name` key and
   // `matricola` key
   candidate: (),
-
   // The thesis' supervisor (relatore)
   supervisor: "",
-
   // An array of the thesis' co-supervisors (correlatori).
   // Set to `none` if not needed
   co-supervisor: none,
-
   // An affiliation dictionary, you should specify a `university`
   // keyword, `school` keyword and a `degree` keyword
   affiliation: (),
-
   // Set to "it" for the italian template
   lang: "en",
-
   // The thesis' bibliography, should be passed as a call to the
   // `bibliography` function or `none` if you don't need
   // to include a bibliography
   bibliography: none,
-
   // The university's logo, should be passed as a call to the `image`
   // function or `none` if you don't need to include a logo
   logo: none,
-
   // Abstract of the thesis, set to none if not needed
   abstract: none,
-
   // Acknowledgments, set to none if not needed
   acknowledgments: none,
-
   // The thesis' keywords, can be left empty if not needed
   keywords: none,
-
   // The thesis' content
-  body
+  body,
 ) = {
   // Set document matadata.
   set document(title: title, author: candidate.name)
@@ -126,7 +112,6 @@
         // #smallcaps(it)
         #text(it)
       ]
-    
     }
   }
   show heading.where(level: 2): it => block(width: 100%)[
@@ -142,21 +127,24 @@
     #text(it)
   ]
 
-  show heading.where(level: 4): it =>[
+  show heading.where(level: 4): it => [
     #block(it.body)
   ]
 
   // Title page
   set align(center)
-  
+
   block[
     #let jb = linebreak(justify: true)
-  
+
     #text(1.5em, weight: "bold", affiliation.university) #jb
-    #text(1.2em, [
-      #smallcaps(affiliation.school) #jb
-      #affiliation.degree #jb
-    ])
+    #text(
+      1.2em,
+      [
+        #smallcaps(affiliation.school) #jb
+        #affiliation.degree #jb
+      ],
+    )
   ]
 
   v(3fr)
@@ -174,9 +162,7 @@
   grid(
     columns: 2,
     align: left,
-    grid.cell(
-      inset: (right: 40pt)
-    )[
+    grid.cell(inset: (right: 40pt))[
       #if lang == "en" {
         smallcaps("supervisor")
       } else {
@@ -199,14 +185,14 @@
           }
         }
         linebreak()
-        co-supervisor.map(it => [
-          *#it*
-        ]).join(linebreak())
+        co-supervisor
+          .map(it => [
+            *#it*
+          ])
+          .join(linebreak())
       }
     ],
-    grid.cell(
-      inset: (left: 40pt)
-    )[
+    grid.cell(inset: (left: 40pt))[
       \ \ \
 
       #if lang == "en" {
@@ -221,14 +207,17 @@
 
   v(5fr)
 
-  text(1.2em, [
-    #if lang == "en" {
-      "Academic Year "
-    } else {
-      "Anno Accademico "
-    }
-    #academic-year
-  ])
+  text(
+    1.2em,
+    [
+      #if lang == "en" {
+        "Academic Year "
+      } else {
+        "Anno Accademico "
+      }
+      #academic-year
+    ],
+  )
 
   pagebreak(to: "odd")
   set par(justify: true, first-line-indent: 1em)
@@ -244,7 +233,7 @@
       "Declaration of Originality"
     } else {
       "Dichiarazione di Originalità"
-    }
+    },
   )
   text(style: "italic", declaration-of-originality.at(lang))
 
@@ -260,7 +249,7 @@
         "Acknowledgments"
       } else {
         "Ringraziamenti"
-      }
+      },
     )
     acknowledgments
 
@@ -273,7 +262,7 @@
       level: 2,
       numbering: none,
       outlined: false,
-      "Abstract"
+      "Abstract",
     )
     abstract
   }
@@ -288,7 +277,7 @@
         "Keywords"
       } else {
         "Parole chiave"
-      }
+      },
     )
     keywords
   }
@@ -299,13 +288,16 @@
   // Outline customization
   show outline.entry.where(level: 1): it => {
     if it.body != [References] {
-    v(12pt, weak: true)
-    link(it.element.location(), strong({
-      it.body
-      h(1fr)
-      it.page
-    }))}
-    else {
+      v(12pt, weak: true)
+      link(
+        it.element.location(),
+        strong({
+          it.body
+          h(1fr)
+          it.page
+        }),
+      )
+    } else {
       text(size: 1em, it)
     }
   }
@@ -315,7 +307,7 @@
   show outline.entry.where(level: 3): it => {
     text(size: 0.85em, it)
   }
-  
+
   show outline.entry.where(level: 4): it => {
     text(size: 0.85em, it)
   }

@@ -29,29 +29,29 @@ Basato sull'XML @aiml, di base l'AIML fornisce una struttura formale per definir
 
 La forma più semplice di categoria è:
 #align(center)[
-```xml
-<category>
-  <pattern>CIAO</pattern>
-  <template>Ciao! Come posso aiutarti oggi?</template>
-</category>
-```
+  ```xml
+  <category>
+    <pattern>CIAO</pattern>
+    <template>Ciao! Come posso aiutarti oggi?</template>
+  </category>
+  ```
 ]
 
-Qui, se l'utente scrive "Ciao" #footnote[Caratteri maiuscoli e minuscoli sono considerati uguali dal motore di riconoscimento.], il sistema restituisce la risposta associata nella sezione del `<template>`.\ \ 
+Qui, se l'utente scrive "Ciao" #footnote[Caratteri maiuscoli e minuscoli sono considerati uguali dal motore di riconoscimento.], il sistema restituisce la risposta associata nella sezione del `<template>`.\ \
 Naturalmente questa è una regola basilare; AIML permette di definire pattern molto più complessi.\
 Un primo passo verso la creazione di regole più flessibili è l'uso di wildcard: associando simboli quali #sym.ast e #sym.dash.en a elementi di personalizzazione (`<star/>`), il motore che esegue la configurazione AIML può gestire un certo grado di variabilità linguistica:
 
 #pagebreak(weak: true)
 
 #align(center)[
-```xml
-<category>
-  <pattern>MI CHIAMO *</pattern>
-  <template>
-    Ciao <star/>, piacere di conoscerti!
-  </template>
-</category>
-```
+  ```xml
+  <category>
+    <pattern>MI CHIAMO *</pattern>
+    <template>
+      Ciao <star/>, piacere di conoscerti!
+    </template>
+  </category>
+  ```
 ]
 
 In particolare, il simbolo `*` corrisponde a una wildcard che cattura qualsiasi sequenza di parole in input tra i due pattern specificati.\
@@ -62,24 +62,24 @@ In questo caso, se l'utente digita "Mi chiamo Andrea", il sistema sostituisce `<
 Spesso è necessario memorizzare informazioni fornite dall'utente per utilizzarle successivamente. A questo scopo, AIML offre i tag `<set>` e `<get>` che, rispettivamente, memorizzano e recuperano valori da variabili di contesto:
 
 #align(center)[
-```xml
-<category>
-  <pattern>IL MIO COLORE PREFERITO È *</pattern>
-  <template>
-    <think>
-      <set name="colore"><star/></set>
-    </think>
-    Ok, ricorderò che il tuo colore preferito è <star/>.
-  </template>
-</category>
+  ```xml
+  <category>
+    <pattern>IL MIO COLORE PREFERITO È *</pattern>
+    <template>
+      <think>
+        <set name="colore"><star/></set>
+      </think>
+      Ok, ricorderò che il tuo colore preferito è <star/>.
+    </template>
+  </category>
 
-<category>
-  <pattern>QUAL È IL MIO COLORE PREFERITO</pattern>
-  <template>
-    Il tuo colore preferito è <get name="colore"/>.
-  </template>
-</category>
-```
+  <category>
+    <pattern>QUAL È IL MIO COLORE PREFERITO</pattern>
+    <template>
+      Il tuo colore preferito è <get name="colore"/>.
+    </template>
+  </category>
+  ```
 ]
 
 Nella prima `<category>`, il tag `<think>` fa sì che l'operazione di memorizzazione non produca output testuale per l'utente, ma aggiorni internamente la variabile `colore`.\
@@ -92,18 +92,18 @@ Il tag `<condition>` permette di definire regole condizionali in base a variabil
 Se la variabile stagione (presumibilmente impostata altrove con un `<set>`) ha valore `inverno`, verrà restituito “Fa piuttosto freddo...”. Un risultato simile si ottiene per `estate`, mentre per altri valori o mancanza di valore si restituisce l'ultimo _list item_.
 
 #align(center)[
-```xml
-<category>
-  <pattern>CHE TEMPO FA</pattern>
-  <template>
-    <condition name="stagione">
-      <li value="inverno">Fa piuttosto freddo, in questa stagione.</li>
-      <li value="estate">Fa molto caldo, bevi tanta acqua!</li>
-      <li>Non saprei, forse è primavera o autunno?</li>
-    </condition>
-  </template>
-</category>
-```
+  ```xml
+  <category>
+    <pattern>CHE TEMPO FA</pattern>
+    <template>
+      <condition name="stagione">
+        <li value="inverno">Fa piuttosto freddo, in questa stagione.</li>
+        <li value="estate">Fa molto caldo, bevi tanta acqua!</li>
+        <li>Non saprei, forse è primavera o autunno?</li>
+      </condition>
+    </template>
+  </category>
+  ```
 ]
 
 #hrule()
@@ -111,23 +111,23 @@ Se la variabile stagione (presumibilmente impostata altrove con un `<set>`) ha v
 Il tag `<topic>` permette di raggruppare categorie che appartengono a un medesimo ambito di conversazione, per facilitare la lettura delle regole:
 
 #align(center)[
-```xml
-<topic name="saluti">
-  <category>
-    <pattern>CIAO</pattern>
-    <template>
-      Ciao, piacere di vederti!
-    </template>
-  </category>
+  ```xml
+  <topic name="saluti">
+    <category>
+      <pattern>CIAO</pattern>
+      <template>
+        Ciao, piacere di vederti!
+      </template>
+    </category>
 
-  <category>
-    <pattern>COME STAI</pattern>
-    <template>
-      Sto bene, grazie! E tu come stai?
-    </template>
-  </category>
-</topic>
-```
+    <category>
+      <pattern>COME STAI</pattern>
+      <template>
+        Sto bene, grazie! E tu come stai?
+      </template>
+    </category>
+  </topic>
+  ```
 ]
 
 In questo modo le regole legate ai saluti sono tutte contenute all'interno di un blocco `<topic>` chiamato `saluti`.
@@ -137,16 +137,16 @@ In questo modo le regole legate ai saluti sono tutte contenute all'interno di un
 Il tag `<srai>`#footnote[Stimulus-Response Artificial Intelligence @aiml] permette di reindirizzare l'input ad un'altra regola, che verrà processata come se fosse stata digitata dall'utente. È molto utile per riutilizzare risposte o logiche già definite:
 
 #align(center)[
-```xml
-<topic name="saluti">
-  <category>
-    <pattern>SALUTA *</pattern>
-    <template>
-      <srai>CIAO</srai>
-    </template>
-  </category>
-</topic>
-```
+  ```xml
+  <topic name="saluti">
+    <category>
+      <pattern>SALUTA *</pattern>
+      <template>
+        <srai>CIAO</srai>
+      </template>
+    </category>
+  </topic>
+  ```
 ]
 
 Se l'utente scrive "Saluta Andrea", la regola cattura "SALUTA \*" e reindirizza il contenuto (in questo caso “CIAO”) a un'altra categoria.
@@ -160,15 +160,15 @@ Abbiamo già visto `<think>` in azione per evitare che il contenuto venga mostra
 In generale, `<think>` è utile quando vogliamo impostare o manipolare variabili senza generare output visibile, ad esempio:
 
 #align(center)[
-```xml
-<category>
-  <pattern>ADESSO È *</pattern>
-  <template>
-    <think><set name="stagione"><star/></set></think>
-    Grazie, ora so che la stagione attuale è <star/>!
-  </template>
-</category>
-```
+  ```xml
+  <category>
+    <pattern>ADESSO È *</pattern>
+    <template>
+      <think><set name="stagione"><star/></set></think>
+      Grazie, ora so che la stagione attuale è <star/>!
+    </template>
+  </category>
+  ```
 ]
 
 #hrule()
@@ -176,13 +176,13 @@ In generale, `<think>` è utile quando vogliamo impostare o manipolare variabili
 Il tag `<that>` permette di scrivere pattern che dipendono dalla risposta precedentemente fornita dal chatbot. È particolarmente utile per gestire contesti conversazionali più complessi:
 
 #align(center)[
-```xml
-<category>
-  <pattern>GRAZIE</pattern>
-  <that>VA TUTTO BENE</that>
-  <template>Felice di averti aiutato!</template>
-</category>
-```
+  ```xml
+  <category>
+    <pattern>GRAZIE</pattern>
+    <that>VA TUTTO BENE</that>
+    <template>Felice di averti aiutato!</template>
+  </category>
+  ```
 ]
 
 In questo caso la regola sarà attivata se la risposta precedente del bot era “VA TUTTO BENE” e l'utente scrive “Grazie”.
@@ -235,14 +235,14 @@ Alcune versioni di AIML supportano `<learn>`, che consente al bot di aggiungere 
 Grazie ai tag previsti dallo schema, AIML riesce a gestire conversazioni piuttosto complesse. Ciononostante, presenta comunque alcune limitazioni:
 
 - Le strategie di wildcard e pattern matching restano prevalentemente letterali, con limitata capacità di interpretare varianti linguistiche non codificate nelle regole.\
-  Se una frase si discosta dal pattern previsto, il sistema fallisce il matching. 
+  Se una frase si discosta dal pattern previsto, il sistema fallisce il matching.
   Sono disponibili comunque alcune funzionalità per la gestione di sinonimi, semplificazione delle locuzioni e correzione ortografica (da comporre e aggiornare manualmente) che possono mitigare alcuni di questi problemi.
 - La gestione del contesto (via `<that>, <topic>`, `<star>`, ecc.) è rudimentale, soprattutto se paragonata a sistemi moderni di NLU con modelli neurali che apprendono contesti ampi e riescono a tenere traccia di dettagli dal passato della conversazione.
 - L'integrazione con basi di conoscenza esterne (KB, database, API) richiede estensioni o script sviluppati ad-hoc, poiché AIML di per sé non offre costrutti semantici o query integrate, e non permette di integrare script internamente alle regole @aiml.
 - Le risposte generate sono statiche e predefinite, e non possono essere generate dinamicamente in base a dati esterni o a contesti più ampi in modo automatico (come invece avviene con LLM e modelli di generazione di linguaggio).
 
 Nonostante questi limiti, AIML ha rappresentato un passo importante nell'evoluzione dei chatbot, offrendo un framework standardizzato e relativamente user-friendly per la creazione di agenti rule-based @alice.\
-In alcuni ambiti ristretti (FAQ, conversazioni scriptate, assistenti vocali), costituisce ancora una soluzione valida e immediata. 
+In alcuni ambiti ristretti (FAQ, conversazioni scriptate, assistenti vocali), costituisce ancora una soluzione valida e immediata.
 In domini più complessi, in cui la varietà del linguaggio e l'integrazione con dati dinamici sono essenziali, diventa indispensabile affiancare o sostituire AIML con tecniche di Natural Language Understanding basate su machine learning e deep learning.
 
 Nelle sezioni successive sarà mostrato il percorso seguito per cercare di migliorare la comprensione degli input dell'utente, integrando tecniche di NLU basate su modelli di linguaggio neurali, e valutando le performance ottenute rispetto ad AIML.
@@ -297,7 +297,7 @@ Dovendo addestrare un modello di classificazione, ho proceduto innanzitutto con 
 
   df.to_csv("./filtered_data.csv")
   ```,
-  caption: [Estrazione dei dati dal dataset di interazione.]
+  caption: [Estrazione dei dati dal dataset di interazione.],
 )
 
 Estratte le domande, si è potuto procedere con l'etichettatura.
@@ -340,7 +340,7 @@ Per poter automatizzare l'etichettatura usando una LLM, prima di tutto ho identi
     "EFFICIENCY": "Questions about the efficiency or minimal representation of the automaton."
   }
   ```,
-  caption: [Etichette possibili per le domande del dataset.]
+  caption: [Etichette possibili per le domande del dataset.],
 )
 
 In questa mappa, ad ogni etichetta è associata una descrizione che indica alla LLM un contesto in cui collocarla, con lo scopo di assistere la LLM ad etichettare correttamente le domande togliendo il più possibile le ambiguità.\
@@ -372,29 +372,29 @@ I prompt sono stati scelti in modo da fornire informazioni utili ai modelli per 
   prompts = [
     # First prompt
     """You are going to be provided a series of interactions from a user regarding questions about finite state automatons.
-    Each message has to be labelled, according to the following labels: 
-    
+    Each message has to be labelled, according to the following labels:
+
     {labels}
-    
+
     You only need to answer with the corresponding label you've identified.
     Do not explain the reasoning, do not use different terms from the labels you've received now.
-    Interaction: 
+    Interaction:
     {text}
-    Label: 
+    Label:
     """,
 
     # Second prompt
     """You are an AI assistant trained to classify questions into the following categories:
-    
+
     {labels}
-    
+
     Please classify the following question:
     {text}
-    Category: 
+    Category:
     """
   ]
   ```,
-  caption: [Prompt utilizzati per l'etichettatura delle domande.]
+  caption: [Prompt utilizzati per l'etichettatura delle domande.],
 )
 
 Si notino le differenze tra i due prompt: il primo è più dettagliato e fornisce una spiegazione più approfondita delle etichette, mentre il secondo è più conciso e diretto.
@@ -423,7 +423,7 @@ Segue un estratto di codice python che mostra come è stato effettuato il prompt
 
       for p_i, prompt_version in enumerate(prompts):
           progress_bar = tqdm(
-            total=dataset_size, 
+            total=dataset_size,
             desc=f"Asking {model} with prompt {p_i}", unit="rows"
           )
 
@@ -433,9 +433,9 @@ Segue un estratto di codice python che mostra come è stato effettuato il prompt
               prompt = prompts[0].replace("{text}", text)
 
               inferred_label = chat.interact(
-                prompt, 
-                stream=True, 
-                print_output=False, 
+                prompt,
+                stream=True,
+                print_output=False,
                 use_in_context=False
               )
               inferred_label = inferred_label.strip().replace("'", "")
@@ -446,7 +446,7 @@ Segue un estratto di codice python che mostra come è stato effettuato il prompt
           print(progress_bar.format_dict["elapsed"])
           progress_bar.close()
   ```,
-  caption: [Prompting delle domande con i modelli di LLM.]
+  caption: [Prompting delle domande con i modelli di LLM.],
 )
 
 Ecco un esempio dei risultati dell'etichettatura del bronze dataset, in seguito al prompting con i modelli di LLM:
@@ -456,24 +456,24 @@ Ecco un esempio dei risultati dell'etichettatura del bronze dataset, in seguito 
     #show table.cell.where(y: 0): strong
     #set text(size: 10pt)
     #table(
-    columns: (0.3fr, 1fr, 1fr, 1fr, 1fr),
-    align: (auto,auto,auto,auto,auto,),
-    table.header([ID], [gemma2:9b], [gemma2:9b], [llama3.1:8b], [llama3.1:8b],),
-    table.hline(),
-    [0], [START], [START], [START], [START],
-    [1], [GEN\_INFO], [GEN\_INFO], [GEN\_INFO], [GEN\_INFO],
-    [2], [SPEC\_TRANS], [SPEC\_TRANS], [TRANS\_BETWEEN], [TRANS\_BETWEEN],
-    [3], [SPEC\_TRANS], [SPEC\_TRANS], [TRANS\_BETWEEN], [TRANS\_BETWEEN],
-    [4], [Please provide the interaction. : START], [START], [START], [START],
-    […], […], […], […], […],
-    [285], [OPT\_REP], [OPT\_REP], [OPT\_REP], [OPT\_REP],
-    [286], [GRAMMAR], [GRAMMAR], [GRAMMAR], [GRAMMAR],
-    [287], [REPETITIVE\_PAT], [REPETITIVE\_PAT], [REPETITIVE\_PAT], [REPETITIVE\_PAT],
-    [288], [TRANS\_DETAIL], [TRANS\_DETAIL], [TRANS\_DETAIL], [GEN\_INFO],
-    [289], [GRAMMAR], [GRAMMAR], [FINAL\_STATE], [FINAL\_STATE],
-  )], 
+      columns: (0.3fr, 1fr, 1fr, 1fr, 1fr),
+      align: (auto, auto, auto, auto, auto),
+      table.header([ID], [gemma2:9b], [gemma2:9b], [llama3.1:8b], [llama3.1:8b]),
+      table.hline(),
+      [0], [START], [START], [START], [START],
+      [1], [GEN\_INFO], [GEN\_INFO], [GEN\_INFO], [GEN\_INFO],
+      [2], [SPEC\_TRANS], [SPEC\_TRANS], [TRANS\_BETWEEN], [TRANS\_BETWEEN],
+      [3], [SPEC\_TRANS], [SPEC\_TRANS], [TRANS\_BETWEEN], [TRANS\_BETWEEN],
+      [4], [Please provide the interaction. : START], [START], [START], [START],
+      […], […], […], […], […],
+      [285], [OPT\_REP], [OPT\_REP], [OPT\_REP], [OPT\_REP],
+      [286], [GRAMMAR], [GRAMMAR], [GRAMMAR], [GRAMMAR],
+      [287], [REPETITIVE\_PAT], [REPETITIVE\_PAT], [REPETITIVE\_PAT], [REPETITIVE\_PAT],
+      [288], [TRANS\_DETAIL], [TRANS\_DETAIL], [TRANS\_DETAIL], [GEN\_INFO],
+      [289], [GRAMMAR], [GRAMMAR], [FINAL\_STATE], [FINAL\_STATE],
+    )],
   kind: table,
-  caption: [Esempio di etichettatura delle domande del bronze dataset.]
+  caption: [Esempio di etichettatura delle domande del bronze dataset.],
 ) <bronze-etichettatura>
 
 Come è possibile notare, i modelli hanno etichettato le domande in modo coerente tra di loro, ma non sempre con le etichette corrette.\
@@ -490,7 +490,7 @@ Come accennato, è stato adoperato un sistema di majority voting per combinare i
       majority_label = label_counts.most_common(1)[0][0]
       return majority_label
   ```,
-  caption: [Funzione di majority voting per combinare le etichette.]
+  caption: [Funzione di majority voting per combinare le etichette.],
 )
 
 Tuttavia, in seguito ad una prima fase di fine tuning, ho verificato che nonostante un'etichettatura valida, le classi identificate erano troppo sbilanciate, con alcune classi che contenevano un numero troppo esiguo di esempi.
@@ -525,13 +525,11 @@ Il numero ristretto di classi di domande ha permesso di creare una suddivisione 
     [theory], [Domande di teoria generale sugli automi], [15],
     [start], [Domande che avviano l'interazione con il sistema], [6],
     [off\_topic], [Domande non pertinenti al dominio che il sistema deve saper gestire], [2],
-)] <classi-principali>
+  )] <classi-principali>
 
 Come è possibile notare dalle tabelle che seguono, alcune classi secondarie contengono un numero esiguo di esempi, non sufficiente per una classificazione affidabile.
 
-#figure(
-  caption: [Le 6 classi secondarie del dataset per la classe primaria dell'*automa*.]
-)[
+#figure(caption: [Le 6 classi secondarie del dataset per la classe primaria dell'*automa*.])[
   #show table.cell.where(y: 0): strong
   #show table.cell.where(x: 0): strong
   #table(
@@ -539,42 +537,38 @@ Come è possibile notare dalle tabelle che seguono, alcune classi secondarie con
     table.header[Sottoclassi][Scopo][Numero di Esempi],
     table.hline(),
 
-    [description], [Descrizioni generali sull'automa],[14],
-    [description_brief], [Descrizione generale (breve) sull'automa],[10],
-    [directionality], [Domande riguardanti la direzionalità o meno dell'intero automa],[1],
-    [list], [Informazioni generali su nodi e archi],[1],
-    [pattern], [Presenza di pattern particolari nell'automa],[9],
-    [representation], [Rappresentazione spaziale dell'automa] ,[13],
+    [description], [Descrizioni generali sull'automa], [14],
+    [description_brief], [Descrizione generale (breve) sull'automa], [10],
+    [directionality], [Domande riguardanti la direzionalità o meno dell'intero automa], [1],
+    [list], [Informazioni generali su nodi e archi], [1],
+    [pattern], [Presenza di pattern particolari nell'automa], [9],
+    [representation], [Rappresentazione spaziale dell'automa], [13],
   )
 ]
 
-#figure(
-  caption: [Le 11 classi secondarie del dataset per la classe primaria delle *transizioni*.]
-)[
+#figure(caption: [Le 11 classi secondarie del dataset per la classe primaria delle *transizioni*.])[
   #show table.cell.where(y: 0): strong
   #show table.cell.where(x: 0): strong
   #table(
     columns: (auto, auto, auto),
     table.header[Sottoclassi][Scopo][Numero di Esempi],
     table.hline(),
-    
-    [count],[Numero di transizioni], [10],
-    [cycles],[Domande riguardo anelli tra nodi],[4],
-    [description], [Descrizioni generali sugli archi],[2],
-    [existence_between], [Esistenza di un arco tra due nodi],[12],
-    [existence_directed], [Esistenza di un arco da un nodo a un altro],[9],
-    [existence_from],[Esistenza di un arco uscente da un nodo],[18],
-    [existence_into],[Esistenza di un arco entrante in un nodo],[1],
-    [input],[Ricezione di un input da parte di un nodo],[1],
-    [label],[Indicazione di quali archi hanno una certa etichetta],[4],
-    [list], [Elenco generico degli archi],[15],
-    [self_loop], [Esistenza di self-cycles],[1],
+
+    [count], [Numero di transizioni], [10],
+    [cycles], [Domande riguardo anelli tra nodi], [4],
+    [description], [Descrizioni generali sugli archi], [2],
+    [existence_between], [Esistenza di un arco tra due nodi], [12],
+    [existence_directed], [Esistenza di un arco da un nodo a un altro], [9],
+    [existence_from], [Esistenza di un arco uscente da un nodo], [18],
+    [existence_into], [Esistenza di un arco entrante in un nodo], [1],
+    [input], [Ricezione di un input da parte di un nodo], [1],
+    [label], [Indicazione di quali archi hanno una certa etichetta], [4],
+    [list], [Elenco generico degli archi], [15],
+    [self_loop], [Esistenza di self-cycles], [1],
   )
 ]
 
-#figure(
-  caption: [Le 8 classi secondarie del dataset per la classe primaria degli *stati*.]
-)[
+#figure(caption: [Le 8 classi secondarie del dataset per la classe primaria degli *stati*.])[
   #show table.cell.where(y: 0): strong
   #show table.cell.where(x: 0): strong
   #table(
@@ -582,20 +576,18 @@ Come è possibile notare dalle tabelle che seguono, alcune classi secondarie con
     table.header[Sottoclassi][Scopo][Numero di Esempi],
     table.hline(),
 
-    [count], [Numero di stati],[19],
-    [details],[Dettagli specifici su uno stato],[1],
-    [list],[Elenco generale degli stati],[1],
-    [start], [Qual è lo stato iniziale],[8],
+    [count], [Numero di stati], [19],
+    [details], [Dettagli specifici su uno stato], [1],
+    [list], [Elenco generale degli stati], [1],
+    [start], [Qual è lo stato iniziale], [8],
     [final], [Esistenza di uno stato finale], [7],
     [final_count], [Numero di stati finali], [2],
     [final_list], [Elenco degli stati finali], [3],
-    [transitions], [Connessioni tra gli stati],[8],
+    [transitions], [Connessioni tra gli stati], [8],
   )
 ]
 
-#figure(
-  caption: [Le 7 classi secondarie del dataset per la classe primaria della *grammatica*.]
-)[
+#figure(caption: [Le 7 classi secondarie del dataset per la classe primaria della *grammatica*.])[
   #show table.cell.where(y: 0): strong
   #show table.cell.where(x: 0): strong
   #table(
@@ -603,10 +595,10 @@ Come è possibile notare dalle tabelle che seguono, alcune classi secondarie con
     table.header[Sottoclassi][Scopo][Numero di Esempi],
     table.hline(),
 
-    [accepted], [Grammatica accettata dall'automa],[14],
-    [example_input],[Input di esempio accettato dall'automa],[4],
-    [regex],[Regular expression corrispondente all'automa],[2],
-    [simulation], [Simulazione dell'automa con input dell'utente],[8],
+    [accepted], [Grammatica accettata dall'automa], [14],
+    [example_input], [Input di esempio accettato dall'automa], [4],
+    [regex], [Regular expression corrispondente all'automa], [2],
+    [simulation], [Simulazione dell'automa con input dell'utente], [8],
     [symbols], [Simboli accettati dalla grammatica], [7],
     [validity], [Validità di un input fornito], [2],
     [variation], [Richiesta di simulazione su un automa modificato], [2],
@@ -622,23 +614,24 @@ Ho aggiunto un totale di 525 domande, con la seguente distribuzione:
 
 #figure(
   align(center)[#table(
-    columns: 2,
-    align: (auto,auto),
-    table.header([Classe], [Numero di esempi aggiuntivi],),
-    table.hline(),
-    [#strong[transition]], [148],
-    [#strong[automaton]], [93],
-    [#strong[state]], [56],
-    [#strong[grammar]], [111],
-    [#strong[theory]], [100],
-    [#strong[start]], [17],
-    [#strong[off\_topic]], [100],
-  )], kind: table
+      columns: 2,
+      align: (auto, auto),
+      table.header([Classe], [Numero di esempi aggiuntivi]),
+      table.hline(),
+      [#strong[transition]], [148],
+      [#strong[automaton]], [93],
+      [#strong[state]], [56],
+      [#strong[grammar]], [111],
+      [#strong[theory]], [100],
+      [#strong[start]], [17],
+      [#strong[off\_topic]], [100],
+    )],
+  kind: table,
 )
 
 Le domande off-topic aggiuntive sono state estratte dal dataset SQUAD #footnote[Stanford Question Answering Dataset] v2 @squad1 @squad2, per avere una sufficiente varietà di domande non pertinenti.
 
-Anche le classi secondarie hanno ricevuto alcune migliorie alla distribuzione, che rimane comunque ancora sbilanciata: 
+Anche le classi secondarie hanno ricevuto alcune migliorie alla distribuzione, che rimane comunque ancora sbilanciata:
 (#{
   let classes = (
     ("description",74),
@@ -703,7 +696,7 @@ Il risultato è che, dopo un numero sufficiente di iterazioni (o epoche), il mod
 
 #figure(
   image("../media/pretraining-finetuning-transformer-models-2-1.png"),
-  caption: [Processo di fine-tuning di un modello di LLM. *IMMAGINE DA SOSTITUIRE*]
+  caption: [Processo di fine-tuning di un modello di LLM. *IMMAGINE DA SOSTITUIRE*],
 )
 
 L’elemento distintivo del fine-tuning rispetto a un addestramento “da zero” (o from scratch) sta nel fatto che la maggior parte dei pesi del modello non parte da valori iniziali casuali, bensì da un punto in cui il modello ha già “appreso” molte regole e pattern del linguaggio.
@@ -716,7 +709,7 @@ Il resto del modello rimane pressoché invariato: l'architettura interna, come i
 
 #figure(
   image("../media/llm_classifier2.png"),
-  caption: [Struttura di un modello di classificazione basato su LLM. *IMMAGINE DA SOSTITUIRE*]
+  caption: [Struttura di un modello di classificazione basato su LLM. *IMMAGINE DA SOSTITUIRE*],
 )
 
 === BERT
@@ -733,25 +726,25 @@ Nel Masked Language Modeling, BERT maschera casualmente alcune parole del testo 
 Nel Next Sentence Prediction, invece, il modello riceve in ingresso due frasi (A e B) e impara a classificare se B segue effettivamente A o se le due frasi appartengono a contesti disgiunti.
 Addestrando in parallelo su questi due compiti, BERT acquisisce rappresentazioni interne che colgono sfumature sintattiche, semantiche e relazionali del linguaggio @bert.
 
-Una volta pre-addestrato su grandi corpora di testo (come Wikipedia ed estrazioni di libri), BERT può essere facilmente “specializzato” per vari task supervisionati, tra cui la classificazione di testi, l'analisi del sentiment, il question answering e, in generale, tutto ciò che riguarda la comprensione del linguaggio naturale, essendo un modello encoder. 
+Una volta pre-addestrato su grandi corpora di testo (come Wikipedia ed estrazioni di libri), BERT può essere facilmente “specializzato” per vari task supervisionati, tra cui la classificazione di testi, l'analisi del sentiment, il question answering e, in generale, tutto ciò che riguarda la comprensione del linguaggio naturale, essendo un modello encoder.
 La peculiarità di BERT è che, essendo già addestrato a livello linguistico di base, necessita di meno esempi per ottenere risultati spesso notevoli su compiti altamente specializzati.
 
 Esistono diverse varianti del modello, in termini di dimensioni e capacità. Le versioni più comuni sono `BERT-base` e `BERT-large`, differenziate per numero di livelli (encoder) e di parametri totali.\
 In generale, la versione `base` è più rapida e ha requisiti meno elevati in termini di memoria, mentre la versione large offre performance maggiori a fronte di tempi di calcolo e requisiti hardware superiori.
 
 Nella libreria di Huggingface `transformers` @huggingface_transformers, BERT è messo a disposizione come un modello pretrained, pronto per essere caricato e ulteriormente addestrato.
-In un contesto di classificazione di intenti, ad esempio, si può utilizzare `AutoModelForSequenceClassification` specificando il checkpoint “bert-base-uncased” (o simili). 
+In un contesto di classificazione di intenti, ad esempio, si può utilizzare `AutoModelForSequenceClassification` specificando il checkpoint “bert-base-uncased” (o simili).
 
 Un esempio di codice di inizializzazione è il seguente:
 
 #align(center)[
-```python
-from transformers import AutoModelForSequenceClassification, AutoTokenizer
+  ```python
+  from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-model_name = "bert-base-uncased"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=num_classes)
-```
+  model_name = "bert-base-uncased"
+  tokenizer = AutoTokenizer.from_pretrained(model_name)
+  model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=num_classes)
+  ```
 ]
 
 `model` è in grado di elaborare sequenze di token generate dal tokenizer e, una volta fine-tuned, produce come output le probabilità di appartenere alle varie classi (o intenti) da classificare. Questa è la base su cui mi sono appoggiato per la classificazione delle domande del dataset.
@@ -802,7 +795,7 @@ Qui effettuo la suddivisione stratificata tra train e validation, tokenizzo i te
 
     return train_dataset, eval_dataset
   ```,
-  caption: [Funzione per la preparazione del dataset.]
+  caption: [Funzione per la preparazione del dataset.],
 )
 
 In questo modo, ottengo due oggetti di tipo `Dataset` che rappresentano il training set e il validation set.
@@ -814,7 +807,7 @@ Una volta create e preparate queste componenti (funzione di metriche, funzioni d
 
 Per prima cosa, ho definito una funzione in grado di calcolare le metriche di valutazione, che permetteranno di valutare le performance del modello in fase di fine-tuning in modo automatico.
 
-Ho scelto di considerare *accuratezza*, *precision*, *recall* e *F1* come indicatori classici di performance; in aggiunta, calcolo anche l'*entropia media* e la *confidenza media*, allo scopo di misurare rispettivamente il grado di incertezza delle previsioni e la probabilità media associata alla classe predetta. 
+Ho scelto di considerare *accuratezza*, *precision*, *recall* e *F1* come indicatori classici di performance; in aggiunta, calcolo anche l'*entropia media* e la *confidenza media*, allo scopo di misurare rispettivamente il grado di incertezza delle previsioni e la probabilità media associata alla classe predetta.
 Lo snippet seguente mostra la funzione `compute_metrics`:
 
 #figure(
@@ -844,7 +837,7 @@ Lo snippet seguente mostra la funzione `compute_metrics`:
     }
     return metrics
   ```,
-  caption: [Funzione per il calcolo delle metriche di valutazione.]
+  caption: [Funzione per il calcolo delle metriche di valutazione.],
 )
 
 Può essere utile soffermarci un momento a spiegare le metriche scelte:
@@ -858,7 +851,9 @@ Quando si lavora con problemi di classificazione con etichette binarie, o si val
 - i *false positives* (FP) indicano i casi previsti come positivi dal modello, ma che in realtà sono negativi;
 - i *false negatives* (FN) i casi previsti negativi ma in realtà positivi.
 Sulla base di queste definizioni, si introducono due metriche fondamentali:
-$ "Precision" = "TP" / ("TP" + "FP") $ che indica la percentuale di esempi classificati come positivi che erano effettivamente positivi.
+$
+  "Precision" = "TP" / ("TP" + "FP")
+$ che indica la percentuale di esempi classificati come positivi che erano effettivamente positivi.
 $ "Recall" = "TP" / ("TP" + "FN") $
 stima la quota di esempi positivi che sono stati effettivamente riconosciuti come tali dal modello.
 
@@ -895,59 +890,57 @@ Per effettuare l'addestramento vero e proprio, ho definito anche la funzione `ru
 
 La classe `Trainer` semplifica notevolmente la gestione di molteplici aspetti, come la schedulazione del learning rate o la stratificazione della validazione.
 
-#figure(
-  ```python
-  def run_fine_tuning(model: AutoModelForSequenceClassification,
-                    tokenizer: AutoTokenizer,
-                    train_dataset: Dataset,
-                    eval_dataset: Dataset,
-                    wandb_mode: str,
-                    num_train_epochs=20) -> Trainer:
-    """
-    Fine-tunes a pre-trained model on the provided training dataset and evaluates it on the evaluation dataset.
-    """
+#figure(```python
+def run_fine_tuning(model: AutoModelForSequenceClassification,
+                  tokenizer: AutoTokenizer,
+                  train_dataset: Dataset,
+                  eval_dataset: Dataset,
+                  wandb_mode: str,
+                  num_train_epochs=20) -> Trainer:
+  """
+  Fine-tunes a pre-trained model on the provided training dataset and evaluates it on the evaluation dataset.
+  """
 
-    train_dataset = train_dataset.map(lambda x: {k: v.float() if isinstance(v, torch.Tensor) and v.dtype == torch.long else v for k, v in x.items()})
-    eval_dataset = eval_dataset.map(lambda x: {k: v.float() if isinstance(v, torch.Tensor) and v.dtype == torch.long else v for k, v in x.items()})
+  train_dataset = train_dataset.map(lambda x: {k: v.float() if isinstance(v, torch.Tensor) and v.dtype == torch.long else v for k, v in x.items()})
+  eval_dataset = eval_dataset.map(lambda x: {k: v.float() if isinstance(v, torch.Tensor) and v.dtype == torch.long else v for k, v in x.items()})
 
-    report_to = ["wandb"] if wandb_mode == "online" else None
+  report_to = ["wandb"] if wandb_mode == "online" else None
 
-    training_args = TrainingArguments(
-        output_dir='./temp',  # Directory to save the model and other outputs
-        num_train_epochs=num_train_epochs,  # Number of training epochs
-        learning_rate=2e-5,  # Learning rate for the optimizer
-        warmup_ratio=0.1,  # Warmup for the first 10% of steps
-        lr_scheduler_type='linear',  # Linear scheduler
-        per_device_train_batch_size=16,  # Batch size for training
-        per_device_eval_batch_size=16,  # Batch size for evaluation
-        save_strategy='epoch',  # Save the model at the end of each epoch
-        logging_strategy='epoch',  # Log metrics at the end of each epoch
-        eval_strategy='epoch',  # Evaluate the model at the end of each epoch
-        logging_dir='./temp/logs',  # Directory to save the logs
-        load_best_model_at_end=True,  # Load the best model at the end based on evaluation metric
-        metric_for_best_model='f1',  # Use subtopic F1-score to determine the best model
-        greater_is_better=True,  # Higher metric indicates a better model
-        save_total_limit=1,  # Limit the total number of saved models
-        save_only_model=True,  # Save only the model weights
-        report_to=report_to,  # Report logs to Wandb if mode is "online"
-    )
+  training_args = TrainingArguments(
+      output_dir='./temp',  # Directory to save the model and other outputs
+      num_train_epochs=num_train_epochs,  # Number of training epochs
+      learning_rate=2e-5,  # Learning rate for the optimizer
+      warmup_ratio=0.1,  # Warmup for the first 10% of steps
+      lr_scheduler_type='linear',  # Linear scheduler
+      per_device_train_batch_size=16,  # Batch size for training
+      per_device_eval_batch_size=16,  # Batch size for evaluation
+      save_strategy='epoch',  # Save the model at the end of each epoch
+      logging_strategy='epoch',  # Log metrics at the end of each epoch
+      eval_strategy='epoch',  # Evaluate the model at the end of each epoch
+      logging_dir='./temp/logs',  # Directory to save the logs
+      load_best_model_at_end=True,  # Load the best model at the end based on evaluation metric
+      metric_for_best_model='f1',  # Use subtopic F1-score to determine the best model
+      greater_is_better=True,  # Higher metric indicates a better model
+      save_total_limit=1,  # Limit the total number of saved models
+      save_only_model=True,  # Save only the model weights
+      report_to=report_to,  # Report logs to Wandb if mode is "online"
+  )
 
-    trainer = Trainer(
-        model=model,  # The model to be trained
-        args=training_args,  # Training arguments
-        train_dataset=train_dataset,  # Training dataset
-        eval_dataset=eval_dataset,  # Evaluation dataset
-        processing_class=tokenizer,  # Tokenizer for processing the data
-        compute_metrics=compute_metrics  # Function to compute evaluation metrics
-    )
+  trainer = Trainer(
+      model=model,  # The model to be trained
+      args=training_args,  # Training arguments
+      train_dataset=train_dataset,  # Training dataset
+      eval_dataset=eval_dataset,  # Evaluation dataset
+      processing_class=tokenizer,  # Tokenizer for processing the data
+      compute_metrics=compute_metrics  # Function to compute evaluation metrics
+  )
 
-    print(f"Trainer is using device: {trainer.args.device}")
+  print(f"Trainer is using device: {trainer.args.device}")
 
-    trainer.train()  # Start the training process
+  trainer.train()  # Start the training process
 
-    return trainer
-  ```,
-)
+  return trainer
+```)
 
 Il metodo mostra diverse impostazioni interessanti:
 - `load_best_model_at_end=True` consente di caricare automaticamente al termine dell'addestramento i pesi del modello con il miglior valore di F1 (impostato in metric_for_best_model='f1');
@@ -969,7 +962,7 @@ Iniziamo quindi ad osservare i risultati dell'addestramento per la classe princi
 
 == Riconoscimento delle entità
 
-=== NER e Slot-filling // Spiegazione di cosa sono 
+=== NER e Slot-filling // Spiegazione di cosa sono
 
 === Spacy // Come ho implementato la parte di NER con spacy
 
