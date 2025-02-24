@@ -390,9 +390,8 @@ vaswani2023attentionneed:
   - Kaiser, Lukasz
   - Polosukhin, Illia
   date: 2023
-  url: https://arxiv.org/abs/1706.03762
   serial-number:
-    arxiv: '1706.03762'
+    doi: "10.48550/arXiv.1706.03762"
 
 bert:
   type: misc
@@ -403,9 +402,8 @@ bert:
     - Lee, Kenton
     - Toutanova, Kristina
   date: 2019
-  url: https://arxiv.org/abs/1810.04805
   serial-number:
-    arxiv: "1810.04805"
+    doi: 10.48550/arXiv.1810.04805
 
 bbc_google_fails:
   type: article
@@ -416,7 +414,7 @@ bbc_google_fails:
   url: https://www.bbc.com/news/articles/cd11gzejgz4o
 
 distilbert:
-  type: misc
+  type: article
   title: "DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter"
   author:
     - Sanh, Victor
@@ -429,7 +427,7 @@ distilbert:
     arxiv: "1910.01108"
 
 dont_stop_pretraining:
-  type: misc
+  type: article
   title: "Don't Stop Pretraining: Adapt Language Models to Domains and Tasks"
   author:
     - Gururangan, Suchin
@@ -445,7 +443,7 @@ dont_stop_pretraining:
     arxiv: "2004.10964"
 
 huggingface_transformers:
-  type: misc
+  type: article
   title: "HuggingFace's Transformers: State-of-the-art Natural Language Processing"
   author:
     - Wolf, Thomas
@@ -473,12 +471,17 @@ huggingface_transformers:
     - Lhoest, Quentin
     - Rush, Alexander M.
   date: 2020
-  url: https://arxiv.org/abs/1910.03771
   serial-number:
-    arxiv: "1910.03771"
+    doi: "10.48550/arXiv.1910.03771"  
+
+loebner:
+  type: web
+  title: The Loebner Prize
+  organization: Berkeley University
+  url: https://www.ocf.berkeley.edu/~arihuang/academic/research/loebner.html
 
 bert_fine_tuning:
-  type: misc
+  type: article
   title: "On the Stability of Fine-tuning BERT: Misconceptions, Explanations, and Strong Baselines"
   author:
     - Mosbach, Marius
@@ -487,7 +490,7 @@ bert_fine_tuning:
   date: 2021
   url: https://arxiv.org/abs/2006.04884
   serial-number:
-    arxiv: "2006.04884"
+    doi: "10.48550/arXiv.2006.04884"
 
 ollama:
   title: Ollama - LLM local runner
@@ -701,13 +704,13 @@ gemma:
     - Dadashi, Robert
     - Andreev, Alek
   date: 2024
-  url: https://arxiv.org/abs/2408.00118
   serial-number:
-    arxiv: "2408.00118"
+    doi: "10.48550/arXiv.2408.00118"
 
 llama3:
-  type: misc
+  type: article
   title: The Llama 3 Herd of Models
+  organization: Meta
   author:
     - Grattafiori, Aaron
     - Dubey, Abhimanyu
@@ -1277,12 +1280,11 @@ llama3:
     - Zhao, Zhiwei
     - Ma, Zhiyu
   date: 2024
-  url: https://arxiv.org/abs/2407.21783
   serial-number:
-    arxiv: "2407.21783"
+    doi: "10.48550/arXiv.2407.21783"
 
 qwen:
-  type: misc
+  type: report
   title: Qwen Technical Report
   author:
     - Bai, Jinze
@@ -1334,9 +1336,8 @@ qwen:
     - Zhou, Xiaohuan
     - Zhu, Tianhang
   date: 2023
-  url: https://arxiv.org/abs/2309.16609
   serial-number:
-    arxiv: "2309.16609"
+    doi: "10.48550/arXiv.2309.16609"
 
 squad1:
   type: article
