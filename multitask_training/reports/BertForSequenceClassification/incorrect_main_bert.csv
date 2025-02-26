@@ -1,0 +1,40 @@
+Question,Global Subject,Question Intent,aiml_main_prediction,aiml_sub_prediction,bert_main_prediction,bert_sub_prediction
+"Hello, I’d like to explore automata theory with you.",START,START,START,START,GRAMMAR,ACCEPTED
+"Hi, how do you process input?",START,START,START,START,THEORY,THEORY
+"Hello, can you guide me through your capabilities?",START,START,START,START,AUTOMATON,DESCRIPTION
+"Hey, what are you programmed for?",START,START,OFF_TOPIC,OFF_TOPIC,GRAMMAR,SYMBOLS
+Please outline the states and how they interconnect.,AUTOMATON,DESCRIPTION,OFF_TOPIC,OFF_TOPIC,STATE,FINAL_LIST
+Explain how the states in this automaton transition from one to another.,AUTOMATON,DESCRIPTION,OFF_TOPIC,OFF_TOPIC,TRANSITION,OVERVIEW
+Could you explain the automaton’s transitions in more detail?,AUTOMATON,DESCRIPTION,OFF_TOPIC,OFF_TOPIC,TRANSITION,OVERVIEW
+What’s the concise version of the automaton’s design?,AUTOMATON,DESCRIPTION_BRIEF,OFF_TOPIC,OFF_TOPIC,GRAMMAR,SYMBOLS
+What graphical form do the arcs take?,AUTOMATON,REPRESENTATION,OFF_TOPIC,OFF_TOPIC,TRANSITION,LIST
+What is the defined alphabet of this automaton?,GRAMMAR,SYMBOLS,STATE,DETAILS,AUTOMATON,DESCRIPTION
+How would you describe the automaton's alphabet?,GRAMMAR,SYMBOLS,AUTOMATON,DESCRIPTION,AUTOMATON,DESCRIPTION
+What characteristics define the transitions between states?,TRANSITION,OVERVIEW,OFF_TOPIC,OFF_TOPIC,AUTOMATON,DESCRIPTION
+How would you formally define a finite state automaton?,GRAMMAR,DEFINITION,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+What constitutes a finite state machine in theoretical terms?,GRAMMAR,DEFINITION,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+How can I mathematically describe an automaton?,GRAMMAR,DEFINITION,AUTOMATON,DESCRIPTION,THEORY,THEORY
+What are the core components that make up an automaton?,GRAMMAR,DEFINITION,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+Can you explain the concept of an initial state in automata theory?,GRAMMAR,STATES,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+How is the language accepted by an automaton determined?,GRAMMAR,GENERIC,GRAMMAR,ACCEPTED,THEORY,THEORY
+What does the term 'state transition' signify in automata?,GRAMMAR,TRANSITIONS,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+How can I represent an automaton using a state diagram?,GRAMMAR,GENERIC,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+What is the role of the transition function in defining an automaton?,GRAMMAR,TRANSITIONS,STATE,DETAILS,THEORY,THEORY
+How does one formally specify the transition function of an automaton?,GRAMMAR,TRANSITIONS,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+What distinguishes a deterministic automaton from a nondeterministic one?,THEORY,THEORY,AUTOMATON,DETERMINISTIC,GRAMMAR,GENERIC
+How do you formally define a final state in an automaton?,THEORY,THEORY,OFF_TOPIC,OFF_TOPIC,GRAMMAR,VARIATION
+What are the mathematical constraints when designing an automaton?,THEORY,THEORY,OFF_TOPIC,OFF_TOPIC,GRAMMAR,GENERIC
+How are the states of an automaton interconnected in theory?,THEORY,THEORY,OFF_TOPIC,OFF_TOPIC,GRAMMAR,GENERIC
+Can you elaborate on the concept of state connectivity in automata?,THEORY,THEORY,OFF_TOPIC,OFF_TOPIC,GRAMMAR,SYMBOLS
+How does the structure of an automaton affect its computational power?,THEORY,THEORY,OFF_TOPIC,OFF_TOPIC,GRAMMAR,GENERIC
+How can one verify the correctness of an automaton's design?,THEORY,THEORY,OFF_TOPIC,OFF_TOPIC,GRAMMAR,GENERIC
+What is the theoretical basis for the transitions between states?,THEORY,THEORY,STATE,DETAILS,AUTOMATON,DESCRIPTION
+How can an automaton be used to recognize regular languages?,THEORY,THEORY,OFF_TOPIC,OFF_TOPIC,GRAMMAR,GENERIC
+How is a self loop defined in the context of automata theory?,THEORY,THEORY,OFF_TOPIC,OFF_TOPIC,GRAMMAR,GENERIC
+What determines whether an automaton accepts a specific input?,THEORY,THEORY,OFF_TOPIC,OFF_TOPIC,GRAMMAR,GENERIC
+How can you describe the overall behavior of an automaton?,THEORY,THEORY,AUTOMATON,DESCRIPTION,GRAMMAR,GENERIC
+What mathematical tools are used to analyze automata?,THEORY,THEORY,OFF_TOPIC,OFF_TOPIC,GRAMMAR,GENERIC
+What is the only half life of the isotopes?,OFF_TOPIC,OFF_TOPIC,STATE,DETAILS,STATE,COUNT
+What maps an encoding?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+Are children or adolescents more likely to question assertions and less likely to accept facts?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+"What is provided by transmitting four bits that represent the packet type twice, in a single PID byte using complemented form?",OFF_TOPIC,OFF_TOPIC,STATE,DETAILS,GRAMMAR,SIMULATION

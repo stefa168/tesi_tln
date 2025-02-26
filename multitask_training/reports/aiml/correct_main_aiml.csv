@@ -1,0 +1,166 @@
+Question,Global Subject,Question Intent,aiml_main_prediction,aiml_sub_prediction,bert_main_prediction,bert_sub_prediction
+Hello!,START,START,START,START,START,START
+Hi!,START,START,START,START,START,START
+Hello again!,START,START,START,START,START,START
+Hi there!,START,START,START,START,START,START
+"Hi, how are you?",START,START,START,START,START,START
+"Hi, automaton!",START,START,START,START,AUTOMATON,DESCRIPTION
+"Hello there, can we get started?",START,START,START,START,START,START
+"Hi, I’d like to chat with you.",START,START,START,START,START,START
+"Hello, how do you work?",START,START,START,START,START,START
+"Hi there, can you tell me your capabilities?",START,START,START,START,START,START
+"Hello, I’m interested in learning more about you.",START,START,START,START,OFF_TOPIC,OFF_TOPIC
+"Hi, what’s your purpose here?",START,START,START,START,OFF_TOPIC,OFF_TOPIC
+"Hello, I’d like to explore automata theory with you.",START,START,START,START,THEORY,THEORY
+"Hi, how do you process input?",START,START,START,START,GRAMMAR,SYMBOLS
+"Hello, I’m testing your conversational skills.",START,START,START,START,OFF_TOPIC,OFF_TOPIC
+"Hi there, can you explain your features?",START,START,START,START,START,START
+"Hello, let’s start with a simple chat.",START,START,START,START,START,START
+"Hi, I’d like to know about your functions.",START,START,START,START,OFF_TOPIC,OFF_TOPIC
+"Hello, can you guide me through your capabilities?",START,START,START,START,START,START
+"Hi, let’s begin our conversation.",START,START,START,START,START,START
+"Hello, can you tell me more about yourself?",START,START,START,START,START,START
+Would you describe the main elements of the automaton?,AUTOMATON,DESCRIPTION,AUTOMATON,DESCRIPTION,AUTOMATON,REPRESENTATION
+Please describe how the states and transitions work in the automaton.,AUTOMATON,DESCRIPTION,AUTOMATON,DESCRIPTION,AUTOMATON,DESCRIPTION
+Provide a concise depiction of the automaton’s functional layout.,AUTOMATON,DESCRIPTION_BRIEF,AUTOMATON,REPRESENTATION,AUTOMATON,DESCRIPTION_BRIEF
+Can you quickly describe the structure of the automaton?,AUTOMATON,DESCRIPTION_BRIEF,AUTOMATON,DESCRIPTION,AUTOMATON,REPRESENTATION
+Do the nodes and arcs follow a specific pattern?,AUTOMATON,PATTERN,AUTOMATON,PATTERN,AUTOMATON,PATTERN
+Is there a recurring pattern among the automata transitions?,AUTOMATON,PATTERN,AUTOMATON,PATTERN,AUTOMATON,PATTERN
+Can we observe any regular pattern between the nodes and arcs?,AUTOMATON,PATTERN,AUTOMATON,PATTERN,AUTOMATON,PATTERN
+Could you identify a repeating pattern in the arc connections?,AUTOMATON,PATTERN,AUTOMATON,PATTERN,TRANSITION,CYCLES
+Is there a discernible pattern among the transitions?,AUTOMATON,PATTERN,AUTOMATON,PATTERN,AUTOMATON,PATTERN
+Are the nodes and arcs arranged in a particular pattern?,AUTOMATON,PATTERN,AUTOMATON,PATTERN,AUTOMATON,PATTERN
+Is a systematic pattern evident in the automata arcs?,AUTOMATON,PATTERN,AUTOMATON,PATTERN,AUTOMATON,PATTERN
+Can you detect a repetitive pattern among the arcs?,AUTOMATON,PATTERN,AUTOMATON,PATTERN,AUTOMATON,PATTERN
+Is there a specific pattern that governs the transitions?,AUTOMATON,PATTERN,AUTOMATON,PATTERN,AUTOMATON,PATTERN
+In what manner is the automaton graphically represented?,AUTOMATON,REPRESENTATION,AUTOMATON,REPRESENTATION,AUTOMATON,REPRESENTATION
+Which language does the automaton accept?,GRAMMAR,ACCEPTED,GRAMMAR,ACCEPTED,GRAMMAR,ACCEPTED
+Does the automaton's language include words made of an odd number of 0s and 1s?,GRAMMAR,ACCEPTED,GRAMMAR,ACCEPTED,GRAMMAR,ACCEPTED
+What language is accepted by this automaton?,GRAMMAR,ACCEPTED,GRAMMAR,ACCEPTED,GRAMMAR,ACCEPTED
+How does the automaton's accepted language handle words with an odd number of 0s and 1s?,GRAMMAR,ACCEPTED,GRAMMAR,ACCEPTED,GRAMMAR,ACCEPTED
+Which regular expression captures the automaton's accepted language?,GRAMMAR,REGEX,GRAMMAR,ACCEPTED,GRAMMAR,REGEX
+Which regular expression is equivalent to the automaton's language?,GRAMMAR,REGEX,GRAMMAR,ACCEPTED,GRAMMAR,REGEX
+Provide the regular expression that outlines the accepted language of the automaton.,GRAMMAR,REGEX,GRAMMAR,ACCEPTED,GRAMMAR,REGEX
+Would the automaton’s accepted language be unaffected if q2 were the final state?,GRAMMAR,VARIATION,GRAMMAR,ACCEPTED,GRAMMAR,VARIATION
+What is the total number of states in the automaton?,STATE,COUNT,STATE,DETAILS,STATE,COUNT
+What is the count of states within this automaton?,STATE,COUNT,STATE,DETAILS,STATE,COUNT
+How many states does this automaton consist of?,STATE,COUNT,STATE,COUNT,STATE,COUNT
+What is the complete tally of nodes in the automaton?,STATE,COUNT,STATE,DETAILS,STATE,COUNT
+Which state has been marked as the final state?,STATE,FINAL_LIST,STATE,DETAILS,STATE,FINAL_LIST
+Which state is labeled as the final state?,STATE,FINAL_LIST,STATE,DETAILS,STATE,FINAL_LIST
+What is the starting point of the automaton?,STATE,START,STATE,DETAILS,AUTOMATON,DESCRIPTION
+Which state is defined as the initial state?,STATE,START,STATE,DETAILS,STATE,START
+How many transitions are present in the automaton?,TRANSITION,COUNT,TRANSITION,COUNT,TRANSITION,COUNT
+How many transitions does the given automaton consist of?,TRANSITION,COUNT,TRANSITION,COUNT,TRANSITION,COUNT
+Is there a transition connecting q2 to q0?,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_BETWEEN
+Does an arc exist from q2 to q0?,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_DIRECTED
+"Is there an arc from q0 to any of q2, q3, or q4?",TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_BETWEEN
+"Does the automaton include a transition from q0 to q2, q3, or q4?",TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_BETWEEN
+Does q0 feature a self-loop transition?,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,SELF_LOOP
+Is there a direct transition looping from q0 back to itself?,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,SELF_LOOP
+Can you confirm whether q1 and q4 are connected by an arc?,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_BETWEEN
+What input symbol does the arc from q0 to q2 accept?,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_DIRECTED
+Does a directed arc exist from q0 to q1?,TRANSITION,EXISTENCE_DIRECTED,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_DIRECTED
+Is there a defined transition from q0 to q1?,TRANSITION,EXISTENCE_DIRECTED,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_DIRECTED
+Can you confirm that an arc goes from q0 to q1?,TRANSITION,EXISTENCE_DIRECTED,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_DIRECTED
+Is there an explicit arc leading from q0 to q1?,TRANSITION,EXISTENCE_DIRECTED,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_DIRECTED
+Does the automaton include a one-way transition from q0 to q1?,TRANSITION,EXISTENCE_DIRECTED,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_DIRECTED
+Is q0 directly connected to q1 by a transition?,TRANSITION,EXISTENCE_DIRECTED,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_BETWEEN
+Can you identify a directed edge linking q0 to q1?,TRANSITION,EXISTENCE_DIRECTED,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_BETWEEN
+Is q0 connected to q1 via a specified transition?,TRANSITION,EXISTENCE_DIRECTED,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_BETWEEN
+Does the state q0 have an outgoing arc directed to q1?,TRANSITION,EXISTENCE_DIRECTED,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_DIRECTED
+Is there a transition pathway from q0 to q1 in the automaton?,TRANSITION,EXISTENCE_DIRECTED,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_DIRECTED
+Which transitions have q3 as their starting point?,TRANSITION,EXISTENCE_FROM,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,EXISTENCE_INTO
+How many arcs in the automaton are marked with the label 0?,TRANSITION,LABEL,TRANSITION,COUNT,TRANSITION,LABEL
+Which states does q0 link to through transitions?,TRANSITION,STATE_CONNECTIONS,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,STATE_CONNECTIONS
+Which states are directly connected to q1 via transitions?,TRANSITION,STATE_CONNECTIONS,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,STATE_CONNECTIONS
+How is state q1 connected to other states?,TRANSITION,STATE_CONNECTIONS,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,STATE_CONNECTIONS
+What links are present for state q2 in the automaton?,TRANSITION,STATE_CONNECTIONS,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,STATE_CONNECTIONS
+Which states does q2 connect with via its transitions?,TRANSITION,STATE_CONNECTIONS,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,STATE_CONNECTIONS
+How is state q3 integrated with others through transitions?,TRANSITION,STATE_CONNECTIONS,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,STATE_CONNECTIONS
+Can you list the transitions linking q4 with other states?,TRANSITION,STATE_CONNECTIONS,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,STATE_CONNECTIONS
+How does state q4 connect to the rest of the automaton?,TRANSITION,STATE_CONNECTIONS,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,STATE_CONNECTIONS
+How do the transition links of state q1 connect it to other states?,TRANSITION,STATE_CONNECTIONS,TRANSITION,EXISTENCE_BETWEEN,TRANSITION,STATE_CONNECTIONS
+How is the language accepted by an automaton determined?,GRAMMAR,GENERIC,GRAMMAR,ACCEPTED,THEORY,THEORY
+Who did Athanasius succeed?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+Where are the main concentrations of indigenous people in Honduras? ,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+Which generation of cameras are capable of storing higher refined images?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+"Along with animals, what is depicted on the rock paintings of Laas Geel?",OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What does the city council have restrictions on in downtown?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What country usually has a dominant party at the national and state level?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What was UNFPA accused of taking away from the Chinese program?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What did the first federal wildlife commerce law prohibit?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+Despite all the propaganda that ws presented to the East Prussians what did German populations want within the country?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+When did the era of planning start in Himachal Pradesh?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What began replacing hunting-gathering at the end of the Mesolithic period?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+Which of Popper's works responds to critiques of naive falsificationism?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+Who was the president of the LSD Church?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+The Mediterranean Empire had how many universities?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What did Nasser not want to have in Egypt?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What are the three Insular Celtic languages?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+When did Kubitschek leave office?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+In what year were hops first known to be used in beer?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+"Out of every 100,000 people in Swaziland in 2007, how many were infected with tuberculosis?",OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+Which entity oversees the Judicial Police?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+In 2011 what program was launched by Grand Challenges Exploration?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What was the name of the theory that Lange and James developed independently?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+How long ago were rock paintings found in Somalia created?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+In what year did Eisenhower graduate from the Army War College?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What notable event occurred in 1952?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+The Luftwaffe used how many short tons of bombs during the Blitz?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+How often do kids get diarrhea in developing countries?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What are produced in cell division?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+From what people have were the first records known to be existent derived from? ,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+During what years did the Mongol leader Kublai Khan rule?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+How many people were in the Dominions' armies?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+In what year was the city in conflict with two nearby tribes?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What company said it is planning to move marine operations to the University of Southampton?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What acronym was the Music Corporation of America known by?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What was the subject under consideration in discussions in 1980?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+How was the elephant population in Uganda?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+In what year were Machine-room-less elevators first allowed?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+"What hardware component did CNET have the biggest problem with, even comparing it to an old credit card reader?",OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+When were the rights to print the calendar withdrawn?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+ What can be credited for the changes in the definition of humanism? ,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What maps an encoding?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+Which Melbourne based university has campuses in Malaysia?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What was the group called that did not owe labour duty to the princes?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+Are children or adolescents more likely to question assertions and less likely to accept facts?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+In what geographic part of Somalia were important paleolithic stone tools found?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What does child labour deprive children of?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+The violent 1867 incident that took place on King's street happened on what day?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What priestly division did Luke belong to?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What methods have no effect on smokers quality of life?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+Who was the person that tried Jesus?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+Who drove through the Queens-Midtown Tunnel before anyone else?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+When did Edison patent his Process of Manufacturing Carbons?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What was the name of the Marshall Islands ship seized by Iran?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+When was Pius XI asked to come to the Vatican by the Cardinal Secretary of State?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What happened to the income gap between the rich and the poor?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What religious leader of the 1930s and 1940s would never have been suspected of using his members arrests to garner more disaffected members?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+When do adult contemporary stations begin to play Top 40 songs?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+By what year was the Germanic Empire split into two sections?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+Who embraced of a pact between Germany and the Soviet governments?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+Are there times when an editor's judgement should be deferred?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+Why did Morris Jr make the computer worm?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+in wat year did  ireland join with great britian offically?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What was the amount of the Emirates airline company deal?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What does MTBC stand for?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+Who stated that God was difficult both to prove or disprove?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+In what two major conflicts did Portugal engage in during the 20th century?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+How many seats are in the Cubs' Sloan Park training facility?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What group of people were known to keep Malian salves into the 20th century?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What has been promoted as a justification for spelling reforms?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+Which cardinal acted a the leader of France due to his amount of power?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+Which graduate of The Feinburg School of Medicine performed the first successful African open heart surgery?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+Why did Vladimir chose Western Christianity?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What agreement commits countries to conserve biodiversity?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What group conducted a study of coral on Funafuti?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+ What LEDs are considered riskier than any other?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+Hard disk drives are what type of peripheral device?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What was Comcast's share value in 1999?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What does the 14th Amendment also introduce the concept of?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+"Statistically, what is a Jehovah's Witnesses likely not to care about at all?",OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What concept does not reach back to the Hebrew Bible?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+Were there any laws against marriage between whites and Asians in the US?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+What percent of the Bronx is multiracial?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC

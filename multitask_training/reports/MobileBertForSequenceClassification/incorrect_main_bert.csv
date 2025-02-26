@@ -1,0 +1,81 @@
+Question,Global Subject,Question Intent,aiml_main_prediction,aiml_sub_prediction,bert_main_prediction,bert_sub_prediction
+Greetings!,START,START,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+Hi there!,START,START,START,START,OFF_TOPIC,OFF_TOPIC
+"Hey, chatbot!",START,START,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+"Hi, how are you?",START,START,START,START,OFF_TOPIC,OFF_TOPIC
+Hey buddy!,START,START,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+"Hi, automaton!",START,START,START,START,AUTOMATON,DESCRIPTION
+"Hello there, can we get started?",START,START,START,START,OFF_TOPIC,OFF_TOPIC
+"Greetings, what can you do for me today?",START,START,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+"Hi, I’d like to chat with you.",START,START,START,START,OFF_TOPIC,OFF_TOPIC
+"Hey, I’m curious about your functions.",START,START,OFF_TOPIC,OFF_TOPIC,AUTOMATON,DESCRIPTION
+"Hi there, can you tell me your capabilities?",START,START,START,START,STATE,FINAL_COUNT
+"Greetings, let’s start our discussion.",START,START,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+"Hello, I’m interested in learning more about you.",START,START,START,START,OFF_TOPIC,OFF_TOPIC
+"Hi, what’s your purpose here?",START,START,START,START,OFF_TOPIC,OFF_TOPIC
+"Hello, I’d like to explore automata theory with you.",START,START,START,START,GRAMMAR,ACCEPTED
+"Hey, can we dive into how you operate?",START,START,OFF_TOPIC,OFF_TOPIC,AUTOMATON,REPRESENTATION
+"Greetings, I’m ready to ask some questions.",START,START,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+"Hi, how do you process input?",START,START,START,START,AUTOMATON,DESCRIPTION_BRIEF
+"Hello, I’m testing your conversational skills.",START,START,START,START,OFF_TOPIC,OFF_TOPIC
+"Hey, what can you tell me about your design?",START,START,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+"Hi there, can you explain your features?",START,START,START,START,OFF_TOPIC,OFF_TOPIC
+"Greetings, I’m here to understand how you work.",START,START,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+"Hello, let’s start with a simple chat.",START,START,START,START,OFF_TOPIC,OFF_TOPIC
+"Hey, can you show me what you can do?",START,START,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+"Hi, I’d like to know about your functions.",START,START,START,START,OFF_TOPIC,OFF_TOPIC
+"Greetings, I’m eager to learn from you.",START,START,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+"Hello, can you guide me through your capabilities?",START,START,START,START,AUTOMATON,DESCRIPTION
+"Hey, what are you programmed for?",START,START,OFF_TOPIC,OFF_TOPIC,GRAMMAR,VALIDITY
+"Greetings, I’m here to explore your operations.",START,START,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+"Hello, can you tell me more about yourself?",START,START,START,START,OFF_TOPIC,OFF_TOPIC
+"Hey, I’m excited to see how you respond.",START,START,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+Please outline the states and how they interconnect.,AUTOMATON,DESCRIPTION,OFF_TOPIC,OFF_TOPIC,STATE,TRANSITIONS
+Could you show me how each state relates to the others?,AUTOMATON,DESCRIPTION,OFF_TOPIC,OFF_TOPIC,STATE,COUNT
+Please describe how the states and transitions work in the automaton.,AUTOMATON,DESCRIPTION,AUTOMATON,DESCRIPTION,TRANSITION,LIST
+Could you explain the automaton’s transitions in more detail?,AUTOMATON,DESCRIPTION,OFF_TOPIC,OFF_TOPIC,TRANSITION,DESCRIPTION
+Please outline the main points of the automaton.,AUTOMATON,DESCRIPTION_BRIEF,OFF_TOPIC,OFF_TOPIC,TRANSITION,DESCRIPTION
+Could you identify a repeating pattern in the arc connections?,AUTOMATON,PATTERN,AUTOMATON,PATTERN,TRANSITION,SELF_LOOP
+How much space is occupied by the automaton's visual representation?,AUTOMATON,REPRESENTATION,OFF_TOPIC,OFF_TOPIC,TRANSITION,COUNT
+What is the purpose behind this automaton's design?,GRAMMAR,ACCEPTED,STATE,DETAILS,AUTOMATON,DESCRIPTION
+What is the defined alphabet of this automaton?,GRAMMAR,SYMBOLS,STATE,DETAILS,AUTOMATON,DESCRIPTION
+How would you describe the automaton's alphabet?,GRAMMAR,SYMBOLS,AUTOMATON,DESCRIPTION,AUTOMATON,REPRESENTATION
+What is the count of states within this automaton?,STATE,COUNT,STATE,DETAILS,AUTOMATON,DESCRIPTION
+What additional information can you share about the node labeled q0?,STATE,DETAILS,OFF_TOPIC,OFF_TOPIC,TRANSITION,EXISTENCE_INTO
+What characteristics define the transitions between states?,TRANSITION,OVERVIEW,OFF_TOPIC,OFF_TOPIC,AUTOMATON,DESCRIPTION
+Are any of the automaton's states connected to themselves by a transition?,TRANSITION,SELF_LOOP,OFF_TOPIC,OFF_TOPIC,AUTOMATON,PATTERN
+How would you formally define a finite state automaton?,GRAMMAR,DEFINITION,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+What constitutes a finite state machine in theoretical terms?,GRAMMAR,DEFINITION,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+How can I mathematically describe an automaton?,GRAMMAR,DEFINITION,AUTOMATON,DESCRIPTION,THEORY,THEORY
+What are the core components that make up an automaton?,GRAMMAR,DEFINITION,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+What does the term 'state transition' signify in automata?,GRAMMAR,TRANSITIONS,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+How can I represent an automaton using a state diagram?,GRAMMAR,GENERIC,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+What is the role of the transition function in defining an automaton?,GRAMMAR,TRANSITIONS,STATE,DETAILS,THEORY,THEORY
+How does one formally specify the transition function of an automaton?,GRAMMAR,TRANSITIONS,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+Can you explain the concept of an initial state in automata theory?,THEORY,THEORY,OFF_TOPIC,OFF_TOPIC,GRAMMAR,REGEX
+How is the language accepted by an automaton determined?,THEORY,THEORY,GRAMMAR,ACCEPTED,GRAMMAR,ACCEPTED
+What distinguishes a deterministic automaton from a nondeterministic one?,THEORY,THEORY,AUTOMATON,DETERMINISTIC,GRAMMAR,VALIDITY
+How do you formally define a final state in an automaton?,THEORY,THEORY,OFF_TOPIC,OFF_TOPIC,GRAMMAR,FINAL
+What are the mathematical constraints when designing an automaton?,THEORY,THEORY,OFF_TOPIC,OFF_TOPIC,GRAMMAR,GENERIC
+How are the states of an automaton interconnected in theory?,THEORY,THEORY,OFF_TOPIC,OFF_TOPIC,GRAMMAR,STATES
+What are the formal properties required for an automaton to be valid?,THEORY,THEORY,OFF_TOPIC,OFF_TOPIC,GRAMMAR,GENERIC
+How can one verify the correctness of an automaton's design?,THEORY,THEORY,OFF_TOPIC,OFF_TOPIC,GRAMMAR,GENERIC
+How can an automaton be used to recognize regular languages?,THEORY,THEORY,OFF_TOPIC,OFF_TOPIC,GRAMMAR,GENERIC
+How is a self loop defined in the context of automata theory?,THEORY,THEORY,OFF_TOPIC,OFF_TOPIC,GRAMMAR,TRANSITIONS
+What determines whether an automaton accepts a specific input?,THEORY,THEORY,OFF_TOPIC,OFF_TOPIC,GRAMMAR,GENERIC
+Who was the president of the LSD Church?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,START,START
+What was the name of the theory that Lange and James developed independently?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,AUTOMATON,REPRESENTATION
+What is a major component of lignin?,OFF_TOPIC,OFF_TOPIC,STATE,DETAILS,STATE,DETAILS
+What was the subject under consideration in discussions in 1980?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,GRAMMAR,VALIDITY
+"What hardware component did CNET have the biggest problem with, even comparing it to an old credit card reader?",OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,GRAMMAR,SIMULATION
+What maps an encoding?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+Are children or adolescents more likely to question assertions and less likely to accept facts?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,GRAMMAR,VALIDITY
+When did Edison patent his Process of Manufacturing Carbons?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,TRANSITION,LABEL
+When was Pius XI asked to come to the Vatican by the Cardinal Secretary of State?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,GRAMMAR,VALIDITY
+Are there times when an editor's judgement should be deferred?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,GRAMMAR,VALIDITY
+Why did Morris Jr make the computer worm?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,AUTOMATON,DESCRIPTION
+Who stated that God was difficult both to prove or disprove?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,GRAMMAR,VALIDITY
+What is a term used for programs that automatically visit websites and record the data they find?,OFF_TOPIC,OFF_TOPIC,STATE,DETAILS,GRAMMAR,EXAMPLE_INPUT
+Hard disk drives are what type of peripheral device?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,AUTOMATON,DESCRIPTION
+"What is provided by transmitting four bits that represent the packet type twice, in a single PID byte using complemented form?",OFF_TOPIC,OFF_TOPIC,STATE,DETAILS,GRAMMAR,SYMBOLS
+What does the 14th Amendment also introduce the concept of?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,GRAMMAR,VALIDITY

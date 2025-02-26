@@ -1,0 +1,121 @@
+AIML Main Class Performance:
+                      precision    recall  f1-score   support
+
+           AUTOMATON       0.52      0.19      0.27        75
+             GRAMMAR       0.90      0.13      0.23        70
+           OFF_TOPIC       0.26      0.82      0.39       100
+OFF_TOPIC  OFF_TOPIC       0.00      0.00      0.00         0
+               START       1.00      0.53      0.69        40
+               STATE       0.17      0.19      0.18        43
+              THEORY       0.00      0.00      0.00        30
+          TRANSITION       0.67      0.28      0.40       110
+
+            accuracy                           0.35       468
+           macro avg       0.44      0.27      0.27       468
+        weighted avg       0.53      0.35      0.33       468
+
+
+BERT Main Class Performance:
+              precision    recall  f1-score   support
+
+   AUTOMATON       0.93      0.93      0.93        75
+     GRAMMAR       0.78      0.83      0.81        70
+   OFF_TOPIC       1.00      0.96      0.98       100
+       START       1.00      0.90      0.95        40
+       STATE       0.96      1.00      0.98        43
+      THEORY       0.57      0.57      0.57        30
+  TRANSITION       0.97      0.99      0.98       110
+
+    accuracy                           0.92       468
+   macro avg       0.89      0.88      0.88       468
+weighted avg       0.92      0.92      0.92       468
+
+
+AIML Sub Class Performance:
+                    precision    recall  f1-score   support
+
+          ACCEPTED       0.40      0.40      0.40        10
+             COUNT       0.75      0.15      0.25        20
+            CYCLES       0.00      0.00      0.00        10
+        DEFINITION       0.00      0.00      0.00         4
+       DESCRIPTION       0.18      0.09      0.12        23
+ DESCRIPTION_BRIEF       0.00      0.00      0.00        12
+           DETAILS       0.00      0.00      0.00        10
+     DETERMINISTIC       0.00      0.00      0.00         0
+    DIRECTIONALITY       0.00      0.00      0.00        10
+     EXAMPLE_INPUT       0.00      0.00      0.00        10
+ EXISTENCE_BETWEEN       0.19      0.80      0.30        10
+EXISTENCE_DIRECTED       0.00      0.00      0.00        10
+    EXISTENCE_FROM       0.00      0.00      0.00        10
+    EXISTENCE_INTO       0.00      0.00      0.00         9
+             FINAL       0.00      0.00      0.00         6
+        FINAL_LIST       0.00      0.00      0.00         7
+           GENERIC       0.00      0.00      0.00         2
+             LABEL       0.00      0.00      0.00         9
+              LIST       0.00      0.00      0.00        10
+                ND       0.00      0.00      0.00         0
+         OFF_TOPIC       0.26      0.82      0.39       100
+          OVERVIEW       0.00      0.00      0.00         3
+           PATTERN       0.75      0.90      0.82        10
+             REGEX       0.00      0.00      0.00        10
+    REPRESENTATION       0.33      0.10      0.15        10
+         SELF_LOOP       0.00      0.00      0.00         9
+        SIMULATION       0.00      0.00      0.00        10
+             START       1.00      0.42      0.59        50
+            STATES       0.00      0.00      0.00         1
+ STATE_CONNECTIONS       0.00      0.00      0.00        30
+           SYMBOLS       0.00      0.00      0.00        10
+            THEORY       0.00      0.00      0.00        30
+       TRANSITIONS       0.00      0.00      0.00         3
+         VARIATION       0.00      0.00      0.00        10
+
+          accuracy                           0.28       468
+         macro avg       0.11      0.11      0.09       468
+      weighted avg       0.24      0.28      0.20       468
+
+
+BERT Sub Class Performance:
+                    precision    recall  f1-score   support
+
+          ACCEPTED       0.83      1.00      0.91        10
+             COUNT       0.95      1.00      0.98        20
+            CYCLES       1.00      1.00      1.00        10
+        DEFINITION       0.00      0.00      0.00         4
+       DESCRIPTION       0.51      0.78      0.62        23
+ DESCRIPTION_BRIEF       0.60      0.25      0.35        12
+           DETAILS       1.00      1.00      1.00        10
+    DIRECTIONALITY       1.00      0.80      0.89        10
+     EXAMPLE_INPUT       1.00      1.00      1.00        10
+ EXISTENCE_BETWEEN       0.67      0.60      0.63        10
+EXISTENCE_DIRECTED       0.75      0.60      0.67        10
+    EXISTENCE_FROM       0.80      0.80      0.80        10
+    EXISTENCE_INTO       0.82      1.00      0.90         9
+             FINAL       1.00      0.83      0.91         6
+        FINAL_LIST       0.75      0.86      0.80         7
+           GENERIC       0.00      0.00      0.00         2
+             IMAGE       0.00      0.00      0.00         0
+             LABEL       1.00      1.00      1.00         9
+              LIST       0.90      0.90      0.90        10
+         OFF_TOPIC       1.00      0.96      0.98       100
+          OVERVIEW       0.50      0.67      0.57         3
+           PATTERN       1.00      1.00      1.00        10
+             REGEX       1.00      1.00      1.00        10
+    REPRESENTATION       1.00      0.70      0.82        10
+         SELF_LOOP       0.90      1.00      0.95         9
+        SIMULATION       0.91      1.00      0.95        10
+             START       0.98      0.92      0.95        50
+            STATES       0.00      0.00      0.00         1
+ STATE_CONNECTIONS       1.00      1.00      1.00        30
+           SYMBOLS       0.70      0.70      0.70        10
+            THEORY       0.57      0.57      0.57        30
+       TRANSITIONS       0.00      0.00      0.00         3
+         VARIATION       0.91      1.00      0.95        10
+
+          accuracy                           0.86       468
+         macro avg       0.73      0.73      0.72       468
+      weighted avg       0.87      0.86      0.86       468
+
+
+AIML Conditional Sub Class Accuracy: 0.79
+
+BERT Conditional Sub Class Accuracy: 0.93

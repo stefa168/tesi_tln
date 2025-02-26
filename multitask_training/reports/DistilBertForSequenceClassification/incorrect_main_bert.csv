@@ -1,0 +1,39 @@
+Question,Global Subject,Question Intent,aiml_main_prediction,aiml_sub_prediction,bert_main_prediction,bert_sub_prediction
+How’s it going?,START,START,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+"Hey, chatbot!",START,START,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+"Hi, automaton!",START,START,START,START,AUTOMATON,DESCRIPTION
+"Hey, I’m curious about your functions.",START,START,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+"Hello, I’m interested in learning more about you.",START,START,START,START,OFF_TOPIC,OFF_TOPIC
+"Hi, what’s your purpose here?",START,START,START,START,OFF_TOPIC,OFF_TOPIC
+"Hello, I’d like to explore automata theory with you.",START,START,START,START,THEORY,THEORY
+"Hey, can we dive into how you operate?",START,START,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+"Hi, how do you process input?",START,START,START,START,GRAMMAR,SYMBOLS
+"Hello, I’m testing your conversational skills.",START,START,START,START,OFF_TOPIC,OFF_TOPIC
+"Hey, what can you tell me about your design?",START,START,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+"Greetings, I’m here to understand how you work.",START,START,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+"Hi, I’d like to know about your functions.",START,START,START,START,OFF_TOPIC,OFF_TOPIC
+"Hey, what are you programmed for?",START,START,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+"Greetings, I’m here to explore your operations.",START,START,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC
+Please outline the states and how they interconnect.,AUTOMATON,DESCRIPTION,OFF_TOPIC,OFF_TOPIC,STATE,COUNT
+Explain how the states in this automaton transition from one to another.,AUTOMATON,DESCRIPTION,OFF_TOPIC,OFF_TOPIC,TRANSITION,LIST
+Could you explain the automaton’s transitions in more detail?,AUTOMATON,DESCRIPTION,OFF_TOPIC,OFF_TOPIC,TRANSITION,DESCRIPTION
+Could you identify a repeating pattern in the arc connections?,AUTOMATON,PATTERN,AUTOMATON,PATTERN,TRANSITION,CYCLES
+What graphical form do the arcs take?,AUTOMATON,REPRESENTATION,OFF_TOPIC,OFF_TOPIC,TRANSITION,LIST
+What is the purpose behind this automaton's design?,GRAMMAR,ACCEPTED,STATE,DETAILS,AUTOMATON,REPRESENTATION
+How would you describe the automaton's alphabet?,GRAMMAR,SYMBOLS,AUTOMATON,DESCRIPTION,AUTOMATON,REPRESENTATION
+What is the starting point of the automaton?,STATE,START,STATE,DETAILS,AUTOMATON,DESCRIPTION
+What characteristics define the transitions between states?,TRANSITION,OVERVIEW,OFF_TOPIC,OFF_TOPIC,AUTOMATON,DESCRIPTION
+How would you formally define a finite state automaton?,GRAMMAR,DEFINITION,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+What constitutes a finite state machine in theoretical terms?,GRAMMAR,DEFINITION,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+How can I mathematically describe an automaton?,GRAMMAR,DEFINITION,AUTOMATON,DESCRIPTION,THEORY,THEORY
+What are the core components that make up an automaton?,GRAMMAR,DEFINITION,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+Can you explain the concept of an initial state in automata theory?,GRAMMAR,STATES,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+How is the language accepted by an automaton determined?,GRAMMAR,GENERIC,GRAMMAR,ACCEPTED,THEORY,THEORY
+What does the term 'state transition' signify in automata?,GRAMMAR,TRANSITIONS,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+How can I represent an automaton using a state diagram?,GRAMMAR,GENERIC,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+What is the role of the transition function in defining an automaton?,GRAMMAR,TRANSITIONS,STATE,DETAILS,THEORY,THEORY
+How does one formally specify the transition function of an automaton?,GRAMMAR,TRANSITIONS,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+What determines whether an automaton accepts a specific input?,THEORY,THEORY,OFF_TOPIC,OFF_TOPIC,GRAMMAR,ACCEPTED
+What maps an encoding?,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,OFF_TOPIC,THEORY,THEORY
+What is a term used for programs that automatically visit websites and record the data they find?,OFF_TOPIC,OFF_TOPIC,STATE,DETAILS,THEORY,THEORY
+"What is provided by transmitting four bits that represent the packet type twice, in a single PID byte using complemented form?",OFF_TOPIC,OFF_TOPIC,STATE,DETAILS,GRAMMAR,SIMULATION
