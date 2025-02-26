@@ -422,9 +422,515 @@ distilbert:
     - Chaumond, Julien
     - Wolf, Thomas
   date: 2020
-  url: https://arxiv.org/abs/1910.01108
   serial-number:
-    arxiv: "1910.01108"
+    doi: 10.48550/arXiv.1910.01108
+
+hinton-distillation:
+  type: article
+  title: Distilling the Knowledge in a Neural Network
+  author:
+  - Hinton, Geoffrey
+  - Vinyals, Oriol
+  - Dean, Jeff
+  date: 2015
+  serial-number:
+    doi: 10.48550/arXiv.1503.02531
+
+mobilebert-uncased:
+  type: repository
+  url: https://huggingface.co/google/mobilebert-uncased
+  title: "MobileBERT on Huggingface"
+
+mobilebert:
+  type: article
+  title: 'MobileBERT: a Compact Task-Agnostic BERT for Resource-Limited Devices'
+  author:
+  - Sun, Zhiqing
+  - Yu, Hongkun
+  - Song, Xiaodan
+  - Liu, Renjie
+  - Yang, Yiming
+  - Zhou, Denny
+  date: 2020
+  serial-number:
+    doi: 10.48550/arXiv.2004.02984
+
+electra-hf:
+  type: repository
+  title: "Electra on Huggingface"
+  url: https://huggingface.co/google/electra-small-discriminator
+
+adversarial-nets:
+  type: misc
+  title: Generative Adversarial Networks
+  author:
+  - Goodfellow, Ian J.
+  - Pouget-Abadie, Jean
+  - Mirza, Mehdi
+  - Xu, Bing
+  - Warde-Farley, David
+  - Ozair, Sherjil
+  - Courville, Aaron
+  - Bengio, Yoshua
+  date: 2014
+  serial-number:
+    doi: 10.48550/arXiv.1406.2661
+
+deepseek-r1:
+  type: misc
+  title: 'DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning'
+  author:
+  - DeepSeek-AI
+  - Guo, Daya
+  - Yang, Dejian
+  - Zhang, Haowei
+  - Song, Junxiao
+  - Zhang, Ruoyu
+  - Xu, Runxin
+  - Zhu, Qihao
+  - Ma, Shirong
+  - Wang, Peiyi
+  - Bi, Xiao
+  - Zhang, Xiaokang
+  - Yu, Xingkai
+  - Wu, Yu
+  - Wu, Z. F.
+  - Gou, Zhibin
+  - Shao, Zhihong
+  - Li, Zhuoshu
+  - Gao, Ziyi
+  - Liu, Aixin
+  - Xue, Bing
+  - Wang, Bingxuan
+  - Wu, Bochao
+  - Feng, Bei
+  - Lu, Chengda
+  - Zhao, Chenggang
+  - Deng, Chengqi
+  - Zhang, Chenyu
+  - Ruan, Chong
+  - Dai, Damai
+  - Chen, Deli
+  - Ji, Dongjie
+  - Li, Erhang
+  - Lin, Fangyun
+  - Dai, Fucong
+  - Luo, Fuli
+  - Hao, Guangbo
+  - Chen, Guanting
+  - Li, Guowei
+  - Zhang, H.
+  - Bao, Han
+  - Xu, Hanwei
+  - Wang, Haocheng
+  - Ding, Honghui
+  - Xin, Huajian
+  - Gao, Huazuo
+  - Qu, Hui
+  - Li, Hui
+  - Guo, Jianzhong
+  - Li, Jiashi
+  - Wang, Jiawei
+  - Chen, Jingchang
+  - Yuan, Jingyang
+  - Qiu, Junjie
+  - Li, Junlong
+  - Cai, J. L.
+  - Ni, Jiaqi
+  - Liang, Jian
+  - Chen, Jin
+  - Dong, Kai
+  - Hu, Kai
+  - Gao, Kaige
+  - Guan, Kang
+  - Huang, Kexin
+  - Yu, Kuai
+  - Wang, Lean
+  - Zhang, Lecong
+  - Zhao, Liang
+  - Wang, Litong
+  - Zhang, Liyue
+  - Xu, Lei
+  - Xia, Leyi
+  - Zhang, Mingchuan
+  - Zhang, Minghua
+  - Tang, Minghui
+  - Li, Meng
+  - Wang, Miaojun
+  - Li, Mingming
+  - Tian, Ning
+  - Huang, Panpan
+  - Zhang, Peng
+  - Wang, Qiancheng
+  - Chen, Qinyu
+  - Du, Qiushi
+  - Ge, Ruiqi
+  - Zhang, Ruisong
+  - Pan, Ruizhe
+  - Wang, Runji
+  - Chen, R. J.
+  - Jin, R. L.
+  - Chen, Ruyi
+  - Lu, Shanghao
+  - Zhou, Shangyan
+  - Chen, Shanhuang
+  - Ye, Shengfeng
+  - Wang, Shiyu
+  - Yu, Shuiping
+  - Zhou, Shunfeng
+  - Pan, Shuting
+  - Li, S. S.
+  - Zhou, Shuang
+  - Wu, Shaoqing
+  - Ye, Shengfeng
+  - Yun, Tao
+  - Pei, Tian
+  - Sun, Tianyu
+  - Wang, T.
+  - Zeng, Wangding
+  - Zhao, Wanjia
+  - Liu, Wen
+  - Liang, Wenfeng
+  - Gao, Wenjun
+  - Yu, Wenqin
+  - Zhang, Wentao
+  - Xiao, W. L.
+  - An, Wei
+  - Liu, Xiaodong
+  - Wang, Xiaohan
+  - Chen, Xiaokang
+  - Nie, Xiaotao
+  - Cheng, Xin
+  - Liu, Xin
+  - Xie, Xin
+  - Liu, Xingchao
+  - Yang, Xinyu
+  - Li, Xinyuan
+  - Su, Xuecheng
+  - Lin, Xuheng
+  - Li, X. Q.
+  - Jin, Xiangyue
+  - Shen, Xiaojin
+  - Chen, Xiaosha
+  - Sun, Xiaowen
+  - Wang, Xiaoxiang
+  - Song, Xinnan
+  - Zhou, Xinyi
+  - Wang, Xianzu
+  - Shan, Xinxia
+  - Li, Y. K.
+  - Wang, Y. Q.
+  - Wei, Y. X.
+  - Zhang, Yang
+  - Xu, Yanhong
+  - Li, Yao
+  - Zhao, Yao
+  - Sun, Yaofeng
+  - Wang, Yaohui
+  - Yu, Yi
+  - Zhang, Yichao
+  - Shi, Yifan
+  - Xiong, Yiliang
+  - He, Ying
+  - Piao, Yishi
+  - Wang, Yisong
+  - Tan, Yixuan
+  - Ma, Yiyang
+  - Liu, Yiyuan
+  - Guo, Yongqiang
+  - Ou, Yuan
+  - Wang, Yuduan
+  - Gong, Yue
+  - Zou, Yuheng
+  - He, Yujia
+  - Xiong, Yunfan
+  - Luo, Yuxiang
+  - You, Yuxiang
+  - Liu, Yuxuan
+  - Zhou, Yuyang
+  - Zhu, Y. X.
+  - Xu, Yanhong
+  - Huang, Yanping
+  - Li, Yaohui
+  - Zheng, Yi
+  - Zhu, Yuchen
+  - Ma, Yunxian
+  - Tang, Ying
+  - Zha, Yukun
+  - Yan, Yuting
+  - Ren, Z. Z.
+  - Ren, Zehui
+  - Sha, Zhangli
+  - Fu, Zhe
+  - Xu, Zhean
+  - Xie, Zhenda
+  - Zhang, Zhengyan
+  - Hao, Zhewen
+  - Ma, Zhicheng
+  - Yan, Zhigang
+  - Wu, Zhiyu
+  - Gu, Zihui
+  - Zhu, Zijia
+  - Liu, Zijun
+  - Li, Zilin
+  - Xie, Ziwei
+  - Song, Ziyang
+  - Pan, Zizheng
+  - Huang, Zhen
+  - Xu, Zhipeng
+  - Zhang, Zhongyu
+  - Zhang, Zhen
+  date: 2025
+  serial-number:
+    doi: 10.48550/arXiv.2501.12948
+
+deepseek-technical:
+  type: misc
+  title: DeepSeek-V3 Technical Report
+  author:
+  - DeepSeek-AI
+  - Liu, Aixin
+  - Feng, Bei
+  - Xue, Bing
+  - Wang, Bingxuan
+  - Wu, Bochao
+  - Lu, Chengda
+  - Zhao, Chenggang
+  - Deng, Chengqi
+  - Zhang, Chenyu
+  - Ruan, Chong
+  - Dai, Damai
+  - Guo, Daya
+  - Yang, Dejian
+  - Chen, Deli
+  - Ji, Dongjie
+  - Li, Erhang
+  - Lin, Fangyun
+  - Dai, Fucong
+  - Luo, Fuli
+  - Hao, Guangbo
+  - Chen, Guanting
+  - Li, Guowei
+  - Zhang, H.
+  - Bao, Han
+  - Xu, Hanwei
+  - Wang, Haocheng
+  - Zhang, Haowei
+  - Ding, Honghui
+  - Xin, Huajian
+  - Gao, Huazuo
+  - Li, Hui
+  - Qu, Hui
+  - Cai, J. L.
+  - Liang, Jian
+  - Guo, Jianzhong
+  - Ni, Jiaqi
+  - Li, Jiashi
+  - Wang, Jiawei
+  - Chen, Jin
+  - Chen, Jingchang
+  - Yuan, Jingyang
+  - Qiu, Junjie
+  - Li, Junlong
+  - Song, Junxiao
+  - Dong, Kai
+  - Hu, Kai
+  - Gao, Kaige
+  - Guan, Kang
+  - Huang, Kexin
+  - Yu, Kuai
+  - Wang, Lean
+  - Zhang, Lecong
+  - Xu, Lei
+  - Xia, Leyi
+  - Zhao, Liang
+  - Wang, Litong
+  - Zhang, Liyue
+  - Li, Meng
+  - Wang, Miaojun
+  - Zhang, Mingchuan
+  - Zhang, Minghua
+  - Tang, Minghui
+  - Li, Mingming
+  - Tian, Ning
+  - Huang, Panpan
+  - Wang, Peiyi
+  - Zhang, Peng
+  - Wang, Qiancheng
+  - Zhu, Qihao
+  - Chen, Qinyu
+  - Du, Qiushi
+  - Chen, R. J.
+  - Jin, R. L.
+  - Ge, Ruiqi
+  - Zhang, Ruisong
+  - Pan, Ruizhe
+  - Wang, Runji
+  - Xu, Runxin
+  - Zhang, Ruoyu
+  - Chen, Ruyi
+  - Li, S. S.
+  - Lu, Shanghao
+  - Zhou, Shangyan
+  - Chen, Shanhuang
+  - Wu, Shaoqing
+  - Ye, Shengfeng
+  - Ye, Shengfeng
+  - Ma, Shirong
+  - Wang, Shiyu
+  - Zhou, Shuang
+  - Yu, Shuiping
+  - Zhou, Shunfeng
+  - Pan, Shuting
+  - Wang, T.
+  - Yun, Tao
+  - Pei, Tian
+  - Sun, Tianyu
+  - Xiao, W. L.
+  - Zeng, Wangding
+  - Zhao, Wanjia
+  - An, Wei
+  - Liu, Wen
+  - Liang, Wenfeng
+  - Gao, Wenjun
+  - Yu, Wenqin
+  - Zhang, Wentao
+  - Li, X. Q.
+  - Jin, Xiangyue
+  - Wang, Xianzu
+  - Bi, Xiao
+  - Liu, Xiaodong
+  - Wang, Xiaohan
+  - Shen, Xiaojin
+  - Chen, Xiaokang
+  - Zhang, Xiaokang
+  - Chen, Xiaosha
+  - Nie, Xiaotao
+  - Sun, Xiaowen
+  - Wang, Xiaoxiang
+  - Cheng, Xin
+  - Liu, Xin
+  - Xie, Xin
+  - Liu, Xingchao
+  - Yu, Xingkai
+  - Song, Xinnan
+  - Shan, Xinxia
+  - Zhou, Xinyi
+  - Yang, Xinyu
+  - Li, Xinyuan
+  - Su, Xuecheng
+  - Lin, Xuheng
+  - Li, Y. K.
+  - Wang, Y. Q.
+  - Wei, Y. X.
+  - Zhu, Y. X.
+  - Zhang, Yang
+  - Xu, Yanhong
+  - Xu, Yanhong
+  - Huang, Yanping
+  - Li, Yao
+  - Zhao, Yao
+  - Sun, Yaofeng
+  - Li, Yaohui
+  - Wang, Yaohui
+  - Yu, Yi
+  - Zheng, Yi
+  - Zhang, Yichao
+  - Shi, Yifan
+  - Xiong, Yiliang
+  - He, Ying
+  - Tang, Ying
+  - Piao, Yishi
+  - Wang, Yisong
+  - Tan, Yixuan
+  - Ma, Yiyang
+  - Liu, Yiyuan
+  - Guo, Yongqiang
+  - Wu, Yu
+  - Ou, Yuan
+  - Zhu, Yuchen
+  - Wang, Yuduan
+  - Gong, Yue
+  - Zou, Yuheng
+  - He, Yujia
+  - Zha, Yukun
+  - Xiong, Yunfan
+  - Ma, Yunxian
+  - Yan, Yuting
+  - Luo, Yuxiang
+  - You, Yuxiang
+  - Liu, Yuxuan
+  - Zhou, Yuyang
+  - Wu, Z. F.
+  - Ren, Z. Z.
+  - Ren, Zehui
+  - Sha, Zhangli
+  - Fu, Zhe
+  - Xu, Zhean
+  - Huang, Zhen
+  - Zhang, Zhen
+  - Xie, Zhenda
+  - Zhang, Zhengyan
+  - Hao, Zhewen
+  - Gou, Zhibin
+  - Ma, Zhicheng
+  - Yan, Zhigang
+  - Shao, Zhihong
+  - Xu, Zhipeng
+  - Wu, Zhiyu
+  - Zhang, Zhongyu
+  - Li, Zhuoshu
+  - Gu, Zihui
+  - Zhu, Zijia
+  - Liu, Zijun
+  - Li, Zilin
+  - Xie, Ziwei
+  - Song, Ziyang
+  - Gao, Ziyi
+  - Pan, Zizheng
+  date: 2025
+  serial-number:
+    doi: 10.48550/arXiv.2412.19437
+
+openai-llm:
+  type: misc
+  title: Language Models are Few-Shot Learners
+  author:
+  - Brown, Tom B.
+  - Mann, Benjamin
+  - Ryder, Nick
+  - Subbiah, Melanie
+  - Kaplan, Jared
+  - Dhariwal, Prafulla
+  - Neelakantan, Arvind
+  - Shyam, Pranav
+  - Sastry, Girish
+  - Askell, Amanda
+  - Agarwal, Sandhini
+  - Herbert-Voss, Ariel
+  - Krueger, Gretchen
+  - Henighan, Tom
+  - Child, Rewon
+  - Ramesh, Aditya
+  - Ziegler, Daniel M.
+  - Wu, Jeffrey
+  - Winter, Clemens
+  - Hesse, Christopher
+  - Chen, Mark
+  - Sigler, Eric
+  - Litwin, Mateusz
+  - Gray, Scott
+  - Chess, Benjamin
+  - Clark, Jack
+  - Berner, Christopher
+  - McCandlish, Sam
+  - Radford, Alec
+  - Sutskever, Ilya
+  - Amodei, Dario
+  date: 2020
+  serial-number:
+    doi: '10.48550/arXiv.2005.14165'
+
 
 dont_stop_pretraining:
   type: article
@@ -441,6 +947,13 @@ dont_stop_pretraining:
   url: https://arxiv.org/abs/2004.10964
   serial-number:
     arxiv: "2004.10964"
+
+markdown:
+  type: post
+  title: "Markdown"
+  author: John Gruber
+  url: https://daringfireball.net/projects/markdown/
+  abstract: "Markdown is a text-to-HTML conversion tool for web writers. Markdown allows you to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML)."
 
 huggingface_transformers:
   type: article
@@ -497,6 +1010,28 @@ ollama:
   type: repository
   organization: Ollama
   url: https://github.com/ollama/ollama
+
+electra:
+  type: article
+  title: "ELECTRA: Pre-training text encoders as discriminators rather than generators"
+  organization: Google
+  url: https://openreview.net/pdf?id=r1xMH1BtvB
+  author:
+    - Clark, Kevin
+    - Luong, Minh-Thang
+    - Le, Quoc V.
+    - Manning, Christopher D.
+
+bert-base:
+  type: repository
+  title: Bert uncased model by Google
+  url: https://huggingface.co/google-bert/bert-base-uncased
+
+distilbert-base:
+  type: repository
+  title: Distilbert base model
+  url: https://huggingface.co/distilbert/distilbert-base-uncased
+
 
 gemma:
   type: article
@@ -1400,6 +1935,20 @@ multitask:
     title: Machine Learning
     issue: 1
     volume: 28
+
+multitask-bert1:
+  type: article
+  author: Sanjaye Elayattu
+  title: "Multi-task Fine-tuning with BERT"
+  url: https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1234/final-reports/final-report-169425270.pdf
+
+multitask-bert2:
+  type: article
+  title: "Multitasking with BERT"
+  author:
+    - Jiacheng Hu
+    - Jack Hung
+  url: https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1234/final-reports/final-report-169989122.pdf
 
 hierarchical:
   type: article

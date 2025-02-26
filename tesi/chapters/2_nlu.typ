@@ -1,3 +1,7 @@
+#import "@preview/cetz:0.3.2": canvas, draw, palette
+#import "@preview/cetz-plot:0.1.1": chart
+#import draw: rect, content
+
 #let mono(body, font: "JetBrains Mono NL") = {
   text(upper(body), font: font, size: 10pt)
 }
@@ -37,11 +41,9 @@ La forma più semplice di categoria è:
   ```
 ]
 
-Qui, se l'utente scrive "Ciao" #footnote[Caratteri maiuscoli e minuscoli sono considerati uguali dal motore di riconoscimento.], il sistema restituisce la risposta associata nella sezione del `<template>`.\ \
-Naturalmente questa è una regola basilare; AIML permette di definire pattern molto più complessi.\
+In questo caso, se l'utente scrive "Ciao" #footnote[Caratteri maiuscoli e minuscoli sono considerati uguali dal motore di riconoscimento.], il sistema restituisce la risposta associata nella sezione del `<template>`.\ \
+Naturalmente questa è una regola basilare: AIML permette di definire pattern molto più complessi.\
 Un primo passo verso la creazione di regole più flessibili è l'uso di wildcard: associando simboli quali #sym.ast e #sym.dash.en a elementi di personalizzazione (`<star/>`), il motore che esegue la configurazione AIML può gestire un certo grado di variabilità linguistica:
-
-#pagebreak(weak: true)
 
 #align(center)[
   ```xml
@@ -108,7 +110,7 @@ Se la variabile stagione (presumibilmente impostata altrove con un `<set>`) ha v
 
 #hrule()
 
-Il tag `<topic>` permette di raggruppare categorie che appartengono a un medesimo ambito di conversazione, per facilitare la lettura delle regole:
+Il tag `<topic>` permette di raggruppare categorie che appartengono a un medesimo ambito di conversazione, per _facilitare la lettura_ delle regole:
 
 #align(center)[
   ```xml
@@ -171,21 +173,21 @@ In generale, `<think>` è utile quando vogliamo impostare o manipolare variabili
   ```
 ]
 
-#hrule()
+// #hrule()
 
 Il tag `<that>` permette di scrivere pattern che dipendono dalla risposta precedentemente fornita dal chatbot. È particolarmente utile per gestire contesti conversazionali più complessi:
 
 #align(center)[
   ```xml
   <category>
-    <pattern>GRAZIE</pattern>
+    <pattern>SI</pattern>
     <that>VA TUTTO BENE</that>
     <template>Felice di averti aiutato!</template>
   </category>
   ```
 ]
 
-In questo caso la regola sarà attivata se la risposta precedente del bot era “VA TUTTO BENE” e l'utente scrive “Grazie”.
+In questo caso la regola sarà attivata se la risposta precedente del bot era “VA TUTTO BENE” e l'utente risponde in modo affermativo.
 
 
 #hrule()
@@ -272,7 +274,8 @@ Per la classificazione di intenti, i dataset più comuni sono quelli di chatbot 
 
 Il dataset originario fornitomi è stato composto in seguito a una campagna di raccolta dati manuale, in cui diversi collaboratori hanno interagito con un prototipo di chatbot AIML, ponendo domande e richieste di vario tipo.
 
-Il dataset è una collezione di circa 700 singole interazioni, metà sotto forma di domande degli utenti durante la prima fase di sperimentazione, e l'altra che coincide con ciò che il chatbot ha risposto.
+Il dataset è una collezione di circa 700 singole interazioni "botta e risposta" prodotte dagli utenti durante la prima fase di sperimentazione.
+Metà sono domande, l'altra metà coincide con ciò che il chatbot ha risposto.
 
 ==== Estrazione dei dati
 
@@ -300,14 +303,14 @@ Dovendo addestrare un modello di classificazione, ho proceduto innanzitutto con 
   caption: [Estrazione dei dati dal dataset di interazione.],
 )
 
-Estratte le domande, si è potuto procedere con l'etichettatura.
+Estratte le domande, ho potuto procedere con l'etichettatura.
 
 In un primo step, ho considerato la possibilità di lasciare il compito di etichettatura delle domande ad un sistema che svolgesse il compito in automatico.\
 Questo permetterebbe di avere un dataset decorato, senza dover ricorrere a un'etichettatura manuale che sarebbe stata molto dispendiosa in termini di tempo e risorse, specialmente in ottica di un incremento dei dati del dataset in seguito a nuove interazioni con il chatbot.
 
-Per fare ciò, ho rivolto la mia attenzione ai modelli di linguaggio neurali, in particolare alle Large Language Models (LLM), dal momento che sono in grado di generalizzare su una vasta gamma di task linguistici, inclusa la classificazione di intenti.
+Per fare ciò, ho rivolto la mia attenzione ai modelli di linguaggio neurali, in particolare ai Large Language Models (LLM), dal momento che sono in grado di generalizzare su una vasta gamma di task linguistici, inclusa la classificazione di intenti.
 
-Con l'estrema disponibilità attuale di modelli pre-addestrati e API che permettono di interagire con essi, ho potuto sperimentare diverse soluzioni per l'etichettatura automatica delle domande.\
+Con l'enorme disponibilità attuale di modelli pre-addestrati e API che permettono di interagire con essi, ho potuto sperimentare diverse soluzioni per l'etichettatura automatica delle domande.\
 In particolare, ho deciso di sperimentare con modelli di LLM open-source, dal momento che sono eseguibili localmente e permettono di mantenere i dati sensibili all'interno dell'ambiente di lavoro, senza doverli condividere con servizi esterni.\
 Per utilizzarli, si sono rivelate fondamentali le API fornite da Ollama @ollama, un sistema per hostare localmente modelli di LLM open source (e in certi casi anche _open-weights_).
 
@@ -344,7 +347,7 @@ Per poter automatizzare l'etichettatura usando una LLM, prima di tutto ho identi
 )
 
 In questa mappa, ad ogni etichetta è associata una descrizione che indica alla LLM un contesto in cui collocarla, con lo scopo di assistere la LLM ad etichettare correttamente le domande togliendo il più possibile le ambiguità.\
-Questo genere di task è del tipo zero shot, in cui il modello non ha mai visto i dati di training e deve etichettare le domande esclusivamente in base a un contesto fornito.
+Questo genere di task è del tipo *zero shot*, in cui il modello non ha mai visto i dati di training e deve etichettare le domande esclusivamente in base a un contesto fornito.
 
 Con lo scopo di assicurare un'etichettatura corretta e affidabile, ho deciso di utilizzare due modelli di LLM differenti, in modo da poter fare un majority voting tra le etichette prodotte dai due modelli:
 
@@ -399,10 +402,10 @@ I prompt sono stati scelti in modo da fornire informazioni utili ai modelli per 
 
 Si notino le differenze tra i due prompt: il primo è più dettagliato e fornisce una spiegazione più approfondita delle etichette, mentre il secondo è più conciso e diretto.
 
-I tag tra parentesi graffe vengono sostituiti con i valori attualmente in uso, in modo da rendere il prompt più generico e riutilizzabile.
+I tag tra parentesi graffe vengono sostituiti con i valori attualmente in uso, in modo da rendere il prompt generico e riutilizzabile.
 
 Segue un estratto di codice python che mostra come è stato effettuato il prompting.
-È inclusa una classe `Chat`, da me sviluppata, che permette di interagire con i modelli di LLM in modo più semplice, astraendo le API di ollama.
+Viene importata una classe `Chat`, da me sviluppata, che permette di interagire con i modelli di LLM in modo più semplice, astraendo le API di ollama.
 
 #figure(
   ```python
@@ -494,7 +497,7 @@ Come accennato, è stato adoperato un sistema di majority voting per combinare i
 )
 
 Tuttavia, in seguito ad una prima fase di fine tuning, ho verificato che nonostante un'etichettatura valida, le classi identificate erano troppo sbilanciate, con alcune classi che contenevano un numero troppo esiguo di esempi.
-In più, ho realizzato che le classi scelte erano troppo generiche; questo non avrebbe permesso di identificare con precisione l'argomento della domanda.
+In più, ho realizzato che le classi scelte erano troppo generiche: questo problema non avrebbe permesso di identificare con precisione l'argomento della domanda.
 
 Per questo motivo ho proceduto con una revisione delle etichette, e una successiva etichettatura manuale delle domande.
 
@@ -605,84 +608,118 @@ Come è possibile notare dalle tabelle che seguono, alcune classi secondarie con
   )
 ]
 
+#pagebreak(weak: true)
+
 === Data Augmentation
 
 Come evidenziato nella sezione precedente, diverse classi secondarie contengono un numero esiguo di esempi, non sufficiente per una buona classificazione in seguito al fine-tuning.
 
-Avendo solo 229 esempi, ho arricchito i dati con ulteriori domande generate automaticamente e manualmente.
-Ho aggiunto un totale di 525 domande, con la seguente distribuzione:
+Avendo solo 229 esempi, ho arricchito i dati con ulteriori domande scritte manualmente e anche generate artificialmente.
 
-#figure(
-  align(center)[#table(
-      columns: 2,
-      align: (auto, auto),
-      table.header([Classe], [Numero di esempi aggiuntivi]),
-      table.hline(),
-      [#strong[transition]], [148],
-      [#strong[automaton]], [93],
-      [#strong[state]], [56],
-      [#strong[grammar]], [111],
-      [#strong[theory]], [100],
-      [#strong[start]], [17],
-      [#strong[off\_topic]], [100],
-    )],
-  kind: table,
-)
+Le domande artificiali sono state prodotte in grandi quantità adoperando diversi modelli disponibili online e locali, tra cui:
+- ChatGPT `4o`, `o1` e `o3-mini` @openai-llm;
+- Llama3.1 @llama3;
+- DeepSeek R1 @deepseek-r1 @deepseek-technical.
+
+Ad ogni modello è stato presentato un insieme di domande con lo stesso topic principale o secondario, assieme al contesto in cui vengono poste e ad una richiesta di produzione di ulteriori domande simili semanticamente.
+Per maggiore convenienza, è stato richiesto ai modelli di rispondere fornendo le nuove domande formattate in markdown @markdown.
+
+Dato il grosso volume di risposte, per verificare l'adesione dei modelli alle richieste è stato effettuato un controllo a campione, che non ha evidenziato particolari problematiche nella precisione di nessuno dei modelli.
+
+In totale sono stati aggiunti 851 nuovi quesiti, con la seguente distribuzione:
+
+#figure({
+  let plot_data = (
+    ([automaton], 48, 184),
+    ([grammar], 33, 223),
+    ([off_topic], 6, 106),
+    ([start], 2, 19),
+    ([state], 41, 151),
+    ([theory], 15, 115),
+    ([transition], 83, 366),
+  )
+  canvas({
+    draw.set-style(legend: (fill: white), barchart: (bar-width: .8, cluster-gap: 0))
+    chart.barchart(
+      plot_data,
+      mode: "clustered",
+      size: (10, auto),
+      label-key: 0,
+      value-key: (1, 2),
+      labels: ([Originale], [Augmented]),
+      legend: "inner-north-east",
+      // bar-style: palette.new(colors: (aqua, green)),
+    )
+  })
+})
 
 Le domande off-topic aggiuntive sono state estratte dal dataset SQUAD #footnote[Stanford Question Answering Dataset] v2 @squad1 @squad2, per avere una sufficiente varietà di domande non pertinenti.
 
-Anche le classi secondarie hanno ricevuto alcune migliorie alla distribuzione, che rimane comunque ancora sbilanciata:
-(#{
-  let classes = (
-    ("description",74),
-    ("accepted",57),
-    ("existence_from",42),
-    ("count",40),
-    ("generic",39),
-    ("list",38),
-    ("label",36),
-    ("transitions",34),
-    ("pattern",27),
-    ("existence_between",25),
-    ("existence_directed",21),
-    ("final",21),
-    ("simulation",20),
-    ("variation",19),
-    ("greet",19),
-    ("representation",19),
-    ("states",18),
-    ("existence_into",17),
-    ("definition",16),
-    ("description_brief",16),
-    ("start",15),
-    ("symbols",14),
-    ("validity",14),
-    ("cycles",12),
-    ("details",12),
-    ("input",12),
-    ("self_loop",11),
-    ("example_input",11),
-    ("regex",9),
-    ("final_count",8),
-    ("off_topic",6),
-    ("final_list",6),
-    ("optimization",6),
-    ("deterministic",5),
-    ("reachability",5),
-    ("start_final",3),
-    ("dead",3),
-    ("directionality",2),
-    ("image",2)
-  )
+Anche le classi secondarie hanno ricevuto alcune migliorie alla distribuzione, che rimane comunque ancora sbilanciata, com'è possibile vedere nella #ref(<secondary>):
 
-  [#classes.map(c => [#text(hyphenate: false)[#strong[#c.at(0)];: #c.at(1)]]).join([, ])]
-}).
+#figure({
+  let plot_data = (
+    ([accepted], 14.0, 67),
+    ([count], 29.0, 60),
+    ([cycles], 4.0, 22),
+    ([dead], 0.0, 3),
+    ([definition], 2.0, 16),
+    ([description], 14.0, 74),
+    ([description_brief], 10.0, 16),
+    ([details], 2.0, 22),
+    ([deterministic], 0.0, 5),
+    ([directionality], 1.0, 15),
+    ([example_input], 4.0, 21),
+    ([existence_between], 12.0, 35),
+    ([existence_directed], 9.0, 31),
+    ([existence_from], 18.0, 52),
+    ([existence_into], 1.0, 38),
+    ([final], 8.0, 30),
+    ([final_count], 0.0, 8),
+    ([final_list], 5.0, 16),
+    ([generic], 3.0, 50),
+    ([greet], 2.0, 19),
+    ([image], 0.0, 2),
+    ([input], 0.0, 12),
+    ([label], 4.0, 57),
+    ([list], 1.0, 48),
+    // ([off_topic], 6.0, 106),
+    ([optimization], 0.0, 6),
+    ([overview], 17.0, 7),
+    ([pattern], 10.0, 37),
+    ([reachability], 0.0, 5),
+    ([regex], 2.0, 19),
+    ([representation], 13.0, 29),
+    ([self_loop], 1.0, 32),
+    ([simulation], 4.0, 30),
+    ([start], 8.0, 25),
+    ([start_final], 0.0, 3),
+    ([state_connections], 7.0, 21),
+    ([states], 3.0, 21),
+    ([symbols], 7.0, 24),
+    ([transitions], 5.0, 37),
+    ([validity], 0.0, 14),
+    ([variation], 2.0, 29),
+  )
+  canvas({
+    draw.set-style(legend: (fill: white), barchart: (bar-width: .8, cluster-gap: 0))
+    chart.barchart(
+      plot_data,
+      mode: "clustered",
+      size: (9, 18),
+      label-key: 0,
+      value-key: (1, 2),
+      labels: ([Originale], [Augmented]),
+      legend: "inner-south-east",
+    )
+  })
+}) <secondary>
 
 Nonostante lo sbilanciamento, è stato possibile ottenere dei buoni risultati in seguito al fine-tuning.
 
 L'utilizzo del dataset SQUAD ha anche introdotto un'ulteriore incremento delle performance, portando a una diminuzione dell'erronea classificazione di esempi off-topic come domande lecite. In particolare, le metriche di entropia e confidenza durante il fine tuning sono migliorate rispettivamente del 17 e del 7%.
 
-=== Fine-tuning // Cosa ho usato delle LLM per fare classificazione
+=== Fine-tuning <fine-tuning> // Cosa ho usato delle LLM per fare classificazione
 
 Per poter utilizzare le Large Language Models (LLM) per la classificazione di intenti, ho dovuto seguire un processo di fine-tuning.
 
@@ -691,7 +728,7 @@ In particolare, è la fase in cui si prende un modello pre-addestrato su un comp
 Si parte quindi da un modello che possiede già una buona conoscenza linguistica di base (perché allenato, ad esempio, su quantità imponenti di testo come Wikipedia, libri o pubblicazioni) e lo si ri-addestra su un dataset mirato, così da fargli apprendere le particolarità e le sfumature del nuovo scenario applicativo.
 
 Sul piano tecnico, il processo di fine-tuning si fonda sugli stessi principi del _learning by example_: si forniscono al modello coppie di input e output (nel caso di una classificazione, l'output è la classe corretta), e si calcola la loss (ad esempio la cross-entropy tra le probabilità previste dal modello e quelle desiderate).\
-Tramite la retropropagazione dell'errore, i pesi del modello vengono aggiornati iterativamente, così da allineare le predizioni alle etichette reali.
+Tramite la _backpropagation_ dell'errore, i pesi del modello vengono aggiornati iterativamente, così da allineare le predizioni alle etichette reali.
 Il risultato è che, dopo un numero sufficiente di iterazioni (o epoche), il modello impara a predire con buona approssimazione la classe corretta anche per esempi non ancora visti.
 
 #figure(
@@ -757,7 +794,7 @@ L'intero processo sfrutta principalmente la libreria `transformers` di Huggingfa
 L'utilizzo di queste librerie permette di semplificare notevolmente il processo di fine-tuning, fornendo API intuitive e funzionalità di alto livello per la gestione dei dati, la creazione dei modelli e la valutazione delle performance.
 In questo modo è possibile addestrare un modello di classificazione di intenti in poche righe di codice, senza dover scrivere manualmente i loop di training e validation, o implementare da zero la logica di salvataggio e caricamento dei modelli, nonostante questa via sia sempre possibile.
 
-L'obiettivo è riutilizzare un modello pre-addestrato (ad esempio BERT, DistilBERT o qualsiasi altro compatibile con AutoModelForSequenceClassification) per specializzarlo nel riconoscimento di specifiche categorie di intenti, e successivamente salvarlo per l'uso nel chatbot.
+L'obiettivo è utilizzare un modello pre-addestrato (ad esempio BERT, DistilBERT o qualsiasi altro compatibile con `AutoModelForSequenceClassification`) con lo scopo di specializzarlo nel riconoscimento di specifiche categorie di intenti, e successivamente salvarlo per l'uso nel chatbot.
 
 ==== Preparazione dei dati
 
@@ -803,7 +840,7 @@ Ciascun esempio è stato trasformato in una struttura pronta per essere gestita 
 
 Una volta create e preparate queste componenti (funzione di metriche, funzioni di training, dataset tokenizzato), eseguo il fine-tuning chiamando `run_fine_tuning` (presentata poco più avanti).
 
-==== Metriche di valutazione
+==== Metriche di valutazione <metriche_bert>
 
 Per prima cosa, ho definito una funzione in grado di calcolare le metriche di valutazione, che permetteranno di valutare le performance del modello in fase di fine-tuning in modo automatico.
 
@@ -867,11 +904,11 @@ Questo lo rende particolarmente utile in casi di class imbalance o quando è imp
 
 L'*entropia* è una misura della disordine o incertezza di un sistema, in questo caso delle previsioni del modello.
 
-Per un singolo esempio, se il modello produce una distribuzione di probabilità $bold(p)_i = (p_(i,1), dots, p_(i,k))$ sulle $k$ classi, è possibile calcolare l'entropia dell'esempio come $ "H" (bold(p)_i) = - sum ^k _(j=1) p_(i,j) log (p_(i,j)) $.
+Per un singolo esempio, se il modello produce una distribuzione di probabilità $bold(p)_i = (p_(i,1), dots, p_(i,k))$ sulle $k$ classi, è possibile calcolare l'entropia dell'esempio come $ "H" (bold(p)_i) = - sum ^k _(j=1) p_(i,j) log (p_(i,j)) $
 
 Tale quantità esprime quanto “incerte” sono le previsioni del modello: se il modello assegna un'alta probabilità a una sola classe e bassa probabilità alle altre, l'entropia tende a essere prossima a zero (predizione più "sicura"); se distribuisce le probabilità in modo pressoché uniforme, l'entropia aumenta (maggiore incertezza).
 
-L'entropia media su tutto il set di validazione di dimensione NN è: $ "Average Entropy" = 1/N sum ^N_(i=1)H(p_i) $
+L'entropia media su tutto il set di validazione di dimensione $N$ è: $ "Average Entropy" = 1/N sum ^N_(i=1)H(p_i) $
 Un valore basso di entropia media indica che, in media, le previsioni del modello sono piuttosto concentrate su una specifica classe; un valore più alto suggerisce che il modello sia spesso incerto.
 
 #hrule()
@@ -890,6 +927,16 @@ Per effettuare l'addestramento vero e proprio, ho definito anche la funzione `ru
 
 La classe `Trainer` semplifica notevolmente la gestione di molteplici aspetti, come la schedulazione del learning rate o la stratificazione della validazione.
 
+Il metodo espone diversi parametri significativi:
+- `load_best_model_at_end=True` consente di caricare automaticamente al termine dell'addestramento i pesi del modello con il miglior valore di F1 (impostato in metric_for_best_model='f1');
+- `warmup_ratio=0.1` configura un periodo iniziale di warm-up, durante il quale il learning rate cresce gradualmente prima di stabilizzarsi nella fase successiva.
+  Questo contribuisce a rendere l'ottimizzazione più stabile ed evitare picchi di aggiornamento eccessivi nelle primissime iterazioni.\
+  La configurazione del warmup, assieme alla learning rate sono state scelte basandomi sull'utilissimo paper di #cite(<bert_fine_tuning>, form: "prose") che fornisce una guida pratica per il fine-tuning di BERT.
+- `metric_for_best_model='f1'` indica che il modello migliore sarà scelto in base al valore di F1, calcolato dalla funzione `compute_metrics`. F1 torna utile in quanto è in grado di bilanciare le due metriche di precision e recall, fornendo un'indicazione complessiva delle performance del modello.
+
+Un'ultima considerazione molto importante riguarda il parametro `report_to`, che consente di specificare a quali servizi di logging inviare i risultati del training.\
+Nel mio caso, ho scelto di fare affidamento a *Weights and Biases* #footnote[Weights and Biases, abbreviato `Wandb`, è un servizio di monitoraggio e logging per l'addestramento di modelli di machine learning] in modalità online, in modo da poter monitorare in tempo reale le performance del modello durante il fine-tuning.
+
 #figure(```python
 def run_fine_tuning(model: AutoModelForSequenceClassification,
                   tokenizer: AutoTokenizer,
@@ -900,10 +947,6 @@ def run_fine_tuning(model: AutoModelForSequenceClassification,
   """
   Fine-tunes a pre-trained model on the provided training dataset and evaluates it on the evaluation dataset.
   """
-
-  train_dataset = train_dataset.map(lambda x: {k: v.float() if isinstance(v, torch.Tensor) and v.dtype == torch.long else v for k, v in x.items()})
-  eval_dataset = eval_dataset.map(lambda x: {k: v.float() if isinstance(v, torch.Tensor) and v.dtype == torch.long else v for k, v in x.items()})
-
   report_to = ["wandb"] if wandb_mode == "online" else None
 
   training_args = TrainingArguments(
@@ -918,7 +961,7 @@ def run_fine_tuning(model: AutoModelForSequenceClassification,
       logging_strategy='epoch',  # Log metrics at the end of each epoch
       eval_strategy='epoch',  # Evaluate the model at the end of each epoch
       logging_dir='./temp/logs',  # Directory to save the logs
-      load_best_model_at_end=True,  # Load the best model at the end based on evaluation metric
+      load_best_model_at_end=True,  # Load the best model at the end by evaluation metric
       metric_for_best_model='f1',  # Use subtopic F1-score to determine the best model
       greater_is_better=True,  # Higher metric indicates a better model
       save_total_limit=1,  # Limit the total number of saved models
@@ -942,23 +985,126 @@ def run_fine_tuning(model: AutoModelForSequenceClassification,
   return trainer
 ```)
 
-Il metodo mostra diverse impostazioni interessanti:
-- `load_best_model_at_end=True` consente di caricare automaticamente al termine dell'addestramento i pesi del modello con il miglior valore di F1 (impostato in metric_for_best_model='f1');
-- `warmup_ratio=0.1` configura un periodo iniziale di warm-up, durante il quale il learning rate cresce gradualmente prima di stabilizzarsi nella fase successiva.
-  Questo contribuisce a rendere l'ottimizzazione più stabile ed evitare picchi di aggiornamento eccessivi nelle primissime iterazioni.\
-  La configurazione del warmup, assieme alla learning rate sono state scelte basandomi sull'utilissimo paper di #cite(<bert_fine_tuning>, form: "prose") che fornisce una guida pratica per il fine-tuning di BERT.
-- `metric_for_best_model='f1'` indica che il modello migliore sarà scelto in base al valore di F1, calcolato dalla funzione `compute_metrics`. F1 torna utile in quanto è in grado di bilanciare le due metriche di precision e recall, fornendo un'indicazione complessiva delle performance del modello.
-
-Un'ultima considerazione molto importante riguarda il parametro `report_to`, che consente di specificare a quali servizi di logging inviare i risultati del training.\
-Nel mio caso, ho scelto di fare affidamento a *Weights and Biases* #footnote[Weights and Biases, abbreviato `Wandb`, è un servizio di monitoraggio e logging per l'addestramento di modelli di machine learning] in modalità online, in modo da poter monitorare in tempo reale le performance del modello durante il fine-tuning.
-
 La quasi totalità dei dati mostrati in questo documento sono stati raccolti tramite Wandb, riducendo enormemente il tempo necessario per l'analisi e la visualizzazione dei risultati: il salvataggio automatico ad ogni run e la possibilità di confrontare run diversi in un'unica dashboard sono state funzionalità fondamentali per la mia sperimentazione.
+
+==== Modelli utilizzati
+
+Tutti i modelli che ho utilizzato per la sperimentazione sono basati su BERT, o ELECTRA @electra, entrambi fondati sull'architettura encoder @bert.
+
+In particolare, dal repository di Huggingface dedicato ai modelli di classificazione ho deciso di utilizzare:
+- `google-bert/bert-base-uncased`, versione da 110 milioni di parametri @bert-base. Si tratta del modello originale di BERT ideato da Google @bert;
+- `distilbert/distilbert-base-uncased` @distilbert-base, versione distillata @hinton-distillation di BERT, con circa il 40% in meno di parametri @distilbert. Il modello è il risultato di una operazione dove si addestra un modello più piccolo ad imitare al meglio l'originale;
+- `google/mobilebert-uncased` @mobilebert-uncased, versione di BERT ingegnerizzata con lo scopo di essere eseguibile su dispositivi mobili. Ha un totale di 25 milioni di parametri @mobilebert.
+- `google/electra-small-discriminator` @electra-hf, da 14 milioni di parametri. Questo modello è stato addestrato utilizzando tecniche simili a quelle utilizzate per addestrare le GAN #footnote[Generative Adversarial Networks, modelli addestrati in coppia, dove uno impara a svolgere un certo compito generativo, e l'altro a riconoscere se un certo esempio presentato è generato o meno.] @adversarial-nets @electra
+
+Tutti questi modelli sono direttamente adoperabili per i nostri scopi essendo modelli encoder: dato un certo input produrranno una rappresentazione vettoriale o matriciale.
+Il risultato è successivamente classificabile da una rete feed-forward, restituendo così come risultato la classe più probabile (si veda la #ref(<fine-tuning>)).
+
+Sono state effettuate anche delle sperimentazioni con una variante della normale architettura, dove su un unico encoder vengono addestrati due modelli separati di classificazione, per riconoscere con un'unica esecuzione del modello entrambe le classi della domanda presentata.
+
+L'idea, già utilizzata anche in altri ambiti per il Transfer Learning @multitask o direttamente su BERT @multitask-bert1 @multitask-bert2 può permettere di ridurre notevolmente il costo e i tempi di addestramento, oltre ai requisiti di memoria.
+Infatti, avendo la quasi totalità dei pesi concentrati nei layer del transformer, lo strato finale di classificazione risulta molto "sottile", e richiede una percentuale minima rispetto al resto del modello.
+
+Nel mio caso sfortunatamente l'architettura a doppia testa di classificazione non si è rivelato migliore, con performance in media inferiori del 20% rispetto al miglior modello addestrato finora.
+Nonostante le performance peggiori, l'utilizzo di un modello del genere può essere considerato in contesti soggetti da forti limiti hardware, come su dispositivi mobili, edge o low-end.
+
+L'intera implementazione fa nuovamente fondamento sull'enorme flessibilità della libreria `transformers`. È stato sufficiente infatti soltanto aggiungere le due classification heads ed estendere il metodo `forward` che si occupa della predizione:
+
+#figure(```python
+from torch import nn as nn
+from transformers import BertPreTrainedModel, BertModel
+
+
+class BertForHierarchicalClassification(BertPreTrainedModel):
+    def __init__(self, config, num_main_topics, num_subtopics):
+        super().__init__(config)
+        self.bert = BertModel(config)
+        self.classifier_main = nn.Linear(config.hidden_size, num_main_topics)
+        self.classifier_sub = nn.Linear(config.hidden_size, num_subtopics)
+        self.init_weights()
+
+    def forward(self, input_ids, attention_mask, labels_main=None, labels_sub=None):
+        outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)
+        pooled_output = outputs.pooler_output
+        logits_main = self.classifier_main(pooled_output)
+        logits_sub = self.classifier_sub(pooled_output)
+
+        loss = None
+        if labels_main is not None and labels_sub is not None:
+            loss_fct = nn.CrossEntropyLoss()
+            loss_main = loss_fct(logits_main, labels_main)
+            loss_sub = loss_fct(logits_sub, labels_sub)
+            loss = loss_main + loss_sub  # Adjust weighting if needed
+
+        return {'loss': loss, 'logits_main': logits_main, 'logits_sub': logits_sub}
+```)
 
 === Valutazione e performance <valutazione_ft> // Spiegazione di come ho valutato i risultati dei classificatori
 
-Come spiegato nella sezione precedente, per compiere l'addestramento dei modelli è stato essenziale sfruttare metriche di valutazione adeguate, in grado di fornire un quadro completo delle performance del modello.
+Come spiegato nella #ref(<metriche_bert>), per compiere l'addestramento dei modelli è stato essenziale sfruttare metriche di valutazione adeguate, in grado di fornire un quadro completo delle performance del modello.
 
-Iniziamo quindi ad osservare i risultati dell'addestramento per la classe principale del dataset.
+Iniziamo quindi ad osservare i risultati dell'addestramento sulla classe principale del dataset:
+
+#figure(
+  image("../media/f1_final.png"),
+  caption: [Confronto delle performance di F1 tra i modelli addestrati.],
+)
+
+Come possiamo osservare, i modelli `bert` e `distilbert` hanno performance pressochè identiche (la differenza è dello 0.01%), mentre i modelli `mobilebert` e `electra` differiscono di circa l'8% rispetto a `bert`.
+
+Le differenze di performance sono sempre da confrontare considerando anche il tempo di addestramento e la complessità del modello: `electra` ad esempio, pur avendo performance leggermente inferiori, è stato addestrato in meno della metà del tempo rispetto a `bert`.
+
+#figure(
+  {
+    let plot_data = (
+      ([Main], 173, 91, 119, 42),
+      ([Automaton], 40, 23, 26, 9),
+      ([Transition], 65, 35, 44, 15),
+      ([Grammar], 46, 26, 32, 11),
+      ([State], 35, 21, 22, 8),
+      ([Theory], 30, 18, 19, 7),
+    )
+    canvas({
+      draw.set-style(legend: (fill: white), barchart: (bar-width: .8, cluster-gap: 0))
+      chart.barchart(
+        plot_data,
+        mode: "clustered",
+        size: (10, auto),
+        label-key: 0,
+        value-key: (1, 2, 3, 4),
+        labels: ([bert], [distilbert], [mobilebert], [electra]),
+        x-label: "Tempo di esecuzione in secondi",
+        y-label: "Classe di training",
+        legend: "inner-south-east",
+        bar-style: palette.new(colors: (aqua, green, red, yellow)),
+      )
+    })
+  },
+  caption: [Confronto dei tempi di esecuzione per ciascuna classe di training.],
+)
+
+Questo salto nei tempi di addestramento così brusco in realtà si rivelerà essere un problema, come vedremo poco più avanti.
+
+#hrule()
+
+Da un punto di vista qualitativo, iniziamo a osservare le performance di AIML, che useremo come baseline di riferimento per il confronto con gli altri modelli neurali.\
+Per poterlo fare, sfrutteremo le matrici di confusione per valutare le performance dei modelli, in particolare per osservare come si comportano in presenza di classi sbilanciate o di domande ambigue. #footnote[Una matrice di confusione è una tabella che mostra il numero di predizioni corrette e incorrette fatte dal modello, confrontando le predizioni con le etichette reali.]
+
+
+Tutte le valutazioni qualitative sono effettuate utilizzando un ulteriore dataset di test, separato dal dataset di training e di validazione, per evitare overfitting e garantire una valutazione imparziale.
+È composto da 468 ulteriori domande, distribuite in modo da assicurare una verifica sufficiente su tutte le classi di intenti secondarie, cruciali per la corretta classificazione e per fornire effettivamente risposte utili agli utenti.
+
+
+Il modello, nonostante sia costituito da un numero non indifferente di regole e pattern (103), ha performance mediamente basse, con un F1 score medio del 33%.
+Possiamo anche vedere come, dove questo non è in grado di classificare una certa domanda, finisca col classificarla come off-topic, indicando una certa difficoltà nel riconoscere domande in realtà valide per il nostro dominio. 
+
+#figure(image("../../multitask_training/diagrams/aiml/confusion_matrices_aiml_main.svg", height: 8cm))
+
+Possiamo estendere queste affermazioni anche alle classi di intenti secondarie, dove il modello mostra un F1 score medio del 9%:
+
+#figure(image("../../multitask_training/diagrams/aiml/confusion_matrices_aiml_sub.svg", height: 13cm))
+
+
 
 == Riconoscimento delle entità
 

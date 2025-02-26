@@ -57,7 +57,7 @@
   set document(title: title, author: candidate.name)
 
   // Set the body font, "New Computer Modern" gives a LaTeX-like look
-  set text(font: "TeX Gyre Termes", lang: lang, size: 12pt, region: lang)
+  set text(font: "TeX Gyre Termes", lang: lang, size: 1em, region: lang)
 
   // Configure the page
   set page(
