@@ -220,7 +220,7 @@
   )
 
   pagebreak(to: "odd")
-  set par(justify: true, first-line-indent: 1em)
+  set par(justify: true, first-line-indent: 0pt, linebreaks: "optimized")
   set align(center + horizon)
 
   // Declaration of originality, prints in English or Italian

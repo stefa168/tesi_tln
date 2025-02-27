@@ -628,92 +628,98 @@ Dato il grosso volume di risposte, per verificare l'adesione dei modelli alle ri
 
 In totale sono stati aggiunti 851 nuovi quesiti, con la seguente distribuzione:
 
-#figure({
-  let plot_data = (
-    ([automaton], 48, 184),
-    ([grammar], 33, 223),
-    ([off_topic], 6, 106),
-    ([start], 2, 19),
-    ([state], 41, 151),
-    ([theory], 15, 115),
-    ([transition], 83, 366),
-  )
-  canvas({
-    draw.set-style(legend: (fill: white), barchart: (bar-width: .8, cluster-gap: 0))
-    chart.barchart(
-      plot_data,
-      mode: "clustered",
-      size: (10, auto),
-      label-key: 0,
-      value-key: (1, 2),
-      labels: ([Originale], [Augmented]),
-      legend: "inner-north-east",
-      // bar-style: palette.new(colors: (aqua, green)),
+#figure(
+  {
+    let plot_data = (
+      ([automaton], 48, 184),
+      ([grammar], 33, 223),
+      ([off_topic], 6, 106),
+      ([start], 2, 19),
+      ([state], 41, 151),
+      ([theory], 15, 115),
+      ([transition], 83, 366),
     )
-  })
-})
+    canvas({
+      draw.set-style(legend: (fill: white), barchart: (bar-width: .8, cluster-gap: 0))
+      chart.barchart(
+        plot_data,
+        mode: "clustered",
+        size: (10, auto),
+        label-key: 0,
+        value-key: (1, 2),
+        labels: ([Originale], [Augmented]),
+        legend: "inner-north-east",
+        // bar-style: palette.new(colors: (aqua, green)),
+      )
+    })
+  },
+  caption: [Distribuzione delle domande originali e delle domande generate artificialmente per ogni classe principale.],
+) <augmented-distribution-primary>
 
 Le domande off-topic aggiuntive sono state estratte dal dataset SQUAD #footnote[Stanford Question Answering Dataset] v2 @squad1 @squad2, per avere una sufficiente varietà di domande non pertinenti.
 
-Anche le classi secondarie hanno ricevuto alcune migliorie alla distribuzione, che rimane comunque ancora sbilanciata, com'è possibile vedere nella #ref(<secondary>):
+Anche le classi secondarie hanno ricevuto alcune migliorie alla distribuzione, che rimane comunque ancora sbilanciata, com'è possibile vedere nella #ref(<augmented-distribution-secondary>):
 
-#figure({
-  let plot_data = (
-    ([accepted], 14.0, 67),
-    ([count], 29.0, 60),
-    ([cycles], 4.0, 22),
-    ([dead], 0.0, 3),
-    ([definition], 2.0, 16),
-    ([description], 14.0, 74),
-    ([description_brief], 10.0, 16),
-    ([details], 2.0, 22),
-    ([deterministic], 0.0, 5),
-    ([directionality], 1.0, 15),
-    ([example_input], 4.0, 21),
-    ([existence_between], 12.0, 35),
-    ([existence_directed], 9.0, 31),
-    ([existence_from], 18.0, 52),
-    ([existence_into], 1.0, 38),
-    ([final], 8.0, 30),
-    ([final_count], 0.0, 8),
-    ([final_list], 5.0, 16),
-    ([generic], 3.0, 50),
-    ([greet], 2.0, 19),
-    ([image], 0.0, 2),
-    ([input], 0.0, 12),
-    ([label], 4.0, 57),
-    ([list], 1.0, 48),
-    // ([off_topic], 6.0, 106),
-    ([optimization], 0.0, 6),
-    ([overview], 17.0, 7),
-    ([pattern], 10.0, 37),
-    ([reachability], 0.0, 5),
-    ([regex], 2.0, 19),
-    ([representation], 13.0, 29),
-    ([self_loop], 1.0, 32),
-    ([simulation], 4.0, 30),
-    ([start], 8.0, 25),
-    ([start_final], 0.0, 3),
-    ([state_connections], 7.0, 21),
-    ([states], 3.0, 21),
-    ([symbols], 7.0, 24),
-    ([transitions], 5.0, 37),
-    ([validity], 0.0, 14),
-    ([variation], 2.0, 29),
-  )
-  canvas({
-    draw.set-style(legend: (fill: white), barchart: (bar-width: .8, cluster-gap: 0))
-    chart.barchart(
-      plot_data,
-      mode: "clustered",
-      size: (9, 18),
-      label-key: 0,
-      value-key: (1, 2),
-      labels: ([Originale], [Augmented]),
-      legend: "inner-south-east",
+#figure(
+  {
+    let plot_data = (
+      ([accepted], 14.0, 67),
+      ([count], 29.0, 60),
+      ([cycles], 4.0, 22),
+      ([dead], 0.0, 3),
+      ([definition], 2.0, 16),
+      ([description], 14.0, 74),
+      ([description_brief], 10.0, 16),
+      ([details], 2.0, 22),
+      ([deterministic], 0.0, 5),
+      ([directionality], 1.0, 15),
+      ([example_input], 4.0, 21),
+      ([existence_between], 12.0, 35),
+      ([existence_directed], 9.0, 31),
+      ([existence_from], 18.0, 52),
+      ([existence_into], 1.0, 38),
+      ([final], 8.0, 30),
+      ([final_count], 0.0, 8),
+      ([final_list], 5.0, 16),
+      ([generic], 3.0, 50),
+      ([greet], 2.0, 19),
+      ([image], 0.0, 2),
+      ([input], 0.0, 12),
+      ([label], 4.0, 57),
+      ([list], 1.0, 48),
+      // ([off_topic], 6.0, 106),
+      ([optimization], 0.0, 6),
+      ([overview], 17.0, 7),
+      ([pattern], 10.0, 37),
+      ([reachability], 0.0, 5),
+      ([regex], 2.0, 19),
+      ([representation], 13.0, 29),
+      ([self_loop], 1.0, 32),
+      ([simulation], 4.0, 30),
+      ([start], 8.0, 25),
+      ([start_final], 0.0, 3),
+      ([state_connections], 7.0, 21),
+      ([states], 3.0, 21),
+      ([symbols], 7.0, 24),
+      ([transitions], 5.0, 37),
+      ([validity], 0.0, 14),
+      ([variation], 2.0, 29),
     )
-  })
-}) <secondary>
+    canvas({
+      draw.set-style(legend: (fill: white), barchart: (bar-width: .8, cluster-gap: 0))
+      chart.barchart(
+        plot_data,
+        mode: "clustered",
+        size: (9, 18),
+        label-key: 0,
+        value-key: (1, 2),
+        labels: ([Originale], [Augmented]),
+        legend: "inner-south-east",
+      )
+    })
+  },
+  caption: [Distribuzione delle domande originali e delle domande generate artificialmente per ogni classe secondaria.],
+) <augmented-distribution-secondary>
 
 Nonostante lo sbilanciamento, è stato possibile ottenere dei buoni risultati in seguito al fine-tuning.
 
@@ -1051,6 +1057,7 @@ Iniziamo quindi ad osservare i risultati dell'addestramento sulla classe princip
 )
 
 Come possiamo osservare, i modelli `bert` e `distilbert` hanno performance pressochè identiche (la differenza è dello 0.01%), mentre i modelli `mobilebert` e `electra` differiscono di circa l'8% rispetto a `bert`.
+Le performance crescono man mano che procediamo con il processo di fine tuning, ma si stabilizzano dopo aver visto circa i tre quarti del dataset.
 
 Le differenze di performance sono sempre da confrontare considerando anche il tempo di addestramento e la complessità del modello: `electra` ad esempio, pur avendo performance leggermente inferiori, è stato addestrato in meno della metà del tempo rispetto a `bert`.
 
@@ -1080,7 +1087,7 @@ Le differenze di performance sono sempre da confrontare considerando anche il te
       )
     })
   },
-  caption: [Confronto dei tempi di esecuzione per ciascuna classe di training.],
+  caption: [Confronto dei tempi di addestramento per ciascuna classe di training.],
 )
 
 Questo salto nei tempi di addestramento così brusco in realtà si rivelerà essere un problema, come vedremo poco più avanti.
@@ -1089,22 +1096,175 @@ Questo salto nei tempi di addestramento così brusco in realtà si rivelerà ess
 
 Da un punto di vista qualitativo, iniziamo a osservare le performance di AIML, che useremo come baseline di riferimento per il confronto con gli altri modelli neurali.\
 Per poterlo fare, sfrutteremo le matrici di confusione per valutare le performance dei modelli, in particolare per osservare come si comportano in presenza di classi sbilanciate o di domande ambigue. #footnote[Una matrice di confusione è una tabella che mostra il numero di predizioni corrette e incorrette fatte dal modello, confrontando le predizioni con le etichette reali.]
-
+Siamo interessati a capire se il modello riesce a classificare correttamente domande mai viste; con la matrice di confusione ci aspetteremo di vedere una diagonale principale molto più marcata rispetto agli altri elementi, indicando che il modello è in grado di classificare correttamente la maggior parte delle domande.
 
 Tutte le valutazioni qualitative sono effettuate utilizzando un ulteriore dataset di test, separato dal dataset di training e di validazione, per evitare overfitting e garantire una valutazione imparziale.
 È composto da 468 ulteriori domande, distribuite in modo da assicurare una verifica sufficiente su tutte le classi di intenti secondarie, cruciali per la corretta classificazione e per fornire effettivamente risposte utili agli utenti.
 
+Le metriche presentate nelle tabelle seguenti sono state prodotte utilizzando la funzione `classification_report` della libreria `scikit-learn` @scikit-learn, che calcola precision, recall e F1 score per ciascuna classe, oltre all'accuracy complessiva.
 
-Il modello, nonostante sia costituito da un numero non indifferente di regole e pattern (103), ha performance mediamente basse, con un F1 score medio del 33%.
-Possiamo anche vedere come, dove questo non è in grado di classificare una certa domanda, finisca col classificarla come off-topic, indicando una certa difficoltà nel riconoscere domande in realtà valide per il nostro dominio. 
+Il modello, nonostante sia costituito da un numero non indifferente di regole e pattern (103), ha performance mediamente basse, con un F1 score medio del 33% (#ref(<valutazione_aiml_main>)).
+Possiamo anche vedere come, dove questo non è in grado di classificare una certa domanda, finisca col classificarla come off-topic, indicando una certa difficoltà nel riconoscere domande in realtà valide per il nostro dominio (#ref(<conf_aiml_main>)).
 
-#figure(image("../../multitask_training/diagrams/aiml/confusion_matrices_aiml_main.svg", height: 8cm))
+// aggiungere plot per le performance sulle classi primarie e secondarie per i vari modelli.
 
-Possiamo estendere queste affermazioni anche alle classi di intenti secondarie, dove il modello mostra un F1 score medio del 9%:
+#figure(
+  caption: [Risultati delle metriche principali di valutazione per la classificazione\
+    del main intent, sia con AIML che con BERT.],
+)[
+  #show table.cell.where(y: 0): strong
+  #show table.cell.where(x: 0): strong
+  #table(
+    columns: 8,
+    table.header(
+      // row 1
+      table.cell(rowspan: 2)[],
+      table.cell(colspan: 3, align: center)[Performance AIML],
+      table.cell(colspan: 3, align: center)[Performance BERT],
+      table.cell(rowspan: 2)[Esempi],
+      // row 2
+      [Precision],
+      [Recall],
+      [F1-score],
+      [Precision],
+      [Recall],
+      [F1-score],
+    ),
+    table.hline(),
+    table.vline(x: 1, start: 0),
+    table.vline(x: 4, start: 0),
+    table.vline(x: 7, start: 0),
 
-#figure(image("../../multitask_training/diagrams/aiml/confusion_matrices_aiml_sub.svg", height: 13cm))
+    [Automaton], [0.52], [0.19], [0.27], [0.93], [0.93], [0.93], [75],
+    [Grammar], [0.90], [0.13], [0.23], [0.78], [0.83], [0.81], [70],
+    [Off-Topic], [0.26], [0.82], [0.39], [1.00], [0.96], [0.98], [100],
+    [Start], [1.00], [0.53], [0.69], [1.00], [0.90], [0.95], [40],
+    [State], [0.17], [0.19], [0.18], [0.96], [1.00], [0.98], [43],
+    [Theory], [0.00], [0.00], [0.00], [0.57], [0.57], [0.57], [30],
+    [Transition], [0.67], [0.28], [0.40], [0.97], [0.99], [0.98], [110],
+    table.hline(),
+    [Accuracy], table.cell(colspan: 2)[], [0.35], table.cell(colspan: 2)[], [0.92], [468],
+    [Macro avg], [0.44], [0.27], [0.27], [0.89], [0.88], [0.88], [468],
+    [Weighted avg], [0.53], [0.35], [0.33], [0.92], [0.92], [0.92], [468],
+  )
+] <valutazione_aiml_main>
+
+#figure(
+  grid(
+    rows: 2,
+    image("../../multitask_training/diagrams/aiml/confusion_matrices_aiml_main.svg", height: 8cm),
+    image(
+      "../../multitask_training/diagrams/BertForSequenceClassification/confusion_matrices_bert_main.svg",
+      height: 8cm,
+    ),
+  ),
+  caption: [Matrici di confusione per la classe principale classificata con AIML e BERT.],
+) <conf_aiml_main>
+
+Possiamo estendere queste affermazioni anche alle classi di intenti secondarie (#ref(<conf_aiml_sub>)), dove il modello mostra un F1 score medio del 9%.
+
+#align(
+  center,
+  block(breakable: false)[
+    /*
+      AIML Sub Class Performance:
+                        precision    recall  f1-score   support
+
+              ACCEPTED       0.40      0.40      0.40        10
+                 COUNT       0.75      0.15      0.25        20
+                CYCLES       0.00      0.00      0.00        10
+            DEFINITION       0.00      0.00      0.00         4
+           DESCRIPTION       0.18      0.09      0.12        23
+     DESCRIPTION_BRIEF       0.00      0.00      0.00        12
+               DETAILS       0.00      0.00      0.00        10
+         DETERMINISTIC       0.00      0.00      0.00         0
+        DIRECTIONALITY       0.00      0.00      0.00        10
+         EXAMPLE_INPUT       0.00      0.00      0.00        10
+     EXISTENCE_BETWEEN       0.19      0.80      0.30        10
+    EXISTENCE_DIRECTED       0.00      0.00      0.00        10
+        EXISTENCE_FROM       0.00      0.00      0.00        10
+        EXISTENCE_INTO       0.00      0.00      0.00         9
+                 FINAL       0.00      0.00      0.00         6
+            FINAL_LIST       0.00      0.00      0.00         7
+               GENERIC       0.00      0.00      0.00         2
+                 LABEL       0.00      0.00      0.00         9
+                  LIST       0.00      0.00      0.00        10
+                    ND       0.00      0.00      0.00         0
+             OFF_TOPIC       0.26      0.82      0.39       100
+              OVERVIEW       0.00      0.00      0.00         3
+               PATTERN       0.75      0.90      0.82        10
+                 REGEX       0.00      0.00      0.00        10
+        REPRESENTATION       0.33      0.10      0.15        10
+             SELF_LOOP       0.00      0.00      0.00         9
+            SIMULATION       0.00      0.00      0.00        10
+                 START       1.00      0.42      0.59        50
+                STATES       0.00      0.00      0.00         1
+     STATE_CONNECTIONS       0.00      0.00      0.00        30
+               SYMBOLS       0.00      0.00      0.00        10
+                THEORY       0.00      0.00      0.00        30
+           TRANSITIONS       0.00      0.00      0.00         3
+             VARIATION       0.00      0.00      0.00        10
+
+              accuracy                           0.28       468
+             macro avg       0.11      0.11      0.09       468
+          weighted avg       0.24      0.28      0.20       468
+      */
+    #table(
+      columns: (auto, auto, auto, auto, auto),
+      table.header[][Precision][Recall][F1-score][Esempi],
+      table.hline(),
+      table.vline(x: 1, start: 1),
+
+      [ACCEPTED], [0.40], [0.40], [0.40], [10],
+      [COUNT], [0.75], [0.15], [0.25], [20],
+      [CYCLES], [0.00], [0.00], [0.00], [10],
+      [DEFINITION], [0.00], [0.00], [0.00], [4],
+      [DESCRIPTION], [0.18], [0.09], [0.12], [23],
+      [DESCRIPTION_BRIEF], [0.00], [0.00], [0.00], [12],
+      [DETAILS], [0.00], [0.00], [0.00], [10],
+      [DETERMINISTIC], [0.00], [0.00], [0.00], [0],
+      [DIRECTIONALITY], [0.00], [0.00], [0.00], [10],
+      [EXAMPLE_INPUT], [0.00], [0.00], [0.00], [10],
+      [EXISTENCE_BETWEEN], [0.19], [0.80], [0.30], [10],
+      [EXISTENCE_DIRECTED], [0.00], [0.00], [0.00], [10],
+      [EXISTENCE_FROM], [0.00], [0.00], [0.00], [10],
+      [EXISTENCE_INTO], [0.00], [0.00], [0.00], [9],
+      [FINAL], [0.00], [0.00], [0.00], [6],
+      [FINAL_LIST], [0.00], [0.00], [0.00], [7],
+      [GENERIC], [0.00], [0.00], [0.00], [2],
+      [LABEL], [0.00], [0.00], [0.00], [9],
+      [LIST], [0.00], [0.00], [0.00], [10],
+      [ND], [0.00], [0.00], [0.00], [0],
+      [OFF_TOPIC], [0.26], [0.82], [0.39], [100],
+      [OVERVIEW], [0.00], [0.00], [0.00], [3],
+      [PATTERN], [0.75], [0.90], [0.82], [10],
+      [REGEX], [0.00], [0.00], [0.00], [10],
+      [REPRESENTATION], [0.33], [0.10], [0.15], [10],
+      [SELF_LOOP], [0.00], [0.00], [0.00], [9],
+      [SIMULATION], [0.00], [0.00], [0.00], [10],
+      [START], [1.00], [0.42], [0.59], [50],
+      [STATES], [0.00], [0.00], [0.00], [1],
+      [STATE_CONNECTIONS], [0.00], [0.00], [0.00], [30],
+      [SYMBOLS], [0.00], [0.00], [0.00], [10],
+      [THEORY], [0.00], [0.00], [0.00], [30],
+      [TRANSITIONS], [0.00], [0.00], [0.00], [3],
+      [VARIATION], [0.00], [0.00], [0.00], [10],
+      table.hline(),
+      [Accuracy], table.cell(colspan: 2)[], [0.28], [468],
+      [Macro avg], [0.11], [0.11], [0.09], [468],
+      [Weighted avg], [0.24], [0.28], [0.20], [468],
+    )
+
+    #figure(
+      image("../../multitask_training/diagrams/aiml/confusion_matrices_aiml_sub.svg", height: 13cm),
+      caption: [Matrice di confusione per le classi secondarie classificate con AIML.],
+    ) <conf_aiml_sub>
+  ],
+)
 
 
+
+// mostrare confronto tra i modelli, più anche tabella performance
 
 == Riconoscimento delle entità
 

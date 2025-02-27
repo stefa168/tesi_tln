@@ -370,25 +370,25 @@ deepmind_starcraft:
 
 schmidhuber2022deeplearningmiraculousyear:
   type: misc
-  title: 'Deep Learning: Our Miraculous Year 1990-1991'
+  title: "Deep Learning: Our Miraculous Year 1990-1991"
   author: Schmidhuber, Juergen
   date: 2022
   url: https://arxiv.org/abs/2005.05744
   serial-number:
-    arxiv: '2005.05744'
+    arxiv: "2005.05744"
 
 vaswani2023attentionneed:
   type: misc
   title: Attention Is All You Need
   author:
-  - Vaswani, Ashish
-  - Shazeer, Noam
-  - Parmar, Niki
-  - Uszkoreit, Jakob
-  - Jones, Llion
-  - Gomez, Aidan N.
-  - Kaiser, Lukasz
-  - Polosukhin, Illia
+    - Vaswani, Ashish
+    - Shazeer, Noam
+    - Parmar, Niki
+    - Uszkoreit, Jakob
+    - Jones, Llion
+    - Gomez, Aidan N.
+    - Kaiser, Lukasz
+    - Polosukhin, Illia
   date: 2023
   serial-number:
     doi: "10.48550/arXiv.1706.03762"
@@ -429,9 +429,9 @@ hinton-distillation:
   type: article
   title: Distilling the Knowledge in a Neural Network
   author:
-  - Hinton, Geoffrey
-  - Vinyals, Oriol
-  - Dean, Jeff
+    - Hinton, Geoffrey
+    - Vinyals, Oriol
+    - Dean, Jeff
   date: 2015
   serial-number:
     doi: 10.48550/arXiv.1503.02531
@@ -443,14 +443,14 @@ mobilebert-uncased:
 
 mobilebert:
   type: article
-  title: 'MobileBERT: a Compact Task-Agnostic BERT for Resource-Limited Devices'
+  title: "MobileBERT: a Compact Task-Agnostic BERT for Resource-Limited Devices"
   author:
-  - Sun, Zhiqing
-  - Yu, Hongkun
-  - Song, Xiaodan
-  - Liu, Renjie
-  - Yang, Yiming
-  - Zhou, Denny
+    - Sun, Zhiqing
+    - Yu, Hongkun
+    - Song, Xiaodan
+    - Liu, Renjie
+    - Yang, Yiming
+    - Zhou, Denny
   date: 2020
   serial-number:
     doi: 10.48550/arXiv.2004.02984
@@ -464,222 +464,222 @@ adversarial-nets:
   type: misc
   title: Generative Adversarial Networks
   author:
-  - Goodfellow, Ian J.
-  - Pouget-Abadie, Jean
-  - Mirza, Mehdi
-  - Xu, Bing
-  - Warde-Farley, David
-  - Ozair, Sherjil
-  - Courville, Aaron
-  - Bengio, Yoshua
+    - Goodfellow, Ian J.
+    - Pouget-Abadie, Jean
+    - Mirza, Mehdi
+    - Xu, Bing
+    - Warde-Farley, David
+    - Ozair, Sherjil
+    - Courville, Aaron
+    - Bengio, Yoshua
   date: 2014
   serial-number:
     doi: 10.48550/arXiv.1406.2661
 
 deepseek-r1:
   type: misc
-  title: 'DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning'
+  title: "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning"
   author:
-  - DeepSeek-AI
-  - Guo, Daya
-  - Yang, Dejian
-  - Zhang, Haowei
-  - Song, Junxiao
-  - Zhang, Ruoyu
-  - Xu, Runxin
-  - Zhu, Qihao
-  - Ma, Shirong
-  - Wang, Peiyi
-  - Bi, Xiao
-  - Zhang, Xiaokang
-  - Yu, Xingkai
-  - Wu, Yu
-  - Wu, Z. F.
-  - Gou, Zhibin
-  - Shao, Zhihong
-  - Li, Zhuoshu
-  - Gao, Ziyi
-  - Liu, Aixin
-  - Xue, Bing
-  - Wang, Bingxuan
-  - Wu, Bochao
-  - Feng, Bei
-  - Lu, Chengda
-  - Zhao, Chenggang
-  - Deng, Chengqi
-  - Zhang, Chenyu
-  - Ruan, Chong
-  - Dai, Damai
-  - Chen, Deli
-  - Ji, Dongjie
-  - Li, Erhang
-  - Lin, Fangyun
-  - Dai, Fucong
-  - Luo, Fuli
-  - Hao, Guangbo
-  - Chen, Guanting
-  - Li, Guowei
-  - Zhang, H.
-  - Bao, Han
-  - Xu, Hanwei
-  - Wang, Haocheng
-  - Ding, Honghui
-  - Xin, Huajian
-  - Gao, Huazuo
-  - Qu, Hui
-  - Li, Hui
-  - Guo, Jianzhong
-  - Li, Jiashi
-  - Wang, Jiawei
-  - Chen, Jingchang
-  - Yuan, Jingyang
-  - Qiu, Junjie
-  - Li, Junlong
-  - Cai, J. L.
-  - Ni, Jiaqi
-  - Liang, Jian
-  - Chen, Jin
-  - Dong, Kai
-  - Hu, Kai
-  - Gao, Kaige
-  - Guan, Kang
-  - Huang, Kexin
-  - Yu, Kuai
-  - Wang, Lean
-  - Zhang, Lecong
-  - Zhao, Liang
-  - Wang, Litong
-  - Zhang, Liyue
-  - Xu, Lei
-  - Xia, Leyi
-  - Zhang, Mingchuan
-  - Zhang, Minghua
-  - Tang, Minghui
-  - Li, Meng
-  - Wang, Miaojun
-  - Li, Mingming
-  - Tian, Ning
-  - Huang, Panpan
-  - Zhang, Peng
-  - Wang, Qiancheng
-  - Chen, Qinyu
-  - Du, Qiushi
-  - Ge, Ruiqi
-  - Zhang, Ruisong
-  - Pan, Ruizhe
-  - Wang, Runji
-  - Chen, R. J.
-  - Jin, R. L.
-  - Chen, Ruyi
-  - Lu, Shanghao
-  - Zhou, Shangyan
-  - Chen, Shanhuang
-  - Ye, Shengfeng
-  - Wang, Shiyu
-  - Yu, Shuiping
-  - Zhou, Shunfeng
-  - Pan, Shuting
-  - Li, S. S.
-  - Zhou, Shuang
-  - Wu, Shaoqing
-  - Ye, Shengfeng
-  - Yun, Tao
-  - Pei, Tian
-  - Sun, Tianyu
-  - Wang, T.
-  - Zeng, Wangding
-  - Zhao, Wanjia
-  - Liu, Wen
-  - Liang, Wenfeng
-  - Gao, Wenjun
-  - Yu, Wenqin
-  - Zhang, Wentao
-  - Xiao, W. L.
-  - An, Wei
-  - Liu, Xiaodong
-  - Wang, Xiaohan
-  - Chen, Xiaokang
-  - Nie, Xiaotao
-  - Cheng, Xin
-  - Liu, Xin
-  - Xie, Xin
-  - Liu, Xingchao
-  - Yang, Xinyu
-  - Li, Xinyuan
-  - Su, Xuecheng
-  - Lin, Xuheng
-  - Li, X. Q.
-  - Jin, Xiangyue
-  - Shen, Xiaojin
-  - Chen, Xiaosha
-  - Sun, Xiaowen
-  - Wang, Xiaoxiang
-  - Song, Xinnan
-  - Zhou, Xinyi
-  - Wang, Xianzu
-  - Shan, Xinxia
-  - Li, Y. K.
-  - Wang, Y. Q.
-  - Wei, Y. X.
-  - Zhang, Yang
-  - Xu, Yanhong
-  - Li, Yao
-  - Zhao, Yao
-  - Sun, Yaofeng
-  - Wang, Yaohui
-  - Yu, Yi
-  - Zhang, Yichao
-  - Shi, Yifan
-  - Xiong, Yiliang
-  - He, Ying
-  - Piao, Yishi
-  - Wang, Yisong
-  - Tan, Yixuan
-  - Ma, Yiyang
-  - Liu, Yiyuan
-  - Guo, Yongqiang
-  - Ou, Yuan
-  - Wang, Yuduan
-  - Gong, Yue
-  - Zou, Yuheng
-  - He, Yujia
-  - Xiong, Yunfan
-  - Luo, Yuxiang
-  - You, Yuxiang
-  - Liu, Yuxuan
-  - Zhou, Yuyang
-  - Zhu, Y. X.
-  - Xu, Yanhong
-  - Huang, Yanping
-  - Li, Yaohui
-  - Zheng, Yi
-  - Zhu, Yuchen
-  - Ma, Yunxian
-  - Tang, Ying
-  - Zha, Yukun
-  - Yan, Yuting
-  - Ren, Z. Z.
-  - Ren, Zehui
-  - Sha, Zhangli
-  - Fu, Zhe
-  - Xu, Zhean
-  - Xie, Zhenda
-  - Zhang, Zhengyan
-  - Hao, Zhewen
-  - Ma, Zhicheng
-  - Yan, Zhigang
-  - Wu, Zhiyu
-  - Gu, Zihui
-  - Zhu, Zijia
-  - Liu, Zijun
-  - Li, Zilin
-  - Xie, Ziwei
-  - Song, Ziyang
-  - Pan, Zizheng
-  - Huang, Zhen
-  - Xu, Zhipeng
-  - Zhang, Zhongyu
-  - Zhang, Zhen
+    - DeepSeek-AI
+    - Guo, Daya
+    - Yang, Dejian
+    - Zhang, Haowei
+    - Song, Junxiao
+    - Zhang, Ruoyu
+    - Xu, Runxin
+    - Zhu, Qihao
+    - Ma, Shirong
+    - Wang, Peiyi
+    - Bi, Xiao
+    - Zhang, Xiaokang
+    - Yu, Xingkai
+    - Wu, Yu
+    - Wu, Z. F.
+    - Gou, Zhibin
+    - Shao, Zhihong
+    - Li, Zhuoshu
+    - Gao, Ziyi
+    - Liu, Aixin
+    - Xue, Bing
+    - Wang, Bingxuan
+    - Wu, Bochao
+    - Feng, Bei
+    - Lu, Chengda
+    - Zhao, Chenggang
+    - Deng, Chengqi
+    - Zhang, Chenyu
+    - Ruan, Chong
+    - Dai, Damai
+    - Chen, Deli
+    - Ji, Dongjie
+    - Li, Erhang
+    - Lin, Fangyun
+    - Dai, Fucong
+    - Luo, Fuli
+    - Hao, Guangbo
+    - Chen, Guanting
+    - Li, Guowei
+    - Zhang, H.
+    - Bao, Han
+    - Xu, Hanwei
+    - Wang, Haocheng
+    - Ding, Honghui
+    - Xin, Huajian
+    - Gao, Huazuo
+    - Qu, Hui
+    - Li, Hui
+    - Guo, Jianzhong
+    - Li, Jiashi
+    - Wang, Jiawei
+    - Chen, Jingchang
+    - Yuan, Jingyang
+    - Qiu, Junjie
+    - Li, Junlong
+    - Cai, J. L.
+    - Ni, Jiaqi
+    - Liang, Jian
+    - Chen, Jin
+    - Dong, Kai
+    - Hu, Kai
+    - Gao, Kaige
+    - Guan, Kang
+    - Huang, Kexin
+    - Yu, Kuai
+    - Wang, Lean
+    - Zhang, Lecong
+    - Zhao, Liang
+    - Wang, Litong
+    - Zhang, Liyue
+    - Xu, Lei
+    - Xia, Leyi
+    - Zhang, Mingchuan
+    - Zhang, Minghua
+    - Tang, Minghui
+    - Li, Meng
+    - Wang, Miaojun
+    - Li, Mingming
+    - Tian, Ning
+    - Huang, Panpan
+    - Zhang, Peng
+    - Wang, Qiancheng
+    - Chen, Qinyu
+    - Du, Qiushi
+    - Ge, Ruiqi
+    - Zhang, Ruisong
+    - Pan, Ruizhe
+    - Wang, Runji
+    - Chen, R. J.
+    - Jin, R. L.
+    - Chen, Ruyi
+    - Lu, Shanghao
+    - Zhou, Shangyan
+    - Chen, Shanhuang
+    - Ye, Shengfeng
+    - Wang, Shiyu
+    - Yu, Shuiping
+    - Zhou, Shunfeng
+    - Pan, Shuting
+    - Li, S. S.
+    - Zhou, Shuang
+    - Wu, Shaoqing
+    - Ye, Shengfeng
+    - Yun, Tao
+    - Pei, Tian
+    - Sun, Tianyu
+    - Wang, T.
+    - Zeng, Wangding
+    - Zhao, Wanjia
+    - Liu, Wen
+    - Liang, Wenfeng
+    - Gao, Wenjun
+    - Yu, Wenqin
+    - Zhang, Wentao
+    - Xiao, W. L.
+    - An, Wei
+    - Liu, Xiaodong
+    - Wang, Xiaohan
+    - Chen, Xiaokang
+    - Nie, Xiaotao
+    - Cheng, Xin
+    - Liu, Xin
+    - Xie, Xin
+    - Liu, Xingchao
+    - Yang, Xinyu
+    - Li, Xinyuan
+    - Su, Xuecheng
+    - Lin, Xuheng
+    - Li, X. Q.
+    - Jin, Xiangyue
+    - Shen, Xiaojin
+    - Chen, Xiaosha
+    - Sun, Xiaowen
+    - Wang, Xiaoxiang
+    - Song, Xinnan
+    - Zhou, Xinyi
+    - Wang, Xianzu
+    - Shan, Xinxia
+    - Li, Y. K.
+    - Wang, Y. Q.
+    - Wei, Y. X.
+    - Zhang, Yang
+    - Xu, Yanhong
+    - Li, Yao
+    - Zhao, Yao
+    - Sun, Yaofeng
+    - Wang, Yaohui
+    - Yu, Yi
+    - Zhang, Yichao
+    - Shi, Yifan
+    - Xiong, Yiliang
+    - He, Ying
+    - Piao, Yishi
+    - Wang, Yisong
+    - Tan, Yixuan
+    - Ma, Yiyang
+    - Liu, Yiyuan
+    - Guo, Yongqiang
+    - Ou, Yuan
+    - Wang, Yuduan
+    - Gong, Yue
+    - Zou, Yuheng
+    - He, Yujia
+    - Xiong, Yunfan
+    - Luo, Yuxiang
+    - You, Yuxiang
+    - Liu, Yuxuan
+    - Zhou, Yuyang
+    - Zhu, Y. X.
+    - Xu, Yanhong
+    - Huang, Yanping
+    - Li, Yaohui
+    - Zheng, Yi
+    - Zhu, Yuchen
+    - Ma, Yunxian
+    - Tang, Ying
+    - Zha, Yukun
+    - Yan, Yuting
+    - Ren, Z. Z.
+    - Ren, Zehui
+    - Sha, Zhangli
+    - Fu, Zhe
+    - Xu, Zhean
+    - Xie, Zhenda
+    - Zhang, Zhengyan
+    - Hao, Zhewen
+    - Ma, Zhicheng
+    - Yan, Zhigang
+    - Wu, Zhiyu
+    - Gu, Zihui
+    - Zhu, Zijia
+    - Liu, Zijun
+    - Li, Zilin
+    - Xie, Ziwei
+    - Song, Ziyang
+    - Pan, Zizheng
+    - Huang, Zhen
+    - Xu, Zhipeng
+    - Zhang, Zhongyu
+    - Zhang, Zhen
   date: 2025
   serial-number:
     doi: 10.48550/arXiv.2501.12948
@@ -688,206 +688,206 @@ deepseek-technical:
   type: misc
   title: DeepSeek-V3 Technical Report
   author:
-  - DeepSeek-AI
-  - Liu, Aixin
-  - Feng, Bei
-  - Xue, Bing
-  - Wang, Bingxuan
-  - Wu, Bochao
-  - Lu, Chengda
-  - Zhao, Chenggang
-  - Deng, Chengqi
-  - Zhang, Chenyu
-  - Ruan, Chong
-  - Dai, Damai
-  - Guo, Daya
-  - Yang, Dejian
-  - Chen, Deli
-  - Ji, Dongjie
-  - Li, Erhang
-  - Lin, Fangyun
-  - Dai, Fucong
-  - Luo, Fuli
-  - Hao, Guangbo
-  - Chen, Guanting
-  - Li, Guowei
-  - Zhang, H.
-  - Bao, Han
-  - Xu, Hanwei
-  - Wang, Haocheng
-  - Zhang, Haowei
-  - Ding, Honghui
-  - Xin, Huajian
-  - Gao, Huazuo
-  - Li, Hui
-  - Qu, Hui
-  - Cai, J. L.
-  - Liang, Jian
-  - Guo, Jianzhong
-  - Ni, Jiaqi
-  - Li, Jiashi
-  - Wang, Jiawei
-  - Chen, Jin
-  - Chen, Jingchang
-  - Yuan, Jingyang
-  - Qiu, Junjie
-  - Li, Junlong
-  - Song, Junxiao
-  - Dong, Kai
-  - Hu, Kai
-  - Gao, Kaige
-  - Guan, Kang
-  - Huang, Kexin
-  - Yu, Kuai
-  - Wang, Lean
-  - Zhang, Lecong
-  - Xu, Lei
-  - Xia, Leyi
-  - Zhao, Liang
-  - Wang, Litong
-  - Zhang, Liyue
-  - Li, Meng
-  - Wang, Miaojun
-  - Zhang, Mingchuan
-  - Zhang, Minghua
-  - Tang, Minghui
-  - Li, Mingming
-  - Tian, Ning
-  - Huang, Panpan
-  - Wang, Peiyi
-  - Zhang, Peng
-  - Wang, Qiancheng
-  - Zhu, Qihao
-  - Chen, Qinyu
-  - Du, Qiushi
-  - Chen, R. J.
-  - Jin, R. L.
-  - Ge, Ruiqi
-  - Zhang, Ruisong
-  - Pan, Ruizhe
-  - Wang, Runji
-  - Xu, Runxin
-  - Zhang, Ruoyu
-  - Chen, Ruyi
-  - Li, S. S.
-  - Lu, Shanghao
-  - Zhou, Shangyan
-  - Chen, Shanhuang
-  - Wu, Shaoqing
-  - Ye, Shengfeng
-  - Ye, Shengfeng
-  - Ma, Shirong
-  - Wang, Shiyu
-  - Zhou, Shuang
-  - Yu, Shuiping
-  - Zhou, Shunfeng
-  - Pan, Shuting
-  - Wang, T.
-  - Yun, Tao
-  - Pei, Tian
-  - Sun, Tianyu
-  - Xiao, W. L.
-  - Zeng, Wangding
-  - Zhao, Wanjia
-  - An, Wei
-  - Liu, Wen
-  - Liang, Wenfeng
-  - Gao, Wenjun
-  - Yu, Wenqin
-  - Zhang, Wentao
-  - Li, X. Q.
-  - Jin, Xiangyue
-  - Wang, Xianzu
-  - Bi, Xiao
-  - Liu, Xiaodong
-  - Wang, Xiaohan
-  - Shen, Xiaojin
-  - Chen, Xiaokang
-  - Zhang, Xiaokang
-  - Chen, Xiaosha
-  - Nie, Xiaotao
-  - Sun, Xiaowen
-  - Wang, Xiaoxiang
-  - Cheng, Xin
-  - Liu, Xin
-  - Xie, Xin
-  - Liu, Xingchao
-  - Yu, Xingkai
-  - Song, Xinnan
-  - Shan, Xinxia
-  - Zhou, Xinyi
-  - Yang, Xinyu
-  - Li, Xinyuan
-  - Su, Xuecheng
-  - Lin, Xuheng
-  - Li, Y. K.
-  - Wang, Y. Q.
-  - Wei, Y. X.
-  - Zhu, Y. X.
-  - Zhang, Yang
-  - Xu, Yanhong
-  - Xu, Yanhong
-  - Huang, Yanping
-  - Li, Yao
-  - Zhao, Yao
-  - Sun, Yaofeng
-  - Li, Yaohui
-  - Wang, Yaohui
-  - Yu, Yi
-  - Zheng, Yi
-  - Zhang, Yichao
-  - Shi, Yifan
-  - Xiong, Yiliang
-  - He, Ying
-  - Tang, Ying
-  - Piao, Yishi
-  - Wang, Yisong
-  - Tan, Yixuan
-  - Ma, Yiyang
-  - Liu, Yiyuan
-  - Guo, Yongqiang
-  - Wu, Yu
-  - Ou, Yuan
-  - Zhu, Yuchen
-  - Wang, Yuduan
-  - Gong, Yue
-  - Zou, Yuheng
-  - He, Yujia
-  - Zha, Yukun
-  - Xiong, Yunfan
-  - Ma, Yunxian
-  - Yan, Yuting
-  - Luo, Yuxiang
-  - You, Yuxiang
-  - Liu, Yuxuan
-  - Zhou, Yuyang
-  - Wu, Z. F.
-  - Ren, Z. Z.
-  - Ren, Zehui
-  - Sha, Zhangli
-  - Fu, Zhe
-  - Xu, Zhean
-  - Huang, Zhen
-  - Zhang, Zhen
-  - Xie, Zhenda
-  - Zhang, Zhengyan
-  - Hao, Zhewen
-  - Gou, Zhibin
-  - Ma, Zhicheng
-  - Yan, Zhigang
-  - Shao, Zhihong
-  - Xu, Zhipeng
-  - Wu, Zhiyu
-  - Zhang, Zhongyu
-  - Li, Zhuoshu
-  - Gu, Zihui
-  - Zhu, Zijia
-  - Liu, Zijun
-  - Li, Zilin
-  - Xie, Ziwei
-  - Song, Ziyang
-  - Gao, Ziyi
-  - Pan, Zizheng
+    - DeepSeek-AI
+    - Liu, Aixin
+    - Feng, Bei
+    - Xue, Bing
+    - Wang, Bingxuan
+    - Wu, Bochao
+    - Lu, Chengda
+    - Zhao, Chenggang
+    - Deng, Chengqi
+    - Zhang, Chenyu
+    - Ruan, Chong
+    - Dai, Damai
+    - Guo, Daya
+    - Yang, Dejian
+    - Chen, Deli
+    - Ji, Dongjie
+    - Li, Erhang
+    - Lin, Fangyun
+    - Dai, Fucong
+    - Luo, Fuli
+    - Hao, Guangbo
+    - Chen, Guanting
+    - Li, Guowei
+    - Zhang, H.
+    - Bao, Han
+    - Xu, Hanwei
+    - Wang, Haocheng
+    - Zhang, Haowei
+    - Ding, Honghui
+    - Xin, Huajian
+    - Gao, Huazuo
+    - Li, Hui
+    - Qu, Hui
+    - Cai, J. L.
+    - Liang, Jian
+    - Guo, Jianzhong
+    - Ni, Jiaqi
+    - Li, Jiashi
+    - Wang, Jiawei
+    - Chen, Jin
+    - Chen, Jingchang
+    - Yuan, Jingyang
+    - Qiu, Junjie
+    - Li, Junlong
+    - Song, Junxiao
+    - Dong, Kai
+    - Hu, Kai
+    - Gao, Kaige
+    - Guan, Kang
+    - Huang, Kexin
+    - Yu, Kuai
+    - Wang, Lean
+    - Zhang, Lecong
+    - Xu, Lei
+    - Xia, Leyi
+    - Zhao, Liang
+    - Wang, Litong
+    - Zhang, Liyue
+    - Li, Meng
+    - Wang, Miaojun
+    - Zhang, Mingchuan
+    - Zhang, Minghua
+    - Tang, Minghui
+    - Li, Mingming
+    - Tian, Ning
+    - Huang, Panpan
+    - Wang, Peiyi
+    - Zhang, Peng
+    - Wang, Qiancheng
+    - Zhu, Qihao
+    - Chen, Qinyu
+    - Du, Qiushi
+    - Chen, R. J.
+    - Jin, R. L.
+    - Ge, Ruiqi
+    - Zhang, Ruisong
+    - Pan, Ruizhe
+    - Wang, Runji
+    - Xu, Runxin
+    - Zhang, Ruoyu
+    - Chen, Ruyi
+    - Li, S. S.
+    - Lu, Shanghao
+    - Zhou, Shangyan
+    - Chen, Shanhuang
+    - Wu, Shaoqing
+    - Ye, Shengfeng
+    - Ye, Shengfeng
+    - Ma, Shirong
+    - Wang, Shiyu
+    - Zhou, Shuang
+    - Yu, Shuiping
+    - Zhou, Shunfeng
+    - Pan, Shuting
+    - Wang, T.
+    - Yun, Tao
+    - Pei, Tian
+    - Sun, Tianyu
+    - Xiao, W. L.
+    - Zeng, Wangding
+    - Zhao, Wanjia
+    - An, Wei
+    - Liu, Wen
+    - Liang, Wenfeng
+    - Gao, Wenjun
+    - Yu, Wenqin
+    - Zhang, Wentao
+    - Li, X. Q.
+    - Jin, Xiangyue
+    - Wang, Xianzu
+    - Bi, Xiao
+    - Liu, Xiaodong
+    - Wang, Xiaohan
+    - Shen, Xiaojin
+    - Chen, Xiaokang
+    - Zhang, Xiaokang
+    - Chen, Xiaosha
+    - Nie, Xiaotao
+    - Sun, Xiaowen
+    - Wang, Xiaoxiang
+    - Cheng, Xin
+    - Liu, Xin
+    - Xie, Xin
+    - Liu, Xingchao
+    - Yu, Xingkai
+    - Song, Xinnan
+    - Shan, Xinxia
+    - Zhou, Xinyi
+    - Yang, Xinyu
+    - Li, Xinyuan
+    - Su, Xuecheng
+    - Lin, Xuheng
+    - Li, Y. K.
+    - Wang, Y. Q.
+    - Wei, Y. X.
+    - Zhu, Y. X.
+    - Zhang, Yang
+    - Xu, Yanhong
+    - Xu, Yanhong
+    - Huang, Yanping
+    - Li, Yao
+    - Zhao, Yao
+    - Sun, Yaofeng
+    - Li, Yaohui
+    - Wang, Yaohui
+    - Yu, Yi
+    - Zheng, Yi
+    - Zhang, Yichao
+    - Shi, Yifan
+    - Xiong, Yiliang
+    - He, Ying
+    - Tang, Ying
+    - Piao, Yishi
+    - Wang, Yisong
+    - Tan, Yixuan
+    - Ma, Yiyang
+    - Liu, Yiyuan
+    - Guo, Yongqiang
+    - Wu, Yu
+    - Ou, Yuan
+    - Zhu, Yuchen
+    - Wang, Yuduan
+    - Gong, Yue
+    - Zou, Yuheng
+    - He, Yujia
+    - Zha, Yukun
+    - Xiong, Yunfan
+    - Ma, Yunxian
+    - Yan, Yuting
+    - Luo, Yuxiang
+    - You, Yuxiang
+    - Liu, Yuxuan
+    - Zhou, Yuyang
+    - Wu, Z. F.
+    - Ren, Z. Z.
+    - Ren, Zehui
+    - Sha, Zhangli
+    - Fu, Zhe
+    - Xu, Zhean
+    - Huang, Zhen
+    - Zhang, Zhen
+    - Xie, Zhenda
+    - Zhang, Zhengyan
+    - Hao, Zhewen
+    - Gou, Zhibin
+    - Ma, Zhicheng
+    - Yan, Zhigang
+    - Shao, Zhihong
+    - Xu, Zhipeng
+    - Wu, Zhiyu
+    - Zhang, Zhongyu
+    - Li, Zhuoshu
+    - Gu, Zihui
+    - Zhu, Zijia
+    - Liu, Zijun
+    - Li, Zilin
+    - Xie, Ziwei
+    - Song, Ziyang
+    - Gao, Ziyi
+    - Pan, Zizheng
   date: 2025
   serial-number:
     doi: 10.48550/arXiv.2412.19437
@@ -896,41 +896,40 @@ openai-llm:
   type: misc
   title: Language Models are Few-Shot Learners
   author:
-  - Brown, Tom B.
-  - Mann, Benjamin
-  - Ryder, Nick
-  - Subbiah, Melanie
-  - Kaplan, Jared
-  - Dhariwal, Prafulla
-  - Neelakantan, Arvind
-  - Shyam, Pranav
-  - Sastry, Girish
-  - Askell, Amanda
-  - Agarwal, Sandhini
-  - Herbert-Voss, Ariel
-  - Krueger, Gretchen
-  - Henighan, Tom
-  - Child, Rewon
-  - Ramesh, Aditya
-  - Ziegler, Daniel M.
-  - Wu, Jeffrey
-  - Winter, Clemens
-  - Hesse, Christopher
-  - Chen, Mark
-  - Sigler, Eric
-  - Litwin, Mateusz
-  - Gray, Scott
-  - Chess, Benjamin
-  - Clark, Jack
-  - Berner, Christopher
-  - McCandlish, Sam
-  - Radford, Alec
-  - Sutskever, Ilya
-  - Amodei, Dario
+    - Brown, Tom B.
+    - Mann, Benjamin
+    - Ryder, Nick
+    - Subbiah, Melanie
+    - Kaplan, Jared
+    - Dhariwal, Prafulla
+    - Neelakantan, Arvind
+    - Shyam, Pranav
+    - Sastry, Girish
+    - Askell, Amanda
+    - Agarwal, Sandhini
+    - Herbert-Voss, Ariel
+    - Krueger, Gretchen
+    - Henighan, Tom
+    - Child, Rewon
+    - Ramesh, Aditya
+    - Ziegler, Daniel M.
+    - Wu, Jeffrey
+    - Winter, Clemens
+    - Hesse, Christopher
+    - Chen, Mark
+    - Sigler, Eric
+    - Litwin, Mateusz
+    - Gray, Scott
+    - Chess, Benjamin
+    - Clark, Jack
+    - Berner, Christopher
+    - McCandlish, Sam
+    - Radford, Alec
+    - Sutskever, Ilya
+    - Amodei, Dario
   date: 2020
   serial-number:
-    doi: '10.48550/arXiv.2005.14165'
-
+    doi: "10.48550/arXiv.2005.14165"
 
 dont_stop_pretraining:
   type: article
@@ -985,7 +984,7 @@ huggingface_transformers:
     - Rush, Alexander M.
   date: 2020
   serial-number:
-    doi: "10.48550/arXiv.1910.03771"  
+    doi: "10.48550/arXiv.1910.03771"
 
 loebner:
   type: web
@@ -1031,7 +1030,6 @@ distilbert-base:
   type: repository
   title: Distilbert base model
   url: https://huggingface.co/distilbert/distilbert-base-uncased
-
 
 gemma:
   type: article
@@ -1958,7 +1956,6 @@ hierarchical:
     - Freitas, Alex A.
   date: 2011
   page-range: 31-72
-  url: https://doi.org/10.1007/s10618-010-0175-9
   serial-number:
     doi: 10.1007/s10618-010-0175-9
     issn: 1573-756X
@@ -1968,6 +1965,33 @@ hierarchical:
     title: Data Mining and Knowledge Discovery
     issue: 1
     volume: 22
+
+scikit-learn:
+  type: misc
+  title: "Scikit-learn: Machine Learning in Python"
+  author:
+    - Pedregosa, Fabian
+    - Varoquaux, Gaël
+    - Gramfort, Alexandre
+    - Michel, Vincent
+    - Thirion, Bertrand
+    - Grisel, Olivier
+    - Blondel, Mathieu
+    - Müller, Andreas
+    - Nothman, Joel
+    - Louppe, Gilles
+    - Prettenhofer, Peter
+    - Weiss, Ron
+    - Dubourg, Vincent
+    - Vanderplas, Jake
+    - Passos, Alexandre
+    - Cournapeau, David
+    - Brucher, Matthieu
+    - Perrot, Matthieu
+    - Duchesnay, Édouard
+  date: 2018
+  serial-number:
+    doi: 10.48550/arXiv.1201.0490
 
 doccano:
   type: misc
