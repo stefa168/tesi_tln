@@ -529,7 +529,7 @@ Come accennato, è stato adoperato un sistema di majority voting per combinare i
   caption: [Funzione di majority voting per combinare le etichette.],
 )
 
-Tuttavia, in seguito ad una prima fase di fine tuning, ho verificato che nonostante un'etichettatura valida, le classi identificate erano troppo sbilanciate, con alcune classi che contenevano un numero troppo esiguo di esempi.
+Tuttavia, in seguito ad una prima fase di fine tuning, ho verificato che nonostante un'etichettatura valida, le classi identificate erano troppo sbilanciate, con alcune classi che contenevano un numero troppo esiguo di esempi, portando a una classificazione poco affidabile.
 In più, ho realizzato che le classi scelte erano troppo generiche: questo problema non avrebbe permesso di identificare con precisione l'argomento della domanda.
 
 Per questo motivo ho proceduto con una revisione delle etichette, e una successiva etichettatura manuale delle domande.
@@ -538,10 +538,13 @@ Per questo motivo ho proceduto con una revisione delle etichette, e una successi
 Prima di proseguire con l'etichettatura, ho provveduto a ripulire il dataset da domande non pertinenti o duplicate.
 Una volta fatto, ho deciso di ridurre il numero di classi, in modo da poter avere un dataset più bilanciato e con classi più specifiche.\
 Avendone ridotto il numero, per ottenere un livello di granularità maggiore, ho deciso di utilizzare un sistema di etichettatura gerarchico, in modo da poter identificare con maggiore precisione l'argomento della domanda.
+Il risultato è stato un dataset con due livelli di classi: le _classi principali_ e le _classi secondarie_, che ci permetteranno di classificare le domande come se ci trovassimo in un albero decisionale @hierarchical.
 \
 Ne sono risultati sono due livelli di classi:
 - Le _classi principali_ (o _question intent_, si veda la @classi-principali), che rappresentano l'argomento generale della domanda, per un totale di 7 classi;
 - Le _classi secondarie_, che rappresentano l'argomento specifico della domanda, dipendono dalla classe principale e sono 33 in totale. A seconda della classe principale, il numero di classi secondarie varia.
+
+[TODO: Inserire albero con le classi principali e secondarie]
 
 Il numero ristretto di classi di domande ha permesso di creare una suddivisione più bilanciata tra le classi, e di ottenere un dataset generalmente più equilibrato.
 
@@ -1218,102 +1221,71 @@ Possiamo anche vedere come, dove questo non è in grado di classificare una cert
 ) <conf_aiml_main>
 
 Possiamo estendere queste affermazioni anche alle classi di intenti secondarie (#ref(<conf_aiml_sub>)), dove il modello mostra un F1 score medio del 9%.
-
-#align(
-  center,
-  block(breakable: false)[
-    /*
-      AIML Sub Class Performance:
-                        precision    recall  f1-score   support
-
-              ACCEPTED       0.40      0.40      0.40        10
-                 COUNT       0.75      0.15      0.25        20
-                CYCLES       0.00      0.00      0.00        10
-            DEFINITION       0.00      0.00      0.00         4
-           DESCRIPTION       0.18      0.09      0.12        23
-     DESCRIPTION_BRIEF       0.00      0.00      0.00        12
-               DETAILS       0.00      0.00      0.00        10
-         DETERMINISTIC       0.00      0.00      0.00         0
-        DIRECTIONALITY       0.00      0.00      0.00        10
-         EXAMPLE_INPUT       0.00      0.00      0.00        10
-     EXISTENCE_BETWEEN       0.19      0.80      0.30        10
-    EXISTENCE_DIRECTED       0.00      0.00      0.00        10
-        EXISTENCE_FROM       0.00      0.00      0.00        10
-        EXISTENCE_INTO       0.00      0.00      0.00         9
-                 FINAL       0.00      0.00      0.00         6
-            FINAL_LIST       0.00      0.00      0.00         7
-               GENERIC       0.00      0.00      0.00         2
-                 LABEL       0.00      0.00      0.00         9
-                  LIST       0.00      0.00      0.00        10
-                    ND       0.00      0.00      0.00         0
-             OFF_TOPIC       0.26      0.82      0.39       100
-              OVERVIEW       0.00      0.00      0.00         3
-               PATTERN       0.75      0.90      0.82        10
-                 REGEX       0.00      0.00      0.00        10
-        REPRESENTATION       0.33      0.10      0.15        10
-             SELF_LOOP       0.00      0.00      0.00         9
-            SIMULATION       0.00      0.00      0.00        10
-                 START       1.00      0.42      0.59        50
-                STATES       0.00      0.00      0.00         1
-     STATE_CONNECTIONS       0.00      0.00      0.00        30
-               SYMBOLS       0.00      0.00      0.00        10
-                THEORY       0.00      0.00      0.00        30
-           TRANSITIONS       0.00      0.00      0.00         3
-             VARIATION       0.00      0.00      0.00        10
-
-              accuracy                           0.28       468
-             macro avg       0.11      0.11      0.09       468
-          weighted avg       0.24      0.28      0.20       468
-      */
-    #table(
-      columns: (auto, auto, auto, auto, auto),
-      table.header[][Precision][Recall][F1-score][Esempi],
+#page(margin: (right: 2cm, left: 2cm, top: 2cm, bottom: 2cm))[
+  #figure(
+    table(
+      columns: 8,
+      table.header(
+        // row 1
+        table.cell(rowspan: 2)[],
+        table.cell(colspan: 3, align: center)[Performance AIML],
+        table.cell(colspan: 3, align: center)[Performance BERT],
+        table.cell(rowspan: 2)[Esempi],
+        // row 2
+        [Precision],
+        [Recall],
+        table.cell(align: center)[F1],
+        [Precision],
+        [Recall],
+        table.cell(align: center)[F1],
+      ),
       table.hline(),
-      table.vline(x: 1, start: 1),
+      table.vline(x: 1, start: 0),
+      table.vline(x: 4, start: 0),
+      table.vline(x: 7, start: 0),
 
-      [ACCEPTED], [0.40], [0.40], [0.40], [10],
-      [COUNT], [0.75], [0.15], [0.25], [20],
-      [CYCLES], [0.00], [0.00], [0.00], [10],
-      [DEFINITION], [0.00], [0.00], [0.00], [4],
-      [DESCRIPTION], [0.18], [0.09], [0.12], [23],
-      [DESCRIPTION_BRIEF], [0.00], [0.00], [0.00], [12],
-      [DETAILS], [0.00], [0.00], [0.00], [10],
-      [DETERMINISTIC], [0.00], [0.00], [0.00], [0],
-      [DIRECTIONALITY], [0.00], [0.00], [0.00], [10],
-      [EXAMPLE_INPUT], [0.00], [0.00], [0.00], [10],
-      [EXISTENCE_BETWEEN], [0.19], [0.80], [0.30], [10],
-      [EXISTENCE_DIRECTED], [0.00], [0.00], [0.00], [10],
-      [EXISTENCE_FROM], [0.00], [0.00], [0.00], [10],
-      [EXISTENCE_INTO], [0.00], [0.00], [0.00], [9],
-      [FINAL], [0.00], [0.00], [0.00], [6],
-      [FINAL_LIST], [0.00], [0.00], [0.00], [7],
-      [GENERIC], [0.00], [0.00], [0.00], [2],
-      [LABEL], [0.00], [0.00], [0.00], [9],
-      [LIST], [0.00], [0.00], [0.00], [10],
-      [ND], [0.00], [0.00], [0.00], [0],
-      [OFF_TOPIC], [0.26], [0.82], [0.39], [100],
-      [OVERVIEW], [0.00], [0.00], [0.00], [3],
-      [PATTERN], [0.75], [0.90], [0.82], [10],
-      [REGEX], [0.00], [0.00], [0.00], [10],
-      [REPRESENTATION], [0.33], [0.10], [0.15], [10],
-      [SELF_LOOP], [0.00], [0.00], [0.00], [9],
-      [SIMULATION], [0.00], [0.00], [0.00], [10],
-      [START], [1.00], [0.42], [0.59], [50],
-      [STATES], [0.00], [0.00], [0.00], [1],
-      [STATE_CONNECTIONS], [0.00], [0.00], [0.00], [30],
-      [SYMBOLS], [0.00], [0.00], [0.00], [10],
-      [THEORY], [0.00], [0.00], [0.00], [30],
-      [TRANSITIONS], [0.00], [0.00], [0.00], [3],
-      [VARIATION], [0.00], [0.00], [0.00], [10],
+      [ACCEPTED], [0.40], [0.40], [0.40], [0.83], [1.00], [0.91], [10],
+      [COUNT], [0.75], [0.15], [0.25], [0.95], [1.00], [0.98], [20],
+      [CYCLES], [0.00], [0.00], [0.00], [1.00], [1.00], [1.00], [10],
+      [DEFINITION], [0.00], [0.00], [0.00], [0.00], [0.00], [0.00], [4],
+      [DESCRIPTION], [0.18], [0.09], [0.12], [0.51], [0.78], [0.62], [23],
+      [DESCRIPTION_BRIEF], [0.00], [0.00], [0.00], [0.60], [0.25], [0.35], [12],
+      [DETAILS], [0.00], [0.00], [0.00], [1.00], [1.00], [1.00], [10],
+      [DIRECTIONALITY], [0.00], [0.00], [0.00], [1.00], [0.80], [0.89], [10],
+      [EXAMPLE_INPUT], [0.00], [0.00], [0.00], [1.00], [1.00], [1.00], [10],
+      [EXISTENCE_BETWEEN], [0.19], [0.80], [0.30], [0.67], [0.60], [0.63], [10],
+      [EXISTENCE_DIRECTED], [0.00], [0.00], [0.00], [0.75], [0.60], [0.67], [10],
+      [EXISTENCE_FROM], [0.00], [0.00], [0.00], [0.80], [0.80], [0.80], [10],
+      [EXISTENCE_INTO], [0.00], [0.00], [0.00], [0.82], [1.00], [0.90], [9],
+      [FINAL], [0.00], [0.00], [0.00], [1.00], [0.83], [0.91], [6],
+      [FINAL_LIST], [0.00], [0.00], [0.00], [0.75], [0.86], [0.80], [7],
+      [GENERIC], [0.00], [0.00], [0.00], [0.00], [0.00], [0.00], [2],
+      [LABEL], [0.00], [0.00], [0.00], [0.00], [0.00], [0.00], [9],
+      [LIST], [0.00], [0.00], [0.00], [1.00], [1.00], [1.00], [10],
+      [ND], [0.00], [0.00], [0.00], [0.90], [0.90], [0.90], [0],
+      [OFF_TOPIC], [0.26], [0.82], [0.39], [1.00], [0.96], [0.98], [100],
+      [OVERVIEW], [0.00], [0.00], [0.00], [0.50], [0.67], [0.57], [3],
+      [PATTERN], [0.75], [0.90], [0.82], [1.00], [1.00], [1.00], [10],
+      [REGEX], [0.00], [0.00], [0.00], [1.00], [1.00], [1.00], [10],
+      [REPRESENTATION], [0.33], [0.10], [0.15], [1.00], [0.70], [0.82], [10],
+      [SELF_LOOP], [0.00], [0.00], [0.00], [0.90], [1.00], [0.95], [9],
+      [SIMULATION], [0.00], [0.00], [0.00], [0.91], [1.00], [0.95], [10],
+      [START], [1.00], [0.42], [0.59], [0.98], [0.92], [0.95], [50],
+      [STATES], [0.00], [0.00], [0.00], [0.00], [0.00], [0.00], [1],
+      [STATE_CONNECTIONS], [0.00], [0.00], [0.00], [1.00], [1.00], [1.00], [30],
+      [SYMBOLS], [0.00], [0.00], [0.00], [0.70], [0.70], [0.70], [10],
+      [THEORY], [0.00], [0.00], [0.00], [0.57], [0.57], [0.57], [30],
+      [TRANSITIONS], [0.00], [0.00], [0.00], [0.00], [0.00], [0.00], [3],
+      [VARIATION], [0.00], [0.00], [0.00], [0.91], [1.00], [0.95], [10],
       table.hline(),
-      [Accuracy], table.cell(colspan: 2)[], [0.28], [468],
-      [Macro avg], [0.11], [0.11], [0.09], [468],
-      [Weighted avg], [0.24], [0.28], [0.20], [468],
-    )
+      [Accuracy], table.cell(colspan: 2)[], [0.28], table.cell(colspan: 2)[], [0.86], [468],
+      [Macro avg], [0.11], [0.11], [0.09], [0.73], [0.73], [0.72], [468],
+      [Weighted avg], [0.24], [0.28], [0.20], [0.87], [0.86], [0.86], [468],
+    ),
+    caption: [Risultati delle metriche di valutazione per la classificazione delle classi secondarie con AIML e BERT.],
+  )
+]
 
-
-  ],
-)
 #page(margin: (right: 3cm, left: 3.5cm, top: 2cm, bottom: 2cm))[
   #figure(
     grid(
@@ -1324,11 +1296,9 @@ Possiamo estendere queste affermazioni anche alle classi di intenti secondarie (
         height: 12.5cm,
       )
     ),
-    caption: [Matrice di confusione per le classi secondarie classificate con AIML e BERT.],
+    caption: [Matrici di confusione per le classi secondarie classificate con AIML e BERT.],
   ) <conf_aiml_sub>
 ]
-
-// mostrare confronto tra i modelli, più anche tabella performance
 
 == Riconoscimento delle entità
 
