@@ -32,20 +32,25 @@ Basato sull'XML @aiml, di base l'AIML fornisce una struttura formale per definir
 - `<template>`: la risposta (testuale o con elementi dinamici) che il chatbot fornisce quando si verifica il match del pattern.
 
 La forma più semplice di categoria è:
-#align(center)[
+#figure(
   ```xml
   <category>
     <pattern>CIAO</pattern>
     <template>Ciao! Come posso aiutarti oggi?</template>
   </category>
-  ```
-]
+  ```,
+  kind: "snip",
+  caption: [Esempio basilare di una categoria AIML.],
+)
 
 In questo caso, se l'utente scrive "Ciao" #footnote[Caratteri maiuscoli e minuscoli sono considerati uguali dal motore di riconoscimento.], il sistema restituisce la risposta associata nella sezione del `<template>`.\ \
 Naturalmente questa è una regola basilare: AIML permette di definire pattern molto più complessi.\
-Un primo passo verso la creazione di regole più flessibili è l'uso di wildcard: associando simboli quali #sym.ast e #sym.dash.en a elementi di personalizzazione (`<star/>`), il motore che esegue la configurazione AIML può gestire un certo grado di variabilità linguistica:
+Un primo passo verso la creazione di regole più flessibili è l'uso di wildcard: associando simboli quali #sym.ast e #sym.dash.en a elementi di personalizzazione (`<star/>`), il motore che esegue la configurazione AIML può gestire un certo grado di variabilità linguistica.
 
-#align(center)[
+In particolare, il simbolo `*` corrisponde a una wildcard che cattura qualsiasi sequenza di parole in input tra i due pattern specificati.\
+In questo caso, se l'utente digita "Mi chiamo Andrea", il sistema sostituisce `<star/>` con "Andrea", e risponde di conseguenza.
+
+#figure(
   ```xml
   <category>
     <pattern>MI CHIAMO *</pattern>
@@ -53,17 +58,16 @@ Un primo passo verso la creazione di regole più flessibili è l'uso di wildcard
       Ciao <star/>, piacere di conoscerti!
     </template>
   </category>
-  ```
-]
-
-In particolare, il simbolo `*` corrisponde a una wildcard che cattura qualsiasi sequenza di parole in input tra i due pattern specificati.\
-In questo caso, se l'utente digita "Mi chiamo Andrea", il sistema sostituisce `<star/>` con "Andrea", e risponde di conseguenza.
+  ```,
+  kind: "snip",
+  caption: [Esempio di utilizzo di wildcard in AIML.],
+)
 
 #hrule()
 
 Spesso è necessario memorizzare informazioni fornite dall'utente per utilizzarle successivamente. A questo scopo, AIML offre i tag `<set>` e `<get>` che, rispettivamente, memorizzano e recuperano valori da variabili di contesto:
 
-#align(center)[
+#figure(
   ```xml
   <category>
     <pattern>IL MIO COLORE PREFERITO È *</pattern>
@@ -81,8 +85,10 @@ Spesso è necessario memorizzare informazioni fornite dall'utente per utilizzarl
       Il tuo colore preferito è <get name="colore"/>.
     </template>
   </category>
-  ```
-]
+  ```,
+  kind: "snip",
+  caption: [Esempio di utilizzo dei tag `<set>` e `<get>` in AIML.],
+)
 
 Nella prima `<category>`, il tag `<think>` fa sì che l'operazione di memorizzazione non produca output testuale per l'utente, ma aggiorni internamente la variabile `colore`.\
 Nel secondo blocco, si utilizza `<get name="colore"/>` per restituire all'utente il valore memorizzato.
@@ -93,7 +99,7 @@ Il tag `<condition>` permette di definire regole condizionali in base a variabil
 
 Se la variabile stagione (presumibilmente impostata altrove con un `<set>`) ha valore `inverno`, verrà restituito “Fa piuttosto freddo...”. Un risultato simile si ottiene per `estate`, mentre per altri valori o mancanza di valore si restituisce l'ultimo _list item_.
 
-#align(center)[
+#figure(
   ```xml
   <category>
     <pattern>CHE TEMPO FA</pattern>
@@ -105,14 +111,16 @@ Se la variabile stagione (presumibilmente impostata altrove con un `<set>`) ha v
       </condition>
     </template>
   </category>
-  ```
-]
+  ```,
+  kind: "snip",
+  caption: [Esempio di utilizzo del tag `<condition>` in AIML.],
+)
 
-#hrule()
+// #hrule()
 
 Il tag `<topic>` permette di raggruppare categorie che appartengono a un medesimo ambito di conversazione, per _facilitare la lettura_ delle regole:
 
-#align(center)[
+#figure(
   ```xml
   <topic name="saluti">
     <category>
@@ -129,8 +137,10 @@ Il tag `<topic>` permette di raggruppare categorie che appartengono a un medesim
       </template>
     </category>
   </topic>
-  ```
-]
+  ```,
+  kind: "snip",
+  caption: [Esempio di utilizzo del tag `<topic>` in AIML.],
+)
 
 In questo modo le regole legate ai saluti sono tutte contenute all'interno di un blocco `<topic>` chiamato `saluti`.
 
@@ -138,7 +148,7 @@ In questo modo le regole legate ai saluti sono tutte contenute all'interno di un
 
 Il tag `<srai>`#footnote[Stimulus-Response Artificial Intelligence @aiml] permette di reindirizzare l'input ad un'altra regola, che verrà processata come se fosse stata digitata dall'utente. È molto utile per riutilizzare risposte o logiche già definite:
 
-#align(center)[
+#figure(
   ```xml
   <topic name="saluti">
     <category>
@@ -148,8 +158,10 @@ Il tag `<srai>`#footnote[Stimulus-Response Artificial Intelligence @aiml] permet
       </template>
     </category>
   </topic>
-  ```
-]
+  ```,
+  kind: "snip",
+  caption: [Esempio di utilizzo del tag `<srai>` in AIML.],
+)
 
 Se l'utente scrive "Saluta Andrea", la regola cattura "SALUTA \*" e reindirizza il contenuto (in questo caso “CIAO”) a un'altra categoria.
 Se esiste una categoria che gestisce il pattern “CIAO”, verrà attivata la relativa risposta.
@@ -161,7 +173,7 @@ Esiste anche una versione contratta di `<srai>` chiamata `<sr>`, che è stata pr
 Abbiamo già visto `<think>` in azione per evitare che il contenuto venga mostrato all'utente.
 In generale, `<think>` è utile quando vogliamo impostare o manipolare variabili senza generare output visibile, ad esempio:
 
-#align(center)[
+#figure(
   ```xml
   <category>
     <pattern>ADESSO È *</pattern>
@@ -170,22 +182,26 @@ In generale, `<think>` è utile quando vogliamo impostare o manipolare variabili
       Grazie, ora so che la stagione attuale è <star/>!
     </template>
   </category>
-  ```
-]
+  ```,
+  kind: "snip",
+  caption: [Esempio di utilizzo del tag `<think>` in AIML.],
+)
 
 // #hrule()
 
 Il tag `<that>` permette di scrivere pattern che dipendono dalla risposta precedentemente fornita dal chatbot. È particolarmente utile per gestire contesti conversazionali più complessi:
 
-#align(center)[
+#figure(
   ```xml
   <category>
     <pattern>SI</pattern>
     <that>VA TUTTO BENE</that>
     <template>Felice di averti aiutato!</template>
   </category>
-  ```
-]
+  ```,
+  kind: "snip",
+  caption: [Esempio di utilizzo del tag `<that>` in AIML.],
+)
 
 In questo caso la regola sarà attivata se la risposta precedente del bot era “VA TUTTO BENE” e l'utente risponde in modo affermativo.
 
@@ -194,18 +210,22 @@ In questo caso la regola sarà attivata se la risposta precedente del bot era �
 
 Per rendere la conversazione più naturale, AIML 2.0 fornisce `<random>`, che permette di restituire una risposta fra più alternative:
 
-```xml
-<category>
-  <pattern>COME VA</pattern>
-  <template>
-    <random>
-      <li>Benissimo, grazie!</li>
-      <li>Abbastanza bene, e tu?</li>
-      <li>Non c'è male, e tu come stai?</li>
-    </random>
-  </template>
-</category>
-```
+#figure(
+  ```xml
+  <category>
+    <pattern>COME VA</pattern>
+    <template>
+      <random>
+        <li>Benissimo, grazie!</li>
+        <li>Abbastanza bene, e tu?</li>
+        <li>Non c'è male, e tu come stai?</li>
+      </random>
+    </template>
+  </category>
+  ```,
+  kind: "snip",
+  caption: [Esempio di utilizzo del tag `<random>` in AIML.],
+)
 
 Ogni volta che l'utente scrive “Come va”, il bot sceglierà casualmente una delle tre risposte elencate.
 
@@ -213,24 +233,31 @@ Ogni volta che l'utente scrive “Come va”, il bot sceglierà casualmente una 
 
 Alcune versioni di AIML supportano `<learn>`, che consente al bot di aggiungere nuove categorie “al volo” durante l'esecuzione:
 
-```xml
-<category>
-  <pattern>TI INSEGNO *</pattern>
-  <template>
-    <think>
-      <learn>
-        <![CDATA[
-          <category>
-            <pattern><star/></pattern>
-            <template>Ho imparato a rispondere a "<star/>"!</template>
-          </category>
-        ]]>
-      </learn>
-    </think>
-    Ho imparato una nuova regola!
-  </template>
-</category>
-```
+#{
+  show figure.where(kind: "snip"): set block(breakable: true)
+  figure(
+    ```xml
+    <category>
+      <pattern>TI INSEGNO *</pattern>
+      <template>
+        <think>
+          <learn>
+            <![CDATA[
+              <category>
+                <pattern><star/></pattern>
+                <template>Ho imparato a rispondere a "<star/>"!</template>
+              </category>
+            ]]>
+          </learn>
+        </think>
+        Ho imparato una nuova regola!
+      </template>
+    </category>
+    ```,
+    kind: "snip",
+    caption: [Esempio di utilizzo del tag `<learn>` in AIML.],
+  )
+}
 
 === Criticità e limiti di AIML
 
@@ -253,7 +280,7 @@ Nelle sezioni successive sarà mostrato il percorso seguito per cercare di migli
 
 Come detto poco sopra, uno dei limiti di AIML è la gestione limitata di varianti linguistiche e contesti conversazionali.
 
-Per permettere all'AIML di generalizzare sulle richieste degli utenti, il botmaster deve dichiarare delle generalizzazioni esplicite, ad esempio utilizzando wildcard o pattern che catturano più varianti di una stessa richiesta.
+Per permettere all'AIML di generalizzare sulle richieste degli utenti, il botmaster #footnote[Lo sviluppatore delle regole AIML per un certo progetto] deve dichiarare delle generalizzazioni esplicite, ad esempio utilizzando wildcard o pattern che catturano più varianti di una stessa richiesta.
 Questo processo richiede tempo e competenze linguistiche, oltre ad una grande attenzione per evitare ambiguità o sovrapposizioni tra regole.
 
 Durante il mio percorso di ricerca ho deciso di seguire una strada simile a quella di AIML, ma facendo un passo indietro e ponendomi la domanda:
@@ -264,11 +291,11 @@ Durante il mio percorso di ricerca ho deciso di seguire una strada simile a quel
 
 Il percorso per arrivare al modello di classificazione di intenti ha richiesto i suoi tempi, ma alla fine ho ottenuto dei risultati che ritengo soddisfacenti.
 
-I problemi principali da risolvere per poter classificare gli intenti sono due: la raccolta di dati etichettati e la scelta del modello di classificazione.
+I problemi principali da risolvere per poter classificare gli intenti sono due: la *raccolta di dati* etichettati e la *scelta del modello* di classificazione.
 
 === Dataset di training // Come ho raccolto i dati etichettati per addestrare il modello
 
-Di base, nel mondo dell'apprendimento automatico supervisionato, per addestrare un modello di classificazione è necessario un dataset di esempi etichettati, cioè coppie di input e output che il modello deve apprendere a generalizzare.
+Di base, nel mondo dell'apprendimento automatico supervisionato, per addestrare un modello di classificazione è necessario un dataset di *esempi etichettati*, cioè coppie di input e output su cui il modello deve imparare a generalizzare.
 
 Per la classificazione di intenti, i dataset più comuni sono quelli di chatbot e assistenti vocali, che contengono domande e richieste etichettate con l'intento che l'utente vuole esprimere.
 
@@ -276,10 +303,11 @@ Il dataset originario fornitomi è stato composto in seguito a una campagna di r
 
 Il dataset è una collezione di circa 700 singole interazioni "botta e risposta" prodotte dagli utenti durante la prima fase di sperimentazione.
 Metà sono domande, l'altra metà coincide con ciò che il chatbot ha risposto.
+Sono anche presenti ulteriori metriche e valutazioni qualitative delle interazioni, che però non sono state utilizzate per l'addestramento del modello di classificazione.
 
 ==== Estrazione dei dati
 
-Dovendo addestrare un modello di classificazione, ho proceduto innanzitutto con l'estrazione dei dati effettivamente a noi necessari. Un piccolo script python che adopera la libreria `pandas`@pandas è stato sufficiente:
+Dovendo addestrare un modello di classificazione, ho provveduto innanzitutto ad estrarre i dati effettivamente a noi necessari. Un piccolo script python che adopera la libreria `pandas`@pandas è stato sufficiente:
 
 #figure(
   ```python
@@ -300,6 +328,7 @@ Dovendo addestrare un modello di classificazione, ho proceduto innanzitutto con 
 
   df.to_csv("./filtered_data.csv")
   ```,
+  kind: "script",
   caption: [Estrazione dei dati dal dataset di interazione.],
 )
 
@@ -343,6 +372,7 @@ Per poter automatizzare l'etichettatura usando una LLM, prima di tutto ho identi
     "EFFICIENCY": "Questions about the efficiency or minimal representation of the automaton."
   }
   ```,
+  kind: "snip",
   caption: [Etichette possibili per le domande del dataset.],
 )
 
@@ -397,6 +427,7 @@ I prompt sono stati scelti in modo da fornire informazioni utili ai modelli per 
     """
   ]
   ```,
+  kind: "snip",
   caption: [Prompt utilizzati per l'etichettatura delle domande.],
 )
 
@@ -449,6 +480,7 @@ Viene importata una classe `Chat`, da me sviluppata, che permette di interagire 
           print(progress_bar.format_dict["elapsed"])
           progress_bar.close()
   ```,
+  kind: "script",
   caption: [Prompting delle domande con i modelli di LLM.],
 )
 
@@ -493,6 +525,7 @@ Come accennato, è stato adoperato un sistema di majority voting per combinare i
       majority_label = label_counts.most_common(1)[0][0]
       return majority_label
   ```,
+  kind: "snip",
   caption: [Funzione di majority voting per combinare le etichette.],
 )
 
@@ -653,12 +686,13 @@ In totale sono stati aggiunti 851 nuovi quesiti, con la seguente distribuzione:
       )
     })
   },
-  caption: [Distribuzione delle domande originali e delle domande generate artificialmente per ogni classe principale.],
+  kind: "plot",
+  caption: [Distribuzione delle domande originali e generate artificialmente per ogni classe principale.],
 ) <augmented-distribution-primary>
 
 Le domande off-topic aggiuntive sono state estratte dal dataset SQUAD #footnote[Stanford Question Answering Dataset] v2 @squad1 @squad2, per avere una sufficiente varietà di domande non pertinenti.
 
-Anche le classi secondarie hanno ricevuto alcune migliorie alla distribuzione, che rimane comunque ancora sbilanciata, com'è possibile vedere nella #ref(<augmented-distribution-secondary>):
+Anche le classi secondarie hanno ricevuto alcune migliorie alla distribuzione, che rimane comunque ancora sbilanciata, com'è possibile vedere nel #ref(<augmented-distribution-secondary>):
 
 #figure(
   {
@@ -718,20 +752,21 @@ Anche le classi secondarie hanno ricevuto alcune migliorie alla distribuzione, c
       )
     })
   },
-  caption: [Distribuzione delle domande originali e delle domande generate artificialmente per ogni classe secondaria.],
+  kind: "plot",
+  caption: [Distribuzione delle domande originali e generate artificialmente per ogni classe secondaria.],
 ) <augmented-distribution-secondary>
 
 Nonostante lo sbilanciamento, è stato possibile ottenere dei buoni risultati in seguito al fine-tuning.
 
-L'utilizzo del dataset SQUAD ha anche introdotto un'ulteriore incremento delle performance, portando a una diminuzione dell'erronea classificazione di esempi off-topic come domande lecite. In particolare, le metriche di entropia e confidenza durante il fine tuning sono migliorate rispettivamente del 17 e del 7%.
+L'utilizzo del dataset SQUAD ha anche introdotto un'ulteriore incremento delle performance, portando a una diminuzione dell'erronea classificazione di esempi off-topic come domande lecite. In particolare, le metriche di entropia e confidenza durante il fine tuning sono migliorate rispettivamente del 17% e del 7%.
 
 === Fine-tuning <fine-tuning> // Cosa ho usato delle LLM per fare classificazione
 
-Per poter utilizzare le Large Language Models (LLM) per la classificazione di intenti, ho dovuto seguire un processo di fine-tuning.
+Per poter utilizzare i Large Language Models (LLM) per la classificazione di intenti, ho dovuto seguire un processo di fine-tuning.
 
 Il fine-tuning avviene verso la fine della preparazione di un modello di machine learning.
 In particolare, è la fase in cui si prende un modello pre-addestrato su un compito generale (o su una grande quantità di dati non etichettati) e lo si “specializza” su un compito specifico, come la classificazione di intenti, l'analisi del sentiment o il riconoscimento di entità nominate.\
-Si parte quindi da un modello che possiede già una buona conoscenza linguistica di base (perché allenato, ad esempio, su quantità imponenti di testo come Wikipedia, libri o pubblicazioni) e lo si ri-addestra su un dataset mirato, così da fargli apprendere le particolarità e le sfumature del nuovo scenario applicativo.
+Si parte quindi da un modello che possiede già una buona conoscenza linguistica di base (perché allenato, ad esempio, su quantità imponenti di testo come Wikipedia, libri o pubblicazioni) e lo si addestra ulteriormente su un dataset mirato, così da fargli apprendere le particolarità e le sfumature del nuovo scenario applicativo, senza dover ripartire da zero.
 
 Sul piano tecnico, il processo di fine-tuning si fonda sugli stessi principi del _learning by example_: si forniscono al modello coppie di input e output (nel caso di una classificazione, l'output è la classe corretta), e si calcola la loss (ad esempio la cross-entropy tra le probabilità previste dal modello e quelle desiderate).\
 Tramite la _backpropagation_ dell'errore, i pesi del modello vengono aggiornati iterativamente, così da allineare le predizioni alle etichette reali.
@@ -742,7 +777,7 @@ Il risultato è che, dopo un numero sufficiente di iterazioni (o epoche), il mod
   caption: [Processo di fine-tuning di un modello di LLM. *IMMAGINE DA SOSTITUIRE*],
 )
 
-L’elemento distintivo del fine-tuning rispetto a un addestramento “da zero” (o from scratch) sta nel fatto che la maggior parte dei pesi del modello non parte da valori iniziali casuali, bensì da un punto in cui il modello ha già “appreso” molte regole e pattern del linguaggio.
+L'elemento distintivo del fine-tuning rispetto a un addestramento “da zero” (o from scratch) sta nel fatto che la maggior parte dei pesi del modello non parte da valori iniziali casuali, bensì da un punto in cui il modello ha già “appreso” molte regole e pattern del linguaggio.
 Se nel pre-addestramento ha appreso, ad esempio, la nozione di contesto, la correlazione fra parole vicine e la loro valenza semantica, durante il fine-tuning deve semplicemente specializzarsi nel riconoscere come queste informazioni si combinano per risolvere il compito target.
 Questo riduce drasticamente la quantità di dati e di risorse computazionali necessarie a raggiungere buone prestazioni.
 
@@ -780,22 +815,24 @@ In un contesto di classificazione di intenti, ad esempio, si può utilizzare `Au
 
 Un esempio di codice di inizializzazione è il seguente:
 
-#align(center)[
+#figure(
   ```python
   from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
   model_name = "bert-base-uncased"
   tokenizer = AutoTokenizer.from_pretrained(model_name)
   model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=num_classes)
-  ```
-]
+  ```,
+  kind: "snip",
+  caption: [Inizializzazione di un modello BERT per la classificazione di intenti.],
+)
 
 `model` è in grado di elaborare sequenze di token generate dal tokenizer e, una volta fine-tuned, produce come output le probabilità di appartenere alle varie classi (o intenti) da classificare. Questa è la base su cui mi sono appoggiato per la classificazione delle domande del dataset.
 
 === Implementazione
 
 In questa sezione sarà presentata la procedura di fine-tuning che ho implementato per addestrare un modello di classificazione di intenti basato su architetture Transformer.\
-L'intero processo sfrutta principalmente la libreria `transformers` di Huggingface @huggingface_transformers, in combinazione con altri strumenti sempre dell'ecosistema FOSS #footnote[Free and Open Source Software, cioè Software *Libero* e Open Source] di Huggingface, come `datasets`.
+L'intero processo sfrutta principalmente la libreria `transformers` di Huggingface @huggingface_transformers, in combinazione con altri strumenti sempre dell'ecosistema FOSS #footnote[Free and Open Source Software, cioè Software *Libero* e Open Source @gplv3 @fsfs] di Huggingface, come `datasets`.
 
 L'utilizzo di queste librerie permette di semplificare notevolmente il processo di fine-tuning, fornendo API intuitive e funzionalità di alto livello per la gestione dei dati, la creazione dei modelli e la valutazione delle performance.
 In questo modo è possibile addestrare un modello di classificazione di intenti in poche righe di codice, senza dover scrivere manualmente i loop di training e validation, o implementare da zero la logica di salvataggio e caricamento dei modelli, nonostante questa via sia sempre possibile.
@@ -838,6 +875,7 @@ Qui effettuo la suddivisione stratificata tra train e validation, tokenizzo i te
 
     return train_dataset, eval_dataset
   ```,
+  kind: "fun",
   caption: [Funzione per la preparazione del dataset.],
 )
 
@@ -880,6 +918,7 @@ Lo snippet seguente mostra la funzione `compute_metrics`:
     }
     return metrics
   ```,
+  kind: "fun",
   caption: [Funzione per il calcolo delle metriche di valutazione.],
 )
 
@@ -943,57 +982,62 @@ Il metodo espone diversi parametri significativi:
 Un'ultima considerazione molto importante riguarda il parametro `report_to`, che consente di specificare a quali servizi di logging inviare i risultati del training.\
 Nel mio caso, ho scelto di fare affidamento a *Weights and Biases* #footnote[Weights and Biases, abbreviato `Wandb`, è un servizio di monitoraggio e logging per l'addestramento di modelli di machine learning] in modalità online, in modo da poter monitorare in tempo reale le performance del modello durante il fine-tuning.
 
-#figure(```python
-def run_fine_tuning(model: AutoModelForSequenceClassification,
-                  tokenizer: AutoTokenizer,
-                  train_dataset: Dataset,
-                  eval_dataset: Dataset,
-                  wandb_mode: str,
-                  num_train_epochs=20) -> Trainer:
-  """
-  Fine-tunes a pre-trained model on the provided training dataset and evaluates it on the evaluation dataset.
-  """
-  report_to = ["wandb"] if wandb_mode == "online" else None
+#figure(
+  ```python
+  def run_fine_tuning(model: AutoModelForSequenceClassification,
+                    tokenizer: AutoTokenizer,
+                    train_dataset: Dataset,
+                    eval_dataset: Dataset,
+                    wandb_mode: str,
+                    num_train_epochs=20) -> Trainer:
+    """
+    Fine-tunes a pre-trained model on the provided training dataset and evaluates it
+    on the evaluation dataset.
+    """
+    report_to = ["wandb"] if wandb_mode == "online" else None
 
-  training_args = TrainingArguments(
-      output_dir='./temp',  # Directory to save the model and other outputs
-      num_train_epochs=num_train_epochs,  # Number of training epochs
-      learning_rate=2e-5,  # Learning rate for the optimizer
-      warmup_ratio=0.1,  # Warmup for the first 10% of steps
-      lr_scheduler_type='linear',  # Linear scheduler
-      per_device_train_batch_size=16,  # Batch size for training
-      per_device_eval_batch_size=16,  # Batch size for evaluation
-      save_strategy='epoch',  # Save the model at the end of each epoch
-      logging_strategy='epoch',  # Log metrics at the end of each epoch
-      eval_strategy='epoch',  # Evaluate the model at the end of each epoch
-      logging_dir='./temp/logs',  # Directory to save the logs
-      load_best_model_at_end=True,  # Load the best model at the end by evaluation metric
-      metric_for_best_model='f1',  # Use subtopic F1-score to determine the best model
-      greater_is_better=True,  # Higher metric indicates a better model
-      save_total_limit=1,  # Limit the total number of saved models
-      save_only_model=True,  # Save only the model weights
-      report_to=report_to,  # Report logs to Wandb if mode is "online"
-  )
+    training_args = TrainingArguments(
+        output_dir='./temp',  # Directory to save the model and other outputs
+        num_train_epochs=num_train_epochs,  # Number of training epochs
+        learning_rate=2e-5,  # Learning rate for the optimizer
+        warmup_ratio=0.1,  # Warmup for the first 10% of steps
+        lr_scheduler_type='linear',  # Linear scheduler
+        per_device_train_batch_size=16,  # Batch size for training
+        per_device_eval_batch_size=16,  # Batch size for evaluation
+        save_strategy='epoch',  # Save the model at the end of each epoch
+        logging_strategy='epoch',  # Log metrics at the end of each epoch
+        eval_strategy='epoch',  # Evaluate the model at the end of each epoch
+        logging_dir='./temp/logs',  # Directory to save the logs
+        load_best_model_at_end=True,  # Load the best model at the end by evaluation metric
+        metric_for_best_model='f1',  # Use subtopic F1-score to determine the best model
+        greater_is_better=True,  # Higher metric indicates a better model
+        save_total_limit=1,  # Limit the total number of saved models
+        save_only_model=True,  # Save only the model weights
+        report_to=report_to,  # Report logs to Wandb if mode is "online"
+    )
 
-  trainer = Trainer(
-      model=model,  # The model to be trained
-      args=training_args,  # Training arguments
-      train_dataset=train_dataset,  # Training dataset
-      eval_dataset=eval_dataset,  # Evaluation dataset
-      processing_class=tokenizer,  # Tokenizer for processing the data
-      compute_metrics=compute_metrics  # Function to compute evaluation metrics
-  )
+    trainer = Trainer(
+        model=model,  # The model to be trained
+        args=training_args,  # Training arguments
+        train_dataset=train_dataset,  # Training dataset
+        eval_dataset=eval_dataset,  # Evaluation dataset
+        processing_class=tokenizer,  # Tokenizer for processing the data
+        compute_metrics=compute_metrics  # Function to compute evaluation metrics
+    )
 
-  print(f"Trainer is using device: {trainer.args.device}")
+    print(f"Trainer is using device: {trainer.args.device}")
 
-  trainer.train()  # Start the training process
+    trainer.train()  # Start the training process
 
-  return trainer
-```)
+    return trainer
+  ```,
+  kind: "fun",
+  caption: [Funzione per l'addestramento del modello.],
+)
 
 La quasi totalità dei dati mostrati in questo documento sono stati raccolti tramite Wandb, riducendo enormemente il tempo necessario per l'analisi e la visualizzazione dei risultati: il salvataggio automatico ad ogni run e la possibilità di confrontare run diversi in un'unica dashboard sono state funzionalità fondamentali per la mia sperimentazione.
 
-==== Modelli utilizzati
+==== Modelli e architettura utilizzate
 
 Tutti i modelli che ho utilizzato per la sperimentazione sono basati su BERT, o ELECTRA @electra, entrambi fondati sull'architettura encoder @bert.
 
@@ -1003,8 +1047,10 @@ In particolare, dal repository di Huggingface dedicato ai modelli di classificaz
 - `google/mobilebert-uncased` @mobilebert-uncased, versione di BERT ingegnerizzata con lo scopo di essere eseguibile su dispositivi mobili. Ha un totale di 25 milioni di parametri @mobilebert.
 - `google/electra-small-discriminator` @electra-hf, da 14 milioni di parametri. Questo modello è stato addestrato utilizzando tecniche simili a quelle utilizzate per addestrare le GAN #footnote[Generative Adversarial Networks, modelli addestrati in coppia, dove uno impara a svolgere un certo compito generativo, e l'altro a riconoscere se un certo esempio presentato è generato o meno.] @adversarial-nets @electra
 
-Tutti questi modelli sono direttamente adoperabili per i nostri scopi essendo modelli encoder: dato un certo input produrranno una rappresentazione vettoriale o matriciale.
+Tutti i modelli utilizzati sono direttamente adoperabili per i nostri scopi essendo modelli encoder: dato un certo input produrranno una rappresentazione vettoriale o matriciale.
 Il risultato è successivamente classificabile da una rete feed-forward, restituendo così come risultato la classe più probabile (si veda la #ref(<fine-tuning>)).
+
+#hrule()
 
 Sono state effettuate anche delle sperimentazioni con una variante della normale architettura, dove su un unico encoder vengono addestrati due modelli separati di classificazione, per riconoscere con un'unica esecuzione del modello entrambe le classi della domanda presentata.
 
@@ -1016,43 +1062,48 @@ Nonostante le performance peggiori, l'utilizzo di un modello del genere può ess
 
 L'intera implementazione fa nuovamente fondamento sull'enorme flessibilità della libreria `transformers`. È stato sufficiente infatti soltanto aggiungere le due classification heads ed estendere il metodo `forward` che si occupa della predizione:
 
-#figure(```python
-from torch import nn as nn
-from transformers import BertPreTrainedModel, BertModel
+#figure(
+  ```python
+  from torch import nn as nn
+  from transformers import BertPreTrainedModel, BertModel
 
 
-class BertForHierarchicalClassification(BertPreTrainedModel):
-    def __init__(self, config, num_main_topics, num_subtopics):
-        super().__init__(config)
-        self.bert = BertModel(config)
-        self.classifier_main = nn.Linear(config.hidden_size, num_main_topics)
-        self.classifier_sub = nn.Linear(config.hidden_size, num_subtopics)
-        self.init_weights()
+  class BertForHierarchicalClassification(BertPreTrainedModel):
+      def __init__(self, config, num_main_topics, num_subtopics):
+          super().__init__(config)
+          self.bert = BertModel(config)
+          self.classifier_main = nn.Linear(config.hidden_size, num_main_topics)
+          self.classifier_sub = nn.Linear(config.hidden_size, num_subtopics)
+          self.init_weights()
 
-    def forward(self, input_ids, attention_mask, labels_main=None, labels_sub=None):
-        outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)
-        pooled_output = outputs.pooler_output
-        logits_main = self.classifier_main(pooled_output)
-        logits_sub = self.classifier_sub(pooled_output)
+      def forward(self, input_ids, attention_mask, labels_main=None, labels_sub=None):
+          outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)
+          pooled_output = outputs.pooler_output
+          logits_main = self.classifier_main(pooled_output)
+          logits_sub = self.classifier_sub(pooled_output)
 
-        loss = None
-        if labels_main is not None and labels_sub is not None:
-            loss_fct = nn.CrossEntropyLoss()
-            loss_main = loss_fct(logits_main, labels_main)
-            loss_sub = loss_fct(logits_sub, labels_sub)
-            loss = loss_main + loss_sub  # Adjust weighting if needed
+          loss = None
+          if labels_main is not None and labels_sub is not None:
+              loss_fct = nn.CrossEntropyLoss()
+              loss_main = loss_fct(logits_main, labels_main)
+              loss_sub = loss_fct(logits_sub, labels_sub)
+              loss = loss_main + loss_sub  # Adjust weighting if needed
 
-        return {'loss': loss, 'logits_main': logits_main, 'logits_sub': logits_sub}
-```)
+          return {'loss': loss, 'logits_main': logits_main, 'logits_sub': logits_sub}
+  ```,
+  kind: "cls",
+  caption: [Estensione di un modello BERT per la classificazione gerarchica in-model.],
+)
 
 === Valutazione e performance <valutazione_ft> // Spiegazione di come ho valutato i risultati dei classificatori
 
-Come spiegato nella #ref(<metriche_bert>), per compiere l'addestramento dei modelli è stato essenziale sfruttare metriche di valutazione adeguate, in grado di fornire un quadro completo delle performance del modello.
+Come spiegato a #ref(<metriche_bert>, form: "page"), per compiere l'addestramento dei modelli è stato essenziale sfruttare metriche di valutazione adeguate, in grado di fornire un quadro completo delle performance del modello.
 
-Iniziamo quindi ad osservare i risultati dell'addestramento sulla classe principale del dataset:
+Iniziamo quindi valutando i risultati dell'addestramento sulla classe principale del dataset:
 
 #figure(
   image("../media/f1_final.png"),
+  kind: "plot",
   caption: [Confronto delle performance di F1 tra i modelli addestrati.],
 )
 
@@ -1083,10 +1134,11 @@ Le differenze di performance sono sempre da confrontare considerando anche il te
         x-label: "Tempo di esecuzione in secondi",
         y-label: "Classe di training",
         legend: "inner-south-east",
-        bar-style: palette.new(colors: (aqua, green, red, yellow)),
+        bar-style: palette.new(colors: (red, green, purple, aqua)),
       )
     })
   },
+  kind: "plot",
   caption: [Confronto dei tempi di addestramento per ciascuna classe di training.],
 )
 
@@ -1152,12 +1204,16 @@ Possiamo anche vedere come, dove questo non è in grado di classificare una cert
 #figure(
   grid(
     rows: 2,
-    image("../../multitask_training/diagrams/aiml/confusion_matrices_aiml_main.svg", height: 8cm),
+    image(
+      "../../multitask_training/diagrams/aiml/confusion_matrices_aiml_main.svg",
+      height: 8cm,
+    ),
     image(
       "../../multitask_training/diagrams/BertForSequenceClassification/confusion_matrices_bert_main.svg",
       height: 8cm,
     ),
   ),
+  kind: "plot",
   caption: [Matrici di confusione per la classe principale classificata con AIML e BERT.],
 ) <conf_aiml_main>
 

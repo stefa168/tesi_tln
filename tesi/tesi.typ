@@ -66,6 +66,13 @@
   stroke: none,
 )
 
+#show figure.where(kind: "plot"): set figure(supplement: [Grafico])
+#show figure.where(kind: "snip"): set figure(supplement: [Snippet])
+#show figure.where(kind: "script"): set figure(supplement: [Script])
+#show figure.where(kind: "fun"): set figure(supplement: [Funzione])
+#show figure.where(kind: "cls"): set figure(supplement: [Classe])
+// #show figure.where(kind: "snip"): set block(breakable: true)
+
 #include "chapters/1_introduction.typ"
 #pagebreak(weak: true)
 

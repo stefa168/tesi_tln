@@ -1993,6 +1993,27 @@ scikit-learn:
   serial-number:
     doi: 10.48550/arXiv.1201.0490
 
+gplv3:
+  type: misc
+  title: GNU General Public License
+  date: 2007-06-29
+  organization: Free Software Foundation
+  url: http://www.gnu.org/licenses/gpl.html
+  serial-number:
+    version: '3'
+
+fsfs:
+  type: book
+  title: 'Free software free society: selected essays of Richard M. Stallman'
+  author: Stallman, Richard
+  date: 2015
+  publisher: Free Software Foundation
+  location: Boston, Mass.
+  edition: 3rd
+  url: https://www.gnu.org/doc/fsfs3-hardcover.pdf
+  serial-number:
+    isbn: 978-0-9831592-5-4
+
 doccano:
   type: misc
   title: "{doccano}: Text Annotation Tool for Human"
