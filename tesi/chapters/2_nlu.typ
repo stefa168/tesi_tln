@@ -1311,14 +1311,22 @@ Possiamo estendere queste affermazioni anche alle classi di intenti secondarie (
       [Weighted avg], [0.24], [0.28], [0.20], [468],
     )
 
-    #figure(
-      image("../../multitask_training/diagrams/aiml/confusion_matrices_aiml_sub.svg", height: 13cm),
-      caption: [Matrice di confusione per le classi secondarie classificate con AIML.],
-    ) <conf_aiml_sub>
+
   ],
 )
-
-
+#page(margin: (right: 3cm, left: 3.5cm, top: 2cm, bottom: 2cm))[
+  #figure(
+    grid(
+      rows: 2,
+      image("../../multitask_training/diagrams/aiml/confusion_matrices_aiml_sub.svg", height: 12.5cm),
+      image(
+        "../../multitask_training/diagrams/BertForSequenceClassification/confusion_matrices_bert_sub.svg",
+        height: 12.5cm,
+      )
+    ),
+    caption: [Matrice di confusione per le classi secondarie classificate con AIML e BERT.],
+  ) <conf_aiml_sub>
+]
 
 // mostrare confronto tra i modelli, più anche tabella performance
 
