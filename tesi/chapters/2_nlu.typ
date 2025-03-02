@@ -795,7 +795,7 @@ Il resto del modello rimane pressoché invariato: l'architettura interna, come i
 
 === BERT
 
-Prima di illustrare più nel dettaglio il fine-tuning, è utile introdurre BERT #footnote[Bidirectional Encoder Representations from Transformers] @bert, progenitore della famiglia di modelli da me utilizzati per la sperimentazione, nonchè uno dei modelli più noti e influenti degli ultimi anni in ambito Natural Language Processing.
+Prima di illustrare più nel dettaglio il fine-tuning, è utile introdurre BERT #footnote[Bidirectional Encoder Representations from Transformers] @bert, progenitore della famiglia di modelli da me utilizzati per la sperimentazione, nonchè uno dei modelli più noti e influenti degli ultimi anni nell'ambito del Natural Language Processing.
 
 BERT è stato proposto nel 2018 da #cite(<bert>, form: "prose") come un sistema capace di apprendere rappresentazioni contestuali del testo in modo bidirezionale, basandosi sull'architettura Transformer introdotta in precedenza da #cite(<vaswani2023attentionneed>, form: "prose").
 
@@ -944,7 +944,7 @@ stima la quota di esempi positivi che sono stati effettivamente riconosciuti com
 
 #hrule()
 
-L'*F1-score* fornisce una media armonica fra Precision e Recall, combinando entrambe le metriche in un singolo indice: $ "F1" = 2 dot ("Precision" dot "Recall") / ("Precision" + "Recall") $
+L'*F1-score* @Opitz_2024 fornisce una media armonica fra Precision e Recall, combinando entrambe le metriche in un singolo indice: $ "F1" = 2 dot ("Precision" dot "Recall") / ("Precision" + "Recall") $
 Un F1 score alto richiede che entrambe le metriche siano elevate; se una delle due è bassa, il valore di F1 tende drasticamente a ridursi.
 Questo lo rende particolarmente utile in casi di class imbalance o quando è importante non trascurare né la precisione né la capacità di recuperare tutti i positivi.
 
@@ -1110,8 +1110,7 @@ Iniziamo quindi valutando i risultati dell'addestramento sulla classe principale
   caption: [Confronto delle performance di F1 tra i modelli addestrati.],
 )
 
-Come possiamo osservare, i modelli `bert` e `distilbert` hanno performance pressochè identiche (la differenza è dello 0.01%), mentre i modelli `mobilebert` e `electra` differiscono di circa l'8% rispetto a `bert`.
-Le performance crescono man mano che procediamo con il processo di fine tuning, ma si stabilizzano dopo aver visto circa i tre quarti del dataset.
+Come possiamo osservare, le performance crescono man mano che procediamo con il processo di fine tuning, ma si stabilizzano dopo aver visto circa i tre quarti del dataset. I modelli `bert` e `distilbert` terminano l'addestramento con performance pressochè identiche (la differenza è dello 0.01%), mentre i modelli `mobilebert` e `electra` differiscono di circa l'8% rispetto a `bert`.
 
 Le differenze di performance sono sempre da confrontare considerando anche il tempo di addestramento e la complessità del modello: `electra` ad esempio, pur avendo performance leggermente inferiori, è stato addestrato in meno della metà del tempo rispetto a `bert`.
 
@@ -1130,11 +1129,11 @@ Le differenze di performance sono sempre da confrontare considerando anche il te
       chart.barchart(
         plot_data,
         mode: "clustered",
-        size: (10, auto),
+        size: (10, 5.5),
         label-key: 0,
         value-key: (1, 2, 3, 4),
         labels: ([bert], [distilbert], [mobilebert], [electra]),
-        x-label: "Tempo di esecuzione in secondi",
+        x-label: "Tempo di addestramento in secondi",
         y-label: "Classe di training",
         legend: "inner-south-east",
         bar-style: palette.new(colors: (red, green, purple, aqua)),
@@ -1145,23 +1144,50 @@ Le differenze di performance sono sempre da confrontare considerando anche il te
   caption: [Confronto dei tempi di addestramento per ciascuna classe di training.],
 )
 
-Questo salto nei tempi di addestramento così brusco in realtà si rivelerà essere un problema, come vedremo poco più avanti.
+Questo salto nei tempi di addestramento così brusco in realtà porta dei peggioramenti: le sue performance su un test separato mostra risultati peggiori ridotte rispetto agli altri modelli, come possiamo constatare nel @performance_f1_test_training. Questo ci ricorda come la scelta del modello non debba essere fatta solo in base alle performance ottenute durante l'addestramento, ma che queste devono essere sempre confermate verificando con un test set separato.
 
-#hrule()
+#figure(
+  {
+    let plot_data = (
+      ([BERT], 0.89711, 0.92, 0.86),
+      ([DistilBERT], 0.88114, 0.92, 0.84),
+      ([MobileBERT], 0.816, 0.81, 0.73),
+      ([ELECTRA], 0.833, 0.80, 0.42),
+      ([AIML], 0, 0.33, 0.2),
+    )
+    canvas({
+      draw.set-style(legend: (fill: white), barchart: (bar-width: .8, cluster-gap: 0))
+      chart.barchart(
+        plot_data,
+        mode: "clustered",
+        size: (10, 6),
+        label-key: 0,
+        value-key: (1, 2, 3, 5),
+        labels: ([Classe Principale (training)], [Classe Principale (test)], [Classe Secondaria (test)]),
+        x-label: "F1 Score",
+        y-label: "Modello Utilizzato",
+        legend: "inner-south-east",
+        bar-style: palette.new(colors: (green, red, aqua)),
+      )
+    })
+  },
+  kind: "plot",
+  caption: [Confronto delle performance di F1 tra i modelli addestrati.\ È anche mostrato il valore di F1 per la classe principale ottenuto durante il fine-tuning dei modelli.],
+) <performance_f1_test_training>
 
-Da un punto di vista qualitativo, iniziamo a osservare le performance di AIML, che useremo come baseline di riferimento per il confronto con gli altri modelli neurali.\
+Tutte le valutazioni sono effettuate utilizzando un ulteriore dataset di test, separato dal dataset di training e di validazione, per evitare overfitting e garantire una valutazione imparziale.
+È composto da 468 ulteriori domande, distribuite in modo da assicurare una verifica sufficiente su tutte le classi di intenti secondarie, cruciali per la corretta classificazione e per fornire effettivamente risposte utili agli utenti.
+
+Utilizzeremo le performance di AIML come baseline di riferimento per il confronto con gli altri modelli neurali. In seguito alla comparazione delle performance mediante la metrica F1 tra i vari modelli vista in @performance_f1_test_training, d'ora in avanti ci concentreremo sulle metriche ottenute con `bert-base-uncased`, il modello più performante tra quelli addestrati.
+
 Per poterlo fare, sfrutteremo le matrici di confusione per valutare le performance dei modelli, in particolare per osservare come si comportano in presenza di classi sbilanciate o di domande ambigue. #footnote[Una matrice di confusione è una tabella che mostra il numero di predizioni corrette e incorrette fatte dal modello, confrontando le predizioni con le etichette reali.]
 Siamo interessati a capire se il modello riesce a classificare correttamente domande mai viste; con la matrice di confusione ci aspetteremo di vedere una diagonale principale molto più marcata rispetto agli altri elementi, indicando che il modello è in grado di classificare correttamente la maggior parte delle domande.
 
-Tutte le valutazioni qualitative sono effettuate utilizzando un ulteriore dataset di test, separato dal dataset di training e di validazione, per evitare overfitting e garantire una valutazione imparziale.
-È composto da 468 ulteriori domande, distribuite in modo da assicurare una verifica sufficiente su tutte le classi di intenti secondarie, cruciali per la corretta classificazione e per fornire effettivamente risposte utili agli utenti.
+Saranno anche presentate le tabelle di valutazione per ciascuna classe, in modo da poter osservare le performance di ciascun modello in modo più dettagliato.
 
 Le metriche presentate nelle tabelle seguenti sono state prodotte utilizzando la funzione `classification_report` della libreria `scikit-learn` @scikit-learn, che calcola precision, recall e F1 score per ciascuna classe, oltre all'accuracy complessiva.
 
-Il modello, nonostante sia costituito da un numero non indifferente di regole e pattern (103), ha performance mediamente basse, con un F1 score medio del 33% (#ref(<valutazione_aiml_main>)).
-Possiamo anche vedere come, dove questo non è in grado di classificare una certa domanda, finisca col classificarla come off-topic, indicando una certa difficoltà nel riconoscere domande in realtà valide per il nostro dominio (#ref(<conf_aiml_main>)).
-
-// aggiungere plot per le performance sulle classi primarie e secondarie per i vari modelli.
+Il modello AIML, nonostante sia costituito da un numero non indifferente di regole e pattern (103), ha performance mediamente basse, con un F1 score medio del 33% rispetto al 92% di BERT (@valutazione_aiml_main).
 
 #figure(
   caption: [Risultati delle metriche principali di valutazione per la classificazione\
@@ -1204,6 +1230,8 @@ Possiamo anche vedere come, dove questo non è in grado di classificare una cert
   )
 ] <valutazione_aiml_main>
 
+Possiamo anche vedere come, dove questo non sia in grado di classificare una certa domanda, finisca col classificarla come off-topic, indicando una certa difficoltà nel riconoscere domande in realtà valide per il nostro dominio (@conf_aiml_main).
+
 #figure(
   grid(
     rows: 2,
@@ -1217,10 +1245,13 @@ Possiamo anche vedere come, dove questo non è in grado di classificare una cert
     ),
   ),
   kind: "plot",
-  caption: [Matrici di confusione per la classe principale classificata con AIML e BERT.],
+  caption: [Matrici di confusione per la classe principale classificata con AIML (sopra) e BERT (sotto).\ Seguendo una certa riga (classe) possiamo vedere per ogni colonna (classe predetta) quanti esempi sono stati classificati correttamente e quanti no. La diagonale invece indica il numero di esempi classificati senza errori.],
 ) <conf_aiml_main>
 
-Possiamo estendere queste affermazioni anche alle classi di intenti secondarie (#ref(<conf_aiml_sub>)), dove il modello mostra un F1 score medio del 9%.
+Le stesse osservazioni sono applicabili anche alle classi di intenti secondarie (@valutazione_aiml_bert_sub), dove AIML mostra un F1 score medio del 20%, rispetto all'86% di BERT.
+
+Le matrici di confusione confermano le tendenze già presentate dai due modelli per la classe principale, con BERT che mostra una diagonale principale molto marcata (@conf_aiml_sub). AIML effettivamente riesce a classificare correttamente pochi elementi delle varie classi, mentre BERT mostra una maggiore capacità di generalizzazione.
+
 #page(margin: (right: 2cm, left: 2cm, top: 2cm, bottom: 2cm))[
   #figure(
     table(
@@ -1262,7 +1293,6 @@ Possiamo estendere queste affermazioni anche alle classi di intenti secondarie (
       [GENERIC], [0.00], [0.00], [0.00], [0.00], [0.00], [0.00], [2],
       [LABEL], [0.00], [0.00], [0.00], [0.00], [0.00], [0.00], [9],
       [LIST], [0.00], [0.00], [0.00], [1.00], [1.00], [1.00], [10],
-      [ND], [0.00], [0.00], [0.00], [0.90], [0.90], [0.90], [0],
       [OFF_TOPIC], [0.26], [0.82], [0.39], [1.00], [0.96], [0.98], [100],
       [OVERVIEW], [0.00], [0.00], [0.00], [0.50], [0.67], [0.57], [3],
       [PATTERN], [0.75], [0.90], [0.82], [1.00], [1.00], [1.00], [10],
@@ -1283,7 +1313,7 @@ Possiamo estendere queste affermazioni anche alle classi di intenti secondarie (
       [Weighted avg], [0.24], [0.28], [0.20], [0.87], [0.86], [0.86], [468],
     ),
     caption: [Risultati delle metriche di valutazione per la classificazione delle classi secondarie con AIML e BERT.],
-  )
+  ) <valutazione_aiml_bert_sub>
 ]
 
 #page(margin: (right: 3cm, left: 3.5cm, top: 2cm, bottom: 2cm))[
@@ -1296,16 +1326,251 @@ Possiamo estendere queste affermazioni anche alle classi di intenti secondarie (
         height: 12.5cm,
       )
     ),
-    caption: [Matrici di confusione per le classi secondarie classificate con AIML e BERT.],
+    caption: [Matrici di confusione per le classi secondarie classificate con AIML (sopra) e BERT (sotto).],
   ) <conf_aiml_sub>
 ]
 
 == Riconoscimento delle entità
 
-=== NER e Slot-filling // Spiegazione di cosa sono
+Negli anni Novanta, parallelamente agli studi sull'Intelligenza Artificiale per la realizzazione di sistemi conversazionali rule-based come AIML, si sviluppavano anche nuovi compiti di Natural Language Processing (NLP) orientati all'estrazione di informazioni dal testo in modo più strutturato. Uno dei compiti chiave in questo processo è il Named Entity Recognition (NER), o riconoscimento delle entità nominate.
 
-=== Spacy // Come ho implementato la parte di NER con spacy
+Nato inizialmente nell'ambito di competizioni e conferenze come le *Message Understanding Conferences* @muc-history, il NER si propose come task cruciale per identificare all'interno di un testo i riferimenti a persone, organizzazioni, luoghi, date e altre categorie, assegnando a ciascuna entità un'etichetta appropriata. Se AIML, per certi versi, si concentra su _che cosa l'utente vuole_ (*intent classification*), il NER si focalizza su _chi o che cosa è menzionato_ all'interno di un messaggio o di un documento.
+
+Un semplice esempio può essere la frase "Mario Rossi ieri è stato a Roma per un incontro con Telecom Italia.". Un sistema NER ideale dovrebbe riconoscere:
+- Mario Rossi come una *persona* (`PERSON`);
+- Roma come un *luogo* (`LOC`);
+- Telecom Italia come un'*organizzazione* (`ORG`).
+
+In un chatbot avanzato, questa funzionalità è particolarmente importante perché consente di trasformare testi destrutturati (come messaggi, email o query di ricerca) in informazioni utilizzabili da moduli di analisi successivi.
+
+Consideriamo la possibilità che l'utente chieda a un chatbot che si occupa di automi a stati finiti "Qual è la differenza tra un *automa deterministico* e un *automa non deterministico*?": la NER dovrebbe individuare correttamente "automa deterministico" e "automa non deterministico" come entità rilevanti (anche se meno “classiche” rispetto a persona/luogo/organizzazione).\ In questo modo, il chatbot sa di dover recuperare informazioni specifiche su queste due tipologie di automi, assegnandole poi al modulo incaricato di rispondere alla domanda.
+
+=== Approcci e metodologie nel NER
+
+La ricerca sul riconoscimento delle entità (Named Entity Recognition) ha attraversato diverse fasi, ognuna caratterizzata da metodologie specifiche e da un livello di “intelligenza” sempre crescente @munnangi2024briefhistorynamedentity. Inizialmente, i sistemi si basavano su regole statiche o elenchi di entità predefiniti, mentre negli ultimi anni si è passati a tecniche di machine learning via via più complesse, fino ad arrivare ai più recenti modelli neurali basati su architetture di tipo Transformer.
+
+==== Metodi rule-based o a dizionario
+Nella prima fase, molti sistemi NER si affidavano a liste di entità note (chiamate “gazetteer”) e a regole linguistiche (pattern o espressioni regolari) per individuare nomi di persone, luoghi, organizzazioni e così via. L'idea di fondo era piuttosto semplice: se una parola compariva in un elenco di nomi propri oppure coincideva con un pattern di stringa (ad esempio iniziale maiuscola, presenza di determinati suffissi), allora veniva etichettata come entità.
+
+Questi approcci erano relativamente facili da implementare e sufficientemente efficaci in un contesto ben definito, purché gli elenchi fossero tenuti costantemente aggiornati. Tuttavia, mostravano rapidamente i loro limiti nel momento in cui si presentavano nomi o entità nuove non inclusi nei dizionari, oppure quando si operava in un dominio estremamente vasto (es. social media) o molto specialistico. In tali casi, l'aggiornamento continuo dei gazetteer e la gestione manuale delle regole si rivelavano complessi e poco scalabili.
+
+==== Metodi statistici (CRF, HMM, SVM)
+Successivamente, con la diffusione del machine learning, si sono affermati approcci statistici in grado di automatizzare gran parte del processo di individuazione e classificazione delle entità. Tra i metodi più noti, spiccano i Conditional Random Fields @crf-base, gli Hidden Markov Models @hmm e le Support Vector Machines @svm. Questi algoritmi imparano a riconoscere le entità partendo da un dataset annotato, ossia un corpus di testi in cui ogni parola è già etichettata come “entità” o “non entità” (con eventuali sotto-categorie quali PERSON, LOCATION, ORGANIZATION, ecc.).
+
+Il vantaggio principale di questo approccio è che i modelli statistici non dipendono più soltanto da elenchi o regole scritte dall'uomo: essi apprendono le regolarità linguistiche e i pattern lessicali (per esempio, la probabilità che un termine che inizia con la maiuscola sia un nome proprio di persona) direttamente dai dati. Per molti anni, questi metodi hanno rappresentato lo stato dell'arte del NER, garantendo performance elevate a fronte di un'adeguata disponibilità di dati annotati.
+
+==== Modelli neurali
+Negli ultimi anni, la scena del NER è stata rivoluzionata dall'avvento di reti neurali, inizialmente di tipo ricorrente (come RNN @rnn_intro o LSTM @lstm @colah) e, più di recente, di tipo Transformer @vaswani2023attentionneed (ad es. BERT @bert, RoBERTa, GPT). L'adozione di embedding per le parole e di meccanismi di attenzione (self-attention) ha permesso di superare molte limitazioni dei metodi precedenti, poiché queste architetture sono in grado di:
+
+- gestire contesti testuali più lunghi in modo efficace;
+- catturare la struttura sintattica e il significato semantico delle frasi;
+- fornire rappresentazioni linguistiche approfondite in grado di distinguere omonimi e contesti diversi.
+
+In questo modo, anche in domini molto specifici (come quello degli automi a stati finiti, in cui esistono entità specialistiche come "automa deterministico" o "automa non deterministico"), i modelli neurali si sono dimostrati capaci di riconoscere e catalogare con maggiore accuratezza le entità rilevanti @Polignano2021818. Questa evoluzione ha portato a un vero e proprio salto di qualità nelle prestazioni del NER, consentendo al sistema di operare su testi complessi e ricchi di sfumature senza richiedere il continuo intervento di programmatori o linguisti per aggiornare le regole manuali.
+
+=== Slot Filling
+
+Mentre il NER si concentra su dove compaiono le entità nel testo e su che tipo di entità si tratti (persona, luogo, organizzazione, ecc.), lo slot-filling rappresenta un'operazione più specifica e spesso orientata al dominio @Schank1975ScriptsPA @slot2. In altre parole:
+
+- Il NER produce una segmentazione e un'etichettatura generica: Mario Rossi → PERSON, Roma → LOC, ACME Corp. → ORG.
+- Lo slot-filling prende queste entità (o altre componenti di testo) e le associa a ruoli predefiniti, tipici di una determinata applicazione. Ad esempio, per un chatbot di viaggi potremmo avere:
+  - città_di_partenza = "Milano"
+  - città_di_arrivo = "Roma"
+  - data_viaggio = "2025-03-07"
+
+In alcuni sistemi, il compito di “trovare gli slot” e “riempirli” è integrato in un singolo modello (joint model di intent classification e slot-filling @ner-slot-joint). In altri casi, come in pipeline più complesse, si preferisce separare il passaggio di NER dal passaggio di mapping di dominio (slot-filling).
+
+Facciamo un esempio di conversazione per un assistente virtuale di prenotazione ristoranti:
+
+1. L'utente scrive: “Voglio prenotare un tavolo per stasera da Gianni”.
+2. Il NER riconosce nel testo:
+  - “Gianni” come entità di tipo `PER` (potrebbe essere ambiguo, ma in contesto gastronomico potrebbe anche essere un LOC se “Da Gianni” è il nome del ristorante).
+  - “stasera” come TIME.
+3. Lo slot-filling contestualizza:
+  - nome_ristorante = "Da Gianni"
+  - data_prenotazione = "2025-03-02 20:00" (se “stasera” è mappato a una data specifica e magari un orario predefinito)
+  - richiesta_utente = "prenotazione"
+
+Da un punto di vista implementativo, potremmo anche definire uno slot “ristorante” e uno slot “orario”, che vengono riempiti con i valori estratti. Il NER fornisce la base per capire dove si trovano le informazioni nel testo, mentre lo slot-filling si assicura di collocarle correttamente nei campi del database o nei parametri del servizio di prenotazione.
+
+=== Annotazione dei dati con Doccano
+
+Prima di procedere all'addestramento del modello di Named Entity Recognition, è stato necessario produrre un dataset adeguatamente etichettato. A questo scopo, ho impiegato Doccano @doccano, uno strumento web open-source pensato per facilitare il processo di annotazione di testi. L'interfaccia di Doccano consente di selezionare frammenti di testo (ad esempio, termini rilevanti in un dominio specifico) e assegnare loro delle etichette, generando in output un file JSONL pronto per la fase di training.
+
+Una serie di record del file JSONL prodotto da Doccano potrebbe avere il seguente formato:
+#figure(
+  ```json
+  [{
+      "id": 632,
+      "text": "What is the output when the automaton processes '1010'?",
+      "label": [[49,53,"input"]]
+  },
+  {
+      "id": 634,
+      "text": "Does the automaton accept strings where the number of '0's equals the number of '1's?",
+      "label": [[55,56,"input"], [81,82,"input"]]
+  },
+  {
+      "id": 635,
+      "text": "What is the effect on the accepted language if we remove state q1?",
+      "label": [[63,65,"node"]]
+  }]
+  ```,
+
+  kind: "snip",
+  caption: [Esempio di record JSONL prodotto da Doccano per l'annotazione dei dati di NER.],
+)
+
+Nel dettaglio, vediamo che:
+- Il campo `text` contiene la stringa completa del messaggio o della domanda.
+- Il campo `label` indica le etichette come tuple, ciascuna composta da:
+  1. La posizione iniziale del frammento etichettato (inclusa).
+  2. La posizione finale del frammento etichettato (esclusa).
+  3. L'etichetta stessa (ad esempio, `input` o `node`).
+
+La fase di annotazione è stata svolta manualmente, con particolare attenzione alla coerenza e alla completezza delle etichette. Doccano ha permesso di semplificare il lavoro, consentendo di visualizzare i testi e le etichette in modo chiaro e di aggiungere nuove annotazioni con pochi clic, senza la necessità di scrivere codice o utilizzare strumenti esterni.
+
+=== Implementazione con spaCy // Come ho implementato la parte di NER con spacy
+spaCy è una libreria open-source in Python progettata per l'elaborazione del linguaggio naturale. Offre una serie di strumenti avanzati per l'analisi e la comprensione di testi, tra cui tokenizzazione, lemmatizzazione, part-of-speech tagging e, essenziale per il nostro progetto, la Named Entity Recognition, per la quale ha un motore altamente performante.
+
+Un tipico flusso di lavoro con spaCy prevede la creazione di un “modello” (o il caricamento di un modello pre-addestrato) corrispondente a una determinata lingua, il passaggio di testo a questo modello per il processamento (tokenizzazione, tagging, ecc.) e, se necessario, la personalizzazione o l'addestramento ulteriore delle varie componenti. Proprio quest'ultimo aspetto - l'addestramento di un modello di Named Entity Recognition - è al centro di questa sezione.
+
+==== Caricamento dati in formato Doccano JSONL
+La prima componente fondamentale è la classe `NERData`, che si occupa di caricare e rappresentare i dati etichettati in formato Doccano JSONL. Doccano produce un file in cui ogni riga corrisponde a un esempio di testo con le relative annotazioni (indici di inizio/fine e nome dell'etichetta). Bisogna notare come il file non sia un vero e proprio JSON, ma una sequenza di righe JSON, ciascuna contenente un singolo esempio.
+
+Per questo motivo al momento dell'importazione è essenziale leggere il file riga per riga e caricare ogni esempio separatamente:
+
+#figure(
+  ```python
+  class NERData:
+      """
+      A class to represent NER data in Doccano JSONL format.
+      """
+
+      def __init__(self, line: str):
+          data = json.loads(line.strip())
+
+          self.text: str = data['text']
+          self.labels: list[SpacyEntity] = data.get('label', [])  # (start, end, label)
+          self.entity_labels = list({label for (_, _, label) in self.labels})
+
+      @staticmethod
+      def load_jsonl_data(file_path: Path) -> list['NERData']:
+          """
+          Convert Doccano JSONL format to spaCy training data format.
+          """
+          with file_path.open('r', encoding='utf-8') as f:
+              return [NERData(line) for line in f]
+
+      def make_example(self, nlp):
+          doc = nlp.make_doc(self.text)
+          annotations = {"entities": self.labels}
+          return Example.from_dict(doc, annotations)
+  ```,
+  kind: "cls",
+  caption: [La classe `NERData` permette di gestire in modo semplice i dati etichettati in formato Doccano JSONL.],
+)
+
+L'idea alla base segue design pattern comuni per la gestione dei dati:
+- La classe si occupa di rappresentare un singolo esempio, con il testo e le relative annotazioni;
+- Il metodo `load_jsonl_data` si occupa di caricare tutti gli esempi da un file JSONL e restituirli come una lista di oggetti `NERData`. Per poterlo fare, viene sfruttato il costruttore della classe in modo da rendere il codice più modulare e manutenibile possibile;
+- Il metodo d'istanza `make_example` converte un esempio in un formato compatibile con spaCy @spacy @honnibal_spacy_2015, in modo da poter essere utilizzato per l'addestramento del modello.
+
+==== Pre-elaborazione dei dati
+
+Una volta caricati i dati, il passo successivo consiste nell’analisi delle etichette e nella suddivisione in train set e validation set. Per questo scopo, si utilizzano due funzioni:
+
+#figure(
+  ```python
+    def prepare_multilabel_data(entities: list[NERData]) -> tuple[ndarray, list[str]]:
+      """
+      Prepare multilabel data for NER entities, converting them into
+      a binary matrix format using MultiLabelBinarizer.
+      """
+      binarizer = MultiLabelBinarizer()
+      all_labels = [e.entity_labels for e in entities]
+      binarizer.fit(all_labels)
+
+      label_matrix = binarizer.transform(all_labels)
+      return label_matrix, binarizer.classes_
+  ```,
+  kind: "fun",
+  caption: [La funzione `prepare_multilabel_data` si occupa di preparare i dati etichettati per l'addestramento del modello NER.],
+)
+
+Qui si sfrutta un `MultiLabelBinarizer` dal modulo `sklearn.preprocessing` per convertire le etichette multiclasse in un formato binario, in modo da poterle utilizzare per l'addestramento di un modello di classificazione. Questo passaggio è essenziale per poter addestrare un modello di NER, che deve essere in grado di riconoscere più entità contemporaneamente.
+
+#figure(
+  ```python
+    def stratified_split(entities: list[NERData],
+                       label_matrix,
+                       val_size=0.2,
+                       random_state=42) -> tuple[list[NERData], list[NERData]]:
+      """
+      Perform a stratified split on multilabel data using
+      MultilabelStratifiedShuffleSplit.
+      """
+      msss = MultilabelStratifiedShuffleSplit(n_splits=1,
+                                              test_size=val_size,
+                                              random_state=random_state)
+
+      train_indices, test_indices = next(msss.split(np.zeros(len(label_matrix)), label_matrix))
+
+      train_data = [entities[i] for i in train_indices]
+      test_data = [entities[i] for i in test_indices]
+
+      return train_data, test_data
+  ```,
+  kind: "fun",
+  caption: [La funzione `stratified_split` si occupa di dividere i dati in training set e validation set in modo stratificato.],
+)
+
+Grazie a `MultilabelStratifiedShuffleSplit` dal modulo di estensione di scikit-learn `iterstrat.ml_stratifiers`, è possibile dividere i dati in modo stratificato, garantendo che le proporzioni delle etichette siano mantenute sia nel training set che nel validation set. Questo è particolarmente importante quando si lavora con dataset multiclasse, in cui alcune etichette possono essere sottorappresentate e rischierebbero di non essere presenti in uno dei due set.
+
+==== Addestramento del modello
+
+Vediamo ora a step come la funzione `train_spacy` è implementata. Questa funzione si occupa di addestrare un modello di Named Entity Recognition con spaCy, partendo dai dati preparati e suddivisi in precedenza.
+
+1. Creazione del modello spaCy a partire da zero: definiamo una nuova pipeline vuota, a cui viene aggiunto esclusivamente il componente per la NER. Registriamo anche tutte le etichette possibili nella pipeline:
+  #align(center)[
+    ```python
+    nlp = spacy.blank(language)
+    ner = nlp.add_pipe('ner', last=True)
+
+    for label in label_list:
+      ner.add_label(label)
+    ```
+  ]
+  Normalmente, nel caso in cui si dovesse addestrare una pipeline più complessa, spaCy offre la possibilità di descriverla in un file di configurazione. Dal momento che la NER sarà preparata per un sistema più grande, è preferibile cercare di ridurre al minimo i file intermedi di configurazione proprio per permettere un controllo più centralizzato.
+2. Training loop. Per ogni iterazione:
+  1. Si mescola il training set che viene poi diviso in piccoli batch:
+    #align(center)[
+      ```python
+      random.shuffle(train_data)
+      batches = minibatch(items=train_data,size=compounding(4.0, 32.0, 1.001))
+      ```
+    ]
+  2. Si itera sui batch e si aggiorna il modello. Usando la funzione `make_example` definita in precedenza, si convertono gli esempi in un formato compatibile con spaCy e si aggiornano i pesi del modello tramite la funzione `update` (che userà internamente la discesa del gradiente):
+    #align(center)[
+      ```python
+      for batch in batches:
+        examples = [el.make_example(nlp) for el in batch]
+        nlp.update(examples, drop=0.5, sgd=optimizer, losses=losses)
+      ```
+    ]
+3. Valutazione. Alla fine di ogni epoca, si valuta il modello sul validation set e si calcolano le metriche di interesse (precision, recall, F1 score):
+  #align(center)[
+    ```python
+    with nlp.use_params(optimizer.averages):
+      examples = [el.make_example(nlp) for el in val_data]
+      scores = nlp.evaluate(examples)
+    ```
+  ]
+
+Come si può notare, l'addestramento di un modello di NER con spaCy richiede poche righe di codice, grazie alla semplicità e alla flessibilità della libreria. Inoltre, la modularità delle componenti (tra cui `NERData`, `prepare_multilabel_data`, `stratified_split`) permette di mantenere il codice pulito e facilmente estendibile, adattandolo a nuovi dataset o a nuove esigenze.
 
 === Valutazione e performance
+
+
 
 // Metriche di valutazione (F1 con CoNLL, ACE, MUC https://www.davidsbatista.net/blog/2018/05/09/Named_Entity_Evaluation/)

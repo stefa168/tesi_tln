@@ -93,7 +93,7 @@ imitation_game:
   title: I.—COMPUTING MACHINERY AND INTELLIGENCE
   author: TURING, A. M.
   date: 1950
-  page-range: 433–460
+  page-range: 433-460
   url: https://doi.org/10.1093/mind/LIX.236.433
   serial-number:
     doi: 10.1093/mind/LIX.236.433
@@ -194,7 +194,7 @@ lstm:
     - Hochreiter, Sepp
     - Schmidhuber, Jürgen
   date: 1997
-  page-range: 1735–1780
+  page-range: 1735-1780
   url: https://doi.org/10.1162/neco.1997.9.8.1735
   serial-number:
     doi: 10.1162/neco.1997.9.8.1735
@@ -216,7 +216,7 @@ LINDEMANN2021650:
     - Jazdi, Nasser
     - Weyrich, Michael
   date: 2021
-  page-range: 650–655
+  page-range: 650-655
   url: https://www.sciencedirect.com/science/article/pii/S2212827121003796
   serial-number:
     doi: https://doi.org/10.1016/j.procir.2021.03.088
@@ -340,7 +340,7 @@ microsoft_lstm:
     - Huang, X.
     - Stolcke, A.
   date: 2018-04
-  page-range: 5934–5938
+  page-range: 5934-5938
   serial-number:
     doi: 10.1109/ICASSP.2018.8461870
     issn: 2379-190X
@@ -1966,8 +1966,222 @@ hierarchical:
     issue: 1
     volume: 22
 
+Opitz_2024:
+  type: article
+  title: A Closer Look at Classification Evaluation Metrics and a Critical Reflection of Common Evaluation Practice
+  author: Opitz, Juri
+  date: 2024
+  page-range: 820-836
+  url: http://dx.doi.org/10.1162/tacl_a_00675
+  serial-number:
+    doi: 10.1162/tacl_a_00675
+    issn: 2307-387X
+  parent:
+    type: periodical
+    title: Transactions of the Association for Computational Linguistics
+    publisher: MIT Press
+    volume: 12
+
+muc-history:
+  type: article
+  title: "Message Understanding Conference-6: a brief history"
+  author:
+    - Grishman, Ralph
+    - Sundheim, Beth
+  date: 1996
+  page-range: 466-471
+  url: https://doi.org/10.3115/992628.992709
+  serial-number:
+    doi: 10.3115/992628.992709
+  abstract: We have recently completed the sixth in a series of "Message Understanding Conferences" which are designed to promote and evaluate research in information extraction. MUC-6 introduced several innovations over prior MUCs, most notably in the range of different tasks for which evaluations were conducted. We describe some of the motivations for the new format and briefly discuss some of the results of the evaluations.
+  parent:
+    type: proceedings
+    title: Proceedings of the 16th Conference on Computational Linguistics - Volume 1
+    publisher: Association for Computational Linguistics
+    location: Copenhagen, Denmark
+    parent:
+      type: proceedings
+      title: COLING '96
+
+munnangi2024briefhistorynamedentity:
+  type: article
+  title: A Brief History of Named Entity Recognition
+  author: Munnangi, Monica
+  date: 2024
+  serial-number:
+    doi: 10.48550/arXiv.2411.05057
+
+crf-base:
+  type: article
+  title: "Conditional Random Fields: Probabilistic Models for Segmenting and Labeling Sequence Data"
+  author:
+    - Lafferty, John D.
+    - McCallum, Andrew
+    - Pereira, Fernando C. N.
+  date: 2001
+  page-range: 282-289
+  serial-number:
+    doi: 10.5555/645530.655813
+    isbn: "1558607781"
+  parent:
+    type: proceedings
+    title: Proceedings of the Eighteenth International Conference on Machine Learning
+    publisher: Morgan Kaufmann Publishers Inc.
+    location: San Francisco, CA, USA
+    parent:
+      type: proceedings
+      title: ICML '01
+
+svm:
+  type: article
+  title: Support-vector networks
+  author:
+    - Cortes, Corinna
+    - Vapnik, Vladimir
+  date: 1995-09-01
+  page-range: 273-297
+  url: https://doi.org/10.1007/BF00994018
+  serial-number:
+    doi: 10.1007/BF00994018
+    issn: 1573-0565
+  abstract: "Thesupport-vector network is a new learning machine for two-group classification problems. The machine conceptually implements the following idea: input vectors are non-linearly mapped to a very high-dimension feature space. In this feature space a linear decision surface is constructed. Special properties of the decision surface ensures high generalization ability of the learning machine. The idea behind the support-vector network was previously implemented for the restricted case where the training data can be separated without errors. We here extend this result to non-separable training data."
+  parent:
+    type: periodical
+    title: Machine Learning
+    issue: 3
+    volume: 20
+
+Polignano2021818:
+  type: article
+  title: Comparing transformer-based NER approaches for analysing textual medical diagnoses
+  author:
+    - Polignano, Marco
+    - name: Gemmis
+      given-name: Marco
+      prefix: de
+    - Semeraro, Giovanni
+  date: 2021
+  editor:
+    - G., Faggioli
+    - name: Padova
+      given-name: Via Gradenigo 6/b, Padova
+      prefix: University of
+      suffix: Department of Information Engineering
+    - N., Ferro
+    - name: Padova
+      given-name: Via Gradenigo 6/b, Padova
+      prefix: University of
+      suffix: Department of Information Engineering
+    - A., Joly
+    - name: Montpellier
+      given-name: Inria ZENITH, 161 Rue Ada, Montpellier Cedex 5
+      prefix: University of
+      suffix: LIRMM
+    - M., Maistro
+    - name: Copenhagen
+      given-name: Universitetsparken 1, Copenhagen
+      prefix: University of
+      suffix: Department of Computer Science
+    - F., Piroi
+    - name: Technology (TU)
+      given-name: Favoritenstrasse 9-11/188, Vienna
+      prefix: Vienna University of
+      suffix: Institute of Information Systems Engineering
+  page-range: 818-833
+  url: https://www.scopus.com/inward/record.uri?eid=2-s2.0-85113468144&partnerID=40&md5=415546a367cea8c30e30881072935304
+  serial-number:
+    issn: "16130073"
+  abstract: The automated analysis of medical documents has grown in research interest in recent years as a consequence of the social relevance of the thematic and the difficulties often encountered with short and very specific documents. In particular, this fervent area of research has stimulated the development of several techniques of automatic document classification, question answering, and name entity recognition (NER). Nevertheless, many open issues must be addressed to obtain results that are satisfactory for a field in which the effectiveness of predictions is a fundamental factor in order not to make mistakes that could compromise people's lives. To this end, we focused on the name entity recognition task from medical documents and, in this work, we will discuss the results we obtained by our hybrid approach. In order to take advantage of the most relevant findings in the field of natural language processing, we decided to focus on deep neural network models. We compared several configurations of our model by varying the transformer architecture, such as BERT, RoBERTa and ELECTRA, until we obtained a configuration that we considered the best for our goals. The most promising model was used to participate in the SpRadIE task of the annual CLEF (Conference and Labs of the Evaluation Forum). The obtained results are encouraging and can be of reference for future studies on the topic. © 2021 Copyright for this paper by its authors. Use permitted under Creative Commons License Attribution 4.0 International (CC BY 4.0).
+  parent:
+    type: proceedings
+    publisher: CEUR-WS
+    volume: 2936
+
+Schank1975ScriptsPA:
+  type: article
+  title: Scripts, plans, and knowledge
+  author:
+    - Schank, Roger C.
+    - Abelson, Robert P.
+  date: 1975
+  url: https://api.semanticscholar.org/CorpusID:264593435
+  parent:
+    type: proceedings
+    title: International Joint Conference on Artificial Intelligence
+
+slot2:
+  type: article
+  title: A statistical approach to machine translation
+  author:
+    - Brown, Peter F.
+    - Cocke, John
+    - Pietra, Stephen A. Della
+    - Pietra, Vincent J. Della
+    - Jelinek, Fredrick
+    - Lafferty, John D.
+    - Mercer, Robert L.
+    - Roossin, Paul S.
+  date: 1990-06
+  page-range: 79-85
+  serial-number:
+    issn: 0891-2017
+    doi: 10.5555/92858.92860
+  abstract: In this paper, we present a statistical approach to machine translation. We describe the application of our approach to translation from French to English and give preliminary results.
+  parent:
+    type: periodical
+    title: Comput. Linguist.
+    publisher: MIT Press
+    location: Cambridge, MA, USA
+    issue: 2
+    volume: 16
+
+hmm:
+  type: article
+  title: Maximum Entropy Markov Models for Information Extraction and Segmentation
+  author:
+    - McCallum, Andrew
+    - Freitag, Dayne
+    - Pereira, Fernando C. N.
+  date: 2000
+  page-range: 591-598
+  serial-number:
+    isbn: "1558607072"
+    doi: 10.5555/645529.658277
+  parent:
+    type: proceedings
+    title: Proceedings of the Seventeenth International Conference on Machine Learning
+    publisher: Morgan Kaufmann Publishers Inc.
+    location: San Francisco, CA, USA
+    parent:
+      type: proceedings
+      title: ICML '00
+
+ner-slot-joint:
+  type: article
+  title: Exploring Named Entity Recognition As an Auxiliary Task for Slot Filling in Conversational Language Understanding
+  author:
+    - Louvan, Samuel
+    - Magnini, Bernardo
+  date: 2018-10
+  editor:
+    - Chuklin, Aleksandr
+    - Dalton, Jeff
+    - Kiseleva, Julia
+    - Borisov, Alexey
+    - Burtsev, Mikhail
+  page-range: 74-80
+  url: https://aclanthology.org/W18-5711/
+  serial-number:
+    doi: 10.18653/v1/W18-5711
+  abstract: Slot filling is a crucial task in the Natural Language Understanding (NLU) component of a dialogue system. Most approaches for this task rely solely on the domain-specific datasets for training. We propose a joint model of slot filling and Named Entity Recognition (NER) in a multi-task learning (MTL) setup. Our experiments on three slot filling datasets show that using NER as an auxiliary task improves slot filling performance and achieve competitive performance compared with state-of-the-art. In particular, NER is effective when supervised at the lower layer of the model. For low-resource scenarios, we found that MTL is effective for one dataset.
+  parent:
+    type: proceedings
+    title: "Proceedings of the 2018 {EMNLP} Workshop {SCAI}: The 2nd International Workshop on Search-Oriented Conversational {AI}"
+    publisher: Association for Computational Linguistics
+    location: Brussels, Belgium
+
 scikit-learn:
-  type: misc
+  type: article
   title: "Scikit-learn: Machine Learning in Python"
   author:
     - Pedregosa, Fabian
@@ -1993,6 +2207,24 @@ scikit-learn:
   serial-number:
     doi: 10.48550/arXiv.1201.0490
 
+honnibal_spacy_2015:
+  type: misc
+  title: Introducing spaCy
+  author:
+    - Honnibal, Matthew
+    - Montani, Ines
+  date: 2015
+  url: https://explosion.ai/blog/introducing-spacy
+  
+spacy:
+  type: misc
+  title: "spaCy: Industrial-strength Natural Language Processing in Python"
+  author:
+    - Honnibal, Matthew
+    - Montani, Ines
+  date: 2020
+  url: https://spacy.io/
+
 gplv3:
   type: misc
   title: GNU General Public License
@@ -2000,11 +2232,11 @@ gplv3:
   organization: Free Software Foundation
   url: http://www.gnu.org/licenses/gpl.html
   serial-number:
-    version: '3'
+    version: "3"
 
 fsfs:
   type: book
-  title: 'Free software free society: selected essays of Richard M. Stallman'
+  title: "Free software free society: selected essays of Richard M. Stallman"
   author: Stallman, Richard
   date: 2015
   publisher: Free Software Foundation
