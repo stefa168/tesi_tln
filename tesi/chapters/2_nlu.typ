@@ -14,7 +14,13 @@
 
 = Natural Language Understanding // Spiegazione di cosa si tratta
 
-(introduzione all'argomento)
+L'implementazione di chatbot basati su AIML (Artificial Intelligence Markup Language) ha rappresentato un primo passo nella formalizzazione delle interazioni uomo-macchina, fornendo una struttura rule-based che permette di rispondere a input testuali tramite pattern di corrispondenza. Questo approccio, sebbene efficace in una grande varietà di contesti, mostra diversi limiti quando si tratta di gestire variabilità linguistica, contesto e scalabilità delle regole.
+
+In questo capitolo, analizzeremo innanzitutto il funzionamento di AIML, illustrandone la sintassi e le proprietà attraverso esempi pratici. Questo ci permetterà di evidenziare le principali criticità del paradigma rule-based, che si riveleranno essere la rigidità nella definizione delle regole e la necessità di una manutenzione manuale delle conoscenze.
+
+Alla luce di queste limitazioni, ci sposteremo verso un approccio più flessibile e adattabile, basato su sistemi neurali per la classificazione degli intenti. In particolare, esploreremo come tali modelli possano essere strutturati in modo da emulare un comportamento simile a un albero decisionale, capace di generalizzare le richieste degli utenti senza la necessità di specificare esplicitamente ogni possibile variazione.
+
+Infine, introdurremo brevemente anche il task della Named Entity Recognition (NER) come componente fondamentale per migliorare la comprensione dei messaggi, permettendo di estrarre informazioni strutturate dagli input e affinare ulteriormente il processo decisionale del chatbot.
 
 == Come AIML gestisce la comprensione // Collegamento a come AIML gestisce la comprensione
 
@@ -543,8 +549,6 @@ Il risultato è stato un dataset con due livelli di classi: le _classi principal
 Ne sono risultati sono due livelli di classi:
 - Le _classi principali_ (o _question intent_, si veda la @classi-principali), che rappresentano l'argomento generale della domanda, per un totale di 7 classi;
 - Le _classi secondarie_, che rappresentano l'argomento specifico della domanda, dipendono dalla classe principale e sono 33 in totale. A seconda della classe principale, il numero di classi secondarie varia.
-
-[TODO: Inserire albero con le classi principali e secondarie]
 
 Il numero ristretto di classi di domande ha permesso di creare una suddivisione più bilanciata tra le classi, e di ottenere un dataset generalmente più equilibrato.
 
