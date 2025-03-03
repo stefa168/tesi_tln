@@ -6,7 +6,7 @@ from typing import TypedDict
 import scipy
 import torch
 from transformers import AutoTokenizer, PreTrainedModel, PreTrainedTokenizer, BertForSequenceClassification, pipeline, \
-    Pipeline
+    Pipeline, AutoModelForSequenceClassification
 
 from .common.config import Interaction, CompilerConfigV2, Reply
 
@@ -183,7 +183,7 @@ def load_model(model_name: str, conf_artifact_path: Path, subdir: str = "trained
     """
     try:
         path = conf_artifact_path / model_name / subdir
-        model = BertForSequenceClassification.from_pretrained(path)
+        model = AutoModelForSequenceClassification.from_pretrained(path)
         tokenizer = AutoTokenizer.from_pretrained(path)
         classifier = pipeline(model=model, tokenizer=tokenizer, task="text-classification",
                               top_k=None,  # by setting top_k to None we get all the predictions.

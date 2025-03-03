@@ -13,16 +13,16 @@ models:
       - type: train_model
         name: training
         dataframe: data.dataframe
-        pretrained_model: "bert-base-uncased"
+#        pretrained_model: "bert-base-uncased"
 #        pretrained_model: distilbert-base-uncased
 #        pretrained_model: "google/mobilebert-uncased"
-#        pretrained_model: "google/electra-small-discriminator"
+        pretrained_model: "google/electra-small-discriminator"
         examples_column: "Question"
         labels_column: "Global Subject"
         train_epochs: 20
 
   - name: "question_intent_classifiers"
-    disabled: false
+    disabled: true
     type: classification
     force_compilation: true
     steps:
@@ -38,14 +38,14 @@ models:
           - type: train_model
             name: training
             dataframe: split.dataframe
-            pretrained_model: "bert-base-uncased"
+            pretrained_model: "google/electra-small-discriminator"
             examples_column: "Question"
             labels_column: "Question Intent"
             resulting_model_name: "question_intent_{on_column}"
 
   - name: "question_entities_recognition"
     type: ner
-    disabled: true
+    disabled: false
     steps:
       - type: ner_spacy
         name: ner_training

@@ -1167,7 +1167,7 @@ Questo salto nei tempi di addestramento così brusco in realtà porta dei peggio
         x-label: "F1 Score",
         y-label: "Modello Utilizzato",
         legend: "inner-south-east",
-        bar-style: palette.new(colors: (green, red, aqua)),
+        // bar-style: palette.new(colors: (green, red, aqua)),
       )
     })
   },
@@ -1330,6 +1330,39 @@ Le matrici di confusione confermano le tendenze già presentate dai due modelli 
   ) <conf_aiml_sub>
 ]
 
+Per finire, vediamo anche alcuni esempi del test set etichettati da AIML e Bert. Questi esempi sono stati scelti in modo da mostrare come i due modelli si comportano in un'ipotetica situazione reale:
+
+#figure(
+  table(
+    columns: 7,
+    table.header(
+      table.cell(rowspan: 2)[Domanda],
+      table.cell(colspan: 2, align: center)[Ground Truth],
+      table.cell(colspan: 2, align: center)[AIML],
+      table.cell(colspan: 2, align: center)[BERT],
+      [Main],
+      [Sub],
+      [Main],
+      [Sub],
+      [Main],
+      [Sub],
+    ),
+    table.hline(),
+    [Would you display a full list of all components, including nodes and transitions, in the finite state automaton?], [AUT], [LST], [OT], [OT], [*AUT*], [*LST*],
+    [Could you summarize the automaton for me?], [AUT], [DB], [OT], [OT], [*AUT*], [*DB*],
+    [Could you give me a brief summary of the automaton?], [AUT], [DB], [OT], [OT], [*AUT*], [*DB*],
+    [Can you point out the start state in this automaton?], [STT], [STRT], [OT], [OT], [*STT*], [*STRT*],
+    [Is a systematic pattern evident in the automata arcs?], [AUT], [PTT], [*AUT*], [*PTT*], [*AUT*], [*PTT*],
+    [Can you point out a repetitive pattern among the arcs?], [AUT], [PTT], [*AUT*], [*PTT*], [*AUT*], [*PTT*],
+    // I’d like to hear an explanation of how this automaton’s states are formed and related.,AUTOMATON,DESCRIPTION,OFF_TOPIC,OFF_TOPIC,AUTOMATON,REPRESENTATION
+    [I’d like to hear an explanation of how this automaton’s states are formed and related.], [AUT], [DESC], [OT], [OT], [AUT], [REP],
+    // Would you mind describing the automaton’s configuration and links?,AUTOMATON,DESCRIPTION,OFF_TOPIC,OFF_TOPIC,AUTOMATON,REPRESENTATION
+    [Would you mind describing the automaton’s configuration and links?], [AUT], [DESC], [OT], [OT], [AUT], [REP],
+  ),
+)
+
+In generale, i risultati ottenuti con BERT sono molto soddisfacenti, con performance nettamente superiori rispetto ad AIML. Questo conferma l'efficacia dei modelli neurali per la classificazione di intenti in un contesto di chatbot, e dimostra come l'uso di modelli pre-addestrati come BERT possa portare a risultati molto migliori rispetto a soluzioni rule-based. Non mancano tuttavia degli esempi in cui BERT non riesce a classificare correttamente la domanda, ma in generale il modello mostra una capacità di generalizzazione molto più elevata rispetto ad AIML.
+
 == Riconoscimento delle entità
 
 Negli anni Novanta, parallelamente agli studi sull'Intelligenza Artificiale per la realizzazione di sistemi conversazionali rule-based come AIML, si sviluppavano anche nuovi compiti di Natural Language Processing (NLP) orientati all'estrazione di informazioni dal testo in modo più strutturato. Uno dei compiti chiave in questo processo è il Named Entity Recognition (NER), o riconoscimento delle entità nominate.
@@ -1372,7 +1405,7 @@ In questo modo, anche in domini molto specifici (come quello degli automi a stat
 
 Mentre il NER si concentra su dove compaiono le entità nel testo e su che tipo di entità si tratti (persona, luogo, organizzazione, ecc.), lo slot-filling rappresenta un'operazione più specifica e spesso orientata al dominio @Schank1975ScriptsPA @slot2. In altre parole:
 
-- Il NER produce una segmentazione e un'etichettatura generica: Mario Rossi → PERSON, Roma → LOC, ACME Corp. → ORG.
+- Il NER produce una segmentazione e un'etichettatura generica:\ Mario Rossi #sym.arrow `PERSON`, Roma #sym.arrow `LOC`, Telecom Italia #sym.arrow `ORG`.
 - Lo slot-filling prende queste entità (o altre componenti di testo) e le associa a ruoli predefiniti, tipici di una determinata applicazione. Ad esempio, per un chatbot di viaggi potremmo avere:
   - città_di_partenza = "Milano"
   - città_di_arrivo = "Roma"
@@ -1384,11 +1417,11 @@ Facciamo un esempio di conversazione per un assistente virtuale di prenotazione 
 
 1. L'utente scrive: “Voglio prenotare un tavolo per stasera da Gianni”.
 2. Il NER riconosce nel testo:
-  - “Gianni” come entità di tipo `PER` (potrebbe essere ambiguo, ma in contesto gastronomico potrebbe anche essere un LOC se “Da Gianni” è il nome del ristorante).
-  - “stasera” come TIME.
+  - “Gianni” come entità di tipo `PER` (potrebbe essere ambiguo, ma in contesto gastronomico potrebbe anche essere un `LOC` se “Da Gianni” è il nome del ristorante).
+  - “stasera” come `TIME`.
 3. Lo slot-filling contestualizza:
   - nome_ristorante = "Da Gianni"
-  - data_prenotazione = "2025-03-02 20:00" (se “stasera” è mappato a una data specifica e magari un orario predefinito)
+  - data_prenotazione = "2025-03-02 20:00" (se "stasera" è mappato a una data specifica e magari un orario predefinito)
   - richiesta_utente = "prenotazione"
 
 Da un punto di vista implementativo, potremmo anche definire uno slot “ristorante” e uno slot “orario”, che vengono riempiti con i valori estratti. Il NER fornisce la base per capire dove si trovano le informazioni nel testo, mentre lo slot-filling si assicura di collocarle correttamente nei campi del database o nei parametri del servizio di prenotazione.
@@ -1429,6 +1462,14 @@ Nel dettaglio, vediamo che:
   3. L'etichetta stessa (ad esempio, `input` o `node`).
 
 La fase di annotazione è stata svolta manualmente, con particolare attenzione alla coerenza e alla completezza delle etichette. Doccano ha permesso di semplificare il lavoro, consentendo di visualizzare i testi e le etichette in modo chiaro e di aggiungere nuove annotazioni con pochi clic, senza la necessità di scrivere codice o utilizzare strumenti esterni.
+
+In seguito all'etichettatura sono risultate tre classi di entità:
+- `input`: per i frammenti di testo che contengono input o sequenze di simboli. Ad esempio, nella frase
+  #quote[Does it only accept 1s and 0s?] ci aspetteremmo di individuare due entità di tipo `input`: `[20,21,"input"],[27,28,"input"]`;
+- `node`: per i frammenti di testo che contengono nodi o stati dell'automa. Ad esempio, nella frase
+  #quote[Is there a transition between q2 and q0?] ci aspetteremmo di individuare due entità di tipo `node`: `[30,32,"node"],[37,39,"node"]`.
+- `language`: per i frammenti di testo che contengono informazioni sulla lingua accettata dall'automa. Ad esempio, nella frase
+  #quote[Does the automaton accept strings over the alphabet {0,1}?] ci aspetteremmo di individuare un'entità di tipo `language`: `[53,58,"language"]`.
 
 === Implementazione con spaCy // Come ho implementato la parte di NER con spacy
 spaCy è una libreria open-source in Python progettata per l'elaborazione del linguaggio naturale. Offre una serie di strumenti avanzati per l'analisi e la comprensione di testi, tra cui tokenizzazione, lemmatizzazione, part-of-speech tagging e, essenziale per il nostro progetto, la Named Entity Recognition, per la quale ha un motore altamente performante.
@@ -1550,6 +1591,7 @@ Vediamo ora a step come la funzione `train_spacy` è implementata. Questa funzio
       batches = minibatch(items=train_data,size=compounding(4.0, 32.0, 1.001))
       ```
     ]
+    Il parametro del compounding permette di incrementare gradualmente la dimensione dei batch, partendo da un valore minimo fino a un valore massimo, in modo da bilanciare la varianza e la stabilità dell'addestramento
   2. Si itera sui batch e si aggiorna il modello. Usando la funzione `make_example` definita in precedenza, si convertono gli esempi in un formato compatibile con spaCy e si aggiornano i pesi del modello tramite la funzione `update` (che userà internamente la discesa del gradiente):
     #align(center)[
       ```python
@@ -1571,6 +1613,12 @@ Come si può notare, l'addestramento di un modello di NER con spaCy richiede poc
 
 === Valutazione e performance
 
+#figure(
+  image("../media/f1_ner.png"),
+  kind: "plot",
+  caption: [Performance di F1 del modello di NER durante l'addestramento.],
+)
 
+Anche nel caso della Named Entity Recognition la metrica di riferimento è l'F1 score, che tiene conto sia della precisione che del recall del modello. Nel grafico sopra, possiamo vedere come l'F1 score del modello si stabilisca quasi fin dall'inizio oltre il 90%, confermando la bontà del training set e la capacità del modello di generalizzare correttamente le entità riconosciute.
 
-// Metriche di valutazione (F1 con CoNLL, ACE, MUC https://www.davidsbatista.net/blog/2018/05/09/Named_Entity_Evaluation/)
+Prese singolarmente, le tre tipologie di entità del training set (`input`, `node`, `language`) mostrano performance molto simili, con un F1 score medio intorno al 92%. Questo indica che il modello è in grado di riconoscere con precisione e recall elevati le entità di interesse, indipendentemente dalla loro categoria.
