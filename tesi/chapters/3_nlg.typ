@@ -1,4 +1,4 @@
-= Natural Language Generation
+= Natural Language Generation <nlg>
 /*
 - *NLG*: tramite prompting o parafrasi (sulle risposte)
   - *LLM per generare delle alternative ad una risposta standard, o per generarla direttamente dai dati tramite prompt*
@@ -15,17 +15,201 @@
         Calcolare l'agreement tra valutatori
 */
 
+#let mono(body, font: "JetBrains Mono NL") = {
+  text(upper(body), font: font, size: 10pt)
+}
+
+#let tdd(date) = {
+  [#sym.quote.r.single#date]
+}
+
+#let hrule() = align(center, line(length: 60%, stroke: silver))
+
+Nel contesto di un sistema di dialogo, la generazione del linguaggio naturale (NLG) è una delle componenti fondamentali affinchè il sistema possa effettivamente comunicare con gli utilizzatori in modo efficace.
+
+Una volta che abbiamo compreso l'intenzione dell'utente, dobbiamo generare una risposta che sia *coerente con la richiesta* e che *fornisca un qualche valore* all'interlocutore, senza scordare che quest'ultima deve essere comprensibile. Il processo può essere svolto in diversi modi, a seconda delle esigenze e delle capacità del sistema stesso.
+
+La @nlg punterà ad illustrare le tecniche di generazione del linguaggio naturale ricercate per il sistema, mentre la @engi si occuperà di mostrare più nel dettaglio come queste siano rese disponibili per i botmaster.
+
+Nelle sezioni seguenti vedremo che il processo è divisibile in due fasi principali:
+1. Il recupero dei dati: senza informazioni, il sistema non può generare risposte significative. Il recupero dei dati è quindi il primo passo per poter generare risposte coerenti e pertinenti.
+2. La generazione delle risposte: una volta che il sistema ha a disposizione i dati necessari, può procedere con la generazione del testo che verrà presentato all'utente. Possono essere utilizzate diverse tecniche, tra cui prompting o parafrasi, per generare risposte di qualità.
+
+== Data Retrieval // Spiegazione di cosa è il data retrieval
+Vi possono essere casi in cui il sistema non ha bisogno di recuperare dati o dettagli per poter rispondere; in questi casi, la risposta può essere generata direttamente dal sistema stesso, senza bisogno di informazioni aggiuntive. Questa situazione è tipica quando il sistema deve rispondere a domande prestabilite o statiche, come ad esempio quelle relative a informazioni generali o a domande di cortesia.
+
+Possiamo pensare ad esempio a interazioni basilari da inizio conversazione, le cui risposte sono fisse e non necessitano di alcun tipo di elaborazione, come:
+- Semplici saluti: "Ciao!", "Potresti aiutarmi?";
+- Informazioni generali: "Qual è il tuo nome?", "Come posso contattare il servizio clienti?";
+- Interazioni di cortesia: "Grazie!", "A presto!".
+In questi casi, è evidente che il sistema non abbia bisogno di recuperare ulteriori dati o dettagli *potenzialmente variabili a seconda del contesto* per poter rispondere, ma può generare la risposta direttamente.
+
+Se invece il sistema deve fornire informazioni specifiche o personalizzate, allora è necessario che sia in grado di recuperare i dati necessari per generare la risposta. Questo processo può avvenire in diversi modi, a seconda delle esigenze del sistema, della complessità delle informazioni richieste e del modo in cui queste sono strutturate e salvate.
+
+=== Basi di conoscenza strutturate
+Le basi di conoscenza costituiscono una delle fonti più affidabili da cui un sistema di dialogo può attingere informazioni. La loro natura ordinata, con tabelle, relazioni e campi ben definiti, assicura una gestione dei dati che riduce la possibilità di incongruenze o duplicazioni. Allo stesso tempo, la costruzione e la manutenzione di uno schema ben progettato richiedono un certo impegno iniziale, poiché bisogna prevedere in anticipo quali tipi di informazioni saranno necessari all'interno del sistema.
+
+In uno scenario di dialogo, il processo di risposta idealmente seguirebbe due passi. Consideriamo ad esempio la domanda "Vorrei informazioni sul mio ordine numero 25565":
+1. Prima di tutto il sistema riconoscerebbe il genere di richiesta posta dall'utente. Ipotizzando una classificazione simile a quella discussa nella @classificazione-llm (quindi con uno o più livelli di classificazione dell'intent), riusciremmo a comprendere che la richiesta è legata al recupero di informazioni su un ordine.\
+
+2. Una volta identificato l'intent, mediante un modello di NER, il sistema estrarrebbe il valore di `orderId` dalla frase dell'utente, per poi interrogare una base di dati, tramite un prepared statement SQL @owasp-injection, per recuperare i dettagli dell'ordine richiesto. Un esempio di query per il recupero di dettagli di un ordine in un sistema e-commerce potrebbe essere il seguente:
+
+  #figure(
+    ```sql
+    SELECT customer_name, order_date, total_amount
+    FROM orders
+    WHERE order_id = :orderId
+      # Aggiungiamo un vincolo per evitare accessi non autorizzati
+      AND customer_id = :customerId;
+    ```,
+    kind: "query",
+    caption: "Esempio di query SQL per il recupero di dettagli di un ordine in un sistema e-commerce.",
+  )
+
+L'esecuzione di questa interrogazione restituisce al modulo di generazione del linguaggio naturale i dettagli necessari a comporre una risposta personalizzata.\
+Un ulteriore vantaggio di questo approccio risiede nella possibilità di definire in anticipo diversi vincoli e relazioni che facilitano la coerenza dei dati.
+
+In alternativa alla struttura difficilmente variabile (una sfida comunque superabile!#footnote[https://softwareengineering.stackexchange.com/questions/235785/how-to-handle-unexpected-schema-changes-to-production-database]) in produzione di un database relazionale, un database NoSQL può risultare altrettanto efficace. Nel dominio della _Knowledge Representation_ sono stati definiti alcuni linguaggi il cui scopo è permettere di rappresentare conoscenze strutturate e complesse, dalle quali è anche possibile inferire nuove informazioni.
+
+Alla base vi è RDF (Resource Description Framework), un modello di dati che permette di rappresentare informazioni in forma di triple `<soggetto, predicato, oggetto>`, e il suo linguaggio di interrogazione SPARQL @sparql.
+
+Le annotazioni in formato Turtle ad esempio ci permettono di rappresentare un Grafo RDF testualmente (rendendolo molto facilmente intellegibile da un lettore), come nel seguente esempio:
+
+#figure(
+  ```turtle
+  BASE <http://example.org/>
+  # Definiamo degli IRI, ovvero identificatori di risorse che abbreviano URL più lunghi
+  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+  PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+  PREFIX rel: <http://www.perceive.net/schemas/relationship/>
+
+  <#green-goblin>
+    rel:enemyOf <#spiderman> ;
+    a foaf:Person ;
+    foaf:name "Green Goblin", "Goblin"@it .
+
+  <#spiderman>
+    rel:enemyOf <#green-goblin> ;
+    a foaf:Person ;
+    foaf:name "Spiderman", "Uomo Ragno"@it .
+  ```,
+  kind: "query",
+  caption: "Esempio di annotazione in formato Turtle per il film d'animazione _Gli Incredibili_ e il suo regista.",
+)
+
+Questo modello è alla base di molte knowledge base, come DBpedia @dbpedia e Wikidata @wikidata, che raccolgono informazioni strutturate su una vasta gamma di argomenti. Le basi di conoscenza sono normalmente codificate su file, in formati come RDF-XML @rdf-syntax-grammar o Turtle @rdf-turtle.
+
+Anche in questo caso, dovendo rispondere a una richiesta come "Chi ha diretto il film d'animazione _Gli Incredibili_? #footnote[http://dbpedia.org/resource/The_Incredibles]", una volta determinato l'intent ed estratta la named entity del film, possiamo recuperare in modo preciso le informazioni necessarie con una veloce query:
+
+#figure(
+  ```sparql
+  PREFIX dbo: <http://dbpedia.org/ontology/>
+  PREFIX dbr: <http://dbpedia.org/resource/>
+
+  SELECT ?director
+  WHERE {
+    dbr:The_Incredibles dbo:director ?director .
+  }
+  ```,
+  kind: "query",
+  caption: "Esempio di query SPARQL per il recupero del regista del film Inception.",
+)
+
+Ricevuta la risposta (`dbr:Brad_Bird`#footnote[https://dbpedia.org/page/Brad_Bird]), interagendo coi campi `dbp:name` e `dbo:thumbnail` dell'entità, il sistema potrà rapidamente comporre una risposta completa (se usassimo un template, ne risulterebbe "Il film Gli Incredibili è stato diretto da Brad Bird") e arricchirla con un'immagine del regista.
+
+=== Corpora non testuali
+A differenza delle knowledgebase strutturate, i corpora testuali non strutturati offrono la possibilità di attingere a un bacino molto più ampio e flessibile di informazioni, ma richiedono tecniche di recupero dati più complesse per poter restituire risultati pertinenti. Questi corpora possono includere documenti di varia natura, come articoli, pagine web, FAQ, manuali e qualsiasi altro contenuto scritto che non segua uno schema predeterminato.
+
+I metodi tradizionali di Information Retrieval si basano solitamente su indici inversi o modelli a spazio vettoriale, come TF-IDF #footnote[Term Frequency-Inverse Document Frequency] @Rajaraman_Ullman_2011 o BM25 @okapi-bm25, che confrontano la query dell'utente con i termini presenti nel corpus. Sebbene questi approcci siano ancora efficaci in molti scenari, con l'evoluzione dei modelli neurali è possibile sfruttare reti specializzate che codificano frasi e documenti in uno spazio di embedding semantico. Un esempio diffuso è l'utilizzo di Sentence-BERT @sentence-bert, che permette di generare vettori numerici rappresentativi del significato di un testo e, di conseguenza, di calcolare la similarità fra query e documenti in modo più accurato rispetto alle semplici corrispondenze di parole chiave.
+
+Per illustrare questo principio, si consideri il seguente snippet di codice Python che usa la libreria sentence-transformers:
+
+#figure(
+  ```python
+  from sentence_transformers import SentenceTransformer, util
+
+  # Carichiamo un modello pre-addestrato
+  model = SentenceTransformer('all-MiniLM-L6-v2')
+
+  # Supponiamo di avere un piccolo corpus di documenti
+  corpus = [
+      "Questo è un documento sul funzionamento dei sistemi di dialogo.",
+      "Ecco un articolo sui vantaggi dei knowledge graph.",
+      "Una breve introduzione all'Information Retrieval."
+  ]
+  corpus_embeddings = model.encode(corpus, convert_to_tensor=True)
+
+  # Definiamo la query dell'utente
+  query = "Cosa sono i sistemi di dialogo?"
+  query_embedding = model.encode(query, convert_to_tensor=True)
+
+  # Calcoliamo la similarità tra la query e i documenti
+  scores = util.pytorch_cos_sim(query_embedding, corpus_embeddings)[0]
+  best_score_idx = scores.argmax().item()
+
+  print("Testo più simile:", corpus[best_score_idx])
+  ```,
+  kind: "script",
+  caption: "Esempio di utilizzo di Sentence-BERT per trovare il documento più simile a una query.",
+)
+
+In questo esempio, dopo aver calcolato gli embeddings #footnote[Strutture che codificano il testo numericamente per permettere di effettuare operazioni matematiche, come la *cosine similarity*] dei documenti del corpus e della query utente, calcoliamo la *cosine similarity* tra di essi e identifichiamo l'indice del documento più affine dal punto di vista semantico. La differenza sostanziale rispetto a metodi tradizionali consiste nel fatto che l'uso di embeddings semantici permette di riconoscere relazioni di significato *anche quando il lessico non coincide esattamente*.
+
+Integrando un simile modulo di retrieval in un sistema di dialogo, è possibile estendere la copertura informativa ben oltre i limiti di una base di dati strutturata, sebbene ciò comporti un aumento della complessità. Le performance dipendono, infatti, dalla qualità del modello neurale e dalla quantità di risorse computazionali disponibili per l'indicizzazione e la ricerca.
+
+Il ricorso a corpora testuali non strutturati è particolarmente utile nei sistemi open-domain, dove l'utente potrebbe porre quesiti su una gamma di argomenti molto ampia. L'ampiezza della base informativa fornisce un potenziale enorme, a condizione di implementare strategie di filtraggio e ranking dei risultati che riducano il rischio di rumore o di risposte poco rilevanti. In tal senso, molte pipeline di retrieval prevedono una fase di re-ranking @wang-etal-2021-retrieval, nella quale uno o più modelli ricalcolano la pertinenza dei documenti più promettenti prima di fornire la risposta definitiva all'utente.
+
+=== API e servizi esterni
+L'accesso a dati provenienti da fonti esterne in tempo reale rappresenta un altro tassello fondamentale per i sistemi di dialogo moderni. Integrare API e servizi di terze parti permette, ad esempio, di fornire aggiornamenti meteorologici, visualizzare informazioni sul traffico, ottenere prezzi di mercato o eseguire prenotazioni, arricchendo notevolmente le capacità del sistema.
+
+A differenza delle basi di dati documentali o dei corpora statici, le API espongono endpoint che possono variare da semplici chiamate REST, fino a interfacce più complesse che richiedono autenticazione e parametri di configurazione.
+
+Tipicamente il motore di dialogo intercetta la domanda dell'utente e, riconoscendo la necessità di dati esterni, effettuerà una chiamata API verso il servizio più appropriato.
+Nel caso di servizi che restituiscono risposte JSON, si può utilizzare un linguaggio di query come JMESPath @jmespath per filtrare i risultati e isolare solo i campi più rilevanti.
+
+#hrule()
+
+JMESPath è un linguaggio espressivo e leggero, progettato per filtrare, cercare e trasformare dati in formato JSON.
+A differenza di query tradizionali con linguaggi come SQL, JMESPath è progettato per operare esclusivamente su strutture JSON e consente di navigare in maniera semplice all’interno di oggetti annidati, liste e chiavi complesse. Grazie alla sua sintassi intuitiva, risulta particolarmente utile quando si devono gestire risposte provenienti da API REST, servizi esterni o qualunque altra fonte che fornisca dati in formato JSON.
+
+Per illustrare in concreto JMESPath, consideriamo la seguente struttura di dati (immaginiamo sia la risposta di un servizio esterno che fornisce informazioni su articoli tecnologici):
+
+Un esempio basilare in Python potrebbe presentarsi così:
+
+#figure(
+  ```python
+  import requests
+  import jmespath
+
+  response = requests.get("https://api.example.com/v1/articles?category=tech")
+  if response.status_code == 200:
+      data = response.json()
+      # Utilizziamo JMESPath per estrarre una parte specifica del JSON
+      titles = jmespath.search("items[].title", data)
+      print("Trovati i seguenti titoli:", titles)
+  else:
+      print("Impossibile contattare l'API.")
+  ```,
+  kind: "script",
+  caption: "Esempio di chiamata a un'API di news e filtraggio dei titoli tramite JMESPath.",
+)
+
+Qui, dopo avere inviato la richiesta a un'ipotetica API di news, si analizza il contenuto JSON ricevuto e lo si filtra mediante un'espressione JMESPath, in modo da estrarre tutti i titoli degli articoli in un singolo passaggio. Il sistema di dialogo può quindi usare queste informazioni per formulare una risposta, magari raggruppando i titoli più rilevanti o generando una breve sintesi.
+
+Oltre a restituire dati in forma di testo, alcune API consentono di eseguire azioni che hanno un effetto sul mondo esterno, come prenotare un ristorante o inviare un ordine. Ciò comporta un aumento delle responsabilità da parte del sistema, il quale deve gestire correttamente eventuali errori o limiti di utilizzo, come soglie massime di richieste al minuto o specifiche politiche di caching. Al tempo stesso, la capacità di interagire dinamicamente con risorse esterne rende il sistema di dialogo molto più potente e utile, in particolare in contesti in cui la tempestività dell'informazione è fondamentale.
+
+Un aspetto delicato consiste nella gestione delle possibili contraddizioni tra i dati forniti da un servizio e quelli custoditi internamente al sistema. Se, ad esempio, il database aziendale riporta una certa disponibilità di un prodotto, mentre la verifica tramite API rivela esaurimento scorte, è necessario definire delle regole di priorità o di riconciliazione, così da garantire la coerenza e l'affidabilità delle risposte. All'interno del flusso di gestione delle chiamate a servizi esterni, questi conflitti vanno rilevati tempestivamente, per poi essere gestiti nel modulo di generazione, magari informando l'utente dell'aggiornamento in tempo reale.
+
+La combinazione di dati provenienti da API e basi di dati locali apre scenari particolarmente ricchi, in cui il sistema di dialogo può rispondere sia a domande generiche attingendo a corpora esterni, sia a interrogativi specifici all'azienda o all'utente, accedendo a informazioni riservate. Con un'architettura ben progettata, si ottiene così un ecosistema integrato che favorisce interazioni più naturali e, allo stesso tempo, garantisce il controllo sulla qualità e l'accuratezza delle risposte.
+
+=== Retrieval automatico
+
 == Generazione di risposte tramite LLM
 
 === Parafrasi
 
 === Prompting
-
-== Data Retrieval // Spiegazione di cosa è il data retrieval
-
-=== Retrieval tramite query // Knowledgebase, basi di dati, ecc.
-=== Retrieval basato su script
-=== Retrieval automatico guidato dagli LLM
 
 == Qualità delle risposte
 

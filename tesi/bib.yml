@@ -2296,3 +2296,96 @@ fastapi:
   title: "FastAPI - Fast (high-performance) API framework for Python"
   organization: FastAPI
   url: https://fastapi.tiangolo.com/
+
+owasp-injection:
+  type: report
+  title: SQL Injection Prevention Cheat Sheet
+  url: https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html
+
+rdf-syntax-grammar:
+  type: report
+  title: 'RDF 1.1 XML Syntax'
+  author: W3C
+  date: 2014-02-25
+  organization: 'World Wide Web Consortium'
+  abstract: This document defines an XML syntax for RDF called RDF/XML in terms of Namespaces in XML, the XML Information Set and XML Base.
+  url: https://www.w3.org/TR/rdf-syntax-grammar/
+
+rdf-turtle:
+  type: report
+  title: 'RDF 1.1 Turtle' 
+  author: W3C
+  date: 2025-02-20
+  organization: 'World Wide Web Consortium'
+  url: https://w3c.github.io/rdf-turtle/spec/
+
+dbpedia:
+  type: web
+  title: 'DBpedia'
+  url: https://wiki.dbpedia.org/
+
+wikidata:
+  type: web
+  title: 'Wikidata'
+  url: https://www.wikidata.org/
+
+Rajaraman_Ullman_2011:
+  type: chapter
+  title: Data Mining
+  author:
+  - Rajaraman, Anand
+  - Ullman, Jeffrey David
+  date: 2011
+  page-range: 1-17
+  parent:
+    type: book
+    title: Mining of Massive Datasets
+    publisher: Cambridge University Press
+
+okapi-bm25:
+  type: article
+  title: Okapi at TREC-3.
+  author:
+  - Robertson, Stephen
+  - Walker, Steve
+  - Jones, Susan
+  - Hancock-Beaulieu, Micheline
+  - Gatford, Mike
+  date: 1994
+  parent:
+    type: proceedings
+
+sentence-bert:
+  type: misc
+  title: 'Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks'
+  author:
+  - Reimers, Nils
+  - Gurevych, Iryna
+  date: 2019
+  url: https://arxiv.org/abs/1908.10084
+  serial-number:
+    arxiv: '1908.10084'
+
+wang-etal-2021-retrieval:
+  type: article
+  title: Retrieval, Re-ranking and Multi-task Learning for Knowledge-Base Question Answering
+  author:
+  - Wang, Zhiguo
+  - Ng, Patrick
+  - Nallapati, Ramesh
+  - Xiang, Bing
+  date: 2021-04
+  editor:
+  - Merlo, Paola
+  - Tiedemann, Jorg
+  - Tsarfaty, Reut
+  page-range: 347–357
+  url: https://aclanthology.org/2021.eacl-main.26/
+  serial-number:
+    doi: 10.18653/v1/2021.eacl-main.26
+  abstract: 'Question answering over knowledge bases (KBQA) usually involves three sub-tasks, namely topic entity detection, entity linking and relation detection. Due to the large number of entities and relations inside knowledge bases (KB), previous work usually utilized sophisticated rules to narrow down the search space and managed only a subset of KBs in memory. In this work, we leverage a \\textit\{retrieve-and-rerank\} framework to access KBs via traditional information retrieval (IR) method, and re-rank retrieved candidates with more powerful neural networks such as the pre-trained BERT model. Considering the fact that directly assigning a different BERT model for each sub-task may incur prohibitive costs, we propose to share a BERT encoder across all three sub-tasks and define task-specific layers on top of the shared layer. The unified model is then trained under a multi-task learning framework. Experiments show that: (1) Our IR-based retrieval method is able to collect high-quality candidates efficiently, thus enables our method adapt to large-scale KBs easily; (2) the BERT model improves the accuracy across all three sub-tasks; and (3) benefiting from multi-task learning, the unified model obtains further improvements with only 1/3 of the original parameters. Our final model achieves competitive results on the SimpleQuestions dataset and superior performance on the FreebaseQA dataset.'
+  parent:
+    type: proceedings
+    title: 'Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics: Main Volume'
+    publisher: Association for Computational Linguistics
+    location: Online

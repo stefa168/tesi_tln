@@ -71,7 +71,10 @@
 #show figure.where(kind: "script"): set figure(supplement: [Script])
 #show figure.where(kind: "fun"): set figure(supplement: [Funzione])
 #show figure.where(kind: "cls"): set figure(supplement: [Classe])
+#show figure.where(kind: "query"): set figure(supplement: [Query])
 // #show figure.where(kind: "snip"): set block(breakable: true)
+
+#set raw(syntaxes: ("sparql.sublime-syntax", "turtle.sublime-syntax"))
 
 #include "chapters/1_introduction.typ"
 #pagebreak(weak: true)
@@ -84,7 +87,7 @@
 
 #pagebreak(weak: true)
 
-= Ingegnerizzazione
+= Ingegnerizzazione <engi>
 
 // sviluppo di un sistema con funzionalità simili ad AIML ma che integri le migliorie sopra spiegate e approfondite.
 

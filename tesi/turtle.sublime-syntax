@@ -1,0 +1,115 @@
+%YAML 1.2
+---
+name: Turtle
+file_extensions: [ttl]
+scope: source.turtle
+
+contexts:
+  # The main context of the syntax
+  main:
+    # 1) Comments
+    - include: comments
+
+    # 2) Directives (including old @-style and newer uppercase style), plus 'a'
+    - match: \b(?i:@prefix|@base|prefix|base|a)\b
+      scope: keyword.control.turtle
+
+    # 3) Prefix declarations (e.g., "ex:")
+    - match: \b([A-Za-z_][A-Za-z0-9_\-]*)\s*(?=:)
+      captures:
+        1: entity.name.namespace.turtle
+
+    # 4) IRIs in angle brackets
+    - match: '<[^<>"{}|^`\\\s]*>'
+      scope: string.quoted.other.turtle
+
+    # 5) Blank node labels (e.g., "_:bnode1")
+    - match: '_:[A-Za-z0-9_]+'
+      scope: variable.language.turtle
+
+    # 6) Literals: Single / Double / Triple-quoted strings
+    - include: strings
+
+    # 7) Numeric Literals (integer, decimal, exponent forms)
+    - match: \b[+-]?(?:\d+(\.\d+)?|\.\d+)([eE][+-]?\d+)?\b
+      scope: constant.numeric.turtle
+
+    # 8) Boolean Literals
+    - match: \b(?i:true|false)\b
+      scope: constant.language.boolean.turtle
+
+    # 9) Punctuation
+    - match: '[\.\;,()\[\]]'
+      scope: punctuation.separator.turtle
+
+    # 10) Datatype indicators (^^)
+    - match: '\^\^'
+      scope: keyword.operator.turtle
+
+  # Comment context
+  comments:
+    - match: '#.*$'
+      scope: comment.line.number-sign.turtle
+
+  # String contexts
+  strings:
+    # Triple-quoted double
+    - match: '"""'
+      scope: string.quoted.double.turtle
+      push: triple-double-quoted-string
+    # Triple-quoted single
+    - match: "'''"
+      scope: string.quoted.single.turtle
+      push: triple-single-quoted-string
+    # Standard double-quoted string
+    - match: '"'
+      scope: string.quoted.double.turtle
+      push: double-quoted-string
+    # Standard single-quoted string
+    - match: "'"
+      scope: string.quoted.single.turtle
+      push: single-quoted-string
+
+  # Triple-quoted double string context
+  triple-double-quoted-string:
+    - meta_scope: string.quoted.double.turtle
+    - match: '"""'
+      pop: true
+    - match: '\\.'
+      scope: constant.character.escape.turtle
+    - match: '[^"]+'
+      scope: string.quoted.double.turtle
+    - match: '"'
+      scope: string.quoted.double.turtle
+
+  # Triple-quoted single string context
+  triple-single-quoted-string:
+    - meta_scope: string.quoted.single.turtle
+    - match: "'''"
+      pop: true
+    - match: '\\.'
+      scope: constant.character.escape.turtle
+    - match: "[^']+"
+      scope: string.quoted.single.turtle
+    - match: "'"
+      scope: string.quoted.single.turtle
+
+  # Standard double-quoted string
+  double-quoted-string:
+    - meta_scope: string.quoted.double.turtle
+    - match: (?<!\\)"
+      pop: true
+    - match: '\\.'
+      scope: constant.character.escape.turtle
+    - match: '.'
+      scope: string.quoted.double.turtle
+
+  # Standard single-quoted string
+  single-quoted-string:
+    - meta_scope: string.quoted.single.turtle
+    - match: (?<!\\)'
+      pop: true
+    - match: '\\.'
+      scope: constant.character.escape.turtle
+    - match: '.'
+      scope: string.quoted.single.turtle

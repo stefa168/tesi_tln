@@ -1,0 +1,108 @@
+%YAML 1.2
+---
+name: SPARQL
+file_extensions: [sparql, rq]
+scope: source.sparql
+
+contexts:
+  main:
+    # Comments
+    - include: comments
+
+    # Strings (single, double, and triple-quoted)
+    - include: strings
+
+    # Variables (prefixed with ? or $)
+    - match: (?<!\w)([\?\$][A-Za-z_][A-Za-z0-9_]*)
+      scope: variable.other.sparql
+
+    # Numbers (integers, decimals, exponentials)
+    - match: \b[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?\b
+      scope: constant.numeric.sparql
+
+    # Boolean literals
+    - match: \b(?i:true|false)\b
+      scope: constant.language.boolean.sparql
+
+    # Keywords (case-insensitive)
+    - match: \b(?i:(SELECT|ASK|CONSTRUCT|DESCRIBE|PREFIX|BASE|WHERE|FROM|NAMED|DISTINCT|REDUCED|AS|OPTIONAL|GRAPH|UNION|FILTER|BIND|VALUES|GROUP|BY|ASC|DESC|HAVING|ORDER|LIMIT|OFFSET|SERVICE|SILENT|INSERT|DELETE|DATA|CLEAR|CREATE|DROP|LOAD|MOVE|COPY|ADD|TO|USING|DEFAULT|ALL|WITH|MINUS|NOT|EXISTS|UNDEF|A))\b
+      scope: keyword.control.sparql
+
+    # Functions (built-in and aggregate, case-insensitive)
+    - match: \b(?i:(STR|LANG|LANGMATCHES|DATATYPE|BOUND|IRI|URI|BNODE|CONCAT|REGEX|SUBSTR|STRLEN|UCASE|LCASE|STRSTARTS|STRENDS|CONTAINS|STRBEFORE|STRAFTER|ENCODE_FOR_URI|REPLACE|IF|COALESCE|RAND|ABS|CEIL|FLOOR|ROUND|NOW|YEAR|MONTH|DAY|HOURS|MINUTES|SECONDS|TIMEZONE|TZ|MD5|SHA1|SHA256|SHA384|SHA512|COUNT|SUM|MIN|MAX|AVG|SAMPLE|GROUP_CONCAT|SEPARATOR|isIRI|isURI|isBlank|isLiteral|sameTerm))\b
+      scope: support.function.sparql
+
+    # Operators (comparison, logical, arithmetic, etc.)
+    - match: (\|\||&&|=|!=|<=|>=|<|>|\^\^|\+|-|\*|/|!)
+      scope: keyword.operator.sparql
+
+    # Delimiters and punctuation
+    - match: '[\{\}\(\)\[\]\.;,]'
+      scope: punctuation.delimiter.sparql
+
+  # Define comments context
+  comments:
+    - match: '#.*$'
+      scope: comment.line.number-sign.sparql
+
+  # Define string contexts
+  strings:
+    # Triple-quoted double
+    - match: '"""'
+      scope: string.quoted.double.sparql
+      push: triple-double-quoted-string
+    # Triple-quoted single
+    - match: "'''"
+      scope: string.quoted.single.sparql
+      push: triple-single-quoted-string
+    # Double-quoted string
+    - match: '"'
+      scope: string.quoted.double.sparql
+      push: double-quoted-string
+    # Single-quoted string
+    - match: "'"
+      scope: string.quoted.single.sparql
+      push: single-quoted-string
+    # IRIs in angle brackets
+    - match: '<[^<>\"{}|^`\\]*>'
+      scope: string.quoted.other.sparql
+
+  # Triple-quoted double string context (multi-line strings)
+  triple-double-quoted-string:
+    - meta_scope: string.quoted.double.sparql
+    - match: '"""'
+      pop: true
+    - match: '[^"]+'
+      scope: string.quoted.double.sparql
+    - match: '"'
+      scope: string.quoted.double.sparql
+
+  # Triple-quoted single string context
+  triple-single-quoted-string:
+    - meta_scope: string.quoted.single.sparql
+    - match: "'''"
+      pop: true
+    - match: "[^']+"
+      scope: string.quoted.single.sparql
+    - match: "'"
+      scope: string.quoted.single.sparql
+
+  # Double-quoted string context (handles escapes)
+  double-quoted-string:
+    - meta_scope: string.quoted.double.sparql
+    - match: (?<!\\)"
+      pop: true
+    - match: '\\.'
+      scope: constant.character.escape.sparql
+    - match: '.'
+      scope: string.quoted.double.sparql
+
+  # Single-quoted string context
+  single-quoted-string:
+    - meta_scope: string.quoted.single.sparql
+    - match: (?<!\\)'
+      pop: true
+    - match: '\\.'
+      scope: constant.character.escape.sparql
+    - match: '.'
+      scope: string.quoted.single.sparql

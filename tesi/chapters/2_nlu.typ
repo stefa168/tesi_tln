@@ -282,7 +282,7 @@ In domini più complessi, in cui la varietà del linguaggio e l'integrazione con
 
 Nelle sezioni successive sarà mostrato il percorso seguito per cercare di migliorare la comprensione degli input dell'utente, integrando tecniche di NLU basate su modelli di linguaggio neurali, e valutando le performance ottenute rispetto ad AIML.
 
-== Classificazione con LLM // Introduzione alla classificazione di intenti
+== Classificazione con LLM <classificazione-llm> // Introduzione alla classificazione di intenti
 
 Come detto poco sopra, uno dei limiti di AIML è la gestione limitata di varianti linguistiche e contesti conversazionali.
 
@@ -1365,7 +1365,11 @@ Per finire, vediamo anche alcuni esempi del test set etichettati da AIML e Bert.
   ),
 )
 
-In generale, i risultati ottenuti con BERT sono molto soddisfacenti, con performance nettamente superiori rispetto ad AIML. Questo conferma l'efficacia dei modelli neurali per la classificazione di intenti in un contesto di chatbot, e dimostra come l'uso di modelli pre-addestrati come BERT possa portare a risultati molto migliori rispetto a soluzioni rule-based. Non mancano tuttavia degli esempi in cui BERT non riesce a classificare correttamente la domanda, ma in generale il modello mostra una capacità di generalizzazione molto più elevata rispetto ad AIML.
+In generale, i risultati ottenuti con BERT sono molto soddisfacenti, con performance nettamente superiori rispetto ad AIML. 
+Questo conferma l'efficacia dei modelli neurali per la classificazione di intenti in un contesto di chatbot, e dimostra come l'uso di modelli pre-addestrati come BERT possa portare a risultati molto migliori rispetto a soluzioni rule-based. 
+
+Non mancano tuttavia degli esempi in cui BERT non riesce a classificare correttamente la domanda, ma in generale il modello mostra una capacità di generalizzazione molto più elevata rispetto ad AIML.
+Per migliorare le prestazioni, una buona strategia potrebbe essere quella di raccogliere più dati etichettati, in modo da poter addestrare il modello su un dataset più ampio e variegato, cercando di incrementare la copertura delle classi meno frequenti.
 
 == Riconoscimento delle entità
 
