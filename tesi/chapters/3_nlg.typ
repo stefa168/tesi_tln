@@ -1,3 +1,5 @@
+#import "@preview/showybox:2.0.4": showybox
+
 = Natural Language Generation <nlg>
 /*
 - *NLG*: tramite prompting o parafrasi (sulle risposte)
@@ -29,7 +31,7 @@ Nel contesto di un sistema di dialogo, la generazione del linguaggio naturale (N
 
 Una volta che abbiamo compreso l'intenzione dell'utente, dobbiamo generare una risposta che sia *coerente con la richiesta* e che *fornisca un qualche valore* all'interlocutore, senza scordare che quest'ultima deve essere comprensibile. Il processo può essere svolto in diversi modi, a seconda delle esigenze e delle capacità del sistema stesso.
 
-La @nlg punterà ad illustrare le tecniche di generazione del linguaggio naturale ricercate per il sistema, mentre la @engi si occuperà di mostrare più nel dettaglio come queste siano rese disponibili per i botmaster.
+La @nlg punterà ad illustrare le tecniche di generazione del linguaggio naturale studiate per lo sviluppo del sistema, mentre la @engi si occuperà di mostrare più nel dettaglio come queste siano rese disponibili per i botmaster nell'implementazione vera e propria.
 
 Nelle sezioni seguenti vedremo che il processo è divisibile in due fasi principali:
 1. Il recupero dei dati: senza informazioni, il sistema non può generare risposte significative. Il recupero dei dati è quindi il primo passo per poter generare risposte coerenti e pertinenti.
@@ -42,7 +44,7 @@ Possiamo pensare ad esempio a interazioni basilari da inizio conversazione, le c
 - Semplici saluti: "Ciao!", "Potresti aiutarmi?";
 - Informazioni generali: "Qual è il tuo nome?", "Come posso contattare il servizio clienti?";
 - Interazioni di cortesia: "Grazie!", "A presto!".
-In questi casi, è evidente che il sistema non abbia bisogno di recuperare ulteriori dati o dettagli *potenzialmente variabili a seconda del contesto* per poter rispondere, ma può generare la risposta direttamente.
+In questi casi, è evidente che il sistema non abbia bisogno di recuperare ulteriori dati o dettagli *potenzialmente variabili a seconda del contesto* per poter rispondere, ma che possa generare la risposta direttamente.
 
 Se invece il sistema deve fornire informazioni specifiche o personalizzate, allora è necessario che sia in grado di recuperare i dati necessari per generare la risposta. Questo processo può avvenire in diversi modi, a seconda delle esigenze del sistema, della complessità delle informazioni richieste e del modo in cui queste sono strutturate e salvate.
 
@@ -171,45 +173,179 @@ Nel caso di servizi che restituiscono risposte JSON, si può utilizzare un lingu
 #hrule()
 
 JMESPath è un linguaggio espressivo e leggero, progettato per filtrare, cercare e trasformare dati in formato JSON.
-A differenza di query tradizionali con linguaggi come SQL, JMESPath è progettato per operare esclusivamente su strutture JSON e consente di navigare in maniera semplice all’interno di oggetti annidati, liste e chiavi complesse. Grazie alla sua sintassi intuitiva, risulta particolarmente utile quando si devono gestire risposte provenienti da API REST, servizi esterni o qualunque altra fonte che fornisca dati in formato JSON.
+A differenza di query tradizionali con linguaggi come SQL, JMESPath è progettato per operare esclusivamente su strutture JSON e consente di navigare in maniera semplice all'interno di oggetti annidati, liste e chiavi complesse. Grazie alla sua sintassi intuitiva, risulta particolarmente utile quando si devono gestire risposte provenienti da API REST, servizi esterni o qualunque altra fonte che fornisca dati in formato JSON.
 
-Per illustrare in concreto JMESPath, consideriamo la seguente struttura di dati (immaginiamo sia la risposta di un servizio esterno che fornisce informazioni su articoli tecnologici):
+Supponendo di avere una struttura JSON come la seguente:
 
-Un esempio basilare in Python potrebbe presentarsi così:
+#figure(
+  ```json
+    "items": [
+      {"title": "Primo articolo", "category": "tech"},
+      {"title": "Secondo articolo", "category": "sport"},
+      {"title": "Terzo articolo", "category": "tech"}
+    ]
+  ```,
+  kind: "snip",
+  caption: "Esempio di struttura JSON restituita da un'API di news.",
+)
+
+Potrebbe essere necessario filtrare solo gli articoli che trattano di tecnologia. Utilizzando JMESPath, possiamo scrivere una query come la seguente:
 
 #figure(
   ```python
-  import requests
-  import jmespath
-
-  response = requests.get("https://api.example.com/v1/articles?category=tech")
-  if response.status_code == 200:
-      data = response.json()
-      # Utilizziamo JMESPath per estrarre una parte specifica del JSON
-      titles = jmespath.search("items[].title", data)
-      print("Trovati i seguenti titoli:", titles)
-  else:
-      print("Impossibile contattare l'API.")
+  items[?category == 'tech'].title
   ```,
-  kind: "script",
-  caption: "Esempio di chiamata a un'API di news e filtraggio dei titoli tramite JMESPath.",
+  kind: "snip",
+  caption: "Esempio di espressione JMESPath per estrarre i titoli degli articoli di tecnologia.",
 )
 
-Qui, dopo avere inviato la richiesta a un'ipotetica API di news, si analizza il contenuto JSON ricevuto e lo si filtra mediante un'espressione JMESPath, in modo da estrarre tutti i titoli degli articoli in un singolo passaggio. Il sistema di dialogo può quindi usare queste informazioni per formulare una risposta, magari raggruppando i titoli più rilevanti o generando una breve sintesi.
+Questa espressione:
+1. Filtra la lista di articoli usando il predicato `?category == 'tech'`
+2. Estrae solo il campo `title` di ciascun articolo
 
-Oltre a restituire dati in forma di testo, alcune API consentono di eseguire azioni che hanno un effetto sul mondo esterno, come prenotare un ristorante o inviare un ordine. Ciò comporta un aumento delle responsabilità da parte del sistema, il quale deve gestire correttamente eventuali errori o limiti di utilizzo, come soglie massime di richieste al minuto o specifiche politiche di caching. Al tempo stesso, la capacità di interagire dinamicamente con risorse esterne rende il sistema di dialogo molto più potente e utile, in particolare in contesti in cui la tempestività dell'informazione è fondamentale.
+Il risultato è una lista che viene popolata in un solo passaggio con tutti i titoli degli articoli. Il sistema di dialogo può quindi usare queste informazioni per formulare una risposta, magari raggruppando i titoli più rilevanti o generando una breve sintesi.
 
-Un aspetto delicato consiste nella gestione delle possibili contraddizioni tra i dati forniti da un servizio e quelli custoditi internamente al sistema. Se, ad esempio, il database aziendale riporta una certa disponibilità di un prodotto, mentre la verifica tramite API rivela esaurimento scorte, è necessario definire delle regole di priorità o di riconciliazione, così da garantire la coerenza e l'affidabilità delle risposte. All'interno del flusso di gestione delle chiamate a servizi esterni, questi conflitti vanno rilevati tempestivamente, per poi essere gestiti nel modulo di generazione, magari informando l'utente dell'aggiornamento in tempo reale.
-
-La combinazione di dati provenienti da API e basi di dati locali apre scenari particolarmente ricchi, in cui il sistema di dialogo può rispondere sia a domande generiche attingendo a corpora esterni, sia a interrogativi specifici all'azienda o all'utente, accedendo a informazioni riservate. Con un'architettura ben progettata, si ottiene così un ecosistema integrato che favorisce interazioni più naturali e, allo stesso tempo, garantisce il controllo sulla qualità e l'accuratezza delle risposte.
-
-=== Retrieval automatico
+Oltre a restituire dati in forma di testo, alcune API consentono di eseguire azioni che hanno un effetto sul mondo esterno, come prenotare un ristorante o inviare un ordine.\
+Ciò comporta un aumento delle responsabilità da parte del sistema, il quale deve gestire correttamente eventuali errori o limiti di utilizzo, come soglie massime di richieste al minuto o specifiche politiche di caching.\
+Al tempo stesso, la capacità di interagire dinamicamente con risorse esterne rende il sistema di dialogo molto più potente e utile, in particolare in contesti in cui la tempestività dell'informazione è fondamentale.
 
 == Generazione di risposte tramite LLM
 
+L'adozione di Large Language Model (LLM) per la generazione di risposte all'interno dei sistemi di dialogo rappresenta uno dei progressi più significativi degli ultimi anni nel campo della Natural Language Generation.
+Se in passato la creazione di output testuale avveniva in modo per lo più rigido (ad esempio tramite template o frasi predefinite), le recenti architetture neurali basate su transformer—come GPT, T5 o BERT-family—hanno permesso di comporre risposte molto più variegate e contestuali, adattandosi con flessibilità alle esigenze dell'utente.
+
+In un sistema di dialogo, però, la sfida non si limita a “generare testo corretto dal punto di vista linguistico”.
+È altresì fondamentale garantire che la risposta risulti coerente con la domanda, contestualmente appropriata e, soprattutto, informativa.
+Da un lato, si può pensare all'impiego di un modello come componente centrale, in cui l'utente fornisce direttamente l'input (ad esempio una domanda) e il modello produce l'output (la risposta).
+Dall'altro, si può utilizzare lo stesso LLM per operazioni più specifiche, come la parafrasi di risposte già esistenti o l'introduzione di variazioni stilistiche.
+Una delle strategie più comuni e potenti per interfacciarsi con i LLM è il prompting, vale a dire l'idea di “istruire” il modello riguardo al contesto, al tono e al formato di output desiderato, mediante prompt testuali che forniscono esempi e regole su come generare il testo.
+
+L'uso di LLM diventa ancor più significativo quando si parla di sistemi di dialogo data-driven.
+In questi casi, la generazione non può basarsi esclusivamente sulle conoscenze latenti del modello, ma deve attingere ai dati recuperati nei passaggi precedenti (tramite query, script o retrieval neurale).
+In tal modo, il modello produce risposte aggiornate e specifiche, riducendo il rischio di informazioni obsolete o imprecise.
+
+Nelle sottosezioni seguenti verranno illustrati due aspetti fondamentali dell'uso dei LLM nella generazione di risposte.
+La *Parafrasi* offre la possibilità di riscrivere o variare un testo in modo più o meno profondo, fornendo un valido strumento per evitare ripetizioni pedisseque o allineare lo stile del sistema alle esigenze del contesto.
+Il *Prompting* rappresenta invece la chiave di volta per guidare la produzione linguistica del modello verso gli obiettivi del sistema di dialogo, in termini sia di contenuto che di stile comunicativo.
+Vedremo quindi come un'efficace combinazione di tecniche di parafrasi e di prompt engineering possa sostenere la generazione di risposte coerenti, comprensibili e flessibili, migliorando sensibilmente l'esperienza dell'utente.
+
 === Parafrasi
 
+La parafrasi svolge una funzione cruciale nei sistemi di dialogo data-driven: permette infatti di riformulare, con scelte lessicali e strutturali diverse, una risposta che attinge dagli stessi contenuti di base, che rimarranno inalterati.
+
+In un sistema di dialogo che riceve domande simili in momenti diversi, rispondere sempre con la medesima formulazione testuale può trasmettere un senso di rigidità.
+L'utente potrebbe percepire il sistema come meccanico o “ripetitivo”.
+Integrando un modulo di parafrasi basato su LLM si possono introdurre piccole ma significative variazioni stilistiche, pur mantenendo inalterate le informazioni fondamentali:
+
+#grid(
+  columns: 2, rows: 2, gutter: 0.5cm, //align: horizon,
+  grid.cell(
+    colspan: 2,
+    align: center,
+    showybox(
+      width: 50%,
+      title-style: (boxed-style: (:)),
+      title: "Domanda",
+    )[Quanto costa la spedizione per l'Italia?],
+  ),
+  showybox(
+    title-style: (boxed-style: (:)),
+    title: "Alternativa 1",
+  )[La spedizione in Italia costa 5 euro e dal moduloimpiega 3 giorni lavorativi.],
+  showybox(
+    title-style: (boxed-style: (:)),
+    title: "Alternativa 2",
+  )[La tariffa di spedizione per l'Italia è di 5 euro, con una consegna stimata in 3 giorni.]
+)
+
+In alcuni contesti, la stessa informazione deve essere presentata con stili differenti: più formale, più colloquiale, più conciso o più descrittivo. Le LLM odierne consentono di riformulare un testo attraverso un prompt mirato:
+
+#grid(
+  columns: 2,
+  gutter: 0.5cm,
+  // align: horizon,
+  showybox(
+    title-style: (boxed-style: (:)),
+    title: "Prompt A",
+  )[Riscrivi il seguente paragrafo con uno stile tecnico, mantenendo i contenuti originali e senza introdurre variazioni nei dati: \[...\]],
+  showybox(
+    title-style: (boxed-style: (:)),
+    title: "Prompt B",
+  )[Modifica il seguente testo in modo che risulti più colloquiale e breve: \[...\]],
+)
+
+Qualora il sistema debba attingere a documenti esterni, articoli o risorse protette, la parafrasi può prevenire problemi di copyright (purché sia garantita la corretta attribuzione delle fonti).
+Anziché inserire stringhe letteralmente copiate, il sistema riformula i concetti principali, ottimizzando il flusso del dialogo e riducendo i rischi legali o di duplicazione.
+
+Per implementare la parafrasi, si può sfruttare una LLM appositamente addestrata o semplicemente vincolata attraverso un prompt. Il flusso di lavoro risultante sarà tipicamente diviso in tre fasi:
+
+1. Recupero dei dati: il sistema ottiene i contenuti rilevanti dalla knowledge base o da un documento;
+2. Formulazione del prompt: invece di richiedere semplicemente "Genera una risposta che spieghi X", si invia al modello una richiesta che include il testo da parafrasare e le specifiche sullo stile o la lunghezza desiderata;
+3. Generazione del testo: la LLM produce una variante testuale dell'input, che può essere arricchita da sfumature stilistiche dipendenti dal contesto.
+
+In base alle esigenze, la parafrasi può essere usata in modo selettivo soltanto in alcuni passaggi della conversazione, ad esempio per differenziare i saluti iniziali o per riformulare un concetto ripetuto. Nella fase di valutazione, come vedremo, è doveroso controllare la coerenza semantica tra testo di partenza e testo riformulato, utilizzando metriche come BLEU, ROUGE o similitudini di embedding.
+
 === Prompting
+
+Come evidenziato da diversi lavori in letteratura (#cite(<kasner-dusek>, form: "prose") #cite(<yuan-faerber-graph2text>, form: "prose")) , l’impiego di Large Language Model (LLM) per la generazione di risposte basate su dati si sta rivelando una strategia sempre più diffusa, ma al contempo complessa da controllare.\
+Da un lato, i modelli di grandi dimensioni forniscono una notevole fluidità e flessibilità testuale, dall'altro espongono il sistema al rischio di introdurre *allucinazioni*, omissioni o errori semantici.
+
+Il termine _allucinazioni_, nel contesto delle LLM, si riferisce a risposte generate dal modello che non sono supportate dai dati forniti nel prompt o che sono incoerenti con il contesto della conversazione.
+Possono anche contenere informazioni "inventate" o totalmente errate.
+È una delle sfide principali nella generazione di testo con LLM, specialmente in contesti data-driven.
+
+All'interno di questo generi di sistemi di dialogo, il prompting acquisisce ulteriore rilevanza, poiché occorre integrare nel prompt non solo il contesto della conversazione e l'intenzione dell'utente, ma anche i dati recuperati nella fase di retrieval.
+
+Per costruire un prompt efficace, è buon uso considerare i seguenti aspetti:
+
+- *Chiarezza dell'istruzione*: è importante esplicitare in modo chiaro cosa si vuole che il modello faccia. 
+  Frasi come “Genera una risposta che spieghi in modo chiaro ed esaustivo i seguenti dati risultanti dalla richiesta di un utente: \[...\]” seguite da contesto e vincoli specifici possono orientare molto meglio la generazione rispetto a richieste vaghe o incomplete.
+- *Contestualizzazione*: la LLM deve essere messa nella condizione di “vedere” i dati recuperati in precedenza, per non attingere soltanto a conoscenze latenti nel proprio addestramento.
+  Fornire uno snippet del testo rilevante, una lista di fatti chiave, o delle triple di un knowledge graph aumenta la probabilità che il modello usi correttamente i dati.
+- *Vincoli e stile*: se si desidera uno stile specifico (ad esempio formale, tecnico o più narrativo), si può precisare il _tone of voice_ all'interno del prompt. 
+  Anche la lunghezza desiderata della risposta, l'utilizzo di determinate parole chiave o la struttura desiderata possono essere indicati come vincolo.
+- *Gestione del contesto conversazionale*: in un sistema di dialogo multi-turno, il prompt potrebbe includere brevi riassunti dei turni precedenti, in modo che il modello abbia memoria del percorso conversazionale già sviluppato.
+
+Un esempio di prompt generico potrebbe essere:
+
+#showybox(
+  frame: (
+    border-color: gray,
+    thickness: (left: 1pt),
+    radius: 0pt,
+  ),
+)[Ecco i dati rilevanti estratti dal database: `[lista_json]`.\ Tenendo conto di questi dati e della domanda dell'utente `[domanda_utente]`, genera una risposta chiara e completa. Scrivi in modo formale e non superare i 100 token nella risposta.]
+
+Per migliorare ulteriormente la qualità della risposta, è possibile anche includere spiegazioni sul contesto in cui il modello si trova ad operare, per farlo "immedesimare" meglio nella situazione e produrre risposte più pertinenti.\
+È essenziale tuttavia valutare la complessità del compito, in quanto un'istruzione troppo dettagliata potrebbe confondere il modello, mentre una troppo vaga potrebbe portare a risposte poco pertinenti.
+Con questo fine, è possibile adottare diverse strategie di prompting:
+
+- Zero-shot: si formula l'istruzione senza fornire esempi di input-output. Il modello, grazie alle conoscenze apprese durante il pre-addestramento, tenterà di interpretare correttamente la richiesta.
+- Few-shot: si includono alcuni esempi di input e output desiderati all'interno del prompt, in modo da fornire una guida esplicita al modello su come rispondere o formulare un certo tipo di contenuto. Questa modalità risulta efficace per compiti specifici o con particolari regole di stile.
+- Dialogo multi-turno: in un sistema di dialogo, ogni nuovo turno può arricchire il prompt con un estratto delle interazioni precedenti. In tal modo, la LLM “ricorda” i contesti precedenti e può mantenere la coerenza tematica nel corso della conversazione.
+
+Come mostrato da #cite(<llm-zeroshot>, form: "prose"), un LLM come ChatGPT può generare testi in modo ragionevole anche zero-shot, ossia senza essere specificamente addestrato su un particolare set di dati. Tuttavia, gli autori mettono in luce come il modello possa omettere parte dei contenuti provenienti dalla base di conoscenza o, al contrario, integrare dati inesatti (“hallucinated”), soprattutto se il dominio è complesso o i dati non corrispondono a conoscenze di dominio già acquisite dal modello in fase di pretraining. Questi limiti emergono con maggiore evidenza quando i dati da trasformare in testo appartengono a domini poco noti al modello o, addirittura, sono controfattuali o fittizi, e quindi non rientrano nella conoscenza pregressa del LLM.
+
+Un quadro simile è proposto anche da Yuan e Färber (2023), che hanno confrontato GPT-3 e ChatGPT su benchmark di generazione testuale a partire da knowledge graph (WebNLG e AGENDA). I risultati dimostrano che i modelli di generazione, se impiegati in modalità zero-shot, ottengono buone performance di scorrevolezza, ma faticano a mantenere l’accuratezza semantica, finendo con l’inserire dettagli inventati o non coerenti. Inoltre, test su classificatori BERT mostrano come il testo “inventato” dai modelli conservi pattern facilmente riconoscibili rispetto al testo di riferimento umano. Ciò rafforza l’idea che l’LLM, pur potente, abbia bisogno di prompting e controlli specifici per non produrre contenuti fuorvianti.
+
+/* Integrare i dati di retrieval
+
+Il cuore di un sistema data-driven risiede nella capacità di combinare il prompt con i dati recuperati dallo step di retrieval. Un tipico flusso di lavoro potrebbe essere:
+
+Utente chiede: “Che cos'è la teoria della relatività di Einstein?”
+Sistema recupera: un passaggio testuale da un corpus, ad esempio un estratto da Wikipedia con informazioni fondamentali.
+Formulazione del prompt:
+Riassunto delle precedenti interazioni (se rilevante).
+Testo recuperato: “Teoria della relatività di Einstein… spiegazioneaestrattispiegazioneaestratti…”
+Istruzione per la LLM: “Spiega in modo semplice e chiaro la teoria della relatività facendo riferimento solo ai dati qui forniti.”
+Risposta della LLM: usando i dati presenti nel prompt, il modello genera una sintesi o una spiegazione adeguata.
+
+In questo modo, la LLM non si affida soltanto alle informazioni memorizzate nei suoi pesi durante il training, ma attinge al contenuto estratto in tempo reale. Questo approccio, spesso definito Retrieval-Augmented Generation, migliora la pertinenza della risposta e riduce il rischio che la LLM fornisca contenuti datati o inesatti, specialmente in domini soggetti a rapidi cambiamenti.
+Sfide e considerazioni
+
+Hallucination e incertezza: anche se il modello riceve dati contestuali, potrebbe comunque generare parti di testo non rispondenti alla realtà. È consigliabile mettere nel prompt istruzioni per “attieniti strettamente ai dati forniti” e implementare meccanismi di verifica (ad esempio un post-processing che confronti la risposta con i contenuti originali).
+Lunghezza del prompt: i modelli di grandi dimensioni hanno un limite di token che possono gestire in un singolo prompt. In conversazioni molto lunghe o con dati estesi, diventa necessario un meccanismo di summarization o chunking.
+Formattazione della risposta: se il risultato deve essere presentato all'utente in modo strutturato (ad esempio in un elenco puntato o in linguaggio Markdown), è opportuno specificarlo chiaramente nel prompt. */
 
 == Qualità delle risposte
 
