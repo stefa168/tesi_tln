@@ -324,11 +324,6 @@ Per costruire un prompt efficace, è buon uso considerare i seguenti aspetti:
       [Colori disponibili: rosso, blu, verde],
     )
     Genera una breve risposta da mostrare al cliente, evitando informazioni non pertinenti e senza inventare nulla.]
-  #align(center)[
-    #set text(size: 15pt)
-    #set par(spacing: 0pt)
-    #sym.arrow.b
-  ]
   #showybox(
     title-style: (
       weight: 900,
@@ -342,11 +337,11 @@ Per costruire un prompt efficace, è buon uso considerare i seguenti aspetti:
       thickness: (left: 1pt),
       radius: 0pt,
     ),
-    title: [LLM],
+    title: [Risposta della LLM (GPT-4o)],
   )[L'articolo è disponibile nei colori rosso, blu e verde al prezzo di 49,99 euro. I tempi di spedizione sono di 2 giorni.]
 - *Contestualizzazione*: la LLM deve essere messa nella condizione di “vedere” i dati recuperati in precedenza, per non attingere soltanto a conoscenze latenti nel proprio addestramento.
   Fornire uno snippet del testo rilevante, una lista di fatti chiave, o delle triple di un knowledge graph aumenta la probabilità che il modello usi correttamente i dati.
-- *Vincoli e stile*: se si desidera uno stile specifico (ad esempio formale, tecnico o più narrativo), si può precisare il _tone of voice_ all'interno del prompt.
+- *Vincoli e stile*: se si desidera uno stile specifico (ad esempio formale, tecnico o più narrativo), si può precisare il _tone of voice_ all'interno del prompt:
   #showybox(
     title-style: (
       weight: 900,
@@ -398,6 +393,7 @@ Per costruire un prompt efficace, è buon uso considerare i seguenti aspetti:
   )[
     Se non trovi nei dati un'informazione necessaria, dichiara che non è disponibile. Non introdurre informazioni che non siano presenti nell'elenco qui sotto.
   ]
+  In alcuni studi (#cite(<llm-zeroshot>, form: "prose")), questa strategia riduce il numero di imprecisioni, anche se non le elimina completamente.
 
 Un esempio di prompt generico che segue le indicazioni presentate potrebbe essere il seguente:
 
@@ -421,36 +417,61 @@ Un esempio di prompt generico che segue le indicazioni presentate potrebbe esser
 Con questo fine, è possibile adottare diverse strategie di prompting:
 
 - *Zero-shot*: si formula l'istruzione senza fornire esempi di input-output. Il modello, grazie alle conoscenze apprese durante il pre-addestramento, tenterà di interpretare correttamente la richiesta.
-- *Few-shot*: si includono alcuni esempi di input e output desiderati all'interno del prompt, in modo da fornire una guida esplicita al modello su come rispondere o formulare un certo tipo di contenuto. Questa modalità risulta efficace per compiti specifici o con particolari regole di stile.
+- *Few-shot*: si includono alcuni esempi di output desiderati all'interno del prompt, in modo da fornire una guida esplicita al modello su come rispondere o formulare un certo tipo di contenuto. Questa modalità risulta efficace per compiti specifici o con particolari regole di stile.
 - *Dialogo multi-turno*: in un sistema di dialogo, ogni nuovo turno può arricchire il prompt con un estratto delle interazioni precedenti. In tal modo, la LLM “ricorda” i contesti precedenti e può mantenere la coerenza tematica nel corso della conversazione.
+  #showybox(
+    title-style: (
+      weight: 900,
+      sep-thickness: 0pt,
+      color: green.darken(40%),
+      align: start,
+    ),
+    frame: (
+      title-color: green.lighten(80%),
+      border-color: green.darken(40%),
+      thickness: (left: 1pt),
+      radius: 0pt,
+    ),
+    title: [Prompt],
+  )[
+    Sei un assistente che fornisce informazioni su ordini online. Di seguito trovi una selezione parziale delle interazioni con l'utente:
+
+    *Utente*: “Qual è lo stato di avanzamento del mio ordine?”
+
+    Il sistema ha reperito i seguenti dati:
+    #list(
+      marker: [•],
+      [Ordine n. 1357],
+      [Stato: in spedizione],
+      [Previsione di consegna: 10/04/2025],
+    )
+
+    Ora, rispondi alla domanda dell'utente in modo chiaro e conciso, mantenendo la coerenza con le interazioni precedenti:
+  ]
+  #showybox(
+    title-style: (
+      weight: 900,
+      sep-thickness: 0pt,
+      color: blue.darken(40%),
+      align: start,
+    ),
+    frame: (
+      title-color: blue.lighten(80%),
+      border-color: blue.darken(40%),
+      thickness: (left: 1pt),
+      radius: 0pt,
+    ),
+    title: [Risposta della LLM (GPT-4o)],
+  )[Il tuo ordine n. 1357 è in spedizione e arriverà indicativamente il 10/04/2025.]
 
 Come mostrato da #cite(<llm-zeroshot>, form: "prose"), un LLM come ChatGPT può generare testi in modo ragionevole anche zero-shot, ossia senza essere specificamente addestrato su un particolare set di dati.
-Tuttavia, gli autori mettono in luce come il modello possa omettere parte dei contenuti provenienti dalla base di conoscenza o, al contrario, integrare dati inesatti (“hallucinated”), soprattutto se il dominio è complesso o i dati non corrispondono a conoscenze di dominio già acquisite dal modello in fase di pretraining.
+Tuttavia, gli autori mettono in luce come il modello possa omettere parte dei contenuti provenienti dalla base di conoscenza o, al contrario, inserire dati allucinati, soprattutto se il dominio è complesso o i dati non corrispondono a conoscenze di dominio già acquisite dal modello in fase di pretraining.
 Questi limiti emergono con maggiore evidenza quando i dati da trasformare in testo appartengono a domini poco noti al modello o, addirittura, sono controfattuali o fittizi, e quindi non rientrano nella conoscenza pregressa del LLM.
 
 Un quadro simile è proposto anche da #cite(<yuan-faerber-graph2text>, form:"prose"), che hanno confrontato GPT-3 e ChatGPT su benchmark di generazione testuale a partire da knowledge graph.
 I risultati dimostrano che i modelli di generazione, se impiegati in modalità zero-shot, ottengono buone performance di scorrevolezza, ma faticano a mantenere l'accuratezza semantica, finendo con l'inserire dettagli inventati o non coerenti.\
 Inoltre, test su classificatori BERT mostrano come il testo “inventato” dai modelli conservi pattern facilmente riconoscibili rispetto al testo di riferimento umano.
 Ciò rafforza l'idea che l'LLM, pur potente, abbia bisogno di prompting e controlli specifici per non produrre contenuti fuorvianti.
-
-/* Integrare i dati di retrieval
-
-Il cuore di un sistema data-driven risiede nella capacità di combinare il prompt con i dati recuperati dallo step di retrieval. Un tipico flusso di lavoro potrebbe essere:
-
-Utente chiede: “Che cos'è la teoria della relatività di Einstein?”
-Sistema recupera: un passaggio testuale da un corpus, ad esempio un estratto da Wikipedia con informazioni fondamentali.
-Formulazione del prompt:
-Riassunto delle precedenti interazioni (se rilevante).
-Testo recuperato: “Teoria della relatività di Einstein… spiegazioneaestrattispiegazioneaestratti…”
-Istruzione per la LLM: “Spiega in modo semplice e chiaro la teoria della relatività facendo riferimento solo ai dati qui forniti.”
-Risposta della LLM: usando i dati presenti nel prompt, il modello genera una sintesi o una spiegazione adeguata.
-
-In questo modo, la LLM non si affida soltanto alle informazioni memorizzate nei suoi pesi durante il training, ma attinge al contenuto estratto in tempo reale. Questo approccio, spesso definito Retrieval-Augmented Generation, migliora la pertinenza della risposta e riduce il rischio che la LLM fornisca contenuti datati o inesatti, specialmente in domini soggetti a rapidi cambiamenti.
-Sfide e considerazioni
-
-Hallucination e incertezza: anche se il modello riceve dati contestuali, potrebbe comunque generare parti di testo non rispondenti alla realtà. È consigliabile mettere nel prompt istruzioni per “attieniti strettamente ai dati forniti” e implementare meccanismi di verifica (ad esempio un post-processing che confronti la risposta con i contenuti originali).
-Lunghezza del prompt: i modelli di grandi dimensioni hanno un limite di token che possono gestire in un singolo prompt. In conversazioni molto lunghe o con dati estesi, diventa necessario un meccanismo di summarization o chunking.
-Formattazione della risposta: se il risultato deve essere presentato all'utente in modo strutturato (ad esempio in un elenco puntato o in linguaggio Markdown), è opportuno specificarlo chiaramente nel prompt. */
 
 == Qualità delle risposte
 
