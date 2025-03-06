@@ -305,7 +305,7 @@ Di base, nel mondo dell'apprendimento automatico supervisionato, per addestrare 
 
 Per la classificazione di intenti, i dataset più comuni sono quelli di chatbot e assistenti vocali, che contengono domande e richieste etichettate con l'intento che l'utente vuole esprimere.
 
-Il dataset originario fornitomi è stato composto in seguito a una campagna di raccolta dati manuale, in cui diversi collaboratori hanno interagito con un prototipo di chatbot AIML, ponendo domande e richieste di vario tipo.
+Il dataset originario fornitomi @dataset-nova è stato composto in seguito a una campagna di raccolta dati manuale, in cui diversi collaboratori hanno interagito con un prototipo di chatbot AIML, ponendo domande e richieste di vario tipo nel contesto degli FSA @paper-dataset-nova.
 
 Il dataset è una collezione di circa 700 singole interazioni "botta e risposta" prodotte dagli utenti durante la prima fase di sperimentazione.
 Metà sono domande, l'altra metà coincide con ciò che il chatbot ha risposto.
@@ -1630,3 +1630,6 @@ Come si può notare, l'addestramento di un modello di NER con spaCy richiede poc
 Anche nel caso della Named Entity Recognition la metrica di riferimento è l'F1 score, che tiene conto sia della precisione che del recall del modello. Nel grafico sopra, possiamo vedere come l'F1 score del modello si stabilisca quasi fin dall'inizio oltre il 90%, confermando la bontà del training set e la capacità del modello di generalizzare correttamente le entità riconosciute.
 
 Prese singolarmente, le tre tipologie di entità del training set (`input`, `node`, `language`) mostrano performance molto simili, con un F1 score medio intorno al 92%. Questo indica che il modello è in grado di riconoscere con precisione e recall elevati le entità di interesse, indipendentemente dalla loro categoria.
+
+== Conclusioni
+

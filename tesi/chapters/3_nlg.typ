@@ -1,4 +1,5 @@
 #import "@preview/showybox:2.0.4": showybox
+#import "@preview/pinit:0.2.2": *
 
 = Natural Language Generation <nlg>
 /*
@@ -287,7 +288,7 @@ In base alle esigenze, la parafrasi può essere usata in modo selettivo soltanto
 
 === Prompting
 
-Come evidenziato da diversi lavori in letteratura (#cite(<kasner-dusek>, form: "prose") #cite(<yuan-faerber-graph2text>, form: "prose")) , l’impiego di Large Language Model (LLM) per la generazione di risposte basate su dati si sta rivelando una strategia sempre più diffusa, ma al contempo complessa da controllare.\
+Come evidenziato da diversi lavori in letteratura (#cite(<kasner-dusek>, form: "prose") #cite(<yuan-faerber-graph2text>, form: "prose")) , l'impiego di Large Language Model (LLM) per la generazione di risposte basate su dati si sta rivelando una strategia sempre più diffusa, ma al contempo complessa da controllare.\
 Da un lato, i modelli di grandi dimensioni forniscono una notevole fluidità e flessibilità testuale, dall'altro espongono il sistema al rischio di introdurre *allucinazioni*, omissioni o errori semantici.
 
 Il termine _allucinazioni_, nel contesto delle LLM, si riferisce a risposte generate dal modello che non sono supportate dai dati forniti nel prompt o che sono incoerenti con il contesto della conversazione.
@@ -298,35 +299,139 @@ All'interno di questo generi di sistemi di dialogo, il prompting acquisisce ulte
 
 Per costruire un prompt efficace, è buon uso considerare i seguenti aspetti:
 
-- *Chiarezza dell'istruzione*: è importante esplicitare in modo chiaro cosa si vuole che il modello faccia. 
-  Frasi come “Genera una risposta che spieghi in modo chiaro ed esaustivo i seguenti dati risultanti dalla richiesta di un utente: \[...\]” seguite da contesto e vincoli specifici possono orientare molto meglio la generazione rispetto a richieste vaghe o incomplete.
+- *Chiarezza dell'istruzione*: è importante esplicitare in modo chiaro cosa si vuole che il modello faccia.
+  Richieste seguite da contesto e vincoli specifici possono orientare molto meglio la generazione rispetto a richieste vaghe o incomplete:
+
+  #showybox(
+    title-style: (
+      weight: 900,
+      sep-thickness: 0pt,
+      color: green.darken(40%),
+      align: start,
+    ),
+    frame: (
+      title-color: green.lighten(80%),
+      border-color: green.darken(40%),
+      thickness: (left: 1pt),
+      radius: 0pt,
+    ),
+    title: [Prompt],
+  )[Ecco i dati estratti dal database di e-commerce:
+    #list(
+      marker: [•],
+      [Prezzo dell'articolo: 49,99 euro],
+      [Tempi di spedizione: 2 giorni],
+      [Colori disponibili: rosso, blu, verde],
+    )
+    Genera una breve risposta da mostrare al cliente, evitando informazioni non pertinenti e senza inventare nulla.]
+  #align(center)[
+    #set text(size: 15pt)
+    #set par(spacing: 0pt)
+    #sym.arrow.b
+  ]
+  #showybox(
+    title-style: (
+      weight: 900,
+      sep-thickness: 0pt,
+      color: blue.darken(40%),
+      align: start,
+    ),
+    frame: (
+      title-color: blue.lighten(80%),
+      border-color: blue.darken(40%),
+      thickness: (left: 1pt),
+      radius: 0pt,
+    ),
+    title: [LLM],
+  )[L'articolo è disponibile nei colori rosso, blu e verde al prezzo di 49,99 euro. I tempi di spedizione sono di 2 giorni.]
 - *Contestualizzazione*: la LLM deve essere messa nella condizione di “vedere” i dati recuperati in precedenza, per non attingere soltanto a conoscenze latenti nel proprio addestramento.
   Fornire uno snippet del testo rilevante, una lista di fatti chiave, o delle triple di un knowledge graph aumenta la probabilità che il modello usi correttamente i dati.
-- *Vincoli e stile*: se si desidera uno stile specifico (ad esempio formale, tecnico o più narrativo), si può precisare il _tone of voice_ all'interno del prompt. 
-  Anche la lunghezza desiderata della risposta, l'utilizzo di determinate parole chiave o la struttura desiderata possono essere indicati come vincolo.
-- *Gestione del contesto conversazionale*: in un sistema di dialogo multi-turno, il prompt potrebbe includere brevi riassunti dei turni precedenti, in modo che il modello abbia memoria del percorso conversazionale già sviluppato.
+- *Vincoli e stile*: se si desidera uno stile specifico (ad esempio formale, tecnico o più narrativo), si può precisare il _tone of voice_ all'interno del prompt.
+  #showybox(
+    title-style: (
+      weight: 900,
+      sep-thickness: 0pt,
+      color: purple.darken(40%),
+      align: start,
+    ),
+    frame: (
+      title-color: purple.lighten(80%),
+      border-color: purple.darken(40%),
+      thickness: (left: 1pt),
+      radius: 0pt,
+    ),
+    title: [Aggiunta al Prompt],
+  )[Spiega questi dati come se stessi illustrandoli a un bambino di 10 anni, utilizzando un linguaggio semplice e frasi brevi.]
+  Anche la lunghezza desiderata della risposta, l'utilizzo di determinate parole chiave o la struttura desiderata possono essere indicati come vincolo:
+  #showybox(
+    title-style: (
+      weight: 900,
+      sep-thickness: 0pt,
+      color: purple.darken(40%),
+      align: start,
+    ),
+    frame: (
+      title-color: purple.lighten(80%),
+      border-color: purple.darken(40%),
+      thickness: (left: 1pt),
+      radius: 0pt,
+    ),
+    title: [Aggiunta al Prompt],
+  )[
+    Usa i dati forniti per creare una tabella in linguaggio Markdown con due colonne: ‘Caratteristica' e ‘Valore'. Non aggiungere ulteriori colonne.
+  ]
+- *Protezione dalle allucinazioni*: Per limitare la tendenza dei modelli a “inventare” fatti non inclusi nei dati, si possono inserire frasi di avvertenza, come:
+  #showybox(
+    title-style: (
+      weight: 900,
+      sep-thickness: 0pt,
+      color: purple.darken(40%),
+      align: start,
+    ),
+    frame: (
+      title-color: purple.lighten(80%),
+      border-color: purple.darken(40%),
+      thickness: (left: 1pt),
+      radius: 0pt,
+    ),
+    title: [Aggiunta al Prompt],
+  )[
+    Se non trovi nei dati un'informazione necessaria, dichiara che non è disponibile. Non introdurre informazioni che non siano presenti nell'elenco qui sotto.
+  ]
 
-Un esempio di prompt generico potrebbe essere:
+Un esempio di prompt generico che segue le indicazioni presentate potrebbe essere il seguente:
 
 #showybox(
+  title-style: (
+    weight: 900,
+    sep-thickness: 0pt,
+    color: green.darken(40%),
+    align: start,
+  ),
   frame: (
-    border-color: gray,
+    title-color: green.lighten(80%),
+    border-color: green.darken(40%),
     thickness: (left: 1pt),
     radius: 0pt,
   ),
+  title: [Prompt],
 )[Ecco i dati rilevanti estratti dal database: `[lista_json]`.\ Tenendo conto di questi dati e della domanda dell'utente `[domanda_utente]`, genera una risposta chiara e completa. Scrivi in modo formale e non superare i 100 token nella risposta.]
 
-Per migliorare ulteriormente la qualità della risposta, è possibile anche includere spiegazioni sul contesto in cui il modello si trova ad operare, per farlo "immedesimare" meglio nella situazione e produrre risposte più pertinenti.\
 È essenziale tuttavia valutare la complessità del compito, in quanto un'istruzione troppo dettagliata potrebbe confondere il modello, mentre una troppo vaga potrebbe portare a risposte poco pertinenti.
 Con questo fine, è possibile adottare diverse strategie di prompting:
 
-- Zero-shot: si formula l'istruzione senza fornire esempi di input-output. Il modello, grazie alle conoscenze apprese durante il pre-addestramento, tenterà di interpretare correttamente la richiesta.
-- Few-shot: si includono alcuni esempi di input e output desiderati all'interno del prompt, in modo da fornire una guida esplicita al modello su come rispondere o formulare un certo tipo di contenuto. Questa modalità risulta efficace per compiti specifici o con particolari regole di stile.
-- Dialogo multi-turno: in un sistema di dialogo, ogni nuovo turno può arricchire il prompt con un estratto delle interazioni precedenti. In tal modo, la LLM “ricorda” i contesti precedenti e può mantenere la coerenza tematica nel corso della conversazione.
+- *Zero-shot*: si formula l'istruzione senza fornire esempi di input-output. Il modello, grazie alle conoscenze apprese durante il pre-addestramento, tenterà di interpretare correttamente la richiesta.
+- *Few-shot*: si includono alcuni esempi di input e output desiderati all'interno del prompt, in modo da fornire una guida esplicita al modello su come rispondere o formulare un certo tipo di contenuto. Questa modalità risulta efficace per compiti specifici o con particolari regole di stile.
+- *Dialogo multi-turno*: in un sistema di dialogo, ogni nuovo turno può arricchire il prompt con un estratto delle interazioni precedenti. In tal modo, la LLM “ricorda” i contesti precedenti e può mantenere la coerenza tematica nel corso della conversazione.
 
-Come mostrato da #cite(<llm-zeroshot>, form: "prose"), un LLM come ChatGPT può generare testi in modo ragionevole anche zero-shot, ossia senza essere specificamente addestrato su un particolare set di dati. Tuttavia, gli autori mettono in luce come il modello possa omettere parte dei contenuti provenienti dalla base di conoscenza o, al contrario, integrare dati inesatti (“hallucinated”), soprattutto se il dominio è complesso o i dati non corrispondono a conoscenze di dominio già acquisite dal modello in fase di pretraining. Questi limiti emergono con maggiore evidenza quando i dati da trasformare in testo appartengono a domini poco noti al modello o, addirittura, sono controfattuali o fittizi, e quindi non rientrano nella conoscenza pregressa del LLM.
+Come mostrato da #cite(<llm-zeroshot>, form: "prose"), un LLM come ChatGPT può generare testi in modo ragionevole anche zero-shot, ossia senza essere specificamente addestrato su un particolare set di dati.
+Tuttavia, gli autori mettono in luce come il modello possa omettere parte dei contenuti provenienti dalla base di conoscenza o, al contrario, integrare dati inesatti (“hallucinated”), soprattutto se il dominio è complesso o i dati non corrispondono a conoscenze di dominio già acquisite dal modello in fase di pretraining.
+Questi limiti emergono con maggiore evidenza quando i dati da trasformare in testo appartengono a domini poco noti al modello o, addirittura, sono controfattuali o fittizi, e quindi non rientrano nella conoscenza pregressa del LLM.
 
-Un quadro simile è proposto anche da Yuan e Färber (2023), che hanno confrontato GPT-3 e ChatGPT su benchmark di generazione testuale a partire da knowledge graph (WebNLG e AGENDA). I risultati dimostrano che i modelli di generazione, se impiegati in modalità zero-shot, ottengono buone performance di scorrevolezza, ma faticano a mantenere l’accuratezza semantica, finendo con l’inserire dettagli inventati o non coerenti. Inoltre, test su classificatori BERT mostrano come il testo “inventato” dai modelli conservi pattern facilmente riconoscibili rispetto al testo di riferimento umano. Ciò rafforza l’idea che l’LLM, pur potente, abbia bisogno di prompting e controlli specifici per non produrre contenuti fuorvianti.
+Un quadro simile è proposto anche da #cite(<yuan-faerber-graph2text>, form:"prose"), che hanno confrontato GPT-3 e ChatGPT su benchmark di generazione testuale a partire da knowledge graph.
+I risultati dimostrano che i modelli di generazione, se impiegati in modalità zero-shot, ottengono buone performance di scorrevolezza, ma faticano a mantenere l'accuratezza semantica, finendo con l'inserire dettagli inventati o non coerenti.\
+Inoltre, test su classificatori BERT mostrano come il testo “inventato” dai modelli conservi pattern facilmente riconoscibili rispetto al testo di riferimento umano.
+Ciò rafforza l'idea che l'LLM, pur potente, abbia bisogno di prompting e controlli specifici per non produrre contenuti fuorvianti.
 
 /* Integrare i dati di retrieval
 
