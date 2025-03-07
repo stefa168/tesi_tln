@@ -38,6 +38,26 @@ class Chat:
 
         ensure_model_present(self.model)
 
+    def __enter__(self):
+        """
+        Enter the context manager, returning the initialized Chat instance.
+        """
+        # Any setup specific to the context can go here
+        # print(f"Chat context entered for model: {self.model}")
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        """
+        Exit the context manager. Cleanup resources if necessary.
+        """
+        # Any cleanup logic goes here
+        # print(f"Chat context exited for model: {self.model}.")
+        # Optionally handle exceptions
+        # if exc_type is not None:
+        #     print(f"An exception occurred: {exc_value}")
+        ollama.chat(model=self.model, messages=[Chat.new_message("")], keep_alive=0)
+        return False  # Propagate the exception if one occurred
+
     @staticmethod
     def new_message(text: str, role: Literal['user', 'assistant', 'system', 'tool'] = 'user') -> Message:
         return Message(content=text, role=role)
