@@ -1,0 +1,15 @@
+Yes.
+Yes.
+The automaton uses 0 and 1 as input symbols.
+The automaton recognizes the language of strings consisting of alternating 1s and 0s.
+State q0 is both the starting and final state.
+State q0 is both the start and final state. It receives a transition from state q4 on input 0, and it sends a transition to state q1 on input 1.
+States q0.
+q0
+No.
+Yes.
+Yes.
+Yes.
+From q0 with label 1. To q2 with label 1.
+There is a link to state q3 labeled 1, and a link to state q1 labeled 1.
+Entry transition: from q1, labeled 1. Exit transitions: to q3, labeled 1.

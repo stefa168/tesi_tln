@@ -1,0 +1,15 @@
+Yes, the automaton is directed.
+Yes, the automaton is directed.
+The automaton processes the binary symbols 0 and 1 as its inputs. It does not produce outputs separately; the symbols label the transitions between states.
+The automaton accepts binary strings over {0, 1} that are exactly repeated iterations of the block "11100" (including the empty string). In other words, its language is (11100)*.
+q0 is both an initial and an accepting state, shown with a double circle. It receives a transition labeled 0 from q4 and sends out a transition labeled 1 to q1.
+State q0 is both an initial and an accepting state, depicted with a double circle. It receives an incoming transition on the symbol 0 from state q4 and has an outgoing transition on the symbol 1 to state q1.
+The only final state is q0.
+The only final state is q0.
+No, there is no directed arc from q1 to q0.
+Yes, q0 is directly connected to q1 by a transition labeled "1".
+No, there are no transitions where the starting state is the same as the ending state.
+No, there is no transition from a state back to itself.
+For q1, the only incoming transition is from q0 with input 1, and the only outgoing transition goes to q2 with input 1.
+State q2 has an incoming link from q1 labeled 1 and an outgoing link to q3 labeled 1.
+State q2 has an entry transition coming from q1 labeled "1" and an exit transition going to q3 also labeled "1."

@@ -1,0 +1,15 @@
+Yes.
+Yes.
+The automaton uses binary symbols {0, 1} as its alphabet.
+The FSA accepts strings consisting of alternating 1s and 0s, with each input bit being the opposite of the previous one. It recognizes the language {01^*, where n >= 0}.
+State q0 is the start and final state, with a transition from q4 to q0 on input 0. It also has an outgoing transition to q1 on input 1.
+State q0 is the start and final state. It has transitions from q4 on input 0 to q0, and from q0 on input 1 to q1.
+States q0 and q1 are not, but all other states except q3 are not. States q2 and q4 are not, but q0 is also an initial state, which makes q3 and q4 not, while q1, q2, and the start/final state q0 are the ones that actually fit this description.
+There is one node that is marked as both start and final. It is q0, a doublecircle shape with id 'q0'.
+No, it does not.
+Yes, there is a transition from q0 to q1 labeled with '1'.
+Yes, there is one such transition: from q3 to q4. Both states have input '0'.
+No, there are no transitions from a state back to itself.
+The node q1 has one incoming transition from q0 with label 1 and one outgoing transition to q2 with label 1.
+There is one transition out and no transitions in to or from state q2.
+State q2 has one transition in from q1 with label 1, and one transition out to q3 with label 1.

@@ -1,0 +1,1920 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {
+    "name": "FSA",
+    "graph": {
+      "rankdir": "LR"
+    },
+    "node": {
+      "shape": "circle"
+    }
+  },
+  "nodes": [
+    {
+      "shape": "doublecircle",
+      "is_start": true,
+      "is_final": true,
+      "transitions_in": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "id": "q0"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q0",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "id": "q1"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q3",
+          "1"
+        ]
+      ],
+      "id": "q2"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "id": "q3"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q3",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q0",
+          "0"
+        ]
+      ],
+      "id": "q4"
+    }
+  ],
+  "edges": [
+    {
+      "label": "1",
+      "source": "q0",
+      "target": "q1"
+    },
+    {
+      "label": "1",
+      "source": "q1",
+      "target": "q2"
+    },
+    {
+      "label": "1",
+      "source": "q2",
+      "target": "q3"
+    },
+    {
+      "label": "0",
+      "source": "q3",
+      "target": "q4"
+    },
+    {
+      "label": "0",
+      "source": "q4",
+      "target": "q0"
+    }
+  ]
+}
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {
+    "name": "FSA",
+    "graph": {
+      "rankdir": "LR"
+    },
+    "node": {
+      "shape": "circle"
+    }
+  },
+  "nodes": [
+    {
+      "shape": "doublecircle",
+      "is_start": true,
+      "is_final": true,
+      "transitions_in": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "id": "q0"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q0",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "id": "q1"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q3",
+          "1"
+        ]
+      ],
+      "id": "q2"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "id": "q3"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q3",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q0",
+          "0"
+        ]
+      ],
+      "id": "q4"
+    }
+  ],
+  "edges": [
+    {
+      "label": "1",
+      "source": "q0",
+      "target": "q1"
+    },
+    {
+      "label": "1",
+      "source": "q1",
+      "target": "q2"
+    },
+    {
+      "label": "1",
+      "source": "q2",
+      "target": "q3"
+    },
+    {
+      "label": "0",
+      "source": "q3",
+      "target": "q4"
+    },
+    {
+      "label": "0",
+      "source": "q4",
+      "target": "q0"
+    }
+  ]
+}
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {
+    "name": "FSA",
+    "graph": {
+      "rankdir": "LR"
+    },
+    "node": {
+      "shape": "circle"
+    }
+  },
+  "nodes": [
+    {
+      "shape": "doublecircle",
+      "is_start": true,
+      "is_final": true,
+      "transitions_in": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "id": "q0"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q0",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "id": "q1"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q3",
+          "1"
+        ]
+      ],
+      "id": "q2"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "id": "q3"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q3",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q0",
+          "0"
+        ]
+      ],
+      "id": "q4"
+    }
+  ],
+  "edges": [
+    {
+      "label": "1",
+      "source": "q0",
+      "target": "q1"
+    },
+    {
+      "label": "1",
+      "source": "q1",
+      "target": "q2"
+    },
+    {
+      "label": "1",
+      "source": "q2",
+      "target": "q3"
+    },
+    {
+      "label": "0",
+      "source": "q3",
+      "target": "q4"
+    },
+    {
+      "label": "0",
+      "source": "q4",
+      "target": "q0"
+    }
+  ]
+}
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {
+    "name": "FSA",
+    "graph": {
+      "rankdir": "LR"
+    },
+    "node": {
+      "shape": "circle"
+    }
+  },
+  "nodes": [
+    {
+      "shape": "doublecircle",
+      "is_start": true,
+      "is_final": true,
+      "transitions_in": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "id": "q0"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q0",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "id": "q1"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q3",
+          "1"
+        ]
+      ],
+      "id": "q2"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "id": "q3"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q3",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q0",
+          "0"
+        ]
+      ],
+      "id": "q4"
+    }
+  ],
+  "edges": [
+    {
+      "label": "1",
+      "source": "q0",
+      "target": "q1"
+    },
+    {
+      "label": "1",
+      "source": "q1",
+      "target": "q2"
+    },
+    {
+      "label": "1",
+      "source": "q2",
+      "target": "q3"
+    },
+    {
+      "label": "0",
+      "source": "q3",
+      "target": "q4"
+    },
+    {
+      "label": "0",
+      "source": "q4",
+      "target": "q0"
+    }
+  ]
+}
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {
+    "name": "FSA",
+    "graph": {
+      "rankdir": "LR"
+    },
+    "node": {
+      "shape": "circle"
+    }
+  },
+  "nodes": [
+    {
+      "shape": "doublecircle",
+      "is_start": true,
+      "is_final": true,
+      "transitions_in": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "id": "q0"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q0",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "id": "q1"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q3",
+          "1"
+        ]
+      ],
+      "id": "q2"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "id": "q3"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q3",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q0",
+          "0"
+        ]
+      ],
+      "id": "q4"
+    }
+  ],
+  "edges": [
+    {
+      "label": "1",
+      "source": "q0",
+      "target": "q1"
+    },
+    {
+      "label": "1",
+      "source": "q1",
+      "target": "q2"
+    },
+    {
+      "label": "1",
+      "source": "q2",
+      "target": "q3"
+    },
+    {
+      "label": "0",
+      "source": "q3",
+      "target": "q4"
+    },
+    {
+      "label": "0",
+      "source": "q4",
+      "target": "q0"
+    }
+  ]
+}
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {
+    "name": "FSA",
+    "graph": {
+      "rankdir": "LR"
+    },
+    "node": {
+      "shape": "circle"
+    }
+  },
+  "nodes": [
+    {
+      "shape": "doublecircle",
+      "is_start": true,
+      "is_final": true,
+      "transitions_in": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "id": "q0"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q0",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "id": "q1"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q3",
+          "1"
+        ]
+      ],
+      "id": "q2"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "id": "q3"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q3",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q0",
+          "0"
+        ]
+      ],
+      "id": "q4"
+    }
+  ],
+  "edges": [
+    {
+      "label": "1",
+      "source": "q0",
+      "target": "q1"
+    },
+    {
+      "label": "1",
+      "source": "q1",
+      "target": "q2"
+    },
+    {
+      "label": "1",
+      "source": "q2",
+      "target": "q3"
+    },
+    {
+      "label": "0",
+      "source": "q3",
+      "target": "q4"
+    },
+    {
+      "label": "0",
+      "source": "q4",
+      "target": "q0"
+    }
+  ]
+}
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {
+    "name": "FSA",
+    "graph": {
+      "rankdir": "LR"
+    },
+    "node": {
+      "shape": "circle"
+    }
+  },
+  "nodes": [
+    {
+      "shape": "doublecircle",
+      "is_start": true,
+      "is_final": true,
+      "transitions_in": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "id": "q0"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q0",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "id": "q1"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q3",
+          "1"
+        ]
+      ],
+      "id": "q2"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "id": "q3"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q3",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q0",
+          "0"
+        ]
+      ],
+      "id": "q4"
+    }
+  ],
+  "edges": [
+    {
+      "label": "1",
+      "source": "q0",
+      "target": "q1"
+    },
+    {
+      "label": "1",
+      "source": "q1",
+      "target": "q2"
+    },
+    {
+      "label": "1",
+      "source": "q2",
+      "target": "q3"
+    },
+    {
+      "label": "0",
+      "source": "q3",
+      "target": "q4"
+    },
+    {
+      "label": "0",
+      "source": "q4",
+      "target": "q0"
+    }
+  ]
+}
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {
+    "name": "FSA",
+    "graph": {
+      "rankdir": "LR"
+    },
+    "node": {
+      "shape": "circle"
+    }
+  },
+  "nodes": [
+    {
+      "shape": "doublecircle",
+      "is_start": true,
+      "is_final": true,
+      "transitions_in": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "id": "q0"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q0",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "id": "q1"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q3",
+          "1"
+        ]
+      ],
+      "id": "q2"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "id": "q3"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q3",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q0",
+          "0"
+        ]
+      ],
+      "id": "q4"
+    }
+  ],
+  "edges": [
+    {
+      "label": "1",
+      "source": "q0",
+      "target": "q1"
+    },
+    {
+      "label": "1",
+      "source": "q1",
+      "target": "q2"
+    },
+    {
+      "label": "1",
+      "source": "q2",
+      "target": "q3"
+    },
+    {
+      "label": "0",
+      "source": "q3",
+      "target": "q4"
+    },
+    {
+      "label": "0",
+      "source": "q4",
+      "target": "q0"
+    }
+  ]
+}
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {
+    "name": "FSA",
+    "graph": {
+      "rankdir": "LR"
+    },
+    "node": {
+      "shape": "circle"
+    }
+  },
+  "nodes": [
+    {
+      "shape": "doublecircle",
+      "is_start": true,
+      "is_final": true,
+      "transitions_in": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "id": "q0"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q0",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "id": "q1"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q3",
+          "1"
+        ]
+      ],
+      "id": "q2"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "id": "q3"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q3",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q0",
+          "0"
+        ]
+      ],
+      "id": "q4"
+    }
+  ],
+  "edges": [
+    {
+      "label": "1",
+      "source": "q0",
+      "target": "q1"
+    },
+    {
+      "label": "1",
+      "source": "q1",
+      "target": "q2"
+    },
+    {
+      "label": "1",
+      "source": "q2",
+      "target": "q3"
+    },
+    {
+      "label": "0",
+      "source": "q3",
+      "target": "q4"
+    },
+    {
+      "label": "0",
+      "source": "q4",
+      "target": "q0"
+    }
+  ]
+}
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {
+    "name": "FSA",
+    "graph": {
+      "rankdir": "LR"
+    },
+    "node": {
+      "shape": "circle"
+    }
+  },
+  "nodes": [
+    {
+      "shape": "doublecircle",
+      "is_start": true,
+      "is_final": true,
+      "transitions_in": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "id": "q0"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q0",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "id": "q1"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q3",
+          "1"
+        ]
+      ],
+      "id": "q2"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "id": "q3"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q3",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q0",
+          "0"
+        ]
+      ],
+      "id": "q4"
+    }
+  ],
+  "edges": [
+    {
+      "label": "1",
+      "source": "q0",
+      "target": "q1"
+    },
+    {
+      "label": "1",
+      "source": "q1",
+      "target": "q2"
+    },
+    {
+      "label": "1",
+      "source": "q2",
+      "target": "q3"
+    },
+    {
+      "label": "0",
+      "source": "q3",
+      "target": "q4"
+    },
+    {
+      "label": "0",
+      "source": "q4",
+      "target": "q0"
+    }
+  ]
+}
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {
+    "name": "FSA",
+    "graph": {
+      "rankdir": "LR"
+    },
+    "node": {
+      "shape": "circle"
+    }
+  },
+  "nodes": [
+    {
+      "shape": "doublecircle",
+      "is_start": true,
+      "is_final": true,
+      "transitions_in": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "id": "q0"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q0",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "id": "q1"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q3",
+          "1"
+        ]
+      ],
+      "id": "q2"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "id": "q3"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q3",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q0",
+          "0"
+        ]
+      ],
+      "id": "q4"
+    }
+  ],
+  "edges": [
+    {
+      "label": "1",
+      "source": "q0",
+      "target": "q1"
+    },
+    {
+      "label": "1",
+      "source": "q1",
+      "target": "q2"
+    },
+    {
+      "label": "1",
+      "source": "q2",
+      "target": "q3"
+    },
+    {
+      "label": "0",
+      "source": "q3",
+      "target": "q4"
+    },
+    {
+      "label": "0",
+      "source": "q4",
+      "target": "q0"
+    }
+  ]
+}
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {
+    "name": "FSA",
+    "graph": {
+      "rankdir": "LR"
+    },
+    "node": {
+      "shape": "circle"
+    }
+  },
+  "nodes": [
+    {
+      "shape": "doublecircle",
+      "is_start": true,
+      "is_final": true,
+      "transitions_in": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "id": "q0"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q0",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "id": "q1"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q3",
+          "1"
+        ]
+      ],
+      "id": "q2"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "id": "q3"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q3",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q0",
+          "0"
+        ]
+      ],
+      "id": "q4"
+    }
+  ],
+  "edges": [
+    {
+      "label": "1",
+      "source": "q0",
+      "target": "q1"
+    },
+    {
+      "label": "1",
+      "source": "q1",
+      "target": "q2"
+    },
+    {
+      "label": "1",
+      "source": "q2",
+      "target": "q3"
+    },
+    {
+      "label": "0",
+      "source": "q3",
+      "target": "q4"
+    },
+    {
+      "label": "0",
+      "source": "q4",
+      "target": "q0"
+    }
+  ]
+}
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {
+    "name": "FSA",
+    "graph": {
+      "rankdir": "LR"
+    },
+    "node": {
+      "shape": "circle"
+    }
+  },
+  "nodes": [
+    {
+      "shape": "doublecircle",
+      "is_start": true,
+      "is_final": true,
+      "transitions_in": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "id": "q0"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q0",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "id": "q1"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q3",
+          "1"
+        ]
+      ],
+      "id": "q2"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "id": "q3"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q3",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q0",
+          "0"
+        ]
+      ],
+      "id": "q4"
+    }
+  ],
+  "edges": [
+    {
+      "label": "1",
+      "source": "q0",
+      "target": "q1"
+    },
+    {
+      "label": "1",
+      "source": "q1",
+      "target": "q2"
+    },
+    {
+      "label": "1",
+      "source": "q2",
+      "target": "q3"
+    },
+    {
+      "label": "0",
+      "source": "q3",
+      "target": "q4"
+    },
+    {
+      "label": "0",
+      "source": "q4",
+      "target": "q0"
+    }
+  ]
+}
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {
+    "name": "FSA",
+    "graph": {
+      "rankdir": "LR"
+    },
+    "node": {
+      "shape": "circle"
+    }
+  },
+  "nodes": [
+    {
+      "shape": "doublecircle",
+      "is_start": true,
+      "is_final": true,
+      "transitions_in": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "id": "q0"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q0",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "id": "q1"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q3",
+          "1"
+        ]
+      ],
+      "id": "q2"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "id": "q3"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q3",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q0",
+          "0"
+        ]
+      ],
+      "id": "q4"
+    }
+  ],
+  "edges": [
+    {
+      "label": "1",
+      "source": "q0",
+      "target": "q1"
+    },
+    {
+      "label": "1",
+      "source": "q1",
+      "target": "q2"
+    },
+    {
+      "label": "1",
+      "source": "q2",
+      "target": "q3"
+    },
+    {
+      "label": "0",
+      "source": "q3",
+      "target": "q4"
+    },
+    {
+      "label": "0",
+      "source": "q4",
+      "target": "q0"
+    }
+  ]
+}
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {
+    "name": "FSA",
+    "graph": {
+      "rankdir": "LR"
+    },
+    "node": {
+      "shape": "circle"
+    }
+  },
+  "nodes": [
+    {
+      "shape": "doublecircle",
+      "is_start": true,
+      "is_final": true,
+      "transitions_in": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "id": "q0"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q0",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "id": "q1"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q1",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q3",
+          "1"
+        ]
+      ],
+      "id": "q2"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q2",
+          "1"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q4",
+          "0"
+        ]
+      ],
+      "id": "q3"
+    },
+    {
+      "is_start": false,
+      "is_final": false,
+      "transitions_in": [
+        [
+          "q3",
+          "0"
+        ]
+      ],
+      "transitions_out": [
+        [
+          "q0",
+          "0"
+        ]
+      ],
+      "id": "q4"
+    }
+  ],
+  "edges": [
+    {
+      "label": "1",
+      "source": "q0",
+      "target": "q1"
+    },
+    {
+      "label": "1",
+      "source": "q1",
+      "target": "q2"
+    },
+    {
+      "label": "1",
+      "source": "q2",
+      "target": "q3"
+    },
+    {
+      "label": "0",
+      "source": "q3",
+      "target": "q4"
+    },
+    {
+      "label": "0",
+      "source": "q4",
+      "target": "q0"
+    }
+  ]
+}
