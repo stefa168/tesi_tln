@@ -2730,16 +2730,16 @@ rig-performance:
   type: article
   title: Improving Your Model Ranking on Chatbot Arena by Vote Rigging
   author:
-  - Min, Rui
-  - Pang, Tianyu
-  - Du, Chao
-  - Liu, Qian
-  - Cheng, Minhao
-  - Lin, Min
+    - Min, Rui
+    - Pang, Tianyu
+    - Du, Chao
+    - Liu, Qian
+    - Cheng, Minhao
+    - Lin, Min
   date: 2025
   serial-number:
     doi: 10.48550/arXiv.2501.17858
-    arxiv: '2501.17858'
+    arxiv: "2501.17858"
 
 bycloud-rigging:
   type: video
@@ -2747,3 +2747,34 @@ bycloud-rigging:
   url: https://www.youtube.com/watch?v=IbBEbjeVWgI
   author: bycloud
   date: 2025-03-10
+
+aiml-high:
+  type: repository
+  author: gleuch
+  url: https://github.com/gleuch/aiml-high
+
+python-aiml:
+  type: repository
+  author: paulovn
+  url: https://github.com/paulovn/python-aiml
+
+strangmann2024transferlearningfinetuninglarge:
+  type: article
+  title: Transfer Learning for Finetuning Large Language Models
+  author:
+    - Strangmann, Tobias
+    - Purucker, Lennart
+    - Franke, Jörg K. H.
+    - Rapant, Ivo
+    - Ferreira, Fabio
+    - Hutter, Frank
+  date: 2024
+  serial-number:
+    doi: 10.48550/arXiv.2411.01195
+    arxiv: "2411.01195"
+
+jetbrains-python:
+  type: report
+  title: Python Developers Survey 2021 Results
+  url: https://lp.jetbrains.com/python-developers-survey-2021/
+  date: 2021
