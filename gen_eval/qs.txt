@@ -1,15 +1,15 @@
-Would you say that the automaton is directed?
-Could you tell me whether the automaton is directed?
-Can you describe the automaton's input and output symbols?
-Could you identify the grammar or set of symbols that the automaton recognizes?
-Could you highlight the primary aspects of state q0?
-Can you provide more details about state q0?
-Which state or states are considered final?
-What are the final states in the automaton?
-Does a directed arc exist from q1 to q0?
-Is q0 directly connected to q1 by a transition?
-Can you spot any transition where the start and end state are identical?
-Is there a looping transition from a state back to the same state?
-What are the incoming and outgoing transition paths for q1?
-What links are present for state q2 in the automaton?
-What are the entry and exit transitions for state q2?
+- Would you say that the automaton is directed?
+- Could you tell me whether the automaton is directed?
+- Can you describe the automaton's input and output symbols?
+- Could you identify the grammar or set of symbols that the automaton recognizes?
+- Could you highlight the primary aspects of state q0?
+- Can you provide more details about state q0?
+- Which state or states are considered final?
+- What are the final states in the automaton?
+- Does a directed arc exist from q1 to q0?
+- Is q0 directly connected to q1 by a transition?
+- Can you spot any transition where the start and end state are identical?
+- Is there a looping transition from a state back to the same state?
+- What are the incoming and outgoing transition paths for q1?
+- What links are present for state q2 in the automaton?
+- What are the entry and exit transitions for state q2?

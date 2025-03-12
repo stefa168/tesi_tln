@@ -2215,7 +2215,7 @@ honnibal_spacy_2015:
     - Montani, Ines
   date: 2015
   url: https://explosion.ai/blog/introducing-spacy
-  
+
 spacy:
   type: misc
   title: "spaCy: Industrial-strength Natural Language Processing in Python"
@@ -2304,37 +2304,37 @@ owasp-injection:
 
 rdf-syntax-grammar:
   type: report
-  title: 'RDF 1.1 XML Syntax'
+  title: "RDF 1.1 XML Syntax"
   author: W3C
   date: 2014-02-25
-  organization: 'World Wide Web Consortium'
+  organization: "World Wide Web Consortium"
   abstract: This document defines an XML syntax for RDF called RDF/XML in terms of Namespaces in XML, the XML Information Set and XML Base.
   url: https://www.w3.org/TR/rdf-syntax-grammar/
 
 rdf-turtle:
   type: report
-  title: 'RDF 1.1 Turtle' 
+  title: "RDF 1.1 Turtle"
   author: W3C
   date: 2025-02-20
-  organization: 'World Wide Web Consortium'
+  organization: "World Wide Web Consortium"
   url: https://w3c.github.io/rdf-turtle/spec/
 
 dbpedia:
   type: web
-  title: 'DBpedia'
+  title: "DBpedia"
   url: https://wiki.dbpedia.org/
 
 wikidata:
   type: web
-  title: 'Wikidata'
+  title: "Wikidata"
   url: https://www.wikidata.org/
 
 Rajaraman_Ullman_2011:
   type: chapter
   title: Data Mining
   author:
-  - Rajaraman, Anand
-  - Ullman, Jeffrey David
+    - Rajaraman, Anand
+    - Ullman, Jeffrey David
   date: 2011
   page-range: 1-17
   parent:
@@ -2346,39 +2346,39 @@ okapi-bm25:
   type: article
   title: Okapi at TREC-3.
   author:
-  - Robertson, Stephen
-  - Walker, Steve
-  - Jones, Susan
-  - Hancock-Beaulieu, Micheline
-  - Gatford, Mike
+    - Robertson, Stephen
+    - Walker, Steve
+    - Jones, Susan
+    - Hancock-Beaulieu, Micheline
+    - Gatford, Mike
   date: 1994
   parent:
     type: proceedings
 
 sentence-bert:
   type: misc
-  title: 'Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks'
+  title: "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks"
   author:
-  - Reimers, Nils
-  - Gurevych, Iryna
+    - Reimers, Nils
+    - Gurevych, Iryna
   date: 2019
   url: https://arxiv.org/abs/1908.10084
   serial-number:
-    arxiv: '1908.10084'
+    arxiv: "1908.10084"
 
 wang-etal-2021-retrieval:
   type: article
   title: Retrieval, Re-ranking and Multi-task Learning for Knowledge-Base Question Answering
   author:
-  - Wang, Zhiguo
-  - Ng, Patrick
-  - Nallapati, Ramesh
-  - Xiang, Bing
+    - Wang, Zhiguo
+    - Ng, Patrick
+    - Nallapati, Ramesh
+    - Xiang, Bing
   date: 2021-04
   editor:
-  - Merlo, Paola
-  - Tiedemann, Jorg
-  - Tsarfaty, Reut
+    - Merlo, Paola
+    - Tiedemann, Jorg
+    - Tsarfaty, Reut
   page-range: 347-357
   url: https://aclanthology.org/2021.eacl-main.26/
   serial-number:
@@ -2386,26 +2386,26 @@ wang-etal-2021-retrieval:
   abstract: 'Question answering over knowledge bases (KBQA) usually involves three sub-tasks, namely topic entity detection, entity linking and relation detection. Due to the large number of entities and relations inside knowledge bases (KB), previous work usually utilized sophisticated rules to narrow down the search space and managed only a subset of KBs in memory. In this work, we leverage a \\textit\{retrieve-and-rerank\} framework to access KBs via traditional information retrieval (IR) method, and re-rank retrieved candidates with more powerful neural networks such as the pre-trained BERT model. Considering the fact that directly assigning a different BERT model for each sub-task may incur prohibitive costs, we propose to share a BERT encoder across all three sub-tasks and define task-specific layers on top of the shared layer. The unified model is then trained under a multi-task learning framework. Experiments show that: (1) Our IR-based retrieval method is able to collect high-quality candidates efficiently, thus enables our method adapt to large-scale KBs easily; (2) the BERT model improves the accuracy across all three sub-tasks; and (3) benefiting from multi-task learning, the unified model obtains further improvements with only 1/3 of the original parameters. Our final model achieves competitive results on the SimpleQuestions dataset and superior performance on the FreebaseQA dataset.'
   parent:
     type: proceedings
-    title: 'Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics: Main Volume'
+    title: "Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics: Main Volume"
     publisher: Association for Computational Linguistics
     location: Online
 
 kasner-dusek:
   type: article
-  title: 'Beyond Traditional Benchmarks: Analyzing Behaviors of Open {LLM}s on Data-to-Text Generation'
+  title: "Beyond Traditional Benchmarks: Analyzing Behaviors of Open {LLM}s on Data-to-Text Generation"
   author:
-  - Kasner, Zdeněk
-  - Dušek, Ondřej
+    - Kasner, Zdeněk
+    - Dušek, Ondřej
   date: 2024
   editor:
-  - Ku, Lun-Wei
-  - Martins, Andre
-  - Srikumar, Vivek
+    - Ku, Lun-Wei
+    - Martins, Andre
+    - Srikumar, Vivek
   page-range: 12045-12072
   url: https://aclanthology.org/2024.acl-long.651
   parent:
     type: proceedings
-    title: 'Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)'
+    title: "Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)"
     publisher: Association for Computational Linguistics
     location: Bangkok, Thailand
 
@@ -2413,23 +2413,23 @@ llm-zeroshot:
   type: article
   title: Using Large Language Models for Zero-Shot Natural Language Generation from Knowledge Graphs
   author:
-  - Axelsson, Agnes
-  - Skantze, Gabriel
+    - Axelsson, Agnes
+    - Skantze, Gabriel
   date: 2023
   url: https://arxiv.org/abs/2307.07312
   serial-number:
-    arxiv: '2307.07312'
+    arxiv: "2307.07312"
 
 yuan-faerber-graph2text:
   type: article
   title: Evaluating Generative Models for Graph-to-Text Generation
   author:
-  - Yuan, Shuzhou
-  - Faerber, Michael
+    - Yuan, Shuzhou
+    - Faerber, Michael
   date: 2023-09
   editor:
-  - Mitkov, Ruslan
-  - Angelova, Galia
+    - Mitkov, Ruslan
+    - Angelova, Galia
   page-range: 1256-1264
   url: https://aclanthology.org/2023.ranlp-1.133/
   abstract: Large language models (LLMs) have been widely employed for graph-to-text generation tasks. However, the process of finetuning LLMs requires significant training resources and annotation work. In this paper, we explore the capability of generative models to generate descriptive text from graph data in a zero-shot setting. Specifically, we evaluate GPT-3 and ChatGPT on two graph-to-text datasets and compare their performance with that of finetuned LLM models such as T5 and BART. Our results demonstrate that generative models are capable of generating fluent and coherent text, achieving BLEU scores of 10.57 and 11.08 for the AGENDA and WebNLG datasets, respectively. However, our error analysis reveals that generative models still struggle with understanding the semantic relations between entities, and they also tend to generate text with hallucinations or irrelevant information. As a part of error analysis, we utilize BERT to detect machine-generated text and achieve high macro-F1 scores. We have made the text generated by generative models publicly available.
@@ -2443,20 +2443,20 @@ paper-dataset-nova:
   type: article
   title: "Educational Dialogue Systems for Visually Impaired Students: Introducing a Task-Oriented User-Agent Corpus"
   author:
-  - Nuovo, Elisa Di
-  - Sanguinetti, Manuela
-  - Balestrucci, Pier Felice
-  - Anselma, Luca
-  - Bernareggi, Cristian
-  - Mazzei, Alessandro
+    - Nuovo, Elisa Di
+    - Sanguinetti, Manuela
+    - Balestrucci, Pier Felice
+    - Anselma, Luca
+    - Bernareggi, Cristian
+    - Mazzei, Alessandro
   date: 2024-05-25
   editor:
-  - Calzolari, Nicoletta
-  - Kan, Min-Yen
-  - Hoste, Veronique
-  - Lenci, Alessandro
-  - Sakti, Sakriani
-  - Xue, Nianwen
+    - Calzolari, Nicoletta
+    - Kan, Min-Yen
+    - Hoste, Veronique
+    - Lenci, Alessandro
+    - Sakti, Sakriani
+    - Xue, Nianwen
   page-range: 5507-5519
   url: https://iris.unito.it/handle/2318/1977310
   serial-number:
@@ -2467,49 +2467,47 @@ paper-dataset-nova:
     publisher: ELRA, ICCL
     location: Luxembourg
 
-
 dataset-nova:
   type: repository
   title: NoVAGraphS FSA User-Agent Corpus
   author:
-  - Di Nuovo, Elisa
-  - Sanguinetti, Manuela
-  - Mazzei, Alessandro
-  - Anselma, Luca
-  - Bernareggi, Cristian
-  - Balestrucci, Pier Felice
+    - Di Nuovo, Elisa
+    - Sanguinetti, Manuela
+    - Mazzei, Alessandro
+    - Anselma, Luca
+    - Bernareggi, Cristian
+    - Balestrucci, Pier Felice
   date: 2024-03
   publisher: Zenodo
   url: https://doi.org/10.5281/zenodo.10822733
   serial-number:
     doi: 10.5281/zenodo.10822733
-    version: '1.0'
-
+    version: "1.0"
 
 mazzei-novagraphs:
   type: article
   title: "NoVAGraphS: Towards an Accessible Educational-Oriented Dialogue System"
   author:
-  - Michael Oliverio
-  - Margherita Piroi
-  - Daniele De Giorgi
-  - Pier Felice Balestrucci
-  - Carola Manolino
-  - Alessandro Mazzei
-  - Luca Anselma
-  - Cristian Bernareggi
-  - Marina Serio
-  - Cristina Sabena
-  - Tiziana Armano
-  - Sandro Coriasco
-  - Anna Capietto 
+    - Michael Oliverio
+    - Margherita Piroi
+    - Daniele De Giorgi
+    - Pier Felice Balestrucci
+    - Carola Manolino
+    - Alessandro Mazzei
+    - Luca Anselma
+    - Cristian Bernareggi
+    - Marina Serio
+    - Cristina Sabena
+    - Tiziana Armano
+    - Sandro Coriasco
+    - Anna Capietto
   date: 2024
   editor:
-  - Taibi, Davide
-  - Schicchi, Daniele
-  - Temperini, Marco
-  - Limongelli, Carla
-  - Casalino, Gabriella
+    - Taibi, Davide
+    - Schicchi, Daniele
+    - Temperini, Marco
+    - Limongelli, Carla
+    - Casalino, Gabriella
   page-range: 1-12
   url: https://iris.unito.it/handle/2318/2041270
   parent:
@@ -2526,16 +2524,16 @@ nova-spoken:
   type: article
   title: Building a Spoken Dialogue System for Supporting Blind People in Accessing Mathematical Expressions
   author:
-  - Balestrucci, Pier Felice
-  - Anselma, Luca
-  - Bernareggi, Cristian
-  - Mazzei, Alessandro
+    - Balestrucci, Pier Felice
+    - Anselma, Luca
+    - Bernareggi, Cristian
+    - Mazzei, Alessandro
   date: 2023
   editor:
-  - Boschetti, Federico
-  - Lebani, Gianluca E.
-  - Magnini, Bernardo
-  - Novielli, Nicole
+    - Boschetti, Federico
+    - Lebani, Gianluca E.
+    - Magnini, Bernardo
+    - Novielli, Nicole
   page-range: 1-8
   url: https://iris.unito.it/handle/2318/1950755
   parent:
@@ -2552,12 +2550,12 @@ nova-edu:
   type: article
   title: An Educational Dialogue System for Visually Impaired People
   author:
-  - Balestrucci, Pier Felice
-  - Nuovo, Elisa Di
-  - Sanguinetti, Manuela
-  - Anselma, Luca
-  - Bernareggi, Cristian
-  - Mazzei, Alessandro
+    - Balestrucci, Pier Felice
+    - Nuovo, Elisa Di
+    - Sanguinetti, Manuela
+    - Anselma, Luca
+    - Bernareggi, Cristian
+    - Mazzei, Alessandro
   date: 2024
   page-range: 150502-150519
   url: https://ieeexplore.ieee.org/document/10716367
@@ -2567,3 +2565,184 @@ nova-edu:
     type: periodical
     title: IEEE Access
     volume: 12
+
+kasner2024factgenie:
+  type: article
+  title: "factgenie: A Framework for Span-based Evaluation of Generated Texts"
+  author:
+    - Kasner, Zdeněk
+    - Platek, Ondrej
+    - Schmidtova, Patricia
+    - Balloccu, Simone
+    - Dusek, Ondrej
+  date: 2024
+  editor:
+    - Mahamood, Saad
+    - Minh, Nguyen Le
+    - Ippolito, Daphne
+  page-range: 13–15
+  url: https://aclanthology.org/2024.inlg-demos.5
+  parent:
+    type: proceedings
+    title: "Proceedings of the 17th International Natural Language Generation Conference: System Demonstrations"
+    publisher: Association for Computational Linguistics
+    location: Tokyo, Japan
+
+factgenie:
+  type: repository
+  title: Factgenie
+  url: https://github.com/ufal/factgenie
+
+gpt-good-eval-wang:
+  type: article
+  title: Is ChatGPT a Good NLG Evaluator? A Preliminary Study
+  author:
+    - Wang, Jiaan
+    - Liang, Yunlong
+    - Meng, Fandong
+    - Sun, Zengkui
+    - Shi, Haoxiang
+    - Li, Zhixu
+    - Xu, Jinan
+    - Qu, Jianfeng
+    - Zhou, Jie
+  date: 2023
+  serial-number:
+    doi: 10.48550/arXiv.2303.04048
+    arxiv: "2303.04048"
+
+sottana-etal-2023-evaluation:
+  type: article
+  title: "Evaluation Metrics in the Era of GPT-4: Reliably Evaluating Large Language Models on Sequence to Sequence Tasks"
+  author:
+    - Sottana, Andrea
+    - Liang, Bin
+    - Zou, Kai
+    - Yuan, Zheng
+  date: 2023-12
+  editor:
+    - Bouamor, Houda
+    - Pino, Juan
+    - Bali, Kalika
+  page-range: 8776–8788
+  url: https://aclanthology.org/2023.emnlp-main.543/
+  serial-number:
+    doi: 10.18653/v1/2023.emnlp-main.543
+  abstract: "Large Language Models (LLMs) evaluation is a patchy and inconsistent landscape, and it is becoming clear that the quality of automatic evaluation metrics is not keeping up with the pace of development of generative models. We aim to improve the understanding of current models' performance by providing a preliminary and hybrid evaluation on a range of open and closed-source generative LLMs on three NLP benchmarks: text summarisation, text simplification and grammatical error correction (GEC), using both automatic and human evaluation. We also explore the potential of the recently released GPT-4 to act as an evaluator. We find that ChatGPT consistently outperforms many other popular models according to human reviewers on the majority of metrics, while scoring much more poorly when using classic automatic evaluation metrics. We also find that human reviewers rate the gold reference as much worse than the best models' outputs, indicating the poor quality of many popular benchmarks. Finally, we find that GPT-4 is capable of ranking models' outputs in a way which aligns reasonably closely to human judgement despite task-specific variations, with a lower alignment in the GEC task."
+  parent:
+    type: proceedings
+    title: Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing
+    publisher: Association for Computational Linguistics
+    location: Singapore
+
+kocmi-federmann-2023-gemba:
+  type: article
+  title: "GEMBA-MQM: Detecting Translation Quality Error Spans with {GPT}-4"
+  author:
+    - Kocmi, Tom
+    - Federmann, Christian
+  date: 2023-12
+  editor:
+    - Koehn, Philipp
+    - Haddow, Barry
+    - Kocmi, Tom
+    - Monz, Christof
+  page-range: 768–775
+  url: https://aclanthology.org/2023.wmt-1.64/
+  serial-number:
+    doi: 10.18653/v1/2023.wmt-1.64
+  abstract: This paper introduces GEMBA-MQM, a GPT-based evaluation metric designed to detect translation quality errors, specifically for the quality estimation setting without the need for human reference translations. Based on the power of large language models (LLM), GEMBA-MQM employs a fixed three-shot prompting technique, querying the GPT-4 model to mark error quality spans. Compared to previous works, our method has language-agnostic prompts, thus avoiding the need for manual prompt preparation for new languages. While preliminary results indicate that GEMBA-MQM achieves state-of-the-art accuracy for system ranking, we advise caution when using it in academic works to demonstrate improvements over other methods due to its dependence on the proprietary, black-box GPT model.
+  parent:
+    type: proceedings
+    title: Proceedings of the Eighth Conference on Machine Translation
+    publisher: Association for Computational Linguistics
+    location: Singapore
+
+chain-of-thought:
+  type: article
+  title: Chain-of-Thought Prompting Elicits Reasoning in Large Language Models
+  author:
+    - Wei, Jason
+    - Wang, Xuezhi
+    - Schuurmans, Dale
+    - Bosma, Maarten
+    - Ichter, Brian
+    - Xia, Fei
+    - Chi, Ed
+    - Le, Quoc
+    - Zhou, Denny
+  date: 2023
+  serial-number:
+    doi: 10.48550/arXiv.2201.11903
+    arxiv: "2201.11903"
+  parent:
+    type: periodical
+
+open-source-llm:
+  type: article
+  url: https://hackernoon.com/is-that-llm-actually-open-source-we-need-to-talk-open-washing-in-ai-governance
+  title: Is that LLM Actually "Open Source"? We Need to Talk About Open-Washing in AI Governance
+  author: Sal Kimmich
+  date: 2024-09-8
+
+open-weights-foundational:
+  type: article
+  url: https://www.ftc.gov/policy/advocacy-research/tech-at-ftc/2024/07/open-weights-foundation-models
+  title: On Open-Weights Foundation Models
+
+hassio:
+  type: web
+  title: "Home Assistant"
+  url: https://www.home-assistant.io/
+
+idiosyncrasieslargelanguagemodels:
+  type: article
+  title: Idiosyncrasies in Large Language Models
+  author:
+    - Sun, Mingjie
+    - Yin, Yida
+    - Xu, Zhiqiu
+    - Kolter, J. Zico
+    - Liu, Zhuang
+  date: 2025
+  url: https://arxiv.org/abs/2502.12150
+  serial-number:
+    arxiv: "2502.12150"
+
+abacha2025medecbenchmarkmedicalerror:
+  type: article
+  title: "MEDEC: A Benchmark for Medical Error Detection and Correction in Clinical Notes"
+  author:
+    - Abacha, Asma Ben
+    - Yim, Wen-wai
+    - Fu, Yujuan
+    - Sun, Zhaoyi
+    - Yetisgen, Meliha
+    - Xia, Fei
+    - Lin, Thomas
+  date: 2025
+  url: https://arxiv.org/abs/2412.19260
+  serial-number:
+    doi: 10.48550/arXiv.2412.19260
+    arxiv: "2412.19260"
+
+rig-performance:
+  type: misc
+  title: Improving Your Model Ranking on Chatbot Arena by Vote Rigging
+  author:
+  - Min, Rui
+  - Pang, Tianyu
+  - Du, Chao
+  - Liu, Qian
+  - Cheng, Minhao
+  - Lin, Min
+  date: 2025
+  serial-number:
+    doi: 10.48550/arXiv.2501.17858
+    arxiv: '2501.17858'
+
+bycloud-rigging:
+  type: video
+  url: https://www.youtube.com/watch?v=IbBEbjeVWgI
+  author: bycloud
+  date: 2025-03-10

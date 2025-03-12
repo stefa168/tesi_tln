@@ -1633,3 +1633,12 @@ Prese singolarmente, le tre tipologie di entità del training set (`input`, `nod
 
 == Conclusioni
 
+Nel corso di questa sezione si è evidenziata l'evoluzione dei sistemi di comprensione del linguaggio naturale (NLU) partendo da soluzioni rule-based, come AIML, fino ad arrivare a modelli neurali di classificazione degli intenti e riconoscimento delle entità.
+Da un lato, AIML ha dimostrato di essere un valido framework per realizzare rapidamente chatbot rule-based, con una curva di apprendimento relativamente bassa e un buon controllo sulle risposte generate. 
+Dall'altro però, la sua rigidità strutturale e la limitata capacità di gestire varianti linguistiche, contesto conversazionale esteso e dati dinamici ne hanno evidenziato i limiti in scenari più complessi.
+
+In risposta a queste criticità, l'integrazione di modelli neurali ---prime fra tutte le architetture Transformer pre-addestrate--- ha consentito di ottenere prestazioni significativamente superiori nella classificazione di intenti, come dimostrato dai risultati sperimentali.\
+L'uso di dataset etichettati, arricchiti anche tramite tecniche di data augmentation, ha mostrato l'efficacia dell'approccio supervisionato, evidenziando notevoli miglioramenti rispetto alle soluzioni puramente rule-based.
+Inoltre, l'introduzione di un componente di Named Entity Recognition, addestrato con strumenti come spaCy, ha permesso di gestire le informazioni all'interno del testo (input dell'automa, nodi, linguaggio accettato, ecc.), facilitando l'estrazione di conoscenza strutturata con lo scopo di potenziare la comprensione e la risposta del chatbot.
+
+Le sperimentazioni descritte mettono in luce come l'unione di classificazione di intenti e riconoscimento delle entità possa fornire un notevole salto di qualità rispetto ai paradigmi conversazionali tradizionali. Nella prossima sezione, essendoci ora soffermati sull'_understanding_, affronteremo invece la generazione di risposte fluide e coerenti, esplorando le potenzialità dei modelli di generazione del linguaggio e le sfide legate alla creazione di conversazioni più umane e naturali.

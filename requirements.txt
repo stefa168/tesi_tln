@@ -8,7 +8,7 @@ ipython==8.27.0
 nltk==3.9.1
 gensim==4.3.3
 kneed==0.8.5
-ollama == 0.3.3
+ollama == 0.4.7
 tqdm== 4.66.5
 transformers>=4.45.2
 matplotlib==3.9.2
@@ -28,3 +28,4 @@ asteval~=1.0.6
 networkx~=3.4.1
 seaborn~=0.13.2
 sympy~=1.13.3
+pydot==3.0.4

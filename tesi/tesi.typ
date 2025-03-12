@@ -72,6 +72,7 @@
 #show figure.where(kind: "fun"): set figure(supplement: [Funzione])
 #show figure.where(kind: "cls"): set figure(supplement: [Classe])
 #show figure.where(kind: "query"): set figure(supplement: [Query])
+#show figure.where(kind: "diag"): set figure(supplement: [Diagramma])
 // #show figure.where(kind: "snip"): set block(breakable: true)
 
 #set raw(syntaxes: ("sparql.sublime-syntax", "turtle.sublime-syntax"))
