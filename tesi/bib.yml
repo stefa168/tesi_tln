@@ -2727,7 +2727,7 @@ abacha2025medecbenchmarkmedicalerror:
     arxiv: "2412.19260"
 
 rig-performance:
-  type: misc
+  type: article
   title: Improving Your Model Ranking on Chatbot Arena by Vote Rigging
   author:
   - Min, Rui
@@ -2743,6 +2743,7 @@ rig-performance:
 
 bycloud-rigging:
   type: video
+  title: Cheating LLM Benchmarks Is Easier Than You Think…
   url: https://www.youtube.com/watch?v=IbBEbjeVWgI
   author: bycloud
   date: 2025-03-10
