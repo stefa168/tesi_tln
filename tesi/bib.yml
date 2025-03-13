@@ -2795,3 +2795,10 @@ yaml:
   type: web
   title: "YAML: YAML Ain't Markup Language™"
   url: https://yaml.org/
+
+cameronwolfe:
+  type: post
+  author: Cameron Wolfe
+  date: 2024-03-04
+  title: "Decoder-Only Transformers: The Workhorse of Generative LLMs"
+  url: https://cameronrwolfe.substack.com/p/decoder-only-transformers-the-workhorse
