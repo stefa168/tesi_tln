@@ -110,7 +110,7 @@ Come è possibile prevedere, è comunque necessario un file di configurazione. �
   ```,
   kind: "snip",
   caption: [Estratto della configurazione che descrive come devono essere addestrati i modelli del chatbot.],
-)
+)<compiler-conf-snip>
 
 Sotto la chiave `models` troviamo una lista di modelli, ciascuno con una *sequenza* di operazioni che devono essere svolte per poter preparare il proprio modello con successo. Nel @compiler_classes è possibile vedere in dettaglio la struttura delle classi e delle proprietà utilizzate per la compilazione.
 
@@ -134,7 +134,8 @@ La peculiarità del sistema è la gestione degli step: ogni passaggio può avere
 
 Durante la compilazione, la classe `ModelPipelineCompiler` presentata nella @model-compiler segue tre passaggi essenziali:
 1. Fa verificare allo step attuale che i suoi requisiti per poter portare a termine l'esecuzione siano soddisfatti (`step.resolve_requirements(context)`). In più, la verifica restituisce tutti gli elementi necessari per l'effettiva esecuzione;
-#figure(```python
+#figure(
+  ```python
     def resolve_requirements(self, context: dict[str, dict[str, Any]]) -> dict[str, Any]:
         context = super().resolve_requirements(context)
 
@@ -146,7 +147,8 @@ Durante la compilazione, la classe `ModelPipelineCompiler` presentata nella @mod
         return context
   ```,
   kind: "snip",
-  caption: [Funzione di risoluzione dei requisiti per l'addestramento con SpaCy])
+  caption: [Funzione di risoluzione dei requisiti per l'addestramento con SpaCy],
+)
 
 2. Esegue l'effettivo step (`step.execute(retrieved_inputs, context)`): se è un caricamento di dati, li inserisce nel `context`, se è un addestramento, esegue le rispettive funzioni di fine-tuning o training, ecc.
 3. Ultimo passo, non meno importante, è la verifica dell'effettivo successo e conclusione dello step (`step.verify_execution(execution_results)`). Un _sanity check_ è molto importante per assicurarci di aver prodotto dati che non possano invalidare l'intera pipeline.
@@ -197,7 +199,9 @@ Durante la compilazione, la classe `ModelPipelineCompiler` presentata nella @mod
   caption: [La classe adibita alla gestione del context durante la compilazione di ogni modello.],
 ) <model-compiler>
 
-== Runner
+Dopo l'esecuzione del passo 3, i risultati dello step sono salvati nel dizionario `context`, rendendoli così disponibili agli altri step se mai dovessero averne bisogno. Questo è il motivo per cui ogni step di un modello necessita di un nome univoco: il fine-tuning ad esempio, richiedendo un dataframe, potrà specificare di voler utilizzare i dati del passaggio di caricamento da CSV (`dataframe: data.dataframe` dell'esempio nello @compiler-conf-snip).
 
+== Runner
+Una volta che le preparazioni con la compilazione sono state completate, abbiamo tutto il necessario per effettivamente eseguire il chatbot. Compiler e Runner sono due applicativi separati, ma il file di configurazione resta lo stesso.
 
 == Sviluppi futuri
