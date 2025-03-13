@@ -1242,7 +1242,7 @@ Possiamo anche vedere come, dove questo non sia in grado di classificare una cer
       height: 8cm,
     ),
   ),
-  kind: "plot",
+  kind: "diag",
   caption: [Matrici di confusione per la classe principale classificata con AIML (sopra) e BERT (sotto).\ Seguendo una certa riga (classe) possiamo vedere per ogni colonna (classe predetta) quanti esempi sono stati classificati correttamente e quanti no. La diagonale invece indica il numero di esempi classificati senza errori.],
 ) <conf_aiml_main>
 
@@ -1325,7 +1325,7 @@ Le matrici di confusione confermano le tendenze già presentate dai due modelli 
       )
     ),
     caption: [Matrici di confusione per le classi secondarie classificate con AIML (sopra) e BERT (sotto).],
-    kind: "plot"
+    kind: "diag"
   ) <conf_aiml_sub>
 ]
 

@@ -1,7 +1,7 @@
 #import "@preview/showybox:2.0.4": showybox
 #import "@preview/pinit:0.2.2": *
 
-= Natural Language Generation <nlg>
+= Retrieval-Augmented Generation <nlg>
 /*
 - *NLG*: tramite prompting o parafrasi (sulle risposte)
   - *LLM per generare delle alternative ad una risposta standard, o per generarla direttamente dai dati tramite prompt*
@@ -27,18 +27,21 @@
 }
 
 #let hrule() = align(center, line(length: 60%, stroke: silver))
-
 Nel contesto di un sistema di dialogo, la generazione del linguaggio naturale (NLG) è una delle componenti fondamentali affinchè il sistema possa effettivamente comunicare con gli utilizzatori in modo efficace.
 
 Una volta che abbiamo compreso l'intenzione dell'utente, dobbiamo generare una risposta che sia *coerente con la richiesta* e che *fornisca un qualche valore* all'interlocutore, senza scordare che quest'ultima deve essere comprensibile. Il processo può essere svolto in diversi modi, a seconda delle esigenze e delle capacità del sistema stesso.
 
 La @nlg punterà ad illustrare le tecniche di generazione del linguaggio naturale studiate per lo sviluppo del sistema, mentre la @engi si occuperà di mostrare più nel dettaglio come queste siano rese disponibili per i botmaster nell'implementazione vera e propria.
 
-Nelle sezioni seguenti vedremo che il processo è divisibile in due fasi principali:
-1. Il recupero dei dati: senza informazioni, il sistema non può generare risposte significative. Il recupero dei dati è quindi il primo passo per poter generare risposte coerenti e pertinenti.
-2. La generazione delle risposte: una volta che il sistema ha a disposizione i dati necessari, può procedere con la generazione del testo che verrà presentato all'utente. Possono essere utilizzate diverse tecniche, tra cui prompting o parafrasi, per generare risposte di qualità.
+#hrule()
 
-== Data Retrieval // Spiegazione di cosa è il data retrieval
+Il paradigma della Retrieval-Augmented Generation rappresenta un'evoluzione naturale rispetto agli approcci tradizionali di generazione del linguaggio naturale. In questo contesto, il sistema non si limita a "inventare" la risposta basandosi esclusivamente sul modello linguistico, ma integra un modulo di recupero che seleziona informazioni aggiornate e pertinenti da fonti esterne, garantendo così una maggiore accuratezza e contestualizzazione.
+
+Nelle sezioni seguenti vedremo che il processo è divisibile in due fasi principali:
+1. Il *recupero dei dati*: senza informazioni, il sistema non può generare risposte significative. In questa fase, un componente dedicato interroga basi di conoscenza (database, archivi testuali o contenuti web) per estrarre informazioni rilevanti in relazione alla richiesta dell'utente. Tale processo assicura che il sistema disponga di dati aggiornati e specifici, superando i limiti di conoscenza statica tipici di alcuni modelli NLG tradizionali. In questo modo, minimizziamo i rischi che il passaggio successivo generi risposte incoerenti o non pertinenti;
+2. La *generazione delle risposte*: una volta che il sistema ha a disposizione i dati necessari, può procedere con la generazione del testo che verrà presentato all'utente. Successivamente, il modulo generativo elabora le informazioni recuperate, combinandole con la propria capacità linguistica per produrre risposte coerenti e mirate. L'integrazione delle informazioni esterne permette di ottenere contenuti non solo grammaticalmente corretti, ma anche ricchi di valore informativo e contestualizzati alle necessità dell'interlocutore.
+
+== Data Retrieval <data-retrieval> // Spiegazione di cosa è il data retrieval
 Vi possono essere casi in cui il sistema non ha bisogno di recuperare dati o dettagli per poter rispondere; in questi casi, la risposta può essere generata direttamente dal sistema stesso, senza bisogno di informazioni aggiuntive. Questa situazione è tipica quando il sistema deve rispondere a domande prestabilite o statiche, come ad esempio quelle relative a informazioni generali o a domande di cortesia.
 
 Possiamo pensare ad esempio a interazioni basilari da inizio conversazione, le cui risposte sono fisse e non necessitano di alcun tipo di elaborazione, come:
@@ -55,7 +58,7 @@ Le basi di conoscenza costituiscono una delle fonti più affidabili da cui un si
 In uno scenario di dialogo, il processo di risposta idealmente seguirebbe due passi. Consideriamo ad esempio la domanda "Vorrei informazioni sul mio ordine numero 25565":
 1. Prima di tutto il sistema riconoscerebbe il genere di richiesta posta dall'utente. Ipotizzando una classificazione simile a quella discussa nella @classificazione-llm (quindi con uno o più livelli di classificazione dell'intent), riusciremmo a comprendere che la richiesta è legata al recupero di informazioni su un ordine.\
 
-2. Una volta identificato l'intent, mediante un modello di NER, il sistema estrarrebbe il valore di `orderId` dalla frase dell'utente, per poi interrogare una base di dati, tramite un prepared statement SQL @owasp-injection, per recuperare i dettagli dell'ordine richiesto. Un esempio di query per il recupero di dettagli di un ordine in un sistema e-commerce potrebbe essere il seguente:
+2. Una volta identificato l'intent, mediante un modello di NER, il sistema estrarrebbe il valore di `orderId` dalla frase dell'utente, per poi interrogare una base di dati, tramite un prepared statement SQL @owasp-injection, per recuperare i dettagli dell'ordine richiesto. Un esempio di query per il recupero di dettagli di un ordine in un sistema e-commerce potrebbe essere come quello presentato nella @sql-example.
 
   #figure(
     ```sql
@@ -67,16 +70,17 @@ In uno scenario di dialogo, il processo di risposta idealmente seguirebbe due pa
     ```,
     kind: "query",
     caption: "Esempio di query SQL per il recupero di dettagli di un ordine in un sistema e-commerce.",
-  )
+  ) <sql-example>
 
-L'esecuzione di questa interrogazione restituisce al modulo di generazione del linguaggio naturale i dettagli necessari a comporre una risposta personalizzata.\
-Un ulteriore vantaggio di questo approccio risiede nella possibilità di definire in anticipo diversi vincoli e relazioni che facilitano la coerenza dei dati.
+L'esecuzione dell'interrogazione restituisce al modulo di generazione del linguaggio naturale i dettagli necessari a comporre una risposta personalizzata; un ulteriore vantaggio di questo approccio risiede nella possibilità di definire in anticipo diversi vincoli e relazioni che facilitano la coerenza dei dati.
 
-In alternativa alla struttura difficilmente variabile (una sfida comunque superabile!#footnote[https://softwareengineering.stackexchange.com/questions/235785/how-to-handle-unexpected-schema-changes-to-production-database]) in produzione di un database relazionale, un database NoSQL può risultare altrettanto efficace. Nel dominio della _Knowledge Representation_ sono stati definiti alcuni linguaggi il cui scopo è permettere di rappresentare conoscenze strutturate e complesse, dalle quali è anche possibile inferire nuove informazioni.
+In alternativa alla struttura difficilmente variabile (una sfida comunque superabile!#footnote[https://softwareengineering.stackexchange.com/questions/235785/how-to-handle-unexpected-schema-changes-to-production-database]) in produzione di un database relazionale, un database NoSQL può risultare altrettanto efficace.
+
+Nel dominio della _Knowledge Representation_ sono stati definiti alcuni linguaggi il cui scopo è permettere di rappresentare conoscenze strutturate e complesse, dalle quali è anche possibile inferire nuove informazioni.
 
 Alla base vi è RDF (Resource Description Framework), un modello di dati che permette di rappresentare informazioni in forma di triple `<soggetto, predicato, oggetto>`, e il suo linguaggio di interrogazione SPARQL @sparql.
 
-Le annotazioni in formato Turtle ad esempio ci permettono di rappresentare un Grafo RDF testualmente (rendendolo molto facilmente intellegibile da un lettore), come nel seguente esempio:
+Le annotazioni in formato Turtle (@ttl-example) ad esempio ci permettono di rappresentare un Grafo RDF testualmente, rendendolo facilmente comprensibile da un lettore.
 
 #figure(
   ```turtle
@@ -97,13 +101,13 @@ Le annotazioni in formato Turtle ad esempio ci permettono di rappresentare un Gr
     a foaf:Person ;
     foaf:name "Spiderman", "Uomo Ragno"@it .
   ```,
-  kind: "query",
-  caption: "Esempio di annotazione in formato Turtle per il film d'animazione _Gli Incredibili_ e il suo regista.",
-)
+  kind: "snip",
+  caption: [Esempio di annotazione in formato Turtle per il film d'animazione _Gli Incredibili_ e il suo regista.],
+) <ttl-example>
 
 Questo modello è alla base di molte knowledge base, come DBpedia @dbpedia e Wikidata @wikidata, che raccolgono informazioni strutturate su una vasta gamma di argomenti. Le basi di conoscenza sono normalmente codificate su file, in formati come RDF-XML @rdf-syntax-grammar o Turtle @rdf-turtle.
 
-Anche in questo caso, dovendo rispondere a una richiesta come "Chi ha diretto il film d'animazione _Gli Incredibili_? #footnote[http://dbpedia.org/resource/The_Incredibles]", una volta determinato l'intent ed estratta la named entity del film, possiamo recuperare in modo preciso le informazioni necessarie con una veloce query:
+Anche in questo caso, dovendo rispondere a una richiesta come "Chi ha diretto il film d'animazione _Gli Incredibili_? #footnote[http://dbpedia.org/resource/The_Incredibles]", una volta determinato l'intent ed estratta la named entity del film, possiamo recuperare in modo preciso le informazioni necessarie con la @incredibles.
 
 #figure(
   ```sparql
@@ -117,7 +121,7 @@ Anche in questo caso, dovendo rispondere a una richiesta come "Chi ha diretto il
   ```,
   kind: "query",
   caption: "Esempio di query SPARQL per il recupero del regista del film Inception.",
-)
+) <incredibles>
 
 Ricevuta la risposta (`dbr:Brad_Bird`#footnote[https://dbpedia.org/page/Brad_Bird]), interagendo coi campi `dbp:name` e `dbo:thumbnail` dell'entità, il sistema potrà rapidamente comporre una risposta completa (se usassimo un template, ne risulterebbe "Il film Gli Incredibili è stato diretto da Brad Bird") e arricchirla con un'immagine del regista.
 
@@ -126,7 +130,7 @@ A differenza delle knowledgebase strutturate, i corpora testuali non strutturati
 
 I metodi tradizionali di Information Retrieval si basano solitamente su indici inversi o modelli a spazio vettoriale, come TF-IDF #footnote[Term Frequency-Inverse Document Frequency] @Rajaraman_Ullman_2011 o BM25 @okapi-bm25, che confrontano la query dell'utente con i termini presenti nel corpus. Sebbene questi approcci siano ancora efficaci in molti scenari, con l'evoluzione dei modelli neurali è possibile sfruttare reti specializzate che codificano frasi e documenti in uno spazio di embedding semantico. Un esempio diffuso è l'utilizzo di Sentence-BERT @sentence-bert, che permette di generare vettori numerici rappresentativi del significato di un testo e, di conseguenza, di calcolare la similarità fra query e documenti in modo più accurato rispetto alle semplici corrispondenze di parole chiave.
 
-Per illustrare questo principio, si consideri il seguente snippet di codice Python che usa la libreria sentence-transformers:
+Per illustrare questo principio possiamo studiare lo @sf che adopera la libreria `sentence-transformers`. Dopo aver calcolato gli embeddings #footnote[Strutture che codificano il testo numericamente per permettere di effettuare operazioni matematiche, come la *cosine similarity*] dei documenti del corpus e della query utente, calcoliamo la *cosine similarity* tra di essi e identifichiamo l'indice del documento più affine dal punto di vista semantico. La differenza sostanziale rispetto a metodi tradizionali consiste nel fatto che l'uso di embeddings semantici permette di riconoscere relazioni di significato *anche quando il lessico non coincide esattamente*.
 
 #figure(
   ```python
@@ -155,16 +159,14 @@ Per illustrare questo principio, si consideri il seguente snippet di codice Pyth
   ```,
   kind: "script",
   caption: "Esempio di utilizzo di Sentence-BERT per trovare il documento più simile a una query.",
-)
-
-In questo esempio, dopo aver calcolato gli embeddings #footnote[Strutture che codificano il testo numericamente per permettere di effettuare operazioni matematiche, come la *cosine similarity*] dei documenti del corpus e della query utente, calcoliamo la *cosine similarity* tra di essi e identifichiamo l'indice del documento più affine dal punto di vista semantico. La differenza sostanziale rispetto a metodi tradizionali consiste nel fatto che l'uso di embeddings semantici permette di riconoscere relazioni di significato *anche quando il lessico non coincide esattamente*.
+)<sf>
 
 Integrando un simile modulo di retrieval in un sistema di dialogo, è possibile estendere la copertura informativa ben oltre i limiti di una base di dati strutturata, sebbene ciò comporti un aumento della complessità. Le performance dipendono, infatti, dalla qualità del modello neurale e dalla quantità di risorse computazionali disponibili per l'indicizzazione e la ricerca.
 
 Il ricorso a corpora testuali non strutturati è particolarmente utile nei sistemi open-domain, dove l'utente potrebbe porre quesiti su una gamma di argomenti molto ampia. L'ampiezza della base informativa fornisce un potenziale enorme, a condizione di implementare strategie di filtraggio e ranking dei risultati che riducano il rischio di rumore o di risposte poco rilevanti. In tal senso, molte pipeline di retrieval prevedono una fase di re-ranking @wang-etal-2021-retrieval, nella quale uno o più modelli ricalcolano la pertinenza dei documenti più promettenti prima di fornire la risposta definitiva all'utente.
 
 === API e servizi esterni
-L'accesso a dati provenienti da fonti esterne in tempo reale rappresenta un altro tassello fondamentale per i sistemi di dialogo moderni. Integrare API e servizi di terze parti permette, ad esempio, di fornire aggiornamenti meteorologici, visualizzare informazioni sul traffico, ottenere prezzi di mercato o eseguire prenotazioni, arricchendo notevolmente le capacità del sistema.
+L'accesso a dati provenienti da fonti esterne in tempo reale rappresenta un altro tassello fondamentale per i sistemi di dialogo moderni. Integrare *API e servizi di terze parti* permette, ad esempio, di fornire aggiornamenti meteorologici, visualizzare informazioni sul traffico, ottenere prezzi di mercato o eseguire prenotazioni, arricchendo notevolmente le capacità del sistema.
 
 A differenza delle basi di dati documentali o dei corpora statici, le API espongono endpoint che possono variare da semplici chiamate REST, fino a interfacce più complesse che richiedono autenticazione e parametri di configurazione.
 
@@ -176,7 +178,9 @@ Nel caso di servizi che restituiscono risposte JSON, si può utilizzare un lingu
 JMESPath è un linguaggio espressivo e leggero, progettato per filtrare, cercare e trasformare dati in formato JSON.
 A differenza di query tradizionali con linguaggi come SQL, JMESPath è progettato per operare esclusivamente su strutture JSON e consente di navigare in maniera semplice all'interno di oggetti annidati, liste e chiavi complesse. Grazie alla sua sintassi intuitiva, risulta particolarmente utile quando si devono gestire risposte provenienti da API REST, servizi esterni o qualunque altra fonte che fornisca dati in formato JSON.
 
-Supponendo di avere una struttura JSON come la seguente:
+Supponendo di avere una struttura JSON come quella dello @jmes-json, potremo ad esempio filtrare solo gli articoli che trattano di tecnologia usando la @jmes-query, che:
+1. Filtra la lista di articoli usando il predicato `?category == 'tech'`;
+2. Estrae solo il campo `title` di ciascun articolo.
 
 #figure(
   ```json
@@ -188,21 +192,15 @@ Supponendo di avere una struttura JSON come la seguente:
   ```,
   kind: "snip",
   caption: "Esempio di struttura JSON restituita da un'API di news.",
-)
-
-Potrebbe essere necessario filtrare solo gli articoli che trattano di tecnologia. Utilizzando JMESPath, possiamo scrivere una query come la seguente:
+) <jmes-json>
 
 #figure(
   ```python
   items[?category == 'tech'].title
   ```,
-  kind: "snip",
+  kind: "query",
   caption: "Esempio di espressione JMESPath per estrarre i titoli degli articoli di tecnologia.",
-)
-
-Questa espressione:
-1. Filtra la lista di articoli usando il predicato `?category == 'tech'`
-2. Estrae solo il campo `title` di ciascun articolo
+) <jmes-query>
 
 Il risultato è una lista che viene popolata in un solo passaggio con tutti i titoli degli articoli. Il sistema di dialogo può quindi usare queste informazioni per formulare una risposta, magari raggruppando i titoli più rilevanti o generando una breve sintesi.
 
@@ -215,9 +213,8 @@ Al tempo stesso, la capacità di interagire dinamicamente con risorse esterne re
 L'adozione di Large Language Model (LLM) per la generazione di risposte all'interno dei sistemi di dialogo rappresenta uno dei progressi più significativi degli ultimi anni nel campo della Natural Language Generation.
 Se in passato la creazione di output testuale avveniva in modo per lo più rigido (ad esempio tramite template o frasi predefinite), le recenti architetture neurali basate su transformer—come GPT, T5 o BERT-family—hanno permesso di comporre risposte molto più variegate e contestuali, adattandosi con flessibilità alle esigenze dell'utente.
 
-In un sistema di dialogo, però, la sfida non si limita a “generare testo corretto dal punto di vista linguistico”.
-È altresì fondamentale garantire che la risposta risulti coerente con la domanda, contestualmente appropriata e, soprattutto, informativa.
-Da un lato, si può pensare all'impiego di un modello come componente centrale, in cui l'utente fornisce direttamente l'input (ad esempio una domanda) e il modello produce l'output (la risposta).
+In un sistema di dialogo però, la sfida non si limita alla sola generazione di testo corretto dal punto di vista linguistico: è altresì fondamentale garantire che la risposta risulti coerente con la domanda, contestualmente appropriata e, soprattutto, informativa.
+Da un lato, si può pensare all'impiego di una LLM come componente centrale, in cui l'utente fornisce direttamente l'input (ad esempio una domanda) e il modello produce l'output (la risposta).
 Dall'altro, si può utilizzare lo stesso LLM per operazioni più specifiche, come la parafrasi di risposte già esistenti o l'introduzione di variazioni stilistiche.
 Una delle strategie più comuni e potenti per interfacciarsi con i LLM è il prompting, vale a dire l'idea di “istruire” il modello riguardo al contesto, al tono e al formato di output desiderato, mediante prompt testuali che forniscono esempi e regole su come generare il testo.
 
@@ -230,7 +227,7 @@ La *Parafrasi* offre la possibilità di riscrivere o variare un testo in modo pi
 Il *Prompting* rappresenta invece la chiave di volta per guidare la produzione linguistica del modello verso gli obiettivi del sistema di dialogo, in termini sia di contenuto che di stile comunicativo.
 Vedremo quindi come un'efficace combinazione di tecniche di parafrasi e di prompt engineering possa sostenere la generazione di risposte coerenti, comprensibili e flessibili, migliorando sensibilmente l'esperienza dell'utente.
 
-=== Parafrasi
+=== Parafrasi <parafrasi>
 
 La parafrasi svolge una funzione cruciale nei sistemi di dialogo data-driven: permette infatti di riformulare, con scelte lessicali e strutturali diverse, una risposta che attinge dagli stessi contenuti di base, che rimarranno inalterati.
 
@@ -292,7 +289,7 @@ Integrando un modulo di parafrasi basato su LLM si possono introdurre piccole ma
   )[La tariffa di spedizione per l'Italia è di 5 euro, con una consegna stimata in 3 giorni.]
 )
 
-In alcuni contesti, la stessa informazione deve essere presentata con stili differenti: più formale o colloquiale, più conciso o descrittivo. Le LLM odierne consentono di riformulare un testo attraverso un prompt mirato:
+In alcuni contesti, la stessa informazione deve essere presentata con stili differenti: più formale o colloquiale, più conciso o descrittivo. Le LLM odierne consentono di riformulare un testo attraverso un prompt mirato, descrivibile come una tecnica *few-shots* (discussa nella @prompting):
 
 #grid(
   columns: 2,
@@ -335,13 +332,13 @@ Anziché inserire stringhe letteralmente copiate, il sistema riformula i concett
 
 Per implementare la parafrasi, si può sfruttare una LLM appositamente addestrata o semplicemente vincolata attraverso un prompt. Il flusso di lavoro risultante sarà tipicamente diviso in tre fasi:
 
-1. *Recupero dei dati*: il sistema ottiene i contenuti rilevanti dalla knowledge base o da un documento;
+1. *Recupero dei dati*: il sistema ottiene i contenuti rilevanti dalla knowledge base o da un documento, come descritto nella @data-retrieval;
 2. *Formulazione del prompt*: invece di richiedere semplicemente "Genera una risposta che spieghi X", si invia al modello una richiesta che include il testo da parafrasare e le specifiche sullo stile o la lunghezza desiderata;
 3. *Generazione del testo*: la LLM produce una variante testuale dell'input, che può essere arricchita da sfumature stilistiche dipendenti dal contesto.
 
 In base alle esigenze, la parafrasi può essere usata in modo selettivo soltanto in alcuni passaggi della conversazione, ad esempio per differenziare i saluti iniziali o per riformulare un concetto ripetuto. Nella fase di valutazione, come vedremo, è doveroso controllare la coerenza semantica tra testo di partenza e testo riformulato, utilizzando metriche come BLEU, ROUGE o similitudini di embedding.
 
-=== Prompting
+=== Prompting <prompting>
 
 Come evidenziato da diversi lavori in letteratura (#cite(<kasner-dusek>, form: "prose") #cite(<yuan-faerber-graph2text>, form: "prose")), l'impiego di Large Language Model (LLM) per la generazione di risposte basate su dati si sta rivelando una strategia sempre più diffusa, ma al contempo complessa da controllare.\
 Da un lato, i modelli di grandi dimensioni forniscono una notevole fluidità e flessibilità testuale, dall'altro espongono il sistema al rischio di introdurre *allucinazioni*, omissioni o errori semantici.
@@ -468,11 +465,11 @@ Un esempio di prompt generico che segue le indicazioni presentate potrebbe esser
   title: [Prompt],
 )[Ecco i dati rilevanti estratti dal database: `[lista_json]`.\ Tenendo conto di questi dati e della domanda dell'utente `[domanda_utente]`, genera una risposta chiara e completa. Scrivi in modo formale e non superare i 100 token nella risposta.]
 
-È essenziale tuttavia valutare la complessità del compito, in quanto un'istruzione troppo dettagliata potrebbe confondere il modello, mentre una troppo vaga potrebbe portare a risposte poco pertinenti.
+È essenziale tuttavia valutare la complessità del compito, in quanto un'istruzione troppo dettagliata potrebbe confondere il modello, mentre una troppo vaga potrebbe portare a risposte poco soddisfacenti.
 Con questo fine, è possibile adottare diverse strategie di prompting:
 
 - *Zero-shot*: si formula l'istruzione senza fornire esempi di input-output. Il modello, grazie alle conoscenze apprese durante il pre-addestramento, tenterà di interpretare correttamente la richiesta.
-- *Few-shot*: si includono alcuni esempi di output desiderati all'interno del prompt, in modo da fornire una guida esplicita al modello su come rispondere o formulare un certo tipo di contenuto. Questa modalità risulta efficace per compiti specifici o con particolari regole di stile.
+- *Few-shot*: si includono alcuni esempi di output desiderati all'interno del prompt, in modo da fornire una guida esplicita al modello su come rispondere o formulare un certo tipo di contenuto. Questa modalità risulta efficace per compiti specifici o con particolari regole di stile, e coincide con il task di parafrasi visto nella @parafrasi.
 - *Dialogo multi-turno*: in un sistema di dialogo, ogni nuovo turno può arricchire il prompt con un estratto delle interazioni precedenti. In tal modo, la LLM “ricorda” i contesti precedenti e può mantenere la coerenza tematica nel corso della conversazione.
   #showybox(
     title-style: (
@@ -525,32 +522,32 @@ Questi limiti emergono con maggiore evidenza quando i dati da trasformare in tes
 
 Un quadro simile è proposto anche da #cite(<yuan-faerber-graph2text>, form:"prose"), che hanno confrontato GPT-3 e ChatGPT su benchmark di generazione testuale a partire da knowledge graph.
 I risultati dimostrano che i modelli di generazione, se impiegati in modalità zero-shot, ottengono buone performance di scorrevolezza, ma faticano a mantenere l'accuratezza semantica, finendo con l'inserire dettagli inventati o non coerenti.\
-Inoltre, test su classificatori BERT mostrano come il testo “inventato” dai modelli conservi pattern facilmente riconoscibili rispetto al testo di riferimento umano.
-Ciò rafforza l'idea che l'LLM, pur potente, abbia bisogno di prompting e controlli specifici per non produrre contenuti fuorvianti.
+Inoltre, test su diverse LLM mostrano come il testo prodotto dai modelli conservi pattern facilmente riconoscibili @idiosyncrasieslargelanguagemodels.
+Ciò rafforza l'idea che l'LLM, seppur potente, abbia bisogno di prompting e controlli specifici per non produrre contenuti fuorvianti o ripetitivi.
 
 == Qualità delle risposte
 
-Durante la mia ricerca, ho deciso di utilizzare diverse LLM per valutare le potenziali variazioni di output e la qualità delle risposte generate. Le valutazioni in questa sezione sono state effettuate su un numero ristretto di modelli e domande dal momento che la disponibilità di annotatori umani è stato un fattore limitante.
+Durante la mia ricerca ho deciso di utilizzare diverse LLM per valutare le potenziali variazioni di output e la qualità delle risposte generate. Le valutazioni in questa sezione sono state effettuate su un numero ristretto di modelli e domande dal momento che la disponibilità di annotatori umani è stato un fattore limitante.
 
-Il processo che ho seguito coincide con quello proposto da #cite(<kasner-dusek>, form: "prose"), che possiamo riassumere nei seguenti passaggi.
+Il processo che ho seguito coincide con quello proposto da #cite(<kasner-dusek>, form: "prose") (se non per l'introduzione di alcune metriche di valutazione aggiuntive), che possiamo riassumere nei seguenti passaggi.
 
 === Selezione dei modelli
 Ho deciso di utilizzare 5 modelli di LLM, tra cui tre locali (`deepseek-r1:8b`, `gemma2:9b`, `llama3.1:8b`) e due modelli cloud (`gpt-4o`, `o3-mini`). La scelta è stata presa con lo scopo di confrontare modelli di diverse dimensioni e complessità, valutando le differenze di output e la qualità delle risposte tra modelli open source (e open weights) e modelli cloud-based ma closed-source.
 
 // Secondo la FTC #footnote[Federal Trade Commission, uno degli organi degli USA], la disponibilità ampia di modelli fondazionali open source e di open weights è fondamentale per diversi motivi:
 
-La scelta non è casuale: è possibile osservare come la disponibilità di modelli fondazionali open source e open weights giochi un ruolo determinante su più livelli.
+La decisione non è casuale: la disponibilità di modelli fondazionali open source e open weights gioca un ruolo determinante su più livelli.
 
 In primo luogo, essa consente una maggiore *trasparenza e accountability*: rendendo pubblici i pesi e la struttura dei modelli, si favorisce una comprensione approfondita dei meccanismi decisionali degli algoritmi, permettendo di identificare e correggere eventuali bias o anomalie.
 Questo livello di apertura è fondamentale non solo per garantire la sicurezza e l'affidabilità degli strumenti AI, ma anche per promuovere un utilizzo responsabile e conforme agli standard etici emergenti.
 
-In secondo luogo, l'accesso libero ai modelli permette a ricercatori, accademici e sviluppatori di effettuare verifiche indipendenti e test approfonditi.
+In secondo luogo, l'accesso libero ai modelli permette a ricercatori, accademici e sviluppatori di effettuare *verifiche indipendenti* e *test approfonditi*.
 Tale approccio, incentivando la replicabilità e la validazione esterna, diviene un importante strumento per valutare la robustezza e la resilienza dei modelli, contribuendo a mitigare rischi potenzialmente legati a vulnerabilità o comportamenti imprevisti.
-Questo elemento risulta particolarmente significativo in un panorama in cui la rapidità di sviluppo delle tecnologie AI richiede metodologie rigorose di controllo e verifica.
+Ciò risulta particolarmente significativo in un panorama in cui la rapidità di sviluppo delle tecnologie AI richiede metodologie rigorose di controllo e verifica.
 
-Inoltre, l'adozione di modelli open source stimola l'innovazione e la competizione nel settore: la loro disponibilità abbassa le barriere d'accesso, consentendo a startup e centri di ricerca di sperimentare e sviluppare nuove soluzioni senza dover necessariamente sostenere gli elevati costi associati a tecnologie proprietarie.
+Inoltre, l'adozione di modelli open source stimola l'*innovazione* e la *competizione* nel settore: la loro disponibilità abbassa le barriere d'accesso, consentendo a startup e centri di ricerca di sperimentare e sviluppare nuove soluzioni senza dover necessariamente sostenere gli elevati costi associati a tecnologie proprietarie.
 
-Si pensi anche solo a come, in questa tesi, sia stato possibile eseguire modelli di medie dimensioni come llama3 o Deepseek-r1 senza dover ricorrere a servizi cloud o a infrastrutture dedicate, o a come oggi stiano nascendo innumerevoli progetti open source che sfruttano modelli locali per risolvere problemi di vario genere, dalla home automation @hassio ai servizi di assistenza virtuale.\
+Si pensi anche solo a come, per questa tesi, sia stato possibile eseguire modelli di medie dimensioni come `llama3.1` o `Deepseek-r1` senza dover ricorrere a servizi cloud o a infrastrutture dedicate, o come oggi stiano nascendo innumerevoli progetti open source che sfruttano modelli locali per risolvere problemi di vario genere, dalla home automation @hassio ai servizi di assistenza virtuale.\
 Tale dinamica favorisce la nascita di un ecosistema più variegato e dinamico, in cui il confronto tra approcci e metodologie diverse arricchisce il progresso tecnologico complessivo.
 
 L'open source promuove l'inclusività e supporta la regolamentazione e la ricerca pubblica @fsfs.
@@ -561,7 +558,7 @@ Da notare anche come, a seconda dei modelli utilizzati, vi possano essere patter
 === Raccolta delle domande <raccolta-domande>
 Ho selezionato un insieme di 15 domande provenienti dal validation set già presentato nella @valutazione_ft. Le domande sono state scelte in modo da includere quelle che ho ritenuto con le maggiori potenzialità di fornire risultati significativi per le analisi.
 
-L'automa utilizzato per le domande è stato il seguente, proveniente dal Corpus prodotto durante la ricerca svolta da #cite(<dataset-nova>, form: "prose") su NoVAGraphS.
+L'automa utilizzato per le domande è presentato nel @fsa_eval, proveniente dal Corpus prodotto durante la ricerca svolta da #cite(<dataset-nova>, form: "prose") su NoVAGraphS.
 
 #figure(
   image("../../gen_eval/fsa.svg"),
@@ -611,7 +608,7 @@ Ho utilizzato i modelli per generare risposte in modo zero-shot, senza ulteriori
   caption: "Prompt utilizzato per la generazione delle risposte.",
 )
 
-Mentre `{question}` è stata sostituita con la domanda corrente, `{data}` è rimasto lo stesso per tutti i prompt, e contiene la rappresentazione in formato `Graphviz` dell'automa a stati finiti mostrato nel @fsa_eval:
+Mentre `{question}` è stata sostituita con la domanda corrente, `{data}` è popolato dalla rappresentazione in formato `Graphviz` dell'automa a stati finiti mostrato nel @fsa_eval, assieme alle informazioni necessarie per rispondere (assumendo che la classificazione sia accurata al 100% e non abbia commesso errori).
 
 #figure(
   ```dot
@@ -640,12 +637,12 @@ In questo modo, i modelli sono anche stati valutati verificando la capacità di 
 === Annotazione manuale
 Il passaggio successivo è stato la valutazione delle risposte generate. Come sistema di valutazione, è stato utilizzato lo stesso di #cite(<kasner-dusek>, form: "author"), che prevede la collaborazione di annotatori umani su un applicativo da loro sviluppato, Factgenie @factgenie @kasner2024factgenie.
 
-Il software è una piattaforma web che permette di valutare la qualità delle risposte generate da modelli di LLM, fornendo un'interfaccia intuitiva per gli annotatori:
+Il software è una piattaforma web che permette di valutare la qualità delle risposte generate da modelli di LLM, fornendo un'interfaccia intuitiva per gli annotatori (@factgenie-ui).
 
 #figure(
   image("../media/factgenie_UI.png"),
   caption: "Interfaccia di Factgenie per la valutazione delle risposte generate da LLM.",
-)
+) <factgenie-ui>
 
 Gli annotatori, dopo aver ricevuto una breve formazione sull'uso dell'applicativo, sono liberi di evidenziare nelle risposte frammenti problematici semplicemente selezionandoli. Sono stati definiti quattro generi di errori:
 /*
@@ -683,7 +680,7 @@ In modo simile alle annotazioni prodotte dai volontari, sono state adoperati due
 
 Ho utilizzato i successori di GPT-4, indicati come più aderenti alle specifiche fornite in un certo task (#cite(<gpt-good-eval-wang>, form: "prose"), #cite(<sottana-etal-2023-evaluation>, form: "prose"), #cite(<kocmi-federmann-2023-gemba>, form: "prose")); in particolare, ho utilizzato `GPT-o3-mini` (indicato come particolarmente in grado di effettuare ragionamenti tramite chain-of-thought @chain-of-thought) e `GPT-4.5`, successore attualmente in sviluppo di `GPT-4`.
 
-In particolare, per la valutazione automatica sono stati definiti $epsilon_"o3"$ e $epsilon_"4"$ (uno per modello), che in seguito alle istruzioni sulla task, hanno prodotto una serie di span da loro identificati come problematici. Nello specifico, è stato richiesto ai modelli di produrre una struttura dati JSON contenente le seguenti informazioni:
+In particolare, per la valutazione automatica sono stati definiti $epsilon_"o3"$ e $epsilon_"4.5"$ (uno per modello), che in seguito alle istruzioni sulla task, hanno prodotto una serie di span da loro identificati come problematici. Nello specifico, è stato richiesto ai modelli di produrre una struttura dati JSON contenente le informazioni dello @info-eval-llm.
 
 #figure(
   ```json
@@ -697,7 +694,7 @@ In particolare, per la valutazione automatica sono stati definiti $epsilon_"o3"$
   ```,
   kind: "snip",
   caption: "Struttura dati JSON prodotta dai modelli per la valutazione automatica delle risposte.",
-)
+) <info-eval-llm>
 
 È di particolare importanza l'ordine con cui le proprietà degli oggetti che popolano la lista `errors` sono state riportate: è prima richiesto di generare la motivazione dell'errore in quanto risulta che i modelli tendano a produrre output di precisione più elevata @kasner-dusek.
 
@@ -747,7 +744,7 @@ Considerati questi range, saranno presentati i risultati solo per $epsilon_"hum"
 L'errore più comune è #other(), indicando che i modelli tendono a produrre risposte grammaticalmente scorrette, stilisticamente inadeguate o ripetitive.
 In particolare, `Deepseek-r1` è il modello che produce più errori di questo tipo, con una percentuale del 66.6% secondo i valutatori umani.
 
-Possiamo anche vedere come in media, tutti i modelli tendano a produrre almeno un errore #incorrect() per 10 risposte, ad eccezione di `gpt-o3-mini`. Questo potrebbe dovuto sia al fatto che il modello abbia accesso ad ampie risorse di esecuzione, sia al fatto che si tratti di un modello chain-of-thought. Questo genere di modelli, dei quali fa parte anche `Deepseek-r1`, richiedono più tempo per eseguire, ma tendono a produrre output di maggiore qualità in seguito ad una fase di "ragionamento".
+Possiamo anche vedere nella @err-num-llm come, in media, tutti i modelli tendano a produrre meno di un errore #incorrect() a risposta. Le ottime performance di `gpt-o3-mini` potrebbero essere dovute sia al fatto che il modello abbia accesso ad ampie risorse di esecuzione, sia al fatto che si tratti di un modello chain-of-thought. Questo genere di modelli, dei quali fa parte anche `Deepseek-r1`, richiedono più tempo per eseguire, ma tendono a produrre output di maggiore qualità in seguito ad una fase di "ragionamento".
 
 Questa ipotesi è supportata dai dati: `Deepseek-r1`, nella sua versione da 8 miliardi di parametri utilizzata in questa valutazione, produce meno errori di `GPT-4o` (1.26 - 1.46) , modello (stimato) da 200 miliardi di parametri @abacha2025medecbenchmarkmedicalerror.
 #figure(
@@ -772,15 +769,15 @@ Questa ipotesi è supportata dai dati: `Deepseek-r1`, nella sua versione da 8 mi
       [$epsilon_"4.5"$],
     ),
     table.hline(),
-    [Deepseek-r1:8b], [*1.26*], [*2.66*], [0.73], [*0*], [1], [0.66], [5.3], [*0*], [8.3], [*3.33*],
-    [Gemma2:9b], [1.66], [*2.66*], [*0*], [*0*], [*0.66*], [*0*], [*0.73*], [0.66], [*3.06*], [*3.33*],
-    [Llama3.1:8b], [2.93], [4.66], [0.06], [*0*], [*0.66*], [0.66], [3.06], [*0*], [6.73], [5.33],
+    [Deepseek-r1:8b], [*0.13*], [*0.26*], [0.07], [*0*], [0.1], [0.06], [0.53], [*0*], [0.83], [*0.33*],
+    [Gemma2:9b], [0.16], [*0.26*], [*0*], [*0*], [*0.06*], [*0*], [*0.07*], [0.06], [*0.31*], [*0.33*],
+    [Llama3.1:8b], [0.29], [0.47], [*0*], [*0*], [*0.07*], [0.07], [0.31], [*0*], [0.67], [0.53],
     table.hline(stroke: (dash: "dashed")),
-    [GPT-4o], [1.46], [*0.66*], [1], [*0*], [0.2], [*0*], [*0.93*], [*0*], [3.6], [*0.66*],
-    [GPT-o3-mini], [*0*], [2], [*0*], [*0*], [*0.13*], [*0*], [1.73], [*0*], [*1.86*], [2],
+    [GPT-4o], [0.15], [*0.07*], [0.1], [*0*], [0.02], [*0*], [*0.09*], [*0*], [0.36], [*0.07*],
+    [GPT-o3-mini], [*0*], [0.2], [*0*], [*0*], [*0.01*], [*0*], [0.17], [*0*], [*0.19*], [0.2],
   ),
-  caption: [Numero medio di _errori ogni 10 output, per ogni categoria di errore_ e in totale, secondo le annotazioni umane ($epsilon_"hum"$) e le valutazioni automatiche ($epsilon_"4.5"$). Più basso è il valore (evidenziato per ogni colonna), migliore è la qualità delle risposte.],
-)
+  caption: [Numero medio di _errori per output, per ogni categoria di errore_ e in totale, secondo le annotazioni umane ($epsilon_"hum"$) e le valutazioni automatiche ($epsilon_"4.5"$). Più basso è il valore (evidenziato per ogni colonna), migliore è la qualità delle risposte.],
+) <err-num-llm>
 
 /*
 clearness distribution per LLM
@@ -819,7 +816,7 @@ gpt-o3-mini,98.66666666666667,0.6666666666666667,0.0
 llama3-1-8b,71.33333333333334,10.666666666666668,2.0
 */
 
-In termini di chiarezza (cioè quanto la risposta risulti pienamente comprensibile), `GPT-o3-mini` produce la percentuale più alta di risposte completamente chiare (oltre il 90%), seguito a breve distanza da `GPT-4o` (86%).
+In termini di chiarezza (@clearness-eval), cioè quanto la risposta risulti pienamente comprensibile, `GPT-o3-mini` produce la percentuale più alta di risposte completamente chiare (oltre il 90%), seguito a breve distanza da `GPT-4o` (86%).
 Viceversa, i modelli open source mostrano tassi di chiarezza inferiore: `Deepseek-r1:8b` e `Llama3.1:8b` spaziano tra il 60% e il 70%, mentre `Gemma2:9b` si ferma al 56%, con il 16% di risposte ritenute non sufficientemente chiare. Questo indica che, per quanto riguarda la formulazione dei contenuti, i modelli `GPT-o3-mini` e `GPT-4o` riescono a generare frasi più fluide e comprensibili.
 
 #figure(
@@ -840,14 +837,14 @@ Viceversa, i modelli open source mostrano tassi di chiarezza inferiore: `Deepsee
     [Gemma2:9b], [*56%*], [28%], [16%]
   ),
   caption: [Distribuzione della _chiarezza percepita nelle risposte_ per ogni modello.],
-)
+) <clearness-eval>
 
-Un dato che appare strettamente collegato alla chiarezza è la lunghezza percepita delle risposte.
+Un dato che appare strettamente collegato alla chiarezza è la lunghezza percepita delle risposte (@length-eval).
 Anche qui `GPT-o3-mini` produce quasi sempre risposte lunghe il giusto secondo i valutatori (96% dei casi) e solo in rarissime occasioni troppo estese o troppo sintetiche.
-`GPT-4o` mantiene numeri simili (89,33%), mentre i modelli open source, in particolare `Deepseek-r1:8b` e `Gemma2:9b`, peccano rispettivamente di risposte talvolta troppo lunghe e troppo brevi. 
+`GPT-4o` mantiene numeri simili (89,33%), mentre i modelli open source, in particolare `Deepseek-r1:8b` e `Gemma2:9b`, peccano rispettivamente di risposte talvolta troppo lunghe e troppo brevi.
 
 `Gemma2:9b` produce risposte troppo brevi addirittura nel 50% circa delle interazioni.
-Andando a verificare la lunghezza effettiva, spesso le risposte di `Gemma2:9b` marcate come troppo brevi sono composte da una sola parola, che evidentemente non fornisce informazioni sufficienti agli annotatori.
+Andando a verificare la lunghezza effettiva, spesso le risposte di `Gemma2:9b` marcate come troppo brevi sono composte da una sola parola, che evidentemente non fornisce informazioni sufficientemente chiare agli annotatori.
 
 #figure(
   table(
@@ -867,10 +864,10 @@ Andando a verificare la lunghezza effettiva, spesso le risposte di `Gemma2:9b` m
     [Gemma2:9b], [49.33%], [0%], [*50.66%*]
   ),
   caption: [Distribuzione della _lunghezza percepita delle risposte_ per ogni modello.],
-)
+) <length-eval>
 
-Guardando all'utilità percepita dagli annotatori (intesa come quanto una risposta sia ritenuta utile nel contesto della domanda associata), `GPT-o3-mini` si distingue nettamente: quasi il 98% delle sue risposte è ritenuta utile, con una minima quota di risposte "né utili né inutili" e nessuna considerata del tutto priva di valore.
-`GPT-4o` mantiene un livello molto alto di utilità (90%), pur avendo un 5% di risposte ritenute di utilità nulla. 
+Guardando all'utilità percepita dagli annotatori (@useful-eval), intesa come quanto una risposta sia ritenuta utile nel contesto della domanda associata, `GPT-o3-mini` si distingue nettamente: quasi il 98% delle sue risposte è ritenuta utile, con una minima quota di risposte "né utili né inutili" e nessuna considerata del tutto priva di valore.
+`GPT-4o` mantiene un livello molto alto di utilità (90%), pur avendo un 5% di risposte ritenute di utilità nulla.
 I modelli open source mostrano differenze notevoli: `Deepseek-r1:8b` produce un ottimo risultato con l'82% di risposte utili, `Llama3.1:8b` scende al 68%, mentre `Gemma2:9b` si ferma al 58.66%, con quasi un quarto delle risposte reputate come prive di utilità per la comprensione dell'automa.
 
 #figure(
@@ -891,9 +888,9 @@ I modelli open source mostrano differenze notevoli: `Deepseek-r1:8b` produce un 
     [Gemma2:9b], [*58.66%*], [17.33%], [24%],
   ),
   caption: [Distribuzione del' _utilità percepita delle risposte_ per ogni modello.],
-)
+) <useful-eval>
 
-Il gradimento generale conferma sostanzialmente queste tendenze.
+Il gradimento generale conferma sostanzialmente queste tendenze @like-eval.
 `GPT-o3-mini` è apprezzato in oltre il 95% delle risposte, `GPT-4o` nell'86.66%.
 I modelli open source registrano un calo, con `Deepseek-r1:8b` apprezzato nel 68% dei casi, `Llama3.1:8b` al 58% e `Gemma2:9b` sotto il 40%. Anche in questo caso, dunque, `GPT-o3-mini` e `GPT-4o` dimostrano di generare testi più convincenti e graditi dagli annotatori.
 
@@ -913,9 +910,9 @@ I modelli open source registrano un calo, con `Deepseek-r1:8b` apprezzato nel 68
     [Gemma2:9b], [*63.33%*], [36.66%],
   ),
   caption: [Distribuzione dell'_apprezzamento delle risposte_ per ogni modello.],
-)
+) <like-eval>
 
-Infine, è interessante vedere il tasso di completezza e accuratezza delle risposte ("100% accurate", "informazioni mancanti", "totalmente off-topic").
+Infine, è interessante vedere (@acc-miss-off) il tasso di completezza e accuratezza delle risposte ("100% accurate", "informazioni mancanti", "totalmente off-topic").
 `GPT-o3-mini` domina chiaramente, con quasi il 99% di risposte completamente corrette rispetto ai dati forniti, e solo lo 0,66% che omette dettagli essenziali.
 `GPT-4o` si attesta su un 90% di risposte precise, evidenziando però un minimo margine di errore maggiore.
 
@@ -938,14 +935,15 @@ Sul fronte open source, `Deepseek-r1:8b` e `Llama3.1:8b` viaggiano intorno al 70
     [llama3.1:8b], [71.33%], [10.66%], [2%],
   ),
   caption: [Distribuzione della _qualità delle risposte_ per ogni modello.],
-)
+) <acc-miss-off>
 
-Per le ultime osservazioni, può essere utile osservare la correlazione tra le varie metriche di valutazione delle risposte per ogni modello. Questo ci permette di capire se esistono relazioni significative tra le diverse dimensioni di valutazione, e se i modelli tendono a produrre output coerenti o meno.
+Per le ultime osservazioni, può essere utile osservare la correlazione tra le varie metriche di valutazione delle risposte per ogni modello (@corr-matrix). Questo ci permette di capire se esistono relazioni significative tra le diverse dimensioni di valutazione, e se i modelli tendono a produrre output coerenti o meno.
 
 #figure(
   image("../../gen_eval/diagrams/correlation_metrics.svg", width: 85%),
+  kind: "diag",
   caption: "Correlazione tra le metriche di valutazione delle risposte per ogni modello.",
-)
+) <corr-matrix>
 
 Dalla matrice di correlazione (calcolata col coefficiente di correlazione di Pearson) si nota innanzitutto che tutte le variabili sono positivamente correlate tra loro; ciò suggerisce che, all'aumentare di una determinata caratteristica (ad esempio la chiarezza percepita), tendono a crescere anche le altre (come l'utilità o il gradimento). Tuttavia, l'intensità di queste relazioni varia sensibilmente:
 
