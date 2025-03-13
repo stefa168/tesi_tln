@@ -558,7 +558,7 @@ Un accesso ampio e democratico ai modelli AI permette agli enti regolatori e all
 
 Da notare anche come, a seconda dei modelli utilizzati, vi possano essere pattern linguistici preferiti dai modelli stessi, che possono influenzare la qualità delle risposte, e che possono renderli facilmente identificabili da parte degli utenti, come evidenziato da #cite(<idiosyncrasieslargelanguagemodels>, form: "prose") all'inizio di quest'anno.
 
-=== Raccolta delle domande
+=== Raccolta delle domande <raccolta-domande>
 Ho selezionato un insieme di 15 domande provenienti dal validation set già presentato nella @valutazione_ft. Le domande sono state scelte in modo da includere quelle che ho ritenuto con le maggiori potenzialità di fornire risultati significativi per le analisi.
 
 L'automa utilizzato per le domande è stato il seguente, proveniente dal Corpus prodotto durante la ricerca svolta da #cite(<dataset-nova>, form: "prose") su NoVAGraphS.

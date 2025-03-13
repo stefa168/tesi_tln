@@ -2778,3 +2778,20 @@ jetbrains-python:
   title: Python Developers Survey 2021 Results
   url: https://lp.jetbrains.com/python-developers-survey-2021/
   date: 2021
+
+webpage-wait-time:
+  type: article
+  title: 'A Study on Tolerable Waiting Time: How Long Are Web Users Willing to Wait?'
+  author: Nah, Fiona
+  date: 2003
+  page-range: 285
+  serial-number:
+    doi: 10.1080/01449290410001669914
+  parent:
+    type: proceedings
+    volume: 23
+
+yaml:
+  type: web
+  title: "YAML: YAML Ain't Markup Language™"
+  url: https://yaml.org/

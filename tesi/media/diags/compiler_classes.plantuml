@@ -1,0 +1,50 @@
+@startuml
+' !theme carbon-gray
+hide empty methods
+
+abstract class Step {
+    - name : str
+    - parameters : Map<String, Object>
+}
+
+class CompilerConfigV2 {
+    - name : String
+    - use_wandb : boolean
+    - models : List<Model>
+    - flows : Map<String, Flow>
+}
+class Model {
+    - name : String
+    - type: ModelTypeEnum
+    - steps : List<Step>
+}
+
+class LoadCsvStep extends Step {
+    - path: Path
+    - label_columns : String | List<String>
+}
+class SplitDataStep extends Step {
+    - dataframe: Pandas.df
+    - on_column: String
+    - for_each: List<Step>
+}
+class TrainBertSequenceClassifierStep extends Step {
+    - dataframe: Pandas.df
+    - pretrained_model: PreTrainedModel
+    - examples_column: String
+    - labels_column: String
+    - train_epochs : int
+    - resulting_model_name: Optional<String>
+}
+class TrainSpacyNerModelStep extends Step {
+    - language: String
+    - training_data_path: Path
+    - training_device: "cpu" | "gpu"
+    - resulting_model_name: Optional<String>
+}
+
+CompilerConfigV2 --> Model
+Model --> Step
+' SplitDataStep --> Step
+
+@enduml

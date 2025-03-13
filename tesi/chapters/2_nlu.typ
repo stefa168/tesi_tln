@@ -540,7 +540,7 @@ In più, ho realizzato che le classi scelte erano troppo generiche: questo probl
 
 Per questo motivo ho proceduto con una revisione delle etichette, e una successiva etichettatura manuale delle domande.
 
-=== Nuove classi e etichettatura manuale
+=== Nuove classi e etichettatura manuale <nuove-classi>
 Prima di proseguire con l'etichettatura, ho provveduto a ripulire il dataset da domande non pertinenti o duplicate.
 Una volta fatto, ho deciso di ridurre il numero di classi, in modo da poter avere un dataset più bilanciato e con classi più specifiche.\
 Avendone ridotto il numero, per ottenere un livello di granularità maggiore, ho deciso di utilizzare un sistema di etichettatura gerarchico, in modo da poter identificare con maggiore precisione l'argomento della domanda.
@@ -1146,7 +1146,7 @@ Le differenze di performance sono sempre da confrontare considerando anche il te
   },
   kind: "plot",
   caption: [Confronto dei tempi di addestramento per ciascuna classe di training.],
-)
+) <fine-tuning-time>
 
 Questo salto nei tempi di addestramento così brusco in realtà porta dei peggioramenti: le sue performance su un test separato mostra risultati peggiori ridotte rispetto agli altri modelli, come possiamo constatare nel @performance_f1_test_training. Questo ci ricorda come la scelta del modello non debba essere fatta solo in base alle performance ottenute durante l'addestramento, ma che queste devono essere sempre confermate verificando con un test set separato.
 

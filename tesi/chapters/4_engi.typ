@@ -35,7 +35,22 @@ Il modo in cui un certo chatbot funzioni, quindi determinare ad esempio il fluss
 
 Se le funzionalità del compilatore o del runner non dovessero soddisfare qualche necessità particolare, è sempre lasciata totale libertà di aggiungerne di nuove partendo da quelle di base: per questo motivo, il linguaggio scelto per l'implementazione sarà Python, data la sua diffusione capillare @jetbrains-python e la grande flessibilità e facilità d'uso.
 
+Per mostrare le varie componenti del sistema, sarà utilizzata una _configurazione giocattolo_, composta da poche interazioni accettate dal chatbot, usando lo stesso automa visibile nel @fsa_eval della @raccolta-domande. Questo ci permetterà di vedere al meglio tutte le funzionalità attualmente implementate.
+
 == Compilatore
+
+Come già anticipato, il compilatore si occupa della preparazione di tutte le risorse che poi saranno necessarie a tempo di runtime: verifica dei dati di addestramento, costruzione dei modelli neurali e raggruppamento delle risorse locali, principalmente.
+
+Potremmo pensare di lasciare i suddetti compiti direttamente al runner: questo comporterebbe tuttavia un tempo di avvio nettamente maggiore. Non scordiamo infatti che l'addestramento di un modello neurale può richiedere ore, se non giorni; il fine-tuning può ridurre i tempi di attesa, che non saranno comunque immediati (si veda come esempio il @fine-tuning-time della @valutazione_ft).
+
+Questo andrebbe contro il bisogno di essere pronti a rispondere ad un utente il più rapidamente possibile: ad oggi ci si aspetta che i servizi web abbiano tempi di risposta pressochè immediati. Secondo le ricerche di #cite(<webpage-wait-time>, form: "prose"), il tempo di attesa accettato da un utente per il caricamento di una pagina web si aggira intorno ai 2 secondi. Possiamo prevedere aspettative simili anche per il nostro sistema.
+
+=== Pipeline
+
+Dovendoci occupare della preparazione potenzialmente di più modelli per un singolo chatbot, è utile poter formalizzare il processo che il compilatore dovrà seguire:
+1. In primo luogo è necessario *caricare i dati per l'addestramento*: questo può richiedere anche la partizione dei dati in funzione del task. Per citare un esempio, la divisione è essenziale nel nostro caso d'uso d'esempio, dove abbiamo sia etichette per la classe principale, sia per la classe secondaria (@nuove-classi).
+2. Per ogni modello previsto da compilare, procediamo a effettuare il fine-tuning o il training (se NER).
+3. Raggruppiamo tutti i dati in modo da renderli pronti per il Runner.
 
 #figure(
   image("../media/compiler.drawio.png", width: 70%),
@@ -43,6 +58,146 @@ Se le funzionalità del compilatore o del runner non dovessero soddisfare qualch
   caption: [Flusso semplificato delle operazioni di compilazione.],
 )
 
-=== Pipeline
+Come è possibile prevedere, è comunque necessario un file di configurazione. È stato scelto il formato YAML @yaml che, grazie ad una sintassi molto semplice, permette di codificare con grande potenza tutte le informazioni della nostra serie di pipeline:
+
+#figure(
+  ```yaml
+  models:
+    - name: "global_subject_classifier"
+      type: classification
+      steps:
+        - type: load_csv
+          name: data
+          path: "./multitask_training/data_cleaned_manual_combined.csv"
+          label_columns: "Global Subject"
+        - type: train_model
+          name: training
+          dataframe: data.dataframe
+          pretrained_model: "google/electra-small-discriminator"
+          examples_column: "Question"
+          labels_column: "Global Subject"
+          train_epochs: 20
+
+    - name: "question_intent_classifiers"
+      type: classification
+      steps:
+        - type: load_csv
+          name: data
+          path: "./multitask_training/data_cleaned_manual_combined.csv"
+          label_columns: ["Global Subject", "Question Intent"]
+        - type: split_data
+          name: split
+          dataframe: data.dataframe
+          on_column: "Global Subject"
+          for_each:
+            - type: train_model
+              name: training
+              dataframe: split.dataframe
+              pretrained_model: "google/electra-small-discriminator"
+              examples_column: "Question"
+              labels_column: "Question Intent"
+              resulting_model_name: "question_intent_{on_column}"
+
+    - name: "question_entities_recognition"
+      type: ner
+      steps:
+        - type: ner_spacy
+          name: ner_training
+          language: "en"
+          training_data_path: "./ner_training/corpus/ner_labels.jsonl"
+          training_device: "gpu"
+          resulting_model_name: "ner_trained_model"
+  ```,
+  kind: "snip",
+  caption: [Estratto della configurazione che descrive come devono essere addestrati i modelli del chatbot.],
+)
+
+Sotto la chiave `models` troviamo una lista di modelli, ciascuno con una *sequenza* di operazioni che devono essere svolte per poter preparare il proprio modello con successo. Nel @compiler_classes è possibile vedere in dettaglio la struttura delle classi e delle proprietà utilizzate per la compilazione.
+
+Osserviamo più nel dettaglio:
+- Il modello `global_subject_classifier` svolge due operazioni: `load_csv` e `train_model`.
+  1. `load_csv` carica i dati da un file CSV, specificando quali colonne contengono le etichette per poter effettuare delle operazioni di pre-processing volte a preparare i dati per l'addestramento.
+  2. `train_model` effettua il fine-tuning di un modello pre-addestrato, specificando quali colonne del dataframe contengono gli esempi e le etichette da usare per l'addestramento, e quanti cicli di addestramento effettuare.
+- Il modello `question_intent_classifiers` ha tre operazioni: `load_csv`, `split_data` e `train_model`.
+  1. `load_csv` è analogo a prima.
+  2. `split_data` suddivide i dati in base ad una colonna specificata, e per ogni valore unico di quella colonna effettua un addestramento separato.
+  3. `train_model` è analogo a prima, con l'aggiunta di un parametro `resulting_model_name` che permette di specificare il nome del modello addestrato tramite un template.
+- Il modello `question_entities_recognition` ha una sola operazione: `ner_spacy`, che addestra un modello di NER usando il framework Spacy, specificando il percorso del corpus di addestramento e il dispositivo su cui addestrare il modello.
+
+#figure(
+  image("../media/diags/compiler_classes.svg"),
+  kind: "diag",
+  caption: [Class Diagram raffigurante le classi e proprietà utilizzate per la compilazione.],
+) <compiler_classes>
+
+La peculiarità del sistema è la gestione degli step: ogni passaggio può avere un output che può essere usato come input per un altro step, in quello che è stato definito come un _contesto di esecuzione_. Questo permette di creare pipeline dalla grande potenza espressiva, conservando comunque la semplicità di una configurazione YAML.
+
+Durante la compilazione, la classe `ModelPipelineCompiler` presentata nella @model-compiler segue tre passaggi essenziali:
+1. Fa verificare allo step attuale che i suoi requisiti per poter portare a termine l'esecuzione siano soddisfatti (`step.resolve_requirements(context)`). In più, la verifica restituisce tutti gli elementi necessari per l'effettiva esecuzione;
+#figure(```python
+    def resolve_requirements(self, context: dict[str, dict[str, Any]]) -> dict[str, Any]:
+        context = super().resolve_requirements(context)
+
+        init_spacy_device(self.training_device)
+
+        if not self.training_data_path.exists():
+            raise StepExecutionError(f"Training data missing at '{self.training_data_path}'")
+
+        return context
+  ```,
+  kind: "snip",
+  caption: [Funzione di risoluzione dei requisiti per l'addestramento con SpaCy])
+
+2. Esegue l'effettivo step (`step.execute(retrieved_inputs, context)`): se è un caricamento di dati, li inserisce nel `context`, se è un addestramento, esegue le rispettive funzioni di fine-tuning o training, ecc.
+3. Ultimo passo, non meno importante, è la verifica dell'effettivo successo e conclusione dello step (`step.verify_execution(execution_results)`). Un _sanity check_ è molto importante per assicurarci di aver prodotto dati che non possano invalidare l'intera pipeline.
+
+#figure(
+  ```python
+  class ModelPipelineCompiler:
+      def __init__(self, model: Model, config: CompilerConfigV2):
+          """
+          Initialize the runner with a validated pipeline configuration.
+          """
+          self.model = model
+          self.config = config
+
+      def run(self, config_path: Path, artifacts_dir: Path):
+          """
+          Run the pipeline, executing its steps in sequence.
+          """
+
+          if self.model.disabled:
+              print(f"Skipping disabled model '{self.model.name}'")
+              return
+
+          print(f"Running pipeline '{self.model.name}'")
+
+          # Shared context for intermediate outputs
+          context: dict[str, dict[str, object]] = {
+              'model_metadata': self.model.model_dump(exclude={'steps'}),
+              "config": self.config.model_dump(exclude={'models'}),
+              "config_path": config_path,
+              "artifacts_dir": artifacts_dir,
+              "compilation_start_time": datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+          }
+
+          step: Step
+          for step in self.model.steps:
+              try:
+                  retrieved_inputs = step.resolve_requirements(context)
+                  execution_results = step.execute(retrieved_inputs, context)
+                  checked_outputs = step.verify_execution(execution_results)
+
+                  context[step.name] = checked_outputs
+              except StepExecutionError as e:
+                  print(f"Error executing step '{step.name}': {e}")
+                  raise
+  ```,
+  kind: "cls",
+  caption: [La classe adibita alla gestione del context durante la compilazione di ogni modello.],
+) <model-compiler>
 
 == Runner
+
+
+== Sviluppi futuri
