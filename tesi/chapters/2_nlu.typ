@@ -263,7 +263,7 @@ Alcuni interpreti di AIML supportano `<learn>`, che consente al bot di aggiunger
 )<learn-aiml-snip>
 
 
-=== Criticità e limiti di AIML
+=== Criticità e limiti di AIML <limiti-aiml>
 
 Grazie ai tag previsti dallo schema, AIML riesce a gestire conversazioni piuttosto complesse. Ciononostante, presenta comunque alcune limitazioni:
 

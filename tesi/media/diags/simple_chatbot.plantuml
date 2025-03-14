@@ -1,0 +1,48 @@
+@startuml
+start
+repeat :Attesa di input dell'utente<
+group "Intent Principale"
+:Applicazione del modello per determinare la classe globale della domanda|
+:Applicazione del modello di NER|
+end group
+switch(Intent Principale)
+case(Transizione)
+    partition "Transition Flow" {
+        :Applicazione del modello per le domande\n             specifiche sulle Transizioni|
+        switch(Intent Secondario)
+            case (  Numero di\n  Transizioni)
+                :Query sul numero\n      di transizioni;
+                :Invio prompt specifico\ntramite LLM e rispondo>
+            case (  Transizioni\n  uscenti)
+                :Recupero lista\n  connessioni;
+                :Invio prompt specifico\ntramite LLM e rispondo>
+        endswitch
+    }
+case (Stato)
+    partition "State Flow" {
+        :Applicazione del modello per le domande\n                     specifiche sugli Stati|
+        switch(Intent Secondario)
+            case (  Esistenza di\n  uno Stato)
+                :Verifico l'esistenza nella KB;
+                if (esiste?) then (si)
+                    :Risposta\n positiva>
+                else (no)
+                    :Risposta\nnegativa>
+                endif
+                ' :Invio prompt specifico\ntramite LLM e rispondo>
+            case (  Dettagli su\n  uno Stato)
+                :Recupero il nodo;
+                :Invio prompt specifico\ntramite LLM e rispondo>
+        endswitch
+    }
+endswitch
+repeat while (Conversazione attiva?) is (  Sì) 
+-> Chiusa;
+stop
+
+floating note left
+  Per il recupero dei dati viene utilizzata una classe 
+  di supporto che astrae sulle funzionalità a noi 
+  necessarie della libreria NetworkX.
+end note
+@enduml

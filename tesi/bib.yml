@@ -2802,3 +2802,68 @@ cameronwolfe:
   date: 2024-03-04
   title: "Decoder-Only Transformers: The Workhorse of Generative LLMs"
   url: https://cameronrwolfe.substack.com/p/decoder-only-transformers-the-workhorse
+
+code-smells:
+  type: web
+  url: "https://c2.com/xp/CodeSmell.html"
+  title: "Code Smells"
+
+mixin:
+  type: article
+  title: Mixin-based inheritance
+  author:
+  - Bracha, Gilad
+  - Cook, William
+  date: 1990
+  page-range: 303–311
+  url: https://doi.org/10.1145/97945.97982
+  serial-number:
+    doi: 10.1145/97945.97982
+    isbn: '0897914112'
+  abstract: The diverse inheritance mechanisms provided by Smalltalk, Beta, and CLOS are interpreted as different uses of a single underlying construct. Smalltalk and Beta differ primarily in the direction of class hierarchy growth. These inheritance mechanisms are subsumed in a new inheritance model based on composition of mixins, or abstract subclasses. This form of inheritance can also encode a CLOS multiple-inheritance hierarchy, although changes to the encoded hierarchy that would violate encapsulation are difficult. Practical application of mixin-based inheritance is illustrated in a sketch of an extension to Modula-3.
+  parent:
+    type: proceedings
+    title: Proceedings of the European Conference on Object-Oriented Programming on Object-Oriented Programming Systems, Languages, and Applications
+    publisher: Association for Computing Machinery
+    location: Ottawa, Canada
+    parent:
+      type: proceedings
+      title: OOPSLA/ECOOP '90
+
+composition-inheritance-java:
+  type: article
+  title: What Programmers Do with Inheritance in Java
+  author:
+  - Tempero, Ewan
+  - Yang, Hong Yul
+  - Noble, James
+  date: 2013
+  editor: Castagna, Giuseppe
+  page-range: 577–601
+  serial-number:
+    isbn: 978-3-642-39038-8
+  abstract: 'Inheritance is a distinguishing feature of object-oriented programming languages, but its application in practice remains poorly understood. Programmers employ inheritance for a number of different purposes: to provide subtyping, to reuse code, to allow subclasses to customise superclasses'' behaviour, or just to categorise objects. We present an empirical study of 93 open-source Java software systems consisting over over 200,000 classes and interfaces, supplemented by longitudinal analyses of 43 versions of two systems. Our analysis finds inheritance is used for two main reasons: to support subtyping and to permit what we call external code reuse. This is the first empirical study to indicate what programmers do with inheritance.'
+  parent:
+    type: proceedings
+    title: ECOOP 2013 - Object-Oriented Programming
+    publisher: Springer Berlin Heidelberg
+    location: Berlin, Heidelberg
+
+gof:
+  type: book
+  title: 'Design Patterns: Elements of Reusable Object-Oriented Software'
+  author:
+  - Gamma, Erich
+  - Helm, Richard
+  - Johnson, Ralph
+  - Vlissides, John
+  date: 1994
+  publisher: Addison-Wesley Professional
+  serial-number:
+    isbn: 978-0201633610
+
+asteval:
+  type: repository
+  url: https://github.com/lmfit/asteval/
+  title: ASTEVAL
+  author: lmfit
