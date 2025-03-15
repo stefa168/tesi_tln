@@ -525,7 +525,7 @@ I risultati dimostrano che i modelli di generazione, se impiegati in modalità z
 Inoltre, test su diverse LLM mostrano come il testo prodotto dai modelli conservi pattern facilmente riconoscibili @idiosyncrasieslargelanguagemodels.
 Ciò rafforza l'idea che l'LLM, seppur potente, abbia bisogno di prompting e controlli specifici per non produrre contenuti fuorvianti o ripetitivi.
 
-== Qualità delle risposte
+== Qualità delle risposte <llm-quality>
 
 Durante la mia ricerca ho deciso di utilizzare diverse LLM per valutare le potenziali variazioni di output e la qualità delle risposte generate. Le valutazioni in questa sezione sono state effettuate su un numero ristretto di modelli e domande dal momento che la disponibilità di annotatori umani è stato un fattore limitante.
 

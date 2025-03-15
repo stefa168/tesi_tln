@@ -12,7 +12,7 @@
 
 #let hrule() = align(center, line(length: 60%, stroke: silver))
 
-= Natural Language Understanding // Spiegazione di cosa si tratta
+= Natural Language Understanding <nlu-cap> // Spiegazione di cosa si tratta
 
 L'implementazione di chatbot basati su AIML (Artificial Intelligence Markup Language) ha rappresentato un primo passo nella formalizzazione delle _interazioni uomo-macchina_, fornendo una *struttura rule-based* che permette di rispondere a input testuali tramite _pattern di corrispondenza_. Questo approccio, sebbene efficace in una grande varietà di contesti, mostra diversi limiti quando si tratta di gestire variabilità linguistica, contesto e scalabilità delle regole.
 
@@ -22,7 +22,7 @@ Alla luce di queste limitazioni, ci sposteremo verso un approccio più flessibil
 
 Infine, introdurremo brevemente anche il task della *Named Entity Recognition* (NER) come componente fondamentale per migliorare la comprensione dei messaggi, permettendo di *estrarre informazioni strutturate* dagli input e affinare ulteriormente il processo decisionale del chatbot.
 
-== Come AIML gestisce la comprensione // Collegamento a come AIML gestisce la comprensione
+== Come AIML gestisce la comprensione <aiml-cap> // Collegamento a come AIML gestisce la comprensione
 
 Negli anni #tdd(90) iniziò a guadagnare popolarità il _Loebner Prize_ @loebner, una competizione ispirata al Test di Turing @imitation_game.\
 Nella competizione, chatbot e sistemi conversazionali cercavano di "ingannare" giudici umani, facendo credere loro di essere persone reali.
@@ -1367,7 +1367,7 @@ Questo *conferma* l'efficacia dei modelli neurali per la classificazione di inte
 Non mancano tuttavia degli esempi in cui BERT non riesce a classificare correttamente la domanda, ma in generale il modello mostra una capacità di generalizzazione molto più elevata rispetto ad AIML.
 Per migliorare le prestazioni, una buona strategia potrebbe essere quella di raccogliere più dati etichettati, in modo da poter addestrare il modello su un dataset più ampio e variegato, cercando di incrementare la copertura delle classi meno frequenti.
 
-== Riconoscimento delle entità
+== Riconoscimento delle entità <ner-cap>
 
 Negli anni Novanta, parallelamente agli studi sull'Intelligenza Artificiale per la realizzazione di sistemi conversazionali rule-based come AIML, si sviluppavano anche nuovi compiti di Natural Language Processing (NLP) orientati all'estrazione di informazioni dal testo in modo più strutturato. Uno dei compiti chiave in questo processo è il *Named Entity Recognition* (NER), o _riconoscimento delle entità nominate_.
 

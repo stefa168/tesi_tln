@@ -2867,3 +2867,24 @@ asteval:
   url: https://github.com/lmfit/asteval/
   title: ASTEVAL
   author: lmfit
+
+disabilites-prehistory:
+  type: video
+  url: https://www.youtube.com/watch?v=t7J_oybRfuc
+  title: Disabilities in Prehistory
+  author: TREY the Explainer
+
+prehistory-compassion:
+  type: article
+  title: The prehistory of compassion
+  author: Hublin, Jean-Jacques
+  date: 2009
+  page-range: 6429–6430
+  url: https://www.pnas.org/doi/abs/10.1073/pnas.0902614106
+  serial-number:
+    doi: 10.1073/pnas.0902614106
+  parent:
+    type: periodical
+    title: Proceedings of the National Academy of Sciences
+    issue: 16
+    volume: 106

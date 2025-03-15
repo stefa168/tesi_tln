@@ -328,3 +328,7 @@ Una migrazione a Python puro renderebbe anche più veloce l'implementazione e, s
 Naturalmente la conversione del sistema in una libreria Python pura potrebbe risolvere anche il problema dell'utilizzo della libreria `ASTEVAL`, lasciando invece la libertà di fare fondamento sulle capacità di introspezione del linguaggio per eseguire controlli di validità sul codice fornito.
 
 Inoltre, la vasta disponibilità di IDE avanzati con sistemi di completamento già largamente diffusi a livello professionale, come _PyCharm_ di JetBrains o _Visual Studio Code_ di Microsoft, permetterebbe di ridurre gli errori di sintassi e di semantica, e di velocizzare lo sviluppo di nuove funzionalità, senza dover implementare nuovi strumenti per la validazione delle configurazioni.
+
+/* #hrule()
+
+In conclusione a questa tesi, mi auguro che la tecnologia diventi sempre più inclusiva e che le persone con disabilità possano accedere pienamente ai contenuti più disparati, dalla formazione scientifica a quella artistica. Se già ai tempi delle caverne l'uomo imparò a prestare assistenza a chiunque ne avesse bisogno, oggi, con gli strumenti attuali, abbiamo tutte le possibilità di proseguire su quella strada e andare anche oltre, realizzando una società autenticamente aperta e solidale. */
