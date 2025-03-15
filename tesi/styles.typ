@@ -267,6 +267,8 @@
     abstract
   }
 
+  v(3cm)
+
   // Keywords
   if keywords != none {
     heading(
@@ -308,9 +310,10 @@
   }
 
   set align(top + center)
-
+  {
+    set page(margin: (y: 2.4cm))
   outline(depth: 3)
-
+  }
   pagebreak(to: "odd")
 
   // Main body

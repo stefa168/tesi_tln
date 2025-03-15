@@ -5,7 +5,9 @@
 ]
 
 #let abstract = [
-  Todo.
+Nel campo delle tecnologie assistive, l’accessibilità di contenuti complessi – come grafi, diagrammi e mappe concettuali – rappresenta una sfida significativa, soprattutto per utenti con disabilità visive. Questa tesi si propone di realizzare un sistema di dialogo basato su Large Language Models capace di “tradurre” tali contenuti in interazioni testuali comprensibili, consentendo agli utenti di esplorare e comprendere in modo approfondito le informazioni racchiuse in forme grafiche.
+
+In particolare, sono state svolte ricerche e sperimentazioni su diverse tecniche di Natural Language Understanding (rule-based e neurali) per valutarne l’accuratezza e la robustezza. Sul piano ingegneristico è stata progettata un’architettura modulare che integra pipeline di elaborazione e retrieval di dati, garantendo sia la scalabilità sia la flessibilità del sistema.
 ]
 
 #show: template.with(
@@ -77,16 +79,19 @@
 
 #set raw(syntaxes: ("sparql.sublime-syntax", "turtle.sublime-syntax"))
 
+#pagebreak(weak: true, to: "odd")
+
 #include "chapters/1_introduction.typ"
-#pagebreak(weak: true)
+
+#pagebreak(weak: true, to: "odd")
 
 #include "chapters/2_nlu.typ"
 
-#pagebreak(weak: true)
+#pagebreak(weak: true, to: "odd")
 
 #include "chapters/3_nlg.typ"
 
-#pagebreak(weak: true)
+#pagebreak(weak: true, to: "odd")
 
 #include "chapters/4_engi.typ"
 
