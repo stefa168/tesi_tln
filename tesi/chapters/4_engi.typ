@@ -298,21 +298,39 @@ Se non viene specificato il prossimo step, o il prossimo flow, il controllo vien
   caption: [Ciclo di esecuzione dei `Flow` nel Runner.],
 )<flow-execution>
 
-Un ultimo punto da considerare è la gestione del contesto. Il contesto è contenuto in un dizionario che raccoglie tutte le informazioni necessarie per l'esecuzione del chatbot, e viene passato ad ogni step durante l'esecuzione. Questo permette di mantenere lo stato dell'interazione con l'utente, e di condividere informazioni tra i vari step, che possono effettuare manipolazioni sui dati.
+Un ultimo punto da considerare è la gestione del contesto. Il contesto è contenuto in due dizionari che raccolgono tutte le informazioni necessarie per l'esecuzione del chatbot. Sono passati di step in step durante l'esecuzione, permettendo di conservare lo stato dell'interazione con l'utente, e di condividere informazioni tra i vari step, che possono effettuare manipolazioni sui dati. 
+I due contesti sono:
+- Uno *globale*, che permette di salvare informazioni accessibili da qualunque `Flow`;
+- Uno *locale al flow* attualmente in esecuzione, permettendo di conservare variabili solo per il tempo necessario per l'esecuzione del flusso di interazione corrente.
+
+In entrambi i due contesti è possibile definire variabili persistenti o temporanee. L'unica differenza è determinata dal loro _lifecycle_: quelle persistenti rimangono in memoria per tutta la durata dell'esecuzione del Runner, mentre quelle temporanee vengono eliminate una volta terminata l'esecuzione del flow. Se un flow dovesse essere eseguito nuovamente, le variabili temporanee non saranno più presenti.
 
 Per lasciare la massima libertà possibile, è stato deciso di utilizzare la libreria `Asteval` @asteval, che permette di eseguire codice Python fornito all'interno di stringhe. La libreria è estremamente flessibile e permette di eseguire codice Python in modo sicuro, evitando l'esecuzione di codice dannoso o erroneo.
 
 Attraverso questa libreria, è possibile definire delle espressioni che verranno valutate a runtime, ad esempio per effettuare branching con la classificazione di una domanda, per interagire con i dati estratti da un modello di NER, o per interrogare una libreria esterna.
 
-== Osservazioni e sviluppi futuri
+== Confronto con AIML
+
+Il sistema sviluppato rappresenta un'evoluzione significativa rispetto al modello AIML tradizionale, introducendo maggiore flessibilità e potenza espressiva. AIML, pur essendo una tecnologia consolidata per la creazione di chatbot, presenta alcune limitazioni strutturali che, come mostrato, il nuovo sistema ha cercato di superare. Le riassiumiamo brevemente:
+
+- Per quanto riguarda il *riconoscimento delle intenzioni* dell'utente, AIML si affida esclusivamente al pattern matching basato su espressioni regolari attraverso tag come `<pattern>` e `<template>`, con tutti i limiti che comportano. Il sistema proposto invece, permette di scegliere quale sistema di classificazione utilizzare, lasciando la possibilità di usare tanto un classificatore neurale quanto un classificatore basato su regole, a seconda delle esigenze del progetto.
+- Mentre AIML utilizza il tag `<topic>` per gestire il *contesto della conversazione* in modo piuttosto rigido, il sistema introdotto implementa un meccanismo di `Flow` più articolato, che permette di definire *percorsi di interazione complessi* con maggiore granularità. La statefulness in AIML è gestita attraverso variabili (`<set>` e `<get>`) e predicati limitati, mentre il nuovo sistema offre un contesto di esecuzione completo, manipolabile attraverso espressioni Python valutate a runtime tramite la libreria Asteval.
+- Un altro aspetto rilevante è la capacità di *gestire dati variabili o esterni*. AIML prevede l'uso di `<sraix>` per interagire con servizi esterni, ma questa soluzione resta periferica rispetto all'architettura principale del linguaggio. Il nuovo sistema, invece, integra nativamente moduli di retrieval estensibili, rendendo l'interazione con dati esterni un elemento centrale del design.
+- La struttura di *controllo del flusso* in AIML è relativamente semplice, basata principalmente su condizioni (`<condition>`) e ricorsione (`<srai>`). Il nostro sistema implementa un meccanismo di controllo del flusso più articolato, con branching condizionale e la possibilità di passare da un flusso all'altro in modo dinamico, permettendo interazioni più sofisticate.
+
+Il paradigma ibrido proposto, che combina un approccio dichiarativo con la flessibilità di Python e la potenza delle reti neurali, si propone di superare le limitazioni strutturali del modello AIML tradizionale, offrendo una soluzione più scalabile e adattabile alle esigenze dei progetti di chatbot più complessi, richiedendo meno sforzo durante la progettazione, lo sviluppo e anche la manutenzione.
+
+Inoltre, la possibilità di decidere in modo minuzioso come la sequenza delle interazioni tra utente e macchina debba svolgersi assicura un controllo totale sul comportamento del chatbot, a differenza dell'utilizzo puro di Large Language Models, che potrebbero soffrire di problemi di explainability @ALI2023101805 @zhao2023explainabilitylargelanguagemodels (essendo trattabili alla pari di delle black-box), allucinazione @xu2025hallucinationinevitableinnatelimitation @Huang_2025 e jailbreaking @xu2024comprehensivestudyjailbreakattack @jiang2024artpromptasciiartbasedjailbreak @peng2024playinglanguagegamellms.
+
+== Sviluppi futuri
 
 Nonostante il sistema sia stato progettato per essere il più flessibile possibile, permettendo l'implementazione di `Step` personalizzati, e astraendo allo stesso tempo le complessità maggiori quali l'utilizzo di modelli di classificazione, vi sono alcune limitazioni che il sistema comunque presenta, e che potranno essere oggetto di futuri sviluppi.
 
-In primo luogo, l'utilizzo di `Asteval` per l'esecuzione di codice Python a runtime è molto potente, ma allo stesso tempo molto pericoloso. La libreria permette di eseguire qualsiasi codice Python fornito, e non fornisce alcun tipo di protezione contro codice dannoso o malevolo.
+In primo luogo, l'utilizzo di `Asteval` per l'esecuzione di codice Python a runtime è molto potente, ma allo stesso tempo molto pericoloso. La libreria permette di eseguire qualsiasi codice Python fornito, e non fornisce alcun tipo di protezione contro codice dannoso o malevolo, se le keywords sbagliate del linguaggio Python fossero mai abilitate durante lo sviluppo.
 
 Una possibile soluzione potrebbe essere l'utilizzo di un sistema di sandboxing, che permetta di eseguire il codice in un ambiente controllato. Asteval supporta già diversi generi di controlli e limitazioni configurabili, ma in alcuni casi potrebbe essere necessario implementare verifiche più stringenti attualmente non presenti.
 
-#hrule()
+Un'interessante _side-project_ potrebbe essere l'implementazione di una utility che permetta di migrare un sistema AIML esistente in un sistema basato su questo framework, convertendo i pattern e le risposte in attesa di un refactoring successivo. Questo permetterebbe di sfruttare le potenzialità del sistema proposto nel momento in cui si intenda aggiungere nuove interazioni, senza dover partire da zero.
 
 Bisogna anche aggiungere come, nonostante il formato YAML per la configurazione sia molto potente, durante lo sviluppo esso sia stato spinto al limite delle sue capacità. Per flow semplici, il formato è molto chiaro e leggibile, ma se si inizia a dover lavorare con espressioni python lunghe o con strutture complesse, il formato può diventare ostico e difficile da mantenere, rendendo problematica anche la comprensione del flusso di esecuzione.
 

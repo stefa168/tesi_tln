@@ -311,7 +311,7 @@
 
   set align(top + center)
   {
-    set page(margin: (y: 2.4cm))
+    set page(margin: (y: 2.2cm))
   outline(depth: 3)
   }
   pagebreak(to: "odd")

@@ -2888,3 +2888,132 @@ prehistory-compassion:
     title: Proceedings of the National Academy of Sciences
     issue: 16
     volume: 106
+
+ALI2023101805:
+  type: article
+  title: 'Explainable Artificial Intelligence (XAI): What we know and what is left to attain Trustworthy Artificial Intelligence'
+  author:
+  - Ali, Sajid
+  - Abuhmed, Tamer
+  - El-Sappagh, Shaker
+  - Muhammad, Khan
+  - Alonso-Moral, Jose M.
+  - Confalonieri, Roberto
+  - Guidotti, Riccardo
+  - Del Ser, Javier
+  - Díaz-Rodríguez, Natalia
+  - Herrera, Francisco
+  date: 2023
+  page-range: 101805
+  url: https://www.sciencedirect.com/science/article/pii/S1566253523001148
+  serial-number:
+    doi: https://doi.org/10.1016/j.inffus.2023.101805
+    issn: 1566-2535
+  abstract: 'Artificial intelligence (AI) is currently being utilized in a wide range of sophisticated applications, but the outcomes of many AI models are challenging to comprehend and trust due to their black-box nature. Usually, it is essential to understand the reasoning behind an AI model’s decision-making. Thus, the need for eXplainable AI (XAI) methods for improving trust in AI models has arisen. XAI has become a popular research subject within the AI field in recent years. Existing survey papers have tackled the concepts of XAI, its general terms, and post-hoc explainability methods but there have not been any reviews that have looked at the assessment methods, available tools, XAI datasets, and other related aspects. Therefore, in this comprehensive study, we provide readers with an overview of the current research and trends in this rapidly emerging area with a case study example. The study starts by explaining the background of XAI, common definitions, and summarizing recently proposed techniques in XAI for supervised machine learning. The review divides XAI techniques into four axes using a hierarchical categorization system: (i) data explainability, (ii) model explainability, (iii) post-hoc explainability, and (iv) assessment of explanations. We also introduce available evaluation metrics as well as open-source packages and datasets with future research directions. Then, the significance of explainability in terms of legal demands, user viewpoints, and application orientation is outlined, termed as XAI concerns. This paper advocates for tailoring explanation content to specific user types. An examination of XAI techniques and evaluation was conducted by looking at 410 critical articles, published between January 2016 and October 2022, in reputed journals and using a wide range of research databases as a source of information. The article is aimed at XAI researchers who are interested in making their AI models more trustworthy, as well as towards researchers from other disciplines who are looking for effective XAI methods to complete tasks with confidence while communicating meaning from data.'
+  parent:
+    type: periodical
+    title: Information Fusion
+    volume: 99
+
+zhao2023explainabilitylargelanguagemodels:
+  type: article
+  title: 'Explainability for Large Language Models: A Survey'
+  author:
+  - Zhao, Haiyan
+  - Chen, Hanjie
+  - Yang, Fan
+  - Liu, Ninghao
+  - Deng, Huiqi
+  - Cai, Hengyi
+  - Wang, Shuaiqiang
+  - Yin, Dawei
+  - Du, Mengnan
+  date: 2023
+  serial-number:
+    arxiv: '2309.01029'
+    doi: 10.48550/arXiv.2309.01029
+
+xu2025hallucinationinevitableinnatelimitation:
+  type: article
+  title: 'Hallucination is Inevitable: An Innate Limitation of Large Language Models'
+  author:
+  - Xu, Ziwei
+  - Jain, Sanjay
+  - Kankanhalli, Mohan
+  date: 2025
+  serial-number:
+    arxiv: '2401.11817'
+    doi: 10.48550/arXiv.2401.11817
+
+Huang_2025:
+  type: article
+  title: 'A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions'
+  author:
+  - Huang, Lei
+  - Yu, Weijiang
+  - Ma, Weitao
+  - Zhong, Weihong
+  - Feng, Zhangyin
+  - Wang, Haotian
+  - Chen, Qianglong
+  - Peng, Weihua
+  - Feng, Xiaocheng
+  - Qin, Bing
+  - Liu, Ting
+  date: 2025-01
+  page-range: 1–55
+  url: http://dx.doi.org/10.1145/3703155
+  serial-number:
+    doi: 10.1145/3703155
+    issn: 1558-2868
+  parent:
+    type: periodical
+    title: ACM Transactions on Information Systems
+    publisher: Association for Computing Machinery (ACM)
+    issue: 2
+    volume: 43
+
+xu2024comprehensivestudyjailbreakattack:
+  type: article
+  title: A Comprehensive Study of Jailbreak Attack versus Defense for Large Language Models
+  author:
+  - Xu, Zihao
+  - Liu, Yi
+  - Deng, Gelei
+  - Li, Yuekang
+  - Picek, Stjepan
+  date: 2024
+  serial-number:
+    arxiv: '2402.13457'
+    doi: 10.48550/arXiv.2402.13457
+
+jiang2024artpromptasciiartbasedjailbreak:
+  type: article
+  title: 'ArtPrompt: ASCII Art-based Jailbreak Attacks against Aligned LLMs'
+  author:
+  - Jiang, Fengqing
+  - Xu, Zhangchen
+  - Niu, Luyao
+  - Xiang, Zhen
+  - Ramasubramanian, Bhaskar
+  - Li, Bo
+  - Poovendran, Radha
+  date: 2024
+  serial-number:
+    doi: 10.48550/arXiv.2402.11753
+    arxiv: '2402.11753'
+
+peng2024playinglanguagegamellms:
+  type: article
+  title: Playing Language Game with LLMs Leads to Jailbreaking
+  author:
+  - Peng, Yu
+  - Long, Zewen
+  - Dong, Fangming
+  - Li, Congyi
+  - Wu, Shu
+  - Chen, Kai
+  date: 2024
+  serial-number:
+    arxiv: '2411.12762'
+    doi: 10.48550/arXiv.2411.12762
