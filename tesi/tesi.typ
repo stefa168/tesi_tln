@@ -5,9 +5,14 @@
 ]
 
 #let abstract = [
-Nel campo delle tecnologie assistive, l’accessibilità di contenuti complessi – come grafi, diagrammi e mappe concettuali – rappresenta una sfida significativa, soprattutto per utenti con disabilità visive. Questa tesi si propone di realizzare un sistema di dialogo basato su Large Language Models capace di “tradurre” tali contenuti in interazioni testuali comprensibili, consentendo agli utenti di esplorare e comprendere in modo approfondito le informazioni racchiuse in forme grafiche.
+Nel campo delle tecnologie assistive, l'accessibilità di contenuti complessi – quali grafi, diagrammi e mappe concettuali – rappresenta una sfida significativa, in particolare per gli utenti con disabilità visive.
 
-In particolare, sono state svolte ricerche e sperimentazioni su diverse tecniche di Natural Language Understanding (rule-based e neurali) per valutarne l’accuratezza e la robustezza. Sul piano ingegneristico è stata progettata un’architettura modulare che integra pipeline di elaborazione e retrieval di dati, garantendo sia la scalabilità sia la flessibilità del sistema.
+Questa tesi propone lo sviluppo di un sistema di dialogo che, attraverso un approccio ibrido di Natural Language Understanding (combinando metodi rule-based e LLM), traduce le rappresentazioni grafiche in interazioni testuali facilmente comprensibili.
+
+Grazie all'impiego di tecniche di Retrieval-Augmented Generation, il sistema congeniato consente agli utenti di esplorare e comprendere in profondità le informazioni contenute nei contenuti visuali.
+
+A supporto dell'obiettivo, sono state condotte ricerche e sperimentazioni sulle tecniche di NLU adottate, per valutare e assicurare accuratezza e robustezza.\
+Sul piano ingegneristico, è stata progettata un'architettura modulare che integra pipeline per l'elaborazione e il recupero dei dati, garantendo così scalabilità e flessibilità del sistema.
 ]
 
 #show: template.with(
