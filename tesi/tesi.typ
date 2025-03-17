@@ -18,7 +18,7 @@ In particolare, sono state svolte ricerche e sperimentazioni su diverse tecniche
   subtitle: "Tesi di Laurea Magistrale",
 
   candidate: (
-    name: "Stefano Vittorio Porta",
+    name: "Dott. Stefano Vittorio Porta",
     matricola: 859133,
   ),
 
@@ -26,7 +26,7 @@ In particolare, sono state svolte ricerche e sperimentazioni su diverse tecniche
     "Prof. Alessandro Mazzei"
   ),
 
-  co-supervisor: ("Pier Felice Balestrucci", "Michael Oliverio"),
+  co-supervisor: ("Dott. Pier Felice Balestrucci", "Dott. Michael Oliverio"),
 
   affiliation: (
     university: "Università degli Studi di Torino",
