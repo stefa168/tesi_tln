@@ -6,12 +6,10 @@
 
 #let abstract = [
 Nel campo delle tecnologie assistive, l'accessibilità di contenuti complessi – quali grafi, diagrammi e mappe concettuali – rappresenta una sfida significativa, in particolare per gli utenti con disabilità visive.
-
 Questa tesi propone lo sviluppo di un sistema di dialogo che, attraverso un approccio ibrido di Natural Language Understanding (combinando metodi rule-based e LLM), traduce le rappresentazioni grafiche in interazioni testuali facilmente comprensibili.
 
 Grazie all'impiego di tecniche di Retrieval-Augmented Generation, il sistema congeniato consente agli utenti di esplorare e comprendere in profondità le informazioni contenute nei contenuti visuali.
-
-A supporto dell'obiettivo, sono state condotte ricerche e sperimentazioni sulle tecniche di NLU adottate, per valutare e assicurare accuratezza e robustezza.\
+A supporto dell'obiettivo, sono state condotte ricerche e sperimentazioni sulle tecniche di NLU e NLG adottate, per valutare e assicurare accuratezza e robustezza.
 Sul piano ingegneristico, è stata progettata un'architettura modulare che integra pipeline per l'elaborazione e il recupero dei dati, garantendo così scalabilità e flessibilità del sistema.
 ]
 

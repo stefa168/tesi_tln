@@ -266,6 +266,7 @@
       outlined: false,
       "Abstract",
     )
+    set align(start)
     abstract
   }
 
@@ -313,7 +314,7 @@
 
   set align(top + center)
   {
-    set page(margin: (y: 1.8cm))
+    // set page(margin: (y: 1.8cm))
     outline(depth: 3)
   }
   pagebreak(to: "odd")
