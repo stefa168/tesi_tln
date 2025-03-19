@@ -1872,6 +1872,19 @@ qwen:
   serial-number:
     doi: "10.48550/arXiv.2309.16609"
 
+wandb:
+  type: misc
+  title: Experiment Tracking with Weights and Biases
+  author: Biewald, Lukas
+  date: 2020
+  url: https://www.wandb.com/
+
+alibaba:
+  type: web
+  url: https://www.alibabacloud.com/en/solutions/generative-ai/qwen?_p_lc=1
+  title: Tongyi Qianwen (Qwen)
+  author: Alibaba Cloud
+
 squad1:
   type: article
   title: "{SQ}u{AD}: 100,000+ Questions for Machine Comprehension of Text"

@@ -33,8 +33,9 @@ Una volta che abbiamo compreso l'intenzione dell'utente, dobbiamo generare una r
 
 La @nlg punterà ad illustrare le tecniche di generazione del linguaggio naturale studiate per lo sviluppo del sistema, mentre la @engi si occuperà di mostrare più nel dettaglio come queste siano rese disponibili per i botmaster nell'implementazione vera e propria.
 
-#hrule()
+// #hrule()
 
+// il rag nelle llm non si limita ad inventare...
 Il paradigma della Retrieval-Augmented Generation rappresenta un'evoluzione naturale rispetto agli approcci tradizionali di generazione del linguaggio naturale. In questo contesto, il sistema non si limita a "inventare" la risposta basandosi esclusivamente sul modello linguistico, ma integra un modulo di recupero che seleziona informazioni aggiornate e pertinenti da fonti esterne, garantendo così una maggiore accuratezza e contestualizzazione.
 
 Nelle sezioni seguenti vedremo che il processo è divisibile in due fasi principali:
@@ -80,7 +81,7 @@ Nel dominio della _Knowledge Representation_ sono stati definiti alcuni linguagg
 
 Alla base vi è RDF (Resource Description Framework), un modello di dati che permette di rappresentare informazioni in forma di triple `<soggetto, predicato, oggetto>`, e il suo linguaggio di interrogazione SPARQL @sparql.
 
-Le annotazioni in formato Turtle (@ttl-example) ad esempio ci permettono di rappresentare un Grafo RDF testualmente, rendendolo facilmente comprensibile da un lettore.
+Le annotazioni in formato _Turtle_ @rdf-turtle (@ttl-example) ad esempio ci permettono di rappresentare un Grafo RDF testualmente, rendendolo facilmente comprensibile da un lettore.
 
 #figure(
   ```turtle
@@ -105,7 +106,7 @@ Le annotazioni in formato Turtle (@ttl-example) ad esempio ci permettono di rapp
   caption: [Esempio di annotazione in formato Turtle per il film d'animazione _Gli Incredibili_ e il suo regista.],
 ) <ttl-example>
 
-Questo modello è alla base di molte knowledge base, come DBpedia @dbpedia e Wikidata @wikidata, che raccolgono informazioni strutturate su una vasta gamma di argomenti. Le basi di conoscenza sono normalmente codificate su file, in formati come RDF-XML @rdf-syntax-grammar o Turtle @rdf-turtle.
+Questo modello è alla base di molte knowledge base, come DBpedia @dbpedia e Wikidata @wikidata, che raccolgono informazioni strutturate su una vasta gamma di argomenti. Le basi di conoscenza sono normalmente codificate su file, in formati come RDF-XML @rdf-syntax-grammar o Turtle.
 
 Anche in questo caso, dovendo rispondere a una richiesta come "Chi ha diretto il film d'animazione _Gli Incredibili_? #footnote[http://dbpedia.org/resource/The_Incredibles]", una volta determinato l'intent ed estratta la named entity del film, possiamo recuperare in modo preciso le informazioni necessarie con la @incredibles.
 
@@ -130,7 +131,7 @@ A differenza delle knowledgebase strutturate, i corpora testuali non strutturati
 
 I metodi tradizionali di Information Retrieval si basano solitamente su indici inversi o modelli a spazio vettoriale, come TF-IDF #footnote[Term Frequency-Inverse Document Frequency] @Rajaraman_Ullman_2011 o BM25 @okapi-bm25, che confrontano la query dell'utente con i termini presenti nel corpus. Sebbene questi approcci siano ancora efficaci in molti scenari, con l'evoluzione dei modelli neurali è possibile sfruttare reti specializzate che codificano frasi e documenti in uno spazio di embedding semantico. Un esempio diffuso è l'utilizzo di Sentence-BERT @sentence-bert, che permette di generare vettori numerici rappresentativi del significato di un testo e, di conseguenza, di calcolare la similarità fra query e documenti in modo più accurato rispetto alle semplici corrispondenze di parole chiave.
 
-Per illustrare questo principio possiamo studiare lo @sf che adopera la libreria `sentence-transformers`. Dopo aver calcolato gli embeddings #footnote[Strutture che codificano il testo numericamente per permettere di effettuare operazioni matematiche, come la *cosine similarity*] dei documenti del corpus e della query utente, calcoliamo la *cosine similarity* tra di essi e identifichiamo l'indice del documento più affine dal punto di vista semantico. La differenza sostanziale rispetto a metodi tradizionali consiste nel fatto che l'uso di embeddings semantici permette di riconoscere relazioni di significato *anche quando il lessico non coincide esattamente*.
+Per illustrare questo principio possiamo studiare lo @sf che adopera la libreria `sentence-transformers`. Dopo aver calcolato gli embeddings #footnote[Strutture che codificano il testo numericamente per permettere di effettuare operazioni matematiche, come la *cosine similarity*] dei documenti del corpus e della query utente, calcoliamo la *cosine similarity* tra di essi e identifichiamo l'indice del documento più affine dal punto di vista semantico. La differenza sostanziale rispetto a metodi tradizionali consiste nel fatto che l'uso di embeddings semantici permette di riconoscere relazioni di significato anche quando non vi è una corrispondenza diretta tra il lessico della query e il corpus originale. // nella query e nel corpus
 
 #figure(
   ```python
@@ -211,19 +212,19 @@ Al tempo stesso, la capacità di interagire dinamicamente con risorse esterne re
 == Generazione di risposte tramite LLM
 
 L'adozione di Large Language Model (LLM) per la generazione di risposte all'interno dei sistemi di dialogo rappresenta uno dei progressi più significativi degli ultimi anni nel campo della Natural Language Generation.
-Se in passato la creazione di output testuale avveniva in modo per lo più rigido (ad esempio tramite template o frasi predefinite), le recenti architetture neurali basate su transformer—come GPT, T5 o BERT-family—hanno permesso di comporre risposte molto più variegate e contestuali, adattandosi con flessibilità alle esigenze dell'utente.
+Se in passato la creazione di output testuale avveniva nei casi più semplici in modo per lo più rigido (ad esempio tramite template o frasi predefinite), le recenti architetture neurali basate su transformer—come GPT, T5 o BERT-family—hanno permesso di comporre risposte molto più variegate e contestuali, adattandosi con flessibilità alle esigenze dell'utente con una ridotta necessità di scrivere codice.
 
 In un sistema di dialogo però, la sfida non si limita alla sola generazione di testo corretto dal punto di vista linguistico: è altresì fondamentale garantire che la risposta risulti coerente con la domanda, contestualmente appropriata e, soprattutto, informativa.
 Da un lato, si può pensare all'impiego di una LLM come componente centrale, in cui l'utente fornisce direttamente l'input (ad esempio una domanda) e il modello produce l'output (la risposta).
 Dall'altro, si può utilizzare lo stesso LLM per operazioni più specifiche, come la parafrasi di risposte già esistenti o l'introduzione di variazioni stilistiche.
-Una delle strategie più comuni e potenti per interfacciarsi con i LLM è il prompting, vale a dire l'idea di “istruire” il modello riguardo al contesto, al tono e al formato di output desiderato, mediante prompt testuali che forniscono esempi e regole su come generare il testo.
+Una delle strategie più comuni e potenti per interfacciarsi con i LLM è il _prompting_, vale a dire l'idea di “istruire” il modello riguardo al contesto, al tono e al formato di output desiderato, mediante prompt testuali che forniscono esempi e regole su come generare il testo.
 
 L'uso di LLM diventa ancor più significativo quando si parla di sistemi di dialogo data-driven.
 In questi casi, la generazione non può basarsi esclusivamente sulle conoscenze latenti del modello, ma deve attingere ai dati recuperati nei passaggi precedenti (tramite query, script o retrieval neurale).
 In tal modo, il modello produce risposte aggiornate e specifiche, riducendo il rischio di informazioni obsolete o imprecise.
 
 Nelle sottosezioni seguenti verranno illustrati due aspetti fondamentali dell'uso dei LLM nella generazione di risposte.
-La *Parafrasi* offre la possibilità di riscrivere o variare un testo in modo più o meno profondo, fornendo un valido strumento per evitare ripetizioni pedisseque o allineare lo stile del sistema alle esigenze del contesto.
+La *Parafrasi* offre la possibilità di riscrivere o variare un testo in modo più o meno profondo, fornendo un valido strumento per evitare ripetizioni o allineare lo stile del sistema alle esigenze del contesto.
 Il *Prompting* rappresenta invece la chiave di volta per guidare la produzione linguistica del modello verso gli obiettivi del sistema di dialogo, in termini sia di contenuto che di stile comunicativo.
 Vedremo quindi come un'efficace combinazione di tecniche di parafrasi e di prompt engineering possa sostenere la generazione di risposte coerenti, comprensibili e flessibili, migliorando sensibilmente l'esperienza dell'utente.
 
@@ -347,8 +348,9 @@ Il termine _allucinazioni_, nel contesto delle LLM, si riferisce a risposte gene
 Possono anche contenere informazioni "inventate" o totalmente errate.
 È una delle sfide principali nella generazione di testo con LLM, specialmente in contesti data-driven.
 
-All'interno di questo generi di sistemi di dialogo, il prompting acquisisce ulteriore rilevanza, poiché occorre integrare nel prompt non solo il contesto della conversazione e l'intenzione dell'utente, ma anche i dati recuperati nella fase di retrieval.
+All'interno dei sistemi di dialogo basati su LLM, il prompting acquisisce ulteriore rilevanza, poiché occorre integrare nel prompt non solo il contesto della conversazione e l'intenzione dell'utente, ma anche i dati recuperati nella fase di retrieval.
 
+// Riferimenti, magari Jurafsky
 Per costruire un prompt efficace, è buon uso considerare i seguenti aspetti:
 
 - *Chiarezza dell'istruzione*: è importante esplicitare in modo chiaro cosa si vuole che il modello faccia.
@@ -522,7 +524,7 @@ Questi limiti emergono con maggiore evidenza quando i dati da trasformare in tes
 
 Un quadro simile è proposto anche da #cite(<yuan-faerber-graph2text>, form:"prose"), che hanno confrontato GPT-3 e ChatGPT su benchmark di generazione testuale a partire da knowledge graph.
 I risultati dimostrano che i modelli di generazione, se impiegati in modalità zero-shot, ottengono buone performance di scorrevolezza, ma faticano a mantenere l'accuratezza semantica, finendo con l'inserire dettagli inventati o non coerenti.\
-Inoltre, test su diverse LLM mostrano come il testo prodotto dai modelli conservi pattern facilmente riconoscibili @idiosyncrasieslargelanguagemodels.
+Inoltre, test su diversi LLM mostrano come il testo prodotto dai modelli conservi pattern facilmente riconoscibili @idiosyncrasieslargelanguagemodels.
 Ciò rafforza l'idea che l'LLM, seppur potente, abbia bisogno di prompting e controlli specifici per non produrre contenuti fuorvianti o ripetitivi.
 
 == Qualità delle risposte <llm-quality>

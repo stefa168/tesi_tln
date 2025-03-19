@@ -10,25 +10,25 @@
   [#sym.quote.r.single#date]
 }
 
-#let hrule() = align(center, line(length: 60%, stroke: silver))
+// #let hrule() = align(center, line(length: 60%, stroke: silver))
 
 = Natural Language Understanding <nlu-cap> // Spiegazione di cosa si tratta
 
-L'implementazione di chatbot basati su AIML (Artificial Intelligence Markup Language) ha rappresentato un primo passo nella formalizzazione delle _interazioni uomo-macchina_, fornendo una *struttura rule-based* che permette di rispondere a input testuali tramite _pattern di corrispondenza_. Questo approccio, sebbene efficace in una grande varietà di contesti, mostra diversi limiti quando si tratta di gestire variabilità linguistica, contesto e scalabilità delle regole.
+L'implementazione di chatbot basati su _AIML_ (Artificial Intelligence Markup Language) ha rappresentato un primo passo nella formalizzazione delle _interazioni uomo-macchina_, fornendo una *struttura rule-based* che permette di rispondere a input testuali tramite _pattern di corrispondenza_. Questo approccio, sebbene efficace in una grande varietà di contesti, mostra diversi limiti quando si tratta di gestire variabilità linguistica, contesto e scalabilità delle regole.
 
 In questo capitolo, analizzeremo innanzitutto il _funzionamento di AIML_, illustrandone la sintassi e le proprietà attraverso esempi pratici. Questo ci permetterà di evidenziare le principali criticità del paradigma rule-based, che si riveleranno essere la *rigidità nella definizione delle regole* e la *necessità di una manutenzione manuale della conoscenza*.
 
-Alla luce di queste limitazioni, ci sposteremo verso un approccio più flessibile e adattabile, basato su sistemi neurali per la classificazione degli intenti. In particolare, esploreremo come tali modelli possano essere strutturati in modo da _emulare_ un comportamento simile a un *albero decisionale*, capace di generalizzare le richieste degli utenti senza la necessità di specificare esplicitamente ogni possibile variazione.
+Alla luce di queste limitazioni, ci sposteremo verso un approccio più flessibile e adattabile, basato su sistemi neurali per la classificazione delle richieste degli utenti. In particolare, esploreremo come tali modelli possano essere strutturati in modo da _emulare_ un comportamento simile a un *albero decisionale*, capace di generalizzare le domande degli utenti senza la necessità di specificare esplicitamente ogni possibile variazione.
 
-Infine, introdurremo brevemente anche il task della *Named Entity Recognition* (NER) come componente fondamentale per migliorare la comprensione dei messaggi, permettendo di *estrarre informazioni strutturate* dagli input e affinare ulteriormente il processo decisionale del chatbot.
+Infine, introdurremo brevemente anche il task della *Named Entity Recognition* (_NER_) come componente fondamentale per migliorare la comprensione dei messaggi, permettendo di *estrarre informazioni strutturate* dagli input e affinare ulteriormente il processo decisionale del chatbot.
 
 == Come AIML gestisce la comprensione <aiml-cap> // Collegamento a come AIML gestisce la comprensione
 
-Negli anni #tdd(90) iniziò a guadagnare popolarità il _Loebner Prize_ @loebner, una competizione ispirata al Test di Turing @imitation_game.\
+Negli anni #tdd(90) iniziò a guadagnare popolarità il _Loebner Prize_ @loebner, una competizione ispirata al Test di Turing @imitation_game.
 Nella competizione, chatbot e sistemi conversazionali cercavano di "ingannare" giudici umani, facendo credere loro di essere persone reali.
 Molti sistemi presentati alla competizione erano basati su pattern matching e rule-based, a volte integrando euristiche per la gestione di sinonimi o correzione ortografica.
 
-Tra questi, uno dei più celebri è _ALICE_ (Artificial Linguistic Internet Computer Entity), sviluppato da Richard Wallace utilizzando il linguaggio di markup AIML (Artificial Intelligence Markup Language) da lui introdotto @aiml @alice.\
+Tra questi, uno dei più celebri è _ALICE_ (Artificial Linguistic Internet Computer Entity), sviluppato da Richard Wallace utilizzando il linguaggio di markup AIML (Artificial Intelligence Markup Language) da lui introdotto @aiml @alice.
 ALICE vinse per la prima volta il Loebner Prize nel 2000, e in seguito vinse altre due edizioni, nel 2001 e 2004.
 
 === Struttura di un chatbot AIML
@@ -49,11 +49,12 @@ La forma più semplice di categoria è visibile nello @base-category.
   caption: [Esempio basilare di una categoria AIML.],
 ) <base-category>
 
-In questo caso, se l'utente scrive "Ciao" #footnote[Caratteri maiuscoli e minuscoli sono considerati uguali dal motore di riconoscimento.], il sistema restituisce la risposta associata nella sezione del `<template>`.\ \
-Naturalmente questa è una regola basilare: AIML permette di definire pattern molto più complessi. 
+In questo caso, se l'utente scrive "Ciao" #footnote[Caratteri maiuscoli e minuscoli sono considerati uguali dal motore di riconoscimento AIML.], il sistema restituisce la risposta associata nella sezione del `<template>`.
+
+Naturalmente questa è una regola basilare: AIML permette di definire pattern molto più complessi.
 Un primo passo verso la creazione di regole più flessibili è l'uso di *wildcard* (@snip-wildcard): associando simboli quali #sym.ast e #sym.dash.en a elementi di personalizzazione (`<star/>`), il motore che esegue la configurazione AIML può gestire un certo grado di variabilità linguistica.
 
-In particolare, il simbolo `*` corrisponde a una wildcard che cattura qualsiasi sequenza di parole in input tra i due pattern specificati.\
+In particolare, il simbolo `*` corrisponde a una wildcard che cattura qualsiasi sequenza di parole in input tra i due pattern specificati.
 In questo caso, se l'utente digita "Mi chiamo Andrea", il sistema sostituisce `<star/>` con "Andrea", e risponde di conseguenza.
 
 #figure(
@@ -69,7 +70,7 @@ In questo caso, se l'utente digita "Mi chiamo Andrea", il sistema sostituisce `<
   caption: [Esempio di utilizzo di wildcard in AIML.],
 ) <snip-wildcard>
 
-#hrule()
+// #hrule()
 
 Spesso è necessario memorizzare informazioni fornite dall'utente per utilizzarle successivamente. A questo scopo, AIML offre i tag `<set>` e `<get>` che, rispettivamente, memorizzano e recuperano valori da variabili di contesto.
 
@@ -99,7 +100,7 @@ Spesso è necessario memorizzare informazioni fornite dall'utente per utilizzarl
 Nello @snip-memo, il tag `<think>` della prima `<category>` fa sì che l'operazione di memorizzazione non produca output testuale per l'utente, ma aggiorni internamente la variabile `colore`.\
 Nel secondo blocco, si utilizza `<get name="colore"/>` per restituire all'utente il valore memorizzato.
 
-#hrule()
+// #hrule()
 
 Il tag `<condition>` permette di definire regole condizionali in base a variabili di contesto.\
 
@@ -150,7 +151,7 @@ Il tag `<topic>` permette di raggruppare categorie che appartengono a un medesim
 
 In questo modo le regole legate ai saluti sono tutte contenute all'interno di un blocco `<topic>` chiamato `saluti`.
 
-#hrule()
+// #hrule()
 
 Il tag `<srai>`#footnote[Stimulus-Response Artificial Intelligence @aiml] permette di reindirizzare l'input ad un'altra regola, che verrà processata come se fosse stata digitata dall'utente. È molto utile per riutilizzare risposte o logiche già definite.
 
@@ -174,7 +175,7 @@ Se esiste una categoria che gestisce il pattern “CIAO”, verrà attivata la r
 
 Esiste anche una versione contratta di `<srai>` chiamata `<sr>`, che è stata prevista come scorciatoia quando è necessario matchare un solo pattern. Secondo la documentazione, il tag corrisponde a `<srai><star/></srai>`.
 
-#hrule()
+// #hrule()
 
 Abbiamo già visto `<think>` in azione per evitare che il contenuto venga mostrato all'utente nello @snip-memo.
 In generale, `<think>` è utile quando vogliamo impostare o manipolare variabili senza generare output visibile, come nello @snip-think.
@@ -193,7 +194,7 @@ In generale, `<think>` è utile quando vogliamo impostare o manipolare variabili
   caption: [Esempio di utilizzo del tag `<think>` in AIML.],
 )<snip-think>
 
-#hrule()
+// #hrule()
 
 Il tag `<that>` (@that-snip) permette di scrivere pattern che dipendono dalla risposta precedentemente fornita dal chatbot. È particolarmente utile per gestire contesti conversazionali più complessi.
 
@@ -211,8 +212,7 @@ Il tag `<that>` (@that-snip) permette di scrivere pattern che dipendono dalla ri
 
 In questo caso la regola sarà attivata se la risposta precedente del bot era “VA TUTTO BENE” e l'utente risponde in modo affermativo.
 
-
-#hrule()
+// #hrule()
 
 Per rendere la conversazione più naturale, AIML 2.0 fornisce `<random>`, che permette di restituire una risposta fra più alternative, come illustrato nello @random-snip.
 
@@ -235,7 +235,7 @@ Per rendere la conversazione più naturale, AIML 2.0 fornisce `<random>`, che pe
 
 Ogni volta che l'utente scrive “Come va”, il bot sceglierà casualmente una delle tre risposte elencate.
 
-#hrule()
+// #hrule()
 
 Alcuni interpreti di AIML supportano `<learn>`, che consente al bot di aggiungere nuove categorie “al volo” durante l'esecuzione. Un esempio di utilizzo è presentato nello @learn-aiml-snip.
 
@@ -274,7 +274,7 @@ Grazie ai tag previsti dallo schema, AIML riesce a gestire conversazioni piuttos
 - L'integrazione con basi di conoscenza esterne (KB, database, API) richiede estensioni o script sviluppati ad-hoc, poiché AIML di per sé non offre costrutti semantici o query integrate, e non permette di integrare script internamente alle regole @aiml.
 - Le risposte generate sono statiche e predefinite, e non possono essere generate dinamicamente in base a dati esterni o a contesti più ampi in modo automatico (come invece avviene con LLM e modelli di generazione di linguaggio).
 
-Nonostante questi limiti, AIML ha rappresentato un passo importante nell'evoluzione dei chatbot, offrendo un *framework standardizzato* e relativamente *user-friendly* per la creazione di agenti rule-based @alice.\
+Nonostante questi limiti, AIML ha rappresentato un passo importante nell'evoluzione dei chatbot, offrendo un *framework standardizzato* e relativamente *user-friendly* per la creazione di agenti rule-based @alice.
 In alcuni ambiti ristretti (FAQ, conversazioni scriptate, assistenti vocali), costituisce ancora una soluzione valida e immediata.
 In domini più complessi, in cui la varietà del linguaggio e l'integrazione con dati dinamici sono essenziali, diventa indispensabile affiancare o sostituire AIML con tecniche di Natural Language Understanding basate su machine learning e deep learning.
 
@@ -283,24 +283,22 @@ Nelle sezioni successive sarà mostrato il percorso seguito per cercare di migli
 == Classificazione con LLM <classificazione-llm> // Introduzione alla classificazione di intenti
 
 Come detto poco sopra, uno dei limiti di AIML è la *gestione limitata di varianti linguistiche* e contesti conversazionali.
-
 Per permettere all'AIML di generalizzare sulle richieste degli utenti, il botmaster #footnote[Lo sviluppatore delle regole AIML per un certo progetto.] deve dichiarare delle *generalizzazioni esplicite*, ad esempio utilizzando wildcard o pattern che catturano più varianti di una stessa richiesta.
 Questo processo richiede *tempo e competenze linguistiche*, oltre ad una grande attenzione per evitare ambiguità o sovrapposizioni tra regole.
 
 Durante il mio percorso di ricerca ho deciso di seguire una strada simile a quella di AIML, ma facendo un passo indietro e ponendomi la domanda:
-
 #quote()[
   _Invece che cercare dei pattern nelle possibili richieste degli utenti, perchè non trovare un modello che possa generalizzare su queste richieste in modo automatico?_
 ]
 
-Il percorso per arrivare al modello di classificazione di intenti ha richiesto i suoi tempi, ma alla fine ho ottenuto dei risultati che ritengo soddisfacenti.
+Per realizzare la mia riflessione, ho concluso che l'approccio più efficace sarebbe stato sostituire le regole AIML con un classificatore neurale.
+Il percorso per realizzare un modello di classificazione di intenti ha richiesto i suoi tempi, ma alla fine ho ottenuto dei risultati che ritengo soddisfacenti.
 
 I problemi principali da risolvere per poter classificare gli intenti sono due: la *raccolta di dati* etichettati e la *scelta del modello* di classificazione.
 
 === Dataset di training // Come ho raccolto i dati etichettati per addestrare il modello
 
 Di base, nel mondo dell'apprendimento automatico supervisionato, per addestrare un modello di classificazione è necessario un dataset di *esempi etichettati*, cioè coppie di input e output su cui il modello deve imparare a generalizzare.
-
 Per la classificazione di intenti, i dataset più comuni sono quelli di chatbot e assistenti vocali, che contengono domande e richieste etichettate con l'intento che l'utente vuole esprimere.
 
 Il dataset originario fornitomi @dataset-nova è stato composto in seguito a una campagna di raccolta dati manuale, in cui diversi collaboratori hanno interagito con un prototipo di chatbot AIML, ponendo domande e richieste di vario tipo nel contesto degli FSA @paper-dataset-nova.
@@ -311,14 +309,11 @@ Sono anche presenti ulteriori metriche e valutazioni qualitative delle interazio
 
 ==== Estrazione dei dati
 
-Dovendo addestrare un modello di classificazione, ho provveduto innanzitutto ad estrarre i dati effettivamente a noi necessari. Lo @data-extract-pandas, scritto in python adoperando la libreria `pandas`@pandas è stato sufficiente.
+Dovendo addestrare un modello di classificazione, ho provveduto innanzitutto ad estrarre i dati effettivamente a noi necessari. Lo @data-extract-pandas, scritto in python adoperando la libreria `pandas`@pandas è stato sufficiente. Tutto quello che fa, in pratica, è filtrare le righe del dataset che contengono domande poste dagli utenti (```python df_o[df_o['Participant'] == 'U']```), estraendo il testo di queste domande e salvandole in un file CSV.
 
 #figure(
   ```python
   import pandas as pd
-  from dotenv import load_dotenv
-
-  load_dotenv()
 
   df_o = pd.read_excel('corpus/interaction-corpus.xlsx')
 
@@ -337,19 +332,17 @@ Dovendo addestrare un modello di classificazione, ho provveduto innanzitutto ad 
 ) <data-extract-pandas>
 
 Estratte le domande, ho potuto procedere con l'etichettatura.
-
-In un primo step, ho considerato la possibilità di lasciare il compito di etichettatura delle domande ad un sistema che svolgesse il compito in automatico.\
+In un primo step, ho considerato la possibilità di lasciare il compito di etichettatura delle domande ad un sistema che svolgesse il compito in automatico.
 Questo permetterebbe di avere un dataset decorato, senza dover ricorrere a un'etichettatura manuale che sarebbe stata molto *dispendiosa in termini di tempo e risorse*, specialmente in ottica di un *incremento dei dati* del dataset in seguito a nuove interazioni con il chatbot.
-
 Per fare ciò, ho rivolto la mia attenzione ai modelli di linguaggio neurali, in particolare ai *Large Language Models* (LLM), dal momento che sono in grado di generalizzare su una vasta gamma di task linguistici, inclusa la classificazione di intenti.
 
-Con l'*enorme disponibilità* attuale di modelli pre-addestrati e API che permettono di interagire con essi, ho potuto sperimentare diverse soluzioni per l'etichettatura automatica delle domande.\
-In particolare, ho deciso di sperimentare con modelli di LLM open-source, dal momento che sono eseguibili localmente e permettono di mantenere i dati sensibili all'interno dell'ambiente di lavoro, senza doverli condividere con servizi esterni.\
-Per utilizzarli, si sono rivelate fondamentali le API fornite da Ollama @ollama, un sistema per hostare localmente modelli di LLM *open source* (e in certi casi anche _open-weights_ @open-weights-foundational).
+Con l'*enorme disponibilità* attuale di modelli pre-addestrati e API che permettono di interagire con essi, ho potuto sperimentare diverse soluzioni per l'etichettatura automatica delle domande.
+In particolare, ho deciso di sperimentare con modelli di LLM open-source, dal momento che sono eseguibili localmente e permettono di mantenere i dati sensibili all'interno dell'ambiente di lavoro, senza doverli condividere con servizi esterni.
+Per utilizzarli, si sono rivelate fondamentali le API fornite da OLlama@ollama, un sistema per hostare localmente modelli di LLM _open-weights_ @open-weights-foundational (e in certi casi anche *open source*).
 
 === Etichettatura automatica del dataset
 <etichettatura-automatica-delle-domande>
-Per poter automatizzare l'etichettatura usando una LLM, prima di tutto ho identificato l'insieme delle possibili etichette, elencate nello @old-labels.
+Per poter automatizzare l'etichettatura usando una LLM, prima di tutto ho identificato l'insieme delle possibili etichette, raccolte in una mappa `<etichetta, descrizione>`.
 #figure(
   ```python
   LABELS: dict[str, str] = {
@@ -380,17 +373,17 @@ Per poter automatizzare l'etichettatura usando una LLM, prima di tutto ho identi
   caption: [Etichette possibili per le domande del dataset.],
 ) <old-labels>
 
-In questa mappa, ad ogni etichetta è associata una descrizione che indica alla LLM un contesto in cui collocarla, con lo scopo di assistere la LLM ad etichettare correttamente le domande togliendo il più possibile le ambiguità.\
+Nella mappa, presentata nello @old-labels, ad ogni etichetta è associata una descrizione che indica alla LLM un contesto in cui collocarla, con lo scopo di assistere la LLM ad etichettare correttamente le domande togliendo il più possibile le ambiguità.
 Questo genere di task è del tipo *zero shot*, in cui il modello non ha mai visto i dati di training e deve etichettare le domande esclusivamente in base a un contesto fornito.
 
 Con lo scopo di assicurare un'etichettatura corretta e affidabile, ho deciso di utilizzare due modelli di LLM differenti, in modo da poter effettuare un *majority voting* tra le etichette prodotte dai due modelli:
 
 - _Gemma 2_, sviluppato da Google Deep Mind @gemma;
-- _llama 3.1_, sviluppato da Meta AI @llama3.
+- _Llama3.1_, sviluppato da Meta AI @llama3.
 
-I modelli sono stati utilizzati nelle loro varianti da 9 miliardi di parametri per Gemma 2 (dimensione intermedia) e 8 miliardi per llama 3.1 (il più piccolo dei modelli forniti), basandomi sulle sperimentazioni che hanno mostrato un buon compromesso tra performance (intese come qualità dei risultati prodotti in seguito al prompting) e tempo di esecuzione @gemma @llama3.
+I modelli sono stati utilizzati nelle loro varianti da 9 miliardi di parametri per Gemma 2 (dimensione intermedia) e 8 miliardi per Llama3.1 (il più piccolo dei modelli forniti), basandomi sulle sperimentazioni che hanno mostrato un buon compromesso tra performance (intese come qualità dei risultati prodotti in seguito al prompting) e tempo di esecuzione @gemma @llama3.
 
-Un ulteriore modello, Qwen @qwen, prodotto da Alibaba, è stato utilizzato durante le sperimentazioni, ma i risultati non sono stati sufficientemente soddisfacenti da permettere un utilizzo all'interno del progetto.
+Un ulteriore modello, Qwen @qwen, prodotto da Alibaba @alibaba, è stato utilizzato durante le sperimentazioni, ma i risultati non sono stati sufficientemente soddisfacenti da permettere un utilizzo all'interno del progetto.
 
 Ho effettuato il prompting delle domande con i modelli di LLM utilizzando le risorse dell'hardware a mia disposizione, composto da:
 - CPU AMD Ryzen 7 5800x (4.7GHz, 8 core, 16 thread, 32MB L3 cache)
@@ -398,7 +391,7 @@ Ho effettuato il prompting delle domande con i modelli di LLM utilizzando le ris
 - GPU Nvidia RTX 3070 Ti (8GB GDDR6, 6144 CUDA cores \@1.77GHz)
 
 Ad ogni modello è richiesto di etichettare ogni domanda.
-Il prompt utilizzato è stato progettato in modo da fornire un *contesto chiaro e preciso*, in modo da guidare la LLM verso l'etichetta corretta.\
+Il prompt utilizzato è stato progettato in modo da fornire un *contesto chiaro e preciso*, in modo da guidare la LLM verso l'etichetta corretta.
 In particolare, ne sono stati utilizzati *due per ogni modello*, in modo da fornire un contesto più vario e permettere ai modelli di generalizzare meglio sulle domande.
 Ogni prompt risulta diverso dal punto di vista della composizione della richiesta, ma l'intento finale a livello semantico è lo stesso.
 
@@ -436,10 +429,9 @@ I prompt dello @auto-label-prompts sono stati scelti in modo da fornire informaz
 ) <auto-label-prompts>
 
 Si notino le differenze tra i due prompt: il primo è _più dettagliato_ e fornisce una spiegazione più approfondita delle etichette, mentre il secondo è _più conciso e diretto_.
-
 I tag tra parentesi graffe vengono sostituiti con i valori attualmente in uso, in modo da rendere il prompt generico e riutilizzabile.
 
-Segue un estratto di codice python che mostra come è stato effettuato il prompting.
+Nello @script2 segue un estratto di codice python che mostra come è stato effettuato il prompting.
 Viene importata una classe `Chat`, da me sviluppata, che permette di interagire con i modelli di LLM in modo più semplice, astraendo le API di ollama.
 
 #figure(
@@ -483,7 +475,7 @@ Viene importata una classe `Chat`, da me sviluppata, che permette di interagire 
   ```,
   kind: "script",
   caption: [Prompting delle domande con i modelli di LLM.],
-)
+) <script2>
 
 #figure(
   align(center)[
@@ -510,9 +502,9 @@ Viene importata una classe `Chat`, da me sviluppata, che permette di interagire 
   caption: [Esempio di etichettatura delle domande del bronze dataset.],
 ) <bronze-etichettatura>
 
-Nella @bronze-etichettatura è mostrato un esempio dei risultati dell'etichettatura del *bronze dataset*, in seguito al prompting con i modelli di LLM.
+Nella @bronze-etichettatura è mostrato un esempio dei risultati dell'etichettatura del *bronze dataset*, in seguito al prompting con i modelli di LLM. Col termine "bronze dataset" si intende il dataset di domande etichettate in modo automatico, in seguito al prompting con i modelli di LLM, senza alcuna revisione manuale. #footnote[Esistono anche i concetti di "silver" e "gold" dataset, che indicano rispettivamente un dataset etichettato manualmente e un dataset etichettato manualmente e revisionato da un esperto.]
 
-Come è possibile notare, i modelli hanno etichettato le domande in modo coerente tra di loro, ma non sempre con le etichette corrette.\
+Come è possibile notare, i modelli hanno etichettato le domande in modo coerente tra di loro, ma non sempre con le etichette corrette.
 In certi casi, le etichette sono state completamente sbagliate, e in altre occorrenze sono state prodotte risposte che o non sono presenti nel set di etichette fornito, o hanno ignorato il prompt fornito, fornendo risposte completamente estranee.
 
 Come accennato, è stato adoperato un sistema di *majority voting* (@majority-vote) per combinare i risultati delle due LLM, in modo da ottenere un'etichettatura più affidabile.
@@ -532,7 +524,6 @@ Come accennato, è stato adoperato un sistema di *majority voting* (@majority-vo
 
 Tuttavia, in seguito ad una prima fase di fine tuning, ho verificato che nonostante un'etichettatura valida, le classi identificate erano *troppo sbilanciate*, con alcune classi che contenevano un numero troppo esiguo di esempi, portando a una classificazione poco affidabile.
 In più, ho realizzato che le classi scelte erano *troppo generiche*: questo problema non avrebbe permesso di identificare con precisione l'argomento della domanda.
-
 Per questo motivo ho proceduto con una revisione delle etichette, e una successiva etichettatura manuale delle domande.
 
 === Nuove classi e etichettatura manuale <nuove-classi>
@@ -659,7 +650,7 @@ Le domande artificiali sono state prodotte in grandi quantità adoperando divers
 Ad ogni modello è stato presentato un insieme di domande con lo stesso topic principale o secondario, assieme al contesto in cui vengono poste e ad una richiesta di produzione di ulteriori domande simili semanticamente.
 Per maggiore convenienza, è stato richiesto ai modelli di rispondere fornendo le nuove domande formattate in markdown @markdown.
 
-Dato il grosso volume di risposte, per verificare l'adesione dei modelli alle richieste è stato effettuato un _controllo a campione_, che non ha evidenziato particolari problematiche nella precisione di nessuno dei modelli.
+Dato il grosso volume di risposte, per verificare l'adesione dei modelli alle richieste è stato effettuato un _controllo a campione_ #footnote[Effettuato visionando in modo casuale il 10% delle domande generate], che non ha evidenziato particolari problematiche nella precisione di nessuno dei modelli.
 
 In totale sono stati aggiunti 851 nuovi quesiti, con la distribuzione mostrata nel @augmented-distribution-primary.
 
@@ -767,10 +758,9 @@ L'utilizzo del dataset SQUAD ha anche introdotto un'ulteriore incremento delle p
 Per poter utilizzare i Large Language Models (LLM) per la classificazione di intenti, ho dovuto seguire un processo di *fine-tuning*.
 
 Il fine-tuning (schematizzato nella @fine-tuning-process-diagram) avviene verso la fine della preparazione di un modello di machine learning.
-In particolare, è la fase in cui si prende un modello _pre-addestrato su un compito generale_ (o su una grande quantità di dati non etichettati) e lo si *specializza* su un compito specifico, come la _classificazione di intenti_, _l'analisi del sentiment_ o il _riconoscimento di entità nominate_.\
+In particolare, è la fase in cui si prende un modello _pre-addestrato su un compito generale_ (o su una grande quantità di dati non etichettati) e lo si *specializza* su un compito specifico, come la _classificazione di intenti_, _l'analisi del sentiment_ o il _riconoscimento di entità nominate_.
 Si parte quindi da un modello che possiede già una *buona conoscenza linguistica di base* (perché allenato, ad esempio, su quantità imponenti di testo come Wikipedia, libri o pubblicazioni) e lo si addestra ulteriormente su un dataset mirato, così da fargli apprendere le *particolarità e le sfumature* del nuovo scenario applicativo, senza dover ripartire da zero.
-
-Sul piano tecnico, il processo di fine-tuning si fonda sugli stessi principi del _learning by example_: si forniscono al modello coppie di input e output (nel caso di una classificazione, l'output è la classe corretta), e si calcola la loss (ad esempio la cross-entropy tra le probabilità previste dal modello e quelle desiderate).\
+Sul piano tecnico, il processo di fine-tuning si fonda sugli stessi principi del _learning by example_: si forniscono al modello coppie di input e output (nel caso di una classificazione, l'output è la classe corretta), e si calcola la loss (ad esempio la cross-entropy tra le probabilità previste dal modello e quelle desiderate).
 Tramite la _backpropagation_ dell'errore, i pesi del modello vengono aggiornati iterativamente, così da allineare le predizioni alle etichette reali.
 Il risultato è che, dopo un numero sufficiente di iterazioni (o epoche), il modello impara a predire con buona approssimazione la classe corretta anche per esempi non ancora visti.
 
@@ -795,23 +785,18 @@ Il resto del modello *rimane pressoché invariato*: l'architettura interna, come
 === BERT
 
 Prima di illustrare più nel dettaglio il fine-tuning, è utile introdurre BERT #footnote[Bidirectional Encoder Representations from Transformers] @bert, progenitore della famiglia di modelli da me utilizzati per la sperimentazione, nonchè uno dei modelli più noti e influenti degli ultimi anni nell'ambito del Natural Language Processing.
-
 BERT è stato proposto nel 2018 da #cite(<bert>, form: "prose") come un sistema capace di apprendere rappresentazioni contestuali del testo in modo bidirezionale, basandosi sull'architettura Transformer introdotta in precedenza da #cite(<vaswani2023attentionneed>, form: "prose").
-
 L'idea portante di BERT è quella di addestrare un modello neurale a predire, data una sequenza testuale, le parole mascherate (ovvero rimosse o sostituite) e la relazione tra frasi adiacenti.
 Queste due tecniche di pre-addestramento vengono rispettivamente chiamate _Masked Language Modeling_ e _Next Sentence Prediction_.
-
-Nel Masked Language Modeling, BERT maschera casualmente alcune parole del testo in input e chiede al modello di indovinare quali fossero, costringendolo così a sviluppare una comprensione profonda del contesto circostante.\
-
+Nel Masked Language Modeling, si mascherano casualmente alcune parole del testo in input e si chiede al modello BERT di indovinare quali fossero, costringendolo così a sviluppare una comprensione profonda del contesto circostante.\
 Nel Next Sentence Prediction, invece, il modello riceve in ingresso due frasi (A e B) e impara a classificare se B segue effettivamente A o se le due frasi appartengono a contesti disgiunti.
 Addestrando in parallelo su questi due compiti, BERT acquisisce rappresentazioni interne che colgono sfumature sintattiche, semantiche e relazionali del linguaggio @bert.
 
 Una volta pre-addestrato su grandi corpora di testo (come Wikipedia ed estrazioni di libri), BERT può essere facilmente specializzato per vari task supervisionati, tra cui la classificazione di testi, l'analisi del sentiment, il question answering e, in generale, tutto ciò che riguarda la comprensione del linguaggio naturale, essendo un modello encoder.
 La peculiarità di BERT è che, essendo già addestrato a livello linguistico di base, necessita di meno esempi per ottenere risultati spesso notevoli su compiti altamente specializzati.
 
-Esistono diverse varianti del modello, in termini di dimensioni e capacità. Le versioni più comuni sono `BERT-base` e `BERT-large`, differenziate per numero di livelli (encoder) e di parametri totali.\
+Esistono diverse varianti del modello, in termini di dimensioni e capacità. Le versioni più comuni sono `BERT-base` e `BERT-large`, differenziate per numero di livelli (encoder) e di parametri totali.
 In generale, la versione `base` è più rapida e ha requisiti meno elevati in termini di memoria, mentre la versione large offre performance maggiori a fronte di tempi di calcolo e requisiti hardware superiori.
-
 Nella libreria di Huggingface `transformers` @huggingface_transformers, BERT è messo a disposizione come un modello pretrained, pronto per essere caricato e ulteriormente addestrato.
 In un contesto di classificazione di intenti, ad esempio, si può utilizzare `AutoModelForSequenceClassification` specificando il checkpoint “bert-base-uncased”.
 
@@ -829,19 +814,18 @@ In un contesto di classificazione di intenti, ad esempio, si può utilizzare `Au
 
 `model` (@hf-init) è in grado di elaborare sequenze di token generate dal tokenizer e, una volta fine-tuned, produce come output le probabilità di appartenere alle varie classi (o intenti) da classificare. Questa è la base su cui mi sono appoggiato per la classificazione delle domande del dataset.
 
-=== Implementazione
+=== Implementazione <fine-tuning-implementazione>
 
-In questa sezione sarà presentata la procedura di fine-tuning che ho implementato per addestrare un modello di classificazione di intenti basato su architetture Transformer.\
+In questa sezione sarà presentata la procedura di fine-tuning che ho implementato per addestrare un modello di classificazione di intenti basato su architetture Transformer.
 L'intero processo sfrutta principalmente la libreria `transformers` di Huggingface @huggingface_transformers, in combinazione con altri strumenti sempre dell'ecosistema FOSS #footnote[Free and Open Source Software, cioè Software *Libero* e Open Source @gplv3 @fsfs] di Huggingface, come `datasets`.
 
 L'utilizzo di queste librerie permette di semplificare notevolmente il processo di fine-tuning, fornendo *API intuitive* e *funzionalità di alto livello* per la gestione dei dati, la creazione dei modelli e la valutazione delle performance.
 In questo modo è possibile addestrare un modello di classificazione di intenti in poche righe di codice, senza dover scrivere manualmente i loop di training e validation, o implementare da zero la logica di salvataggio e caricamento dei modelli, nonostante questa via sia sempre possibile.
-
 L'obiettivo è utilizzare un *modello pre-addestrato* (ad esempio BERT, DistilBERT o qualsiasi altro compatibile con `AutoModelForSequenceClassification`) con lo scopo di specializzarlo nel riconoscimento di specifiche categorie di intenti, e successivamente salvarlo per l'uso nel chatbot.
 
 ==== Preparazione dei dati
 
-Un primo punto cruciale è la preparazione del dataset, gestita dalla  @prepare-dataset, `prepare_dataset`.
+Un primo punto cruciale è la preparazione del dataset, gestita dalla @prepare-dataset, `prepare_dataset`.
 Qui effettuo una *suddivisione stratificata* tra train e validation, *tokenizzo* i testi tramite un `AutoTokenizer` e converto le etichette da stringhe a interi, in accordo con la mappatura definita nella classe `LabelInfo`.
 
 #figure(
@@ -887,8 +871,8 @@ Una volta create e preparate queste componenti (funzione di metriche, funzioni d
 ==== Metriche di valutazione <metriche_bert>
 
 Per prima cosa, ho definito una funzione in grado di calcolare le metriche di valutazione, che permetteranno di valutare le performance del modello in fase di fine-tuning in modo automatico.
-
-Ho scelto di considerare *accuratezza*, *precision*, *recall* e *F1* come indicatori classici di performance; in aggiunta, calcolo anche l'*entropia media* e la *confidenza media*, allo scopo di misurare rispettivamente il grado di incertezza delle previsioni e la probabilità media associata alla classe predetta. La @eval-metrics-fun, `compute_metrics`, svolge il compito appena descritto.
+Ho scelto di considerare *accuratezza*, *precision*, *recall* e *F1* come indicatori classici di performance; in aggiunta, calcolo anche l'*entropia media* e la *confidenza media*, allo scopo di misurare rispettivamente il grado di incertezza delle previsioni e la probabilità media associata alla classe predetta.
+La @eval-metrics-fun, `compute_metrics`, svolge il compito appena descritto.
 
 #figure(
   ```python
@@ -924,32 +908,31 @@ Ho scelto di considerare *accuratezza*, *precision*, *recall* e *F1* come indica
 Può essere utile soffermarci un momento a spiegare le metriche scelte:
 
 L'*accuratezza*, o tasso di classificazione corretta, misura la proporzione di esempi classificati correttamente, senza distinzione tra le varie classi.
-$ "Accuracy" = 1/N sum ^N _(i=1){hat(y)_i = y_i} $ dove ${hat(y)_i = y_i $<accuracy-formula> 
+$ "Accuracy" = 1 / N sum^N_(i=1){hat(y)_i = y_i} $ dove ${hat(y)_i = y_i $<accuracy-formula>
 vale 1 se la previsione è corretta, 0 altrimenti. Più il valore è vicino a 1, migliore è la performance complessiva del modello.
 
-#hrule()
+// #hrule()
 
 Quando si lavora con problemi di classificazione con etichette binarie, o si valuta ciascuna classe indipendentemente, esistono alcuni conteggi che possono essere utili per valutare la qualità delle previsioni:
 - i *true positives* (TP) indicano i casi in cui il modello ha predetto correttamente la classe positiva;
 - i *false positives* (FP) indicano i casi previsti come positivi dal modello, ma che in realtà sono negativi;
 - i *false negatives* (FN) i casi previsti negativi ma in realtà positivi.
 Sulla base di queste definizioni, si introducono due metriche fondamentali:
-$ "Precision" = "TP" / ("TP" + "FP") $<precision-formula> 
+$ "Precision" = "TP" / ("TP" + "FP") $<precision-formula>
 che indica la percentuale di esempi classificati come positivi che erano effettivamente positivi.
 $ "Recall" = "TP" / ("TP" + "FN") $<recall-formula>
 stima la quota di esempi positivi che sono stati effettivamente riconosciuti come tali dal modello.
 
-#hrule()
+// #hrule()
 
-L'*F1-score* @Opitz_2024 fornisce una media armonica fra Precision e Recall, combinando entrambe le metriche in un singolo indice: 
+L'*F1-score* @Opitz_2024 fornisce una media armonica fra Precision e Recall, combinando entrambe le metriche in un singolo indice:
 $ "F1" = 2 dot ("Precision" dot "Recall") / ("Precision" + "Recall") $ <f1-score-formula>
 Un F1 score alto richiede che entrambe le metriche siano elevate; se una delle due è bassa, il valore di F1 tende drasticamente a ridursi.
 Questo lo rende particolarmente utile in casi di class imbalance o quando è importante non trascurare né la precisione né la capacità di recuperare tutti i positivi.
 
-#hrule()
+// #hrule()
 
 L'*entropia* è una misura della disordine o incertezza di un sistema, in questo caso delle previsioni del modello.
-
 Per un singolo esempio, se il modello produce una distribuzione di probabilità $bold(p)_i = (p_(i,1), dots, p_(i,k))$ sulle $k$ classi, è possibile calcolare l'entropia dell'esempio come $ "H" (bold(p)_i) = - sum ^k _(j=1) p_(i,j) log (p_(i,j)) $
 
 Tale quantità esprime *quanto “incerte” sono le previsioni del modello*: se il modello assegna un'alta probabilità a una sola classe e bassa probabilità alle altre, l'entropia tende a essere prossima a zero (predizione più "sicura"); se distribuisce le probabilità in modo pressoché uniforme, l'entropia aumenta (maggiore incertezza).
@@ -957,7 +940,7 @@ Tale quantità esprime *quanto “incerte” sono le previsioni del modello*: se
 L'entropia media su tutto il set di validazione di dimensione $N$ è: $ "Average Entropy" = 1/N sum ^N_(i=1)H(p_i) $
 Un valore basso di entropia media indica che, in media, le previsioni del modello sono piuttosto concentrate su una specifica classe; un valore più alto suggerisce che il modello sia spesso incerto.
 
-#hrule()
+// #hrule()
 
 Sempre definita a partire dalla distribuzione $bold(p)_i$, la *confidenza* per il singolo esempio $i$ può essere definita come la probabilità associata alla classe di output che ha la confidenza massima:$ C(bold(p)_i) = max_j p_(i,j) $
 
@@ -969,7 +952,7 @@ Usata congiuntamente all'entropia media, la confidenza media può fornire indica
 
 ==== Addestramento <addestramento>
 
-Per effettuare l'addestramento vero e proprio, ho definito anche la funzione  @fine-tuning-fun, `run_fine_tuning`, che si fa carico di gestire i parametri di training (come numero di epoche, learning rate, batch size), di configurare gli strumenti di logging e salvataggio, e di lanciare effettivamente il training tramite la classe `Trainer` della libreria `transformers`.
+Per effettuare l'addestramento vero e proprio, ho definito anche la funzione @fine-tuning-fun, `run_fine_tuning`, che si fa carico di gestire i parametri di training (come numero di epoche, learning rate, batch size), di configurare gli strumenti di logging e salvataggio, e di lanciare effettivamente il training tramite la classe `Trainer` della libreria `transformers`.
 
 La classe `Trainer` semplifica notevolmente la gestione di molteplici aspetti, come la schedulazione del learning rate o la stratificazione della validazione.
 
@@ -981,7 +964,7 @@ Il metodo espone diversi parametri significativi:
 - `metric_for_best_model='f1'` indica che il modello migliore sarà scelto in base al valore di F1, calcolato dalla funzione `compute_metrics`. F1 torna utile in quanto è in grado di bilanciare le due metriche di precision e recall, fornendo un'indicazione complessiva delle performance del modello.
 
 Un'ultima considerazione molto importante riguarda il parametro `report_to`, che consente di specificare a quali servizi di logging inviare i risultati del training.\
-Nel mio caso, ho scelto di fare affidamento a *Weights and Biases* #footnote[Weights and Biases, abbreviato `Wandb`, è un servizio di monitoraggio e logging per l'addestramento di modelli di machine learning] in modalità online, in modo da poter monitorare in tempo reale le performance del modello durante il fine-tuning.
+Nel mio caso, ho scelto di fare affidamento a *Weights and Biases* #footnote[Weights and Biases, abbreviato `Wandb`, è un servizio di monitoraggio e logging per l'addestramento di modelli di machine learning] @wandb in modalità online, in modo da poter monitorare in tempo reale le performance del modello durante il fine-tuning.
 
 #figure(
   ```python
@@ -1051,7 +1034,7 @@ In particolare, dal repository di Huggingface dedicato ai modelli di classificaz
 Tutti i modelli utilizzati sono direttamente adoperabili per i nostri scopi essendo modelli encoder: dato un certo input produrranno una *rappresentazione vettoriale o matriciale*.
 Il risultato è successivamente classificabile da una *rete feed-forward* (@classification-head), restituendo così come risultato la classe più probabile.
 
-#hrule()
+// #hrule()
 
 Sono state effettuate anche delle sperimentazioni con una variante della normale architettura, dove su un unico encoder vengono addestrati *due modelli separati di classificazione*, per riconoscere con un'unica esecuzione del modello entrambe le classi della domanda presentata.
 
@@ -1098,7 +1081,7 @@ L'intera implementazione fa nuovamente fondamento sull'enorme flessibilità dell
 
 === Valutazione e performance <valutazione_ft> // Spiegazione di come ho valutato i risultati dei classificatori
 
-Come spiegato a #ref(<metriche_bert>, form: "page"), per compiere l'addestramento dei modelli è stato essenziale sfruttare metriche di valutazione adeguate, in grado di fornire un quadro completo delle performance del modello.
+Come spiegato nella @fine-tuning-implementazione, per compiere l'addestramento dei modelli è stato essenziale sfruttare metriche di valutazione adeguate, in grado di fornire un quadro completo delle performance del modello.
 
 Iniziamo quindi valutando i risultati dell'addestramento sulla classe principale del dataset.
 
@@ -1108,7 +1091,7 @@ Iniziamo quindi valutando i risultati dell'addestramento sulla classe principale
   caption: [Confronto delle performance di F1 tra i modelli addestrati.],
 ) <f1-training>
 
-Nel @f1-training possiamo vedere come le performance crescono man mano che procediamo con il processo di fine tuning, ma si stabilizzano dopo aver visto circa i tre quarti del dataset. I modelli `bert` e `distilbert` terminano l'addestramento con performance pressochè identiche (la differenza è dello 0.01%), mentre i modelli `mobilebert` e `electra` differiscono di circa l'8% rispetto a `bert`.
+Nel @f1-training possiamo vedere come le performance (dataset di training; F1-score sulle ordinate) crescono man mano che procediamo con il processo di fine tuning, ma si stabilizzano dopo aver visto circa i tre quarti del dataset. I modelli `bert` e `distilbert` terminano l'addestramento con performance pressochè identiche (la differenza è dello 0.01%), mentre i modelli `mobilebert` e `electra` differiscono di circa l'8% rispetto a `bert`.
 
 Le differenze di performance sono sempre da confrontare considerando anche il *tempo di addestramento* (@fine-tuning-time) e la complessità del modello: `electra` ad esempio, pur avendo performance leggermente inferiori, è stato addestrato in meno della metà del tempo rispetto a `bert`.
 
@@ -1179,10 +1162,8 @@ Tutte le valutazioni sono effettuate utilizzando un ulteriore dataset di test, s
 Utilizzeremo le performance di AIML come _baseline_ di riferimento per il confronto con gli altri modelli neurali. In seguito alla comparazione delle performance mediante la metrica F1 tra i vari modelli vista nel @performance_f1_test_training, d'ora in avanti ci concentreremo sulle metriche ottenute con `bert-base-uncased`, il modello più performante tra quelli addestrati.
 
 Per poterlo fare, sfrutteremo le *matrici di confusione* (@conf_aiml_main, @conf_aiml_sub) per valutare le performance dei modelli, in particolare per osservare come si comportano in presenza di classi sbilanciate o di domande ambigue. #footnote[Una matrice di confusione è una tabella che mostra il numero di predizioni corrette e incorrette fatte dal modello, confrontando le predizioni con le etichette reali.]
-Siamo interessati a capire se il modello riesce a classificare correttamente domande mai viste; con la matrice di confusione ci aspetteremo di vedere una diagonale principale molto più marcata rispetto agli altri elementi, indicando che il modello è in grado di classificare correttamente la maggior parte delle domande.
-
+Siamo interessati a capire se il modello riesce a classificare correttamente domande mai viste; con la matrice di confusione ci aspetteremo di vedere una diagonale principale molto più marcata rispetto agli altri elementi, indicando che il modello è in grado di classificare correttamente la maggior parte delle domande.\
 Saranno anche presentate le tabelle di valutazione per ciascuna classe, in modo da poter osservare le performance di ciascun modello in modo più dettagliato.
-
 Le metriche presentate nelle tabelle seguenti sono state prodotte utilizzando la funzione `classification_report` della libreria `scikit-learn` @scikit-learn, che calcola precision, recall e F1 score per ciascuna classe, oltre all'accuracy complessiva.
 
 Il modello AIML, nonostante sia costituito da un numero non indifferente di regole e pattern (103), ha performance mediamente basse, con un F1 score medio del 33% rispetto al 92% di BERT (@valutazione_aiml_main).
@@ -1325,7 +1306,7 @@ Le matrici di confusione confermano le tendenze già presentate dai due modelli 
       )
     ),
     caption: [Matrici di confusione per le classi secondarie classificate con AIML (sopra) e BERT (sotto).],
-    kind: "diag"
+    kind: "diag",
   ) <conf_aiml_sub>
 ]
 
@@ -1358,7 +1339,7 @@ Per finire, nella @bert-aiml-classification-results vediamo anche alcuni esempi 
     // Would you mind describing the automaton’s configuration and links?,AUTOMATON,DESCRIPTION,OFF_TOPIC,OFF_TOPIC,AUTOMATON,REPRESENTATION
     [Would you mind describing the automaton’s configuration and links?], [AUT], [DESC], [OT], [OT], [AUT], [REP],
   ),
-  caption: [Alcuni esempi utili per confrontare i risultati di classificazione di BERT e AIML.]
+  caption: [Alcuni esempi utili per confrontare i risultati di classificazione di BERT e AIML.],
 ) <bert-aiml-classification-results>
 
 In generale, i risultati ottenuti con BERT sono molto soddisfacenti, con performance nettamente superiori rispetto ad AIML.
@@ -1380,7 +1361,7 @@ Un semplice esempio può essere la frase "Mario Rossi ieri è stato a Roma per u
 
 In un chatbot avanzato, questa funzionalità è particolarmente importante perché consente di trasformare testi destrutturati (come messaggi, email o query di ricerca) in informazioni utilizzabili da moduli di analisi successivi.
 
-Consideriamo la possibilità che l'utente chieda a un chatbot che si occupa di automi a stati finiti "Qual è la differenza tra un *automa deterministico* e un *automa non deterministico*?": la NER dovrebbe individuare correttamente "automa deterministico" e "automa non deterministico" come entità rilevanti (anche se meno “classiche” rispetto a persona/luogo/organizzazione).\ In questo modo, il chatbot sa di dover recuperare informazioni specifiche su queste due tipologie di automi, assegnandole poi al modulo incaricato di rispondere alla domanda.
+Consideriamo la possibilità che l'utente chieda a un chatbot che si occupa di automi a stati finiti "Qual è la differenza tra un *automa deterministico* e un *automa non deterministico*?": la NER dovrebbe individuare correttamente "automa deterministico" e "automa non deterministico" come entità rilevanti.\ In questo modo, il chatbot sa di dover recuperare informazioni specifiche su queste due tipologie di automi, assegnandole poi al modulo incaricato di rispondere alla domanda.
 
 === Approcci e metodologie nel NER
 
@@ -1407,7 +1388,7 @@ In questo modo, anche in domini molto specifici (come quello degli automi a stat
 
 === Slot Filling
 
-Mentre il NER si concentra su dove compaiono le entità nel testo e su che tipo di entità si tratti (persona, luogo, organizzazione, ecc.), lo slot-filling rappresenta un'operazione più specifica e spesso orientata al dominio @Schank1975ScriptsPA @slot2. In altre parole:
+Mentre il NER si concentra su dove compaiono le entità nel testo e su che tipo di entità si tratti (persona, luogo, organizzazione, ecc.), lo slot-filling rappresenta un'operazione più specifica e spesso orientata al dominio @Schank1975ScriptsPA. In altre parole:
 
 - Il NER produce una segmentazione e un'etichettatura generica:\ Mario Rossi #sym.arrow `PERSON`, Roma #sym.arrow `LOC`, Telecom Italia #sym.arrow `ORG`.
 - Lo slot-filling prende queste entità (o altre componenti di testo) e le associa a ruoli predefiniti, tipici di una determinata applicazione. Ad esempio, per un chatbot di viaggi potremmo avere:
@@ -1464,7 +1445,12 @@ Nello @doccano-format vediamo che:
   2. La posizione finale del frammento etichettato (esclusa).
   3. L'etichetta stessa (ad esempio, `input` o `node`).
 
-La fase di annotazione è stata svolta manualmente, con particolare attenzione alla *coerenza* e alla *completezza delle etichette*. Doccano ha permesso di semplificare il lavoro, consentendo di visualizzare i testi e le etichette in modo chiaro e di aggiungere nuove annotazioni con pochi clic, senza la necessità di scrivere codice o utilizzare strumenti esterni.
+La fase di annotazione è stata svolta manualmente, con particolare attenzione alla *coerenza* e alla *completezza delle etichette*. Doccano ha permesso di semplificare il lavoro, consentendo di visualizzare i testi e le etichette in modo chiaro e di aggiungere nuove annotazioni con pochi click (@doccano-screen), senza la necessità di scrivere codice o utilizzare strumenti esterni.
+
+#figure(
+  image("../media/doccano_screen.png"),
+  caption: [Interfaccia di Doccano per l'annotazione dei dati di NER.],
+) <doccano-screen>
 
 In seguito all'etichettatura sono risultate tre classi di entità:
 - `input`: per i frammenti di testo che contengono input o sequenze di simboli. Ad esempio, nella frase
@@ -1481,7 +1467,6 @@ Un tipico flusso di lavoro con spaCy prevede la creazione di un “modello” (o
 
 ==== Caricamento dati in formato Doccano JSONL
 La prima componente fondamentale è la classe `NERData`, che si occupa di caricare e rappresentare i dati etichettati in formato Doccano JSONL. Doccano produce un file in cui ogni riga corrisponde a un esempio di testo con le relative annotazioni (indici di inizio/fine e nome dell'etichetta). Bisogna notare come il file non sia un vero e proprio JSON, ma una sequenza di righe JSON, ciascuna contenente un singolo esempio.
-
 Per questo motivo al momento dell'importazione è essenziale leggere il file riga per riga e caricare ogni esempio separatamente, come effettuato dal metodo di inizializzazione della @nerdata-eheh, `NERData`.
 
 #figure(
@@ -1569,7 +1554,8 @@ La @prepare_multilabel_data sfrutta un `MultiLabelBinarizer` dal modulo `sklearn
   caption: [La funzione `stratified_split` si occupa di dividere i dati in training set e validation set in modo stratificato.],
 )<stratified_split>
 
-Invece, grazie a `MultilabelStratifiedShuffleSplit` dal modulo di estensione di scikit-learn `iterstrat.ml_stratifiers`, la @stratified_split divide i dati in modo stratificato, garantendo che le proporzioni delle etichette siano mantenute sia nel training set che nel validation set. Questo è particolarmente importante quando si lavora con dataset multiclasse, in cui alcune etichette possono essere sottorappresentate e rischierebbero di non essere presenti in uno dei due set.
+Invece, grazie a `MultilabelStratifiedShuffleSplit` dal modulo di estensione di scikit-learn `iterstrat.ml_stratifiers`, la @stratified_split divide i dati in modo stratificato, garantendo che le proporzioni delle etichette siano mantenute sia nel training set che nel validation set. 
+Ciò è particolarmente importante quando si lavora con dataset multiclasse, in cui alcune etichette possono essere sottorappresentate e rischierebbero di non essere presenti in uno dei due set.
 
 ==== Addestramento del modello
 
@@ -1612,7 +1598,7 @@ Vediamo ora a step come la funzione `train_spacy` è implementata. Questa funzio
     ```
   ]
 
-Come si può notare, l'addestramento di un modello di NER con spaCy richiede poche righe di codice, grazie alla semplicità e alla flessibilità della libreria. Inoltre, la modularità delle componenti (tra cui `NERData`, `prepare_multilabel_data`, `stratified_split`) permette di mantenere il codice pulito e facilmente estendibile, adattandolo a nuovi dataset o a nuove esigenze.
+Come si può notare, il traning di un modello di NER con spaCy richiede poche righe di codice, grazie alla semplicità e alla flessibilità della libreria. Inoltre, la modularità delle componenti (tra cui `NERData`, `prepare_multilabel_data`, `stratified_split`) permette di mantenere il codice pulito e facilmente estendibile, adattandolo a nuovi dataset o a nuove esigenze.
 
 === Valutazione e performance
 
@@ -1632,8 +1618,7 @@ Nel corso di questa sezione si è evidenziata l'evoluzione dei sistemi di compre
 Da un lato, AIML ha dimostrato di essere un valido framework per realizzare rapidamente chatbot rule-based, con una curva di apprendimento relativamente bassa e un buon controllo sulle risposte generate.
 Dall'altro però, la sua rigidità strutturale e la limitata capacità di gestire varianti linguistiche, contesto conversazionale esteso e dati dinamici ne hanno evidenziato i limiti in scenari più complessi.
 
-In risposta a queste criticità, l'*integrazione di modelli neurali* ---prime fra tutte le architetture Transformer pre-addestrate--- ha consentito di ottenere *prestazioni significativamente superiori* nella classificazione di intenti, come dimostrato dai risultati sperimentali.\
+In risposta a queste criticità, l'*integrazione di modelli neurali* ---prime fra tutte le architetture Transformer pre-addestrate--- ha consentito di ottenere *prestazioni significativamente superiori* nella classificazione di intenti, come dimostrato dai risultati sperimentali.
 L'uso di dataset etichettati, arricchiti anche tramite tecniche di data augmentation, ha mostrato l'efficacia dell'approccio supervisionato, evidenziando notevoli *miglioramenti* rispetto alle soluzioni puramente rule-based.
-Inoltre, l'introduzione di un componente di Named Entity Recognition, addestrato con strumenti come spaCy, ha permesso di gestire le informazioni all'interno del testo (input dell'automa, nodi, linguaggio accettato, ecc.), facilitando l'*estrazione di conoscenza strutturata* con lo scopo di potenziare la comprensione e la risposta del chatbot.
-
+Inoltre, l'introduzione di un componente di Named Entity Recognition, addestrato con strumenti come spaCy, ha permesso di gestire le informazioni all'interno del testo (input dell'automa, nodi, linguaggio accettato, ecc.), facilitando l'*estrazione di conoscenza strutturata* con lo scopo di potenziare la comprensione e la risposta del chatbot.\
 Le sperimentazioni descritte mettono in luce come l'unione di classificazione di intenti e riconoscimento delle entità possa fornire un *notevole salto di qualità* rispetto ai paradigmi conversazionali tradizionali. Nella prossima sezione, essendoci ora soffermati sull'_understanding_, affronteremo invece la generazione di risposte fluide e coerenti, esplorando le potenzialità dei modelli di generazione del linguaggio e le sfide legate alla creazione di conversazioni più umane e naturali.
