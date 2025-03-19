@@ -251,7 +251,9 @@
         "Ringraziamenti"
       },
     )
+    
     acknowledgments
+    footnote[I ringraziamenti completi sono alla fine del documento!]
 
     pagebreak(weak: true)
   }
@@ -290,7 +292,7 @@
   // Outline customization
   show outline.entry.where(level: 1): set outline.entry(fill: none)
   show outline.entry.where(level: 1): it => {
-    if it.element.body != [Bibliografia] {
+    if not ([Bibliografia], [Ringraziamenti]).contains(it.element.body) {
       v(12pt, weak: true)
       strong(it)
     } else {
@@ -311,8 +313,8 @@
 
   set align(top + center)
   {
-    set page(margin: (y: 2.2cm))
-  outline(depth: 3)
+    set page(margin: (y: 1.8cm))
+    outline(depth: 3)
   }
   pagebreak(to: "odd")
 

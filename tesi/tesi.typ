@@ -53,6 +53,7 @@ Sul piano ingegneristico, è stata progettata un'architettura modulare che integ
     data annotation,
     data augmentation,
     data retrieval,
+    Retrieval-Augmented Generation,
     NLG basata su LLM,
     software engineering
   ],
@@ -124,6 +125,12 @@ Sul piano ingegneristico, è stata progettata un'architettura modulare che integ
 - *Data Retrieval*: query esterne, da KB, con script
 - *Ingegnerizzazione*: sviluppo di un sistema con funzionalità simili ad AIML ma che integri le migliorie sopra spiegate e approfondite.
 */
+
+#set heading(numbering: none)
+#pagebreak(weak: true, to: "odd")
+
+#include "chapters/thanks.typ"
+
 #show bibliography: set text(size: 0.9em)
 
 #pagebreak(weak: true)
