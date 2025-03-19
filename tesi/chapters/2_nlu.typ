@@ -381,8 +381,7 @@ Con lo scopo di assicurare un'etichettatura corretta e affidabile, ho deciso di 
 - _Gemma 2_, sviluppato da Google Deep Mind @gemma;
 - _Llama3.1_, sviluppato da Meta AI @llama3.
 
-I modelli sono stati utilizzati nelle loro varianti da 9 miliardi di parametri per Gemma 2 (dimensione intermedia) e 8 miliardi per Llama3.1 (il più piccolo dei modelli forniti), basandomi sulle sperimentazioni che hanno mostrato un buon compromesso tra performance (intese come qualità dei risultati prodotti in seguito al prompting) e tempo di esecuzione @gemma @llama3.
-
+I modelli sono stati utilizzati nelle loro varianti da 9 miliardi di parametri per Gemma 2 (dimensione intermedia) e 8 miliardi per Llama3.1 (il più piccolo dei modelli forniti), basandomi sulle sperimentazioni che hanno mostrato un buon compromesso tra performance (intese come qualità dei risultati prodotti in seguito al prompting) e tempo di esecuzione @gemma @llama3.\
 Un ulteriore modello, Qwen @qwen, prodotto da Alibaba @alibaba, è stato utilizzato durante le sperimentazioni, ma i risultati non sono stati sufficientemente soddisfacenti da permettere un utilizzo all'interno del progetto.
 
 Ho effettuato il prompting delle domande con i modelli di LLM utilizzando le risorse dell'hardware a mia disposizione, composto da:
@@ -779,7 +778,7 @@ Il resto del modello *rimane pressoché invariato*: l'architettura interna, come
 
 #figure(
   image("../media/llm_classifier3.png"),
-  caption: [Struttura di un modello di classificazione basato su LLM.\ Fonte: #cite(<cameronwolfe>, form: "prose")],
+  caption: [Struttura di un modello di classificazione basato su LLM.\ Autore: #cite(<cameronwolfe>, form: "prose")],
 ) <classification-head>
 
 === BERT

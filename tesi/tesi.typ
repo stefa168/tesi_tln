@@ -57,6 +57,10 @@ Sul piano ingegneristico, è stata progettata un'architettura modulare che integ
   ],
 )
 
+// https://github.com/typst/hayagriva/issues/164#issuecomment-2450440738
+// https://github.com/citation-style-language/styles/blob/master/ieee.csl
+#set cite(style: "modified_ieee.csl")
+
 #set smartquote(alternative: true)
 
 #let appendix(body) = {
@@ -99,6 +103,9 @@ Sul piano ingegneristico, è stata progettata un'architettura modulare che integ
 
 #include "chapters/4_engi.typ"
 
+#pagebreak(weak: true, to: "odd")
+
+#include "chapters/5_conclusions.typ"
 /*
 - *NLU*: Inizialmente modificare aiml-high per rendere più flessibile la parte di comprensione mediante classificazione
   - *Bert/T1/Word embedding tensor*
@@ -133,6 +140,6 @@ Sul piano ingegneristico, è stata progettata un'architettura modulare che integ
 
 #pagebreak(weak: true)
 
-#bibliography("bib.yml", full: false)
+#bibliography("bib.yml", full: false, style: "ieee")
 
 // #show: appendix // https://github.com/typst/typst/discussions/4031

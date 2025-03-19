@@ -1,7 +1,7 @@
 #let hrule() = align(center, line(length: 60%, stroke: silver))
 
 = Ingegnerizzazione <engi>
-Al momento della sua concezione, questa tesi doveva vertere sulla sola ricerca e sviluppo di un «compilatore» che fosse in grado di assemblare una configurazione per un chatbot AIML, partendo dai dati di un automa a stati finiti.\
+Al momento della sua concezione, questa tesi doveva vertere sulla sola ricerca e sviluppo di un «compilatore» che fosse in grado di assemblare una configurazione per un chatbot AIML, partendo dai dati di un automa a stati finiti.
 L'idea era che, una volta sviluppate le basi, il compilatore per NoVAGraphS fosse adattabile con sufficiente facilità ad altri domini non collegati ai FSA.
 
 Fin dalle prime sperimentazioni del prototipo di compilatore tuttavia ci accorgemmo di tre principali problematiche da risolvere, già discusse nella @limiti-aiml:
@@ -15,7 +15,7 @@ A questo punto, una volta determinate le migliorie apportabili, davanti a noi vi
 #enum(numbering: "a.")[
   Estendere uno degli interpreti AIML, come `aiml-high`@aiml-high (implementato in JavaScript ECMAScript 5 e non più manutenuto) o `python-aiml`@python-aiml per aggiungere le funzionalità necessarie per NoVAGraphS;
 ][
-  Sviluppare una nuova soluzione che alla base abbia le tre problematiche come punti saldi da supportare in primo luogo.
+  Sviluppare una nuova soluzione che alla base abbia le tre problematiche elencate sopra come punti saldi da supportare.
 ]
 
 Considerando l'attuale stato del panorama di AIML open source @aiml-high @python-aiml, e valutando i benefici che l'introduzione di nuove tecniche avrebbero potuto portare, ho deciso di progettare un nuovo sistema in grado di risolvere le problematiche sollevate. In questo modo:
@@ -26,14 +26,13 @@ Considerando l'attuale stato del panorama di AIML open source @aiml-high @python
 == Panoramica del sistema
 L'intero sistema è diviso in due sezioni: il *compilatore* e il *runner*, che verranno approfonditi nelle sezioni successive. Possiamo definirli nel modo seguente:
 
-Il *Compilatore* permette ai botmaster di progettare in modo dichiarativo i modelli necessari per poter interagire con l'utente nel dominio di applicazione.\
-Consideriamo come esempio il dominio degli automi a stati finiti: indicativamente dovremo saper rispondere a domande sugli stati dell'automa, e le transizioni che li collegano. Dovranno quindi essere raccolti degli esempi delle interazioni che saranno poi usati per addestrare un modello di classificazione, come discusso nella @classificazione-llm. Allo stesso modo la costruzione di un sistema di NER sarà delegata al compilatore.
+1. Il *Compilatore* permette ai botmaster di progettare in modo dichiarativo i modelli necessari per poter interagire con l'utente nel dominio di applicazione.\
+  Consideriamo come esempio il dominio degli automi a stati finiti: indicativamente dovremo saper rispondere a domande sugli stati dell'automa, e le transizioni che li collegano. 
+  Dovranno quindi essere raccolti degli esempi delle interazioni che saranno poi usati per addestrare un modello di classificazione, come discusso nella @classificazione-llm. Allo stesso modo la costruzione di un sistema di NER sarà delegata al compilatore.\
+  In questo modo, le difficoltà maggiori nella preparazione dei modelli (che ho anche personalmente riscontrato durante la ricerca) sono astratte, e permettono ai botmaster di concentrarsi sul design del chatbot.
 
-In questo modo, le difficoltà maggiori nella preparazione dei modelli (che ho anche personalmente riscontrato durante la ricerca) sono astratte, e permettono ai botmaster di concentrarsi sul design del chatbot.
-
-I dati utilizzati a runtime per i modelli e per il retrieval sono infine raggruppati tutti assieme per permettere un deploy più indolore possibile del *Runner*, che si occupa invece di utilizzare ciò che il compilatore ha preparato in anticipo per gestire le interazioni con gli utenti.
-
-Il modo in cui un certo chatbot funzioni, quindi determinare ad esempio il flusso di decisione dell'interazione, è un compito lasciato al botmaster.\ _Da grandi poteri derivano grandi responsabilità_, potremmo anche dire...
+2. I dati utilizzati a runtime per i modelli e per il retrieval sono infine raggruppati tutti assieme per permettere un deploy più indolore possibile del *Runner*, che si occupa invece di utilizzare ciò che il compilatore ha preparato in anticipo per gestire le interazioni con gli utenti.
+  Il modo in cui un certo chatbot funzioni, quindi determinare ad esempio il flusso di decisione dell'interazione, è un compito lasciato al botmaster./* \ _Da grandi poteri derivano grandi responsabilità_, potremmo anche dire... */
 
 Se le funzionalità del compilatore o del runner non dovessero soddisfare qualche necessità particolare, è sempre lasciata totale libertà di aggiungerne di nuove partendo da quelle di base: per questo motivo, il linguaggio scelto per l'implementazione sarà Python, data la sua diffusione capillare @jetbrains-python e la grande flessibilità e facilità d'uso.
 
@@ -43,7 +42,7 @@ Per mostrare le varie componenti del sistema, sarà utilizzata una _configurazio
 
 Come già anticipato, il compilatore si occupa della preparazione di tutte le risorse che poi saranno necessarie a tempo di runtime: verifica dei dati di addestramento, costruzione dei modelli neurali e raggruppamento delle risorse locali, principalmente.
 
-Potremmo pensare di lasciare i suddetti compiti direttamente al runner: questo comporterebbe tuttavia un tempo di avvio nettamente maggiore. Non scordiamo infatti che l'addestramento di un modello neurale può richiedere ore, se non giorni; il fine-tuning può ridurre i tempi di attesa, che non saranno comunque immediati (si veda come esempio il @fine-tuning-time della @valutazione_ft).
+Potremmo pensare di lasciare i suddetti compiti direttamente al runner: questo comporterebbe tuttavia un tempo di avvio nettamente maggiore. Infatti l'addestramento di un modello neurale può richiedere ore, se non giorni; il fine-tuning può ridurre i tempi di attesa, che non saranno comunque immediati (si veda come esempio il @fine-tuning-time della @valutazione_ft).
 
 Questo andrebbe contro il bisogno di essere pronti a rispondere ad un utente il più rapidamente possibile: ad oggi ci si aspetta che i servizi web abbiano tempi di risposta pressochè immediati. Secondo le ricerche di #cite(<webpage-wait-time>, form: "prose"), il tempo di attesa accettato da un utente per il caricamento di una pagina web si aggira intorno ai 2 secondi. Possiamo prevedere aspettative simili anche per il nostro sistema.
 
@@ -114,9 +113,10 @@ Come è possibile prevedere, è comunque necessario un file di configurazione pe
   caption: [Estratto della configurazione che descrive come devono essere addestrati i modelli del chatbot.],
 )<compiler-conf-snip>
 
-Sotto la chiave `models` troviamo una lista di modelli, ciascuno con una *sequenza* di operazioni che devono essere svolte per poter preparare il proprio modello con successo. Nel @compiler_classes è possibile vedere in dettaglio la struttura delle classi e delle proprietà utilizzate per la compilazione.
-
-È essenziale notare come ogni `Model` contenga una lista di `Step`, una *classe astratta*. L'astrazione permette alla @model-compiler (`ModelPilepileCompiler`), che esegue gli `Step` di essere _implementation agnostic_, permettendo quindi l'introduzione di nuove classi riducendo al minimo l'accoppiamento delle funzionalità @code-smells.
+Sotto la chiave `models` troviamo una lista di modelli, ciascuno con una *sequenza* di operazioni che devono essere svolte per poter preparare il proprio modello con successo. 
+Nel @compiler_classes è possibile vedere in dettaglio la struttura delle classi e delle proprietà utilizzate per la compilazione.
+È essenziale notare come ogni `Model` contenga una lista di `Step`, una *classe astratta*. 
+L'astrazione permette alla @model-compiler (`ModelPilepileCompiler`), che esegue gli `Step` di essere _implementation agnostic_, permettendo quindi l'introduzione di nuove classi riducendo al minimo l'accoppiamento delle funzionalità @code-smells.
 
 #figure(
   image("../media/diags/compiler_classes.svg", height: 14cm),
@@ -137,7 +137,8 @@ Osserviamo più nel dettaglio:
 La peculiarità del sistema è la gestione degli step: ogni passaggio può avere un output che può essere usato come input per un altro step, in quello che è stato definito come un _contesto di esecuzione_. Questo permette di creare pipeline dalla grande potenza espressiva, conservando comunque la semplicità di una configurazione YAML.
 
 Durante la compilazione, la classe `ModelPipelineCompiler` presentata nella @model-compiler segue tre passaggi essenziali:
-1. Fa verificare allo step attuale che i suoi requisiti per poter portare a termine l'esecuzione siano soddisfatti (`step.resolve_requirements(context)`). In più, la verifica restituisce tutti gli elementi necessari per l'effettiva esecuzione. Un esempio del metodo di risoluzione è presentato nello @resolve-spacy;
+1. Fa verificare allo step attualmente in esecuzione del flow corrente che i suoi requisiti per poter portare a termine l'esecuzione siano soddisfatti (`step.resolve_requirements(context)`).
+  In più, la verifica restituisce tutti gli elementi necessari per l'effettiva esecuzione. Un esempio del metodo di risoluzione è presentato nello @resolve-spacy;
 #figure(
   ```python
     def resolve_requirements(self, context: dict[str, dict[str, Any]]) -> dict[str, Any]:
@@ -206,20 +207,24 @@ Dopo l'esecuzione del passo 3, i risultati dello step sono salvati nel dizionari
 ) <model-compiler>
 
 == Runner
-Una volta che le preparazioni con la compilazione sono state completate, abbiamo tutto il necessario per effettivamente eseguire il chatbot. Compiler e Runner sono due applicativi separati, ma il file di configurazione resta lo stesso. Assieme al file specifico del chatbot, è fornito al Runner una seconda configurazione che indica dove individuare gli *Artefatti* della compilazione, quali acceleratori di calcolo (GPU) utilizzare, e le potenziali chiavi private per l'interazione con API esterne.
-
-Nel file specifico del chatbot, sotto la chiave `flows` sono definiti i multipli flussi di interazione con l'utente. Al momento dell'avvio del Runner, tutti i flow vengono scanditi per identificare se vi sono errori (sezioni inaccessibili, loop, ecc.), e successivamente vengono anche identificate le risorse effettivamente necessarie per l'esecuzione del chatbot.
+Una volta che le preparazioni con la compilazione sono state completate, abbiamo tutto il necessario per effettivamente eseguire il chatbot. 
+Compiler e Runner sono due applicativi separati, ma il file di configurazione resta lo stesso. 
+Assieme al file specifico del chatbot, è fornito al Runner una seconda configurazione che indica dove individuare gli *Artefatti* della compilazione, quali acceleratori di calcolo (GPU) utilizzare, e le potenziali chiavi private per l'interazione con API esterne.
+Nel file specifico del chatbot, sotto la chiave `flows` sono definiti i multipli flussi di interazione con l'utente. 
+Al momento dell'avvio del Runner, tutti i flow vengono scanditi per identificare se vi sono errori (sezioni inaccessibili, loop, ecc.), e successivamente vengono anche identificate le risorse effettivamente necessarie per l'esecuzione del chatbot.
 
 === Resource Dependency Discovery
 
 Questa serie di *preflight checks* sono essenziali per evitare problemi a runtime, cercando di minimizzare il rischio che l'esperienza dell'utente sia interrotta durante le interazioni.
 
-Il processo di *Resource Dependency Discovery* si basa sull'implementazione da parte di ogni `RunnerStep` (che compongono i `flow`) di un `ResourceDiscoveryMixin` (@mixin-interface).\ Un Mixin @mixin è un pattern di programmazione orientata agli oggetti che consente di “mescolare” funzionalità comuni in diverse classi senza dover ricorrere all'ereditarietà classica. In pratica, un mixin è una classe o un modulo che contiene metodi e attributi pensati per essere riutilizzati da altre classi.
-
-Immaginiamo di avere più classi che necessitano di comportamenti simili, ad esempio il logging o la validazione dei dati: invece di ripetere lo stesso codice in ciascuna classe o creare una gerarchia complessa che centralizza tali funzioni, si crea un mixin che implementa questa funzionalità e poi lo si “inserisce” nelle classi interessate. Questo approccio *favorisce la composizione rispetto all'ereditarietà tradizionale*, permettendo una maggiore flessibilità e una migliore riusabilità del codice. Molto spesso è suggerito nel contesto del motto "_prefer composition over inheritance_" #footnote["preferire la composizione all'ereditarietà"] @gof @composition-inheritance-java.
-
-Va notato che l'utilizzo dei mixin richiede cautela: se non gestiti correttamente, possono generare conflitti (ad esempio, metodi con lo stesso nome provenienti da mixin diversi) e rendere il codice meno trasparente. In linguaggi come Python o Ruby, i mixin sono comunemente usati proprio grazie al supporto per l'ereditarietà multipla o ai moduli, che facilitano l'inclusione di funzionalità extra nelle classi.
-
+Il processo di *Resource Dependency Discovery* si basa sull'implementazione da parte di ogni `RunnerStep` (che compongono i `flow`) di un `ResourceDiscoveryMixin` (@mixin-interface).
+Un Mixin @mixin è un pattern di programmazione orientata agli oggetti che consente di “mescolare” funzionalità comuni in diverse classi senza dover ricorrere all'ereditarietà classica.
+In pratica, un mixin è una classe o un modulo che contiene metodi e attributi pensati per essere riutilizzati da altre classi.
+Immaginiamo di avere più classi che necessitano di comportamenti simili, ad esempio il logging o la validazione dei dati: invece di ripetere lo stesso codice in ciascuna classe o creare una gerarchia complessa che centralizza tali funzioni, si crea un mixin che implementa questa funzionalità e poi lo si “inserisce” nelle classi interessate. 
+Questo approccio *favorisce la composizione rispetto all'ereditarietà tradizionale*, permettendo una maggiore flessibilità e una migliore riusabilità del codice. 
+Molto spesso è suggerito nel contesto del motto "_prefer composition over inheritance_" #footnote["preferire la composizione all'ereditarietà"] @gof @composition-inheritance-java.
+Va notato che l'utilizzo dei mixin richiede cautela: se non gestiti correttamente, possono generare conflitti (ad esempio, metodi con lo stesso nome provenienti da mixin diversi) e rendere il codice meno trasparente. 
+In linguaggi come Python o Ruby, i mixin sono comunemente usati proprio grazie al supporto per l'ereditarietà multipla o ai moduli, che facilitano l'inclusione di funzionalità extra nelle classi.
 In questo caso, il Mixin è una interfaccia che impone di implementare un metodo `discover_resources_to_load` che restituisce un dizionario con le risorse necessarie per l'esecuzione dello step.
 
 #figure(
@@ -241,7 +246,7 @@ Nelle risorse possono anche essere specificati file da caricare, modelli da iniz
 
 === Flow
 
-Un `Flow` è una sequenza di `RunnerStep` che rappresenta un percorso di interazione con l'utente. Possono essere utilizzati come analoghi dei `Topic` di AIML @aiml, o come sequenze di interazioni che l'utente può intraprendere con il chatbot.
+Un `Flow` è una sequenza di `RunnerStep` che rappresenta un percorso di interazione con l'utente. Il botmaster può utilizzarli come analoghi dei `Topic` di AIML @aiml, o come sequenze di interazioni che l'utente può intraprendere con il chatbot.
 
 Ogni `RunnerStep` rappresenta un'azione che il chatbot o l'utente deve intraprendere per poter procedere con l'interazione. Ad esempio, un `RunnerStep` potrebbe essere un'interazione con un modello di classificazione per determinare la classe di una domanda, o un'interazione con un modello di NER per estrarre le entità da una domanda.
 
@@ -303,50 +308,10 @@ I due contesti sono:
 - Uno *globale*, che permette di salvare informazioni accessibili da qualunque `Flow`;
 - Uno *locale al flow* attualmente in esecuzione, permettendo di conservare variabili solo per il tempo necessario per l'esecuzione del flusso di interazione corrente.
 
-In entrambi i due contesti è possibile definire variabili persistenti o temporanee. L'unica differenza è determinata dal loro _lifecycle_: quelle persistenti rimangono in memoria per tutta la durata dell'esecuzione del Runner, mentre quelle temporanee vengono eliminate una volta terminata l'esecuzione del flow. Se un flow dovesse essere eseguito nuovamente, le variabili temporanee non saranno più presenti.
+In entrambi i due contesti è possibile definire variabili persistenti o temporanee.
+L'unica differenza è determinata dal loro _lifecycle_: quelle persistenti rimangono in memoria per tutta la durata dell'esecuzione del Runner, mentre quelle temporanee vengono eliminate una volta terminata l'esecuzione del flow. 
+Se un flow dovesse essere eseguito nuovamente, le variabili temporanee non saranno più presenti.
 
-Per lasciare la massima libertà possibile, è stato deciso di utilizzare la libreria `Asteval` @asteval, che permette di eseguire codice Python fornito all'interno di stringhe. La libreria è estremamente flessibile e permette di eseguire codice Python in modo sicuro, evitando l'esecuzione di codice dannoso o erroneo.
-
+Per lasciare la massima libertà possibile, è stato deciso di utilizzare la libreria `Asteval` @asteval, che permette di eseguire codice Python fornito all'interno di stringhe. 
+La libreria è estremamente flessibile e permette di eseguire codice Python in modo sicuro, evitando l'esecuzione di codice dannoso o erroneo.
 Attraverso questa libreria, è possibile definire delle espressioni che verranno valutate a runtime, ad esempio per effettuare branching con la classificazione di una domanda, per interagire con i dati estratti da un modello di NER, o per interrogare una libreria esterna.
-
-== Confronto con AIML
-
-Il sistema sviluppato rappresenta un'evoluzione significativa rispetto al modello AIML tradizionale, introducendo maggiore flessibilità e potenza espressiva. AIML, pur essendo una tecnologia consolidata per la creazione di chatbot, presenta alcune limitazioni strutturali che, come mostrato, il nuovo sistema ha cercato di superare. Le riassiumiamo brevemente:
-
-- Per quanto riguarda il *riconoscimento delle intenzioni* dell'utente, AIML si affida esclusivamente al pattern matching basato su espressioni regolari attraverso tag come `<pattern>` e `<template>`, con tutti i limiti che comportano. Il sistema proposto invece, permette di scegliere quale sistema di classificazione utilizzare, lasciando la possibilità di usare tanto un classificatore neurale quanto un classificatore basato su regole, a seconda delle esigenze del progetto.
-- Mentre AIML utilizza il tag `<topic>` per gestire il *contesto della conversazione* in modo piuttosto rigido, il sistema introdotto implementa un meccanismo di `Flow` più articolato, che permette di definire *percorsi di interazione complessi* con maggiore granularità. La statefulness in AIML è gestita attraverso variabili (`<set>` e `<get>`) e predicati limitati, mentre il nuovo sistema offre un contesto di esecuzione completo, manipolabile attraverso espressioni Python valutate a runtime tramite la libreria Asteval.
-- Un altro aspetto rilevante è la capacità di *gestire dati variabili o esterni*. AIML prevede l'uso di `<sraix>` per interagire con servizi esterni, ma questa soluzione resta periferica rispetto all'architettura principale del linguaggio. Il nuovo sistema, invece, integra nativamente moduli di retrieval estensibili, rendendo l'interazione con dati esterni un elemento centrale del design.
-- La struttura di *controllo del flusso* in AIML è relativamente semplice, basata principalmente su condizioni (`<condition>`) e ricorsione (`<srai>`). Il nostro sistema implementa un meccanismo di controllo del flusso più articolato, con branching condizionale e la possibilità di passare da un flusso all'altro in modo dinamico, permettendo interazioni più sofisticate.
-
-Il paradigma ibrido proposto, che combina un approccio dichiarativo con la flessibilità di Python e la potenza delle reti neurali, si propone di superare le limitazioni strutturali del modello AIML tradizionale, offrendo una soluzione più scalabile e adattabile alle esigenze dei progetti di chatbot più complessi, richiedendo meno sforzo durante la progettazione, lo sviluppo e anche la manutenzione.
-
-Inoltre, la possibilità di decidere in modo minuzioso come la sequenza delle interazioni tra utente e macchina debba svolgersi assicura un controllo totale sul comportamento del chatbot, a differenza dell'utilizzo puro di Large Language Models, che potrebbero soffrire di problemi di explainability @ALI2023101805 @zhao2023explainabilitylargelanguagemodels (essendo trattabili alla pari di delle black-box), allucinazione @xu2025hallucinationinevitableinnatelimitation @Huang_2025 e jailbreaking @xu2024comprehensivestudyjailbreakattack @jiang2024artpromptasciiartbasedjailbreak @peng2024playinglanguagegamellms.
-
-== Sviluppi futuri
-
-Nonostante il sistema sia stato progettato per essere il più flessibile possibile, permettendo l'implementazione di `Step` personalizzati, e astraendo allo stesso tempo le complessità maggiori quali l'utilizzo di modelli di classificazione, vi sono alcune limitazioni che il sistema comunque presenta, e che potranno essere oggetto di futuri sviluppi.
-
-In primo luogo, l'utilizzo di `Asteval` per l'esecuzione di codice Python a runtime è molto potente, ma allo stesso tempo molto pericoloso. La libreria permette di eseguire qualsiasi codice Python fornito, e non fornisce alcun tipo di protezione contro codice dannoso o malevolo, se le keywords sbagliate del linguaggio Python fossero mai abilitate durante lo sviluppo.
-
-Una possibile soluzione potrebbe essere l'utilizzo di un sistema di sandboxing, che permetta di eseguire il codice in un ambiente controllato. Asteval supporta già diversi generi di controlli e limitazioni configurabili, ma in alcuni casi potrebbe essere necessario implementare verifiche più stringenti attualmente non presenti.
-
-Un'interessante _side-project_ potrebbe essere l'implementazione di una utility che permetta di migrare un sistema AIML esistente in un sistema basato su questo framework, convertendo i pattern e le risposte in attesa di un refactoring successivo. Questo permetterebbe di sfruttare le potenzialità del sistema proposto nel momento in cui si intenda aggiungere nuove interazioni, senza dover partire da zero.
-
-Bisogna anche aggiungere come, nonostante il formato YAML per la configurazione sia molto potente, durante lo sviluppo esso sia stato spinto al limite delle sue capacità. Per flow semplici, il formato è molto chiaro e leggibile, ma se si inizia a dover lavorare con espressioni python lunghe o con strutture complesse, il formato può diventare ostico e difficile da mantenere, rendendo problematica anche la comprensione del flusso di esecuzione.
-
-Una possibile soluzione potrebbe essere l'utilizzo di un DSL (Domain Specific Language) che permetta di definire le configurazioni in modo più chiaro e conciso, e che permetta di eseguire controlli di validità in fase di scrittura. Questa opzione è stata considerata durante lo sviluppo, ma è stata scartata per motivi di complessità e ridondanza considerando altre alternative.
-
-Un'opzione più favorevole sarebbe la conversione del sistema in una libreria Python pura, che permetta di definire le configurazioni direttamente in codice Python, sfruttando le capacità di introspezione e validazione del linguaggio. In questo modo sarebbe sufficiente implementare delle funzioni che rappresentano flow e step, abbassando la barriera all'ingresso per nuovi sviluppatori già esperti in Python. 
-
-D'altra parte, questa soluzione potrebbe rendere più complesso lo sviluppo per utenti non esperti, motivo per cui comunque il supporto al formato YAML potrebbe dover essere mantenuto.
-Bisogna tenere comunque a mente che già la scrittura di chatbot in AIML non richiede conoscenze indifferenti, anche se non si tratta direttamente di programmazione, ma comunque di una forma di scripting che implica la comprensione di concetti come la programmazione logica, la gestione di variabili e la sintassi di XML.
-
-Una migrazione a Python puro renderebbe anche più veloce l'implementazione e, soprattutto, il testing di nuove integrazioni, aumentando la comodità per gli sviluppatori e riducendo il tempo complessivamente necessario per sviluppare nuove funzionalità.
-
-Naturalmente la conversione del sistema in una libreria Python pura potrebbe risolvere anche il problema dell'utilizzo della libreria `ASTEVAL`, lasciando invece la libertà di fare fondamento sulle capacità di introspezione del linguaggio per eseguire controlli di validità sul codice fornito.
-
-Inoltre, la vasta disponibilità di IDE avanzati con sistemi di completamento già largamente diffusi a livello professionale, come _PyCharm_ di JetBrains o _Visual Studio Code_ di Microsoft, permetterebbe di ridurre gli errori di sintassi e di semantica, e di velocizzare lo sviluppo di nuove funzionalità, senza dover implementare nuovi strumenti per la validazione delle configurazioni.
-
-/* #hrule()
-
-In conclusione a questa tesi, mi auguro che la tecnologia diventi sempre più inclusiva e che le persone con disabilità possano accedere pienamente ai contenuti più disparati, dalla formazione scientifica a quella artistica. Se già ai tempi delle caverne l'uomo imparò a prestare assistenza a chiunque ne avesse bisogno, oggi, con gli strumenti attuali, abbiamo tutte le possibilità di proseguire su quella strada e andare anche oltre, realizzando una società autenticamente aperta e solidale. */

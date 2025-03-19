@@ -2456,12 +2456,12 @@ paper-dataset-nova:
   type: article
   title: "Educational Dialogue Systems for Visually Impaired Students: Introducing a Task-Oriented User-Agent Corpus"
   author:
+    - Mazzei, Alessandro
     - Nuovo, Elisa Di
     - Sanguinetti, Manuela
     - Balestrucci, Pier Felice
     - Anselma, Luca
     - Bernareggi, Cristian
-    - Mazzei, Alessandro
   date: 2024-05-25
   editor:
     - Calzolari, Nicoletta
@@ -2484,9 +2484,9 @@ dataset-nova:
   type: repository
   title: NoVAGraphS FSA User-Agent Corpus
   author:
+    - Mazzei, Alessandro
     - Di Nuovo, Elisa
     - Sanguinetti, Manuela
-    - Mazzei, Alessandro
     - Anselma, Luca
     - Bernareggi, Cristian
     - Balestrucci, Pier Felice
@@ -3037,3 +3037,43 @@ WebAIM2024:
   author: WebAIM
   date: 2024
   url: https://webaim.org/projects/million/
+
+prompting-survey:
+  type: article
+  title: 'The Prompt Report: A Systematic Survey of Prompt Engineering Techniques'
+  author:
+  - Schulhoff, Sander
+  - Ilie, Michael
+  - Balepur, Nishant
+  - Kahadze, Konstantine
+  - Liu, Amanda
+  - Si, Chenglei
+  - Li, Yinheng
+  - Gupta, Aayush
+  - Han, HyoJung
+  - Schulhoff, Sevien
+  - Dulepet, Pranav Sandeep
+  - Vidyadhara, Saurav
+  - Ki, Dayeon
+  - Agrawal, Sweta
+  - Pham, Chau
+  - Kroiz, Gerson
+  - Li, Feileen
+  - Tao, Hudson
+  - Srivastava, Ashay
+  - Costa, Hevander Da
+  - Gupta, Saloni
+  - Rogers, Megan L.
+  - Goncearenco, Inna
+  - Sarli, Giuseppe
+  - Galynker, Igor
+  - Peskoff, Denis
+  - Carpuat, Marine
+  - White, Jules
+  - Anadkat, Shyamal
+  - Hoyle, Alexander
+  - Resnik, Philip
+  date: 2025
+  serial-number:
+    doi: 10.48550/arXiv.2406.06608
+    arxiv: '2406.06608'

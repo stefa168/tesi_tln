@@ -101,9 +101,10 @@
       // block(width: 100%, height: 20%)[
       block(width: 100%)[
         // #set align(center + horizon)
-        #set text(1.3em, weight: "bold")
+        #set text(1.5em, weight: "bold")
         // #smallcaps(it)
         #text(it)
+        #v(0.5em)
       ]
     } else {
       block(width: 100%)[
@@ -116,13 +117,13 @@
   }
   show heading.where(level: 2): it => block(width: 100%)[
     // #set align(center)
-    #set text(1.1em, weight: "bold")
+    #set text(1.25em, weight: "bold")
     // #smallcaps(it)
     #text(it)
   ]
   show heading.where(level: 3): it => block(width: 100%)[
     // #set align(left)
-    #set text(1em, weight: "bold")
+    #set text(1.1em, weight: "bold")
     // #smallcaps(it)
     #text(it)
   ]
