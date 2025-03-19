@@ -1,13 +1,12 @@
 = Ringraziamenti
-\
-Ebbene, ci siamo.\
+
+Ebbene, ci siamo.
 
 Incredibilmente tra due settimane #footnote[Esattamente due settimane, infatti sto scrivendo ora che è la notte tra il 19 e il 20! Ciao dal passato!] mi laureerò nuovamente, questa volta concludendo il percorso di laurea magistrale.
-Dico "incredibilmente" perchè, nonostante tutto il tempo passato a lavorare alla tesi in questi mesi, a scrivere codice, script, leggere paper, ancora non ho completamente reso mia la novità.\ Che tra due settimane sarò (mi sa per pochissimo) ufficialmente disoccupato 🥲, che magari avrò un po' di tempo per fare qualcuno dei miei progettini da tanto tempo fermi 😌, che magari riuscirò ad imparare a gestire meglio il mio tempo 🤐... vedremo!
+Dico "incredibilmente" perchè, nonostante tutto il tempo passato a lavorare alla tesi in questi mesi, a scrivere codice, script, leggere paper, ancora non ho completamente reso mia la novità. Che tra due settimane sarò (mi sa per pochissimo) ufficialmente disoccupato, che magari avrò un po' di tempo per fare qualcuno dei miei progettini da tanto tempo fermi, che magari riuscirò ad imparare a gestire meglio il mio tempo... vedremo!
 
 Chissà cosa avrà in serbo il futuro per me... mi sa che l'unica è andare avanti e deciderlo. Infatti, credo che almeno un pochino il nostro futuro lo possiamo creare, che sia decidendo di continuare con gli studi, o magari trovando qualche lavoro che effettivamente possa piacermi.
-
-In questi quattro (cinque?) anni comunque ne sono successe di cose! 
+In questi quattro (cinque?) anni comunque ne sono successe di cose!
 Dopo il ritorno alle lezioni "normali", come molti di voi che leggeranno questa sezione sapranno, me la sono vista brutta con la mia salute, e... che fatica!
 
 Ma credo (anzi, so) che è stato un indicatore importante, che devo prendermi più cura di me, e capire come voglio vivere questa vita. E credo che moltissime persone (che conosco e non) dovrebbero imparare a vivere prima di tutto con loro stessi, a conoscersi, a capire cosa sia che veramente li rende loro, e cosa a loro va bene nella loro vita, e cosa no.
@@ -29,9 +28,9 @@ Prima di tutto, direi che i più grandi ringraziamenti li devo fare al mio Relat
 È stato lui, durante la sua parte di corso di _Tecnologie del Linguaggio Naturale_, non solo a farmi appassionare a una disciplina per me nuova (e che mi ha svelato tantissimi retroscena su come i computer fanno a capirci), ma anche a farmi conoscere quello che sarebbe stato un punto di partenza per la tesi (il sistema Babytalk).\
 Devo ringraziarlo anche per il suo supporto, la sua comprensione e l'immensa (credo sia infinita) pazienza tra le comunicazioni, che sono state a volte un po' troppo staccate nel tempo...
 
-Un grande ringraziamento anche al Dott. Pier Felice Balestrucci e al Dott. Michael Oliverio, che hanno seguito man mano lo sviluppo della tesi fornendo eccellenti spunti di analisi e metodologie per le valutazioni. 
-Senza di esse non sarebbe stato possibile ottenere i risultati che ho mostrato in questo elaborato. 
-Tra l'altro, non piacciono anche a voi le tabelle e le matrici? 
+Un grande ringraziamento anche al Dott. Pier Felice Balestrucci e al Dott. Michael Oliverio, che hanno seguito man mano lo sviluppo della tesi fornendo eccellenti spunti di analisi e metodologie per le valutazioni.
+Senza di esse non sarebbe stato possibile ottenere i risultati che ho mostrato in questo elaborato.
+Tra l'altro, non piacciono anche a voi le tabelle e le matrici?
 Non sono niente male!
 
 Un grandissimo abbraccio a Paola Gatti, che in tutti questi anni ha portato avanti sulle sue spalle praticamente l'intero Dipartimento, assistendo gli studenti con tutte le risposte alle loro domande (e anche di più).
@@ -55,22 +54,32 @@ Sono state davvero importanti, anche per staccare dalla tesi, le serate su Facto
 Torniamo presto in bici, eh!
 
 E non è stato l'unico con cui ho giocato quel gioco ottimizzato letteralmente da delle divinità del C++! #footnote[No, eh, permettetemi: quelli di Wube sono davvero assurdi. Il livello che hanno raggiunto di qualità per Factorio è assurda. Per un periodo pensavo di andare a lavorare per loro in Repubblica Ceca.]
-Un grande ringraziamento lo devo anche dare a Paolo, per gli ottimi suggerimenti per la tesi, e per tutto il tempo passato dalle superiori (e non solo) a giocare e a permettermi di scoprire cosa significa divertirsi con delle grandi persone, che tutt'ora sono miei strettissimi amici.
+Un grande ringraziamento lo devo anche dare a Paolo, per gli ottimi suggerimenti per la tesi, e per tutto il tempo passato dalle superiori (e non solo) a giocare e a permettermi di scoprire cosa significhi divertirsi con delle grandi persone, che tutt'ora sono miei strettissimi amici.
 
 Un enorme ringraziamento a Strop, per le serate passate a spargere libertà #box(height: 13pt, image("../media/1212879696530772048.png")), a discutere di argomenti di enorme interesse e per essermi stato vicino come amico in tanti momenti.
 Mi auguro di poter continuare così insieme per molto tempo!
 
-Ringrazio Tommaso per avermi mostrato l'affetto e la fiducia che solo un amico può darti, per le magnifiche serate passate a parlare di qualunque argomento ci potesse passare per la testa (spesso tecnici, ma che possiamo farci? Siamo fatti così...). 
-La passione è un motore eccezionale, che ci permette di raggiungere cime altissime! Grazie davvero per tutte le volte che mi hai ospitato, per le opinioni condivise e per tutto il tempo passato ad essere un amico eccezionale.
+Ringrazio Tommaso per avermi mostrato l'affetto e la fiducia che solo un amico può darti, per le magnifiche serate passate a parlare di qualunque argomento ci potesse passare per la testa (spesso tecnici, ma che possiamo farci? Siamo fatti così...).
+La passione è un motore eccezionale, che ci permette di raggiungere cime altissime! Grazie davvero per tutte le volte che mi hai ospitato, per le opinioni condivise e per tutto il tempo passato ad essere un amico eccezionale. Ferratina?
 
-Adesso, sarò onesto: ho esaurito le parole. Ormai questa tesi ne contiene più di ventiseimilacinquecento, e ne avrebbe potute contenere molte di più. 
+Adesso, sarò onesto: ho esaurito le parole. Ormai questa tesi ne contiene più di ventiseimilasettecento, e ne avrebbe potute contenere molte di più.
 Non ci sono parole per poter descrivere quanto tenga a tutti #footnote[Quello che ho scritto alla fine è solo un'approsimazione; se dovessi scrivere ogni cosa finirei per pubblicare un libro per ognuno di voi... e fidatevi, lo farei con grande piacere! Magari in futuro ;)], e ho paura che mi dimenticherò di qualcuno.
 Se così accadesse, sappi che non l'ho fatto apposta, ma è solo l'ora (sono le 2.30 di mattina attualmente...).
 
-Quindi, un ultimo sprint! In nessun ordine particolare, ringrazio e saluto: Marco, per aver conservato la nostra amicizia dopo tutti questi anni passati senza sentirci e per volermi aiutare con la fotografia; Seno, per la compagnia, le mega nerdate e per le grasse risate (oltre ai sushi potentissimi); Irene, per la grande amicizia e prontezza nell'esserci per qualunque uscita o iniziativa che possa portare amici e felicità; Elisabetta, per l'apertura verso tutti e le grandi fondamenta morali; Francesca, per i giri all'IKEA e le infinite pecore in casa, oltre che per le grandi condivisioni di arredamento stiloso; Boss, per tutte le volte che ti abbiamo invaso la Bosscaverna e spaccato il ████, per le uscite ai mercatini, e per aver potuto discutere con te di tutto; Iacopo per l'amore incontrollato per la cucina e il cioccolato, oltre che per i giochi da tavolo (qualcuno ha detto Gizmos?); Simone per la passione per i giochi di ruolo e la cucina indiana; Øch per le partite a War Thunder, per la tranquillità e le serate da te; Fabio e Rachele per l'amicizia e la gentilezza e correttezza che date verso tutti; Andrea per le grandi memate, le condivisioni di conoscenza sfrenata e per le discussioni sui linguaggi di programmazione; Luca per le giornate passate a sistemare fumetti e a condividere la tua enorme conoscenza sull'argomento.
+Quindi, un ultimo sprint! In nessun ordine particolare, ringrazio e saluto: Marco, per aver conservato la nostra amicizia dopo tutti questi anni passati senza sentirci e per volermi aiutare con la fotografia; Seno, per la compagnia, le mega nerdate e per le grasse risate (oltre ai sushi potentissimi); Irene, per la grande amicizia e prontezza nell'esserci per qualunque uscita o iniziativa che possa portare amici e felicità; Elisabetta, per l'apertura verso tutti e le grandi fondamenta morali; Francesca, per i giri all'IKEA e le infinite pecore in casa, oltre che per le grandi condivisioni di arredamento stiloso; Boss, per tutte le volte che ti abbiamo invaso la Bosscaverna e spaccato il ████, per le uscite ai mercatini, e per aver potuto discutere con te di tutto; Iacopo per l'amore incontrollato per la cucina e il cioccolato, oltre che per i giochi da tavolo (qualcuno ha detto Gizmos?); Simone per la passione per i giochi di ruolo e la cucina indiana; Øch per le partite a War Thunder, per la tranquillità e le serate da te; Fabio e Rachele per l'amicizia e la gentilezza e correttezza che date verso tutti; Andrea per le grandi memate, le condivisioni di conoscenza sfrenata e per le discussioni sui linguaggi di programmazione; Chiara per gli inviti in tavernetta e l'energia che porti sempre con te; Luca per le giornate passate a sistemare fumetti e a condividere la tua enorme conoscenza sull'argomento.
 
 Davvero, grazie a tutti. Senza di voi questa tesi non esisterebbe!
 
 E con questo, Stefano - *out*!#footnote[Magari, devo ancora finire le slides! sob...]
 
--- Mercoledì, 19 Marzo 2025, ore 2:47 
+#align(end + bottom)[
+  _Siate eccellenti!_\
+  Mercoledì, 19 Marzo 2025, ore 2:47
+]
+
+#page(margin: (y: 4em))[
+  #align(top+center)[
+    Queste due pagine sono per chi voglia scrivere o scarabocchiare :)\ Lasciatene per tutti!
+  ]
+]
+#page[]

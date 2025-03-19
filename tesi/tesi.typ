@@ -89,23 +89,6 @@ Sul piano ingegneristico, è stata progettata un'architettura modulare che integ
 
 #pagebreak(weak: true, to: "odd")
 
-#include "chapters/1_introduction.typ"
-
-#pagebreak(weak: true, to: "odd")
-
-#include "chapters/2_nlu.typ"
-
-#pagebreak(weak: true, to: "odd")
-
-#include "chapters/3_nlg.typ"
-
-#pagebreak(weak: true, to: "odd")
-
-#include "chapters/4_engi.typ"
-
-#pagebreak(weak: true, to: "odd")
-
-#include "chapters/5_conclusions.typ"
 /*
 - *NLU*: Inizialmente modificare aiml-high per rendere più flessibile la parte di comprensione mediante classificazione
   - *Bert/T1/Word embedding tensor*
@@ -131,7 +114,26 @@ Sul piano ingegneristico, è stata progettata un'architettura modulare che integ
 - *Ingegnerizzazione*: sviluppo di un sistema con funzionalità simili ad AIML ma che integri le migliorie sopra spiegate e approfondite.
 */
 
+#include "chapters/1_introduction.typ"
+
+#pagebreak(weak: true, to: "odd")
+
+#include "chapters/2_nlu.typ"
+
+#pagebreak(weak: true, to: "odd")
+
+#include "chapters/3_nlg.typ"
+
+#pagebreak(weak: true, to: "odd")
+
+#include "chapters/4_engi.typ"
+
+#pagebreak(weak: true, to: "odd")
+
+#include "chapters/5_conclusions.typ"
+
 #set heading(numbering: none)
+
 #pagebreak(weak: true, to: "odd")
 
 #include "chapters/thanks.typ"

@@ -36,6 +36,28 @@ Una migrazione a Python puro renderebbe anche più veloce l'implementazione e, s
 Naturalmente la conversione del sistema in una libreria Python pura potrebbe risolvere anche il problema dell'utilizzo della libreria `ASTEVAL`, lasciando invece la libertà di fare fondamento sulle capacità di introspezione del linguaggio per eseguire controlli di validità sul codice fornito.
 Inoltre, la vasta disponibilità di IDE avanzati con sistemi di completamento già largamente diffusi a livello professionale, come _PyCharm_ di JetBrains o _Visual Studio Code_ di Microsoft, permetterebbe di ridurre gli errori di sintassi e di semantica, e di velocizzare lo sviluppo di nuove funzionalità, senza dover implementare nuovi strumenti per la validazione delle configurazioni.
 
+È doveroso anche indicare la necessità di effettuare sperimentazioni complessive dell'intera pipeline, dal momento che durante lo sviluppo sono stati effettuati test solo su singoli componenti, e non su tutto il sistema integrato, come illustrato nella @llm-quality. Questo permetterebbe di valutare l'efficacia del sistema nel suo complesso, e di individuare eventuali problemi di integrazione o di performance che potrebbero emergere solo in fase di test finale.
+
+== Sorgente e tool utilizzati
+
+Tutto il codice, i notebook, la documentazione, l'implementazione del sistema e il sorgente di questa tesi sono disponibili su GitHub all'indirizzo https://github.com/stefa168/tesi_tln
+
+#import "@preview/cades:0.3.0": qr-code
+
+#align(center)[
+  #qr-code("https://github.com/stefa168/tesi_tln", width: 3cm)
+]
+
+#import "@preview/metalogo:1.2.0": LaTeX
+
+I principali tool utilizzati durante lo sviluppo di questa tesi sono stati:
+- Typst (https://typst.com) per la stesura del testo, in alternativa a #LaTeX
+- Tinymist (https://github.com/Myriad-Dreamin/tinymist) per l'integrazione di Typst in VSC
+- Visual Studio Code (https://code.visualstudio.com) come ambiente di scrittura
+- IntelliJ IDEA (https://www.jetbrains.com/idea) per lo sviluppo del codice Python
+- Jupyter (https://jupyter.org) per la prototipazione e l'analisi dei dati
+- PlantUML (https://plantuml.com) per la creazione di diagrammi UML
+
 /* #hrule()
 
 In conclusione a questa tesi, mi auguro che la tecnologia diventi sempre più inclusiva e che le persone con disabilità possano accedere pienamente ai contenuti più disparati, dalla formazione scientifica a quella artistica. Se già ai tempi delle caverne l'uomo imparò a prestare assistenza a chiunque ne avesse bisogno, oggi, con gli strumenti attuali, abbiamo tutte le possibilità di proseguire su quella strada e andare anche oltre, realizzando una società autenticamente aperta e solidale. */
