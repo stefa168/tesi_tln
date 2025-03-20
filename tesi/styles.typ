@@ -221,6 +221,25 @@
   )
 
   pagebreak(to: "odd")
+
+  if acknowledgments != none {
+    /* heading(
+      level: 2,
+      numbering: none,
+      outlined: false,
+      if lang == "en" {
+        "Acknowledgments"
+      } else {
+        "Ringraziamenti"
+      },
+    ) */
+    
+    acknowledgments
+    // footnote[I ringraziamenti completi sono alla fine del documento!]
+
+    pagebreak(weak: true)
+  }
+
   set par(justify: true, first-line-indent: 0pt, linebreaks: "optimized")
   set align(center + horizon)
 
@@ -239,25 +258,6 @@
   text(style: "italic", declaration-of-originality.at(lang))
 
   pagebreak(weak: true)
-
-  // Acknowledgments
-  if acknowledgments != none {
-    heading(
-      level: 2,
-      numbering: none,
-      outlined: false,
-      if lang == "en" {
-        "Acknowledgments"
-      } else {
-        "Ringraziamenti"
-      },
-    )
-    
-    acknowledgments
-    footnote[I ringraziamenti completi sono alla fine del documento!]
-
-    pagebreak(weak: true)
-  }
 
   // Abstract
   if abstract != none {
@@ -288,7 +288,7 @@
     keywords
   }
 
-  pagebreak(weak: true, to: "odd")
+  pagebreak(weak: true, to: "even")
 
   // Table of contents
   // Outline customization
