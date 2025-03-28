@@ -236,8 +236,7 @@ La classificazione automatica è stata effettuata tramite prompting:
     [0], [START], [START], [START], [START],
     [1], [GEN\_INFO], [GEN\_INFO], [GEN\_INFO], [GEN\_INFO],
     [2], [SPEC\_TRANS], [SPEC\_TRANS], [TRANS\_BETWEEN], [TRANS\_BETWEEN],
-    [3], [SPEC\_TRANS], [SPEC\_TRANS], [TRANS\_BETWEEN], [TRANS\_BETWEEN],
-    [4], [Please provide the interaction. : START], [START], [START], [START],
+    [3], [Please provide the interaction. : START], [START], [START], [START],
     […], […], […], […], […],
     [287], [REPETITIVE\_PAT], [REPETITIVE\_PAT], [REPETITIVE\_PAT], [REPETITIVE\_PAT],
     [288], [TRANS\_DETAIL], [TRANS\_DETAIL], [TRANS\_DETAIL], [GEN\_INFO],
@@ -247,10 +246,11 @@ La classificazione automatica è stata effettuata tramite prompting:
 
 ---
 
-In seguito a una analisi dei dati è risultato che le classi fossero troppo sbilanciate, e troppo generiche. Questo non avrebbe aiutato il modello che sarebbe stato addestrato a riconoscere le classi con precisione e affidabilità.
+- In seguito a una analisi dei dati è risultato che le classi fossero troppo sbilanciate, e troppo generiche.
+- Questo non avrebbe aiutato il modello che sarebbe stato addestrato a riconoscere le classi con precisione e affidabilità.
 #pause
 
-- Sono state ridefinite le classi, dividendole in due livelli di granularità
+- Sono state ridefinite le classi, dividendole in due livelli di granularità:
   #pause
   - Le *classi principali* da 21 sono state ridotte a 7
   #pause
@@ -261,36 +261,38 @@ In seguito a una analisi dei dati è risultato che le classi fossero troppo sbil
 #align(center)[Classi principali]
 
 #table(
-    columns: (0.3fr, 1fr, 0.3fr),
+  columns: (0.3fr, 1fr, 0.3fr),
 
-    table.header[Classe][Scopo][Numero di Esempi],
-    table.hline(),
+  table.header[Classe][Scopo][Numero di Esempi],
+  table.hline(),
 
-    [transition], [Domande che riguardano le transizioni tra gli stati], [77],
-    [automaton], [Domande che riguardano l'automa in generale], [48],
-    [state], [Domande che riguardano gli stati dell'automa], [48],
-    [grammar], [Domande che riguardano la grammatica riconosciuta dall'automa], [33],
-    [theory], [Domande di teoria generale sugli automi], [15],
-    [start], [Domande che avviano l'interazione con il sistema], [6],
-    [off\_topic], [Domande non pertinenti al dominio che il sistema deve saper gestire], [2],
-  )
+  [transition], [Domande che riguardano le transizioni tra gli stati], [77],
+  [automaton], [Domande che riguardano l'automa in generale], [48],
+  [state], [Domande che riguardano gli stati dell'automa], [48],
+  [grammar], [Domande che riguardano la grammatica riconosciuta dall'automa], [33],
+  [theory], [Domande di teoria generale sugli automi], [15],
+  [start], [Domande che avviano l'interazione con il sistema], [6],
+  [off\_topic], [Domande non pertinenti al dominio che il sistema deve saper gestire], [2],
+)
 
 ---
 
 #align(center)[Classi secondarie per la classe primaria dell'*Automa*]
 
-  #table(
-    columns: (auto, auto, auto),
-    table.header[Sottoclassi][Scopo][Numero di Esempi],
-    table.hline(),
+#table(
+  columns: (auto, auto, auto),
+  table.header[Sottoclassi][Scopo][Numero di Esempi],
+  table.hline(),
 
-    [description], [Descrizioni generali sull'automa], [14],
-    [description_brief], [Descrizione generale (breve) sull'automa], [10],
-    [directionality], [Domande riguardanti la direzionalità o meno dell'intero automa], [1],
-    [list], [Informazioni generali su nodi e archi], [1],
-    [pattern], [Presenza di pattern particolari nell'automa], [9],
-    [representation], [Rappresentazione spaziale dell'automa], [13],
-  )
+  [description], [Descrizioni generali sull'automa], [14],
+  [description_brief], [Descrizione generale (breve) sull'automa], [10],
+  [directionality], [Domande riguardanti la direzionalità o meno dell'intero automa], [1],
+  [list], [Informazioni generali su nodi e archi], [1],
+  [pattern], [Presenza di pattern particolari nell'automa], [9],
+  [representation], [Rappresentazione spaziale dell'automa], [13],
+)
+
+#align(center)[(esempio)]
 
 == Data Augmentation
 
