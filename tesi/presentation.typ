@@ -32,6 +32,13 @@
 #set heading(numbering: numbly("{1}.", default: "1.1"))
 #show heading: set text(size: 0.95em)
 
+#show table: set text(hyphenate: false)
+#set table(
+  align: (x, y) => (left + if y == 0 { bottom } else { top }),
+  fill: (_, y) => if calc.odd(y) { gray.lighten(50%) },
+  stroke: none,
+)
+
 #title-slide()
 
 = Contesto
@@ -174,7 +181,7 @@ Se per le immagini possiamo utilizzare tecniche di *Computer Vision* o *Reti Neu
 #pause
 - La *gestione del contesto* (via `<that>`, `<topic>`, `<star>`, ecc.) è rudimentale
 #pause
-- L'integrazione (via `<sraix>`) con *basi di conoscenza esterne* (KB, database, API) è possibile implementando funzioni personalizzate, ma è di difficile gestione 
+- L'integrazione (via `<sraix>`) con *basi di conoscenza esterne* (KB, database, API) è possibile implementando funzioni personalizzate, ma è di difficile gestione
 #pause
 - Le risposte generate sono *statiche e predefinite*, e non possono essere generate dinamicamente in base a dati esterni o a contesti più ampi in modo automatico
 
@@ -198,7 +205,94 @@ Il primo elemento dello stack di NLP rispetto ad AIML che vogliamo migliorare è
 
 == Classificazione
 
-d
+- Essendo un task supervisionato, bisogna partire con l'etichettatura dei dati.
+#pause
+- Il dataset utilizzato proviene dalle precedenti pubblicazioni del progetto NoVAGraphS, e contiene 350 interazioni degli utenti prodotte durante precedenti sperimentazioni.
+#pause
+- L'annotazione:
+  - Inizialmente è stata effettuata automaticamente
+  #pause
+  - Successivamente è stata completamente riveduta ed effettutata manualmente
+
+---
+
+La classificazione automatica è stata effettuata tramite prompting:
+#pause
++ Due LLM diverse (_Gemma2_, _Llama3.1_) sono state eseguite localmente
+#pause
++ Ciascuna ha ricevuto tutte le interazioni (una per una) assieme alla lista delle possibili classi
+#pause
++ È stata selezionata la classe con majority vote
+#pause
+
+#align(center)[
+  // #show table.cell.where(y: 0): strong
+  // #set text(size: 10pt)
+  #table(
+    columns: 5,
+    align: (auto, auto, auto, auto, auto),
+    table.header([ID], [gemma2:9b], [gemma2:9b], [llama3.1:8b], [llama3.1:8b]),
+    table.hline(),
+    [0], [START], [START], [START], [START],
+    [1], [GEN\_INFO], [GEN\_INFO], [GEN\_INFO], [GEN\_INFO],
+    [2], [SPEC\_TRANS], [SPEC\_TRANS], [TRANS\_BETWEEN], [TRANS\_BETWEEN],
+    [3], [SPEC\_TRANS], [SPEC\_TRANS], [TRANS\_BETWEEN], [TRANS\_BETWEEN],
+    [4], [Please provide the interaction. : START], [START], [START], [START],
+    […], […], […], […], […],
+    [287], [REPETITIVE\_PAT], [REPETITIVE\_PAT], [REPETITIVE\_PAT], [REPETITIVE\_PAT],
+    [288], [TRANS\_DETAIL], [TRANS\_DETAIL], [TRANS\_DETAIL], [GEN\_INFO],
+    [289], [GRAMMAR], [GRAMMAR], [FINAL\_STATE], [FINAL\_STATE],
+  )
+]
+
+---
+
+In seguito a una analisi dei dati è risultato che le classi fossero troppo sbilanciate, e troppo generiche. Questo non avrebbe aiutato il modello che sarebbe stato addestrato a riconoscere le classi con precisione e affidabilità.
+#pause
+
+- Sono state ridefinite le classi, dividendole in due livelli di granularità
+  #pause
+  - Le *classi principali* da 21 sono state ridotte a 7
+  #pause
+  - Sono state introdotte le *classi secondarie* per ogni classe principale, per un totale di 33.
+
+---
+
+#align(center)[Classi principali]
+
+#table(
+    columns: (0.3fr, 1fr, 0.3fr),
+
+    table.header[Classe][Scopo][Numero di Esempi],
+    table.hline(),
+
+    [transition], [Domande che riguardano le transizioni tra gli stati], [77],
+    [automaton], [Domande che riguardano l'automa in generale], [48],
+    [state], [Domande che riguardano gli stati dell'automa], [48],
+    [grammar], [Domande che riguardano la grammatica riconosciuta dall'automa], [33],
+    [theory], [Domande di teoria generale sugli automi], [15],
+    [start], [Domande che avviano l'interazione con il sistema], [6],
+    [off\_topic], [Domande non pertinenti al dominio che il sistema deve saper gestire], [2],
+  )
+
+---
+
+#align(center)[Classi secondarie per la classe primaria dell'*Automa*]
+
+  #table(
+    columns: (auto, auto, auto),
+    table.header[Sottoclassi][Scopo][Numero di Esempi],
+    table.hline(),
+
+    [description], [Descrizioni generali sull'automa], [14],
+    [description_brief], [Descrizione generale (breve) sull'automa], [10],
+    [directionality], [Domande riguardanti la direzionalità o meno dell'intero automa], [1],
+    [list], [Informazioni generali su nodi e archi], [1],
+    [pattern], [Presenza di pattern particolari nell'automa], [9],
+    [representation], [Rappresentazione spaziale dell'automa], [13],
+  )
+
+== Data Augmentation
 
 = Retrieval Augmented Generation
 
