@@ -60,14 +60,15 @@ Iniziamo ad ambientarci:
 
 Tutto funziona, a patto che...
 #pause
-- Il struttura della pagina web sia strutturata in modo semantico
+- La pagina web sia strutturata in modo semantico
 #align(center)[
-  #image("media/html-sementics-layout.png", height: 11em)
+  #image("media/html-sementics-layout.png", height: 10em)
 ]
 #pause
-- Le immagini siano accompagnate da un testo alternativo (```html <img alt="...">```)
+- Le immagini siano accompagnate da un testo alternativo
+#align(center)[```html <img alt="...">``` o ```html <img aria-label="...">```]
 #pause
-#v(1em)
+// #v(1em)
 
 #align(center)[*Queste due condizioni dipendono da chi prepara il contenuto!*]
 
@@ -86,16 +87,16 @@ I sistemi di TTS non sono in grado di interpretare il significato di un'immagine
 ]
 
 #pause
-Se non viene fornita un'alternativa testuale contenente delle informazioni utili, l'utente non potrà comprendere appieno il contenuto della pagina!
+Se non viene fornita un'alternativa testuale contenente delle informazioni utili, l'utente non potrà comprendere appieno il contenuto della pagina o di uno specifico elemento!
 
 #pause
-Una di quattro immagini non ha una descrizione testuale o ne ha una ma non informativa @WebAIM2024.
+Una di quattro immagini sul web non ha una descrizione testuale o non è informativa @WebAIM2024.
 
 == Anche peggio...
 
-#align(center)[
-  Se per le immagini possiamo utilizzare sofisticate tecniche di *Computer Vision* per generare automaticamente un testo alternativo, per le rappresentazioni grafiche di dati (grafici, diagrammi, mappe) non è così semplice.
-]
+Se per le immagini possiamo utilizzare tecniche di *Computer Vision* o *Reti Neurali* per generare automaticamente un testo alternativo, per le rappresentazioni grafiche di dati (grafici, diagrammi, mappe) non è così semplice.
+
+
 #pause
 #align(center)[
   #let hq = 10em
@@ -108,7 +109,96 @@ Una di quattro immagini non ha una descrizione testuale o ne ha una ma non infor
   ]
 ]
 
+== Un aiuto
+
+- Il Progetto NoVAGraphS si propone di rendere più accessibili questi contenuti, mediante la costruzione di sistemi di dialogo (Chatbot).
+#pause
+
+- Con essi è possibile interagire per ottenere informazioni sui dati presenti in grafi o strutture simili, per avere una comprensione *profonda* del contenuto.
+#pause
+
+- Il Progetto originale fa fondamento su AIML (Artificial Intelligence Markup Language), un linguaggio di markup per la creazione di chatbot.
+
+== Esempi di AIML
+
+#align(center)[
+  ```xml
+  <category>
+    <pattern>CIAO</pattern>
+    <template>Ciao! Come posso aiutarti oggi?</template>
+  </category>
+  ```
+]
+
+---
+
+#align(center)[
+  ```xml
+  <category>
+    <pattern>MI CHIAMO *</pattern>
+    <template>
+      Ciao <star/>, piacere di conoscerti!
+    </template>
+  </category>
+  ```
+]
+
+---
+
+#align(center)[
+  ```xml
+  <category>
+    <pattern>IL MIO COLORE PREFERITO È *</pattern>
+    <template>
+      <think>
+        <set name="colore"><star/></set>
+      </think>
+      Ok, ricorderò che il tuo colore preferito è <star/>.
+    </template>
+  </category>
+
+  <category>
+    <pattern>QUAL È IL MIO COLORE PREFERITO</pattern>
+    <template>
+      Il tuo colore preferito è <get name="colore"/>.
+    </template>
+  </category>
+  ```
+]
+
+== Limitazioni di AIML
+
+- Le strategie di wildcard e pattern matching restano *prevalentemente letterali*: Se una frase si discosta dal pattern previsto, il sistema fallisce il matching
+#pause
+- Sono disponibili ridotte funzionalità per la gestione di _sinonimi_, semplificazione delle _locuzioni_ e _correzione ortografica_
+#pause
+- La *gestione del contesto* (via `<that>`, `<topic>`, `<star>`, ecc.) è rudimentale
+#pause
+- L'integrazione (via `<sraix>`) con *basi di conoscenza esterne* (KB, database, API) è possibile implementando funzioni personalizzate, ma è di difficile gestione 
+#pause
+- Le risposte generate sono *statiche e predefinite*, e non possono essere generate dinamicamente in base a dati esterni o a contesti più ampi in modo automatico
+
+== Obiettivi
+- Sviluppare un sistema di dialogo che superi le limitazioni di AIML evidenziate
+#pause
+- Integrare tecniche di *Natural Language Understanding* (NLU) e *Retrieval-Augmented Generation* (RAG) per migliorare l'esperienza d'uso
+#pause
+- Assicurare una elevata facilità di estensione e personalizzazione per diversi domini e applicazioni
+
 = Natural Language Understanding
+
+== Panoramica
+
+Il primo elemento dello stack di NLP rispetto ad AIML che vogliamo migliorare è il riconoscimento delle intenzioni dell'utente.
+
+#pause
+- Non useremo più un sistema basato su pattern matching ed espressioni regolari
+- Riconosceremo la categoria di interazione affidandoci ad un classificatore basato su LLM
+- Le parti variabili della frase (slot) verranno estratte tramite un sistema di Named Entity Recognition (NER)
+
+== Classificazione
+
+d
 
 = Retrieval Augmented Generation
 
