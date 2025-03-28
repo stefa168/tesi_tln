@@ -10,7 +10,7 @@ class ArtifactConfig(BaseModel):
     :ivar base_path: Base directory for all artifacts.
     :ivar subdir: Subdirectory inside the artifact where trained models are located.
     """
-    base_path: Path = Field(..., description="Base directory for all artifacts.")
+    base_path: Path = Field(..., description="Base directory for an artifact.")
     subdir: str = Field("trained_model", description="Subdirectory containing trained model data.")
 
 
@@ -85,7 +85,7 @@ class RunnerConfig(BaseModel):
         - Logging configuration
         - (FUTURE) FastAPI backend configuration to provide a backend for the chatbot
     """
-    artifacts: ArtifactConfig = Field(..., description="Settings for artifact paths and models.")
+    artifacts: dict[str, ArtifactConfig] = Field(..., description="Settings for artifact paths and models.")
     accelerators: AcceleratorConfig = Field(..., description="Hardware accelerator settings.")
     logging: LoggingConfig = Field(..., description="Logging configurations.")
     api_service: dict[str, APIServiceConfig] = Field(...,

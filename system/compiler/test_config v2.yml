@@ -13,9 +13,6 @@ models:
       - type: train_model
         name: training
         dataframe: data.dataframe
-#        pretrained_model: "bert-base-uncased"
-#        pretrained_model: distilbert-base-uncased
-#        pretrained_model: "google/mobilebert-uncased"
         pretrained_model: "google/electra-small-discriminator"
         examples_column: "Question"
         labels_column: "Global Subject"
@@ -56,6 +53,7 @@ models:
 
 resources:
   # LLM APIs that are not specified in the runner configuration
+
 
 flows:
   main:
