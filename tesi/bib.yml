@@ -378,7 +378,7 @@ schmidhuber2022deeplearningmiraculousyear:
     arxiv: "2005.05744"
 
 vaswani2023attentionneed:
-  type: misc
+  type: article
   title: Attention Is All You Need
   author:
     - Vaswani, Ashish
@@ -394,7 +394,7 @@ vaswani2023attentionneed:
     doi: "10.48550/arXiv.1706.03762"
 
 bert:
-  type: misc
+  type: article
   title: "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"
   author:
     - Devlin, Jacob
@@ -461,7 +461,7 @@ electra-hf:
   url: https://huggingface.co/google/electra-small-discriminator
 
 adversarial-nets:
-  type: misc
+  type: article
   title: Generative Adversarial Networks
   author:
     - Goodfellow, Ian J.
@@ -477,7 +477,7 @@ adversarial-nets:
     doi: 10.48550/arXiv.1406.2661
 
 deepseek-r1:
-  type: misc
+  type: article
   title: "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning"
   author:
     - DeepSeek-AI
@@ -685,7 +685,7 @@ deepseek-r1:
     doi: 10.48550/arXiv.2501.12948
 
 deepseek-technical:
-  type: misc
+  type: article
   title: DeepSeek-V3 Technical Report
   author:
     - DeepSeek-AI

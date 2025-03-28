@@ -4,7 +4,7 @@
   #show quote: set align(end+horizon)
   #set quote(block: true)
   #show quote: set text(style: "italic")
-  #quote(attribution: [Alan Kay])[The best way to predict the future is to invent it.]
+  #quote(attribution: [Alan Kay])[Il miglior modo per predire il futuro è inventarlo.]
   #v(1em)
   #quote(attribution: [Arthur C. Clarke])[Qualsiasi tecnologia sufficientemente avanzata è indistinguibile dalla magia.]
 ]

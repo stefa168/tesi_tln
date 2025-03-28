@@ -1,4 +1,3 @@
-
 = Conclusioni
 == Confronto con AIML
 
@@ -52,11 +51,22 @@ Tutto il codice, i notebook, la documentazione, l'implementazione del sistema e 
 
 I principali tool utilizzati durante lo sviluppo di questa tesi sono stati:
 - Typst (https://typst.com) per la stesura del testo, in alternativa a #LaTeX
-- Tinymist (https://github.com/Myriad-Dreamin/tinymist) per l'integrazione di Typst in VSC
+- Tinymist (https://github.com/Myriad-Dreamin/tinymist) per l'integrazione Typst in VSC
 - Visual Studio Code (https://code.visualstudio.com) come ambiente di scrittura
 - IntelliJ IDEA (https://www.jetbrains.com/idea) per lo sviluppo del codice Python
 - Jupyter (https://jupyter.org) per la prototipazione e l'analisi dei dati
 - PlantUML (https://plantuml.com) per la creazione di diagrammi UML
+
+#let icon_height = 20pt
+#align(center)[
+  #box(height: icon_height, image("../media/github-mark.svg"))
+  #box(height: icon_height, image("../media/typst_logo.jpeg"))
+  #box(height: icon_height, image("../media/myriad-dreamin.tinymist-logo.png"))
+  #box(height: icon_height, image("../media/Visual_Studio_Code_1.35_icon.svg"))
+  #box(height: icon_height, image("../media/IntelliJ_IDEA_Icon.svg"))
+  #box(height: icon_height, image("../media/jupyter.svg"))
+  #box(height: icon_height, image("../media/Plantuml_Logo.svg"))
+]
 
 /* #hrule()
 

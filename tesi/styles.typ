@@ -64,7 +64,9 @@
     paper: paper-size,
 
     // Margins are taken from the university's guidelines
-    margin: (right: 3cm, left: 3.5cm, top: 3.5cm, bottom: 3.5cm),
+    // margin: (right: 3cm, left: 3.5cm, top: 3.5cm, bottom: 3.5cm),
+        margin: (outside: 3cm, inside: 3.5cm, top: 3.5cm, bottom: 3.5cm),
+        binding: left
   )
 
   // Configure equation numbering and spacing.
