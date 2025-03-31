@@ -30,7 +30,10 @@
     logo: image("media/unito.svg", height: 3.99em),
   ),
   // config-common(datetime-format: "[day] [month] [year]")
-  config-common(show-bibliography-as-footnote: bibliography("bib.yml")),
+  config-common(
+    show-bibliography-as-footnote: bibliography("bib.yml"),
+    handout: true,
+  ),
   header-right: image("media/unito.svg", height: 1.4em),
   /*   config-colors(
     primary: rgb("#c25e00"),
@@ -925,9 +928,9 @@ Come per AIML, è necessario un motore di esecuzione del chatbot, che si occupi 
 
 #align(center)[
   #grid(
-  columns: 2,
-  image("image-6.png"), image("image-8.png"),
-)
+    columns: 2,
+    image("image-6.png"), image("image-8.png"),
+  )
 ]
 
 = Conclusioni
