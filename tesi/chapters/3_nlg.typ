@@ -103,7 +103,7 @@ Le annotazioni in formato _Turtle_ @rdf-turtle (@ttl-example) ad esempio ci perm
     foaf:name "Spiderman", "Uomo Ragno"@it .
   ```,
   kind: "snip",
-  caption: [Esempio di annotazione in formato Turtle per il film d'animazione _Gli Incredibili_ e il suo regista.],
+  caption: [Annotazione in formato Turtle di un grafo RDF rappresentante una relazione tra due personaggi dei fumetti.],
 ) <ttl-example>
 
 Questo modello è alla base di molte knowledge base, come DBpedia @dbpedia e Wikidata @wikidata, che raccolgono informazioni strutturate su una vasta gamma di argomenti. Le basi di conoscenza sono normalmente codificate su file, in formati come Turtle o RDF-XML @rdf-syntax-grammar.
@@ -121,7 +121,7 @@ Anche in questo caso, dovendo rispondere a una richiesta come "Chi ha diretto il
   }
   ```,
   kind: "query",
-  caption: "Esempio di query SPARQL per il recupero del regista del film Inception.",
+  caption: [Esempio di query SPARQL per il recupero del regista del film _Gli Incredibili_.],
 ) <incredibles>
 
 Ricevuta la risposta (`dbr:Brad_Bird`#footnote[https://dbpedia.org/page/Brad_Bird]), interagendo coi campi `dbp:name` e `dbo:thumbnail` dell'entità, il sistema potrà rapidamente comporre una risposta completa (se usassimo un template, ne risulterebbe "Il film Gli Incredibili è stato diretto da Brad Bird") e arricchirla con un'immagine del regista.
