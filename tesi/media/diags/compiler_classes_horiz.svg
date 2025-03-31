@@ -1,0 +1,908 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   contentStyleType="text/css"
+   height="601.72125"
+   preserveAspectRatio="none"
+   version="1.1"
+   viewBox="0 0 1245.8341 601.72125"
+   width="1245.8341"
+   zoomAndPan="magnify"
+   id="svg214"
+   sodipodi:docname="compiler_classes_horiz.svg.2025_03_31_20_19_24.0.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview216"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.1636364"
+     inkscape:cx="454.17967"
+     inkscape:cy="226.44531"
+     inkscape:window-width="2560"
+     inkscape:window-height="1375"
+     inkscape:window-x="1080"
+     inkscape:window-y="165"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="link_Model_Step" />
+  <defs
+     id="defs2" />
+  <g
+     id="g212"
+     transform="translate(466.83405,-278.27875)">
+    <!--class Step-->
+    <g
+       id="elem_Step">
+      <rect
+         codeLine="8"
+         fill="#f1f1f1"
+         height="162.4075"
+         id="Step"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5"
+         width="540"
+         x="45.5"
+         y="340" />
+      <circle
+         cx="297.75"
+         cy="356"
+         fill="#a9dcdf"
+         style="stroke:#181818;stroke-width:1"
+         id="ellipse5"
+         r="11" />
+      <path
+         d="m 297.8594,351.3438 -1.1563,5.0781 h 2.3282 z m -1.4844,-2.2344 h 2.9844 l 3.3594,12.3906 h -2.4532 L 299.5,358.4375 h -3.2812 l -0.75,3.0625 h -2.4375 z"
+         fill="#000000"
+         id="path7" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         font-style="italic"
+         lengthAdjust="spacing"
+         textLength="27"
+         x="318.25"
+         y="361.43201"
+         id="text9">Step</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5"
+         x1="46.5"
+         x2="584.5"
+         y1="372"
+         y2="372"
+         id="line11" />
+      <circle
+         cx="56.5"
+         cy="387.034"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse13"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="91"
+         x="65.5"
+         y="390.96591"
+         id="text15">name : String</text>
+      <circle
+         cx="56.5"
+         cy="406.1019"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse17"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="78"
+         x="65.5"
+         y="410.03391"
+         id="text19">type: String</text>
+      <circle
+         cx="56.5"
+         cy="425.1698"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse21"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="169"
+         x="65.5"
+         y="429.10181"
+         id="text23">description: String | Null</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5"
+         x1="46.5"
+         x2="584.5"
+         y1="437.2038"
+         y2="437.2038"
+         id="line25" />
+      <circle
+         cx="56.5"
+         cy="452.2377"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse27"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="445"
+         x="65.5"
+         y="456.16971"
+         id="text29">resolve_requirements(context: Map&lt;String, Map&lt;String, Object&gt;&gt;)</text>
+      <circle
+         cx="56.5"
+         cy="471.3056"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse31"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         font-style="italic"
+         lengthAdjust="spacing"
+         textLength="514"
+         x="65.5"
+         y="475.23761"
+         id="text33">execute(inputs: Map&lt;String, Object&gt;, context: Map&lt;String, Map&lt;String, Object&gt;&gt;)</text>
+      <circle
+         cx="56.5"
+         cy="490.3735"
+         fill="#84be84"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse35"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="315"
+         x="65.5"
+         y="494.30551"
+         id="text37">verify_execution(outputs: Map&lt;String, Object&gt;)</text>
+    </g>
+    <!--class CompilerConfigV2-->
+    <g
+       id="elem_CompilerConfigV2"
+       transform="translate(-490.39836,424.79355)">
+      <rect
+         codeLine="17"
+         fill="#f1f1f1"
+         height="116.2717"
+         id="CompilerConfigV2"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5"
+         width="198"
+         x="216.5"
+         y="7" />
+      <circle
+         cx="251.75"
+         cy="23"
+         fill="#add1b2"
+         style="stroke:#181818;stroke-width:1"
+         id="ellipse41"
+         r="11" />
+      <path
+         d="m 254.7188,28.6406 q -0.5782,0.2969 -1.2188,0.4375 -0.6406,0.1563 -1.3437,0.1563 -2.5,0 -3.8282,-1.6406 -1.3125,-1.6563 -1.3125,-4.7813 0,-3.125 1.3125,-4.7812 1.3282,-1.6563 3.8282,-1.6563 0.7031,0 1.3437,0.1563 0.6563,0.1562 1.2188,0.4531 v 2.7187 q -0.625,-0.5781 -1.2188,-0.8437 -0.5937,-0.2813 -1.2187,-0.2813 -1.3438,0 -2.0313,1.0782 -0.6875,1.0625 -0.6875,3.1562 0,2.0938 0.6875,3.1719 0.6875,1.0625 2.0313,1.0625 0.625,0 1.2187,-0.2656 0.5938,-0.2813 1.2188,-0.8594 z"
+         fill="#000000"
+         id="path43" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="121"
+         x="270.25"
+         y="28.431999"
+         id="text45">CompilerConfigV2</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5"
+         x1="217.5"
+         x2="413.5"
+         y1="39"
+         y2="39"
+         id="line47" />
+      <circle
+         cx="227.5"
+         cy="54.034"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse49"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="91"
+         x="236.5"
+         y="57.9659"
+         id="text51">name : String</text>
+      <circle
+         cx="227.5"
+         cy="73.101898"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse53"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="142"
+         x="236.5"
+         y="77.033897"
+         id="text55">use_wandb : boolean</text>
+      <circle
+         cx="227.5"
+         cy="92.1698"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse57"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="142"
+         x="236.5"
+         y="96.101799"
+         id="text59">models : List&lt;Model&gt;</text>
+      <circle
+         cx="227.5"
+         cy="111.2377"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse61"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="172"
+         x="236.5"
+         y="115.1697"
+         id="text63">flows : Map&lt;String, Flow&gt;</text>
+    </g>
+    <!--class Model-->
+    <g
+       id="elem_Model"
+       transform="translate(-490.39836,424.79355)">
+      <rect
+         codeLine="23"
+         fill="#f1f1f1"
+         height="97.203796"
+         id="Model"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5"
+         width="176"
+         x="227.5"
+         y="183" />
+      <circle
+         cx="290.25"
+         cy="199"
+         fill="#add1b2"
+         style="stroke:#181818;stroke-width:1"
+         id="ellipse67"
+         r="11" />
+      <path
+         d="m 293.2188,204.6406 q -0.5782,0.2969 -1.2188,0.4375 -0.6406,0.1563 -1.3437,0.1563 -2.5,0 -3.8282,-1.6406 -1.3125,-1.6563 -1.3125,-4.7813 0,-3.125 1.3125,-4.7812 1.3282,-1.6563 3.8282,-1.6563 0.7031,0 1.3437,0.1563 0.6563,0.1562 1.2188,0.4531 v 2.7187 q -0.625,-0.5781 -1.2188,-0.8437 -0.5937,-0.2813 -1.2187,-0.2813 -1.3438,0 -2.0313,1.0782 -0.6875,1.0625 -0.6875,3.1562 0,2.0938 0.6875,3.1719 0.6875,1.0625 2.0313,1.0625 0.625,0 1.2187,-0.2656 0.5938,-0.2813 1.2188,-0.8594 z"
+         fill="#000000"
+         id="path69" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="42"
+         x="310.75"
+         y="204.43201"
+         id="text71">Model</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5"
+         x1="228.5"
+         x2="402.5"
+         y1="215"
+         y2="215"
+         id="line73" />
+      <circle
+         cx="238.5"
+         cy="230.034"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse75"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="91"
+         x="247.5"
+         y="233.9659"
+         id="text77">name : String</text>
+      <circle
+         cx="238.5"
+         cy="249.1019"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse79"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="150"
+         x="247.5"
+         y="253.03391"
+         id="text81">type: ModelTypeEnum</text>
+      <circle
+         cx="238.5"
+         cy="268.1698"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse83"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="117"
+         x="247.5"
+         y="272.10181"
+         id="text85">steps : List&lt;Step&gt;</text>
+    </g>
+    <!--class LoadCsvStep-->
+    <g
+       id="elem_LoadCsvStep">
+      <rect
+         codeLine="29"
+         fill="#f1f1f1"
+         height="78.135803"
+         id="LoadCsvStep"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5"
+         width="271"
+         x="7"
+         y="785.5" />
+      <circle
+         cx="95.75"
+         cy="801.5"
+         fill="#add1b2"
+         style="stroke:#181818;stroke-width:1"
+         id="ellipse89"
+         r="11" />
+      <path
+         d="m 98.7188,807.1406 q -0.5782,0.2969 -1.2188,0.4375 -0.6406,0.1563 -1.3437,0.1563 -2.5,0 -3.8282,-1.6406 -1.3125,-1.6563 -1.3125,-4.7813 0,-3.125 1.3125,-4.7812 1.3282,-1.6563 3.8282,-1.6563 0.7031,0 1.3437,0.1563 0.6563,0.1562 1.2188,0.4531 v 2.7187 q -0.625,-0.5781 -1.2188,-0.8437 -0.5937,-0.2813 -1.2187,-0.2813 -1.3438,0 -2.0313,1.0782 -0.6875,1.0625 -0.6875,3.1562 0,2.0938 0.6875,3.1719 0.6875,1.0625 2.0313,1.0625 0.625,0 1.2187,-0.2656 0.5938,-0.2813 1.2188,-0.8594 z"
+         fill="#000000"
+         id="path91" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="85"
+         x="116.25"
+         y="806.93201"
+         id="text93">LoadCsvStep</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5"
+         x1="8"
+         x2="277"
+         y1="817.5"
+         y2="817.5"
+         id="line95" />
+      <circle
+         cx="18"
+         cy="832.534"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse97"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="69"
+         x="27"
+         y="836.46588"
+         id="text99">path: Path</text>
+      <circle
+         cx="18"
+         cy="851.60193"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse101"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="245"
+         x="27"
+         y="855.53387"
+         id="text103">label_columns : String | List&lt;String&gt;</text>
+    </g>
+    <!--class SplitDataStep-->
+    <g
+       id="elem_SplitDataStep">
+      <rect
+         codeLine="33"
+         fill="#f1f1f1"
+         height="97.203796"
+         id="SplitDataStep"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5"
+         width="228"
+         x="374.5"
+         y="776" />
+      <circle
+         cx="438.75"
+         cy="792"
+         fill="#add1b2"
+         style="stroke:#181818;stroke-width:1"
+         id="ellipse107"
+         r="11" />
+      <path
+         d="m 441.7188,797.6406 q -0.5782,0.2969 -1.2188,0.4375 -0.6406,0.1563 -1.3437,0.1563 -2.5,0 -3.8282,-1.6406 -1.3125,-1.6563 -1.3125,-4.7813 0,-3.125 1.3125,-4.7812 1.3282,-1.6563 3.8282,-1.6563 0.7031,0 1.3437,0.1563 0.6563,0.1562 1.2188,0.4531 v 2.7187 q -0.625,-0.5781 -1.2188,-0.8437 -0.5937,-0.2813 -1.2187,-0.2813 -1.3438,0 -2.0313,1.0782 -0.6875,1.0625 -0.6875,3.1562 0,2.0938 0.6875,3.1719 0.6875,1.0625 2.0313,1.0625 0.625,0 1.2187,-0.2656 0.5938,-0.2813 1.2188,-0.8594 z"
+         fill="#000000"
+         id="path109" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="91"
+         x="459.25"
+         y="797.43201"
+         id="text111">SplitDataStep</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5"
+         x1="375.5"
+         x2="601.5"
+         y1="808"
+         y2="808"
+         id="line113" />
+      <circle
+         cx="385.5"
+         cy="823.034"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse115"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="202"
+         x="394.5"
+         y="826.96588"
+         id="text117">dataframe: Pandas.Dataframe</text>
+      <circle
+         cx="385.5"
+         cy="842.10193"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse119"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="122"
+         x="394.5"
+         y="846.03387"
+         id="text121">on_column: String</text>
+      <circle
+         cx="385.5"
+         cy="861.1698"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse123"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="134"
+         x="394.5"
+         y="865.10181"
+         id="text125">for_each: List&lt;Step&gt;</text>
+    </g>
+    <!--class TrainBertSequenceClassifierStep-->
+    <g
+       id="elem_TrainBertSequenceClassifierStep">
+      <rect
+         codeLine="38"
+         fill="#f1f1f1"
+         height="154.4075"
+         id="TrainBertSequenceClassifierStep"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5"
+         width="302"
+         x="62.5"
+         y="562" />
+      <circle
+         cx="99.550003"
+         cy="578"
+         fill="#add1b2"
+         style="stroke:#181818;stroke-width:1"
+         id="ellipse129"
+         r="11" />
+      <path
+         d="m 102.5188,583.6406 q -0.5782,0.2969 -1.2188,0.4375 -0.6406,0.1563 -1.3437,0.1563 -2.5,0 -3.8282,-1.6406 -1.3125,-1.6563 -1.3125,-4.7813 0,-3.125 1.3125,-4.7812 1.3282,-1.6563 3.8282,-1.6563 0.7031,0 1.3437,0.1563 0.6563,0.1562 1.2188,0.4531 v 2.7187 q -0.625,-0.5781 -1.2188,-0.8437 -0.5937,-0.2813 -1.2187,-0.2813 -1.3438,0 -2.0313,1.0782 -0.6875,1.0625 -0.6875,3.1562 0,2.0938 0.6875,3.1719 0.6875,1.0625 2.0313,1.0625 0.625,0 1.2187,-0.2656 0.5938,-0.2813 1.2188,-0.8594 z"
+         fill="#000000"
+         id="path131" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="221"
+         x="118.45"
+         y="583.43201"
+         id="text133">TrainBertSequenceClassifierStep</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5"
+         x1="63.5"
+         x2="363.5"
+         y1="594"
+         y2="594"
+         id="line135" />
+      <circle
+         cx="73.5"
+         cy="609.034"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse137"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="202"
+         x="82.5"
+         y="612.96588"
+         id="text139">dataframe: Pandas.Dataframe</text>
+      <circle
+         cx="73.5"
+         cy="628.10193"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse141"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="244"
+         x="82.5"
+         y="632.03387"
+         id="text143">pretrained_model: PreTrainedModel</text>
+      <circle
+         cx="73.5"
+         cy="647.1698"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse145"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="169"
+         x="82.5"
+         y="651.10181"
+         id="text147">examples_column: String</text>
+      <circle
+         cx="73.5"
+         cy="666.23767"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse149"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="145"
+         x="82.5"
+         y="670.16968"
+         id="text151">labels_column: String</text>
+      <circle
+         cx="73.5"
+         cy="685.3056"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse153"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="116"
+         x="82.5"
+         y="689.23761"
+         id="text155">train_epochs : int</text>
+      <circle
+         cx="73.5"
+         cy="704.37347"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse157"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="276"
+         x="82.5"
+         y="708.30548"
+         id="text159">resulting_model_name: Optional&lt;String&gt;</text>
+    </g>
+    <!--class TrainSpacyNerModelStep-->
+    <g
+       id="elem_TrainSpacyNerModelStep">
+      <rect
+         codeLine="46"
+         fill="#f1f1f1"
+         height="116.2717"
+         id="TrainSpacyNerModelStep"
+         rx="2.5"
+         ry="2.5"
+         style="stroke:#181818;stroke-width:0.5"
+         width="302"
+         x="470.5"
+         y="581" />
+      <circle
+         cx="531.75"
+         cy="597"
+         fill="#add1b2"
+         style="stroke:#181818;stroke-width:1"
+         id="ellipse163"
+         r="11" />
+      <path
+         d="m 534.7188,602.6406 q -0.5782,0.2969 -1.2188,0.4375 -0.6406,0.1563 -1.3437,0.1563 -2.5,0 -3.8282,-1.6406 -1.3125,-1.6563 -1.3125,-4.7813 0,-3.125 1.3125,-4.7812 1.3282,-1.6563 3.8282,-1.6563 0.7031,0 1.3437,0.1563 0.6563,0.1562 1.2188,0.4531 v 2.7187 q -0.625,-0.5781 -1.2188,-0.8437 -0.5937,-0.2813 -1.2187,-0.2813 -1.3438,0 -2.0313,1.0782 -0.6875,1.0625 -0.6875,3.1562 0,2.0938 0.6875,3.1719 0.6875,1.0625 2.0313,1.0625 0.625,0 1.2187,-0.2656 0.5938,-0.2813 1.2188,-0.8594 z"
+         fill="#000000"
+         id="path165" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="171"
+         x="552.25"
+         y="602.43201"
+         id="text167">TrainSpacyNerModelStep</text>
+      <line
+         style="stroke:#181818;stroke-width:0.5"
+         x1="471.5"
+         x2="771.5"
+         y1="613"
+         y2="613"
+         id="line169" />
+      <circle
+         cx="481.5"
+         cy="628.034"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse171"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="113"
+         x="490.5"
+         y="631.96588"
+         id="text173">language: String</text>
+      <circle
+         cx="481.5"
+         cy="647.10193"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse175"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="165"
+         x="490.5"
+         y="651.03387"
+         id="text177">training_data_path: Path</text>
+      <circle
+         cx="481.5"
+         cy="666.1698"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse179"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="203"
+         x="490.5"
+         y="670.10181"
+         id="text181">training_device: &quot;cpu&quot; | &quot;gpu&quot;</text>
+      <circle
+         cx="481.5"
+         cy="685.23767"
+         fill="none"
+         style="stroke:#038048;stroke-width:1"
+         id="ellipse183"
+         r="3" />
+      <text
+         fill="#000000"
+         font-family="sans-serif"
+         font-size="14px"
+         lengthAdjust="spacing"
+         textLength="276"
+         x="490.5"
+         y="689.16968"
+         id="text185">resulting_model_name: Optional&lt;String&gt;</text>
+    </g>
+    <!--link CompilerConfigV2 to Model-->
+    <g
+       id="link_CompilerConfigV2_Model"
+       transform="translate(-490.39836,424.79355)">
+      <path
+         codeLine="53"
+         d="m 315.5,123.23 c 0,19.51 0,35.03 0,53.72"
+         fill="none"
+         id="CompilerConfigV2-to-Model"
+         style="stroke:#181818;stroke-width:1" />
+      <polygon
+         fill="#181818"
+         points="315.5,182.95 319.5,173.95 315.5,177.95 311.5,173.95 "
+         style="stroke:#181818;stroke-width:1"
+         id="polygon189" />
+    </g>
+    <!--link Model to Step-->
+    <g
+       id="link_Model_Step"
+       transform="translate(-430.97655,354.80054)"
+       inkscape:label="link_Model_Step">
+      <path
+         codeLine="54"
+         d="m 344.37978,308.27542 c 27.73651,0 50.78387,0 81.75375,0"
+         fill="none"
+         id="Model-to-Step"
+         style="stroke:#181818;stroke-width:1.23789"
+         inkscape:transform-center-x="-3.6507424e-06"
+         inkscape:transform-center-y="0.23195" />
+      <path
+         codeLine="54"
+         d="m 425.49162,77.952747 c 17.11162,0 31.33031,0 50.43671,0"
+         fill="none"
+         id="Model-to-Step-3"
+         style="stroke:#181818;stroke-width:0.972305"
+         inkscape:transform-center-x="-2.790513e-06"
+         inkscape:transform-center-y="0.23195" />
+      <polygon
+         fill="#181818"
+         points="315.5,339.65 319.5,330.65 315.5,334.65 311.5,330.65 "
+         style="stroke:#181818;stroke-width:1"
+         id="polygon193"
+         transform="rotate(-90,264.73998,128.64274)" />
+      <path
+         codeLine="55"
+         d="m 425.78449,77.440949 c 0,75.035901 0,174.629791 0,231.524371"
+         fill="none"
+         id="Step-backto-LoadCsvStep-6"
+         style="stroke:#181818;stroke-width:0.934354" />
+    </g>
+    <!--reverse link Step to LoadCsvStep-->
+    <g
+       id="link_Step_LoadCsvStep">
+      <path
+         codeLine="55"
+         d="m 54,520.17 c 0,85.95 0,200.03 0,265.2"
+         fill="none"
+         id="Step-backto-LoadCsvStep"
+         style="stroke:#181818;stroke-width:1" />
+      <polygon
+         fill="none"
+         points="60,520.17 54,502.17 48,520.17 "
+         style="stroke:#181818;stroke-width:1"
+         id="polygon197" />
+    </g>
+    <!--reverse link Step to SplitDataStep-->
+    <g
+       id="link_Step_SplitDataStep">
+      <path
+         codeLine="56"
+         d="m 422.5,520.17 c 0,81.93 0,187.76 0,255.61"
+         fill="none"
+         id="Step-backto-SplitDataStep"
+         style="stroke:#181818;stroke-width:1" />
+      <polygon
+         fill="none"
+         points="428.5,520.17 422.5,502.17 416.5,520.17 "
+         style="stroke:#181818;stroke-width:1"
+         id="polygon201" />
+    </g>
+    <!--link TrainBertSequenceClassifierStep to LoadCsvStep-->
+    <!--reverse link Step to TrainBertSequenceClassifierStep-->
+    <g
+       id="link_Step_TrainBertSequenceClassifierStep">
+      <path
+         codeLine="58"
+         d="m 213.5,520.18 c 0,19.49 0,22.25 0,41.55"
+         fill="none"
+         id="Step-backto-TrainBertSequenceClassifierStep"
+         style="stroke:#181818;stroke-width:1" />
+      <polygon
+         fill="none"
+         points="219.5,520.18 213.5,502.18 207.5,520.18 "
+         style="stroke:#181818;stroke-width:1"
+         id="polygon205" />
+    </g>
+    <!--link TrainSpacyNerModelStep to SplitDataStep-->
+    <!--reverse link Step to TrainSpacyNerModelStep-->
+    <g
+       id="link_Step_TrainSpacyNerModelStep">
+      <path
+         codeLine="60"
+         d="m 528,520.18 c 0,26.14 0,36.58 0,60.72"
+         fill="none"
+         id="Step-backto-TrainSpacyNerModelStep"
+         style="stroke:#181818;stroke-width:1" />
+      <polygon
+         fill="none"
+         points="534,520.18 528,502.18 522,520.18 "
+         style="stroke:#181818;stroke-width:1"
+         id="polygon209" />
+    </g>
+    <!--SRC=[bLHDKzim4BthLmWkm1Jtq6E6oQ6XFV7HcJ2zT3gUZRosrSgIAgq36U2_TsKByWMbv93ORrVllVrGZkG1jTYXL10MpXPDW9LeTOKIEqyhsI6rhehYI1xu04q7qi3AzIGZHy021mpM9Cd9e9kMPAK3AjBEYlXRMmy1EccqHLfvb2umcn025f42A9BAG8noJkZblP3y-I0ji9i9Oq7R9cFfy0vKOLH1-wJq594Fyget9YS4ZCuiiGpufsTF7LgAnyfPmZkQo4lmP-EfqwtdwyKljZ-TdcIM-oUhZnBlKFM4nrnLJt7oqh5J-Mw19GPThygHd8ivvkQ-odyY7eKOUpPpdTS6mypPMZVVF_spVtt4yXPijU30mZc3O7EaSnMQoF25ZdHscTwcELGRTviYcpw-CZPb4wE78Vq_1ZVatV3Z5zjtEH9vvi-wQG6cwzek75IpkDnQ2m_KJkGt_iw0WGMQKZdJTpRAZHt8ZEbjRNNkZQPp81X8drahHcfUKKpKjeBuyVm9oHdEPesToceNIWJLxbGmgjq4qFOp1fhpyg5LE4kmhZM6z-hxW9JOi2g7MN5Ym9iH6VgQy_0EEcymlknsQDOhiO6-HEzKc_geBQrlK6-84qVbqWu-huSx1sQlnOEfkGUrki8mMDkkrO1jUcZm9VaaadfHxerv7SQbLdpuKFd-aCTysF3lUvsAlMjJ5DDnFyMupKNbRYrZoRlONCIYzyL3nhUtQJForkIB7_pdMg7zcMKs5Du-kwkpt-nT-YsZhnxQuFqB]-->
+  </g>
+</svg>

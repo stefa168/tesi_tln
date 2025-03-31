@@ -849,9 +849,119 @@ Oltre agli annotatori umani, sono stati utilizzati anche due modelli di LLM (`GP
 
 = Ingegnerizzazione del sistema
 
+== Funzionalità equivalenti
 
+Il nuovo sistema deve offrire funzionalità equivalenti a quelle di AIML, ma con un'architettura più moderna e flessibile:
+
+#pause
+
+1. Riconoscimento del topic:
+  - Classificazione neurale
+  - NER
+#pause
+2. Recupero delle informazioni:
+  - Script
+  - Database
+  - API
+#pause
+3. Generazione delle risposte:
+  - LLM locale/remota
+  - Template
+
+== Compilatore
+
+- Dal momento che dobbiamo lavorare con dei LLM, è necessario un sistema che effettui fine-tuning per ogni insieme di interazioni. Potremmo lasciare il fine-tuning a runtime, ma prepararlo in anticipo permette di risparmiare tempo e risorse.
+- È sufficiente descrivere in modo sequenziale (pipeline) le operazioni da eseguire, e il "compilatore" si occuperà di preparere tutto il necessario
+
+---
+
+#figure(```json
+- name: "question_intent_classifiers"
+      type: classification
+      steps:
+        - type: load_csv
+          name: data
+          path: "./multitask_training/data_cleaned_manual_combined.csv"
+          label_columns: ["Global Subject", "Question Intent"]
+        - type: split_data
+          name: split
+          dataframe: data.dataframe
+          on_column: "Global Subject"
+          for_each:
+            - type: train_model
+              name: training
+              dataframe: split.dataframe
+              pretrained_model: "google/electra-small-discriminator"
+              examples_column: "Question"
+              labels_column: "Question Intent"
+              resulting_model_name: "question_intent_{on_column}"
+```)
+
+---
+
+#figure(
+  image("./media/diags/compiler_classes_horiz.svg"),
+  kind: "diag",
+  caption: [Class Diagram raffigurante le classi e proprietà utilizzate per la compilazione.],
+) <compiler_classes>
+
+== Runner
+
+Come per AIML, è necessario un motore di esecuzione del chatbot, che si occupi di seguire il flusso di esecuzione delle interazioni e di gestire le domande degli utenti.
+#pause
+- Il motore di esecuzione è un automa a stati finiti
+- Il percorso di interazione è un grafo: ogni nodo codifica un'azione che il motore deve svolgere:
+  - Lasciare la parola all'utente
+  - Recuperare informazioni da risorse (DB, API, ecc.)
+  - Generare una risposta (LLM, template, default, ecc.)
+- Un insieme di nodi è definito come un _flusso_ di interazione (flow), che può essere richiamato in qualsiasi momento.
+---
+
+== Esempio di chatbot
+
+#image("image-5.png")
+
+---
+
+#align(center)[
+  #grid(
+  columns: 2,
+  image("image-6.png"), image("image-8.png"),
+)
+]
 
 = Conclusioni
+
+== Confronto
+
+- *Riconoscimento Intenzioni*: AIML si basa solo su pattern matching, il sistema proposto supporta sia classificatori neurali che basati su regole.
+- *Gestione Contesto*: AIML usa `<topic>` in modo rigido, il nuovo sistema adotta un meccanismo di Flow più articolato, con un contesto di esecuzione completo.
+- *Dati Esterni*: AIML ricorre a `<sraix>` in modo periferico, il nuovo sistema integra nativamente moduli di retrieval come componente centrale.
+- *Controllo del Flusso*: AIML utilizza `<condition>` e `<srai>` in modo semplice, il nuovo sistema offre branching condizionale e passaggio dinamico tra flussi.
+
+---
+
+- *Approccio ibrido*: Combina dichiarativo (AIML) con la flessibilità di Python e reti neurali.
+- *Scalabilità e adattabilità*: Ideale per chatbot complessi, riduce sforzo di progettazione e manutenzione.
+- *Controllo totale*: Definire con precisione l'ordine delle interazioni evita limiti tipici dei LLM, come explainability ridotta, allucinazioni e jailbreaking.
+
+== Sviluppi futuri
+
+L'utilizzo degli step permette di avere la massima flessibilità, astraendo comunque il sistema da dettagli implementativi.
+
+- Libreria di valutazione delle espressioni (Asteval) che consente di eseguire codice Python a runtime, garantendo grande flessibilità
+- Assenza di protezioni predefinite contro codice malevolo rende necessaria una sandbox
+- Servono controlli più stringenti per garantire sicurezza e stabilità
+
+---
+- YAML spinto al limite: ottimo per flow semplici, ma diventa complesso per espressioni avanzate
+- Possibilità di introdurre un DSL dedicato per maggiore chiarezza e validazione
+
+---
+
+- Definire le configurazioni direttamente in Python abbasserebbe la barriera di ingresso per sviluppatori
+- Supporto IDE (PyCharm, VS Code) migliorerebbe validazione e velocità di sviluppo
+- Mantenere compatibilità YAML per utenti meno esperti
 
 #focus-slide[
   Grazie per l'attenzione!\
