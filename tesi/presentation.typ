@@ -146,7 +146,7 @@ Se per le immagini possiamo utilizzare tecniche di *Computer Vision* o *Reti Neu
 
 == Un aiuto
 
-- Il Progetto NoVAGraphS si propone di rendere più accessibili questi contenuti, mediante la costruzione di sistemi di dialogo (Chatbot).
+- Il Progetto NoVAGraphS si propone di rendere più accessibili questi contenuti, mediante la costruzione di sistemi di dialogo (Chatbot) per individui non vedenti.
 // #pause
 
 - Con essi è possibile interagire per ottenere informazioni sui dati presenti in grafi o strutture simili, per avere una comprensione *profonda* del contenuto.
@@ -204,7 +204,8 @@ Il primo elemento dello stack di NLP rispetto ad AIML che vogliamo migliorare è
 == Classificazione
 
 - Essendo un task supervisionato, bisogna partire con l'etichettatura dei dati.
-- Il dataset utilizzato proviene dalle precedenti pubblicazioni del progetto NoVAGraphS, e contiene 350 interazioni degli utenti prodotte durante precedenti sperimentazioni.
+- Il dataset utilizzato proviene dalle precedenti pubblicazioni del progetto NoVAGraphS.
+- Contiene 350 interazioni degli utenti prodotte durante precedenti sperimentazioni nel dominio degli automi a stati finiti.
 #pause
 - L'annotazione dei dati:
   - Inizialmente è stata effettuata automaticamente
@@ -261,7 +262,7 @@ Il primo elemento dello stack di NLP rispetto ad AIML che vogliamo migliorare è
 - Sono state generate 851 nuove domande, utilizzando LLM alle quali è stato fornito un insieme di quesiti di una certa classe.
 - Per le domande off-topc è stato adoperato il dataset SQUAD @squad1
 
----
+/* ---
 
 #figure(
   {
@@ -289,7 +290,7 @@ Il primo elemento dello stack di NLP rispetto ad AIML che vogliamo migliorare è
     })
   },
   caption: "Numero di esempi per classe originale e aumentata",
-)
+) */
 
 == Fine-tuning
 
@@ -428,7 +429,7 @@ I modelli utilizzati per il fine-tuning sono stati:
   caption: [Matrici di confusione per le classi principali con AIML e BERT],
 )
 
-== Named entity recognition
+/* == Named entity recognition
 
 Dobbiamo poter estrarre le parti variabili delle domande, in modo da capire quali informazioni l'utente sta cercando. È stato usato _Doccano_ per l'annotazione delle frasi.
 
@@ -454,7 +455,7 @@ In seguito all'etichettatura sono risultate tre classi di entità:
 #figure(
   image("./media/f1_ner.png", height: 10cm),
   caption: [Performance di F1 del modello di NER durante l'addestramento tramite SPACY @spacy.],
-)<f1-ner>
+)<f1-ner> */
 
 = Retrieval Augmented Generation
 
@@ -469,7 +470,7 @@ In seguito all'etichettatura sono risultate tre classi di entità:
   #pause
   - API e servizi esterni: REST, JMESPath
 
-== Retrieval su Database
+/* == Retrieval su Database
 
 #figure(
   ```sql
@@ -538,11 +539,11 @@ In seguito all'etichettatura sono risultate tre classi di entità:
 #figure(
   image("image-4.png"),
   caption: [Illustrazione della cosine similarity.],
-)
+) */
 
 == Prompting
 
-#showybox(
+/* #showybox(
   title-style: (
     weight: 900,
     sep-thickness: 0pt,
@@ -578,9 +579,9 @@ In seguito all'etichettatura sono risultate tre classi di entità:
     radius: 0pt,
   ),
   title: [Risposta da GPT-4o],
-)[L'articolo è disponibile nei colori rosso, blu e verde al prezzo di 49,99 euro. I tempi di spedizione sono di 2 giorni.]
+)[L'articolo è disponibile nei colori rosso, blu e verde al prezzo di 49,99 euro. I tempi di spedizione sono di 2 giorni.] */
 
----
+/* ---
 
 #showybox(
   title-style: (
@@ -610,70 +611,10 @@ In seguito all'etichettatura sono risultate tre classi di entità:
   )
 
   Ora, rispondi alla domanda dell'utente in modo chiaro e conciso, mantenendo la coerenza con le interazioni precedenti.
-]
+] */
 
-== Generazione delle risposte
+// == Generazione delle risposte
 
-- Dobbiamo assicurarci che il sistema sia in grado di rispondere in modo non solo coerente e pertinente, ma anche efficace alle domande degli utenti.
-
-- Per effettuare le valutazioni sono stati utilizzati diversi LLM
-- Una volta generate tutte le risposte con i vari modelli, sono state tutte annotate
-- I risultati delle annotazioni hanno fornito dettagli essenziali per la scelta del modello finale
-
----
-
-Sono state scelte delle LLM open-weights dati i multipli vantaggi che offrono:
-
-- Trasparenza e accountability
-  - Accesso ai pesi e alla struttura dei modelli per identificare bias e anomalie.
-  - Maggiore controllo sulla sicurezza e affidabilità dell'AI.
-#pause
-- Verifiche indipendenti e replicabilità per ricercatori e sviluppatori. Maggiore fiducia.
-#pause
-- Innovazione e competizione
-  - Riduzione delle barriere d'ingresso per startup e centri di ricerca.
-  - Non sono necessarie per forza grandi risorse hardware
-  - Protezione della privacy e riduzione dei costi operativi.
-#pause
-- Supporto a uno sviluppo sostenibile e responsabile dell'AI.
-
----
-
-```md
-You are a helpful assistant expert in finite state automata.
-Answer the question given by the user using the retrieved data, using plain text only.
-Avoid referring to the data directly; there is no need to provide any additional information.
-Keep the answer concise and short, and avoid using any additional information not provided.
-
-The system has retrieved the following data:
-` ` `
-{data}
-` ` `
-
-The user has asked the following question:
-` ` `
-{question}
-` ` `
-```
-
----
-
-Per la generazione delle risposte è stato selezionato un sottinsieme di domande che richiedono informazioni riguardo questo specifico automa a stati finiti:
-
-#figure(image("../gen_eval/fsa.svg")) <fsa_eval>
-
-#pause
-
-Se il tema della domanda è riguardante le _transizioni uscenti da un nodo_, prima di generare la risposta, il sistema recupera le i dettagli utili e li presenta al modello.
-
-#align(center)[
-  ```md
-  The transitions exiting from the node are the following:
-  - From qo to q1, with label '1'
-  ```
-]
-
----
 #figure(
   ```dot
   digraph FSA {
@@ -696,11 +637,73 @@ Se il tema della domanda è riguardante le _transizioni uscenti da un nodo_, pri
   caption: "Rappresentazione in formato Graphviz dell'automa a stati finiti utilizzato come input per le domande.",
 ) <fsa-dot>
 
+---
+
+- Dobbiamo assicurarci che il sistema sia in grado di rispondere in modo non solo coerente e pertinente, ma anche efficace alle domande degli utenti.
+
+- Per effettuare le valutazioni sono stati utilizzati diversi LLM
+- Una volta generate tutte le risposte con i vari modelli, sono state tutte annotate
+- I risultati delle annotazioni hanno fornito dettagli essenziali per la scelta del modello finale
+
+---
+
+/* Sono state scelte delle LLM open-weights dati i multipli vantaggi che offrono:
+
+- Trasparenza e accountability
+  - Accesso ai pesi e alla struttura dei modelli per identificare bias e anomalie.
+  - Maggiore controllo sulla sicurezza e affidabilità dell'AI.
+#pause
+- Verifiche indipendenti e replicabilità per ricercatori e sviluppatori. Maggiore fiducia.
+#pause
+- Innovazione e competizione
+  - Riduzione delle barriere d'ingresso per startup e centri di ricerca.
+  - Non sono necessarie per forza grandi risorse hardware
+  - Protezione della privacy e riduzione dei costi operativi.
+#pause
+- Supporto a uno sviluppo sostenibile e responsabile dell'AI.
+
+--- */
+/* 
+```md
+You are a helpful assistant expert in finite state automata.
+Answer the question given by the user using the retrieved data, using plain text only.
+Avoid referring to the data directly; there is no need to provide any additional information.
+Keep the answer concise and short, and avoid using any additional information not provided.
+
+The system has retrieved the following data:
+` ` `
+{data}
+` ` `
+
+The user has asked the following question:
+` ` `
+{question}
+` ` `
+```
+*/
+
+---
+
+// Per la generazione delle risposte è stato selezionato un sottinsieme di domande che richiedono informazioni riguardo questo specifico automa a stati finiti:
+
+#figure(image("../gen_eval/fsa.svg")) <fsa_eval>
+
+#pause
+
+Se il tema della domanda è riguardante le _transizioni uscenti da un nodo_, prima di generare la risposta, il sistema recupera le i dettagli utili e li presenta al modello.
+
+#align(center)[
+  ```md
+  The transitions exiting from the node are the following:
+  - From qo to q1, with label '1'
+  ```
+]
+
 == Annotazione
 
-- È necessario annotare le risposte per valutare le performance degli LLM candidati
+/* - È necessario annotare le risposte per valutare le performance degli LLM candidati
 - Basato sulle ricerche di Z. Kasner e O. Dušek @kasner-dusek
-- Verrà utilizzato il software Factgenie @factgenie da loro sviluppato per le annotazioni
+- Verrà utilizzato il software Factgenie @factgenie da loro sviluppato per le annotazioni */
 
 ---
 
@@ -728,9 +731,9 @@ Gli annotatori sono liberi di evidenziare nelle risposte frammenti problematici 
 
 Oltre ad evidenziare parti problematiche delle risposte, è stato richiesto agli annotatori anche di fornire delle valutazioni qualitative su alcune metriche:
 
-- *Accuratezza della risposta*: da selezionare quando la risposta è corretta al 100% e non contiene errori sui dati;
+/* - *Accuratezza della risposta*: da selezionare quando la risposta è corretta al 100% e non contiene errori sui dati;
 - *Assenza o incompletezza di informazioni*: da selezionare quando la risposta non contiene tutte le informazioni rilevanti;
-- *Totale incongruenza della risposta*: da selezionare quando la risposta appare completamente scorrelata o non pertinente alla domanda;
+- *Totale incongruenza della risposta*: da selezionare quando la risposta appare completamente scorrelata o non pertinente alla domanda; */
 - *Chiarezza della risposta*: se è comprensibile e ben strutturata;
 - *Lunghezza della risposta*: se la comprensione della risposta è facilitata dalla sua lunghezza (o brevità);
 - *Utilità percepita della risposta*: se la risposta è utile e fornisce informazioni rilevanti;
@@ -854,9 +857,9 @@ Oltre agli annotatori umani, sono stati utilizzati anche due modelli di LLM (`GP
 
 == Funzionalità equivalenti
 
-Il nuovo sistema deve offrire funzionalità equivalenti a quelle di AIML, ma con un'architettura più moderna e flessibile:
+/* #focus-slide[Il nuovo sistema deve offrire funzionalità equivalenti a quelle di AIML, ma con un'architettura più moderna e flessibile] */
 
-#pause
+/* #pause
 
 1. Riconoscimento del topic:
   - Classificazione neurale
@@ -869,7 +872,7 @@ Il nuovo sistema deve offrire funzionalità equivalenti a quelle di AIML, ma con
 #pause
 3. Generazione delle risposte:
   - LLM locale/remota
-  - Template
+  - Template */
 
 == Compilatore
 
@@ -913,7 +916,7 @@ Il nuovo sistema deve offrire funzionalità equivalenti a quelle di AIML, ma con
 Come per AIML, è necessario un motore di esecuzione del chatbot, che si occupi di seguire il flusso di esecuzione delle interazioni e di gestire le domande degli utenti.
 #pause
 - Il motore di esecuzione è un automa a stati finiti
-- Il percorso di interazione è un grafo: ogni nodo codifica un'azione che il motore deve svolgere:
+- Il percorso di interazione a ogni nodo codifica un'azione che il motore deve svolgere:
   - Lasciare la parola all'utente
   - Recuperare informazioni da risorse (DB, API, ecc.)
   - Generare una risposta (LLM, template, default, ecc.)
@@ -937,15 +940,11 @@ Come per AIML, è necessario un motore di esecuzione del chatbot, che si occupi 
 
 == Confronto
 
-- *Riconoscimento Intenzioni*: AIML si basa solo su pattern matching, il sistema proposto supporta sia classificatori neurali che basati su regole.
-- *Gestione Contesto*: AIML usa `<topic>` in modo rigido, il nuovo sistema adotta un meccanismo di Flow più articolato, con un contesto di esecuzione completo.
-- *Dati Esterni*: AIML ricorre a `<sraix>` in modo periferico, il nuovo sistema integra nativamente moduli di retrieval come componente centrale.
-- *Controllo del Flusso*: AIML utilizza `<condition>` e `<srai>` in modo semplice, il nuovo sistema offre branching condizionale e passaggio dinamico tra flussi.
-
----
-
-- *Approccio ibrido*: Combina dichiarativo (AIML) con la flessibilità di Python e reti neurali.
-- *Scalabilità e adattabilità*: Ideale per chatbot complessi, riduce sforzo di progettazione e manutenzione.
+- *Riconoscimento Intenzioni*: pattern matching #sym.arrow.double classificatori neurali o basati su regole
+- *Gestione Contesto*: `<topic>` e `<that>` #sym.arrow.double maggiore dettaglio e salvataggio contesto;
+- *Dati Esterni*: `<sraix>` #sym.arrow.double integrazione nativa di moduli di retrieval;
+- *Controllo del Flusso*: `<condition>` e `<srai>` (salti semplici) #sym.arrow.double branching condizionale, passaggio dinamico tra flussi di interazione.
+- *Approccio ibrido*: dichiaratività di AIML e flessibilità delle reti neurali.
 - *Controllo totale*: Definire con precisione l'ordine delle interazioni evita limiti tipici dei LLM, come explainability ridotta, allucinazioni e jailbreaking.
 
 == Sviluppi futuri
@@ -960,7 +959,7 @@ L'utilizzo degli step permette di avere la massima flessibilità, astraendo comu
 - YAML spinto al limite: ottimo per flow semplici, ma diventa complesso per espressioni avanzate
 - Possibilità di introdurre un DSL dedicato per maggiore chiarezza e validazione
 
----
+#v(1em)
 
 - Definire le configurazioni direttamente in Python abbasserebbe la barriera di ingresso per sviluppatori
 - Supporto IDE (PyCharm, VS Code) migliorerebbe validazione e velocità di sviluppo
